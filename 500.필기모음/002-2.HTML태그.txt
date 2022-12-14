@@ -1,0 +1,96 @@
+[문자 데이터 관련 태그]
+
+1. h1~h6 : 제목(Heading)
+2. p : 단락(내용구분-Pharagraph)
+ -> 블록태그임
+ (주의: 다른블록요소 내부에 못씀!)
+3. a : 링크 (Anchor:닻)
+ - href 속성: 이동할 곳(hyper text reference)
+ - target 속성: 창옵션(_blank새창)
+  (기본값은 _self 현재창)
+4. br : 줄바꿈 (break 줄을깸!)
+5. hr : 가로구분선 (horizontal 수평선)
+
+[ HTML 텍스트 서식 ]
+
+6. b - 굵은 텍스트 (bold 두꺼운체)
+7. strong - 중요한 텍스트 (의미-시멘틱)
+8. i - 기울임꼴 텍스트 (italic 기울림글꼴)
+9. em - 강조된 텍스트 (emphasize 강조하다 - 의미-시멘틱)
+10. mark - 표시된 텍스트 (노란색 글자배경-눈에 잘띔)
+11. small - 더 작은 텍스트
+12. del - 삭제된 텍스트 (delete 지우다)
+13. ins - 삽입된 텍스트 (insert 삽입하다)
+14. sub - 아래 첨자 텍스트(subscript text)
+15. sup - 위 첨자 텍스트(superscript text)
+
+[ 인용구관련 태그 ]
+
+16. blockquote - 인용된 내용을 블록처리
+    - cite 속성: 인용된 사이트 주소(출처) - 선택옵션
+17. q - 짧은 인용구(인라인) - quotation
+18. abbr - 약자(Abbriviation 줄임말)
+  - title속성을 사용하여 원래의 뜻을 툴팁으로 띄워준다!
+  -> title은 abbr의 필수속성!
+  (title속성은 어떤 요소에나 모두 사용가능하고 툴팁을 띄움)
+19. address - 주소,전화번호,대표자 등(유의미-시멘틱) 
+-> 블록요소, 이탤릭 기본적용
+20. bdo - 글자진행방향 변경 (반대방향으로 쓰는 문자지원)
+  - dir="rtl" -> 오른쪽에서 왼쪽으로 출력!
+
+[ 이미지관련 태그 ]
+21. figure - 사진, 표, 도형 등을 담는 블록박스
+22. figcaption - figure요소의 하위 자식요소로 그림설명박스
+23. img - 이미지 표시요소
+  - src 속성: 이미지호출 경로
+  - alt 속성: 이미지 설명(웹 접근성-평등의원칙 필수!) 
+
+[ 그룹 요소 ] : 모두 블록요소들임!
+
+24. ul : 순서없는 리스트(unordered list)
+-> 블릿옵션
+https://www.w3schools.com/cssref/playit.asp?filename=playcss_ul_list-style-type&preval=disc
+25. ol : 순서있는 리스트(ordered list)
+-> 순서옵션
+https://www.w3schools.com/cssref/playit.asp?filename=playcss_ol_list-style-type&preval=upper-roman
+26. li : ul과 ol요소의 직계필수 자식요소!
+
+27. dl : 용어설명리스트 (Description Lists) 
+28. dt : 용어 (defines terms)
+29. dd : 용어설명 (defines description)
+-> dl 아래 자식으로 반드시 dt와 dd는 한개이상 와야함!
+-> dt와 dd는 형제요소임!
+
+[ 필요할때 사용하는 빈 블록/인라인요소 ]
+
+30. div : 내용을 구분할때 사용하는 요소
+  -> display:block 라는 설정외에 아무런 셋팅이 없다!!!
+  -> 자유롭게 블록요소로 구조를 잡을때 사용함
+
+31. span : 인라인 내용요소나 문자데이터를 구분할때 사용하는 요소
+
+[ 가장 복잡한 그룹요소인 테이블!!! ]
+
+32. table : 테이블 전체 부모요소
+33. tr : 테이블 레코드행 (table row)
+34. td : 테이블 데이터요소 (table data)
+35. th : 테이블 머릿부분에 사용될 경우 
+  td대신 th를 사용할 수 있다.
+  (기본디자인-중앙정렬+두꺼운글자)
+________________________________  
+(테이블 구조를 위한 추가요소들)
+36. caption : 테이블 제목
+37. thead : 테이블 머릿부분
+38. tbody : 테이블 중앙 내용부분
+39. tfoot : 테이블 하단부분
+
+[ 기능요소 ]
+40. button : 버튼모양의 요소
+
+[ 레이아웃용 요소 ]
+41. header - 머릿부분
+42. footer - 하단부분
+43. main - 메인컨텐츠(한번만!)
+44. nav - 네비게이션
+45. aside - 부가적 내용
+ 

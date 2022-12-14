@@ -1,0 +1,153 @@
+DOM 이란 무엇인가?
+(Document Object Model)
+
+- 로딩된 html문서는 트리구조의 형태로 html요소의 
+부모자식 관계를 파악하여 객체접근 모델링을 제공함.
+이를 통해서 JS 코딩을 할 수 있게 하는 프로그래밍
+인터페이스가 DOM이다.
+
+- W3C의 DOM정의:
+DOM은 프로그램 및 스크립트 문서의 내용, 구조 및 스타일을
+동적으로 엑세스하고 업데이트할 수 있게 해주는 플렛폼 및
+언어 중립적 인터페이스다.
+
+[1] DOM의 모든 접근 및 변경을 가능하게 하는 html문서 객체는?
+- document : 현재 html문서의 모든 구성요소 접근법 및
+변경법을 담고 있는 객체다!
+    
+[2] DOM의 각 요소 접근법:
+
+(1) 아이디요소로 접근하기
+- document.getElementById(아이디명)
+- 아이디는 유일한 요소이므로 element의 단수형이름을 사용한다
+- 아이템 순번이나 개수 메서드가 존재하지 않는다!
+    
+(2) 클래스요소로 접근하기
+- document.getElementsByClassName(클래스명)
+- 클래스는 다중사용이 가능하므로 elements라는 복수형 이름이
+사용된다.
+- 여러개를 집합으로 사용하므로 반드시 item(순번) / [순번]
+을 사용하여 구체적인 선택을 한다.
+- 집합의 개수를 가져올 수 있다 -> length
+
+(3) 태그요소로 접근하기
+- document.getElementsByTagName(태그명)
+- 태그요소는 다중사용이 가능하므로 elements라는 
+복수형 이름이 사용된다.
+- 여러개를 집합으로 사용하므로 반드시 item(순번) / [순번]
+을 사용하여 구체적인 선택을 한다.
+- 집합의 개수를 가져올 수 있다 -> length
+
+(4) CSS 선택자 코드로 접근하기
+    1) document.querySelector(선택자)
+    - CSS선택자 문법을 그대로 사용하여 브라우저에 질의(query)를 보내서 결과를 얻는 방식
+    - CSS요소가 다중 선택되어도 처음만나는 단하나의 요소만 선택함!
+    - item(순번) 과 같은 것은 불필요!
+        
+    2) document.querySelectorAll(선택자)
+    - CSS 선택자로 선택된 결과가 컬렉션 집합에 담긴다
+    - 반드시 순번 선택으로 구체적인 요소를 선택한다!
+        item(순번) / [순번]
+    - 선택된 요소의 개수 얻기 -> length
+
+※ 위의 5가지 선택법 중 다중요소 선택일 경우 컬렉션이 생성되어
+선택방법이 세분화된다!
+- document.getElementsByClassName(클래스명)
+- document.getElementsByTagName(태그명)
+- document.querySelectorAll(선택자)
+- 컬랙션은 item(순번)/[순번], length 를 사용함!
+    
+[참고:컬렉션을 for문 사용하여 모두 돌아야 될 경우 
+        for of문이 편리하다!]
+    ex) for(let x of 컬렉션변수){실행코드}
+
+[3] DOM으로 각 요소 변경방법:
+
+(1) 선택요소 내부의 html 변경하기 : innerHTML
+    예) document.getElementById("my")
+        .innerHTML = "<div>my</div>";
+
+(2) 선택요소 내부의 데이터 변경하기 : innerText
+    예) document.getElementById("my")
+        .innerText = "나야나!";
+
+(3) 선택요소 속성 변경하기
+    1) 선택요소.속성명 = 값
+    예) document.getElementById("my").title = "안녕!";
+    
+    2) 선택요소.setAttribute(속성명,속성값)
+    예) document.getElementById("my")
+        .setAttribute("title","안녕!");
+    
+참고) 속성값을 가져오는 2가지 방법
+
+    1) 변수 = 선택요소.속성명
+    예) var tt = document.getElementById("my").title;
+    
+    2) 변수 = 선택요소.getAttribute(속성명)
+    예) var tt = document.getElementById("my")
+                .getAttribute("title");
+
+(4) 선택요소 스타일시트 변경하기 : style
+    - 선택요소.style.스타일시트속성명 = 값
+    예) document.getElementById("my")
+        .style.left = "20px";
+    - 각 스타일시트 속성명을 이미 변수형으로 모두 등록함!
+    - 2음절 이상일 경우에 데쉬(-)를 빼고 대문자로 표시함
+    예) "font-size" -> fontSize
+
+[4] DOM으로 선택한 요소에 이벤트 적용하기
+
+(1) 선택요소.on이벤트명 = function(){코드}
+    예) document.getElementById("my")
+        .onmouseover = function(){코드};
+
+(2) 선택요소.addEventListener(이벤트명, 함수)
+    예) document.getElementById("my")
+        .addEventListener("mouseover",function(){코드});
+
+※ on이벤트명 방법과 addEventListener방법은 근본적인 차이가 있다! 
+addEventListener는 이벤트 등록 전역메모리 구역에 등록을 해서 중간이 
+일반적으로 삭제되거나 변경되지 않는다. 
+반면에 on이벤트명에 할당하는 방법은 중간에 삭제하거나 변경하기가 수월함. 
+그래서 변경이 중간에 필요할 때는 on이벤트명을 사용하는 것이 좋다!
+    
+
+[5] html 요소보다 위에 코딩된 JS를 나중에 실행하는 방법
+
+(1) load 이벤트를 사용함
+    - window.onload = function(){코드}
+    ※ window.onload 는 한 문서 안에 단 하나만 사용가능함!
+    - window.addEventListener("load",function(){코드})
+    - load 이벤트의 특성은 이미지, 동영상 등 모든 컨텐츠가
+    페이지로 로드 될때까지 기다렸다가 끝나면 이벤트가 발생함
+    
+(2) DOMContentLoaded 이벤트를 사용함
+    - window.addEventListener("DOMContentLoaded",
+                                function(){코드})
+    - DOMContentLoaded 이벤트는 html 태그요소만 그려지면
+    바로 발생하는 이벤트임(load보다 발생 속도가 빠름!)
+
+[6] 이벤트의 종류:
+
+(1) 마우스관련 이벤트:
+- click : 클릭시
+- dblclick : 더블클릭시
+- contextmenu : 마우스 오른쪽버튼 클릭시
+- mousedown : 마우스 버튼이 눌려졌을때
+- mouseup : 마우스 버튼이 눌렸다가 올라갈때
+- mousemove : 마우스 포인터가 특정영역안에서 움직일때
+- mosueover : 마우스 포인터가 특정영역안에 들어갈때
+- mouseout : 마우스 포인터가 특정영역에서 나올때
+- mousewheel : 마우스 스크롤을 움직일때 발생
+
+(2) 키보드 관련 이벤트:
+- keydown : 키보드가 눌려서 내려갈때
+- keyup : 키보드가 눌렸다가 올려갈때
+- keypress : 키보드가 누려졌을때
+
+(3) 기타 이벤트
+- focus : 요소를 마우스 포인터로 찍었을때(초점이 들어감)
+- blur : 요소를 찍었다가 다른곳을 찍었을때(초점이 벗어날때)
+- change : select요소, input의 체크박스, 라디오버튼 등의 
+요소의 상태가 변경될때

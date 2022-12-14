@@ -1,0 +1,106 @@
+[ 글자관련 ]
+1. color : 글자색
+2. font-family : 글자체
+3. font-weight : 글자두께
+ - normal | bold | bolder | 100 ~ 900 
+ -> 글자체 지원에 따라 다름
+4. font-style : 글자스타일(이탤릭)
+5. letter-spacing:  글자간격 (마이너스가능)
+6. word-spacing: 단어간격 (마이너스가능)
+7. text-align: 박스에서의 글자(인라인요소) 정렬
+    left(기본값) | right | center | justify(양쪽정렬)
+8. font-size : 글자크기 (px,em,rem,%)
+9. line-height : 배수/px,em 등
+10. font 한번에 쓰기
+    -> font: 스타일 두께 크기/줄간격 글자체;
+    -> font: 스두크/줄체;
+11.text-shadow: 글자그림자
+   text-shadow: x축 y축 블러 색;
+
+[ 박스모델관련 ]
+1. width: 가로크기
+2. height: 세로크기
+3. padding: 안쪽여백
+4. marging: 바깥여백
+5. border: 경계선
+    -> border: 두께 종류 색상; (두종색)
+    - 두께(border-width) : 보더의 두께 사이즈 지정(px,em 등)
+    - 종류(border-style) : solid(선형), dotted(점선형), dashed(데쉬형) 등
+    https://www.w3schools.com/cssref/playit.asp?filename=playcss_border-style&preval=dotted
+    - 색상(border-color) : 선색(기본색상표기법)
+
+    -> 방향별 보더:
+    border-top, border-left, border-right,border-bottom
+
+
+※ 마진,패딩 공통 셋팅!
+margin: 값; -> 4방향
+margin: 값 값; -> 위아래 양쪽
+margin: 값 값 값; -> 위 양쪽 아래
+margin: 값 값 값 값; -> 위 오른 아래 왼(시계방향)
+
+padding: 값; -> 4방향
+padding: 값 값; -> 위아래 양쪽
+padding: 값 값 값; -> 위 양쪽 아래
+padding: 값 값 값 값; -> 위 오른 아래 왼(시계방향)
+
+-> 각 뱡향별 속성
+margin-top, margin-left, margin-right, margin-bottom
+padding-top, padding-left, padding-right, padding-bottom
+
+6. outline : 박스의 외곽선을 표시
+    -> 박스크기에 포함되지 않음
+    -> 표시방법은 두께,종류,색상순
+    -> 두께가 커져도 다른요소에 영향없음
+    -> 어디에 씀? 예컨데 입력창 포커스표시 등
+
+
+
+[ 배경속성 ]
+
+1. 배경색
+background-color: rgb(173, 200, 250);
+
+2. 배경이미지
+background-image: url(../images/bg_logo_a_01.png);
+
+3. 배경반복여부 
+- repeat(반복,기본값),no-repeat(반복안함)
+repeat-x(x축반복), repeat-y(y축반복)
+background-repeat: no-repeat;
+
+4. 배경고정 :  스크롤해도 배경은 보이는 화면에 고정됨
+background-attachment: fixed;
+
+5. 배경위치 
+- 가로값 : 수치(px,%), left,center,right
+- 세로값 : 수치(px,%), top,center,bottom
+- 별도설정 속성
+    background-position-x
+    background-position-y
+
+background-position: center;
+
+6. 배경크기 
+    - 가로크기 : 수치(px,%), auto(비율유지)
+    - 세로크기 : 수치(px,%), auto(비율유지)
+    - cover : 비율에 맞춰서 화면채우기(빈틈없음)
+    - contain: 이미지를 화면에 맞게 채우기(빈틈있음)
+
+background-size: auto 200px;
+
+=> 배경 한번에 셋팅하기! 
+    background: 색 이미지 반복 고정 위치/크기;
+    background: 색이반고윙/크; 
+
+
+7. 배경색 옵션 속성 : 배경색을 어디까지 칠할것인가?
+   background-clip 
+        1. content-box 
+        -> 컨텐트영역에만 배경색넣기
+        (보더, 패딩빠짐)
+        2. padding-box
+        -> 패딩영역까지만 배경색넣기
+        (보더 빠짐)
+        3. border-box
+        -> 보더영역까지 배경색넣기(기본값)

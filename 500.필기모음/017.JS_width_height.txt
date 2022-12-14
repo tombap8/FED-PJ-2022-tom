@@ -1,0 +1,40 @@
+[ JavaScript에서 요소의 크기 구하기 ]
+
+var element = document.getElementById('content');
+var h = element.clientHeight;
+var w = element.clientWidth;
+cs
+
+높이
+- clientHeight : padding을 포함한 높이
+- scrollHeight : padding을 포함한 화면 상에 표시되지 않은 콘텐츠를 포함한 높이
+- offsetHeight : border, padding, 스크롤 바를 포함한 높이
+
+너비
+- clientWidth : padding을 포함한 폭
+- scrollWidth : padding을 포함한 화면 상에 표시되지 않은 콘텐츠를 포함한 폭
+- offsetWidth : border, padding, 스크롤 바를 포함한 폭
+
+
+윈도우 사이즈
+window.innerWidth :  스크롤 바를 포함하지 않는 창 너비
+window.innerHeight : 스크롤 바를 포함하지 않은 창 높이
+window.outerWidth : 스크롤 바를 포함, 창의 너비
+window.outerHeight :  스크롤 바를 포함한  창의 높이
+
+
+jQuery에서 요소의 크기 구하기
+
+높이
+- .height() : 요소 높이만
+- .innerHeight() : 요소의 padding을 포함한 높이
+- .outerHeight() :  요소의 border, padding 포함한 높이
+- .outerHeight(true) : 요소의 margin, border, padding 포함한 높이
+
+너비
+- .width() : 요소의 폭만
+- .innerWidth() : 요소의 padding을 포함한 폭  
+- .outerWidth() : 요소의 border, padding을 포함한 폭
+- .outerWidth(true) :  요소의 margin, border, padding을 포함한 폭
+
+만약 요소의 display:none; 일 때 높이 사이즈 취득 여부
