@@ -121,13 +121,13 @@ __________________________________________________
 -> ctrl+alt+A (A는 Abbribiation 약어)
 
 2. Upate Tag (기존태그 변경하기)
--> ctrl+alt+I (I는 Inverse 반전)
+-> ctrl+alt+U (U는 Update)
 
 3. Remove Tag(감싼태그 지우기)
--> ctrl+alt+K (K는 Kill 죽이기)
+-> ctrl+alt+R (R은 Remove)
 
-4. Beautify(자동줄맞춤)
--> ctrl+alt+B (B는 Beautify)
+4. Prettier(자동줄맞춤)
+-> ctrl+alt+P (P는 Prettier)
 
 ******************************************************
 
