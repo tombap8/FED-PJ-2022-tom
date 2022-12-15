@@ -9,10 +9,43 @@
         <meta charset="utf-8" />
         <!-- title: 탭에 표시 타이틀 -->
         <title>네이버 요약 뉴스</title>
+        <!-- 인터널 스타일시트 요소 -->
+        <style>
+            /* 
+                [스타일 시트 문법 영역!
+                기본문법]
+                
+                선택자{
+                    속성:값;
+                }
+
+                [ CSS 박스모델 ]
+                -> 모든요소는 박스형태로
+                그 디자인을 설정한다!
+
+                -> 5가지 속성을 셋팅한다!
+                1. width : 가로크기
+                2. height : 세로크기
+                3. padding : 안쪽여백
+                4. border : 경계선
+                5. margin : 바깥여백
+
+                -> 박스모델의 적용은 블록요소를
+                기본으로 한다!
+
+                [ CSS 선택자 (Selector) ]
+                1. 타입선택자 : 요소명으로 선택
+                예) h1{}, div{}, a{}
+                2. 아이디선택자 : #
+                3. 클래스선택자 : .
+
+
+            */
+        </style>
     </head>
     <body>
         <!-- 1.상단영역 -->
-        <header>
+        <header class="top">
             <!-- 1-1.제목 -->
             <h1>네이버 요약 뉴스</h1>
             <!-- 1-2.GNB메뉴 -->
@@ -31,11 +64,11 @@
             </nav>
         </header>
         <!-- 2.메인영역 -->
-        <main>
+        <main class="cont">
             <img src="./images/main.jpg" alt="뉴스메인이미지" />
         </main>
         <!-- 3.하단영역 -->
-        <footer>
+        <footer class="info">
             <!-- 주소블록요소 -->
             <address>
                 서울시 강남구 역삼동 119 대호B 8F <br />
