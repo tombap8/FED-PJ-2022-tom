@@ -66,7 +66,8 @@
             */
 
             /* 기본마진 패딩 없애기 */
-            html,body{
+            html,
+            body {
                 margin: 0;
                 padding: 0;
                 /* 실제는 body에만 마진 8px이 있지만
@@ -76,7 +77,7 @@
             }
 
             /* 박스공통 클래스 */
-            .bx{
+            .bx {
                 /* 1.가로크기 w 
                 아무값도 안쓰면?
                 auto인데...
@@ -102,9 +103,8 @@
                 border-radius : 값
                 값을 50%를 주면 원이생김
                  */
-                 border-radius: 10px;
-                 /* border-radius: 50%; */
-
+                border-radius: 10px;
+                /* border-radius: 50%; */
 
                 /* 4.안쪽여백(패딩) p 
                     padding : 1개 (4방향동시)
@@ -128,12 +128,10 @@
                     설정한다. 이때 위아래 0 양쪽 auto를
                     줄여서 마영오! 라고 함!
                 */
-
             }
 
-            
             /* 1.상단영역 */
-            .top{
+            .top {
                 /* 배경색 : bgc
                 background-color */
                 background-color: #e6fff2;
@@ -142,20 +140,19 @@
             }
             /* 2.메인영역 */
             /* 메인영역 이미지 */
-            .cont img{
+            .cont img {
                 width: 100%;
                 /* 한쪽만 크기를 주면
                 이미지는 자동으로 비율유지를 하면서
                 변경된다! 100%는 부모박스를 채움! */
             }
             /* 3.하단영역 */
-            .info{
+            .info {
                 /* 배경색 */
                 background-color: #e7e7e7;
                 /* 글자중앙정렬 */
                 text-align: center;
             }
-
         </style>
     </head>
     <body>
@@ -166,7 +163,7 @@
             <!-- 1-2.GNB메뉴 -->
             <!-- GNB(Global Navigation Bar) -->
 
-            <nav id="gnb">
+            <nav id="gnb">   
                 <a href="#">
                     <img
                         src="images/logo.png"
