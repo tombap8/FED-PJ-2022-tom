@@ -11,6 +11,18 @@
         <title>네이버 요약 뉴스</title>
         <!-- 인터널 스타일시트 요소 -->
         <style>
+            /* 웹폰트 CDN */
+            @import url('https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Jua&family=Nanum+Gothic&display=swap');
+
+            /* 
+                1. 타이틀용
+                font-family: 'Black And White Picture', sans-serif;
+                2. 메뉴/하단영역용
+                font-family: 'Jua', sans-serif;
+                3. 일반내용용
+                font-family: 'Nanum Gothic', sans-serif;
+            */
+
             /* 
                 [스타일 시트 문법 영역!
                 기본문법]
@@ -62,6 +74,9 @@
 
                 6. 자손 선택자 : 띄어쓰기
                 예) div a {} -> div 하위의 모든 a요소들
+
+                7. 직계자식 선택자 : > (왼쪽꺾쇠)
+                예) header>a{} -> header 바로아래 a요소
 
             */
 
@@ -138,6 +153,59 @@
                 /* 글자중앙정렬 tac */
                 text-align: center;
             }
+            /* 타이틀 */
+            .top>h1{
+                /* 1.글자 스타일 fs : 
+                font-style
+                italic : 이탤릭
+                normal : 이탤릭해제(기본값) */
+                /* font-style: italic; */
+                /* font-style: normal; */
+
+                /* 2. 글자두께 fw : 
+                font-weight 
+                normal : 두께없음
+                bold : 두껍게*/
+                font-weight: normal;
+                /* font-weight: bold; */
+
+                /* 3. 글자크기 : fz 
+                font-size 
+                - 글자단위: pt,px,em,rem,vw,vh*/
+                font-size: 50px;
+
+                /* 4. 글자줄간격 : 
+                line-height 
+                (글이 여러줄일때 사이간격용
+                또는 글자 박스에서 세로중앙정렬시)
+                - 단위없으면 배수*/
+                line-height: 1.7;
+
+                /* 5. 글자체 : ff
+                font-family
+                - 콤마로 여러개를 쓰면 대체체를 설정함 */
+                font-family: 'Black And White Picture', sans-serif;
+                /* font-family: "긍서","글림","맑은고딕","돋움"; */
+
+                /* 6. 글자색 : c 
+                color : 해시코드/RGB/HSL/웹색상명 */
+                color: darkgreen;
+
+            }
+
+            /* GNB 메뉴 a */
+            #gnb a{
+                /* 글자체 */
+                font-family: 'Jua', sans-serif;
+                /* a요소는 기본적으로 밑줄과 글자색이 셋팅됨!
+                반드시 a에서 변경해야만 적용된다!(부모에서는 안됨!) */
+                /* 글자색 */
+                color: darkslateblue;
+                /* 밑줄없앰 - text-decoration:none */
+                text-decoration: none;/* tdn */
+            }
+
+
             /* 2.메인영역 */
             /* 메인영역 이미지 */
             .cont img {
