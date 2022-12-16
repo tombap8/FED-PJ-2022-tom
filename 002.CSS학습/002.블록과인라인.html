@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>002.블록과 인라인</title>
+    <style>
+        /* 타이틀 */
+        .tit{
+            text-align: center;
+            border: 5px dotted orange;
+        }
+        /* 모든 인라인, 블록 요소에 디자인 적용하기 */
+        /* 별(*)은 모든요소를 선택! .ele아래 모든요소 선택 */
+        .ele * {
+            /* 박스모델의 기본속성 디자인주기! */
+            width: 200px;
+            height: 150px;
+            border: 10px solid blue;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        /*********************************************** 
+           
+        ***********************************************/
+        
+        
+
+    </style>
+</head>
+<body>
+    <h1 class="tit">002.블록과 인라인</h1>
+
+    <h2 class="tit">인라인 요소들</h2>
+    <div class="ele">   
+        <a href="#">나는 a다!</a>
+        <img src="imgs/blogo.png" alt="로고" title="나는 img다!">
+        <span>나는 span이다!</span>
+        <b>나는 b다!</b>
+        <button>
+            나는 button이다! 나는 인라인인가?
+        </button>
+        <i>나는 i다!</i>
+        <em>나는 em이다!</em>
+        <strong>나는 strong이다!</strong>
+    </div>
+
+    <h2 class="tit">블록 요소들</h2>
+    <div class="ele">
+        <h1>나는 h1이다!</h1>
+        <h4>나는 h4다!</h4>
+        <div>나는 div다!</div>
+        <p>나는 p다!</p>
+        <header>나는 header다!</header>
+
+    </div>
+    
+</body>
+</html>

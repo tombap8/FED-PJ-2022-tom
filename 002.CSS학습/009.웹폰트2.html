@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>웹폰트 CDN방식으로 적용하기</title>
+    <!-- 웹폰트 CDN : link방식  -->
+    <style>
+        /* 
+            [ CDN 방식으로 웹폰트 불러오기 ]
+            - Content Delivery Network
+            즉, 컨텐트(웹폰트파일)를 가져와 네트워크로!
+
+            - 호출방식:
+            1. external 방식으로 불러오기
+            - link요소를 사용하여 html 상단에 넣는다
+            예) <link rel="stylesheet" href="cdn주소">
+
+            2. import 방식으로 불러오기
+            - @import 를 사용하여 css코딩구역 상단에 넣는다
+            예) @import url(cdn주소)
+
+            -> 결론적으로 위의 2가지 방식을 사용하면
+            @font-face를 사용할 필요가 없다! 왜?
+            불러온 파일에 이미 셋팅이 되어 있으므로!!!
+
+            [ 구글폰트로 CDN하기 ]
+            1. 구글폰트 사이트에서 사용할 웹폰트를 선택한다
+            2. link태그 방식 / @import방식 중 선택하여
+            소스에 붙여 넣는다
+            3. 지정된 CDN 웹폰트 이름으로 적용한다
+
+
+            [ link방식과 @import방식 중 어떤것을 더 많이쓰나? ]
+            - 외부 CSS를 사용한다면 그 파일에서 @import하여
+            하나의 파일로 만든 후 html파일에서 한번만
+            link방식으로 호출하면 효율성이 좋아지므로
+            @import방식을 더 많이 쓴다~!
+
+            
+             */
+
+        /* import방식 CDN 웹폰트 */
+
+        /* CDN 웹폰트 적용하기 */
+        .cdn1 {
+            
+            color: darkviolet;
+            font-weight: normal;
+        }
+
+        .cdn2 {
+           
+            color: darkgreen;
+            font-weight: normal;
+        }
+
+        .cdn3 {
+           
+            color: darkred;
+            font-weight: normal;
+        }
+
+        .cdn4 {
+            color: darkcyan;
+            font-weight: normal;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="cdn1">A peep at some distant orb has power to raise and purify our thoughts like a strain of sacred
+        music, or a noble picture, or a passage from the grander poets. It always does one good.</h1>
+    <h1 class="cdn2">A peep at some distant orb has power to raise and purify our thoughts like a strain of sacred
+        music, or a noble picture, or a passage from the grander poets. It always does one good.</h1>
+    <h1 class="cdn3">A peep at some distant orb has power to raise and purify our thoughts like a strain of sacred
+        music, or a noble picture, or a passage from the grander poets. It always does one good.</h1>
+    <h1 class="cdn4">A peep at some distant orb has power to raise and purify our thoughts like a strain of sacred
+        music, or a noble picture, or a passage from the grander poets. It always does one good.</h1>
+</body>
+
+</html>
