@@ -16,6 +16,11 @@
  4) prettier : 자동줄맞춤
   -> 단축키 지정하기 
     (단축키설정: ctrl+alt+p)
+  -> prittier : Print Width 
+  수치를 기본값 80->120 정도로 늘리면
+  과도 줄바꿈이 해결된다!
+  -> prettier : Tab Width
+  기본값 2에서 4로 변경(기본탭은 스페이스 4개임)
  5) CSS PEEK : CSS 미리보기/연결하기
  6) HTML to CSS autocompletion
  : html의 아이디, 클래스명을 읽어서 제시해줌
