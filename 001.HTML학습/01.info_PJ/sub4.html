@@ -144,22 +144,90 @@
              -->
 
             <!-- 
-                [순서없는 리스트 : ul ]
+                [ 순서없는 리스트 : ul ]
                 unordered list 
+
+                [ 순서있는 리스트 : ol ]
+                ordered list
+
+                [ul/ol 공통사항]
                 - 하위필수요소: li (개별리스트)
                 - 주의: 하위에 li이외의 블록요소나 그 어떤요소도
                 쓸 수 없다!!!
             -->
 
-            <!-- 주요뉴스 -->
+            <!-- 주요뉴스 : ul -->
             <article class="cnews">
-                <h3>NEWSIS 주요뉴스</h3>
+                <h3>주요뉴스</h3>
                 <ul>
                     <li><a href="https://www.newsis.com/view/?id=NISX20221214_0002123168" target="_blank">손흥민 아버지 "왼발 잘 쓰려고 오른쪽에 압정 꽂아"</a></li>
                     <li><a href="https://www.newsis.com/view/?id=NISX20221213_0002121312" target="_blank">안정환 아들, 중학생 맞아?…"아빠 느낌 나오네"</a></li>
                     <li><a href="https://www.newsis.com/view/?id=NISX20221213_0002121413" target="_blank">'골프여제' 박인비, 결혼 8년만에 임신</a></li>
                 </ul>
             </article>
+
+            <!-- 랭킹뉴스 : ol -->
+            <article class="rank">
+                <h3>랭킹뉴스</h3>
+                <ol>
+                    <li><a href="https://n.news.naver.com/mnews/ranking/article/003/0011599659?ntype=RANKING" target="_blank">월드컵 결승전 메시 연장전 골 무효?…득점 취소 어려워</a></li>
+                    <li><a href="https://n.news.naver.com/mnews/ranking/article/003/0011600371?ntype=RANKING" target="_blank">내일 새벽 중부내륙 중심 눈폭탄…대중교통 이용 당부</a></li>
+                    <li><a href="https://n.news.naver.com/mnews/ranking/article/003/0011600407?ntype=RANKING" target="_blank">코로나19 재유행 시작되나…신규 확진 8만 7559명 3개월 만에 '최다' [뉴시스Pic]</a></li>
+                </ol>
+            </article>
+
+            <!-- 
+                [ 용어정의리스트 : dl ]
+               
+                dl > dt + dd
+                ___________________
+
+                dl : 용어리스트
+                (defines the description list)
+                dt : 용어정의
+                (defines the term)
+                dd : 용어설명
+                (description each term)
+                _____________________
+                주의 - dl은 반드시 자식요소로 dt와 dd를
+                한번이상 사용해야한다!
+                또주의 - dt와 dd는 형제다! dt>dd 아니다!!!
+
+             -->
+             <!-- 분야별 뉴스 : dl -->
+             <article class="secnews">
+                <h3>분야별 뉴스</h3>
+                <dl>
+                    <dt>경제</dt>
+                    <dd>
+                        <a href="https://n.news.naver.com/mnews/article/469/0000713779?sid=101" target="_blank">	
+                            은행보다 증권사가 더 하네… 매년 이자장사 수천억</a>
+                    </dd>
+                    <dd>
+                        <a href="https://n.news.naver.com/mnews/article/056/0011395743?sid=101" target="_blank">	
+                            	
+‘5%룰’ 위반 시 과징금 한도 10배 상향…사모CB 발행 공시 강화</a>
+                    </dd>
+
+                    <dt>사회</dt>
+                    <dd>
+                        <a href="https://n.news.naver.com/mnews/article/437/0000325712?sid=102" target="_blank">동영상기사	
+                            한파 속 스키장 리프트 멈춤 사고…이용객 54명 3시간 고립</a>
+                    </dd>
+                    <dd>
+                        <a href="" target="_blank"></a>
+                    </dd>
+
+                    <dt>TV/연예</dt>
+                    <dd>
+                        <a href="" target="_blank"></a>
+                    </dd>
+                    <dd>
+                        <a href="" target="_blank"></a>
+                    </dd>
+                </dl>
+             </article>
+
         </main>
         <!-- 3.하단영역 -->
         <footer class="info bx">
