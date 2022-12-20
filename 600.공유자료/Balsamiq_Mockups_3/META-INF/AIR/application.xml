@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) Balsamiq SRL 2007-2014. All rights reserved.
+  ~ See http://balsamiq.com/eulas for legal info.
+  -->
+
+<application xmlns="http://ns.adobe.com/air/application/2.6">
+
+    <!-- Adobe AIR Application Descriptor File Template.
+
+        Specifies parameters for identifying, installing, and launching AIR applications.
+        See http://www.adobe.com/go/air_1.0_application_descriptor for complete documentation.
+
+        xmlns - The Adobe AIR namespace: http://ns.adobe.com/air/application/1.0
+                The last segment of the namespace specifies the version
+                of the AIR runtime required for this application to run.
+
+        minimumPatchLevel - The minimum patch level of the AIR runtime required to run
+                the application. Optional.
+    -->
+    <!-- Added for certificate migration. Copied from META-INF/AIR/publisherid of an installed Air app -->
+    <publisherID>EDE15CF69E11F7F7D45B5430C7D37CC6C3545E3C.1</publisherID>
+
+    <!-- The application identifier string, unique to this application. Required. -->
+    <id>BalsamiqMockups3</id>
+
+    <!-- Used as the filename for the application. Required. -->
+    <filename>Balsamiq Mockups 3</filename>
+
+    <!-- The name that is displayed in the AIR application installer. Optional. -->
+    <name>Balsamiq Mockups 3</name>
+
+    <!-- An application version designator (such as "v1", "2.5", or "Alpha 1"). Required. -->
+    <versionNumber>3.5.17</versionNumber>
+
+    <!-- Description, displayed in the AIR application installer. Optional. -->
+    <!-- <description></description> -->
+
+    <!-- Copyright information. Optional -->
+    <copyright>Balsamiq - balsamiq.com</copyright>
+
+    <!-- Settings for the application's initial window. Required. -->
+    <initialWindow>
+        <!-- The main SWF or HTML file of the application. Required. -->
+        <!-- Note: In Flex Builder, the SWF reference is set automatically. -->
+        <content>balsamiq_mockups_3.5.17.swf</content>
+
+        <!-- The title of the main window. Optional. -->
+        <title>Balsamiq 3</title>
+
+        <!--<requestedDisplayResolution>high</requestedDisplayResolution>-->
+        <!-- The type of system chrome to use (either "standard" or "none"). Optional. Default standard. -->
+        <!-- <systemChrome></systemChrome> -->
+
+        <!-- Whether the window is transparent. Only applicable when systemChrome is false. Optional. Default false. -->
+        <!-- <transparent></transparent> -->
+
+        <!-- Whether the window is initially visible. Optional. Default false. -->
+        <!-- <visible></visible> -->
+
+        <!-- Whether the user can minimize the window. Optional. Default true. -->
+        <!-- <minimizable></minimizable> -->
+
+        <!-- Whether the user can maximize the window. Optional. Default true. -->
+        <!-- <maximizable></maximizable> -->
+
+        <!-- Whether the user can resize the window. Optional. Default true. -->
+        <!-- <resizable></resizable> -->
+
+        <!-- The window's initial width. Optional. -->
+        <!-- <width>880</width> -->
+
+        <!-- The window's initial height. Optional. -->
+        <!-- <height>680</height> -->
+
+        <!-- The window's initial x position. Optional. -->
+        <!-- <x></x> -->
+
+        <!-- The window's initial y position. Optional. -->
+        <!-- <y></y> -->
+
+        <!-- The window's minimum size, specified as a width/height pair, such as "400 200". Optional. -->
+        <minSize>800 560</minSize>
+
+        <!-- The window's initial maximum size, specified as a width/height pair, such as "1600 1200". Optional. -->
+        <!-- <maxSize></maxSize> -->
+    </initialWindow>
+
+    <!-- The subpath of the standard default installation location to use. Optional. -->
+    <!-- <installFolder></installFolder> -->
+
+    <!-- The subpath of the Windows Start/Programs menu to use. Optional. -->
+    <!-- <programMenuFolder></programMenuFolder> -->
+
+    <!-- The icon the system uses for the application. For at least one resolution,
+         specify the path to a PNG file included in the AIR package. Optional. -->
+    <icon>
+        <image16x16>icons/mockups_ico_16.png</image16x16>
+        <image29x29>icons/mockups_ico_29.png</image29x29>
+        <image32x32>icons/mockups_ico_32.png</image32x32>
+        <image36x36>icons/mockups_ico_36.png</image36x36>
+        <image48x48>icons/mockups_ico_48.png</image48x48>
+        <image128x128>icons/mockups_ico_128.png</image128x128>
+        <image512x512>icons/mockups_ico_512.png</image512x512>
+    </icon>
+
+    <!-- Whether the application handles the update when a user double-clicks an update version
+    of the AIR file (true), or the default AIR application installer handles the update (false).
+    Optional. Default false. -->
+    <!-- <customUpdateUI></customUpdateUI> -->
+
+    <!-- Whether the application can be launched when the user clicks a link in a web browser.
+    Optional. Default false. -->
+    <allowBrowserInvocation>true</allowBrowserInvocation>
+
+    <!-- Listing of file types for which the application can register. Optional. -->
+    <fileTypes>
+        <fileType>
+            <!-- The name that the system displays for the registered file type. Required. -->
+            <name>com.balsamiq.mockup.project</name>
+
+            <!-- The extension to register. Required. -->
+            <extension>bmpr</extension>
+
+            <!-- The description of the file type. Optional. -->
+            <description>Balsamiq Project</description>
+
+            <!-- The MIME type. Optional. -->
+            <contentType>application/vnd.balsamiq.bmpr</contentType>
+
+            <!-- The icon to display for the file type. Optional. -->
+            <icon>
+                <image16x16>icons/mockups_doc_ico_16.png</image16x16>
+                <image29x29>icons/mockups_doc_ico_29.png</image29x29>
+                <image32x32>icons/mockups_doc_ico_32.png</image32x32>
+                <image36x36>icons/mockups_doc_ico_36.png</image36x36>
+                <image48x48>icons/mockups_doc_ico_48.png</image48x48>
+                <image128x128>icons/mockups_doc_ico_128.png</image128x128>
+                <image512x512>icons/mockups_doc_ico_512.png</image512x512>
+            </icon>
+        </fileType>
+    </fileTypes>
+</application>
