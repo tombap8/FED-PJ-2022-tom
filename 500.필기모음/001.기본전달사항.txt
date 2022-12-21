@@ -41,7 +41,6 @@ https://github.com/
 - 개인포폴 주제선정 후 분기별 제출 및 발표
 예시)
 https://tombap8.github.io/KNG-FED211/index.html
-kkkkk
 
 
 10. UI/UX 참고자료
