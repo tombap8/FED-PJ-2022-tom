@@ -3,23 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <title>아카이브 페이지</title>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        body{
+            /* 배경이미지넣기 bgi */
+            background-image: url(./imgs/worksbg.jpg);
+            /* 배경반복여부 bgr 반복안함(no-repeat) */
+            background-repeat: no-repeat;
+            /* 배경 크기 : 채우기(cover) bgz */
+            background-size: cover;
+            /* 패딩탑 pt */
+            padding-top: 50px;
+        }
+
+        /* 전체박스 : div 블록박스 */
+        .mybox{
+            width: 1200px;
+            height: 800px;
+            background-color: rgba(255, 255, 255, 0.525);
+            /* 둥근모서리 brad */
+            border-radius: 20px;
+            /* 가로중앙 */
+            /* 마영오! 씨를 무대 중앙으로 모시겠습니다! */
+            margin: 0 auto;
+            /* 양쪽 마진이 auto이면 양쪽을 등분해서 가로 중앙이 된다! */
+            
+        }
+        /* h1요소 */
+        .tit{
+            /* 기본마진없앰 */
+            margin: 0;
+            /* 패딩 */
+            padding: 20px;
+            /* 글자중앙 */
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <h1>TOM의 아카이브 페이지</h1>
-    <h2>
-        <ol>
-            <li>
-                <a href="./001.HTML학습/01.info_PJ/index.html" target="_blank">Info PJ</a>
-            </li>
-            <li>
-                <a href="./001.HTML학습/01.info_PJ/sub4.html" target="_blank">IT/과학 페이지</a>
-            </li>
-            <li>
-                <a href="./006.와이어프레이밍/도깨비PJ와이어프레임.pdf" target="_blank">도깨비 PJ 와이어프레임</a>
-            </li>
-        </ol>
+    <div class="mybox">
 
-    </h2>
+        <h1 class="tit">
+            <img src="./imgs/mylogo_14.png" alt="나의로고">
+            <br>
+            TOM의 아카이브 페이지</h1>
+        <h2>
+            <ol>
+                <li>
+                    <a href="./001.HTML학습/01.info_PJ/index.html" target="_blank">Info PJ</a>
+                </li>
+                <li>
+                    <a href="./001.HTML학습/01.info_PJ/sub4.html" target="_blank">IT/과학 페이지</a>
+                </li>
+                <li>
+                    <a href="./006.와이어프레이밍/도깨비PJ와이어프레임.pdf" target="_blank">도깨비 PJ 와이어프레임</a>
+                </li>
+            </ol>
+    
+        </h2>
+    </div>
     
 </body>
 </html>
