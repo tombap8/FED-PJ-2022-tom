@@ -133,5 +133,58 @@
 
 
 /* 2-5.기자정보 */
-/* 2-6.기사원문 */
+.rpt {
+    /* display 출신변경하기 
+    디자인 적용과 동시에 인라인특성인
+    글자만큼만 크기가 잡히도록 
+    인라인블록으로 변경함*/
+    display: inline-block;
+    /* 글자크기 fz */
+    font-size: 14px;
+    /* 배경색 bgc */
+    background-color: #dbdbdb;
+    /* 패딩 */
+    padding: 5px;
+    /* 마진 */
+    margin: 15px 0;
+}
+/* 2-6.기사원문 
+별도의 이름없이 구조로만
+기사원문을 선택한다! 직계자식! */
+.cont>h5{
+    /* 내부의 인라인요소 오른쪽 정렬 */
+    text-align: right;
+}
+.cont>h5>a{
+    /* 디자인 적용위해 display변경! */
+    display: inline-block;
+    /* 기본없애기 */
+    margin: 20px 0;
+    padding: 0;
+    /* 가로,세로지정 */
+    width: 70px;
+    height: 70px;
+    /* 테두리 bd */
+    border: 2px solid #dbdbdb;
+    /* 글자중앙 */
+    text-align: center;
+    /* 세로중앙 : 줄간격으로! */
+    line-height: 70px;
+    /* 모서리 둥글게하기 border-radius 
+    brad -> 50%는 원 */
+    border-radius: 50%;
+    /* 배경색 bgc */
+    background-color: lightsteelblue;
+}
+/* 가상클래스로 오버시 박스그림자 넣기 */
+.cont>h5>a:hover{
+    /* 박스그림자 
+        box-shadow: x y blur spread 색;
+        (내부그림자는 inset씀)
+        - spread 박스그림자 크기(필요시씀)
+    */
+    box-shadow: 0 0 5px darkblue;
+}
+
+
 

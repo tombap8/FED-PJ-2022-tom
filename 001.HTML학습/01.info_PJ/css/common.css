@@ -94,6 +94,14 @@ body {
     font-family: 'Nanum Gothic';
 }
 
+/* 전체 a요소 공통 셋팅 */
+a{
+    /* 글자색 */
+    color: #222;
+    /* 밑줄없앰 tdn */
+    text-decoration: none;
+}
+
 /* 박스공통 클래스 */
 .bx {
     /* 1.가로크기 w 
