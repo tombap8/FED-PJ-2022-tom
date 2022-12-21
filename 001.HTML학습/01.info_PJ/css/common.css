@@ -90,6 +90,8 @@ body {
 body {
     /* 하단패딩 pb */
     padding-bottom: 50px;
+    /* 글자체 ff : 웹폰트 */
+    font-family: 'Nanum Gothic';
 }
 
 /* 박스공통 클래스 */

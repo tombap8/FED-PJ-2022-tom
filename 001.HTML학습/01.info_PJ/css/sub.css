@@ -1,3 +1,83 @@
 @charset "utf-8";
 /* 서브페이지 공통 CSS - sub.css */
 
+/* 
+    [import 로 파일 합치기]
+    외부 CSS 파일에서 다른 외부 CSS 파일을
+    import방식으로 불러올때 장점은?
+    html파일에서 link요소로 호출할 경우
+    http request (웹요청) 이 많아져서
+    페이지 랜더링 속도에 영향을 미친다!
+    따라서 import방식을 쓰면 더 적은 
+    웹요청에 따라 처리 속도에 도움이 된다!    
+
+    - 주의 : import는 CSS파일 상단에서 처리한다!
+    */
+    /* @import url(파일주소); */
+    @import url(./common.css);
+    
+    /* 본 CSS 설정 코드는 하단에 한다! */
+    
+    /* 메인영역박스 */
+    .cont{
+        /* 패딩 15px (기존20px 재정의) */
+        padding: 15px;
+    }
+
+/* 2-1.언론사로고 */
+.prlogo img{
+    height: 32px;
+    /* 이미지는 가로,세로 중 한쪽만
+    주면 자동 비율유지를 함! */
+}
+/* 2-2.기사제목 */
+.atit{
+    /* 글자크기 fz30 */
+    font-size: 30px;
+    /* 글자두께 보통 fwn */
+    font-weight: normal;
+    /* 글자간격(자간) letter-spacing : ls 
+    기본값 0(normal), 양수는 멀어짐,음수는 가까워짐*/
+    letter-spacing: -1px;
+    /* 단어간격 word-spacing : ws 
+    기본값 0(normal), 양수는 멀어짐,음수는 가까워짐*/
+    word-spacing: 1px;
+
+    /* 줄바꿈 방지 : 공백->백공->white-space
+    값-> nowrap 박스끝에서 줄바꿈 안되고 계속감 
+         normal(기본값) 박스끝에서 줄바꿈 
+    [언제쓰나?]
+    -> 줄바꿈이 되면 안될때
+    (예: 한줄에 오는 버튼글자, 한줄에 말줄임표)     
+    */
+    /* white-space: nowrap; */
+}
+
+/* 2-3.기사사진(+사진설명) */
+.afig{
+    /* 마진 m : 2개값 -> 위아래 양쪽 */
+    margin: 15px 0;
+    /* 인라인 가로중앙 : tac */
+    text-align: center;
+}
+/* 기사이미지 */
+.afig img{
+    width: 100%;
+}
+/* 기사이미지 설명글 */
+.afig small{
+    /* 글자체 : ff */
+    font-family: 'Jua', sans-serif;
+    /* 글자크기 : fz 
+    - 글자크기 최저 한계는 10px임*/
+    font-size: 12px;
+    /* 글자색 : c */
+    color: #333;
+}
+
+
+
+/* 2-4.기사내용 */
+/* 2-5.기자정보 */
+/* 2-6.기사원문 */
+
