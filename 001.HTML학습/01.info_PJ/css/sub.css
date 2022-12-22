@@ -308,4 +308,133 @@
     /* 기본 이탤릭 해제 : fsn */
     font-style: normal;
 }
+/* 작품이미지 */
+.work img{
+    border: 15px ridge goldenrod;
+}
+
+/* 파트별 a링크 요소 공통 디자인 */
+.cont article a{
+    /* 글자크기 fz */
+    font-size: 17px;
+    /* 줄간격 lh */
+    line-height: 2.5;
+    /* 자간 ls */
+    letter-spacing: -1px;
+}
+/* 가상클래스 hover 오버시 */
+.cont article a:hover{
+    /* 글자색 c */
+    color: greenyellow;
+    /* 글자그림자 ts */
+    text-shadow: 1px 1px 1px #000;
+}
+
+/* 공통 ul */
+.cont article ul{
+    /* 리스트 타입 lst */
+    list-style-type: "🧟‍♂️";
+    /* 
+        square 사각형, disc 원형, circle 빈원
+        -> 따옴표안에 다른 문자형을 넣을 수 있음
+        -> 윈도우키+점(.) -> 아이콘 넣기
+    */
+}
+/* 공통 ol */
+.cont article ol {
+    /* 숫자형 리스트 스타일 lit */
+    list-style-type: upper-roman;
+    /* upper-roman 로마자 대문자 */
+    /* 순서를 표시하는 종류는 너무 많다~! */
+}
+
+/* 주요뉴스 li별 글자색 변경하기 */
+/* 
+    [ 자식요소 선택 가상클래스 : 자식요소 종류가 같아야함! ]
+    요소:first-child -> 첫번째 자식요소
+    요소:nth-child(n) -> n번째 자식요소
+    요소:last-child -> 마지막째 자식요소
+*/
+/* 첫번째 li */
+.cont article ul li:first-child a{
+    color: red;
+}
+.cont article ul li:nth-child(2) a{
+    color: green;
+}
+.cont article ul li:last-child a{
+    color: blue;
+}
+/* 블릿과 글자사이 간격주기 */
+.cont article ul li,
+.cont article ol li{
+    /* 패딩 left : 블릿 뒤쪽이 적용됨 */
+    padding-left: 10px;
+}
+
+/* 
+    [ CSS 적용 우선순위 ]
+    type < class < id < inline < !important
+
+    -> 더 쎈 선택자이여도 부모요소를 업고 
+    있는 것이 더 쎄다!
+    예) #my < .cont .my
+*/
+
+/* 분야별 뉴스 */
+/* 각 분야명 dt 공통 디자인 */
+.secnews dt{
+    /* 글자체 : 웹폰트 */
+    font-family: 'Black And White Picture', sans-serif;
+    /* 글자 크기만큼 디자인적용위해 dib */
+    display: inline-block;
+    /* 보더 db */
+    border: 4px dashed darkseagreen;
+    /* 패딩 p */
+    padding: 10px;
+    /* 둥근모서리 : 원 50% */
+    border-radius: 50%;
+    /* 글자크기 : fz */
+    font-size: 20px;
+    /* 왼쪽마진으로 이동하기 */
+    margin-left: 20px;
+    /* 박스그림자 : bsh 
+    (inset) x y blur spread 색 */
+    box-shadow: 
+    0 0 5px 5px rgba(207, 65, 207, 0.614);
+
+    
+}
+/* 앞에 dd가 있는 dt만 마진탑 밀기 */
+.secnews dd+dt {
+    /* 마진탑 밀기 */
+    margin-top: 20px;
+}
+
+/* 
+    [ 여러종류가 섞여 있을 경우 형제 선택하기 ]
+    요소:first-of-type -> 같은 요소 중 첫번째
+    요소:nth-of-type(n) -> 같은 요소 중 n번째
+    요소:last-of-type -> 같은 요소 중 마지막째
+*/
+
+/* dt별 글자색 다르게 하기 */
+/* dt는 형제중 dd가 섞여 있어서 -of-type을 사용! */
+.secnews dt:first-of-type{
+    color: blue;
+}
+.secnews dt:nth-of-type(2){
+    color: red;
+}
+.secnews dt:last-of-type{
+    color: green;
+}
+
+
+/* dd 공통 */
+.secnews dd{
+    /* 왼쪽마진 ml */
+    margin-left: 100px;
+}
+
 
