@@ -149,7 +149,7 @@
     /* 패딩 */
     padding: 5px;
     /* 마진 */
-    margin: 15px 0;
+    margin: 15px 20px;
 }
 /* 2-6.기사원문 
 별도의 이름없이 구조로만
@@ -436,7 +436,16 @@
     /* 왼쪽마진 ml */
     margin-left: 100px;
 }
-
+/* 사진뉴스 타이틀 */
+.pnews h3{
+    text-align: center;
+}
+/* 사진뉴스 타이틀 가상요소 아이콘 넣기 */
+/* 맨 앞 가상요소 ::before 
+태그를 사용하지 않고 요소를 넣는 방법! */
+.pnews h3::before{
+    content: '📷';
+}
 /* 사진뉴스 테이블박스 */
 .pnews table{
     /* 가로중앙이동 : 마영오씨!
@@ -471,7 +480,7 @@
     /* 가로크기 w */
     width: 50px;
     /* 세로크기 h */
-    height: 70px;
+    height: 84px;
     
     /* 인라인 가로중앙 */
     text-align: center;
@@ -512,6 +521,21 @@
     border-top: 2px solid #ccc;
 }
 
-
+/************************** 
+    말줄임 표시 셋팅하기! 
+**************************/
+ul a, ol a, dl a{
+    /* 1.디자인 적용위해 block */
+    display: block;
+    /* 2.가로크기 한계주기 */
+    width: 315px;
+    /* 3.줄바꿈방지(한줄짜리) */
+    white-space: nowrap;
+    /* 4.넘치는자식숨기기 */
+    overflow: hidden;
+    /* 5.넘치는텍스트 말줄임표 설정 */
+    text-overflow: ellipsis;
+    /* border: 1px solid red; */
+}
 
 
