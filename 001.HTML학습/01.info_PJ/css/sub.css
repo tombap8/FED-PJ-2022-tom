@@ -442,7 +442,7 @@
     /* 가로중앙이동 : 마영오씨!
     -> 블록요소 또는 table 에 적용된다!  */
     margin: 0 auto;
-    border: 1px solid #000;
+    border: 2px solid #ccc;
 
     /* 테이블 기본 사이간격 없애기 */
     border-collapse: collapse;
@@ -477,6 +477,7 @@
 /* 세번째 td */
 .pnews td:last-child{
     background-color: #e4e4e4;
+    /* 오른쪽 패딩 */
     padding-right: 7px;
 }
 
@@ -491,6 +492,12 @@
     적용되고 일반적으로는 
     vertical-align은 인라인요소간
     세로방향 정렬이다! */
+}
+
+/* 앞에 tr이 있는 tr만 하위 td에 디자인 */
+.pnews tr+tr td{
+    /* 보더탑 bdt */
+    border-top: 2px solid #ccc;
 }
 
 
