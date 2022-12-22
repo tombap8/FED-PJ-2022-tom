@@ -448,6 +448,18 @@
     border-collapse: collapse;
     /* seperate(기본값) */
 }
+/* 테이블 a요소 */
+/* 기존 .cont article a 로 셋팅된것이
+더 쎄기 때문에 여기서 윗 부모를 같은
+레벨로 넣어서 선택하면 하위에 클래스가
+요소(타입)보다 더 높기때문에 우선적용된다! */
+.cont .pnews a{
+    /* 글자크기 */
+    font-size: 14px;
+    /* 줄간격 */
+    line-height: 1.5;
+
+}
 
 /* 
     tr 이나 td에 child 선택자를 사용가능
