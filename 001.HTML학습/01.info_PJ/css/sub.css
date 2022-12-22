@@ -300,3 +300,12 @@
     background-clip: content-box;
 }
 
+/* 작품명 */
+.work figcaption{
+    font-family: 'Jua', sans-serif;
+}
+.work figcaption cite{
+    /* 기본 이탤릭 해제 : fsn */
+    font-style: normal;
+}
+
