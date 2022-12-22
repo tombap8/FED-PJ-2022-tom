@@ -90,6 +90,9 @@
     /* 글자 들여쓰기 ti
     값: 양수는 들여쓰기, 음수는 내어쓰기*/
     /* text-indent: 20px; */
+
+    /* 양쪽정렬 : taj */
+    text-align: justify;
 }
 
 /* mark요소 변경하기! */
@@ -186,5 +189,114 @@
     box-shadow: 0 0 5px darkblue;
 }
 
+/* 메인 공통 article 박스 디자인 */
+.cont article{
+    /* 구분선 : 보더 위 bdt */
+    border-top: 2px dashed #ccc;
+    /* 마진 위 mt */
+    margin-top: 40px;
+    /* 패딩 p */
+    padding: 15px;
+}
 
+/* 각 파트별 공통 타이틀 */
+
+/* 기사관련 타이틀 h5 */
+/* .cont>h5와 구분하기 위해 중간경로 article씀 */
+.cont article h5 {
+    /* 내용만큼 자동크기 위해 inline-block */
+    display: inline-block;
+    /* 패딩 : 위아래 양쪽 */
+    padding: 10px 20px;
+    /* 배경색 : bgc */
+    background-color: #ebebeb;
+    /* 헤딩요소 기본마진 없앰! */
+    margin: 0;
+    /* 둥근모서리 brad */
+    border-radius: 20px;
+
+    /* 내부그림자 : bsh 
+    inset 은 내부그림자 설정 */
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.462);
+
+    /* 글자 두께 : 얇게 (기본값) fwn */
+    font-weight: normal;
+    /* 글자 크기 : fz */
+    font-size: 20px;
+    /* 글자 들여쓰기 : ti */
+    /* text-indent: 20px; */
+    /* 글자색 c */
+    color: #333;
+}
+/* 개별파트 타이틀 h3 */
+.cont h3 {
+    /* 글자체 : 웹폰트 ff */
+    font-family: 'Black And White Picture', sans-serif;
+    /* 글자 두께 : 얇게 (기본값) fwn */
+    font-weight: normal;
+    /* 글자 크기 : fz */
+    font-size: 26px;
+    /* 글자 들여쓰기 : ti */
+    text-indent: 20px;
+    /* 글자색 c */
+    color: #333;
+}
+
+/* 주해박스 */
+.desc div {
+    /* 패딩 p : 위 양쪽 아래 */
+    padding: 20px 5px 0;
+    /* 줄간격 : lh */
+    line-height: 1.8;
+    /* 자간 : ls */
+    letter-spacing: 1px;
+    
+    /* 양쪽정렬 : taj */
+    text-align: justify;
+}
+/* 인용박스 */
+.qb blockquote {
+    /* 기본마진 없앰 */
+    margin: 0;
+    /* 패딩 p : 위 양쪽 아래 */
+    padding: 20px 5px 0;
+    /* 줄간격 : lh */
+    line-height: 1.5;
+    /* 자간 : ls */
+    /* letter-spacing: 0px; */
+
+    /* 글자크기 : fz */
+    font-size: 14px;
+    
+    /* 양쪽정렬 : taj */
+    text-align: justify;
+}
+
+/* 오늘의 작품 & 느낌 */
+.work{
+    /* 글자중앙 : tac */
+    text-align: center;
+    /* 배경색 */
+    /* background-color: lightpink; */
+
+    /* 그라데이션 -> 이미지로! bgi */
+    background-image: 
+    linear-gradient(35deg, rgb(247, 160, 231),rgb(199, 249, 197), rgb(69, 247, 241));
+    /* linear-gradient(15deg, red 10%, yellow 20%, yellow 80%, blue) */
+    /* linear-gradient(방향,색1 %,색2 %,...); 
+        * 방향: to top, to bottom, to left , to right
+        (방향에 각도를 쓰면 그라데이션 각도가 표현됨)
+        -> 방향대신 각도 : 수치deg (예: 45deg)
+        * 색상을 콤마로 나열하면 등분할 하여 
+        그라데이션 표현되고 색상뒤에 %수치를 쓰면
+        특정 비율을 나타낼 수 있다!
+    */
+    /* 배경옵션 추가!!!
+        background-clip : 배경이 적용되는 범위설정
+        1. border-box -> 보더까지 적용(기본값)
+        2. padding-box -> 패딩까지 적용
+        3. content-box -> 내용영역만적용(패딩,보더빠짐)
+    */
+    background-clip: content-box;
+}
 
