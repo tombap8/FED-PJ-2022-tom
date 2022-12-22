@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>인라인 요소의 정렬</title>
+        <style>
+            h1,h2{
+                text-align: center;
+            }
+            /* 박스공통 */
+            .bx{
+                border: 5px dotted darkblue;
+                width: 600px;
+                margin: 50px auto;/* 블록중앙정렬 */
+                padding: 5px;
+            }
+            /* 기본적으로 인라인요소나 글자는 박스의 텍스트정렬로 셋팅한다! */
+            /* 1번박스 - 가로중앙정렬*/
+            .bx1{
+                height: 100px;
+            }
+            /* 2번박스 - 가로오른쪽정렬 */
+            .bx2{
+                /* 텍스트 정렬은 인라인요소에도 동일하게 적용! */
+                height: 100px;
+            }
+            /* 3번박스 - 이미지 가로중앙정렬 */
+            .bx3{
+                height: 200px;
+            }
+            /* 인라인 요소의 세로정렬은 일반적으로 line-height를 사용한다! */
+            /* 4번박스 - 글자정중앙 */
+            .bx4{
+                width: 400px;
+                height: 400px;
+                /* 박스자식요소 인라인 가로중앙 - text-align */
+                /* 박스자식요소 인라인 세로중앙 - line-height */
+                /* 
+                    세로중앙은 높이값과 같은 값으로 설정!
+                    -> 단, 한줄짜리 글자일때만 적용
+                    보통 한줄짜리일 경우 혹시 모를 줄바꿈을 
+                    방지하기 위해 white-space: nowrap;
+                    줄바꿈방지 설정을 함!
+                 */
+                 
+            }
+
+            /* 5번박스 - 이미지 정중앙 */
+            .bx5{
+                width: 300px;
+                height: 300px;
+                
+                /* 이미지도 텍스트 정렬이 동일하게 적용됨! */
+                /* 300px + 이미지높이값 36px의 절반인 18px */
+                /* 
+                    이미지 세로중앙정렬은 이미지 높이값의 절반을
+                    line-height에 더하여 셋팅한다!
+                 */
+            }
+            /* 6번박스 - 인라인 요소간 간격밀기 : 양쪽마진으로 밀어준다! */
+            .bx6 i{
+            }
+            .bx6 strong{
+                /* 마진: 위 오른 아래 왼 */
+                /* 인라인요소의 위아래 마진은 적용되지 않는다! */
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1>인라인 요소의 정렬</h1>
+
+        <h2>박스안의 글자정렬 - 중앙정렬</h2>
+        <div class="bx bx1">
+            나는 누구인가?
+        </div>
+
+        <h2>박스안의 b태그 - 오른쪽정렬</h2>
+        <div class="bx bx2">
+            <b>나는 김수현이다!</b>
+        </div>
+
+        <h2>박스안의 img태그 - 중앙정렬</h2>
+        <div class="bx bx3">
+            <img src="imgs/blogo.png" alt="로고">
+        </div>
+
+        <h2>박스안의 글자가 박스의 정중앙에 오기</h2>
+        <div class="bx bx4">
+            나는 김수현이 좋다! 
+        </div>
+
+        <h2>박스안의 이미지가 박스의 정중앙에 오기</h2>
+        <div class="bx bx5">
+            <img src="imgs/blogo.png" alt="로고">
+        </div>
+
+        <h2>인라인 요소간 간격밀기</h2>
+        <div class="bx bx6">
+            <i>봄</i><em>여름</em><strong>가을</strong><span>겨울</span>
+        </div>
+
+    </body>
+</html>
