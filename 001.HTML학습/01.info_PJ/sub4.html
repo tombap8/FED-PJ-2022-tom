@@ -241,7 +241,12 @@
 
             <!-- 
                 [ 테이블 요소 : table ]
-                table > tr > td
+                table > tbody > tr > td
+
+                -> tbody는 안써도 브라우저가 그려준다!
+                -> 직계자식으로 선택할 경우
+                table > tr 로 선택하면 적용되지 않는
+                이유가 바로 이것이다!!!(주의!)
                 ___________________
 
                 table : 테이블 박스 부모요소
@@ -252,7 +257,9 @@
              <!-- 사진뉴스 : table -->
              <article class="pnews">
                 <h3>사진뉴스</h3>
-                <table border="1">
+                <table>
+                <!-- <table border="1"> -->
+                    <!-- border속성은 테스트용임 -->
                     <tr>
                         <td>1</td>
                         <td>

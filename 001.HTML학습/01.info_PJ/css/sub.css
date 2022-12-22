@@ -437,4 +437,62 @@
     margin-left: 100px;
 }
 
+/* 사진뉴스 테이블박스 */
+.pnews table{
+    /* 가로중앙이동 : 마영오씨!
+    -> 블록요소 또는 table 에 적용된다!  */
+    margin: 0 auto;
+    border: 1px solid #000;
+
+    /* 테이블 기본 사이간격 없애기 */
+    border-collapse: collapse;
+    /* seperate(기본값) */
+}
+
+/* 
+    tr 이나 td에 child 선택자를 사용가능
+    왜? 같은 종류의 요소만 올 수 있으므로!
+*/
+
+/* 첫번째 td - 숫자부분 */
+.pnews td:first-child{
+    /* 가로크기 w */
+    width: 50px;
+    /* 세로크기 h */
+    height: 70px;
+    
+    /* 인라인 가로중앙 */
+    text-align: center;
+    /* 배경색 */
+    background-color: #ccc;
+}
+/* 두번째 td */
+.pnews td:nth-child(2){
+    /* 배경색 */
+    background-color: #e4e4e4;
+    /* 양쪽패딩 : 위아래 양쪽 */
+    padding: 0 20px;
+}
+
+/* 세번째 td */
+.pnews td:last-child{
+    background-color: #e4e4e4;
+    padding-right: 7px;
+}
+
+/* 사진뉴스 이미지 */
+.pnews img{
+    height: 70px;
+    /* 이미지는 한쪽만
+    크기줄때 나머지는 자동비율유지 */
+    /* 세로정렬 */
+    vertical-align: middle;
+    /* td에서만 세로정렬이 
+    적용되고 일반적으로는 
+    vertical-align은 인라인요소간
+    세로방향 정렬이다! */
+}
+
+
+
 
