@@ -314,12 +314,26 @@
             글자색 - palevioletred */
             .part2 i:first-of-type{
                 /* font 한번에 쓰기에서 글씨체는 필수! */
-                font: normal bold 20px;
+                /* font: normal bold 20px; */
+                font-weight: bold;
+                font-size: 20px;
                 color: palevioletred;
             }
 
             /* 3번째 div이후 div형제요소 모두
             font - 궁서체, 글자색 - red */
+            /* .part2 div:nth-of-type(3)~div{ */
+
+            /* 3번째 div이후 i형제요소 모두
+            font - 궁서체, 글자색 - red */
+            /* .part2 div:nth-of-type(3)~i{ */
+
+            /* 3번째 div이후 모든형제요소(*)
+            font - 궁서체, 글자색 - red */
+            .part2 div:nth-of-type(3)~*{
+                font-family: "궁서";
+                color: red;
+            }
             
 
 
