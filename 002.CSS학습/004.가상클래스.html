@@ -223,8 +223,52 @@
             /* 오버시
             글자 스타일 normal */
             .part1 li:nth-child(3):hover {
-                
+                font-style: normal;/* fsn */
             }
+
+            /* 4번째 li 
+            font - 50px "궁서" 
+            글자색 dodgerblue */
+            .part1 li:nth-child(4){
+                font: 50px "궁서";
+                color: dodgerblue;
+            }
+            /* 한글(b태그) 처음에 안보이게 */
+            .part1 li:nth-child(4) b{
+                display: none;/* dn */
+            }
+            /* 오버시 한글(b태그)보이기 */
+            .part1 li:nth-child(4):hover b{
+                /* 원래 display로 돌아감!
+                b요소는 원래 inline */
+                display: inline;
+            }
+            /* 오버시 한자(span태그)숨기기 */
+            .part1 li:nth-child(4):hover span{
+                display: none;
+            }
+            /* 오버시 li에 노란배경색 넣기 */
+            .part1 li:nth-child(4):hover{
+                background-color: #ff0;
+            }
+
+            /* 4번 li 이후 모든 li를 전부 셋팅하기 */
+            /* 
+                틸드(~) 는 다중형제선택
+                선택요소~요소명
+                -> 선택요소 뒤에 있는
+                모든 형제 요소를 선택함!
+            */
+            .part1 li:nth-child(4)~li{
+                font: 25px "궁서";
+                color: orangered;
+            }
+
+            /* 오버시
+            font - 28px 
+            글자색 - blue*/
+            
+            
 
 
             /* 
