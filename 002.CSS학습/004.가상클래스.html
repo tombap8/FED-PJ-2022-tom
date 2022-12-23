@@ -137,7 +137,9 @@
                 /* 내부 인라인요소 오른쪽정렬 */
                 text-align: right;
 
-                outline: 1px solid red;
+                /* outline: 1px solid red; */
+                padding: 20px;
+                box-sizing: border-box;
             }
 
             /* 
@@ -157,10 +159,10 @@
                 list-style: none; /* lin */
             }
 
-            /* ul 기본 리셋하기 */
-            ul.part1 {
+            /* 부모박스 셋팅 */
+            ul.part1, div.part2 {
                 width: 800px;
-                margin: 0 auto;
+                margin: 30px auto;
                 padding: 20px;
                 border: 2px solid #ccc;
                 /* 둥근모서리 */
@@ -178,6 +180,8 @@
             [ font 한번에 셋팅하기! ]
             font : 스타일 두께 크기/줄간격 글자체
             font : 스두크/줄체
+            ->>> font 한번에 쓰기에서 글자체는 필수!
+            ->>> 2개이상 셋팅필수
         */
         /* 모든 li에 오버서 손가락모양 */
         .part1 li{
@@ -291,10 +295,35 @@
                 (!important는 되도록 쓰지말것!)
             */
 
+            /* 두번째 파트 
+            -> 여러종류의 요소가 섞여 있으면
+            first-of-type
+            nth-of-type(n)
+            last-of-type 
+            */
+
+            /* 두번째 div
+            font - 30px 궁서
+            글자색 - blueviolet */
+            .part2 div:nth-of-type(2){
+                font: 30px "궁서";
+                color: blueviolet;
+            }
+            /* 첫번째 i 
+            font - bold 20px
+            글자색 - palevioletred */
+            .part2 i:first-of-type{
+                /* font 한번에 쓰기에서 글씨체는 필수! */
+                font: normal bold 20px;
+                color: palevioletred;
+            }
+
+            /* 3번째 div이후 div형제요소 모두
+            font - 궁서체, 글자색 - red */
             
 
 
-            /* 
+        /* 
         [ CSS 선택자 우선순위 ]
 
         - 기본적으로 같은 선택자일 경우 아래쪽에 코딩한
