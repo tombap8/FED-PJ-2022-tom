@@ -166,8 +166,11 @@
             font-weight: bold;
         }
         
-
+        
         /* .story의 첫번째 p태그의 첫번째줄 디자인 변경하기 */
+        .story p:nth-of-type(1)::first-line{
+            color: blue;
+        }
         
 
 
@@ -178,14 +181,21 @@
             font-size: 50px;
             color: hotpink;
         }
+        .story p:nth-of-type(2) span{
+            color: blue;
+        }
+
         
 
         /* 기타 가상요소 ::selection */
         /* 드래그 선택시 글자색 배경색 설정변경! */
+        p::selection,b::selection,span::selection {
+            color: blue;
+            background-color: pink;
+        }
         
         /* ::selection만쓰면 전체가 다 적용됨! 
-        특정선택자::selection 으로 쓰면 자식태그로
-        싸지 않은 글자만 적용됨!*/
+        특정선택자::selection 으로 쓰면 자식태그로 싸지 않은 글자만 적용됨!*/
     </style>
 </head>
 
