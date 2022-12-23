@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko">
-
-<head>
-    <meta charset="UTF-8">
-    <title>004.가상클래스</title>
-    <style>
-        /*         
+    <head>
+        <meta charset="UTF-8" />
+        <title>004.가상클래스</title>
+        <style>
+            /*         
         [ 가상클래스란? ]
         - Pseudo-class 슈도클래스 라고도함
         - 의미: 마치 클래스를 준것 처럼
@@ -71,76 +70,77 @@
 
     */
 
-        /* 타이틀 중앙정렬 : 그룹선택자(,) */
-        h1,h2{
-            text-align: center;
-        }
+            /* 타이틀 중앙정렬 : 그룹선택자(,) */
+            h1,
+            h2 {
+                text-align: center;
+            }
 
-        /* a 요소 가상클래스 주기 */
+            /* a 요소 가상클래스 주기 */
 
-        /* :link 링크 최초상태 */
-        h2 a:link {
-            /* 글자색 c */
-            color: red;
-            /* 밑줄없앰 : tdn */
-            text-decoration: none;
-        }
+            /* :link 링크 최초상태 */
+            h2 a:link {
+                /* 글자색 c */
+                color: red;
+                /* 밑줄없앰 : tdn */
+                text-decoration: none;
+            }
 
-        /* :hover 마우스 오버시 */
-        h2 a:hover{
-            /* 글자색 c */
-            color: darkgreen;
-            /* 글자데코 - 윗줄 tdo */
-            text-decoration: overline;
-            /* 글자데코 스타일 tdst */
-            text-decoration-style: wavy;
-        }
+            /* :hover 마우스 오버시 */
+            h2 a:hover {
+                /* 글자색 c */
+                color: darkgreen;
+                /* 글자데코 - 윗줄 tdo */
+                text-decoration: overline;
+                /* 글자데코 스타일 tdst */
+                text-decoration-style: wavy;
+            }
 
-        /* :visited 클릭후 (방문후) 상태 */
-        /* h2 a:visited {
+            /* :visited 클릭후 (방문후) 상태 */
+            /* h2 a:visited {
             글자색
             color: lime;
         } */
 
-        /* :active 클릭 왼쪽버튼을 누른상태 */
-        h2 a:active{
-            /* 글자색 c */
-            color: pink;
-            /* 글자그림자 : ts */
-            text-shadow: 2px 2px 2px #000;
-        }
+            /* :active 클릭 왼쪽버튼을 누른상태 */
+            h2 a:active {
+                /* 글자색 c */
+                color: pink;
+                /* 글자그림자 : ts */
+                text-shadow: 2px 2px 2px #000;
+            }
 
-        /* 요즘은 a요소에 바로 셋팅하고
+            /* 요즘은 a요소에 바로 셋팅하고
         :hover 정도만 변경해 준다! */
-        h2 a{
-            /* 글자색 c */
-            color: darkorange;
-        }
+            h2 a {
+                /* 글자색 c */
+                color: darkorange;
+            }
 
-        /* :focus 요소를 클릭/탭하여 초점이 올때 */
-        h2 a:focus {
-            /* 외곽선 : outline -> ol
+            /* :focus 요소를 클릭/탭하여 초점이 올때 */
+            h2 a:focus {
+                /* 외곽선 : outline -> ol
             값: 두께 종류 색상 (boder와 유사)
             -> 보더와 차이점은 주변에 영향을
             주지 않는다.박스기본구성 속성아님
             -> 입력창 포커스갈때 아웃라인표시 등 */
-            outline: 10px dotted orangered;
-        }
+                outline: 10px dotted orangered;
+            }
 
-        /* 시인이름 */
-        h3{
-            /* 가로크기 */
-            width: 800px;
-            /* 부모박스보다 작은 크기를 가지는
+            /* 시인이름 */
+            h3 {
+                /* 가로크기 */
+                width: 800px;
+                /* 부모박스보다 작은 크기를 가지는
             블록요소에 적용된다 -> 마.영.오! */
-            margin: 0 auto;
-            /* 내부 인라인요소 오른쪽정렬 */
-            text-align: right;
+                margin: 0 auto;
+                /* 내부 인라인요소 오른쪽정렬 */
+                text-align: right;
 
-            outline: 1px solid red;
-        }
+                outline: 1px solid red;
+            }
 
-        /* 
+            /* 
             요소명.클래스명 / 요소명#아이디명
 
             [ 종속 선택자를 쓰는 경우 ]
@@ -148,68 +148,86 @@
             2. 같은 클래스를 다르게 셋팅할때
         */
 
-        /* ul / ol 요소 기본초기화! */
-        ul,ol{
-            /* 3가지 없애기! 3無! */
-            margin: 0;/* m0 */
-            padding: 0;/* p0 */
-            list-style: none;/* lin */
-        }
+            /* ul / ol 요소 기본초기화! */
+            ul,
+            ol {
+                /* 3가지 없애기! 3無! */
+                margin: 0; /* m0 */
+                padding: 0; /* p0 */
+                list-style: none; /* lin */
+            }
 
-        /* ul 기본 리셋하기 */
-        ul.part1{
-            width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            border: 2px solid #ccc;
-            /* 둥근모서리 */
-            border-radius: 20px;
-            /* 보더,패딩 설정크기 내부로
+            /* ul 기본 리셋하기 */
+            ul.part1 {
+                width: 800px;
+                margin: 0 auto;
+                padding: 20px;
+                border: 2px solid #ccc;
+                /* 둥근모서리 */
+                border-radius: 20px;
+                /* 보더,패딩 설정크기 내부로
             포함시키는 속성은? 
             box-sizing:border-box 
             bxb */
-            box-sizing: border-box;
-            /* 글자중앙 */
-            text-align: center;
-        }
+                box-sizing: border-box;
+                /* 글자중앙 */
+                text-align: center;
+            }
 
-        /* 
+            /* 
             [ font 한번에 셋팅하기! ]
             font : 스타일 두께 크기/줄간격 글자체
             font : 스두크/줄체
         */
+        /* 모든 li에 오버서 손가락모양 */
+        .part1 li{
+            /* pointer 손가락모양 */
+            cursor: pointer;
+        }
 
-
-        /* 1번 li */
-        .part1 li:first-child{
-            /* 글자크기 40px 
+            /* 1번 li */
+            .part1 li:first-child {
+                /* 글자크기 40px 
             글자체 "궁서"
             글자색 red */
-            font: 40px "궁서";
-            color: red;
-        }
-        /* 오버시 글자크기 50px 
-        글자색 blueviolet */
-        .part1 li:first-child:hover{
-            font-size: 50px;
-            color: blueviolet;
-        }
+                font: 40px "궁서";
+                color: red;
+            }
+            /* 오버시 글자크기 50px 
+            글자색 blueviolet */
+            .part1 li:first-child:hover {
+                font-size: 50px;
+                color: blueviolet;
+            }
 
-        /* 2번째 li
-        font - bold 30px 굴림 
-        글자색 - lightcoral  */
+            /* 2번째 li
+            font - bold 30px 굴림 
+            글자색 - lightcoral  */
+            .part1 li:nth-child(2) {
+                font: bold 30px "굴림";
+                color: lightcoral;
+            }
+            /* 오버시
+            글자색 skyblue */
+            .part1 li:nth-child(2):hover {
+                color: skyblue;
+            }
+            
+            /* 3번째 li 
+            font - italic bold 24px 돋움
+            글자색 - brown */
+            .part1 li:nth-child(3) {
+                font: italic bold 24px "돋움";
+                color: brown;
+            }
+            /* 오버시
+            글자 스타일 normal */
+            .part1 li:nth-child(3):hover {
+                
+            }
 
 
-
-
-
-
-
-
-
-
-
-        /* 
+            /* 
         [ CSS 선택자 우선순위 ]
 
         - 기본적으로 같은 선택자일 경우 아래쪽에 코딩한
@@ -250,51 +268,46 @@
         이런 셋팅이 있으면 JS가 적용되지 않는 경우가
         발생한다! 따라서 사용을 최대한 신중하게 해야함
       */
-    </style>
-</head>
+        </style>
+    </head>
 
-<body>
-    <h1>004.가상클래스</h1>
+    <body>
+        <h1>004.가상클래스</h1>
 
-    <h2>
-        <a href="#">진달래꽃</a>
-    </h2>
+        <h2>
+            <a href="#">진달래꽃</a>
+        </h2>
 
-    <h3>김소월</h3>
+        <h3>김소월</h3>
 
-    <ul class="part1">
-        <li>나 보기가 역겨워</li>
-        <li>가실 때에는</li>
-        <li>말없이 고이 보내 드리우리다</li>
-        <li>
-            <b>영변</b><span>寧邊</span>에 <b>약산</b><span>藥山</span>
-        </li>
-        <li>진달래꽃</li>
-        <li>아름 따다 가실 길에 뿌리우리다</li>
-        <li>가시는 걸음 걸음</li>
-        <li>놓인 그 꽃을</li>
-        <li>사뿐히 즈려밟고 가시옵소서</li>
-        <li>나 보기가 역겨워</li>
-        <li>가실 때에는</li>
-        <li>죽어도 아니 눈물 흘리우리다</li>
-    </ul>
+        <ul class="part1">
+            <li>나 보기가 역겨워</li>
+            <li>가실 때에는</li>
+            <li>말없이 고이 보내 드리우리다</li>
+            <li><b>영변</b><span>寧邊</span>에 <b>약산</b><span>藥山</span></li>
+            <li>진달래꽃</li>
+            <li>아름 따다 가실 길에 뿌리우리다</li>
+            <li>가시는 걸음 걸음</li>
+            <li>놓인 그 꽃을</li>
+            <li>사뿐히 즈려밟고 가시옵소서</li>
+            <li>나 보기가 역겨워</li>
+            <li>가실 때에는</li>
+            <li>죽어도 아니 눈물 흘리우리다</li>
+        </ul>
 
-    <div class="part2">
-        <div>나 보기가 역겨워</div>
-        <em>가실 때에는</em>
-        <div>말없이 고이 보내 드리우리다</div>
-        <em>영변에 약산</em>
-        <div>진달래꽃</div>
-        <i>아름 따다 가실 길에 뿌리우리다</i>
-        <div>가시는 걸음 걸음</div>
-        <i>놓인 그 꽃을</i>
-        <div>사뿐히 즈려밟고 가시옵소서</div>
-        <i>나 보기가 역겨워</i>
-        <div>가실 때에는</div>
-        <span>죽어도 아니 눈물 흘리우리다</span>
-    </div>
-
-
-</body>
-
+        <div class="part2">
+            <div>나 보기가 역겨워</div>
+            <em>가실 때에는</em>
+            <div>말없이 고이 보내 드리우리다</div>
+            <em>영변에 약산</em>
+            <div>진달래꽃</div>
+            <i>아름 따다 가실 길에 뿌리우리다</i>
+            <div>가시는 걸음 걸음</div>
+            <i>놓인 그 꽃을</i>
+            <div>사뿐히 즈려밟고 가시옵소서</div>
+            <i>나 보기가 역겨워</i>
+            <div>가실 때에는</div>
+            <span>죽어도 아니 눈물 흘리우리다</span>
+        </div>
+    </body>
 </html>
