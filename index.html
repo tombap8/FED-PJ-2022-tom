@@ -8,12 +8,19 @@
             margin: 0;
             padding: 0;
             height: 100%;
+            /* 보이는 화면에 기준하여 높이값을 설정함
+            -> 직계 하위 자식요소가 높이값을 %로 설정할때 
+            body가 기준이 된다!  */
         }
         body{
             /* 배경이미지넣기 bgi */
             background-image: url(./imgs/worksbg.jpg);
             /* 배경반복여부 bgr 반복안함(no-repeat) */
             background-repeat: no-repeat;
+            /* 배경고정: bga - 고정의 기준은 보이는 화면! */
+            background-attachment: fixed;
+            /* 배경위치: bgp */
+            background-position: center;
             /* 배경 크기 : 채우기(cover) bgz */
             background-size: cover;
             /* 패딩탑 pt */
@@ -45,26 +52,45 @@
     </style>
 </head>
 <body>
-    <div class="mybox">
-
+    <div class="mybox mbx1">
+        <!-- 1. 타이틀 -->
         <h1 class="tit">
             <img src="./imgs/mylogo_14.png" alt="나의로고">
             <br>
-            TOM의 아카이브 페이지</h1>
-        <h2>
-            <ol>
-                <li>
-                    <a href="./001.HTML학습/01.info_PJ/index.html" target="_blank">Info PJ</a>
-                </li>
-                <li>
-                    <a href="./001.HTML학습/01.info_PJ/sub4.html" target="_blank">IT/과학 페이지</a>
-                </li>
-                <li>
-                    <a href="./006.와이어프레이밍/도깨비PJ와이어프레임.pdf" target="_blank">도깨비 PJ 와이어프레임</a>
-                </li>
-            </ol>
-    
-        </h2>
+            TOM의 아카이브 페이지
+        </h1>
+        <div class="pwrap">
+            <!-- 1. html학습 링크파트 -->
+            <section class="part pt1">
+                <ol>
+                    <li>
+                        <a href="./001.HTML학습/01.info_PJ/index.html" target="_blank">Info PJ</a>
+                    </li>
+                    <li>
+                        <a href="./001.HTML학습/01.info_PJ/sub4.html" target="_blank">IT/과학 페이지</a>
+                    </li>
+                    <li>
+                        <a href="./006.와이어프레이밍/도깨비PJ와이어프레임.pdf" target="_blank">도깨비 PJ 와이어프레임</a>
+                    </li>
+                </ol>
+            </section>
+            <!-- 2. CSS학습 링크파트 -->
+            <section class="part pt2">
+                <ol>
+                    <li>
+                        <a href="./001.HTML학습/01.info_PJ/index.html" target="_blank">Info PJ</a>
+                    </li>
+                    <li>
+                        <a href="./001.HTML학습/01.info_PJ/sub4.html" target="_blank">IT/과학 페이지</a>
+                    </li>
+                    <li>
+                        <a href="./006.와이어프레이밍/도깨비PJ와이어프레임.pdf" target="_blank">도깨비 PJ 와이어프레임</a>
+                    </li>
+                </ol>
+
+            </section>
+        </div>
+
     </div>
     
 </body>
