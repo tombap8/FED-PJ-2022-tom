@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>배경연습 - 배경 크기 셋팅</title>
+    <style>
+        .tit{
+            text-align: center;
+        }
+        /* 부모박스 */
+        .wrap{
+            padding: 20px;
+        }
+        /* 하위 div */
+        .wrap>div{
+            /* 공통배경셋팅 */
+            /* 배경이미지 bgi */
+            background-image: url(./imgs/bg_mainvisual.jpg);
+            /* 배경반복 bgr */
+            background-repeat: no-repeat;
+            /* 배경위치 중앙 bgp */
+            background-position: center;
+
+
+            width: 50%;
+            height: 400px;
+            border: 3px dashed hotpink;
+            /* 마영오 : 블록박스 가로중앙! */
+            margin: 0 auto;
+            margin-bottom: 20px;
+            /* 둥근모서리 brad */
+            border-radius: 20px;
+        }
+        /* 종류가 섞인 div 순서대로 선택하기
+        -> :nth-of-type(n) n은 순번(1부터) */
+
+        /* 1. 가로채움 : 뒤에 auto는 생략가능! 
+        -> 비율유지(세로부분이 잘릴 수 있음) */
+        .wrap>div:nth-of-type(1){
+            background-size: 100% auto;
+        }
+        /* 2. 세로채움 
+        -> 비율유지(가로부분이 잘릴 수 있음) */
+        .wrap>div:nth-of-type(2){
+            background-size: auto 100%;
+        }
+        /* 3. 가로,세로 모두 채움 
+        -> 이미지가 모두 보이지만 변형됨(안좋음!!!) */
+        .wrap>div:nth-of-type(3){
+            background-size: 100% 100%;
+        }
+        /* 4. contain 
+        -> 배경이미지가 항상 모두보임
+        (공백이 생길수 있음), 비율유지함 */
+        .wrap>div:nth-of-type(4){
+            background-size: contain;
+        }
+        /* 5. cover
+        -> 배경이미지가 빈공간없이 박스를 채우며
+        비율을 유지함(많이사용되고 애용된다!) */
+        .wrap>div:nth-of-type(5){
+            background-size: cover;
+        }
+
+    </style>
+</head>
+<body>
+    <h1 class="tit">배경연습 - background-size</h1>
+    <div class="wrap">
+        <h2 class="tit">background-size : 100% auto</h2>
+        <div></div>
+        <h2 class="tit">background-size : auto 100%</h2>
+        <div></div>
+        <h2 class="tit">background-size : 100% 100%</h2>
+        <div></div>
+        <h2 class="tit">background-size : contain</h2>
+        <div></div>
+        <h2 class="tit">background-size : cover</h2>
+        <div></div>
+    </div>
+    
+</body>
+</html>
