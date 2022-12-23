@@ -263,11 +263,34 @@
                 font: 25px "궁서";
                 color: orangered;
             }
-
+            
             /* 오버시
             font - 28px 
             글자색 - blue*/
-            
+            .part1 li:nth-child(4)~li:hover{
+                font-size: 28px;
+                color: blue;
+            }
+
+            /* 마지막 li 변경하기
+            font - 40px "맑은 고딕"
+            글자색 - coral */
+            body .part1 li:last-child{
+                font: 40px "맑은 고딕";
+                color: coral;
+            }
+
+            /* 
+                :last-child가 적용되지 않은 이유!
+                위에서 적용한 틸드(~)선택자가
+                한단계 더 선택했으므로 우선순위가
+                올라갔다!
+                이것의 우선순위를 쉽게 변경하려면
+                상위요소를 써주면 된다! 
+                (호가호위-여우뒤에 호랑이 효과!)
+                (!important는 되도록 쓰지말것!)
+            */
+
             
 
 
