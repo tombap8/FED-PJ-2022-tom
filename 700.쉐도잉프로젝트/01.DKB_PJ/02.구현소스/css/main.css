@@ -59,10 +59,38 @@ body{
     width: 25%;
 }
 
-/* 캐릭터 이미지 */
-.cat img{
+/* 캐릭터 이미지 (.ci직계 img만적용) */
+.ci > img{
     /* 이미지 가로크기 박스채움 */
     width: 100%;
     /* 이미지 높이값은 자동(비율유지) */
 }
+
+/* 캐릭터 이름 이미지 박스 */
+.ci figcaption{
+    /* 글자중앙정렬(인라인요소 모두 적용) */
+    text-align: center;
+}
+/* 캐릭터 이름 이미지 */
+.ci figcaption img{
+    width: 40%;
+    /* 단위가 %이면 질문을 하라!
+    무엇을 기준한 %인가?
+    -> 여기서 기준은 싸고있는 부모박스
+    즉, figcation 요소박스의 가로 크기가 기준임! */
+}
+/* 캐릭터 이름 이미지 중 첫번째 이미지 처음에 숨기기 */
+.ci figcaption img:first-child{
+    display: none;
+}
+/* .cat박스에 마우스 오버시 진한 이미지 보이기 */
+.cat:hover .ci figcaption img:first-child{
+    display: inline;
+}
+/* .cat박스에 마우스 오버시 흐린 이미지 숨기기 */
+.cat:hover .ci figcaption img:last-child{
+    display: none;
+}
+
+
 
