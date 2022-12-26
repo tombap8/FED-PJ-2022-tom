@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>003.블록요소의 float</title>
+    <style>
+        /* 
+            [ 블록요소의 float ]
+            - 필요성: 블록요소는 옆에 다른요소가 올 수
+             없음 그래서 옆으로 흐르게 하는 속성셋팅이
+              필요!
+            - float 속성값:
+            1) left -> 설정요소는 왼쪽에 다른요소는
+                        오른쪽으로 흐르게 해줌
+                        왼쪽으로 흐르게 해줌
+            
+            [ float만 설정한 경우 생기는 문제! ]
+            - 하위요소가 float설정된 요소를 인지하지 못해
+            위로 올라오게됨
+            - 이것을 위해 다음 속성셋팅 필수!
+            - 대상: float을 끊어줄 블록요소
+            - clear 속성값:
+            1) left -> 이전 요소가 float:left일때
+            2) right -> 이전 요소가 float:right일때
+            3) both -> 이전 요소가 어떤 경우에 모두 지우기적용
+
+            -> 일반적으로 이전요소의 float을 
+            적용받지 않을 요소에게 clear:both를 준다!
+            (경우1)
+
+            [ 부모요소가 자식요소의 float때문에 망가질때 ]
+
+            1. 마지막 블록자식요소를 넣고 clear:both를함
+            (경우2)
+
+            2. 가상요소 ::after로 clear:both설정함
+            (경우3)
+
+            3. float된 자식요소의 부모박스에 
+                overflow:hidden 처리를 함
+                -> 자식요소 숨기기를 할 경우
+                float으로 요소가 유동적인 상태를
+                마무리하는 속성 내부적 셋팅됨!
+
+                -> 단점: 만약 자식요소가 부모요소
+                바깥으로 나가야 할 경우 숨겨져서
+                제약이 따르게 됨!!!
+                (이럴경우 위의 1,2번을 쓸것! 특히 2번추천!!!)
+
+            4. 높이값을 강제로 주는 방법도 있음(비추;;;;)
+
+            _______________________________________
+
+            [ 기존에 float셋팅된 요소 없애기 ]
+            float:none;
+
+            [ flaot에 의한 진행방향 ]
+            float:left 만 사용 : 왼쪽 -> 오른쪽
+            float:right 만 사용 : 오른쪽 -> 왼쪽
+            (경우5)
+
+        
+        */
+
+
+        h1 {
+            text-align: center;
+        }
+
+        /* 부모박스 */
+        .wrap {
+            border: 5px dashed #5e87f5;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        /* 블록박스 공통 디자인 */
+        .bx {
+            width: 300px;
+            height: 200px;
+            border: 5px ridge #ccc;
+
+            /* 배경이미지공통 */
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        /* 개별 디자인 */
+        .bx1 {
+            background-image: url(imgs/dc1.png);
+        }
+
+        .bx2 {
+            background-image: url(imgs/dc2.png);
+        }
+
+        .bx3 {
+            background-image: url(imgs/dc3.png);
+        }
+
+        .bx4 {
+            background-image: url(imgs/dc4.png);
+        }
+
+        /* 플롯관련 class */
+        .fll {
+            float: left;
+            /* 나는 왼쪽에 너는 오른쪽에 */
+        }
+
+        .flr {
+            float: right;
+            /* 나는 오른쪽에 너는 왼쪽에 */
+        }
+
+        .clb {
+            clear: both;
+            /* 양쪽다 지워! */
+        }
+
+        .cll {
+            clear: left;
+            /* 왼쪽float지워! */
+        }
+
+        .clr {
+            clear: right;
+            /* 오른쪽float지워! */
+        }
+
+        /* float해제용 가상요소 */
+        .flclb::after{
+            content: '';/* ct */
+            display: block;/* db */
+            /* 마치 div태그를 쓴것과 같다! */
+            clear: both;/* clb */
+        }
+       
+
+        /* 
+            가상요소란?
+            어떤요소의 내부에 자식요소로 직접 태그를 쓰지
+            않고 요소를 넣는 방법
+
+            - 형식:
+                요소::before{
+                    content: "나야나";
+                }
+
+                -> 콜론을 두개쓰는 이유?
+                가상클래스와 구분하기 위해!
+
+            1) ::before 맨앞에 넣기
+            2) ::after 맨뒤에 넣기
+            -> 필수속성으로 content: 값;
+            -> content값으로 url() 을 쓰면 이미지
+                글자를 쓰면 문자데이터가 들어간다!
+            -> 마치 span태그를 넣은 것과 같아짐
+                display:block로 쓰면 마치 div를 쓴것과
+                같아짐!
+        */
+
+
+        /* 경우4 */
+        .case4{
+            overflow: hidden;
+            /* float해제 효과있음! */
+        }
+        .case4 .bx{           
+            float: left;
+        }
+
+        /* 경우5 - .flclb로 clear:both처리함! */
+    </style>
+</head>
+
+<body>
+    <h1>003.블록요소의 float</h1>
+
+    <h2>경우1</h2>
+    <h3>
+        첫번째 float:left, 두번째 float:right,
+        세번째 clear:right
+    </h3>
+    <div class="wrap">
+        <div class="bx bx1 fll"></div>
+        <div class="bx bx2 flr"></div>
+        <div class="bx bx3 clr"></div>
+        <div class="bx bx4"></div>
+    </div>
+
+    <h2>경우2</h2>
+    <h3>
+        첫번째 float:left, 두번째 float:right, <br>
+        세번째 clear:both + float:left, 네번째 float:right <br>
+        clear:both를 위한 div를 마지막에 사용함!
+    </h3>
+    <div class="wrap">
+        <div class="bx bx1 fll"></div>
+        <div class="bx bx2 flr"></div>
+        <div class="bx bx3 clb fll"></div>
+        <div class="bx bx4 flr"></div>
+
+        <!-- clear를 위한 block박스 -->
+        <div class="clb"></div>
+    </div>
+
+    <h2>경우3</h2>
+    <h3>
+        첫번째 float:left, 두번째 float:right, <br>
+        세번째 clear:both + float:left, 네번째 float:right <br>
+        부모요소에 가상요소 after를 사용하여 clear:both구현
+    </h3>
+    <div class="wrap flclb">
+        <div class="bx bx1 fll"></div>
+        <div class="bx bx2 flr"></div>
+        <div class="bx bx3 fll"></div>
+        <div class="bx bx4 flr"></div>
+    </div>
+
+    <h2>경우4</h2>
+    <h3>
+        모든 .bx박스에 float:left 적용하기 <br>
+        부모박스에 overflow:hidden 적용하기
+    </h3>
+    <div class="wrap case4">
+        <div class="bx bx1"></div>
+        <div class="bx bx2"></div>
+        <div class="bx bx3"></div>
+        <div class="bx bx4"></div>
+    </div>
+
+    <h2>경우5</h2>
+    <h3>
+        모든 .bx박스에 float:right 적용하기(순서역순!) <br>
+        부모박스에 가상요소 after로 clear:both 적용하기
+    </h3>
+    <div class="wrap">
+        <div class="bx bx1"></div>
+        <div class="bx bx2"></div>
+        <div class="bx bx3"></div>
+        <div class="bx bx4"></div>
+    </div>
+
+</body>
+
+</html>
