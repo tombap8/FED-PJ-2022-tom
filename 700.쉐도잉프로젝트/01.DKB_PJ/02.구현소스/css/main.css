@@ -1,0 +1,25 @@
+@charset "utf-8";
+/* 도깨비 PJ 메인페이지 CSS - main.css
+-> 메인 페이지에만 나오는 디자인 */
+
+/* 공통 외부 CSS 합치기 */
+@import url(reset.css);
+@import url(core.css);
+@import url(common.css);
+
+/* 공사중 표시 */
+body * {
+    outline: 1px dotted gray;
+}
+
+/* 컨텐츠파트 최상위부모 */
+body{
+    /* 한번에 배경주기 + 여러개 주기 */
+    /* background : 색이반고윙/크 */
+    /* 콤마로 구분하여 여러 배경이미지를 넣을 수 있고
+    먼저쓴 이미지가 위에 온다! */
+    background: 
+    url(../images/bg_mainvisual.jpg) no-repeat fixed center/cover;
+    /* 외부CSS에서 이미지 경로를 잡을때 주의사항!
+    -> CSS파일 위치에서 이미지를 찾아가야함! */
+}
