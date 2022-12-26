@@ -18,3 +18,9 @@
 body{
     font-family: 'Nanum Gothic', sans-serif;
 }
+
+/* 중앙 속박스 클래스 */
+.ibx{
+    width: 1200px;
+    margin: 0 auto;
+}
