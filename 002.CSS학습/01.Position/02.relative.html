@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02. relative 포지션</title>
+    <style>
+        .bx{
+            width: 100px;
+            height: 100px;
+            border: 2px solid blue;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;/* fwb */
+            /* 글자세로중앙 */
+            line-height: 100px;
+        }
+
+        /* 첫번째 박스에 포지션 체크 */
+        #r1{
+            position: relative;
+
+            /* 위치이동속성 적용안됨! */
+            top: 50px;/* t숫자 */
+            left: 50px;/* l숫자 */
+
+
+            /******************************************* 
+                [ 2. relative 포지션 ]
+                - 렐러티브! 라고 읽어주세요!(상대적인)
+
+                1. 위치이동 속성이 적용된다!
+
+                2. 위치이동의 기준은 원래있던 위치임!
+                (그래서 상대적인 즉, relative라는 단어를 사용함!)
+
+                3. 이동시에 다른 요소에 영향이 없이
+                    겹쳐질 수 있다!
+                
+                4. 원래있던 위치는 그대로 보존된다!
+                    (의미: 기존위치가 보존되기 때문에
+                    본래의 디자인이 망가지지 않는다!)
+
+                5. 위치값 설정시 2가지 기준으로만 셋팅한다!
+                    - 위,아래 중 하나
+                    - 좌,우 중 하나
+                    top, left / top, right
+                    bottom, left / bottom, right
+                
+                6.
+
+
+
+            *******************************************/
+            background: url(./images/ab5.jpg) no-repeat center/cover;
+        }
+        #s1{
+            background-color: lightcoral;
+        }
+        #s2{
+            background-color: lightblue;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="bx" id="r1">r1</div>
+    <div class="bx" id="s1">s1</div>
+    <div class="bx" id="r2">r2</div>
+    <div class="bx" id="s2">s2</div>
+
+
+    
+</body>
+</html>
