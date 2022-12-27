@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS학습 - display 인라인블록(inline-block)</title>
+    <style>
+        /* 메뉴 ul기본 없애기 */
+        .menu {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            /* 3無 */
+        }
+
+        .menu li {
+            
+            width: 200px;
+            height: 150px;
+            font-size: 40px;
+            text-align: center;
+            border: 2px solid red;
+            line-height: 150px;
+
+
+
+            /* 
+                li박스를 옆으로 보내기 위한 2가지방법
+                1. float:left
+                2. display: inline-block
+                -> 보통 1번을 많이 쓰는데 왜일까?
+                답: 엔터간극때문!
+                (엄밀한 디자인, 가독성코드 때문)
+                -> 엔터사이에 주석을 넣으면
+                엔터가 없는 것으로 인식하지만
+                너무 불편하다~~~~!
+
+                [ inline-block 의 특징 ]
+                1) 인라인요소 처럼 옆으로 배열이됨
+                2) 블록요소 처럼 크기 등의 디자인이 적용됨
+                3) 가독성있는 코딩을 원할 경우
+                엔터를 치면 사이에 간극이 생김(엔터간극)
+                - 엔터간극 없애는법
+                -> 엔터를 치지 않으면 됨
+                -> 엔터부분에 주석을 넣음
+                4) 인라인블록 출신요소가 있음!
+                    -> button, input
+            */
+
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="menu">
+        <li>메뉴임</li>
+        <li>메뉴임</li>
+        <li>메뉴임</li>
+        <li>메뉴임</li>
+    </ul>
+
+    <br>
+
+    <!-- <button>난 버튼!</button>
+    <button>난 버튼!</button>
+    <button>난 버튼!</button>
+    <button>난 버튼!</button> -->
+
+
+</body>
+
+</html>
