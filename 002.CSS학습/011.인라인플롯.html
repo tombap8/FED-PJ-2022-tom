@@ -14,9 +14,9 @@
         /* 인라인요소의 float으로 오른쪽 끝으로 보내기! */
         h1 button{
             /* 오른쪽 끝으로! */
-            
+            float: right;
             /* 마진으로 위치조정! */
-            
+            margin: 10px;
         }
 
         /* 박스공통 */
@@ -49,7 +49,7 @@
         /* 캐릭터 이미지 */
         .bx img {
             width: 50%;
-            margin: 15px;
+            margin: 2%;
         }
 
         /* 
@@ -85,6 +85,7 @@
          그런데 첫번째 글자나 첫번째 줄은 가상요소로 처리할 수 있다! */
         /* 가상요소로 첫번째 줄 디자인변경하기 */
         
+        
 
         /* 개별글자색 넣기 */
         /* 
@@ -103,9 +104,28 @@
 
          /* 가상요소 ::first-line 을 사용하여 
          첫라인 타이틀 만들기 */
-         
+         .bx::first-line{
+           font-size: 30px;
+           font-weight: bold;
+           font-family: "궁서";
+           letter-spacing: -1px;
+           line-height: 100px;
+           text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.707);
+        }
 
          /* 가상요소::first-line .bx별 글자색 변경 */
+         .bx:first-of-type::first-line{
+            color: cyan;
+         }
+         .bx:nth-of-type(2)::first-line{
+            color: orange;
+         }
+         .bx:nth-of-type(3)::first-line{
+            color: hotpink;
+         }
+         .bx:last-of-type::first-line{
+            color: lightgreen;
+         }
          
 
         
@@ -119,7 +139,7 @@
     </h1>
 
     <div class="bx">
-        <img src="imgs/dc1.png" alt="김신" class="">
+        <img src="imgs/dc1.png" alt="김신" class="fll">
 
         도깨비(김신), 939세 <br><br>
 
@@ -143,7 +163,7 @@
     </div>
 
     <div class="bx">
-        <img src="imgs/dc2.png" alt="지은탁" class="">
+        <img src="imgs/dc2.png" alt="지은탁" class="flr">
 
         지은탁, 19세 <br><br>
 
@@ -161,7 +181,7 @@
     </div>
 
     <div class="bx">
-        <img src="imgs/dc3.png" alt="저승사자" class="">
+        <img src="imgs/dc3.png" alt="저승사자" class="fll">
 
         저승사자, 30대 후반 추정 <br><br>
 
@@ -176,7 +196,7 @@
     </div>
 
     <div class="bx">
-        <img src="imgs/dc4.png" alt="써니" class="">
+        <img src="imgs/dc4.png" alt="써니" class="flr">
 
         써니, 20대 중후반 <br><br>
 
