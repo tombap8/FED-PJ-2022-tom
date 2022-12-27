@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>클래스 다중적용</title>
+        <style>
+            h1{
+                text-align: center;
+            }
+            /* ul셋팅 */
+            .bx{
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                /* 블릿없앰 */
+            }
+            .bx li{
+                width: 33.333%;
+                /* 가로크기 3등분 */
+                float: left;
+                /* 블록요소 옆으로 흐르게 
+                - 나는 왼쪽, 너는 오른쪽*/
+                border: 5px solid #000;
+                padding: 15px;
+                box-sizing: border-box;
+                /* 보더,패딩을 내부로 포함함 
+                - 보더나 패딩때문에 박스가 커지면 안될경우 사용
+                - 33.333% 3등분했는데 커저서 하나가 떨어져 보이므로
+                이를 사용하였다*/
+                text-align: center;
+            }
+
+            /* 글자관련 클래스 */
+            /* 클래스명은 숫자를 뒤에 쓸 수 있으나
+            숫자로 시작할 수 없다(숫자로 시작하면 적용안됨!) */
+            .fcls1{
+                font-weight: bold;
+                color: red;
+                font-size: 24px;
+            }
+            .fcls2{
+                font-size: 32px;
+                color: blue;
+                font-style: italic;
+            }
+            .fcls3{
+                font-size: 12px;
+                color: green;
+                text-decoration: underline;
+            }
+            /* 글자크기만 변경한 클래스 - 클래스 코딩 위치 중요!!!*/
+            .fz1{
+                font-size: 38px;
+            }
+
+            /* 보더관련 클래스 */
+            /* 상위요소로 기존에 셋팅되어서 하위요소 class적용이 되지않는다
+            따라서 상위요소를 위에 써주면 적용된다(우선순위) */
+            
+
+            /* 
+                [ 클래스 다중사용 가이드 ]
+                1. 디자인분야별 별도작성된 클래스를 조합할때 사용함
+                2. 클래스 다중 사용법은 요소에 클래스속성에
+                띄어쓰기로 여러개의 클래스를 적용할 수 있다
+                예) <div class="cls1 cls2 cls3"></div>
+                3. 클래스를 다중 사용할 경우
+                같은 레벨이라면 나중에쓴 클래스가 덮어쓴다
+                -> 같은 레벨일 경우 css에서의 코딩위치가 나중인 것이 덮어쓴다!!!
+
+                상위 레벨의 디자인이 있을경우 우선순위를 높이기
+                위한 코딩이 필요하다
+                - 상위레벨 요소 선택자를 같이 쓰는 경우 순위가 올라감
+
+                -> 프로젝트나 프레임워크 또는 css솔루션 소스에서
+                다중 클래스 적용은 굉장히 흔한 코딩법이다!
+                -> 분리된 CSS 소스코딩이 깔끔한 코딩법의 비결이된다!
+
+                [ 일반적인 CSS 우선순위! ]
+                
+                !important > inline > id > class > type
+
+                -> 같은 레벨에서 부모요소를 쓴것이 우선함!
+
+
+             */
+
+        </style>
+    </head>
+    <body>
+        <h1>클래스 다중적용</h1>
+        <ul class="bx">
+            <li class="">클래스적용1</li>
+            <li class="">클래스적용2</li>
+            <li class="">클래스적용3</li>
+            <li class="">클래스적용4</li>
+            <li class="">클래스적용5</li>
+            <li class="">클래스적용6</li>
+            <li class="">클래스적용7</li>
+            <li class="">클래스적용8</li>
+            <li>클래스적용9</li>
+        </ul>
+    </body>
+</html>
