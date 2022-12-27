@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01. static 포지션</title>
+    <style>
+        .bx{
+            width: 100px;
+            height: 100px;
+            border: 2px solid blue;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;/* fwb */
+            /* 글자세로중앙 */
+            line-height: 100px;
+        }
+
+        /* 첫번째 박스에 포지션 체크 */
+        #s1{
+            position: static;
+
+            /* 위치이동속성 적용안됨! */
+            top: 100px;/* t숫자 */
+            left: 100px;/* l숫자 */
+
+            /* static의 위치이동은 margin으로! */
+            margin-top: 50px;
+            margin-left: 50px;
+
+
+            /* 
+                [ CSS의 포지션이 뭐지? ]
+                - 위치를 효과적으로 배치하기 위한
+                코딩법을 제공하는 속성
+
+                [ 1.static 포지션 ]
+                1. 설정하지 않아도 기본값
+                2. 위치이동속성(top,left,bottom,right)이
+                적용되지 않는다!
+                3. 위치이동은 margin을 사용함!
+                특징: 마진으로 위치를 이동시키면
+                아래 또는 옆의 다른 static요소가
+                영향을 받아 같이 이동됨!
+                마이너스 마진을 주면 박스가 겹쳐질 수 있음!
+
+            */
+
+
+            background-color: lightgreen;
+        }
+        #s2{
+            margin-top: -20px;
+            background-color: lightcoral;
+        }
+        #s3{
+            margin-top: -10px;
+            margin-left: 20px;
+            background-color: lightblue;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="bx" id="s1">s1</div>
+    <div class="bx" id="s2">s2</div>
+    <div class="bx" id="s3">s3</div>
+
+
+<!-- 
+    [젠코딩(에밋코딩)]
+
+    .bx#s${s$}*3
+    ________________
+    . : 클래스
+    # : 아이디
+    $ : 증가숫자자리
+    *숫자 : 반복횟수
+    {} : 데이타출력(꺽쇠사이값)
+    [] : 속성값셋팅
+    > : 하위자식요소
+    + : 형제요소
+    () : 요소구분하기 
+-->
+
+
+    
+</body>
+</html>
