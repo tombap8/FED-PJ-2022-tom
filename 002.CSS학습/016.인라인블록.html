@@ -1,31 +1,30 @@
 <!DOCTYPE html>
 <html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CSS학습 - display 인라인블록(inline-block)</title>
+        <style>
+            /* 메뉴 ul기본 없애기 */
+            .menu {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                /* 3無 */
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS학습 - display 인라인블록(inline-block)</title>
-    <style>
-        /* 메뉴 ul기본 없애기 */
-        .menu {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-            /* 3無 */
-        }
+                outline: 10px dotted blue;
+            }
 
-        .menu li {
-            
-            width: 200px;
-            height: 150px;
-            font-size: 40px;
-            text-align: center;
-            border: 2px solid red;
-            line-height: 150px;
+            .menu li {
+                display: inline-block;
+                width: 200px;
+                height: 150px;
+                font-size: 40px;
+                text-align: center;
+                border: 2px solid red;
+                line-height: 150px;
 
-
-
-            /* 
+                /* 
                 li박스를 옆으로 보내기 위한 2가지방법
                 1. float:left
                 2. display: inline-block
@@ -41,33 +40,31 @@
                 2) 블록요소 처럼 크기 등의 디자인이 적용됨
                 3) 가독성있는 코딩을 원할 경우
                 엔터를 치면 사이에 간극이 생김(엔터간극)
+
                 - 엔터간극 없애는법
                 -> 엔터를 치지 않으면 됨
                 -> 엔터부분에 주석을 넣음
+                
                 4) 인라인블록 출신요소가 있음!
                     -> button, input
             */
+            }
+        </style>
+    </head>
 
-        }
-    </style>
-</head>
+    <body>
+        <ul class="menu">
+            <li>메뉴임</li>
+            <li>메뉴임</li>
+            <li>메뉴임</li>
+            <li>메뉴임</li>
+        </ul>
 
-<body>
-    <ul class="menu">
-        <li>메뉴임</li>
-        <li>메뉴임</li>
-        <li>메뉴임</li>
-        <li>메뉴임</li>
-    </ul>
+        <br /><br />
 
-    <br>
-
-    <!-- <button>난 버튼!</button>
-    <button>난 버튼!</button>
-    <button>난 버튼!</button>
-    <button>난 버튼!</button> -->
-
-
-</body>
-
+        <button>난 버튼!</button>
+        <button>난 버튼!</button>
+        <button>난 버튼!</button>
+        <button>난 버튼!</button>
+    </body>
 </html>
