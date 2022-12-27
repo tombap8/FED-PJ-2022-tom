@@ -79,4 +79,4 @@ https://www.lazarev.agency/process
 10. 아디티 기업 DASH
 https://thisisdash.com/
 1) 드래그 기능 있음!(HOME)
-2) 흘러가는 글씨
+2) 흘러가는 글씨(ABOUT)
