@@ -97,6 +97,50 @@
             background-color: lightblue;
         }
 
+        /* 부모를 찾는 앱솔루트 */
+        .bx2{
+            border: 2px dotted orangered;
+            padding: 50px;
+            font-size: 24px;
+            text-align: center;
+        }
+        /* 각 부모박스 */
+        .s5{
+            position: relative;
+            background-color: lightblue;
+        }
+        .s6{
+            position: relative;
+            background-color: lightcoral;
+        }
+        .s7{
+            position: relative;
+            background-color: lightgreen;
+        }
+        .s8{
+            position: relative;
+            background-color: lightsalmon;
+        }
+        /* 부모찾는 앱솔루트박스 */
+        .abs{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            color: #fff;
+            background: url(./images/ab1.jpg) no-repeat center/cover;
+        }
+
+        /* .a3는 위치이동값이 없으므로
+        젠틀하다!-> 싸고 있는 박스안에
+        가만히 있는다! */
+
+        /* 부모찾는 앱솔루트 .a4 */
+        .a4{
+            top: 0;
+            left: 0;
+            /* 나의 부모는? */
+        }
+
     </style>
 </head>
 <body>
@@ -106,6 +150,19 @@
     <div class="bx" id="r2">r2</div>
     <div class="bx" id="s2">s2</div>
     <div class="bx" id="a2">a2</div>
+
+
+    <!-- 부모를 찾는 앱솔루트! -->
+    <div class="bx2 s5">s5
+        <div class="bx2 s6">s6
+            <div class="bx2 s7">s7
+                <div class="bx2 s8">s8
+                    <div class="abs a3">a3</div>
+                    <div class="abs a4">a4</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     
