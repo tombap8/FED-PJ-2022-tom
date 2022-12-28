@@ -167,6 +167,37 @@
             기준한다! */
         }
 
+        /* 앱솔루트 : 판타롱스타킹! */
+        .a5{
+            position: absolute;
+            /* 크기를 안주면 내용만큼 늘어남! */
+            top: 20%;
+            right: 10%;
+
+            outline: 2px solid red;
+        }
+        .a5 img{
+            vertical-align: top;
+            /* 
+                박스에 단일한 이미지를 넣을 경우
+                하단에 자연스런 간극 존재한다!(4px)
+                이것을 없애려면 vertical-align
+                인라인요소간 세로정렬 속성의 값으로
+                top/bottom/middle 중 어느것이든 쓰면
+                이것이 사라진다! 알아두자!
+            */
+        }
+
+        /* span 을 앱솔루트로! 
+        -> 자동 display:block 으로 전환! */
+        .spabs{
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            /* 부모는 .s8 */
+            border: 4px dotted red;
+        }
+
     </style>
 </head>
 <body>
@@ -178,6 +209,12 @@
     <div class="bx" id="a2">a2</div>
 
 
+    <!-- 앱솔루트 : 판타롱스타킹! -->
+    <div class="a5">
+        <img src="./images/ab2.jpg" alt="타노스">
+    </div>
+
+
     <!-- 부모를 찾는 앱솔루트! -->
     <div class="bx2 s5">s5
         <div class="bx2 s6">s6
@@ -185,6 +222,9 @@
                 <div class="bx2 s8">s8
                     <div class="abs a3">a3</div>
                     <div class="abs a4">a4</div>
+                    <span class="spabs">
+                        나는 span앱솔루트다!
+                    </span>
                 </div>
             </div>
         </div>
