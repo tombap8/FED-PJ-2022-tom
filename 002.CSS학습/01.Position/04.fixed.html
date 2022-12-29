@@ -5,6 +5,10 @@
     <title>04. fixed 포지션</title>
     <style>
 
+        body{
+            height: 3000px;
+        }
+
         /* fixed 박스 공통 */
         .fxd{
             position: fixed;/* pof */
@@ -34,6 +38,7 @@
                 (유의: 배경고정과는 다르다! 배경고정은 보이는
                 화면을 기준한 박스의 배경이미지를 고정해 주는것!
                 -> 반면 fixed 포지션은 요소를 고정함!)
+                
             *****************************************/
 
             width: 80%;
@@ -227,9 +232,17 @@
         보이는 화면으로 기준하여 변경됨!! */
         .f3{
             position: fixed;
-            top: 10%;
+            top: 25%;
+            right: -140px;
+            z-index: 99999;
+            /* 트랜지션: trs */
+            transition: .3s;
+        }
+        /* 마우스 오버시 나오기 */
+        .f3:hover{
             right: 0;
         }
+
         .f3 span{/* 글자박스 */
             position: absolute;
             top: 0;
