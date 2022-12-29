@@ -1,92 +1,135 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <!-- 메타요소는 페이지의 기본 정보를 전달함
+    <head>
+        <!-- 메타요소는 페이지의 기본 정보를 전달함
     이런정보를 메타정보라고 함 -->
-    <!-- 페이지 인코딩 셋팅도 메타요소로 셋팅함! 필수! -->
-    <meta charset="UTF-8">
-    <!-- meta description 사이트설명
+        <!-- 페이지 인코딩 셋팅도 메타요소로 셋팅함! 필수! -->
+        <meta charset="UTF-8" />
+        <!-- meta description 사이트설명
         (구글에서는 이것을 검색컨텐츠로 수집함) -->
-    <meta name="description" content="불멸의 삶을 끝내기 위해 인간 신부가 필요한 도깨비, 그와 기묘한 동거를 시작한 기억상실증 저승사자. 그런 그들 앞에 &#39;도깨비 신부&#39;라 주장하는 &#39;죽었어야 할 운명&#39;의 소녀가 나타나며 벌어지는 神비로운 낭만 설화." />
-    <!-- meta keywords 사이트 키워드 -->
-    <meta name="keywords" content="도깨비, 도깨비,공유,김은숙,김고은,이동욱,유인나,육성재,금토드라마" />
-    <title>도깨비 PJ - 메인페이지</title>
-    <!-- 외부CSS 불러오기(main.css만) -->
-    <link rel="stylesheet" href="./css/main.css">
-</head>
-<body>
-    <!-- 1. 상단영역 -->
-    <div id="top">
-        <header class="top ibx">
+        <meta name="description" content="불멸의 삶을 끝내기 위해 인간 신부가 필요한 도깨비, 그와 기묘한 동거를 시작한 기억상실증 저승사자. 그런 그들 앞에 &#39;도깨비 신부&#39;라 주장하는 &#39;죽었어야 할 운명&#39;의 소녀가 나타나며 벌어지는 神비로운 낭만 설화." />
+        <!-- meta keywords 사이트 키워드 -->
+        <meta name="keywords" content="도깨비, 도깨비,공유,김은숙,김고은,이동욱,유인나,육성재,금토드라마" />
+        <title>도깨비 PJ - 메인페이지</title>
+        <!-- 외부CSS 불러오기(main.css만) -->
+        <link rel="stylesheet" href="./css/main.css" />
+    </head>
+    <body>
+        <!-- 1. 상단영역 -->
+        <div id="top">
+            <header class="top ibx"></header>
+        </div>
+        <!-- 2. 메인영역 -->
+        <div id="cont">
+            <main class="cont ibx">
+                <!-- 전체 캐릭터 박스 : .cbx -->
+                <div class="cbx">
+                    <!-- 1.공유 : .cat -->
+                    <section class="cat">
+                        <!-- 1-1.캐릭터 이미지박스 : .ci -->
+                        <figure class="ci">
+                            <!-- 캐릭터 이미지 -->
+                            <img src="./images/dc1.png" alt="공유" />
+                            <!-- 캐릭터 이름 이미지 -->
+                            <figcaption>
+                                <img src="./images/d01.png" alt="진한이름" />
+                                <img src="./images/d011.png" alt="흐린이름" />
+                            </figcaption>
+                        </figure>
+                        <!-- 1-2.캐릭터 설명박스 : .cd -->
+                        <article class="cd">
+                            <!-- 캐릭터 타이틀 -->
+                            <h3>도깨비(김신), 939세</h3>
+                            <!-- 캐릭터 설명 -->
+                            <div>
+                                <p>백성들은 그를 신(神)이라고 불렀다. 시뻘건 피를 뒤집어쓴 채 푸르게 안광을 빛내며 적들을 베는 그는 문자 그대로의 무신(武神)이었으나, 자신이 지키던 주군의 칼날에 죽었다. 영웅으로 살다 역적으로 죽어가던 김신에게 천상의 존재는 상인지 벌인지 모를 늙지도 죽지도 않는 생을 주었고, 그로부터 935년 동안 도깨비로 살았다. 심장에 검을 꽂은 채로.</p>
 
-        </header>
-    </div>
-    <!-- 2. 메인영역 -->
-    <div id="cont">
-        <main class="cont ibx">
-            <!-- 전체 캐릭터 박스 : .cbx -->
-            <div class="cbx">
-                <!-- 1.공유 : .cat -->
-                <section class="cat">
-                    <!-- 1-1.캐릭터 이미지박스 : .ci -->
-                    <figure class="ci">
-                        <!-- 캐릭터 이미지 -->
-                        <img src="./images/dc1.png" alt="공유">
-                        <!-- 캐릭터 이름 이미지 -->
-                        <figcaption>
-                            <img src="./images/d01.png" alt="진한이름">
-                            <img src="./images/d011.png" alt="흐린이름">
-                        </figcaption>
-                    </figure>
-                </section>
-                <!-- 2.김고은 : .cat -->
-                <section class="cat">
-                    <!-- 2-1.캐릭터 이미지박스 : .ci -->
-                    <figure class="ci">
-                        <!-- 캐릭터 이미지 -->
-                        <img src="./images/dc2.png" alt="김고은">
-                        <!-- 캐릭터 이름 이미지 -->
-                        <figcaption>
-                            <img src="./images/d02.png" alt="진한이름">
-                            <img src="./images/d022.png" alt="흐린이름">
-                        </figcaption>
-                    </figure>
-                </section>
-                <!-- 3.이동욱 : .cat -->
-                <section class="cat">
-                    <!-- 3-1.캐릭터 이미지박스 : .ci -->
-                    <figure class="ci">
-                        <!-- 캐릭터 이미지 -->
-                        <img src="./images/dc3.png" alt="이동욱">
-                        <!-- 캐릭터 이름 이미지 -->
-                        <figcaption>
-                            <img src="./images/d03.png" alt="진한이름">
-                            <img src="./images/d033.png" alt="흐린이름">
-                        </figcaption>
-                    </figure>
-                </section>
-                <!-- 4.유인나 : .cat -->
-                <section class="cat">
-                    <!-- 4-1.캐릭터 이미지박스 : .ci -->
-                    <figure class="ci">
-                        <!-- 캐릭터 이미지 -->
-                        <img src="./images/dc4.png" alt="유인나">
-                        <!-- 캐릭터 이름 이미지 -->
-                        <figcaption>
-                            <img src="./images/d04.png" alt="진한이름">
-                            <img src="./images/d044.png" alt="흐린이름">
-                        </figcaption>
-                    </figure>
-                </section>
-            </div>
-        </main>
-    </div>
-    <!-- 3. 하단영역 -->
-    <div id="info">
-        <footer class="info ibx">
+                                <p>“오직 도깨비 신부만이 그 검을 뽑을 것이다.” 지독히 낭만적인 저주였다. 그래서 쉬울 줄 알았지만 그가 만난 어떤 여자도 검을 발견하지 못한 채 불멸을 살던 어느 날. 자신을 도깨비 신부라고 소개하는 열아홉 살 소녀 은탁과 맞닥뜨린다. 그에게 도깨비 신부는 고통에서 벗어나 소멸할 수 있는 도구였다. 달리 말하면 은탁은 자신을 죽일 수 있는 유일무이한 무기였다.</p>
 
-        </footer>
-    </div>
-    
-</body>
+                                <p>죽고 싶게 괴로운 날은 은탁의 환심을 샀다가 아직 죽긴 일러 싶은 날은 멀리 했다가 하루에도 열 두 번씩 마음이 오락가락 했다. 은탁의 웃음에 그는 몇 번이나 어딘가를 돌아보고 싶은 마음에 사로잡혔다. 돌아서 한 번 더 보려는 것이 불멸의 삶인가, 너의 얼굴인가. 아, 너의 얼굴인 것 같다</p>
+                            </div>
+                        </article>
+                    </section>
+                    <!-- 2.김고은 : .cat -->
+                    <section class="cat">
+                        <!-- 2-1.캐릭터 이미지박스 : .ci -->
+                        <figure class="ci">
+                            <!-- 캐릭터 이미지 -->
+                            <img src="./images/dc2.png" alt="김고은" />
+                            <!-- 캐릭터 이름 이미지 -->
+                            <figcaption>
+                                <img src="./images/d02.png" alt="진한이름" />
+                                <img src="./images/d022.png" alt="흐린이름" />
+                            </figcaption>
+                        </figure>
+                        <!-- 2-2.캐릭터 설명박스 : .cd -->
+                        <article class="cd">
+                            <!-- 캐릭터 타이틀 -->
+                            <h3>지은탁, 19세</h3>
+                            <!-- 캐릭터 설명 -->
+                            <div>
+                                <p>대한민국의 평범한 고3 수험생, 이고 싶지만 그녀의 인생은 태어날 때부터 평범하지 않았다. 어려서부터 다른 사람들 눈엔 보이지 않는 죽은 혼들이 보였고, 때문에 친구들 사이에선 늘 외톨이였다. 엄마 없는 하늘 아래 못된 이모와 이모를 꼭 닮은 이모 자식들의 모진 구박을 견디며 지낸 지 꼬박 십년. 온갖 불행 소스를 다 때려 넣은 잡탕 같은 이 인생이 어이가 없는 와중에, 도깨비를 만났다. 그리고 은탁은 도깨비 신부가 될 운명이란다.</p>
+
+                                <p>미스터리 호러 가난물이었던 인생에 갑자기 판타지라는 이상한 장르가 끼었다. 촛불을 끄면 항상 도깨비가 나타났다. 호기심에 불러냈던 게 습관이 되고, 안 보면 보고 싶고, 도깨비를 기다리는 일은 아직 오지 않은 좋은 미래를 기다리는 것처럼 설렜다. 감정 기복이 심해서 성가실 때도 있지만, 가슴에 검이 꽂힌 채로 살면 그렇게 되겠거니 싶어 봐주기로 한다. 근데 그 검을 나보고 뽑아달란다. 그 말이 꼭 끝내자는 말처럼 아프다.</p>
+                            </div>
+                        </article>
+                    </section>
+                    <!-- 3.이동욱 : .cat -->
+                    <section class="cat">
+                        <!-- 3-1.캐릭터 이미지박스 : .ci -->
+                        <figure class="ci">
+                            <!-- 캐릭터 이미지 -->
+                            <img src="./images/dc3.png" alt="이동욱" />
+                            <!-- 캐릭터 이름 이미지 -->
+                            <figcaption>
+                                <img src="./images/d03.png" alt="진한이름" />
+                                <img src="./images/d033.png" alt="흐린이름" />
+                            </figcaption>
+                        </figure>
+                        <!-- 3-2.캐릭터 설명박스 : .cd -->
+                        <article class="cd">
+                            <!-- 캐릭터 타이틀 -->
+                            <h3>저승사자, 30대 후반 추정</h3>
+                            <!-- 캐릭터 설명 -->
+                            <div>
+                                <p>죽는다는 건, 그와 선약이 생기는 거다. 누구나 그를 보면 놀란다. 처음엔 잘생겨서, 그 다음엔 내가 죽었구나 싶어서. 생의 마지막 순간에 마중 나오면서까지 저렇게 섹시할 필요가 있을까 싶다. 도깨비인 김신과 함께 살면서 하루에 열두 번씩 바뀌는 신의 변덕에 인내심이 한계를 느낄 때마다, 전생에 뭔 큰 죄를 짓긴 지었구나 싶지만 전생에 무엇이었는지, 인간이긴 했는지, 어떻게 저승사자가 됐는지 전혀 모른다.</p>
+
+                                <p>죽음에서 눈을 떠보니 이미 저승사자였다. 저승사자가 되고 나선 날을 세는 것을 잊어버렸다. 그가 세어나가는 것은 무수한 망자들의 혼뿐.</p>
+
+                                <p>그러던 어느 날, 우연히 마주친 한 여자, 써니에 현기증을 느꼈다. 처음 보는 게 분명한데 오래 그리워한 기분이었다. 써니의 예측 불가한 행동들은 상상력을 발휘해야 했고, 그의 서툰 행동들은 하나같이 오답이었다. 이게 다 연애를 드라마로만 배운 탓이다. 그는 헷갈렸다. 이것은 신의 계획일까, 실수일까.</p>
+                            </div>
+                        </article>
+                    </section>
+                    <!-- 4.유인나 : .cat -->
+                    <section class="cat">
+                        <!-- 4-1.캐릭터 이미지박스 : .ci -->
+                        <figure class="ci">
+                            <!-- 캐릭터 이미지 -->
+                            <img src="./images/dc4.png" alt="유인나" />
+                            <!-- 캐릭터 이름 이미지 -->
+                            <figcaption>
+                                <img src="./images/d04.png" alt="진한이름" />
+                                <img src="./images/d044.png" alt="흐린이름" />
+                            </figcaption>
+                        </figure>
+                        <!-- 4-2.캐릭터 설명박스 : .cd -->
+                        <article class="cd">
+                            <!-- 캐릭터 타이틀 -->
+                            <h3>써니, 20대 중후반</h3>
+                            <!-- 캐릭터 설명 -->
+                            <div>
+                                <p>혈혈단신 천애고아. 철없이 사는 여자가 세상 살기 가장 편하다는 걸 일찍부터 깨달았다. 남자의 외모는 내면으로 들어가는 창이고, 김중배의 다이아몬드는 잡는 게 당연한 거고, 진정한 사랑은 통장 잔고에서 느껴진다. 누군가의 첫사랑이 되는 게 세상에서 제일 쉬웠던 써니의 나이 곧 서른이었다.</p>
+
+                                <p>그 남자, 저승사자를 처음 만난 건 갖고 싶은 반지를 발견했을 때였다. 그는 그녀에게 양보하지 않은 최초의 남자였다. 첫눈에 반했다고 넘겨짚기엔 너무, 슬픈 눈이었다. 시계며 차림새만 대충 훑어도 연봉 1억에 딱 봐도 연애 못해본 모태솔로인 줄만 알았는데, 만날수록 이상한 남자다. 두문불출하기 일쑤고 직업, 나이, 과거사 그 무엇도 알려주지 않는다. 처음엔 그저 잘생긴 호구로 생각했는데, 그 슬펐던 눈이 자꾸 눈에 밟힌다. 동정은 특기가 아닌데도.</p>
+                            </div>
+                        </article>
+                    </section>
+                </div>
+            </main>
+        </div>
+        <!-- 3. 하단영역 -->
+        <div id="info">
+            <footer class="info ibx"></footer>
+        </div>
+    </body>
 </html>
