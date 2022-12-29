@@ -235,10 +235,22 @@
             top: 0;
             right: 100%;
             /* 부모는? .f3 */
+            width: 50px;
+            height: 100%;
+            /* 글자세로모드 */
+            writing-mode: vertical-lr;
             background-color: lightblue;
+            padding-left: 20px;
+            /* 둥근모서리 : 왼쪽위, 왼쪽아래
+            boder-radius: 왼위 오른위 오른아래 왼아래
+            왼쪽위부터 시계방향! */
+            border-radius: 20px 0 0 20px;
+
         }
         .f3 img{
             height: 200px;
+            /* 하단간극없앰 */
+            vertical-align: middle;
         }
 
     </style>
