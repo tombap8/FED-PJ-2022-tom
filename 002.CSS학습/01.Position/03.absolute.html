@@ -197,6 +197,9 @@
         .s8{
             position: relative;
             background-color: lightsalmon;
+            overflow: hidden;
+            /* 앱솔루트 자식에 관하여 부모자격이 있는 경우에만
+            overflow:hidden 이 적용된다! */
         }
         /* 부모찾는 앱솔루트박스 */
         .abs{
@@ -213,7 +216,9 @@
 
         /* 부모찾는 앱솔루트 .a4 */
         .a4{
-            top: 0;
+            top: -18px;
+            /* 부모자격있는 overflow:hidden 
+            체크위해 약간 위로 이동 */
             left: 0;
             /* 나의 부모는? */
             width: 20%;
