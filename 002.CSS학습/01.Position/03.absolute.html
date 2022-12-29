@@ -254,6 +254,33 @@
             border: 4px dotted red;
         }
 
+        /* 앱솔루트끼리는 서로 겹친다! */
+        .absimg{
+            width: 92px;
+            height: 115px;
+            border: 10px ridge goldenrod;
+        }
+        .absimg img{
+            position: absolute;
+            /* 젠틀앱솔루트여서
+            부모자격이 없는 일반 static
+            요소여도 그 자리에 가만히 있음!
+            -> 앱솔루트 이미지끼리는 서로 겹쳐짐
+            위,아래관계는 z-index로 변경가능 */
+        }
+        /* 두번째 이미지 닥스만 투명하게 */
+        .absimg img:last-child{
+            /* 투명도 : opacity (0-투명,1-불투명,0.몇-반투명) */
+            opacity: 0;/* op숫자 */
+            /* 트랜지션 : transition - trs */
+            transition: .5s;
+        }
+        /* 부모박스 오버시 닥스 보이기 */
+        .absimg:hover img:last-child{
+            opacity: 1;
+        }
+
+
     </style>
 </head>
 <body>
