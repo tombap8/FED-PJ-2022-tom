@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>05. sticky 포지션</title>
-    <style>
-
-        /* sticky 포지션 요소 */
-        .stk1{
-            position: sticky;
-            top: 100px;
-            left: 50px;
-            /********************************** 
+    <head>
+        <meta charset="UTF-8" />
+        <title>05. sticky 포지션</title>
+        <style>
+            /* sticky 포지션 요소 */
+            .stk1 {
+                position: sticky;
+                top: 100px;
+                left: 50px;
+                /********************************** 
                 [ 5. sticky 포지션 ]
 
                 1. 위치값 top 설정에 따라 화면에
@@ -27,163 +26,154 @@
 
             **********************************/
 
-            width: 600px !important;
-            background-color: lightpink;
+                width: 600px !important;
+                background-color: lightpink;
 
-            z-index: 9999999999;
-        }
+                z-index: 9999999999;
+            }
 
+            body {
+                height: 3000px;
+            }
 
+            /* fixed 박스 공통 */
+            .fxd {
+                position: fixed; /* pof */
 
-        body{
-            height: 3000px;
-        }
+                width: 80%;
+                height: 100px;
+                text-align: center;
+                font-size: 50px;
+                line-height: 100px;
+                color: #fff;
 
-        /* fixed 박스 공통 */
-        .fxd{
-            position: fixed;/* pof */
-          
-            width: 80%;
-            height: 100px;
-            text-align: center;
-            font-size: 50px;
-            line-height: 100px;
-            color: #fff;
+                background: url(./images/ab0.jpg) repeat-x 0 / auto 100%;
 
-            background: url(./images/ab0.jpg) repeat-x 0/auto 100%;
+                /* 맨위로 오게하기 */
+                z-index: 999;
+            }
 
-            /* 맨위로 오게하기 */
-            z-index: 999;
-        }
+            /* 두번째 fixed 박스 */
+            .f2 {
+                top: 0;
+                left: 0;
+                /* 보이는 화면 최상단! */
+                width: 100%;
+            }
 
-        /* 두번째 fixed 박스 */
-        .f2{
-            top: 0;
-            left: 0;
-            /* 보이는 화면 최상단! */
-            width: 100%;
-        }
+            .bx {
+                width: 100px;
+                height: 100px;
+                border: 2px solid blue;
+                text-align: center;
+                font-size: 24px;
+                font-weight: bold; /* fwb */
+                /* 글자세로중앙 */
+                line-height: 100px;
+            }
 
+            /* 첫번째 앱솔루트!!! */
+            #a1 {
+                position: absolute;
 
+                background: url(./images/ab1.jpg) no-repeat center/cover;
+            }
 
-        .bx{
-            width: 100px;
-            height: 100px;
-            border: 2px solid blue;
-            text-align: center;
-            font-size: 24px;
-            font-weight: bold;/* fwb */
-            /* 글자세로중앙 */
-            line-height: 100px;
-        }
+            /* 두번째 앱솔루트 */
+            #a2 {
+                position: absolute; /* poa */
+                top: 0;
+                left: 0;
+                /* 나의 부모는? 보이는 화면 */
+                background: url(./images/ab1.jpg) no-repeat center/cover;
+            }
 
-        /* 첫번째 앱솔루트!!! */
-        #a1{
-            position: absolute;
+            /* 첫번째 박스에 포지션 체크 */
+            #r1 {
+                position: relative;
+                background: url(./images/ab5.jpg) no-repeat center/cover;
+            }
 
-          
-            background: url(./images/ab1.jpg) no-repeat center/cover;
+            /* 또하나의 relative */
+            #r2 {
+                position: relative; /* por */
+                left: 100px;
+                background: url(./images/ab5.jpg) no-repeat center/cover;
+            }
 
-        }
+            #s1 {
+                background-color: lightcoral;
+            }
+            #s2 {
+                background-color: lightblue;
+            }
 
-
-        /* 두번째 앱솔루트 */
-        #a2{
-            position: absolute;/* poa */
-            top: 0;
-            left: 0;
-            /* 나의 부모는? 보이는 화면 */
-            background: url(./images/ab1.jpg) no-repeat center/cover;
-        }
-
-
-        /* 첫번째 박스에 포지션 체크 */
-        #r1{
-            position: relative;
-            background: url(./images/ab5.jpg) no-repeat center/cover;
-        }
-
-
-        /* 또하나의 relative */
-        #r2{
-            position: relative;/* por */
-            left: 100px;
-            background: url(./images/ab5.jpg) no-repeat center/cover;
-        }
-
-        #s1{
-            background-color: lightcoral;
-        }
-        #s2{
-            background-color: lightblue;
-        }
-
-        /* 부모를 찾는 앱솔루트 */
-        .bx2{
-            border: 2px dotted orangered;
-            padding: 50px;
-            font-size: 24px;
-            text-align: center;
-        }
-        /* 각 부모박스 */
-        .s5{
-            position: relative;
-            background-color: lightblue;
-        }
-        .s6{
-            position: relative;
-            background-color: lightcoral;
-        }
-        .s7{
-            position: relative;
-            background-color: lightgreen;
-        }
-        .s8{
-            position: relative;
-            background-color: lightsalmon;
-            overflow: hidden;
-            /* 앱솔루트 자식에 관하여 부모자격이 있는 경우에만
+            /* 부모를 찾는 앱솔루트 */
+            .bx2 {
+                border: 2px dotted orangered;
+                padding: 50px;
+                font-size: 24px;
+                text-align: center;
+            }
+            /* 각 부모박스 */
+            .s5 {
+                position: relative;
+                background-color: lightblue;
+            }
+            .s6 {
+                position: relative;
+                background-color: lightcoral;
+            }
+            .s7 {
+                position: relative;
+                background-color: lightgreen;
+            }
+            .s8 {
+                position: relative;
+                background-color: lightsalmon;
+                overflow: hidden;
+                /* 앱솔루트 자식에 관하여 부모자격이 있는 경우에만
             overflow:hidden 이 적용된다! */
-        }
-        /* 부모찾는 앱솔루트박스 */
-        .abs{
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            color: #fff;
-            background: url(./images/ab1.jpg) no-repeat center/cover;
-        }
+            }
+            /* 부모찾는 앱솔루트박스 */
+            .abs {
+                position: absolute;
+                width: 50px;
+                height: 50px;
+                color: #fff;
+                background: url(./images/ab1.jpg) no-repeat center/cover;
+            }
 
-        /* .a3는 위치이동값이 없으므로
+            /* .a3는 위치이동값이 없으므로
         젠틀하다!-> 싸고 있는 박스안에
         가만히 있는다! */
 
-        /* 부모찾는 앱솔루트 .a4 */
-        .a4{
-            top: -18px;
-            /* 부모자격있는 overflow:hidden 
+            /* 부모찾는 앱솔루트 .a4 */
+            .a4 {
+                top: -18px;
+                /* 부모자격있는 overflow:hidden 
             체크위해 약간 위로 이동 */
-            left: 0;
-            /* 나의 부모는? */
-            width: 20%;
-            height: 40%;
-            /* 앱솔루트인데 %로 가로,세로
+                left: 0;
+                /* 나의 부모는? */
+                width: 20%;
+                height: 40%;
+                /* 앱솔루트인데 %로 가로,세로
             크기를 줄 경우 부모자격박스를
             기준한다! */
-        }
+            }
 
-        /* 앱솔루트 : 판타롱스타킹! */
-        .a5{
-            position: absolute;
-            /* 크기를 안주면 내용만큼 늘어남! */
-            top: 20%;
-            right: 10%;
+            /* 앱솔루트 : 판타롱스타킹! */
+            .a5 {
+                position: absolute;
+                /* 크기를 안주면 내용만큼 늘어남! */
+                top: 20%;
+                right: 10%;
 
-            outline: 2px solid red;
-        }
-        .a5 img{
-            vertical-align: top;
-            /* 
+                outline: 2px solid red;
+            }
+            .a5 img {
+                vertical-align: top;
+                /* 
                 박스에 단일한 이미지를 넣을 경우
                 하단에 자연스런 간극 존재한다!(4px)
                 이것을 없애려면 vertical-align
@@ -191,156 +181,147 @@
                 top/bottom/middle 중 어느것이든 쓰면
                 이것이 사라진다! 알아두자!
             */
-        }
+            }
 
-        /* span 을 앱솔루트로! 
+            /* span 을 앱솔루트로! 
         -> 자동 display:block 으로 전환! */
-        .spabs{
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            /* 부모는 .s8 */
-            border: 4px dotted red;
-        }
+            .spabs {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                /* 부모는 .s8 */
+                border: 4px dotted red;
+            }
 
-        /* 앱솔루트끼리는 서로 겹친다! */
-        .absimg{
-            width: 92px;
-            height: 115px;
-            border: 10px ridge goldenrod;
-        }
-        .absimg img{
-            position: absolute;
-            /* 젠틀앱솔루트여서
+            /* 앱솔루트끼리는 서로 겹친다! */
+            .absimg {
+                width: 92px;
+                height: 115px;
+                border: 10px ridge goldenrod;
+            }
+            .absimg img {
+                position: absolute;
+                /* 젠틀앱솔루트여서
             부모자격이 없는 일반 static
             요소여도 그 자리에 가만히 있음!
             -> 앱솔루트 이미지끼리는 서로 겹쳐짐
             위,아래관계는 z-index로 변경가능 */
-        }
-        /* 두번째 이미지 닥스만 투명하게 */
-        .absimg img:last-child{
-            /* 투명도 : opacity (0-투명,1-불투명,0.몇-반투명) */
-            opacity: 0;/* op숫자 */
-            /* 트랜지션 : transition - trs */
-            transition: .5s;
-        }
-        /* 부모박스 오버시 닥스 보이기 */
-        .absimg:hover img:last-child{
-            opacity: 1;
-        }
+            }
+            /* 두번째 이미지 닥스만 투명하게 */
+            .absimg img:last-child {
+                /* 투명도 : opacity (0-투명,1-불투명,0.몇-반투명) */
+                opacity: 0; /* op숫자 */
+                /* 트랜지션 : transition - trs */
+                transition: 0.5s;
+            }
+            /* 부모박스 오버시 닥스 보이기 */
+            .absimg:hover img:last-child {
+                opacity: 1;
+            }
 
-
-        /* 최하위 요소일지라도 fixed되면
+            /* 최하위 요소일지라도 fixed되면
         보이는 화면으로 기준하여 변경됨!! */
-        .f3{
-            position: fixed;
-            top: 25%;
-            right: -140px;
-            z-index: 99999;
-            /* 트랜지션: trs */
-            transition: .3s;
-        }
-        /* 마우스 오버시 나오기 */
-        .f3:hover{
-            right: 0;
-        }
+            .f3 {
+                position: fixed;
+                top: 25%;
+                right: -140px;
+                z-index: 99999;
+                /* 트랜지션: trs */
+                transition: 0.3s;
+            }
+            /* 마우스 오버시 나오기 */
+            .f3:hover {
+                right: 0;
+            }
 
-        .f3 span{/* 글자박스 */
-            position: absolute;
-            top: 0;
-            right: 100%;
-            /* 부모는? .f3 */
-            width: 50px;
-            height: 100%;
-            /* 글자세로모드 */
-            writing-mode: vertical-lr;
-            background-color: lightgreen;
-            padding-left: 20px;
-            /* 둥근모서리 : 왼쪽위, 왼쪽아래
+            .f3 span {
+                /* 글자박스 */
+                position: absolute;
+                top: 0;
+                right: 100%;
+                /* 부모는? .f3 */
+                width: 50px;
+                height: 100%;
+                /* 글자세로모드 */
+                writing-mode: vertical-lr;
+                background-color: lightgreen;
+                padding-left: 20px;
+                /* 둥근모서리 : 왼쪽위, 왼쪽아래
             boder-radius: 왼위 오른위 오른아래 왼아래
             왼쪽위부터 시계방향! */
-            border-radius: 20px 0 0 20px;
-            box-shadow: inset 0 0 10px #000;
-        }
-        .f3 img{
-            height: 200px;
-            /* 하단간극없앰 */
-            vertical-align: middle;
-        }
+                border-radius: 20px 0 0 20px;
+                box-shadow: inset 0 0 10px #000;
+            }
+            .f3 img {
+                height: 200px;
+                /* 하단간극없앰 */
+                vertical-align: middle;
+            }
 
-        /* 스티키버튼 */
-        .stkbtn{
-            position: sticky;
-            top: 60%;
-            /* top은 보이는 화면기준위치다! */
-            font-size: 50px;
-        }
+            /* 스티키버튼 */
+            .stkbtn {
+                position: sticky;
+                top: 60%;
+                /* top은 보이는 화면기준위치다! */
+                font-size: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="bx" id="r1">r1</div>
+        <div class="bx" id="s1">s1</div>
+        <div class="bx" id="a1">a1</div>
+        <div class="bx" id="r2">r2</div>
 
-    </style>
-</head>
-<body>
-    <div class="bx" id="r1">r1</div>
-    <div class="bx" id="s1">s1</div>
-    <div class="bx" id="a1">a1</div>
-    <div class="bx" id="r2">r2</div>
-
-    <!-- 스크롤시 한계값 이상일때 화면에서
+        <!-- 스크롤시 한계값 이상일때 화면에서
     사라지지 않는 고정 포지션 -->
-    <div class="bx stk1">
-        나는 달라붙어! 사라지지 않아!
-    </div>
+        <div class="bx stk1">나는 달라붙어! 사라지지 않아!</div>
 
-    <div class="bx" id="s2">s2</div>
-    <div class="bx" id="a2">a2</div>
+        <div class="bx" id="s2">s2</div>
+        <div class="bx" id="a2">a2</div>
 
+        <!-- 화면고정 fixed 포지션 박스 -->
+        <div class="fxd f1">나는 젠틀 fixed다!</div>
+        <div class="fxd f2">나 fixed의 부모는 보이는 화면이다!</div>
 
-    <!-- 화면고정 fixed 포지션 박스 -->
-    <div class="fxd f1">
-        나는 젠틀 fixed다!
-    </div>
-    <div class="fxd f2">
-        나 fixed의 부모는 보이는 화면이다!
-    </div>
+        <!-- 앱솔루트 : 판타롱스타킹! -->
+        <div class="a5">
+            <img src="./images/ab2.jpg" alt="타노스" />
+        </div>
 
+        <!-- 앱솔루트끼리는 서로 겹친다! -->
+        <div class="absimg">
+            <img src="./images/ab3.jpg" alt="토르" />
+            <img src="./images/ab4.jpg" alt="닥스" />
+        </div>
 
-
-    <!-- 앱솔루트 : 판타롱스타킹! -->
-    <div class="a5">
-        <img src="./images/ab2.jpg" alt="타노스">
-    </div>
-
-    <!-- 앱솔루트끼리는 서로 겹친다! -->
-    <div class="absimg">
-        <img src="./images/ab3.jpg" alt="토르">
-        <img src="./images/ab4.jpg" alt="닥스">
-    </div>
-
-
-    <!-- 부모를 찾는 앱솔루트! -->
-    <div class="bx2 s5">s5
-        <div class="bx2 s6">s6
-            <div class="bx2 s7">s7
-                <div class="bx2 s8">s8
-                    <div class="abs a3">a3</div>
-                    <div class="abs a4">a4</div>
-                    <span class="spabs">
-                        나는 span앱솔루트다!
-                    </span>
-                    <!-- 최하위 요소일지라도 fixed되면
+        <!-- 부모를 찾는 앱솔루트! -->
+        <div class="bx2 s5">
+            s5
+            <div class="bx2 s6">
+                s6
+                <div class="bx2 s7">
+                    s7
+                    <div class="bx2 s8">
+                        s8
+                        <div class="abs a3">a3</div>
+                        <div class="abs a4">a4</div>
+                        <span class="spabs"> 나는 span앱솔루트다! </span>
+                        <!-- 최하위 요소일지라도 fixed되면
                     보이는 화면으로 기준하여 변경됨!! -->
-                    <div class="f3">
-                        <img src="./images/ab0.jpg" alt="포스터">
-                        <span>포스터보기</span>
-                    </div>
+                        <div class="f3">
+                            <img src="./images/ab0.jpg" alt="포스터" />
+                            <span>포스터보기</span>
+                        </div>
 
-    
-                    
+                        <!-- 스티키 버튼 -->
+                        <button class="stkbtn">나는 스티키!!!</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-<!-- 스티키 버튼 -->
-<button class="stkbtn">나는 스티키!!!</button>
-</body>
+        <!-- 스티키 버튼 -->
+        <button class="stkbtn">나는 스티키!!!</button>
+    </body>
 </html>
