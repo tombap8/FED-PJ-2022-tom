@@ -10,6 +10,47 @@
     left: 0;
 }
 
+/************** GNB메뉴 **************/
+/* GNB박스 width 크기를 주고 마영오! */
+.gnb{
+    width: 600px;
+    margin: 0 auto;
+}
+/* ul 초기화 (3無) */
+.gnb ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+/* li 옆으로 흐르게 float */
+.gnb li{
+    float: left;
+    text-align: center;
+    width: 150px;
+}
+/* ul박스 가상요소로 clear처리 */
+.gnb ul::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+/* GNB a요소 */
+.gnb a{
+    /* 글자색,밑줄없앰 */
+    color: lime;
+    text-decoration: none;
+    
+    font-size: 30px;
+    /* 그림자로 글자 테두리주기
+    블러없는 그림자 4개사용 */
+    text-shadow: 
+        1px 0 #000,
+        -1px 0 #000,
+        0 1px #000,
+        0 -1px #000;
+
+}
+
 html,
 body {
     margin: 0;
@@ -42,8 +83,16 @@ body {
     background-size: cover;
 }
 /* 두번째 페이지박스 */
-.mbx2{
-    background-image: url(../imgs/bg_mainvisual.jpg);
+#pg2{
+    background-image: url(../imgs/001.jpg);
+}
+/* 세번째 페이지박스 */
+#pg3{
+    background-image: url(../imgs/002.jpg);
+}
+/* 네번째 페이지박스 */
+#pg4{
+    background-image: url(../imgs/005.jpg);
 }
 
 /* 페이지별 컨텐츠 박스 */
