@@ -128,7 +128,7 @@
         /* #tr3에 트랜지션 설정 */
         #tr3 span{
             /* 위치이동 */
-            left: -10%;
+            left: -2%;
             /* 크기변경 */
             width: 50px;
             height: 50px;
@@ -151,7 +151,12 @@
             height: 400px;
             /* 배경색변경 */
             background-color: lightgreen;
-            
+
+            /* 오버시 트랜지션 별도로 지정하기 */
+            transition: 
+            all 5s, 
+            top 1s ease-out 4s;
+            /* 전체는 5초간 애니, top속성만 4초후 1초간 마지막에 천천히 애니 */
         }
         
         
