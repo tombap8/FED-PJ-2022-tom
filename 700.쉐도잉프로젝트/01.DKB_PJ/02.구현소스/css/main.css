@@ -147,9 +147,13 @@ body{
     display: inline-block;
     width: 20px;
     height: 35px;
+    /* 인라인요소간 세로정렬 */
     vertical-align: -6px;
     margin-right: 5px;
-    background-color: red;
+    background: url(../images/bg_logo_a_01.png) no-repeat -144px -181px;
+    /* 배경이미지위치값은 본 이미지를 그림판으로 열어서
+    마우스 커서 위치에 따라 표시되는 x,y축 좌표값을
+    마이너스 기호를 붙여서 가로,세로순으로 써주면 정확한 위치가된다! */
 }
 
 /* 캐릭터 설명문단 */
@@ -162,5 +166,27 @@ body{
     text-align: justify;
 }
 
+/* 캐릭터 첫번째 문단 첫글자 가상요소로 디자인 변경하기! */
+.cd p:first-child::first-letter{
+    font-size: 50px;
+    color: cyan;
+    /* 그림자로 글자 테두리주기
+    블러없는 그림자 4개사용 */
+    text-shadow: 
+        1px 0 #000,
+        -1px 0 #000,
+        0 1px #000,
+        0 -1px #000;
+}
+/* 각 캐릭터 박스별 첫글자 색 변경 - 3개변경 */
 
+.cat:nth-child(2) .cd p:first-child::first-letter{
+    color: lightgreen;
+}
+.cat:nth-child(3) .cd p:first-child::first-letter{
+    color: lightseagreen;
+}
+.cat:nth-child(4) .cd p:first-child::first-letter{
+    color: lightpink;
+}
 
