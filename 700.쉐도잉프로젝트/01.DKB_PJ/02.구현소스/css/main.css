@@ -8,9 +8,9 @@
 @import url(common.css);
 
 /* 공사중 표시 */
-body * {
+/* body * {
     outline: 1px dotted red;
-}
+} */
 
 /* 컨텐츠파트 최상위부모 */
 body{
@@ -123,6 +123,12 @@ body{
     /* 배경넣기 */
     background: url(../images/eachBG.jpg) no-repeat bottom/cover;
 
+    /* 둥근모서리 : 왼쪽위 부터 시계방향 */
+    border-radius: 20px 5px 5px 20px;
+
+    /* 윗쪽여백 */
+    margin-top: 20px;
+
     /* 트랜지션 
     - 두가지변화상태를 애니메이션해주는 속성 
     transition: 속성 시간 이징 지연 */
@@ -177,6 +183,8 @@ body{
         -1px 0 #000,
         0 1px #000,
         0 -1px #000;
+    /* 글자크기로 인해 줄간격조정 */
+    line-height: 1;
 }
 /* 각 캐릭터 박스별 첫글자 색 변경 - 3개변경 */
 
