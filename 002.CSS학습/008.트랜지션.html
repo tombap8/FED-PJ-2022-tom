@@ -144,7 +144,7 @@
         /* 오버시 트랜지션 별도 설정하기! */
         #tr3:hover span{
             /* 위치이동 */
-            top: -200px;
+            top: -1200px;
             left: 70%;
             /* 크기변경 */
             width: 400px;
@@ -166,8 +166,39 @@
             속시이지 순으로 셋팅하고 콤마로 구분한다!
         */
         #tr4 span{
+            /* 위치이동 */
+            left: 10%;
+            /* 크기변경 */
+            width: 10px;
+            height: 10px;
+            /* 배경색변경 */
+            background-color: royalblue;
+            /* 트랜지션 원본(양방향/돌아올때) */
+            transition: 
+            left 5s ease-in-out .5s,
+            /* left는 5초간 처음과 끝에 천천히 0.5초기다림 */
+            width 3s ease-out 1s,
+            /* width는 3초간 끝에 천천히 1초기다림 */
+            height 1s ease-in 2s,
+            /* height는 1초간 처음에 천천히 2초기다림 */
+            background-color 3s linear 3s;
+            /* 배경색은 3초간 등속도로 3초기다림 */
             
         }
+        /* 체크박스가 체크되면 그 다음 형제요소를 변경하여
+        클릭시 변경된것처럼 작동시킨다! */
+        #chkbx:checked + span{
+            /* 위치이동 */
+            left: 70%;
+            /* 크기변경 */
+            width: 500px;
+            height: 300px;
+            /* 배경색변경 */
+            background-color: olivedrab;
+            
+        }
+
+
         
         
     </style>
@@ -192,9 +223,42 @@
     </div>
 
     <h2>4.원본에 트랜지션을 각 속성별로 다르게 준다</h2>
-    <div id="tr4">        
+    <div id="tr4">    
+        <label for="chkbx">체크하면 작동!</label> 
+        <input type="checkbox" name="chkbx" id="chkbx">   
         <span></span>
+        <!-- 체크박스 다음에 변경할 요소가 와야함!
+        그래야 형제선택자로 변경을 할 수 있음! -->
     </div>
+
+    <!--     
+        [ 체크박스를 응용한 클릭이벤트 작동 CSS로 구현 ]
+        label 요소 : input 입력요소의 네임태그이며 
+                    서로 for 속성으로 연결됨
+                    for의 값은 input 요소의 id값이다!
+        input 요소 : 여러종류의 입력양식이 있음
+                    checkbox -> 체크박스형식
+                    text -> 글자입력형식
+                    password -> 비번입력형식
+                    radio -> 라디오버튼형식 
+            -> name 속성은 무엇? 백엔드에서 값을 읽어갈때
+                기본적으로 name속성의 값으로 읽어간다! 필수셋팅!
+            -> id 속성은 label의 for와 연결하므로 필수셋팅!
+
+            [클릭 이벤트처럼 효과내기]
+            :checked 라는 가상클래스를 사용!
+            + 형제요소 선택자를 사용!
+
+            ->> 체크박스:checked + 변경할요소 { 변경내용 }
+
+            -> 라벨은 서로 붙여서 코딩하지 않아도 되므로
+            다른곳에 원하는 디자인요소를 구현후 이것을 클릭하면
+            체크박스가 체크되므로 기능이 작동함!
+
+            -> 체크박스는 display:none으로 처리하여 숨겨놓아도
+            동일한 작동을 할 수 있음!
+
+     -->
 </body>
 
 </html>
