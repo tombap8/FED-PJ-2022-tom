@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>05. sticky 포지션 응용</title>
+        <style>
+            html,body{
+                margin: 0;
+                padding: 0;
+            }
+            body{
+                height: 3000px;
+            }
+
+            /* 공통박스 */
+            .bx{
+                /* 포지션 스티키! */
+                position: sticky;
+                top: 0;
+                text-align: center;
+                margin-top: 300px;
+            }
+
+            /* 스티키 top값 개별설정 */
+            .bx:nth-child(2){
+                top: 104px;
+            }
+            .bx:nth-child(3){
+                top: calc(104px*2);
+            }
+            .bx:nth-child(4){
+                top: calc(104px*3);
+            }
+            .bx:nth-child(5){
+                top: calc(104px*4);
+            }
+            .bx:nth-child(6){
+                top: calc(104px*5);
+            }
+            .bx:nth-child(7){
+                top: calc(104px*6);
+            }
+
+            /********************************* 
+                [ CSS 계산 내장함수 : calc() ]
+
+                1. 사칙연산을 수행함
+
+                2. 덧셈과 뺄셈 연산
+                    1) 기호 앞뒤를 반드시 띄어쓴다
+                    2) 숫자에 단위가 꼭 붙어야한다
+
+                    예) width : calc(100% - 70px);
+                
+                3. 곱셈과 나눗셈 연산
+                    1) 기호를 붙여써도 된다
+                    2) 곱하거나 나누는 수는 단위가 없다
+
+                    예) width : calc(50px/5);
+
+
+            
+            *********************************/
+
+        </style>
+    </head>
+    <body>
+        <div class="bx">
+            <img src="./sticky_imgs/picaso_01.jpg" alt="picaso">
+        </div>
+        <div class="bx">
+            <img src="./sticky_imgs/picaso_02.jpg" alt="picaso">
+        </div>
+        <div class="bx">
+            <img src="./sticky_imgs/picaso_03.jpg" alt="picaso">
+        </div>
+        <div class="bx">
+            <img src="./sticky_imgs/picaso_04.jpg" alt="picaso">
+        </div>
+        <div class="bx">
+            <img src="./sticky_imgs/picaso_05.jpg" alt="picaso">
+        </div>
+        <div class="bx">
+            <img src="./sticky_imgs/picaso_06.jpg" alt="picaso">
+        </div>
+        <div class="bx">
+            <img src="./sticky_imgs/picaso_07.jpg" alt="picaso">
+        </div>
+    </body>
+</html>
