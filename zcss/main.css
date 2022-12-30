@@ -1,6 +1,15 @@
 @charset "utf-8";
 /* 아카이브 CSS - main.css */
 
+/* 상단영역 */
+#top{
+    position: fixed;
+    width: 100%;
+    /* 판타롱스타킹 이므로 100%로 가로폭 확장! */
+    top: 0;
+    left: 0;
+}
+
 html,
 body {
     margin: 0;
