@@ -1,13 +1,21 @@
 @charset "utf-8";
 /* 아카이브 CSS - main.css */
 
+html{
+    scroll-behavior: smooth;
+    /* #아이디명 스크롤 이동시 부드럽게 애니메이션 이동함! */
+}
+
 /* 상단영역 */
 #top{
     position: fixed;
     width: 100%;
     /* 판타롱스타킹 이므로 100%로 가로폭 확장! */
+    height: 300px;
     top: 0;
     left: 0;
+    /* 맨위로 올리기 */
+    z-index: 9999;
 }
 
 /************** GNB메뉴 **************/
@@ -39,7 +47,7 @@
     /* 글자색,밑줄없앰 */
     color: lime;
     text-decoration: none;
-    
+
     font-size: 30px;
     /* 그림자로 글자 테두리주기
     블러없는 그림자 4개사용 */
@@ -97,6 +105,12 @@ body {
 
 /* 페이지별 컨텐츠 박스 */
 .pwrap {
+    position: relative;
+    top: 300px;
+    height: calc(100% - 350px);
+    /* 부모높이값 보다 300px만큼 조금더 그 크기를 뺀
+    높이값은 calc()로 계산한다! */
+
     background-color: rgba(255, 255, 255, 0.525);
     /* 둥근모서리 brad */
     border-radius: 20px;
