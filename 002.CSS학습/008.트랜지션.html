@@ -91,27 +91,66 @@
         /* 트랜지션을 hover가 아닌 원래 요소에 주면
         양방향 모두 동시적용된다! */
         #tr1 span{
-            
+            /* transition: all 2s; */
+            transition: 2s;
+            /* 앞에 속성을 생략하거나 all 이라고 쓰면
+            모든 속성이 변경될때 애니메이션함! */
         }
         #tr1:hover span{
-            
+            /* 위치이동 */
+            left: 50%;
+            /* 배경색변경 */
+            background-color: orange;
+            /* 다시 사각형으로! */
+            border-radius: 0;
         }
 
         /* #tr2에 트랜지션 설정을 하지 않음! */
         #tr2 span{
-            
+            width: 100px;
+            height: 100px;
         }
         /* 오버시에만 트랜지션을 주면 오버시에만 적용됨! */
         #tr2:hover span{
+            /* 위치이동 */
+            left: 70%;
+            /* 크기변경 */
+            width: 300px;
+            height: 300px;
+            /* 배경색변경 */
+            background-color: lightseagreen;
+
+            /* 오버시에만 트랜지션주기 */
+            transition: 3s;
             
         }
 
         /* #tr3에 트랜지션 설정 */
         #tr3 span{
+            /* 위치이동 */
+            left: -10%;
+            /* 크기변경 */
+            width: 50px;
+            height: 50px;
+            /* 배경색변경 */
+            background-color: palevioletred;
+            /* 트랜지션 원본(양방향/돌아올때) */
+            transition: 
+            all 2s, 
+            background-color 5s 2s;
+            /* 전체 2초가 애니, 배경만 2초후 5초간 애니 */
             
         }
         /* 오버시 트랜지션 별도 설정하기! */
         #tr3:hover span{
+            /* 위치이동 */
+            top: -200px;
+            left: 70%;
+            /* 크기변경 */
+            width: 400px;
+            height: 400px;
+            /* 배경색변경 */
+            background-color: lightgreen;
             
         }
         
