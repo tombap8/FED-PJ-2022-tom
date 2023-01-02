@@ -47,4 +47,19 @@ body{
     border-radius: 50%;
     /* 마영오! */
     margin: 0 auto;
+    /* 글러우 효과 : 박스그림자 응용 
+    box-shadow: x y blur spread 색
+    inset은 내부그림자 */
+    box-shadow: 
+    0 0 50px 10px cyan,
+    inset 0 0 30px lightgreen;
+}
+
+/* 캐릭터박스 */
+.cbx{
+    /* 앱솔루트 포지션 
+    위치값 주기전 상태:
+    모두겹칩,싸고있는 박스에 그대로 있고(젠틀),
+    크기는 내용만큼 자동, 나중것이 기본위*/
+    position: absolute;
 }
