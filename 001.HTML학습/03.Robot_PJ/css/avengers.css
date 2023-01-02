@@ -9,6 +9,10 @@
     font-family: 'Single Day', cursive;
 */
 
+html{
+    scroll-behavior: smooth;
+    /* #아이디 a요소 이동시 부드러운 스크롤 애니작동됨! */
+}
 
 /* 초기화 */
 html,body,h1,h2,ul,ol{
