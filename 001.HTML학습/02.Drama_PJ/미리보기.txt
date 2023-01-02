@@ -1,0 +1,9 @@
+[ Drama PJ 미리보기 ]
+
+1. 월화/수목드라마
+
+https://tombap8.github.io/KITA-FED212/001.HTML학습/002.Drama_PJ/drama1.html
+
+2. 최신드라마 리스트
+
+https://tombap8.github.io/KITA-FED212/001.HTML학습/002.Drama_PJ/dramaTable.html
