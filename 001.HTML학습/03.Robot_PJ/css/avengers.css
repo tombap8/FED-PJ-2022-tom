@@ -110,5 +110,32 @@ body{
     border-radius: 50%;
 
     /* 글로우효과 */
-    box-shadow: 0 0 30px lightgreen;
+    box-shadow: 0 0 30px 10px lightgreen;
+}
+
+/* 2-1. 아이언맨 */
+.cbx:nth-child(1){
+    top: -9%;
+    left: -81%;
+}
+/* 2-2.타노스 */
+.cbx:nth-child(2){
+    top: -9%;
+    left: 121%;
+}
+/* 2-3.토르 */
+.cbx:nth-child(3){
+    top: 82%;
+    left: -81%;
+}
+/* 2-4.닥스 */
+.cbx:nth-child(4){
+    top: 82%;
+    left: 121%;
+}
+/* 2-5.스타로드 */
+.cbx:nth-child(5){
+    top: 130%;
+    /* left는 중앙위치이므로
+    셋팅하지 않음! */
 }
