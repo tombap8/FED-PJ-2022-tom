@@ -24,3 +24,27 @@ body{
     /* 배경이미지 채우기 */
     background: url(../ab_img/space.jpg) no-repeat fixed center/cover;
 }
+
+/* 1. 전체 타이틀 */
+.tit{
+    font-family: 'Monoton', cursive;
+    color: #fff;
+    font-size: 70px;
+    /* 글자두께 보통 */
+    font-weight: normal;
+    text-align: center;
+    /* 위아래 패딩 */
+    padding: 50px 0;
+}
+
+/* 2. 메인 캐릭터 박스 */
+.abx{
+    width: 300px;
+    height: 400px;
+    /* 배경이미지 */
+    background: url(../ab_img/ab0.jpg) no-repeat center/cover;
+    /* 둥근모서리 -> 원형 50% */
+    border-radius: 50%;
+    /* 마영오! */
+    margin: 0 auto;
+}
