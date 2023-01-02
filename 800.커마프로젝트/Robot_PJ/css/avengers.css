@@ -236,7 +236,7 @@ padding과 border 때문에 숨겨지지 않음!
     border: 2px solid limegreen;
     padding: 15px;
     border-radius: 15px;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 /* .cbx에 오버시 글자박스 보이기 */
