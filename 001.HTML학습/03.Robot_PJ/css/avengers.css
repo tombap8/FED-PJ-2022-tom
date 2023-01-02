@@ -23,6 +23,8 @@ a{
 body{
     /* 배경이미지 채우기 */
     background: url(../ab_img/space.jpg) no-repeat fixed center/cover;
+    /* 전체 body 스크롤바 숨기기 */
+    overflow: hidden;
 }
 /* body의 높이값을 보이는 화면에 맞추기 */
 html,body{
@@ -103,6 +105,9 @@ html,body{
     /* 박스테두리 */
     /* outline: 3px dotted yellow; */
 
+    /* 처음에 투명 */
+    opacity: 0;
+
     /* 트랜지션: 속시이지 */
     transition: .8s ease-in-out;
 }
@@ -133,6 +138,11 @@ html,body{
     box-shadow: 0 0 30px 10px lightgreen;
 }
 
+/* body에 오버시 전체 opacity 보이게하기 */
+body:hover .cbx{
+    opacity: 1;
+}
+
 /* 2-1. 아이언맨 */
 body:hover .cbx:nth-child(1){
     top: -9%;
@@ -158,4 +168,53 @@ body:hover .cbx:nth-child(5){
     top: 130%;
     /* left는 중앙위치이므로
     셋팅하지 않음! */
+}
+
+/* 캐릭터 설명박스 공통 */
+.cd{
+    position: absolute;
+    top: 50%;
+    /* 처음에 내려가 있고 
+    오버시 0으로 top값 올라옴! */
+
+    /* 부모는? .cbx */
+
+    /* 박스셋팅 */
+    width: 300px;
+    border: 2px solid #fff;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.4);
+
+    /* 글자셋팅 */
+    font-family: 'Single Day', cursive;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+
+    /* 처음에 투명하게 */
+    opacity: 0;
+
+    /* 트랜지션: 속시이지 */
+    transition: .4s ease-out;
+
+}
+
+/* .cbx에 오버시 글자박스 보이기 */
+.cbx:hover .cd{
+    top: 0;
+    opacity: 1;
+}
+
+
+/* 왼쪽 진영 글자박스 클래스 */
+.ltxt {
+    left: -230%;
+}
+/* 왼쪽 진영 제목 오른쪽정렬 */
+.ltxt h2{
+    text-align: right;
+}
+/* 오른쪽 진영 글자박스 클래스 */
+.rtxt {
+    right: -230%;
 }
