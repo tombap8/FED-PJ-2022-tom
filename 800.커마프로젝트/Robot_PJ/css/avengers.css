@@ -281,6 +281,7 @@ padding과 border 때문에 숨겨지지 않음!
     height: 600px;
     margin: 0 auto;
     margin-top: 100px;
+    border: 20px ridge goldenrod;
 }
 /* 아이프레임 */
 .mvbx iframe{
@@ -307,11 +308,13 @@ padding과 border 때문에 숨겨지지 않음!
     z-index: 99999;/* 제일위! */
 }
 /* 가상클래스로 화살표모양 넣기 */
-#pg1 .gobtn::after{
-    content: '👇';
+#pg1 .gobtn::after,
+#pg1 .gobtn::before{
+    content: '🎃';
 }
-#pg2 .gobtn::after{
-    content: '👆';
+#pg2 .gobtn::after,
+#pg2 .gobtn::before{
+    content: '🎯';
 }
 /* 개별위치 */
 #pg1 .gobtn{
