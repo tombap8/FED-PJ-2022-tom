@@ -181,10 +181,7 @@ body:hover .cbx:nth-child(5){
 
     /* 박스셋팅 */
     width: 300px;
-    border: 2px solid #fff;
-    padding: 15px;
-    border-radius: 15px;
-    background-color: rgba(255, 255, 255, 0.4);
+    
 
     /* 글자셋팅 */
     font-family: 'Single Day', cursive;
@@ -197,6 +194,17 @@ body:hover .cbx:nth-child(5){
     /* 트랜지션: 속시이지 */
     transition: .4s ease-out;
 
+}
+
+/* .cd 직계 하위 div로 디자인 이전하기
+-> 만든이유: height값을 0으로 숨기려는데
+padding과 border 때문에 숨겨지지 않음!
+따라서 이것을 직계하위 div로 이전함! */
+.cd > div {
+    border: 2px solid #fff;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.4);
 }
 
 /* .cbx에 오버시 글자박스 보이기 */
