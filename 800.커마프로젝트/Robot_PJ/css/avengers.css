@@ -2,11 +2,10 @@
 /* 어벤저스 CSS - avengers.css */
 
 /* 웹폰트 */
-@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Single+Day&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Yeon+Sung&display=swap');
 /* 
-    font-family: 'Monoton', cursive;
-    font-family: 'Single Day', cursive;
+    font-family: 'Nanum Pen Script', cursive;
+    font-family: 'Yeon Sung', cursive;
 */
 
 html{
@@ -55,14 +54,18 @@ html,body{
     width: 100%;
     z-index: 9999;/* 가장위 */
 
-    font-family: 'Monoton', cursive;
+    font-family: 'Yeon Sung', cursive;
     color: #fff;
     font-size: 70px;
     /* 글자두께 보통 */
     font-weight: normal;
     text-align: center;
+    text-shadow: 0 0 5px #000;
+
     /* 위아래 패딩 */
     padding: 50px 0;
+
+
 }
 
 /* 1. 페이지박스 공통 */
@@ -207,7 +210,8 @@ body:hover .cbx:nth-child(5){
     
 
     /* 글자셋팅 */
-    font-family: 'Single Day', cursive;
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 25px;
     color: #fff;
     text-shadow: 1px 1px 1px #000;
 
@@ -219,6 +223,10 @@ body:hover .cbx:nth-child(5){
 
 }
 
+.cd h2{
+    font-size: 35px;
+}
+
 /* .cd 직계 하위 div로 디자인 이전하기
 -> 만든이유: height값을 0으로 숨기려는데
 padding과 border 때문에 숨겨지지 않음!
@@ -227,7 +235,7 @@ padding과 border 때문에 숨겨지지 않음!
     border: 2px solid #fff;
     padding: 15px;
     border-radius: 15px;
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 /* .cbx에 오버시 글자박스 보이기 */
