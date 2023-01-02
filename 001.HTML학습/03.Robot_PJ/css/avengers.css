@@ -39,6 +39,8 @@ body{
 
 /* 2. 메인 캐릭터 박스 */
 .abx{
+    position: relative;
+    /* 부모자격 - .cbx의 부모 */
     width: 300px;
     height: 400px;
     /* 배경이미지 */
@@ -62,6 +64,20 @@ body{
     모두겹칩,싸고있는 박스에 그대로 있고(젠틀),
     크기는 내용만큼 자동, 나중것이 기본위*/
     position: absolute;
+    top: calc(50% - 75px);
+    left: calc(50% - 75px);
+    /* 부모는? .abx */
+
+    /* 
+        [앱솔루트 자식박스 
+        부모박스의 정중앙 위치하기]
+        top : calc(50% - 자기height절반)
+        left : calc(50% - 자기width절반)
+        -> 원리: 50%밀고 자신크기절반 빼서
+        정중앙으로 위치를 이동하는 것!
+        계산은 calc() CSS함수를 사용!
+        (+,- 연산시 기호 앞뒤를 꼭 띄어쓴다!)
+    */
 
     /* 박스크기 설정 */
     width: 150px;
@@ -79,7 +95,7 @@ body{
     height: 100%;
     object-fit: cover;
     /* 
-        object-fit 속성
+        [ object-fit 속성 ]
         -> 이미지나 동영상을 박스에 맞출때
         옵션을 설정해 주는 속성
         1. fill : 설정값에 강제적용(기본값)
