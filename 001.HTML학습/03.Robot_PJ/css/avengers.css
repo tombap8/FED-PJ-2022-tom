@@ -258,8 +258,8 @@ padding과 border 때문에 숨겨지지 않음!
 
 /* 서브타이틀 */
 .subtit{
-    position: static;
-    top: 210px;
+    position: sticky;
+    top: 100px;
     padding: 50px 0;
     text-align: center;
     color: #fff;
