@@ -24,6 +24,23 @@ body{
     /* 배경이미지 채우기 */
     background: url(../ab_img/space.jpg) no-repeat fixed center/cover;
 }
+/* body의 높이값을 보이는 화면에 맞추기 */
+html,body{
+    height: 100%;
+    /* 
+        body 100%는  html을 기준하며
+        html 100%는 window(보이는화면)을 기준한다!
+        %셋팅시 html과 body 모두 셋팅해야 적용된다!
+        _________________________________________
+
+        가끔 width:100% 를 잡는 경우가 있다
+        아무것도 안주면 width: auto 임. 둘 간의 차이는?
+        width:100%는 컨텐트 영역을 크기를 채우도록 셋팅함
+        따라서 보더나 패딩을 줄 경우 박스가 커지고 스크롤바가 생김.
+        특별한 경우가 아니라면 auto상태로 놓으면 보더와 패딩이
+        내부에 자동으로 포함된다~! 
+    */
+}
 
 /* 1. 전체 타이틀 */
 .tit{
@@ -114,27 +131,27 @@ body{
 }
 
 /* 2-1. 아이언맨 */
-.cbx:nth-child(1){
+body:hover .cbx:nth-child(1){
     top: -9%;
     left: -81%;
 }
 /* 2-2.타노스 */
-.cbx:nth-child(2){
+body:hover .cbx:nth-child(2){
     top: -9%;
     left: 121%;
 }
 /* 2-3.토르 */
-.cbx:nth-child(3){
+body:hover .cbx:nth-child(3){
     top: 82%;
     left: -81%;
 }
 /* 2-4.닥스 */
-.cbx:nth-child(4){
+body:hover .cbx:nth-child(4){
     top: 82%;
     left: 121%;
 }
 /* 2-5.스타로드 */
-.cbx:nth-child(5){
+body:hover .cbx:nth-child(5){
     top: 130%;
     /* left는 중앙위치이므로
     셋팅하지 않음! */
