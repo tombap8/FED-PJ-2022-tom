@@ -102,6 +102,9 @@ html,body{
     
     /* 박스테두리 */
     /* outline: 3px dotted yellow; */
+
+    /* 트랜지션: 속시이지 */
+    transition: .8s ease-in-out;
 }
 /* 캐릭터 이미지 */
 .cbx img{
