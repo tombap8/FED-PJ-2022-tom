@@ -74,9 +74,20 @@
         </div>
         <!-- 1-2. 예고편 동영상 페이지 -->
         <div class="page" id="pg2">
-            <h2>인피니티워 마블공식 예고편</h2>
-            <div>
-                <iframe width="1280" height="720" src="https://www.youtube.com/embed/-zabRKMQ88c" title="[어벤져스: 인피니티 워] 티저 예고편│마블 공식 예고편" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <h2 class="subtit">인피니티워 마블공식 예고편</h2>
+            <div class="mvbx">
+                <iframe src="https://www.youtube.com/embed/-zabRKMQ88c" title="[어벤져스: 인피니티 워] 티저 예고편│마블 공식 예고편" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <!-- 
+                    [ 아이프레임 : iframe (inline frame) ]
+                    -> 외부 시스템/페이지를 기존 페이지에
+                    불러와서 디스플레이해주는 프레임 요소
+                    -> 동영상 페이지(유튜브 등), 다른 페이지를
+                    한 페이지에서 모두 보여줄때 등 활용됨
+                    -> 필수속성: src -> 페이지 경로값을 셋팅함
+                    -> 유의사항: width, height, border 를 CSS에서
+                    모두 셋팅할 것을 권고함!
+
+                 -->
             </div>
         </div>
     </body>
