@@ -267,9 +267,10 @@ padding과 border 때문에 숨겨지지 않음!
 
 /* 동영상박스 */
 .mvbx{
-    width: 800px;
+    width: 1000px;
     height: 600px;
     margin: 0 auto;
+    margin-top: 100px;
 }
 /* 아이프레임 */
 .mvbx iframe{
