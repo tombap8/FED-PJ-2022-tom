@@ -62,4 +62,37 @@ body{
     모두겹칩,싸고있는 박스에 그대로 있고(젠틀),
     크기는 내용만큼 자동, 나중것이 기본위*/
     position: absolute;
+
+    /* 박스크기 설정 */
+    width: 150px;
+    height: 150px;
+    
+    /* 박스테두리 */
+    /* outline: 3px dotted yellow; */
+}
+/* 캐릭터 이미지 */
+.cbx img{
+    /* 크기를 박스에 맞춤!
+    -> 이미지가 왜곡된다! 어떻하지?
+    -> object-fit:cover 를 쓴다! */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* 
+        object-fit 속성
+        -> 이미지나 동영상을 박스에 맞출때
+        옵션을 설정해 주는 속성
+        1. fill : 설정값에 강제적용(기본값)
+        2. contain : 박스에 모두 보임
+        3. cover : 박스를 비율에 맞게 채움
+            -> 빈틈없이 채우며 배경cover와
+            유사한 효과를 준다! 
+    */
+
+
+    /* 이미지 둥글게 */
+    border-radius: 50%;
+
+    /* 글로우효과 */
+    box-shadow: 0 0 30px lightgreen;
 }
