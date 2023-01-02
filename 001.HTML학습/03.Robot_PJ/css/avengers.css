@@ -24,7 +24,7 @@ body{
     /* 배경이미지 채우기 */
     background: url(../ab_img/space.jpg) no-repeat fixed center/cover;
     /* 전체 body 스크롤바 숨기기 */
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 /* body의 높이값을 보이는 화면에 맞추기 */
 html,body{
@@ -44,8 +44,13 @@ html,body{
     */
 }
 
-/* 1. 전체 타이틀 */
+/* 0. 전체 타이틀 */
 .tit{
+    /* 고정 포지션 */
+    position: fixed;
+    width: 100%;
+    z-index: 9999;/* 가장위 */
+
     font-family: 'Monoton', cursive;
     color: #fff;
     font-size: 70px;
@@ -56,10 +61,18 @@ html,body{
     padding: 50px 0;
 }
 
+/* 1. 페이지박스 공통 */
+.page{
+    height: 100%;
+    /* 한페이지당 html,body 보이는 화면 100%와 같이
+    보이는 화면만큼 크기 확장설정! */
+}
+
 /* 2. 메인 캐릭터 박스 */
 .abx{
     position: relative;
     /* 부모자격 - .cbx의 부모 */
+    top: 210px;
     width: 300px;
     height: 400px;
     /* 배경이미지 */
