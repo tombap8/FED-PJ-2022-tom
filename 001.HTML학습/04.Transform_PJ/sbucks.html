@@ -1,10 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>스타벅스 응용</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <title>스타벅스 응용</title>
+        <style>
+            body {
+                background: #000 url(./starbucks_img/reserve_bg.jpg) no-repeat top/100%;
+            }
+            /* 
+                10. 앞뒤로 있는 이미지 뒤집기
+                - 셋팅: 한 박스 안에 이미지가 2장 있고 이것을
+                겹치게 셋팅한다-> 앱솔루트로 셋팅!
+                - 순서는 나중 것이 위에 온다!
+                - 적절한 트랜스폼, 트랜지션을 이용한다!
+            */
+            /* 박스의 가로, 세로 크기를 셋팅한다! */
+            #trans10 {
+                width: 334px;
+                height: 334px;
+                /* 가운데정렬풀기 */
+                text-align: left;
+                /* outline: 2px dashed lime; */
+
+                /* 마영오! */
+                margin: 0 auto;
+                margin-top: 100px;
+            }
+            /* 이미지에 겹치도록 앱솔루트 포지션 셋팅 */
+            #trans10 img {
+                position: absolute;
+                /* 젠틀앱솔루트! 
+                부모자격이 없지만 그자리에 그대로!
+                주의: 크기를 %로 주지말것!(부모를 찾음) */
+            }
+
+            /* 1. 보거미 원본 */
+            #trans10 img:last-child {
+                /* 0도 회전하기 */
+                transform: rotateY(0deg);
+                /* 트랜지션: 속시이지 - 0.4초기다림 */
+                transition: 0.4s ease-out 0.4s;
+                /* ease-out 나중에 천천히 처음엔 등속도 */
+            }
+            /* 2. 보거미 오버시 */
+            #trans10:hover img:last-child {
+                /* 90도 회전하기 */
+                transform: rotateY(90deg);
+                /* 트랜지션: 속시이지 - 기다림없음 */
+                transition: 0.4s ease-in;
+                /* ease-in 처음에 천천히 나중엔 등속도 */
+            }
+            /* 3. 유정이 원본 */
+            #trans10 img:first-child {
+                /* 90도 회전하기(처음상태) */
+                transform: rotateY(90deg);
+                /* 트랜지션: 속시이지 - 기다림없음 */
+                transition: 0.4s ease-in;
+                /* ease-in 처음에 천천히 나중엔 등속도 */
+            }
+            /* 4. 유정이 오버시 */
+            #trans10:hover img:first-child {
+                /* 0도 회전하기 */
+                transform: rotateY(0deg);
+                /* 트랜지션: 속시이지 - 0.4초기다림 */
+                transition: 0.4s ease-out 0.4s;
+                /* ease-out 나중에 천천히 처음엔 등속도 */
+            }
+        </style>
+    </head>
+    <body>
+        <div id="trans10">
+            <img src="./starbucks_img/reserve_medal02.png" alt="캐릭터" />
+            <img src="./starbucks_img/reserve_medal01.png" alt="캐릭터" />
+        </div>
+    </body>
 </html>
