@@ -7,6 +7,121 @@
             body {
                 background: url(./images/bg-main.jpg) no-repeat fixed center top/cover;
             }
+            /* 타이틀 */
+            .tit {
+                /* 박스셋팅 */
+                border-radius: 50px;
+                background-color: rgba(0, 0, 0, 0.478);
+                text-align: center;
+
+                /* 글자셋팅 */
+                color: #fff;
+                font-size: 50px;
+                line-height: 100px;
+                /* 글자그림자로 테두리주기 */
+                text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000;
+            }
+
+            /* 전체부모박스 */
+            .cont {
+                /* 박스셋팅 */
+                max-width: 1500px;
+                border: 10px solid lime;
+                border-radius: 20px;
+                padding: 20px;
+                margin: 100px auto;
+                box-sizing: border-box;
+            }
+
+            /* 가상요소로 clear셋팅 */
+            .cont::after {
+                content: "";
+                display: block;
+                clear: both;
+            }
+
+            /* 캐릭터 공통 div */
+            .cont > div {
+                /* 옆으로 흐르게 */
+                float: left;
+                /* 5등분 가로크기 */
+                width: 20%;
+                text-align: center;
+                margin-bottom: 50px;
+            }
+            /* 이미지를 원형으로! */
+            .cont > div > img {
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                /* 트랜지션: 속시이지 */
+                transition: transform .6s;
+            }
+
+            /* 
+                [ Transform 효과주기 ]
+                - 선택요소의 크기, 회전, 이동, 기울임
+                 등 변형을 하기위한 속성
+                - 2D, 3D 지원됨
+
+                1. rotateY(각도deg) - Y축회전
+                - deg 는 각도의 단위(도:degree)
+            */
+            #trans1:hover img{
+                /* 트랜스폼 Y축회전 - tfry */
+                transform: rotateY(180deg);
+                /* CSS 필터적용하기 
+                : 필터속성은 흑백, 흐림, 세피아, 명암,
+                채도 등 출력 이미지를 변경하고자 할때
+                사용하는 속성
+                (참고) 
+                https://www.w3schools.com/cssref/playit.php?filename=playcss_filter&preval=blur(5px)*/
+                filter: grayscale(100%);
+            }
+
+            /* 
+                2. rotateX(각도deg) - X축회전
+                - deg 는 각도의 단위(도:degree)
+            */
+            #trans2 img{
+                /* 트랜스폼 X축회전 : tfrx */
+                transform: rotateX(180deg);
+                /* 필터 흐림효과 */
+                filter: blur(2px);
+            }
+            #trans2:hover img{
+                /* 트랜스폼 X축회전 : tfrx */
+                transform: rotateX(0deg);
+                /* 흐림 복원 */
+                filter: blur(0px);
+            }
+
+            /* 
+                3. translateX(거리) - X축이동
+                - 단위 : px, % 등
+                - 현재 위치로부터 이동
+                - 기준점은 요소의 왼쪽
+                - % 단위를 쓸경우 기준은 요소의 width값
+                - 이동방향: + 오른쪽, -는 왼쪽
+            */
+            #trans3:hover img{
+                /* 트랜스폼 X축 위치이동 tftx */
+                transform: translateX(-50%);
+            }
+            /* 
+                4. translateY(거리) - Y축이동
+                - 단위 : px, % 등
+                - 현재 위치로부터 이동
+                - 기준점은 요소의 윗쪽
+                - % 단위를 쓸경우 기준은 요소의 height값
+                - 이동방향: + 아랫쪽, -는 윗쪽
+            */
+            #trans4:hover img{
+                /* 트랜스폼 X축 위치이동 tfty */
+                transform: translateY(200%);
+            }
+
+
         </style>
     </head>
     <body>
@@ -14,18 +129,36 @@
         <h1 class="tit">트랜스폼 연습</h1>
         <!-- 내용박스 -->
         <div class="cont">
-            <div id="trans1"><img src="images/cast01.jpg" alt="캐릭터" /></div>
-            <div id="trans2"><img src="images/cast02.jpg" alt="캐릭터" /></div>
-            <div id="trans3"><img src="images/cast03.jpg" alt="캐릭터" /></div>
-            <div id="trans4"><img src="images/cast04.jpg" alt="캐릭터" /></div>
-            <div id="trans5"><img src="images/cast05.jpg" alt="캐릭터" /></div>
-            <div id="trans6"><img src="images/cast01.jpg" alt="캐릭터" /></div>
-            <div id="trans7"><img src="images/cast02.jpg" alt="캐릭터" /></div>
-            <div id="trans8"><img src="images/cast03.jpg" alt="캐릭터" /></div>
-            <div id="trans9"><img src="images/cast04.jpg" alt="캐릭터" /></div>
+            <div id="trans1">
+                <img src="images/cast01.jpg" alt="캐릭터">
+            </div>
+            <div id="trans2">
+                <img src="images/cast02.jpg" alt="캐릭터">
+            </div>
+            <div id="trans3">
+                <img src="images/cast03.jpg" alt="캐릭터">
+            </div>
+            <div id="trans4">
+                <img src="images/cast04.jpg" alt="캐릭터">
+            </div>
+            <div id="trans5">
+                <img src="images/cast05.jpg" alt="캐릭터">
+            </div>
+            <div id="trans6">
+                <img src="images/cast01.jpg" alt="캐릭터">
+            </div>
+            <div id="trans7">
+                <img src="images/cast02.jpg" alt="캐릭터">
+            </div>
+            <div id="trans8">
+                <img src="images/cast03.jpg" alt="캐릭터">
+            </div>
+            <div id="trans9">
+                <img src="images/cast04.jpg" alt="캐릭터">
+            </div>
             <div id="trans10">
-                <img src="images/cast02.jpg" alt="캐릭터" />
-                <img src="images/cast03.jpg" alt="캐릭터" />
+                <img src="images/cast02.jpg" alt="캐릭터">
+                <img src="images/cast03.jpg" alt="캐릭터">
             </div>
         </div>
     </body>
