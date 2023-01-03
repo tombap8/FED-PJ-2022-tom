@@ -2,36 +2,42 @@
 /* 어벤저스 CSS - avengers.css */
 
 /* 웹폰트 */
-@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Single+Day&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Monoton&family=Single+Day&display=swap");
 
 /* 
     font-family: 'Monoton', cursive;
     font-family: 'Single Day', cursive;
 */
 
-html{
+html {
     scroll-behavior: smooth;
     /* #아이디 a요소 이동시 부드러운 스크롤 애니작동됨! */
 }
 
 /* 초기화 */
-html,body,h1,h2,ul,ol{
+html,
+body,
+h1,
+h2,
+ul,
+ol {
     margin: 0;
     padding: 0;
 }
 /* 초기셋팅 */
-a{
+a {
     color: #fff;
     text-decoration: none;
 }
-body{
+body {
     /* 배경이미지 채우기 */
     background: url(../ab_img/space.jpg) no-repeat fixed center/cover;
     /* 전체 body 스크롤바 숨기기 */
     /* overflow: hidden; */
 }
 /* body의 높이값을 보이는 화면에 맞추기 */
-html,body{
+html,
+body {
     height: 100%;
     /* 
         body 100%는  html을 기준하며
@@ -49,13 +55,13 @@ html,body{
 }
 
 /* 0. 전체 타이틀 */
-.tit{
+.tit {
     /* 고정 포지션 */
     position: fixed;
     width: 100%;
-    z-index: 9999;/* 가장위 */
+    z-index: 9999; /* 가장위 */
 
-    font-family: 'Monoton', cursive;
+    font-family: "Monoton", cursive;
     color: #fff;
     font-size: 70px;
     /* 글자두께 보통 */
@@ -63,17 +69,28 @@ html,body{
     text-align: center;
     /* 위아래 패딩 */
     padding: 50px 0;
+
+    /* 트랜스폼 */
+    transform: translateY(-200px) rotateX(90deg) scale(0);
+
+    /* 트랜지션 */
+    transition: transform 3s ease-in-out 2s;
+}
+
+/* 오버시 타이틀 트랜스폼 */
+body:hover .tit {
+    transform: translateY(0) rotateX(720deg) scale(1);
 }
 
 /* 1. 페이지박스 공통 */
-.page{
+.page {
     height: 100%;
     /* 한페이지당 html,body 보이는 화면 100%와 같이
     보이는 화면만큼 크기 확장설정! */
 }
 
 /* 2. 메인 캐릭터 박스 */
-.abx{
+.abx {
     position: relative;
     /* 부모자격 - .cbx의 부모 */
     top: 210px;
@@ -88,13 +105,11 @@ html,body{
     /* 글러우 효과 : 박스그림자 응용 
     box-shadow: x y blur spread 색
     inset은 내부그림자 */
-    box-shadow: 
-    0 0 50px 10px cyan,
-    inset 0 0 30px lightgreen;
+    box-shadow: 0 0 50px 10px cyan, inset 0 0 30px lightgreen;
 }
 
 /* 캐릭터박스 */
-.cbx{
+.cbx {
     /* 앱솔루트 포지션 
     위치값 주기전 상태:
     모두겹칩,싸고있는 박스에 그대로 있고(젠틀),
@@ -118,7 +133,7 @@ html,body{
     /* 박스크기 설정 */
     width: 150px;
     height: 150px;
-    
+
     /* 박스테두리 */
     /* outline: 3px dotted yellow; */
 
@@ -126,10 +141,10 @@ html,body{
     opacity: 0;
 
     /* 트랜지션: 속시이지 */
-    transition: .8s ease-in-out;
+    transition: 0.8s ease-in-out;
 }
 /* 캐릭터 이미지 */
-.cbx img{
+.cbx img {
     /* 크기를 박스에 맞춤!
     -> 이미지가 왜곡된다! 어떻하지?
     -> object-fit:cover 를 쓴다! */
@@ -147,48 +162,56 @@ html,body{
             유사한 효과를 준다! 
     */
 
-
     /* 이미지 둥글게 */
     border-radius: 50%;
 
     /* 글로우효과 */
     box-shadow: 0 0 30px 10px lightgreen;
+
+    /* 트랜지션 : 속시이지 trs */
+    transition: transform 0.8s ease-in-out;
+}
+
+/* 오버시 이미지 변경 */
+body:hover .cbx > img {
+    /* 트랜스폼 회전하기 tfry */
+    transform: rotateY(720deg);
 }
 
 /* body에 오버시 전체 opacity 보이게하기 */
-body:hover .cbx{
+body:hover .cbx {
     opacity: 1;
 }
 
 /* 2-1. 아이언맨 */
-body:hover .cbx:nth-child(1){
+body:hover .cbx:nth-child(1) {
     top: -9%;
     left: -81%;
 }
 /* 2-2.타노스 */
-body:hover .cbx:nth-child(2){
+body:hover .cbx:nth-child(2) {
     top: -9%;
     left: 121%;
 }
 /* 2-3.토르 */
-body:hover .cbx:nth-child(3){
+body:hover .cbx:nth-child(3) {
     top: 82%;
     left: -81%;
 }
 /* 2-4.닥스 */
-body:hover .cbx:nth-child(4){
+body:hover .cbx:nth-child(4) {
     top: 82%;
     left: 121%;
 }
 /* 2-5.스타로드 */
-body:hover .cbx:nth-child(5){
+body:hover .cbx:nth-child(5) {
     top: 130%;
     /* left는 중앙위치이므로
     셋팅하지 않음! */
 }
 
 /* 캐릭터 설명박스 공통 */
-.cd{
+.cd {
     position: absolute;
     top: 50%;
     /* 처음에 내려가 있고 
@@ -204,10 +227,9 @@ body:hover .cbx:nth-child(5){
     height: 0;
     /* 넘치는 자식요소 숨기기 */
     overflow: hidden;
-    
 
     /* 글자셋팅 */
-    font-family: 'Single Day', cursive;
+    font-family: "Single Day", cursive;
     color: #fff;
     text-shadow: 1px 1px 1px #000;
 
@@ -215,8 +237,7 @@ body:hover .cbx:nth-child(5){
     opacity: 0;
 
     /* 트랜지션: 속시이지 */
-    transition: .4s ease-out;
-
+    transition: 0.4s ease-out;
 }
 
 /* .cd 직계 하위 div로 디자인 이전하기
@@ -231,7 +252,7 @@ padding과 border 때문에 숨겨지지 않음!
 }
 
 /* .cbx에 오버시 글자박스 보이기 */
-.cbx:hover .cd{
+.cbx:hover .cd {
     top: 0;
     opacity: 1;
     height: auto;
@@ -243,13 +264,12 @@ padding과 border 때문에 숨겨지지 않음!
     개별셋팅해야한다! */
 }
 
-
 /* 왼쪽 진영 글자박스 클래스 */
 .ltxt {
     left: -230%;
 }
 /* 왼쪽 진영 제목 오른쪽정렬 */
-.ltxt h2{
+.ltxt h2 {
     text-align: right;
 }
 /* 오른쪽 진영 글자박스 클래스 */
@@ -257,11 +277,10 @@ padding과 border 때문에 숨겨지지 않음!
     right: -230%;
 }
 
-
 /* 예고편 페이지 */
 
 /* 서브타이틀 */
-.subtit{
+.subtit {
     position: sticky;
     top: 100px;
     padding: 50px 0;
@@ -270,51 +289,51 @@ padding과 border 때문에 숨겨지지 않음!
 }
 
 /* 동영상박스 */
-.mvbx{
+.mvbx {
     width: 1000px;
     height: 600px;
     margin: 0 auto;
     margin-top: 100px;
 }
 /* 아이프레임 */
-.mvbx iframe{
+.mvbx iframe {
     /* 아이프레임 부모박스에 맞춤! */
     width: 100%;
     height: 100%;
-    border: none;/* bdn */
+    border: none; /* bdn */
     /* 아이프레임에는 기본 프레임이 있어서
     이것을 없앰! */
 }
 
-.page{
+.page {
     position: relative;
     /* 부모자격 - .gobtn의 부모 */
 }
 
 /* 이동버튼 디자인 */
-.gobtn{
+.gobtn {
     position: absolute;
     right: 3%;
     /* 부모는? .page */
     font-size: 30px;
-    z-index: 99999;/* 제일위! */
+    z-index: 99999; /* 제일위! */
 }
 /* 가상클래스로 화살표모양 넣기 */
-#pg1 .gobtn::after{
-    content: '👇';
+#pg1 .gobtn::after {
+    content: "👇";
 }
-#pg2 .gobtn::after{
-    content: '👆';
+#pg2 .gobtn::after {
+    content: "👆";
 }
 /* 개별위치 */
-#pg1 .gobtn{
+#pg1 .gobtn {
     bottom: 2%;
 }
-#pg2 .gobtn{
+#pg2 .gobtn {
     top: 2%;
 }
 /* 오버시 a변경 */
-.gobtn:hover{
+.gobtn:hover {
     color: hotpink;
     text-decoration: overline;
     text-decoration-style: wavy;
