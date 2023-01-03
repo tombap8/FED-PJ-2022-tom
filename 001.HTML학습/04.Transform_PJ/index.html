@@ -120,6 +120,90 @@
                 /* 트랜스폼 Y축 위치이동 tfty */
                 transform: translateY(200%);
             }
+            /* 
+                5. translate(x축거리,y축거리) - X,Y축이동
+                - 단위 : px, % 등
+                - 현재 위치로부터 이동
+                - 기준점은 요소의 윗쪽, 왼쪽선
+                - % 단위를 쓸경우 기준은 요소의 
+                    width,height값
+                - 이동방향: + 오른쪽/아랫쪽, -는 왼쪽/윗쪽
+            */
+            #trans5:hover img{
+                /* 트랜스폼 X,Y축 위치이동 tft */
+                transform: translate(-120px, 100px);
+            }
+
+            /* 
+                6. rotate(각도deg) - 원형회전
+                - 각도의 숫자가 양수이면 시계방향
+                음수는 반시계방향
+                - 기본회전축은 정중앙
+                (변경가능: transform-origin)
+            */
+            #trans6:hover img{
+                /* 평면회전 tfr */
+                transform: rotate(5478deg);
+                /* 트랜지션 시간 늘리기 */
+                transition-duration: 10s;
+                /* 
+                transition: 속시이지
+                개별 설정이 가능함!
+                1. 속성 : 
+                    transition-property
+                2. 시간 :
+                    transition-duration
+                3. 이징(가속도) :                                   transition-timing-function
+                4. 지연시간 :
+                    transition-delay
+
+                */
+            }
+
+            /* 회전축 변경하기 */
+            #trans6 img {
+                transform-origin: 50px 170px;
+                /* 
+                [ 트랜스폼 회전축 변경속성 ]
+                transform-origin: 가로 세로;
+                - 가로값 : left, right, center, 몇px,몇%
+                - 세로값 : top, bottom, center, 몇px,몇%
+                - 기본값 : 가로, 세로 center임! */
+            }
+
+            /* 
+                7. skew - x,y축 기울임
+                - skewX(각도deg), skewY(각도deg)
+                - skew(x축,y축)
+                - 각도가 양수/음수에 따라 기울임 방향이 달라짐
+            */
+            #trans7:hover img{
+                transform: skew(30deg,45deg);
+            }
+
+            /* 
+                8. scale(x축배수, y축배수)
+                - 값을 하나만쓰면 양방향 같은 값 셋팅
+                - 배수가 1보다 크면 확대, 작으면 축소
+                - scaleX(배수), scaleY(배수) - x,y별셋팅
+                - 값이 0이면 사라짐
+                -> 가끔 크기가 정해진 요소를 일정크기로
+                축소, 확대해서 크기를 맞출때도 용이함!
+            */
+            #trans8:hover img{
+                /* 트랜스폼 스케일 tf:s */
+                transform: scale(2);
+            }
+            /* 초기배율설정 */
+            #trans8 img{
+                transform: scale(0);
+            }
+
+            /* 
+                9. 복합적용하기
+                transform: 속성1 속성2 속성3 ....; 
+            */
+            
 
 
         </style>
