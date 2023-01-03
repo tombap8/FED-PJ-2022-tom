@@ -55,7 +55,7 @@
                 height: 200px;
                 border-radius: 50%;
                 /* 트랜지션: 속시이지 */
-                transition: transform .6s;
+                transition: transform 0.6s;
             }
 
             /* 
@@ -67,7 +67,7 @@
                 1. rotateY(각도deg) - Y축회전
                 - deg 는 각도의 단위(도:degree)
             */
-            #trans1:hover img{
+            #trans1:hover img {
                 /* 트랜스폼 Y축회전 - tfry */
                 transform: rotateY(180deg);
                 /* CSS 필터적용하기 
@@ -83,13 +83,13 @@
                 2. rotateX(각도deg) - X축회전
                 - deg 는 각도의 단위(도:degree)
             */
-            #trans2 img{
+            #trans2 img {
                 /* 트랜스폼 X축회전 : tfrx */
                 transform: rotateX(180deg);
                 /* 필터 흐림효과 */
                 filter: blur(2px);
             }
-            #trans2:hover img{
+            #trans2:hover img {
                 /* 트랜스폼 X축회전 : tfrx */
                 transform: rotateX(0deg);
                 /* 흐림 복원 */
@@ -104,7 +104,7 @@
                 - % 단위를 쓸경우 기준은 요소의 width값
                 - 이동방향: + 오른쪽, -는 왼쪽
             */
-            #trans3:hover img{
+            #trans3:hover img {
                 /* 트랜스폼 X축 위치이동 tftx */
                 transform: translateX(-50%);
             }
@@ -116,7 +116,7 @@
                 - % 단위를 쓸경우 기준은 요소의 height값
                 - 이동방향: + 아랫쪽, -는 윗쪽
             */
-            #trans4:hover img{
+            #trans4:hover img {
                 /* 트랜스폼 Y축 위치이동 tfty */
                 transform: translateY(200%);
             }
@@ -129,7 +129,7 @@
                     width,height값
                 - 이동방향: + 오른쪽/아랫쪽, -는 왼쪽/윗쪽
             */
-            #trans5:hover img{
+            #trans5:hover img {
                 /* 트랜스폼 X,Y축 위치이동 tft */
                 transform: translate(-120px, 100px);
             }
@@ -141,7 +141,7 @@
                 - 기본회전축은 정중앙
                 (변경가능: transform-origin)
             */
-            #trans6:hover img{
+            #trans6:hover img {
                 /* 평면회전 tfr */
                 transform: rotate(5478deg);
                 /* 트랜지션 시간 늘리기 */
@@ -177,8 +177,8 @@
                 - skew(x축,y축)
                 - 각도가 양수/음수에 따라 기울임 방향이 달라짐
             */
-            #trans7:hover img{
-                transform: skew(30deg,45deg);
+            #trans7:hover img {
+                transform: skew(30deg, 45deg);
             }
 
             /* 
@@ -190,12 +190,12 @@
                 -> 가끔 크기가 정해진 요소를 일정크기로
                 축소, 확대해서 크기를 맞출때도 용이함!
             */
-            #trans8:hover img{
+            #trans8:hover img {
                 /* 트랜스폼 스케일 tf:s */
                 transform: scale(2);
             }
             /* 초기배율설정 */
-            #trans8 img{
+            #trans8 img {
                 transform: scale(0);
             }
 
@@ -203,9 +203,13 @@
                 9. 복합적용하기
                 transform: 속성1 속성2 속성3 ....; 
             */
-            
 
-
+            #trans9:hover img {
+                /* 다중 트랜스폼 tf */
+                transform: scale(5) translate(-200%, -100%) rotateX(1200deg) skewX(50deg) rotate(5300deg);
+                /* 트랜지션 시간늘리기 */
+                transition-duration: 20s;
+            }
         </style>
     </head>
     <body>
@@ -214,35 +218,35 @@
         <!-- 내용박스 -->
         <div class="cont">
             <div id="trans1">
-                <img src="images/cast01.jpg" alt="캐릭터">
+                <img src="images/cast01.jpg" alt="캐릭터" />
             </div>
             <div id="trans2">
-                <img src="images/cast02.jpg" alt="캐릭터">
+                <img src="images/cast02.jpg" alt="캐릭터" />
             </div>
             <div id="trans3">
-                <img src="images/cast03.jpg" alt="캐릭터">
+                <img src="images/cast03.jpg" alt="캐릭터" />
             </div>
             <div id="trans4">
-                <img src="images/cast04.jpg" alt="캐릭터">
+                <img src="images/cast04.jpg" alt="캐릭터" />
             </div>
             <div id="trans5">
-                <img src="images/cast05.jpg" alt="캐릭터">
+                <img src="images/cast05.jpg" alt="캐릭터" />
             </div>
             <div id="trans6">
-                <img src="images/cast01.jpg" alt="캐릭터">
+                <img src="images/cast01.jpg" alt="캐릭터" />
             </div>
             <div id="trans7">
-                <img src="images/cast02.jpg" alt="캐릭터">
+                <img src="images/cast02.jpg" alt="캐릭터" />
             </div>
             <div id="trans8">
-                <img src="images/cast03.jpg" alt="캐릭터">
+                <img src="images/cast03.jpg" alt="캐릭터" />
             </div>
             <div id="trans9">
-                <img src="images/cast04.jpg" alt="캐릭터">
+                <img src="images/cast04.jpg" alt="캐릭터" />
             </div>
             <div id="trans10">
-                <img src="images/cast02.jpg" alt="캐릭터">
-                <img src="images/cast03.jpg" alt="캐릭터">
+                <img src="images/cast02.jpg" alt="캐릭터" />
+                <img src="images/cast03.jpg" alt="캐릭터" />
             </div>
         </div>
     </body>
