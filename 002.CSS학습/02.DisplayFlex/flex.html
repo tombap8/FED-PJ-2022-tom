@@ -142,10 +142,66 @@
 
                 justify-content: space-evenly;
 
+                /* 
+                    [ align-items 속성 ]
 
+                    - 진행방향의 수직 정렬 속성
+                    - 수직방향의 아이템(요소)이 하나씩일때 사용
 
+                    1) flex-start : 처음위치(기본값)
+                    2) flex-end : 끝위치
+                    3) center : 중앙
+                    4) stretch : 수직방향 부모박스에 꽉채워 늘림!
+                    (단, height값이 auto여야함!)
+                    5) baseline : 각 요소에 글자가 있다면 
+                    글자기준선(baseline)을 기준으로 정렬함!
+                    (글자의 line-height를 변경해서 적용해봄!)
+                */
+
+                align-items: center;
             }
 
+            /* 타이틀박스 2 */
+            .t2{
+                top: 200px;
+
+                /* 플렉스박스 df */
+                display: flex;
+                /* 진행방향정렬 jc */
+                justify-content: space-between;
+                /* 수직방향정렬 ai */
+                align-items: baseline;
+                /* baseline 글자아랫선맞춤 */
+            }
+
+            /* 줄간격 변경 */
+            .t2 li:nth-child(2){
+                line-height: 80px;
+            }
+            .t2 li:nth-child(4){
+                line-height: 30px;
+            }
+
+
+            /* 타이틀박스 3 */
+            .t3{
+                top: 350px;
+
+                /* 플렉스박스 df */
+                display: flex;space-between;
+                /* 수직방향정렬 ai */
+                align-items: center;
+            }
+            /* 네번째 li부터 끝으로 보내기 */
+            .t3 li:nth-child(4){
+                margin-left: auto;
+                /* 
+                    선택요소의 떨어뜨리려는
+                    방향으로 마진을 auto로
+                    설정하면 flex에서 끝으로
+                    이동시켜준다!
+                */
+            }
 
         </style>
     </head>
@@ -168,6 +224,24 @@
                 <li>T</li>
                 <li>T</li>
                 <li>E</li>
+            </ol>
+
+            <!-- 타이틀박스 2 -->
+            <ol class="tit t2">
+                <li>W</li>
+                <li>O</li>
+                <li>R</li>
+                <li>L</li>
+                <li>D</li>
+            </ol>
+
+            <!-- 타이틀박스 3 -->
+            <ol class="tit t3">
+                <li>W</li>
+                <li>O</li>
+                <li>R</li>
+                <li>L</li>
+                <li>D</li>
             </ol>
 
 
