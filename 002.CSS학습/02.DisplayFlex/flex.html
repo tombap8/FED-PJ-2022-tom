@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>플렉스 디스플레이 레이아웃</title>
+        <style>
+            /* 초기화 */
+            html,
+            body,
+            ul,
+            ol {
+                margin: 0;
+                padding: 0;
+            }
+            /* 블릿없앰 */
+            ul,
+            ol {
+                list-style: none;
+            }
+
+            /* 보이는 화면에 채우기셋팅 */
+            html,
+            body,
+            #wrap,
+            #wrap > ul {
+                height: 100%;
+            }
+
+            /* li셋팅 기존방식 : float사용 */
+            #wrap>ul>li{
+                float: left;
+                width: 20%;
+                height: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 전체 랩핑박스 -->
+        <div id="wrap">
+            <!-- 파티션박스 -->
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </body>
+</html>
