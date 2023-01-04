@@ -26,12 +26,84 @@
                 height: 100%;
             }
 
-            /* li셋팅 기존방식 : float사용 */
-            #wrap>ul>li{
+            /* 
+                [ li셋팅 기존방식 : float사용 ]
+                1. 옆으로 흐를요소에 직접 float셋팅
+                2. 등분할일 경우 width값 %계산
+                3. 높이값을 부모에 채울 경우 height 100%셋팅
+                4. 부모박스에 높이값이 없이 자동으로
+                자식요소를 인식하려면 마지막 clear속성 셋팅필요
+            
+            */
+            /* #wrap > ul > li {
                 float: left;
                 width: 20%;
                 height: 100%;
+            } */
+
+            /* 각 파티션 박스에 배경 이미지 넣기 */
+            #wrap>ul>li:first-child{
+                background: url(./images/m01_bg.jpg) no-repeat center/cover;
             }
+            #wrap>ul>li:nth-child(2){
+                background: url(./images/m02_bg.jpg) no-repeat center/cover;
+            }
+            #wrap>ul>li:nth-child(3){
+                background: url(./images/m03_bg.jpg) no-repeat center/cover;
+            }
+            #wrap>ul>li:nth-child(4){
+                background: url(./images/m04_bg.jpg) no-repeat center/cover;
+            }
+            #wrap>ul>li:nth-child(5){
+                background: url(./images/m05_bg.jpg) no-repeat center/cover;
+            }
+
+            /*********************************************** 
+                [ 플렉스 디스플레이 박스 ]
+                flex 란? - flexible(유연한-에서 나온말)
+
+                - 가변적인 자식요소를 컨트롤하기 위해
+                CSS3에서 새롭게 선보인 display 기술
+
+                [ 플렉스 셋팅법 ]
+                1. 대상: 컨트롤할 요소들의 직계부모요소
+                2. 등분할셋팅:
+                 - 자식요소를 같은 비율로 채울 때
+                 자식요소에 flex속성값을 1로 쓰면 된다!
+                3. 일반적인 셋팅:
+                 - 특정크기나 내용이 있는 블록요소인 자식을
+                 옆으로 흐르게 한다(flex셋팅 일단 불필요!)
+
+            ***********************************************/
+
+            /* 플렉스 적용하기 */
+            #wrap>ul{
+                /* 플렉스박스 : df */
+                display: flex;
+            }
+
+            /* 플렉스 적용 자식요소 */
+            #wrap>ul>li{
+                /* 등분할 플렉스 속성 */
+                flex: 1;
+            }
+
+            /* 타이틀 공통 */
+            .tit{
+                position: absolute;
+                top: 100px;
+                left: 50%;
+                /* 가로중앙이동:트랜스폼(트랜스레이트) */
+                transform: translateX(-50%);
+                /* 자신의 크기 절반(50%)만큼 왼쪽방향(-)이동 */
+
+                width: 500px;
+                height: 100px;
+                border: 
+                5px double #fff;
+            }
+
+
         </style>
     </head>
     <body>
@@ -45,6 +117,18 @@
                 <li></li>
                 <li></li>
             </ul>
+
+            <!-- 타이틀박스 1 -->
+            <ol class="tit t1">
+                <li>L</li>
+                <li>O</li>
+                <li>T</li>
+                <li>T</li>
+                <li>E</li>
+            </ol>
+
+
+
         </div>
     </body>
 </html>
