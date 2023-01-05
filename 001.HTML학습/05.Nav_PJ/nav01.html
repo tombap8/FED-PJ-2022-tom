@@ -3,9 +3,215 @@
 <head>
     <meta charset="UTF-8">
     <title>1. 가로네비 서브별 드롭다운 세로형</title>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        h1{
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            padding: 20px;
+        }
+        body{            
+            color: #fff;
+            background: url(./images/nav1bg.png) no-repeat fixed center/cover;
+        }
+        /* ul,ol초기화 */
+        ul,ol{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        /* 네비게이션 전체박스 */
+        .gnb ul{
+            /* 플렉스박스 */
+            display: flex;
+            /* 진행방향 정렬 : 중앙 jcc */
+            justify-content: center;
+        }
+
+        /* 상위메뉴 li만 적용 */
+        .gnb ul > li{
+            padding: 0 32px;
+        }
+
+        .gnb a{
+            /* a요소 필수셋팅: 글자색+밑줄없앰 */
+            color: #fff;
+            text-decoration: none;
+
+            font-size: 18px;
+            font-weight: bold;
+
+        }
+        
+    </style>
 </head>
 <body>
     <h1>1. 가로네비 서브별 드롭다운 세로형</h1>
-    
+    <nav class="gnb">
+        <ul>
+            <li>
+                <a href="#">Vision Processor</a>
+                <!-- 서브메뉴 -->
+                <div class="smenu">
+                    <ol>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                    </ol>
+                </div>
+            </li>
+            <li>
+                <a href="#">ADAS Processor</a>
+                <!-- 서브메뉴 -->
+                <div class="smenu">
+                    <ol>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                    </ol>
+                </div>
+            </li>
+            <li>
+                <a href="#">AHD™</a>
+                <!-- 서브메뉴 -->
+                <div class="smenu">
+                    <ol>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                    </ol>
+                </div>
+            </li>
+            <li>
+                <a href="#">News</a>
+                <!-- 서브메뉴 -->
+                <div class="smenu">
+                    <ol>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                    </ol>
+                </div>
+            </li>
+            <li>
+                <a href="#">About Us</a>
+                <!-- 서브메뉴 -->
+                <div class="smenu">
+                    <ol>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                    </ol>
+                </div>
+            </li>
+            <li>
+                <a href="#">Career</a>
+                <!-- 서브메뉴 -->
+                <div class="smenu">
+                    <ol>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                    </ol>
+                </div>
+            </li>
+        </ul>
+    </nav>
 </body>
 </html>
