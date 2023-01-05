@@ -17,7 +17,7 @@
         }
         body{            
             color: #fff;
-            background: url(./images/nav1bg.png) no-repeat fixed center/cover;
+            background: #0a134e url(./images/nav1bg.png) no-repeat fixed center/cover;
         }
         /* ul,ol초기화 */
         ul,ol{
@@ -36,7 +36,12 @@
 
         /* 상위메뉴 li만 적용 */
         .gnb ul > li{
+            position: relative;
+            /* 서브메뉴 .smenu의 부모자격 */
             padding: 0 32px;
+            /* 아래쪽 패딩으로 앱솔루트 .smenu와
+            연결되어 있게 한다! 떨어지면 내려가다 닫힘! */
+            padding-bottom: 15px;
         }
 
         .gnb a{
@@ -47,6 +52,85 @@
             font-size: 18px;
             font-weight: bold;
 
+        }
+
+        /* 서브메뉴 박스 */
+        .smenu {
+            position: absolute;
+            /* 서브메뉴는 아래쪽 컨텐츠
+            위로 떠다녀야 하므로 앱솔루트씀 */
+            left: 50%;
+            /* 부모는? 싸고있는 li 
+            -> top값은 주지 않았으므로
+            젠틀하다! 위의 a요소 아래옴! */
+            z-index: 9999;
+            /* 1만써도 z-index는 위에 옴
+            그런데 맨위로 오게하는 의도로 9를
+            여러번 쓰는 경우가 많다! */
+
+            /* top값없이 앱솔루트 위치이동하기 */
+            margin-top: 15px;
+
+            /* 트랜스폼으로 가로방향 중앙이동 */
+            transform: translateX(-50%);
+
+            width: 200px;
+            background-color: rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+
+            /* 내부 컨텐츠 숨기기 */
+            height: 0;
+            overflow: hidden;
+
+            /* 처음에 투명 */
+            opacity: 0;
+
+            /* 트랜지션 : 속시이지 */
+            transition: all .4s ease-out;
+        }
+
+        /* 상위메뉴 오버시 하위메뉴 보이기 
+        -> 트랜지션 애니를 하려면 구체적인 크기가
+        있어야함. auto값은 애니메이션 안됨! */
+        .gnb>ul>li:first-child:hover .smenu{
+            height: 200px;
+        }
+        .gnb>ul>li:nth-child(2):hover .smenu{
+            height: 120px;
+        }
+        .gnb>ul>li:nth-child(2)~li:hover .smenu{
+            height: 40px;
+        }
+        /* 투명도 공통 오버시 */
+        .gnb>ul>li:hover .smenu{
+            opacity: 1;
+        }
+
+
+
+        /* 서브메뉴 a요소 */
+        .smenu a{
+            display: block;
+            text-align: center;
+            padding: 8px 0;
+            font-size: 16px;
+            font-weight: normal;
+        }
+
+
+        /* 컨텐츠박스 */
+        .cont{
+            position: relative;
+            /* z-index관계 파악을 위해 relative */
+            max-width: 1000px;
+            height: 400px;
+            border-radius: 15px;
+            border: 10px dashed yellow;
+            margin: 200px auto;
+            text-align: center;
+            font-size: 34px;
+            line-height: 400px;
+            background-color: rgba(0, 0, 0, 0.5);
         }
         
     </style>
@@ -61,22 +145,19 @@
                 <div class="smenu">
                     <ol>
                         <li>
-                            <a href="#"></a>
+                            <a href="#">RVC</a>
                         </li>
                         <li>
-                            <a href="#"></a>
+                            <a href="#">In-cabin</a>
                         </li>
                         <li>
-                            <a href="#"></a>
+                            <a href="#">FVC</a>
                         </li>
                         <li>
-                            <a href="#"></a>
+                            <a href="#">SVM</a>
                         </li>
                         <li>
-                            <a href="#"></a>
-                        </li>
-                        <li>
-                            <a href="#"></a>
+                            <a href="#">E-mirror</a>
                         </li>
                     </ol>
                 </div>
@@ -87,22 +168,13 @@
                 <div class="smenu">
                     <ol>
                         <li>
-                            <a href="#"></a>
+                            <a href="#">APACHE4</a>
                         </li>
                         <li>
-                            <a href="#"></a>
+                            <a href="#">APACHE5</a>
                         </li>
                         <li>
-                            <a href="#"></a>
-                        </li>
-                        <li>
-                            <a href="#"></a>
-                        </li>
-                        <li>
-                            <a href="#"></a>
-                        </li>
-                        <li>
-                            <a href="#"></a>
+                            <a href="#">APACHE6</a>
                         </li>
                     </ol>
                 </div>
@@ -113,22 +185,7 @@
                 <div class="smenu">
                     <ol>
                         <li>
-                            <a href="#"></a>
-                        </li>
-                        <li>
-                            <a href="#"></a>
-                        </li>
-                        <li>
-                            <a href="#"></a>
-                        </li>
-                        <li>
-                            <a href="#"></a>
-                        </li>
-                        <li>
-                            <a href="#"></a>
-                        </li>
-                        <li>
-                            <a href="#"></a>
+                            <a href="#">1st Gen</a>
                         </li>
                     </ol>
                 </div>
@@ -139,22 +196,7 @@
                 <div class="smenu">
                     <ol>
                         <li>
-                            <a href="#"></a>
-                        </li>
-                        <li>
-                            <a href="#"></a>
-                        </li>
-                        <li>
-                            <a href="#"></a>
-                        </li>
-                        <li>
-                            <a href="#"></a>
-                        </li>
-                        <li>
-                            <a href="#"></a>
-                        </li>
-                        <li>
-                            <a href="#"></a>
+                            <a href="#">News</a>
                         </li>
                     </ol>
                 </div>
@@ -165,22 +207,7 @@
                 <div class="smenu">
                     <ol>
                         <li>
-                            <a href="#"></a>
-                        </li>
-                        <li>
-                            <a href="#"></a>
-                        </li>
-                        <li>
-                            <a href="#"></a>
-                        </li>
-                        <li>
-                            <a href="#"></a>
-                        </li>
-                        <li>
-                            <a href="#"></a>
-                        </li>
-                        <li>
-                            <a href="#"></a>
+                            <a href="#">About Us</a>
                         </li>
                     </ol>
                 </div>
@@ -191,27 +218,22 @@
                 <div class="smenu">
                     <ol>
                         <li>
-                            <a href="#"></a>
-                        </li>
-                        <li>
-                            <a href="#"></a>
-                        </li>
-                        <li>
-                            <a href="#"></a>
-                        </li>
-                        <li>
-                            <a href="#"></a>
-                        </li>
-                        <li>
-                            <a href="#"></a>
-                        </li>
-                        <li>
-                            <a href="#"></a>
+                            <a href="#">Career</a>
                         </li>
                     </ol>
                 </div>
             </li>
         </ul>
     </nav>
+
+
+    <!-- 컨텐츠박스 -->
+    <main class="cont">
+        여기에 내용이 들어갑니다!
+    </main>
+
+
+
+
 </body>
 </html>
