@@ -94,8 +94,30 @@ body * {
     border-radius: 30px;
 }
 /* 입 */
+.mouth{
+    bottom: 30px;
+    left: 78px;
+    width: 90px;
+    height: 38px;
+    background: url(../images/mouth.png) no-repeat 0/100% 100%;
+}
+
+/* 귀공통 */
+.ear{
+    top: 80px;
+    width: 50px;
+    height: 70px;
+}
 /* 왼귀 */
+.er1{
+    left: -50px;
+    border-radius: 50% 0 0 50%;
+}
 /* 오른귀 */
+.er2{
+    right: -50px;
+    border-radius: 0 50% 50% 0;
+}
 
 
 /***************** 3. 하단영역 *****************/
