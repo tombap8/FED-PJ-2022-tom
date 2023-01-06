@@ -1,0 +1,50 @@
+@charset "utf-8";
+
+/* Robot PJ - 애니메이션 CSS */
+
+/* 키프레임 : 애니메이션 장면 연출 
+
+[ 키프레임이란? ]
+- 애니메이션 변화를 지정하는 코딩영역
+
+[ 2장면 코딩법 ]
+
+@keyframes 키프레임명{
+    from{시작CSS}
+    to{마지막CSS}
+}
+
+[ 여러장면 코딩법 ]
+- 퍼센트로 장면을 분할하여 사용함
+(무한대의 장면 연출가능)
+
+@keyframes 키프레임명{
+    0%{CSS설정}
+    10%{CSS설정}
+    20%{CSS설정}
+    ...
+    90%{CSS설정}
+    100%{CSS설정}
+}
+
+[ 설정된 키프레임 호출하는 방법 ]
+
+animation: 이시이지반방마
+(이름 시간 이징 지연 반복 방향 마지막상태)
+
+*/
+
+/* 1-1. 로봇 등장 키프레임 */
+@keyframes showRobot {
+    from{
+        transform: scale(.5);
+    }
+    to{
+        transform: scale(1);
+    }
+}
+/* 1-2. 키프레임 호출설정! - 대상  */
+.robx{
+    /* 애니메이션: 이시이지반방마 */
+    animation: showRobot 3s ease-in-out 1s 3;
+}

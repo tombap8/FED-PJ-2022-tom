@@ -253,6 +253,14 @@ body * {
 }
 
 /* 목 */
+.neck{
+    top: -40px;
+    left: 65px;
+    width: 70px;
+    height: 70px;
+    border-radius: 0 0 20px 20px;
+    z-index: -2;
+}
 /* 왼팔 */
 /* 오른팔 */
 /* 왼다리 */
