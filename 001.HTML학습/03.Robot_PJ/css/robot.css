@@ -47,8 +47,31 @@ body * {
     /* 마.영.오! */
     margin: 0 auto;
 }
+/* 눈공통 */
+.eye{
+    width: 50px;
+    height: 50px;
+
+    /* 배경공통 */
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+
+    /* 둥근모서리 : 50% 원 */
+    border-radius: 50%;
+    /* 보더 이중선 : double */
+    border: 4px double #000;
+}
 /* 왼눈 */
+.e1{
+    background-image: url(../images/e1.jpg);
+}
+
 /* 오른눈 */
+.e2{
+    background-image: url(../images/e2.jpg);
+}
 /* 코 */
 /* 입 */
 /* 왼귀 */
