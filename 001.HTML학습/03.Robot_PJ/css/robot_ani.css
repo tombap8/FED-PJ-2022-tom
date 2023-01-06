@@ -43,8 +43,6 @@ animation: 이시이지반방마
     to{
         transform: translate(0,0) scale(1);
     }
-
-
 }
 /* 1-2. 키프레임 호출설정! - 대상  */
 .robx{
