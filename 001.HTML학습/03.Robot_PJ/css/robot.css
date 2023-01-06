@@ -1,0 +1,58 @@
+@charset "utf-8";
+
+/* Robot PJ 메인 CSS - robot.css */
+
+/* 초기화 */
+html,body,h1,h2,p,ol,ul{
+    margin: 0;
+    padding: 0;
+}
+
+/****** 공통 클래스 ******/
+/* 메탈소재1 배경 */
+.mt1{
+    background: url(../images/metal01.jpg) no-repeat center/cover;
+}
+/* 메탈소재2 배경 */
+.mt2{
+    background: url(../images/metal02.jpg) no-repeat center/cover;
+}
+
+
+body{
+    background: url(../images/bg.jpg) no-repeat fixed top/cover;
+}
+
+/* 공사중표시 */
+body * {
+    outline: 2px dashed yellow;
+}
+
+
+/***************** 1. 상단영역 *****************/
+
+
+/***************** 2. 메인영역 *****************/
+
+/* 2-1.로봇박스 */
+.robx{
+    /* 패딩 위,아래 */
+    padding: 200px 0 400px;
+}
+
+/* 로봇머리 */
+.head{
+    width: 250px;
+    height: 250px;
+    /* 마.영.오! */
+    margin: 0 auto;
+}
+/* 왼눈 */
+/* 오른눈 */
+/* 코 */
+/* 입 */
+/* 왼귀 */
+/* 오른귀 */
+
+
+/***************** 3. 하단영역 *****************/
