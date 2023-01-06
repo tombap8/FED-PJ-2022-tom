@@ -37,14 +37,14 @@ animation: 이시이지반방마
 /* 1-1. 로봇 등장 키프레임 */
 @keyframes showRobot {
     from{
-        transform: 
-        scale(.1) translate(200%,-200%);
+        transform: translate(20%,-20%) 
+        scale(.1);
     }
     to{
-        transform: scale(1);
+        transform: translate(0,0) scale(1);
     }
 
-    
+
 }
 /* 1-2. 키프레임 호출설정! - 대상  */
 .robx{
