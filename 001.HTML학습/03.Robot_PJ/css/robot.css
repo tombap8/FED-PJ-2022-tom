@@ -42,11 +42,18 @@ body * {
 
 /* 로봇머리 */
 .head{
+    position: relative;
+    /* 부모자격 - 하위 div들 */
     width: 250px;
     height: 250px;
     /* 마.영.오! */
     margin: 0 auto;
 }
+/* 로봇머리 직계하위 div는 모두 앱솔루트! */
+.head > div{
+    position: absolute;
+}
+
 /* 눈공통 */
 .eye{
     width: 50px;
@@ -65,14 +72,27 @@ body * {
 }
 /* 왼눈 */
 .e1{
+    top: 50px;
+    left: 50px;
     background-image: url(../images/e1.jpg);
 }
 
 /* 오른눈 */
 .e2{
+    top: 50px;
+    right: 50px;
     background-image: url(../images/e2.jpg);
 }
 /* 코 */
+.nose{
+    top: 98px;
+    left: 100px;
+    width: 50px;
+    height: 70px;
+    background: url(../images/nose.jpg) no-repeat 0/110% 100%;
+    /* 둥근모서리 */
+    border-radius: 30px;
+}
 /* 입 */
 /* 왼귀 */
 /* 오른귀 */
