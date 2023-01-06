@@ -48,10 +48,27 @@ body * {
     height: 250px;
     /* 마.영.오! */
     margin: 0 auto;
+    /* 턱깍기 */
+    border-radius: 30px 30px 50% 50%;
 }
 /* 로봇머리 직계하위 div는 모두 앱솔루트! */
 .head > div{
     position: absolute;
+}
+
+/* 로봇 머리에 가상요소로 머리털박스 만들기 */
+.head::before{
+    content: '';
+    display: block;
+    position: absolute;
+    top: -70px;
+    left: -15px;
+    /* 부모는? .head */
+    width: 280px;
+    height: 200px;
+    background: url(../images/hair.png) no-repeat 0/100% 100%;
+    /* 맨위 */
+    z-index: 1;
 }
 
 /* 눈공통 */
