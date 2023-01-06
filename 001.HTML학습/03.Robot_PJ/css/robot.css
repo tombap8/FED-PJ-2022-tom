@@ -205,4 +205,49 @@ body * {
 }
 
 
+/****** 로봇몸통 ******/
+.body{
+    position: relative;
+    /* 부모자격 - 하위 직계 div들 */
+    width: 200px;
+    height: 400px;
+    margin: 0 auto;
+    margin-top: 130px;
+}
+/* 몸통 하위 직계 div 모두 앱솔루트! */
+.body>div{
+    position: absolute;
+}
+/* 몸통 가상요소로 상단만들기 */
+.body::before{
+    content: '';
+    display: block;
+    position: absolute;
+    left: -50px;
+    width: 300px;
+    height: 200px;
+    background-color: #fff;
+}
+/* 몸통 가상요소로 하단만들기 */
+.body::after{
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: -50px;
+    width: 300px;
+    height: 150px;
+    background-color: #fff;
+}
+
+/* 목 */
+/* 왼팔 */
+/* 오른팔 */
+/* 왼다리 */
+/* 오른다리 */
+/* 왼어깨 */
+/* 오른어깨 */
+/* TV */
+
+
 /***************** 3. 하단영역 *****************/
