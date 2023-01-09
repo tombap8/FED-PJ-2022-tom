@@ -7,7 +7,10 @@
 #top{
     background-color: #fff;
 }
+/* 속박스 */
 .top{
+    position: relative;
+    /* 부모자격 - .tmenu */
     height: 128px;
 }
 /* 1-1.로고 */
@@ -38,6 +41,24 @@ nav.gnb ul{
     line-height: 40px;
     margin: 0 10px;
 }
+/* 1-3.탑메뉴 */
+aside.tmenu{
+    position: absolute;
+    top: 0;
+    right: 0;
+    /* 부모는? .top */
+}
+/* 회원가입 등 메뉴 박스 */
+.tmenu ul{
+    /* 플렉스 박스 : 하위 li요소 옆으로 흐름! */
+    display: flex;
+}
+/* sns 메뉴 박스 */
+.tmenu ol{
+    /* 플렉스 박스 : 하위 li요소 옆으로 흐름! */
+    display: flex;
+}
+
 
 /****************** 2.메인영역 ******************/
 .cont{
