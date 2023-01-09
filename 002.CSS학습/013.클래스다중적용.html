@@ -55,7 +55,28 @@
 
             /* 보더관련 클래스 */
             /* 상위요소로 기존에 셋팅되어서 하위요소 class적용이 되지않는다
-            따라서 상위요소를 위에 써주면 적용된다(우선순위) */
+            따라서 상위요소를 위에 써주면 적용된다(우선순위) 
+
+            -> 일반적으로 이미 상위요소 사용된 셋팅이 있다면
+            하위에 적용할 클래스를 만들때 상위요소를 함께 사용하여
+            클래스를 작성하는 것이 좋다!
+
+            -> 일반적으로 추가 구현하여 덮어쓸 클래스는 기존 설정코드보다
+            아래쪽에 작성하는 것이 좋다!(같은레벨덮어쓰기) 
+            
+            */
+
+            /* 사용할 요소의 기존 보더 셋팅은 .bx li 이것으로 됨
+            .bx .클래스명 우선순위가 높아지거나 같은 레벨이면 덮어쓰기를함! */
+            .bx .bd1{
+                border: 10px dotted pink;
+            }
+            .bx .bd2{
+                border: 5px dashed darkcyan;
+            }
+            .bx .bd3{
+                border: 20px ridge darkorchid;
+            }
             
 
             /* 
@@ -90,14 +111,14 @@
     <body>
         <h1>클래스 다중적용</h1>
         <ul class="bx">
-            <li class="">클래스적용1</li>
-            <li class="">클래스적용2</li>
-            <li class="">클래스적용3</li>
-            <li class="">클래스적용4</li>
-            <li class="">클래스적용5</li>
-            <li class="">클래스적용6</li>
-            <li class="">클래스적용7</li>
-            <li class="">클래스적용8</li>
+            <li class="fcls1 bd1">클래스적용1</li>
+            <li class="fcls2 bd2">클래스적용2</li>
+            <li class="fcls3 bd3">클래스적용3</li>
+            <li class="fcls1 bd3">클래스적용4</li>
+            <li class="fcls2 bd1">클래스적용5</li>
+            <li class="fcls3 bd2">클래스적용6</li>
+            <li class="fcls1 bd2">클래스적용7</li>
+            <li class="fcls2 bd3">클래스적용8</li>
             <li>클래스적용9</li>
         </ul>
     </body>
