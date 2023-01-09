@@ -3,8 +3,40 @@
 -> 상단영역, 하단영역 디자인 */
 
 /****************** 1.상단영역 ******************/
+/* 겉박스 */
+#top{
+    background-color: #fff;
+}
 .top{
     height: 128px;
+}
+/* 1-1.로고 */
+h1.logo{
+    width: 100px;
+    margin: 0 auto;
+    padding-top: 20px;
+    outline: 1px solid red;
+}
+/* 로고 이미지 */
+.logo img{
+    width: 100px;
+}
+/* 1-2.GNB메뉴 */
+nav.gnb ul{
+    /* 플렉스박스 : 흐르게할 요소의 직계부모 */
+    display: flex;
+    /* 진행방향 정렬 */
+    justify-content: center;
+    /* 마진탑은 부모인 nav.gnb 바깥으로
+    나가서 위의 박스를 밀고 있다! */
+    margin-top: 10px;
+}
+/* GNB a요소 */
+.gnb>ul>li>a{
+    color: #222;
+    text-decoration: none;
+    line-height: 40px;
+    margin: 0 10px;
 }
 
 /****************** 2.메인영역 ******************/
