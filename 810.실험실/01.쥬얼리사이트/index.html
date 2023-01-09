@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>쥬얼리 사이트</title>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+        }
+        section{
+            display: flex;
+            height: 100vh;
+        }
+        section>div{
+            flex: 1;
+        }
+        section>div>img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+        .tpg{
+            height: auto;
+
+        }
+        .tpg img{
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            margin-bottom: 50px;
+        }
+        .mm{
+            text-align: center;
+        }
+        .mm img{
+            width: 50%;
+        }
+        #stk{
+            position: sticky;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div>
+            <img src="./images/1.jpg" alt="첫이미지">
+        </div>
+        <div>
+            <img src="./images/2.png" alt="둘째이미지">
+        </div>
+
+    </section>
+    <section>
+        <div>
+            <img src="./images/3.jpg" alt="첫이미지">
+        </div>
+        <div>
+            <img src="./images/4.jpg" alt="둘째이미지">
+        </div>
+    </section>
+    <section class="tpg">
+        <div class="mm">
+            <img src="./images/5.jpg" alt="첫이미지" id="stk">
+        </div>
+        <div>
+            <img src="./images/6.png" alt="둘째이미지">
+            <img src="./images/7.png" alt="둘째이미지">
+            <img src="./images/8.png" alt="둘째이미지">
+        </div>
+    </section>
+    
+    <section>
+        <div>
+            <img src="./images/1.jpg" alt="첫이미지">
+        </div>
+        <div>
+            <img src="./images/2.png" alt="둘째이미지">
+        </div>
+
+    </section>
+    
+</body>
+</html>
