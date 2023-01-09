@@ -1,45 +1,441 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <title>미디어쿼리 기본개념 연습</title>
-    <style>
-        /* 초기화 */
-        html,body{
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            /* 스크롤바 없앰 */
-        }
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- 
+        [ 뷰포트(viewport)란? ]
+        - 모바일 기기에서 볼때 모바일 기기의 랜더링 화면사이즈를
+        일반적인 물리적 크기의 픽셀로 변환해 주는 메타태그임
+        - 미디어쿼리를 사용하는 웹 페이지에서 필수!!!
 
-        body{
-            background-color: #000;
-        }
-        
-        /* 타이틀 */
-        .tit{
-            text-align: center;
-            margin: 0;
-            padding: 50px 0;
-            color: #fff;
-        }
-    </style>
-</head>
-<body>
-    <div class="bx">
-        <h1 class="tit">이정재 컬렉션</h1>
-        <div class="screen">            
-            <img src="./images/sc_noise.png" alt="노이즈화면">            
-            <img src="./images/jeong1.jpg" alt="이정재1">
-            <img src="./images/jeong2.jpg" alt="이정재2">
-            <img src="./images/jeong3.jpg" alt="이정재3">
-            <img src="./images/jeong4.jpg" alt="이정재4">
-            <img src="./images/jeong5.jpg" alt="이정재5">
-            <img src="./images/jeong6.jpg" alt="이정재6">
-            <img src="./images/jeong7.jpg" alt="이정재7">
-            <img src="./images/jeong8.jpg" alt="이정재8">
-            <img src="./images/jeong9.jpg" alt="이정재9">
+        mata  요소 속성 name="viewport" 로 설정
+        content 속성에
+        1) width=device-width 
+            : 가로픽셀크기를 디바이스 물리적크기와 일치시킴
+        2) initial-scale=1.0
+            : 물리적크기를 그대로 쓸때 1.0을 사용
+            (1보다 작게하면 축소, 1보다 크게하면 확대)
+
+        예) 아이폰 6플러스의 물리적 가로크기는 414px인데
+            디스플레이할때는 1080px로 보여진다!
+            이때 viewport를 쓰면 414px로 변환해서 보여준다!
+     -->
+        <title>미디어쿼리 기본개념 연습</title>
+        <style>
+            /* 
+            [ 미디어쿼리(Media Query)란? ]
+
+                - 디바이스의 가로 사이즈에 대해 계속된
+                질의(Query)를 브라우저에 함으로써 사이즈
+                변경 시점에 필요한 CSS를 적용하여 디자인
+                변경을 할 수 있도록 구현된 CSS 코딩기법
+
+                - 반응형(적응형)웹을 구현하는 핵심기술
+
+                1. 반응형웹(Responsive Web) :
+                미디어 화면크기에 따라 종합적인 변경사항을
+                기술적으로 다룬 사이트
+
+                2. 적응형웹(Adaptive Web) :
+                미디어 화면크기에 따라 레이아웃 등의 CSS로
+                요소의 속성변경을 다룬 웹사이트
+
+                - 우리가 CSS 코딩으로 구현하는 것은 적응형웹이다!
+                즉, 적응형웹은 반응형웹의 일부분이다!
+                하지만 일반적인 명칭으로 반응형웹으로 부른다!
+
+                [ 구현방법 ]
+
+                @media only screen and (max-width:최대px) and
+                (min-width:최소px){
+                    CSS코딩구역
+                }
+
+                1) @media : 미디어쿼리 선언부
+
+                2) only screen (또는 screen) : 회피코드
+                    -> 미디어쿼리를 아는 브라우저만 읽어라!
+                    -> only 를 쓰면 구버전 user agent 는
+                        미디어쿼리를 읽지 못하게 하는 것!
+                    (현재는 only를 쓴 것과 안쓴것의 차이가 없음!)
+
+                3) max-width : 최대사이즈
+                    -> 반드시 px단위를 사용함, 소괄호 사용함!
+
+                4) min-width : 최소사이즈
+                    -> 반드시 px단위를 사용함, 소괄호 사용함!
+
+                -> 최대, 최소 사이즈는 표기된 사이즈를 포함함
+
+                -> 최대 사이즈만 쓸 경우 :
+                    - 기준 사이즈 이하가 모두 포함됨
+                    - 큰 사이즈 부터 작은 사이즈 순으로 코딩해야
+                    제대로 적용됨!(하위 사이즈가 덮어씀)
+
+                -> 최소 사이즈만 쓸 경우 :
+                    - 기준 사이즈 이상이 모두 포함됨
+                    - 작은 사이즈 부터 큰 사이즈 순으로 코딩해야
+                    제대로 적용됨!(상위 사이즈가 덮어씀)
+
+                5) and : 구문 사이 연결자
+                    -> 주의사항 - and 앞뒤공백 필수!
+
+
+                __________________________________________
+
+                [ 웹페이지 가로/세로 모드 인식하기 ]
+
+                1. 가로모드 -> (orientation:landscape)
+                    - landscape는 "풍경"이란뜻
+
+                @media (orientation:landscape) {
+                    가로모드 CSS
+                }
+
+                2. 세로모드 -> (orientation:portrait)
+                    - portrait는 "초상화"란뜻
+
+                @media (orientation:portrait) {
+                    세로모드 CSS
+                }
+
+
+                __________________________________________    
+
+
+                [ 미디어 쿼리 코딩시 주의사항! ]
+
+                1. 기존 CSS 선택자와 동일하게 코딩한다!
+                    (그래야 덮어쓰기가 원활하다!)
+
+                2. max-width 로 셋팅한 후 큰 사이즈 부터 작은 사이즈
+                순으로 코딩한다! (min-width는 순서반대!)
+                -> 그래야 같은 속성 덮어쓰기가 가능함!
+
+                3. 미디어쿼리를 외부CSS파일로 만들어 사용할 경우
+                    @import방식으로 호출하면 적용되지 않는다!
+                    이유는 미디어쿼리는 덮어쓰기 방식이므로
+                    기존 CSS코드보다 아래에 있어야함!!!!
+                    link방식으로 html코드 상단에 기본 CSS 외부파일보다
+                    아래에서 호출하면 된다!!!
+
+                예) 
+                <head>
+                    <link rel="stylesheet" href="일반CSS">
+                    <link rel="stylesheet" href="미디어쿼리CSS">
+                </head>
+
+        */
+
+            /* 초기화 */
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                /* 스크롤바 없앰 */
+            }
+
+            body {
+                background-color: #000;
+            }
+
+            /* 전체박스 */
+            .bx {
+                height: 1000px;
+                background: url(./images/oldTVON.png) no-repeat center/auto 100%;
+            }
+
+            /* 타이틀 */
+            .tit {
+                text-align: center;
+                margin: 0;
+                padding: 50px 0;
+                color: #fff;
+            }
+            /* 타이틀에 가상요소로 서브제목 넣기 */
+            .tit::after {
+                content: "나야나!";
+                display: block;
+                /* div와 유사함 - 안쓰면 span과 유사 */
+                font-size: 30px;
+                line-height: 3;
+                color: cyan;
+                text-shadow: 0 0 5px #000;
+            }
+            /* 스크린 */
+            .screen {
+                position: absolute;
+                top: 307px;
+                left: 50%;
+                transform: translateX(-59%);
+                /* 자기크기(width)절반 왼쪽이동!
+            (중앙쪽으로 이동) */
+                z-index: -1;
+                /* -1은 부모박스보다 아래! */
+
+                width: 345px;
+                height: 258px;
+            }
+            /* 화면이미지 */
+            .screen img {
+                width: 100%;
+                height: 100%;
+                display: none;
+            }
+            /* 첫번째 이미지만 보이기 */
+            .screen img:first-child {
+                display: inline;
+            }
+
+            /************* 미디어쿼리 적용하기 *************/
+            /* 주의: 
+            1. max-width만 사용할 경우 큰 사이즈 부터
+            작은 사이즈 순으로 코딩해야 의도대로 적용된다! 
+
+            2. 기존 선택한 방법과 동일한 선택자로 코딩하여
+            덮어쓰기가 되도록 코딩한다!
+
+            3. 브라우저 테스트시 글자크기를 반드시 100%로
+            셋팅해서 테스트한다!(비율이 변경되면 수치가 정확히
+            표시되지 않는다!) -> [ctrl+0 -> 100%보기]
+            */
+
+            /* 1200px 이하 미디어쿼리 시작 */
+            @media screen and (max-width: 1200px) {
+                /* 1. 타이틀 변경하기 */
+                .tit::after {
+                    content: "최대 1200px이하";
+                    color: pink;
+                }
+
+                /* 2. 기존 이미지 숨기기 */
+                .screen img:first-child {
+                    display: none;
+                }
+
+                /* 3. 다음 이미지 숨기기 */
+                .screen img:nth-child(2) {
+                    display: inline;
+                }
+            }
+            /* 1200px 이하 미디어쿼리 끝 */
+
+            /* 1100px 이하 미디어쿼리 시작 */
+            @media screen and (max-width: 1100px) {
+                
+                /* 1. 타이틀 변경하기 */
+                .tit::after {
+                    content: "최대 1100px이하";
+                    color: lime;
+                }
+
+                /* 2. 기존 이미지 숨기기 */
+                .screen img:nth-child(2) {
+                    display: none;
+                }
+
+                /* 3. 다음 이미지 숨기기 */
+                .screen img:nth-child(3) {
+                    display: inline;
+                }
+            }
+            /* 1100px 이하 미디어쿼리 끝 */
+
+
+            /* 1100px 이하 미디어쿼리 시작 */
+            @media screen and (max-width: 1100px) {
+                
+                /* 1. 타이틀 변경하기 */
+                .tit::after {
+                    content: "최대 1100px이하";
+                    color: lime;
+                }
+
+                /* 2. 기존 이미지 숨기기 */
+                .screen img:nth-child(2) {
+                    display: none;
+                }
+
+                /* 3. 다음 이미지 숨기기 */
+                .screen img:nth-child(3) {
+                    display: inline;
+                }
+                
+            }
+            /* 1100px 이하 미디어쿼리 끝 */
+
+            /* 1000px 이하 미디어쿼리 시작 */
+            @media screen and (max-width: 1000px) {
+                
+                /* 1. 타이틀 변경하기 */
+                .tit::after {
+                    content: "최대 1000px이하";
+                    color: darkmagenta;
+                }
+
+                /* 2. 기존 이미지 숨기기 */
+                .screen img:nth-child(3) {
+                    display: none;
+                }
+
+                /* 3. 다음 이미지 숨기기 */
+                .screen img:nth-child(4) {
+                    display: inline;
+                }
+
+            }
+            /* 1000px 이하 미디어쿼리 끝 */
+
+            /* 900px 이하 미디어쿼리 시작 */
+            @media screen and (max-width: 900px) {
+                
+                /* 1. 타이틀 변경하기 */
+                .tit::after {
+                    content: "최대 900px이하";
+                    color: darkorange;
+                }
+
+                /* 2. 기존 이미지 숨기기 */
+                .screen img:nth-child(4) {
+                    display: none;
+                }
+
+                /* 3. 다음 이미지 숨기기 */
+                .screen img:nth-child(5) {
+                    display: inline;
+                }
+
+            }
+            /* 900px 이하 미디어쿼리 끝 */
+
+            /* 850px 이하 미디어쿼리 시작 */
+            @media screen and (max-width: 850px) {
+                
+                /* 1. 타이틀 변경하기 */
+                .tit::after {
+                    content: "최대 850px이하";
+                    color: darkseagreen;
+                }
+
+                /* 2. 기존 이미지 숨기기 */
+                .screen img:nth-child(5) {
+                    display: none;
+                }
+
+                /* 3. 다음 이미지 숨기기 */
+                .screen img:nth-child(6) {
+                    display: inline;
+                }
+
+            }
+            /* 850px 이하 미디어쿼리 끝 */
+
+            /* 830px 이하 미디어쿼리 시작 */
+            @media screen and (max-width: 830px) {
+                
+                /* 1. 타이틀 변경하기 */
+                .tit::after {
+                    content: "최대 830px이하";
+                    color: darkkhaki;
+                }
+
+                /* 2. 기존 이미지 숨기기 */
+                .screen img:nth-child(6) {
+                    display: none;
+                }
+
+                /* 3. 다음 이미지 숨기기 */
+                .screen img:nth-child(7) {
+                    display: inline;
+                }
+
+            }
+            /* 830px 이하 미디어쿼리 끝 */
+
+            /* 810px 이하 미디어쿼리 시작 */
+            @media screen and (max-width: 810px) {
+                
+                /* 1. 타이틀 변경하기 */
+                .tit::after {
+                    content: "최대 810px이하";
+                    color: darkred;
+                }
+
+                /* 2. 기존 이미지 숨기기 */
+                .screen img:nth-child(7) {
+                    display: none;
+                }
+
+                /* 3. 다음 이미지 숨기기 */
+                .screen img:nth-child(8) {
+                    display: inline;
+                }
+
+            }
+            /* 810px 이하 미디어쿼리 끝 */
+
+            /* 790px 이하 미디어쿼리 시작 */
+            @media screen and (max-width: 790px) {
+                
+                /* 1. 타이틀 변경하기 */
+                .tit::after {
+                    content: "최대 790px이하";
+                    color: lawngreen;
+                }
+
+                /* 2. 기존 이미지 숨기기 */
+                .screen img:nth-child(8) {
+                    display: none;
+                }
+
+                /* 3. 다음 이미지 숨기기 */
+                .screen img:nth-child(9) {
+                    display: inline;
+                }
+
+            }
+            /* 790px 이하 미디어쿼리 끝 */
+
+            /* 770px 이하 미디어쿼리 시작 */
+            @media screen and (max-width: 770px) {
+                
+                /* 1. 타이틀 변경하기 */
+                .tit::after {
+                    content: "최대 770px이하";
+                    color: darkgoldenrod;
+                }
+
+                /* 2. 기존 이미지 숨기기 */
+                .screen img:nth-child(9) {
+                    display: none;
+                }
+
+                /* 3. 다음 이미지 숨기기 */
+                .screen img:nth-child(10) {
+                    display: inline;
+                }
+
+            }
+            /* 770px 이하 미디어쿼리 끝 */
+        </style>
+    </head>
+    <body>
+        <div class="bx">
+            <h1 class="tit">이정재 컬렉션</h1>
+            <div class="screen">
+                <img src="./images/sc_noise.png" alt="노이즈화면" />
+                <img src="./images/jeong1.jpg" alt="이정재1" />
+                <img src="./images/jeong2.jpg" alt="이정재2" />
+                <img src="./images/jeong3.jpg" alt="이정재3" />
+                <img src="./images/jeong4.jpg" alt="이정재4" />
+                <img src="./images/jeong5.jpg" alt="이정재5" />
+                <img src="./images/jeong6.jpg" alt="이정재6" />
+                <img src="./images/jeong7.jpg" alt="이정재7" />
+                <img src="./images/jeong8.jpg" alt="이정재8" />
+                <img src="./images/jeong9.jpg" alt="이정재9" />
+            </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>
