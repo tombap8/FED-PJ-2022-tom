@@ -224,7 +224,6 @@
 
             /* 1100px 이하 미디어쿼리 시작 */
             @media screen and (max-width: 1100px) {
-                
                 /* 1. 타이틀 변경하기 */
                 .tit::after {
                     content: "최대 1100px이하";
@@ -243,10 +242,8 @@
             }
             /* 1100px 이하 미디어쿼리 끝 */
 
-
             /* 1100px 이하 미디어쿼리 시작 */
             @media screen and (max-width: 1100px) {
-                
                 /* 1. 타이틀 변경하기 */
                 .tit::after {
                     content: "최대 1100px이하";
@@ -262,13 +259,11 @@
                 .screen img:nth-child(3) {
                     display: inline;
                 }
-                
             }
             /* 1100px 이하 미디어쿼리 끝 */
 
             /* 1000px 이하 미디어쿼리 시작 */
             @media screen and (max-width: 1000px) {
-                
                 /* 1. 타이틀 변경하기 */
                 .tit::after {
                     content: "최대 1000px이하";
@@ -284,13 +279,11 @@
                 .screen img:nth-child(4) {
                     display: inline;
                 }
-
             }
             /* 1000px 이하 미디어쿼리 끝 */
 
             /* 900px 이하 미디어쿼리 시작 */
             @media screen and (max-width: 900px) {
-                
                 /* 1. 타이틀 변경하기 */
                 .tit::after {
                     content: "최대 900px이하";
@@ -306,13 +299,11 @@
                 .screen img:nth-child(5) {
                     display: inline;
                 }
-
             }
             /* 900px 이하 미디어쿼리 끝 */
 
             /* 850px 이하 미디어쿼리 시작 */
             @media screen and (max-width: 850px) {
-                
                 /* 1. 타이틀 변경하기 */
                 .tit::after {
                     content: "최대 850px이하";
@@ -328,13 +319,11 @@
                 .screen img:nth-child(6) {
                     display: inline;
                 }
-
             }
             /* 850px 이하 미디어쿼리 끝 */
 
             /* 830px 이하 미디어쿼리 시작 */
             @media screen and (max-width: 830px) {
-                
                 /* 1. 타이틀 변경하기 */
                 .tit::after {
                     content: "최대 830px이하";
@@ -350,13 +339,11 @@
                 .screen img:nth-child(7) {
                     display: inline;
                 }
-
             }
             /* 830px 이하 미디어쿼리 끝 */
 
             /* 810px 이하 미디어쿼리 시작 */
             @media screen and (max-width: 810px) {
-                
                 /* 1. 타이틀 변경하기 */
                 .tit::after {
                     content: "최대 810px이하";
@@ -372,13 +359,11 @@
                 .screen img:nth-child(8) {
                     display: inline;
                 }
-
             }
             /* 810px 이하 미디어쿼리 끝 */
 
             /* 790px 이하 미디어쿼리 시작 */
             @media screen and (max-width: 790px) {
-                
                 /* 1. 타이틀 변경하기 */
                 .tit::after {
                     content: "최대 790px이하";
@@ -394,13 +379,11 @@
                 .screen img:nth-child(9) {
                     display: inline;
                 }
-
             }
             /* 790px 이하 미디어쿼리 끝 */
 
             /* 770px 이하 미디어쿼리 시작 */
             @media screen and (max-width: 770px) {
-                
                 /* 1. 타이틀 변경하기 */
                 .tit::after {
                     content: "최대 770px이하";
@@ -416,9 +399,56 @@
                 .screen img:nth-child(10) {
                     display: inline;
                 }
-
             }
             /* 770px 이하 미디어쿼리 끝 */
+
+            /***************************************** 
+                가로모드와 세로모드 변경코드!!!
+                -> 가로/세로 모드는 그 길이가 더 긴것을
+                기준한다! 모바일 전용이 아니다!
+                -> 모바일 화면의 제한을 주려면 가로크기의
+                한계값을 설정하는 방법을 사용한다!
+                예) 
+                @media screen and 
+                (orientation:portrait) and 
+                (max-width:1000px){ CSS코드 }
+            *****************************************/
+
+            /* 세로모드 시작 */
+            @media screen and (orientation: portrait) and (max-width: 1000px) {
+                /* .bx의 배경속성변경 */
+                .bx {
+                    background-size: auto 60%;
+                    background-position: top;
+                }
+                /* 스크린 위치값변경 */
+                .screen {
+                    top: 130px;
+                }
+            }
+            /* 세로모드 끝 */
+
+            /* 가로모드 시작 */
+            @media screen and (orientation: landscape) and (max-width: 1000px) {
+                /* 타이틀 위치변경 */
+                .tit {
+                    text-align: left;
+                    text-indent: 15px;
+                }
+
+                /* .bx의 배경속성변경 */
+                .bx {
+                    background-size: auto 53%;
+                    background-position: center -100px;
+                }
+
+                /* 스크린 위치값변경 */
+                .screen {
+                    top: 18px;
+                    transform: translateX(-49%);
+                }
+            }
+            /* 가로모드 끝 */
         </style>
     </head>
     <body>
