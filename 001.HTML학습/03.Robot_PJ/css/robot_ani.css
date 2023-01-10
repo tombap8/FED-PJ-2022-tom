@@ -113,13 +113,51 @@ animation: 이시이지반방마
 
 .a1 {
     /* 애니메이션:이시이지반방마 */
-    animation: ;
+    animation: leftArm1 .5s ease-in-out 5s forwards;
 }
 
 .a1 span {
-    transform: rotate(-98deg);
+    /* 애니메이션:이시이지반방마 */
+    animation: leftArm2 .5s ease-in-out 5s forwards;
+    
 }
 
 .a1 span::after {
-    transform: rotate(77deg);
+    /* 애니메이션:이시이지반방마 */
+    animation: leftArm3 .5s ease-in-out 5s forwards;
+}
+
+/* 3-1.오른손 키프레임 */
+@keyframes rightArm1 {
+    /* 팔상단 한번올리기 */
+    to{
+        transform: rotate(-122deg);
+    }
+}
+@keyframes rightArm1-2 {
+    /* 팔상단 계속흔들기 */
+    from{
+        transform: rotate(-122deg);
+    }
+    to{
+        transform: rotate(-132deg);
+    }
+}
+@keyframes rightArm2 {
+    /* 팔하단 계속흔들기 */
+    from{
+        transform: rotate(10deg);
+    }
+    to{
+        transform: rotate(-10deg);
+    }
+}
+@keyframes rightArm3 {
+    /* 오른손 계속흔들기 */
+    from{
+        transform: rotate(-10deg);
+    }
+    to{
+        transform: rotate(10deg);
+    }
 }
