@@ -285,7 +285,11 @@ body * {
     width: 70px;
     height: 70px;
     border-radius: 50%;
+    border: 4px solid #333;
     background-color: #ccc;
+
+    /* 보더,패딩포함 크기유지 */
+    box-sizing: border-box;
 }
 /* 팔하단 */
 .arm span{
@@ -299,6 +303,26 @@ body * {
     border-radius: 25px;
     /* 회전축변경 : 세로방향 top */
     transform-origin: top;
+}
+/* 팔하단 가상요소로 손박스 만들기 */
+.arm span::after{
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -135px;
+    width: 90px;
+    height: 135px;
+    outline: 2px dashed lime;
+}
+/* 왼쪽손 배경이미지 */
+.a1 span::after{
+    left: -8px;
+    background: url(../images/hand_left.png) no-repeat bottom/100%;
+}
+/* 오른쪽손 배경이미지 */
+.a2 span::after{
+    right: -8px;
+    background: url(../images/hand_right.png) no-repeat bottom/100%;
 }
 /* 왼팔 */
 .a1{
