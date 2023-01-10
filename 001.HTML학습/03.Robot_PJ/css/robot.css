@@ -361,7 +361,8 @@ body * {
     border-radius: 30px;
 }
 /* 다리공통 가상요소로 연결부분 만들기 */
-.leg::before{
+.leg::before,
+.leg::after {
     content: '';
     display: block;
     position: absolute;
@@ -376,6 +377,14 @@ body * {
     -> 무엇을 먼저했느냐에 따라 결과 달라짐! */
     transform: scaleX(.8) rotate(45deg);
 }
+
+/* 다리연결부분 내부박스 */
+.leg::after{
+    transform: scale(.65,.8) rotate(45deg);
+    /* 선형 그라데이션 */
+    background-image: linear-gradient(-45deg,#222 10%,#ccc 60%,#eee);
+}
+
 /* 다리하단 공통 */
 .leg span{    
     position: absolute;
