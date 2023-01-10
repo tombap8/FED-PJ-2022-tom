@@ -320,35 +320,40 @@ body * {
     bottom: -135px;
     width: 90px;
     height: 135px;
+    /* 회전축변경 : 세로방향 top */
+    transform-origin: top;
+
     outline: 2px dashed lime;
 }
 /* 왼쪽손 배경이미지 */
 .a1 span::after{
     left: -8px;
+    transform: rotate(10deg);
     background: url(../images/hand_left.png) no-repeat bottom/100%;
 }
 /* 오른쪽손 배경이미지 */
 .a2 span::after{
     right: -8px;
+    transform: rotate(-10deg);
     background: url(../images/hand_right.png) no-repeat bottom/100%;
 }
 /* 왼팔 */
 .a1{
     left: -100px;
-    transform: rotate(30deg);
+    transform: rotate(10deg);
 }
 /* 왼팔하단 */
 .a1 span{
-    transform: rotate(20deg);
+    transform: rotate(-10deg);
 }
 /* 오른팔 */
 .a2{
     right: -100px;
-    transform: rotate(-30deg);
+    transform: rotate(-10deg);
 }
 /* 오른팔하단 */
 .a2 span{
-    transform: rotate(-20deg);
+    transform: rotate(10deg);
 }
 
 /* 다리공통 */

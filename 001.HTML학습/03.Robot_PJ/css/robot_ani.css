@@ -36,16 +36,90 @@ animation: 이시이지반방마
 
 /* 1-1. 로봇 등장 키프레임 */
 @keyframes showRobot {
+    /* 초기값과 같다면 
+    from은 생략가능함! 
+
     from{
-        transform: translate(20%,-20%)
-        scale(.1) ;
-    }
+        transform:  
+        translate(20%,-20%)
+        scale(0) ;
+    } */
     to{
-        transform: translate(0,0) scale(1);
+        transform: 
+        translate(0,0)
+        scale(.6)
+        rotate(720deg);
     }
 }
+
+/* 
+    [ 애니메이션 기본특성 ]
+    1. 기본적으로 1회만 실행
+    2. 애니메이션 후 처음 설정된 값으로 돌아감
+    3. 반복할 경우 시작->끝 순으로 반복함
+
+    [ 기본특성 변경하기 ]
+    1. 반복실행하고 싶으면 
+    반복여부(animation-iteration-count)
+    속성값으로 반복횟수를 쓰거나
+    계속반복실행하고 싶으면 infinite
+
+    2. 마지막 애니메이션 설정값으로 
+    끝나고 싶으면
+    마지막상태(animation-fill-mode)
+    속성값을 forwards로 쓴다!
+
+    3. 시작->끝, 끝->시작 반복 애니메이션을
+    역순으로도 설정하고 싶으면
+    방향(animation-direction) 
+    속성값을 alternate로 쓴다!
+
+
+*/
+
 /* 1-2. 키프레임 호출설정! - 대상  */
 .robx{
+    /* 초기상태 지정하기! */
+    transform:  
+    translate(20%,10%)
+    scale(0)
+    rotate(0);
+    /* 트랜스폼 기준값 변경 */
+    transform-origin: top;
+
     /* 애니메이션: 이시이지반방마 */
-    /* animation: showRobot 3s ease-in-out 1s 3; */
+    animation: 
+    showRobot 4s ease-out 1s forwards;
+    /* showRobot .5s ease-in-out 1s infinite alternate forwards; */
+}
+
+/* 2-1. 왼팔 허리에 올리기 키프레임 */
+@keyframes leftArm1 {/* 팔상단 */
+    to{
+        transform: rotate(52deg);
+    }
+}
+@keyframes leftArm2 {/* 팔하단 */
+    to{
+        transform: rotate(-98deg);
+    }
+}
+@keyframes leftArm3 {/* 왼손 */
+    to{
+        transform: rotate(77deg);
+    }
+}
+/* 2-2. 왼팔애니 호출하기 */
+
+.a1 {
+    /* 애니메이션:이시이지반방마 */
+    animation: ;
+}
+
+.a1 span {
+    transform: rotate(-98deg);
+}
+
+.a1 span::after {
+    transform: rotate(77deg);
 }
