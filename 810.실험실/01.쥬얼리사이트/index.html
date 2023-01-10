@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>쥬얼리 사이트</title>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        /* 상위박스 */
+        section{
+            display: flex;
+            height: 100%;
+        }
+        /* 하위박스 */
+        section>div{
+            flex: 1;
+        }
+        /* 이미지박스맞춤 */
+        section>div>img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* object-fit 의 cover는 center를 기본값으로
+            셋팅된다! object-position으로 위치를 
+            변경한다! */
+            object-position: top;
+            /* object-position: 가로 세로;
+            가로 - left, center, right, 수치값
+            세로 - top, center, bottom, 수치값 */
+        }
+
+    </style>
+</head>
+<body>
+    <section>
+        <div>
+            <img src="./images/1.jpg" alt="이미지">
+        </div>
+        <div>
+            <img src="./images/2.png" alt="이미지">
+        </div>
+    </section>
+    
+    <section>
+        <div>
+            <img src="./images/3.jpg" alt="이미지">
+        </div>
+        <div>
+            <img src="./images/4.jpg" alt="이미지">
+        </div>
+    </section>
+    
+</body>
+</html>
