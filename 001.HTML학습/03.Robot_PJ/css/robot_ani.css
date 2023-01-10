@@ -47,5 +47,5 @@ animation: 이시이지반방마
 /* 1-2. 키프레임 호출설정! - 대상  */
 .robx{
     /* 애니메이션: 이시이지반방마 */
-    animation: showRobot 3s ease-in-out 1s 3;
+    /* animation: showRobot 3s ease-in-out 1s 3; */
 }

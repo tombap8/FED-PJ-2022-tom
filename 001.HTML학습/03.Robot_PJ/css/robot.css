@@ -44,6 +44,8 @@ body * {
 .head{
     position: relative;
     /* 부모자격 - 하위 div들 */
+    z-index: 1;
+    /* .body보다 위 */
     width: 250px;
     height: 150px;
     /* 마.영.오! */
@@ -257,12 +259,37 @@ body * {
     top: -40px;
     left: 65px;
     width: 70px;
-    height: 70px;
+    height: 50px;
     border-radius: 0 0 20px 20px;
-    z-index: -2;
+    /* 하단보더 */
+    border-bottom: 20px ridge goldenrod;
+}
+/* 팔공통 */
+.arm{
+    width: 80px;
+    height: 200px;
+    z-index: -1;
+    border-radius: 15px;
+}
+/* 팔하단 */
+.arm span{
+    position: absolute;
+    top: 100%;
+    left: 5px;
+    /* 부모는? .arm */
+    display: block;
+    width: 70px;
+    height: 150px;
+    border-radius: 15px;
 }
 /* 왼팔 */
+.a1{
+    left: -100px;
+}
 /* 오른팔 */
+.a2{
+    right: -100px;
+}
 /* 왼다리 */
 /* 오른다리 */
 /* 왼어깨 */
