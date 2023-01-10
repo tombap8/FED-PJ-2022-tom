@@ -367,6 +367,7 @@ body * {
     display: block;
     position: absolute;
     bottom: -40px;
+    left: -3px;
     z-index: 1;
     width: 85px;
     height: 85px;
@@ -425,7 +426,7 @@ body * {
     border-top: 20px solid #222;
 
     /* 선형 그라데이션 */
-    background-image: linear-gradient(-45deg,#222 10%,#ccc 60%,#eee);
+    background-image: linear-gradient(-90deg,#222 10%,#ccc 60%,#eee);
 
 }
 /* 왼다리 */
@@ -456,6 +457,38 @@ body * {
     transform: rotate(8.4deg);
 }
 /* TV */
+.tv{
+    top: 50px;
+    left: 10px;
+    width: 180px;
+    height: 138px;
+    border-radius: 5px;
+    background: url(../images/tv.jpg) no-repeat center/cover;
+}
+/* 스크린 */
+.screen{
+    position: absolute;
+    top: 14px;
+    left: 9px;
+    width: 129px;
+    height: 100px;
+    border-radius: 15px;
+    background-color: #000;
+
+    /* 자식요소 아이프레임 
+    넘치는 부분 숨기기 */
+    overflow: hidden;
+}
+/* 동영상 iframe */
+.screen iframe{
+    position: absolute;
+    top: 0px;
+    left: -19px;
+    width: 174px;
+    height: 100px;
+    /* 아이프레임 기본보더없앰 */
+    border: none;
+}
 
 
 /***************** 3. 하단영역 *****************/
