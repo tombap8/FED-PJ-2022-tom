@@ -47,8 +47,22 @@ animation: 이시이지반방마
     to{
         transform: 
         translate(0,0)
-        scale(.6)
-        rotate(720deg);
+        scale(.6);
+        /* rotate(720deg); */
+    }
+}
+/* 로봇몸 키프레임 추가
+.robx의 내부 div박스를 회전함
+-> 중심점때문에 만들어서 사용함! */
+@keyframes showRobot2 {
+    0%{
+        transform: rotate(0);
+    }
+    50%{
+        transform: rotate(360deg);
+    }
+    100%{
+        transform: rotate(-360deg);
     }
 }
 
@@ -82,8 +96,8 @@ animation: 이시이지반방마
     /* 초기상태 지정하기! */
     transform:  
     translate(20%,10%)
-    scale(0)
-    rotate(0);
+    scale(0);
+    /* rotate(0); */
     /* 트랜스폼 기준값 변경 */
     transform-origin: top;
 
@@ -91,6 +105,11 @@ animation: 이시이지반방마
     animation: 
     showRobot 4s ease-out 1s forwards;
     /* showRobot .5s ease-in-out 1s infinite alternate forwards; */
+}
+/* 로봇몸 추가회전 애니호출 */
+.robx>div{
+    /* 애니메이션:이시이지반방마 */
+    animation: showRobot2 4s ease-in-out 1s;
 }
 
 /* 2-1. 왼팔 허리에 올리기 키프레임 */
