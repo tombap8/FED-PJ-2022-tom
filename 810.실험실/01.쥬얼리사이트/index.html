@@ -18,6 +18,7 @@
         /* 하위박스 */
         section>div{
             flex: 1;
+            /* 등분할 플렉스 자식요소 설정 */
         }
         /* 이미지박스맞춤 */
         section>div>img{
@@ -31,6 +32,33 @@
             /* object-position: 가로 세로;
             가로 - left, center, right, 수치값
             세로 - top, center, bottom, 수치값 */
+        }
+
+        /* 테스트할 페이지 */
+        .tpg{
+            /* 기존 높이값 100% 해제하기 */
+            height: auto;
+        }
+        .tpg img{
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            margin-bottom: 50px;
+        }
+        .mm{
+            text-align: center;
+        }
+        .mm img{
+            width: 50%;
+        }
+        /* 스티키할 이미지 */
+        #stk{
+            position: sticky;
+            top: 0;
+            /* 부모박스 범위 안에서
+            fixed처럼 상단에 고정했다가
+            범위가 끝나면 부모박스와 함께
+            위로 static하게 올라감! */
         }
 
     </style>
@@ -51,6 +79,29 @@
         </div>
         <div>
             <img src="./images/4.jpg" alt="이미지">
+        </div>
+    </section>
+    
+    <!-- 테스트할 페이지 -->
+    <section class="tpg">
+        <div class="mm">
+            <!-- 스티키할 이미지 -->
+            <img src="./images/5.jpg" alt="이미지" id="stk">
+        </div>
+        <div>
+            <img src="./images/6.png" alt="이미지">
+            <img src="./images/7.png" alt="이미지">
+            <img src="./images/8.png" alt="이미지">
+        </div>
+    </section>
+
+    
+    <section>
+        <div>
+            <img src="./images/1.jpg" alt="이미지">
+        </div>
+        <div>
+            <img src="./images/2.png" alt="이미지">
         </div>
     </section>
     
