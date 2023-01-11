@@ -12,6 +12,16 @@
     font-family: 'Orbitron', sans-serif;
 */
 
+/* 전체 부드러운 스크롤 */
+html{
+    scroll-behavior: smooth;
+}
+
+
+/* 전체가로스크롤 방지 */
+body{
+    overflow-x: hidden;
+}
 
 /* 초기화 */
 html,body,h1,h2,p,ol,ul{
@@ -719,3 +729,32 @@ body{
 
 
 /***************** 3. 하단영역 *****************/
+#info{
+    /* 글자셋팅 */
+    color: #fff;
+    font: 30px 'Black Ops One';
+    text-shadow: 2px 2px 2px #000;
+
+    /* 박스셋팅 */
+    background-color: rgba(0, 0, 0, 0.463);
+    text-align: center;
+    padding: 50px;
+
+}
+/* 속박스 가상요소로 아이콘 모양 넣기 */
+.info::before{
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    /* 배경넣기 */
+    background: pink url(../images/robot_03.png) no-repeat;
+    background-position: -7px 1px;
+    background-size: 50px;
+    /* 인라인요소간 세로정렬 : va */
+    vertical-align: top;
+}
+
+
