@@ -538,10 +538,84 @@ body{
 
 /* 2-2-1.제목 */
 .dcbx h2{
+    /* 스티키 포지션! */
+    position: sticky;
+    top: 10px;
     
+    /* 글자셋팅 */
+    font-family: 'Chakra Petch';
+    font-size: 35px;
+    color: lime;
+
+    /* 박스셋팅 */
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.499);
+    /* 둥근모서리 */
+    border-radius: 20px;
 }
 /* 2-2-2.출처 */
+.dcbx small{
+    /* 글자셋팅 */    
+    font-family: 'Chakra Petch';
+    font-size: 12px;
+    line-height: 3;
+    color: #ff0;
+
+    /* 박스셋팅 */
+    display: block;
+    text-align: center;
+
+}
 /* 2-2-3.내용단락 */
+.dcbx p{
+    /* 글자셋팅 */
+    font-family: 'Barlow', sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+
+    /******************************** 
+        [ 다단설정하기 ] 
+        - 다중열속성
+        -> column-count : 다중열개수
+        -> column-rule : 다중열구분선
+        -> column-gap : 다중열사이간격
+    ********************************/
+
+    /* 다중열개수 */
+    column-count: 3;
+
+    /* 다중열구분선:셋팅이 보더와 유사 */
+    column-rule: 5px dotted lightgreen;
+    /* column-rule: 두께 종류 색상; */
+
+    /* 다중열 사이간격 */
+    column-gap: 55px;
+
+    /* 양쪽정렬 : taj */
+    text-align: justify;
+    /* 단어깨기 : wbb */
+    word-break: break-all;
+    /* 1byte문자인 영문자일경우
+    기본적으로 단어 단위로 줄바꿈을
+    하는 셋팅이 되어 있다. 이때 양쪽정렬시
+    중간에 큰 공백이 생기는 원인이 된다
+    그래서 단어를 글자단위로 모두깨주는
+    설정이 word-break: break-all 이다!
+    한글과 같은 2byte문자는 자동으로 깨져있음 */
+
+    /* 들여쓰기 : ti */
+    text-indent: 20px;
+}
+/* 설명문단 첫번째 글자만 가상요소로
+글자 디자인 변경하기 */
+.dcbx p::first-letter{
+    /* 글자셋팅 */
+    font-size: 30px;
+    font-weight: bold;
+    color: orange;
+}
 
 
 
