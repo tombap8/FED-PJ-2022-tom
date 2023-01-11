@@ -41,7 +41,99 @@ body{
 
 
 /***************** 1. 상단영역 *****************/
+/* 1-1.로고 */
+.logo{
+    /* 픽스드 포지션 */
+    position: fixed;
+    top: 50px;
+    left: 50px;
 
+    /* 박스셋팅 */
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    text-align: center;
+    /* 박스배경 */
+    background: pink url(../images/robot_03.png) no-repeat center 10px/160px;
+    /* background-position: center 10px; */
+    /* background-size: 160px auto; */
+    
+    /* 박스그림자 */
+    box-shadow: 
+    inset 0 0 20px 5px #000,
+    0 0 20px 5px aquamarine;
+
+    /* 글자셋팅 */
+    color: aquamarine;
+    font: 45px/200px 'Orbitron';
+    /* font: 스두크/줄체; */
+    text-shadow: 2px 2px 5px #000;
+
+}
+/* 1-2.링크타이틀 */
+.link{
+    position: absolute;
+    top: 100px;
+    right: 50px;
+}
+/* 링크 a */
+.link a{
+    /* a요소 필수셋팅: 글자색+밑줄없앰 */
+    color: lawngreen;
+    text-decoration: none;
+    /* 글자: 스두크/줄체 */
+    font: 50px 'Black Ops One';
+    /* 글자그림자 */
+    text-shadow: 2px 2px 2px #000;
+}
+/* 마우스 오버시 */
+.link a:hover{
+    /* 글자색 */
+    color: orangered;
+    /* 글자데코 */
+    text-decoration: overline;
+    /* 글자데코스타일 */
+    text-decoration-style: wavy;
+}
+/* 1-3.탑이동버튼 */
+.btnTop{
+    /* 픽스드 포지션 */
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+
+    /* 박스셋팅 */
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 5px outset #fff;
+    background-color: #ccc;
+}
+/* 버튼 a요소 */
+.btnTop a{
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    /* 글자셋팅 */
+    color: blue;
+    font: 30px/90px 'Black Ops One';
+    /* 
+        line-height가 높이값인 100px
+        이므로 중앙 정렬위해 100px이 아닌이유는?
+        버튼은 기본적으로 box-sizing:border-box
+        이므로 패딩과 보더가 내부에 포함된다!
+        따라서 컨텐트 영역이 그만큼 작아진다!
+        박스보더가 5px이므로 양쪽합은 10px이다
+        이것을 빼니까 90px인 것이다!
+    */
+    text-decoration: none;
+}
+/* 버튼 마우스 오버시 */
+.btnTop:hover{
+    
+}
 
 /***************** 2. 메인영역 *****************/
 
@@ -541,7 +633,7 @@ body{
     /* 스티키 포지션! */
     position: sticky;
     top: 10px;
-    
+
     /* 글자셋팅 */
     font-family: 'Chakra Petch';
     font-size: 35px;
