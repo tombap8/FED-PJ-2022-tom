@@ -132,8 +132,14 @@ body{
 }
 /* 버튼 마우스 오버시 */
 .btnTop:hover{
-    
+    background-color: #ff0;
+    border-style: inset;
 }
+/* a요소 글자색 */
+.btnTop:hover a{
+    color: red;
+}
+
 
 /***************** 2. 메인영역 *****************/
 
