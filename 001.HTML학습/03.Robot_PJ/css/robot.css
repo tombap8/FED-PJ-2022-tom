@@ -2,6 +2,17 @@
 
 /* Robot PJ 메인 CSS - robot.css */
 
+/* 웹폰트 CDN */
+@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Black+Ops+One&family=Chakra+Petch&family=Orbitron:wght@500&display=swap');
+
+/* 
+    font-family: 'Barlow', sans-serif;
+    font-family: 'Black Ops One', cursive;
+    font-family: 'Chakra Petch', sans-serif;
+    font-family: 'Orbitron', sans-serif;
+*/
+
+
 /* 초기화 */
 html,body,h1,h2,p,ol,ul{
     margin: 0;
@@ -24,9 +35,9 @@ body{
 }
 
 /* 공사중표시 */
-body * {
+/* body * {
     outline: 2px dashed yellow;
-}
+} */
 
 
 /***************** 1. 상단영역 *****************/
@@ -37,7 +48,7 @@ body * {
 /* 2-1.로봇박스 */
 .robx{
     /* 패딩 위,아래 */
-    padding: 200px 0 600px;
+    padding: 200px 0 50px;
 }
 
 /* 로봇머리 */
@@ -494,6 +505,45 @@ body * {
     /* 아이프레임 기본보더없앰 */
     border: none;
 }
+
+/************ 2-2.로봇설명박스 ************/
+.dcbx{
+    /* 최대가로크기 maw */
+    max-width: 800px;
+    /* 마영오! */
+    margin: 0 auto;
+    /* 하단공간 */
+    margin-bottom: 200px;
+    /* 반투명배경색 */
+    background-color: rgba(0, 0, 0, 0.539);
+    /* 글자색 */
+    color: #fff;
+    /* 글자그림자 */
+    text-shadow: 1px 1px 1px #000;
+    /* 패딩 */
+    padding: 15px 30px;
+    /* 경계선 : 두종색 */
+    border: 3px solid #fff;
+    /* 둥근모서리 */
+    border-radius: 20px;
+    /* 박스그림자를 이용한 글로우효과 */
+    box-shadow: 
+    inset 0 0 20px blue,
+    inset 0 0 50px 10px cyan;
+    /* - inset 은 내부그림자 옵션
+        x y [spread] blur 색
+        - spread 는 박스그림자 크기
+    */
+}
+
+/* 2-2-1.제목 */
+.dcbx h2{
+    
+}
+/* 2-2-2.출처 */
+/* 2-2-3.내용단락 */
+
+
 
 
 /***************** 3. 하단영역 *****************/
