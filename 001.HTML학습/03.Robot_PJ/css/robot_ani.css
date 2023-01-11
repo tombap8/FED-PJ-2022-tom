@@ -95,7 +95,7 @@ animation: 이시이지반방마
 .robx{
     /* 초기상태 지정하기! */
     transform:  
-    translate(20%,10%)
+    translate(10%,30%)
     scale(0);
     /* rotate(0); */
     /* 트랜스폼 기준값 변경 */
