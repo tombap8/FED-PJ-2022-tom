@@ -4,37 +4,37 @@
 
 /****************** 1.상단영역 ******************/
 /* 겉박스 */
-#top{
+#top {
     background-color: #fff;
     /* 하단보더 */
     border-bottom: 1px solid #ccc;
 }
 /* 속박스 */
-.top{
+.top {
     /* position: relative; */
     /* 부모자격 - .tmenu */
     height: 128px;
 }
 
 /* 속박스 안에 로고와 탑메뉴를 감싼 박스 */
-.tarea{
+.tarea {
     position: relative;
     /* 부모자격 - .tmenu */
 }
 
 /* 1-1.로고 */
-h1.logo{
+h1.logo {
     width: 100px;
     margin: 0 auto;
     padding-top: 20px;
     outline: 1px solid red;
 }
 /* 로고 이미지 */
-.logo img{
+.logo img {
     width: 100px;
 }
 /* 1-2.GNB메뉴 */
-nav.gnb ul{
+nav.gnb ul {
     /* 플렉스박스 : 흐르게할 요소의 직계부모 */
     display: flex;
     /* 진행방향 정렬 */
@@ -43,20 +43,25 @@ nav.gnb ul{
     나가서 위의 박스를 밀고 있다! */
     margin-top: 27px;
 }
+.gnb > ul > li {    
+    margin: 0 10px;
+}
 /* GNB a요소 */
-.gnb>ul>li>a{
+.gnb > ul > li > a {
+    position: relative;
+    /* li가상요소 서브배경 보다 위
+    순서대로 나중에 그려진 static아닌요소가 위 */
     color: #222;
     text-decoration: none;
     font-size: 1.7rem;
-    line-height: 4rem;
-    margin: 0 10px;
+    line-height: 2rem;
 }
 
 /* GNB 서브메뉴 배경 
 상위메뉴 li에 가상요소로 만들기
 서브메뉴가 있는 li에 sm이름의 클래스를 준다! */
-.gnb>ul>li.sm::before{
-    content: '';
+.gnb > ul > li.sm::before {
+    content: "";
     position: absolute;
     top: 129px;
     left: 0;
@@ -66,46 +71,69 @@ nav.gnb ul{
     height: 0;
     background-color: #fff;
     /* 트랜지션 */
-    transition: .45s ease-out;
+    transition: 0.45s ease-out;
 }
 /* 상위메뉴 오버시 서브배경보이기 */
-.gnb>ul>li.sm:hover::before{
+.gnb > ul > li.sm:hover::before {
     border-bottom: 2px solid red;
-    transition-duration: .3s;
+    transition-duration: 0.3s;
 }
 
 /* 상위메뉴 li오버시 서브메뉴 보이기 */
 
 /* 프로그램소개 */
-.gnb>ul>li:first-child:hover::before{
+.gnb > ul > li:first-child:hover::before {
     height: 120px;
 }
-.gnb>ul>li:first-child:hover .smenu{
+.gnb > ul > li:first-child:hover .smenu {
     height: 100px;
 }
 /* 동영상 */
-.gnb>ul>li:nth-child(3):hover::before{
+.gnb > ul > li:nth-child(3):hover::before {
     height: 150px;
 }
-.gnb>ul>li:nth-child(3):hover .smenu{
+.gnb > ul > li:nth-child(3):hover .smenu {
     height: 130px;
 }
 /* 사진첩 */
-.gnb>ul>li:nth-child(4):hover::before{
+.gnb > ul > li:nth-child(4):hover::before {
     height: 90px;
 }
-.gnb>ul>li:nth-child(4):hover .smenu{
+.gnb > ul > li:nth-child(4):hover .smenu {
     height: 70px;
 }
 
+/* 가상요소로 밑줄 애니만들기
+대상선택:
+1. GNB메뉴의 상위메뉴 a요소 */
+.gnb > ul > li > a::after{
+    content: "";
+    display: block;
 
+    /* 변경속성 - 바가 중앙에 있음! */
+    width: 0%;
+    margin-left: 50%;
+
+    height: 3px;
+    transform: translateY(16px);
+    
+    /* margin-top: 5px; */
+    background-color: #f00;
+    /* 트랜지션: 속시이지 trs */
+    transition: all 0.3s;
+}
+/* 오버시 바 보이기 - 중앙에서 펼져짐! */
+.gnb > ul > li:hover > a::after {
+    width: 100%;
+    margin-left: 0%;
+}
 
 /* GNB 서브메뉴 */
-.smbx{
+.smbx {
     position: relative;
     /* .smenu 앱솔루트의 부모! */
 }
-.smenu{
+.smenu {
     position: absolute;
     /* 가로방향 중앙위치 */
     left: 50%;
@@ -118,106 +146,104 @@ nav.gnb ul{
     padding: 0 5px;
 
     /* 상단 위치이동 */
-    margin-top: 15px;
+    margin-top: 25px;
 
     /* background-color: #fff; */
     /* 숨기기 */
     height: 0;
     overflow: hidden;
     /* 트랜지션 */
-    transition: .4s ease-out;    
+    transition: 0.4s ease-out;
 
-    outline: 2px dashed red;
+    /* outline: 2px dashed red; */
 }
 
-.smenu a{
+.smenu a {
     font-size: 1.4rem;
     line-height: 2;
     color: #222;
     text-decoration: none;
 }
 
-
 /* 1-3.탑메뉴 */
-aside.tmenu{
+aside.tmenu {
     position: absolute;
     top: 25px;
     right: 0;
     /* 부모는? .top */
 }
 /* 회원가입 등 메뉴 박스 */
-.tmenu ul{
+.tmenu ul {
     /* 플렉스 박스 : 하위 li요소 옆으로 흐름! */
     display: flex;
     /* 수직방향 정렬 : 중앙 */
     align-items: center;
 }
-.tmenu>ul>li+li{
+.tmenu > ul > li + li {
     margin-left: 10px;
 }
 /* 탑메뉴 a */
-.tmenu>ul>li>a{
+.tmenu > ul > li > a {
     color: #222;
     font-size: 1.5rem;
     text-decoration: none;
 }
 
 /* sns 메뉴 박스 */
-.tmenu ol{
+.tmenu ol {
     /* 플렉스 박스 : 하위 li요소 옆으로 흐름! */
     display: flex;
 }
 /* sns li박스 */
-.sns li{
+.sns li {
     width: 30px;
     height: 30px;
     border-radius: 50%;
     background: url(../images/icons.png) no-repeat;
     /* 트랜지션 */
-    transition: .2s;
+    transition: 0.2s;
 }
 
 /* 스프라이츠(Sprites)로 배경이미지 넣기! */
 /* 트위터 */
-.sns li:nth-child(1){
+.sns li:nth-child(1) {
     background-position: 0px 0px;
 }
 /* 트위터 오버시 */
-.sns li:nth-child(1):hover{
+.sns li:nth-child(1):hover {
     background-position: 0px -30px;
 }
 /* 인스타그램 */
-.sns li:nth-child(2){
+.sns li:nth-child(2) {
     background-position: -30px 0px;
 }
 /* 인스타그램 오버시 */
-.sns li:nth-child(2):hover{
+.sns li:nth-child(2):hover {
     background-position: -30px -30px;
 }
 /* 페이스북 */
-.sns li:nth-child(3){
+.sns li:nth-child(3) {
     background-position: -60px 0px;
 }
 /* 페이스북 오버시 */
-.sns li:nth-child(3):hover{
+.sns li:nth-child(3):hover {
     background-position: -60px -30px;
 }
 
 /* a요소 확장 */
-.sns a{
+.sns a {
     display: block;
     width: 100%;
     height: 100%;
 }
 
-
 /****************** 2.메인영역 ******************/
-.cont{
+.cont {
     min-height: 800px;
     /* 자식 요소가 많아지면 자동으로 늘어남! */
 }
 
 /****************** 3.하단영역 ******************/
-.info{
+.info {
     height: 241px;
 }
