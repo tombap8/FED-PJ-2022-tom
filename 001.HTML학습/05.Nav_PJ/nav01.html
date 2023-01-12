@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>1. 가로네비 서브별 드롭다운 세로형</title>
+    <!-- 어썸아이콘 CDN넣기 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <style>
         html,body{
             margin: 0;
@@ -24,6 +26,15 @@
             margin: 0;
             padding: 0;
             list-style: none;
+        }
+
+        /* 상단영역박스 */
+        .top{
+            /* 플렉스박스 - 직계하위 컨트롤(h1,nav,aside) */
+            display: flex;
+            /* 진행방향정렬 - jc */
+            justify-content: space-between;
+            /*  space-between 은 맨앞,맨뒤 요소가 끝에 붙는 정렬방식임 */
         }
 
         /* 네비게이션 전체박스 */
@@ -132,99 +143,143 @@
             line-height: 400px;
             background-color: rgba(0, 0, 0, 0.5);
         }
-        
+
+        /* 사이드메뉴 */
+        .tmenu{
+            margin-right: 50px;
+        }
+        .tmenu ul{
+            /* 플렉스박스 */
+            display: flex;
+        }
+        .tmenu li{
+            margin: 0 10px;
+        }
+        .tmenu a{
+            color: #fff;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
     <h1>1. 가로네비 서브별 드롭다운 세로형</h1>
-    <nav class="gnb">
-        <ul>
-            <li>
-                <a href="#">Vision Processor</a>
-                <!-- 서브메뉴 -->
-                <div class="smenu">
-                    <ol>
-                        <li>
-                            <a href="#">RVC</a>
-                        </li>
-                        <li>
-                            <a href="#">In-cabin</a>
-                        </li>
-                        <li>
-                            <a href="#">FVC</a>
-                        </li>
-                        <li>
-                            <a href="#">SVM</a>
-                        </li>
-                        <li>
-                            <a href="#">E-mirror</a>
-                        </li>
-                    </ol>
-                </div>
-            </li>
-            <li>
-                <a href="#">ADAS Processor</a>
-                <!-- 서브메뉴 -->
-                <div class="smenu">
-                    <ol>
-                        <li>
-                            <a href="#">APACHE4</a>
-                        </li>
-                        <li>
-                            <a href="#">APACHE5</a>
-                        </li>
-                        <li>
-                            <a href="#">APACHE6</a>
-                        </li>
-                    </ol>
-                </div>
-            </li>
-            <li>
-                <a href="#">AHD™</a>
-                <!-- 서브메뉴 -->
-                <div class="smenu">
-                    <ol>
-                        <li>
-                            <a href="#">1st Gen</a>
-                        </li>
-                    </ol>
-                </div>
-            </li>
-            <li>
-                <a href="#">News</a>
-                <!-- 서브메뉴 -->
-                <div class="smenu">
-                    <ol>
-                        <li>
-                            <a href="#">News</a>
-                        </li>
-                    </ol>
-                </div>
-            </li>
-            <li>
-                <a href="#">About Us</a>
-                <!-- 서브메뉴 -->
-                <div class="smenu">
-                    <ol>
-                        <li>
-                            <a href="#">About Us</a>
-                        </li>
-                    </ol>
-                </div>
-            </li>
-            <li>
-                <a href="#">Career</a>
-                <!-- 서브메뉴 -->
-                <div class="smenu">
-                    <ol>
-                        <li>
-                            <a href="#">Career</a>
-                        </li>
-                    </ol>
-                </div>
-            </li>
-        </ul>
-    </nav>
+
+    <!-- 상단영역 -->
+    <header class="top">
+        <!-- 1.로고박스 -->
+        <h1 class="logo">
+            <a href="#">
+                <img src="./images/nav1logo.png" alt="로고">
+            </a>
+        </h1>
+
+        <!-- 2.메인 네비게이션 -->
+        <nav class="gnb">
+            <ul>
+                <li>
+                    <a href="#">Vision Processor</a>
+                    <!-- 서브메뉴 -->
+                    <div class="smenu">
+                        <ol>
+                            <li>
+                                <a href="#">RVC</a>
+                            </li>
+                            <li>
+                                <a href="#">In-cabin</a>
+                            </li>
+                            <li>
+                                <a href="#">FVC</a>
+                            </li>
+                            <li>
+                                <a href="#">SVM</a>
+                            </li>
+                            <li>
+                                <a href="#">E-mirror</a>
+                            </li>
+                        </ol>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">ADAS Processor</a>
+                    <!-- 서브메뉴 -->
+                    <div class="smenu">
+                        <ol>
+                            <li>
+                                <a href="#">APACHE4</a>
+                            </li>
+                            <li>
+                                <a href="#">APACHE5</a>
+                            </li>
+                            <li>
+                                <a href="#">APACHE6</a>
+                            </li>
+                        </ol>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">AHD™</a>
+                    <!-- 서브메뉴 -->
+                    <div class="smenu">
+                        <ol>
+                            <li>
+                                <a href="#">1st Gen</a>
+                            </li>
+                        </ol>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">News</a>
+                    <!-- 서브메뉴 -->
+                    <div class="smenu">
+                        <ol>
+                            <li>
+                                <a href="#">News</a>
+                            </li>
+                        </ol>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">About Us</a>
+                    <!-- 서브메뉴 -->
+                    <div class="smenu">
+                        <ol>
+                            <li>
+                                <a href="#">About Us</a>
+                            </li>
+                        </ol>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Career</a>
+                    <!-- 서브메뉴 -->
+                    <div class="smenu">
+                        <ol>
+                            <li>
+                                <a href="#">Career</a>
+                            </li>
+                        </ol>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- 3.사이드 메뉴 -->
+        <aside class="tmenu">
+            <ul>
+                <li>
+                    <a href="#">Kor</a>
+                </li>
+                <li>
+                    <a href="#">Eng</a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-grip"></i>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+    </header>
 
 
     <!-- 컨텐츠박스 -->
