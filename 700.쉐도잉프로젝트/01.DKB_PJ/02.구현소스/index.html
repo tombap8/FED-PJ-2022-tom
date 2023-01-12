@@ -18,29 +18,76 @@
         <!-- 1. 상단영역 -->
         <div id="top">
             <header class="top ibx">
-                <!-- 1-1.로고 -->
-                <h1 class="logo">
-                    <a href="index.html">
-                        <img src="./images/tvnlogo2.png" alt="tvN로고">
-                    </a>
-                </h1>
+                <!-- 로고와 탑메뉴를 싸는 박스 
+                    : 탑메뉴 부모자격박스 -->
+                <section class="tarea">
+                    
+                    <!-- 1-1.로고 -->
+                    <h1 class="logo">
+                        <a href="index.html">
+                            <img src="./images/tvnlogo2.png" alt="tvN로고">
+                        </a>
+                    </h1>
+
+                    <!-- 1-3.탑메뉴 -->
+                    <!-- aside: div급의 "한쪽에...쓰는"블록박스 -->
+                    <aside class="tmenu">
+                        <ul>
+                            <li>
+                                <a href="#">로그인</a>
+                            </li>
+                            <li>
+                                <a href="#">회원가입</a>
+                            </li>
+                            <li>
+                                <ol class="sns">
+                                    <li>
+                                        <a href="#">
+                                            <span class="ir">
+                                                트위터 바로가기
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span class="ir">
+                                                인스타그램 바로가기
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span class="ir">
+                                                페이스북 바로가기
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ol>
+                            </li>
+                        </ul>
+                    </aside>
+                </section>
+
                 <!-- 1-2.GNB메뉴 -->
                 <nav class="gnb">
                     <ul>
                         <li class="sm">
                             <a href="#">프로그램 소개</a>
-                            <div class="smenu">
-                                <ol>
-                                    <li>
-                                        <a href="#">프로그램 소개</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">인물소개</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">인물관계도</a>
-                                    </li>
-                                </ol>
+                            <!-- 서브메뉴박스 -->
+                            <div class="smbx">
+                                <div class="smenu">
+                                    <ol>
+                                        <li>
+                                            <a href="#">프로그램 소개</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">인물소개</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">인물관계도</a>
+                                        </li>
+                                    </ol>
+                                </div>
                             </div>
                         </li>
                         <li>
@@ -48,33 +95,40 @@
                         </li>
                         <li class="sm">
                             <a href="#">동영상</a>
-                            <div class="smenu">
-                                <ol>
-                                    <li>
-                                        <a href="#">클립영상</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">다시보기</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">예고편</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">스페셜</a>
-                                    </li>
-                                </ol>
+                            <!-- 서브메뉴박스 -->
+                            <div class="smbx">
+                                <div class="smenu">
+                                    <ol>
+                                        <li>
+                                            <a href="#">클립영상</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">다시보기</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">예고편</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">스페셜</a>
+                                        </li>
+                                    </ol>
+                                </div>
                             </div>
                         </li>
                         <li class="sm">
-                            <a href="#">사진첩</a><div class="smenu">
-                                <ol>
-                                    <li>
-                                        <a href="#">현장 포토</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">대표 포스터</a>
-                                    </li>
-                                </ol>
+                            <a href="#">사진첩</a>
+                            <!-- 서브메뉴박스 -->
+                            <div class="smbx">
+                                <div class="smenu">
+                                    <ol>
+                                        <li>
+                                            <a href="#">현장 포토</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">대표 포스터</a>
+                                        </li>
+                                    </ol>
+                                </div>
                             </div>
                         </li>
                         <li>
@@ -85,43 +139,7 @@
                         </li>
                     </ul>
                 </nav>
-                <!-- 1-3.탑메뉴 -->
-                <!-- aside: div급의 "한쪽에...쓰는"블록박스 -->
-                <aside class="tmenu">
-                    <ul>
-                        <li>
-                            <a href="#">로그인</a>
-                        </li>
-                        <li>
-                            <a href="#">회원가입</a>
-                        </li>
-                        <li>
-                            <ol class="sns">
-                                <li>
-                                    <a href="#">
-                                        <span class="ir">
-                                            트위터 바로가기
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span class="ir">
-                                            인스타그램 바로가기
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span class="ir">
-                                            페이스북 바로가기
-                                        </span>
-                                    </a>
-                                </li>
-                            </ol>
-                        </li>
-                    </ul>
-                </aside>
+                
 
             </header>
         </div>
