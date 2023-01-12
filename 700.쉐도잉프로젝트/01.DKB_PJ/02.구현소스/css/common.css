@@ -38,7 +38,8 @@ nav.gnb ul{
 .gnb>ul>li>a{
     color: #222;
     text-decoration: none;
-    line-height: 40px;
+    font-size: 1.7rem;
+    line-height: 4rem;
     margin: 0 10px;
 }
 /* 1-3.탑메뉴 */
