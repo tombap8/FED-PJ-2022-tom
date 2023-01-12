@@ -44,7 +44,7 @@ nav.gnb ul{
 /* 1-3.탑메뉴 */
 aside.tmenu{
     position: absolute;
-    top: 0;
+    top: 25px;
     right: 0;
     /* 부모는? .top */
 }
@@ -52,7 +52,19 @@ aside.tmenu{
 .tmenu ul{
     /* 플렉스 박스 : 하위 li요소 옆으로 흐름! */
     display: flex;
+    /* 수직방향 정렬 : 중앙 */
+    align-items: center;
 }
+.tmenu>ul>li+li{
+    margin-left: 10px;
+}
+/* 탑메뉴 a */
+.tmenu>ul>li>a{
+    color: #222;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
 /* sns 메뉴 박스 */
 .tmenu ol{
     /* 플렉스 박스 : 하위 li요소 옆으로 흐름! */
