@@ -6,6 +6,8 @@
 /* 겉박스 */
 #top{
     background-color: #fff;
+    /* 하단보더 */
+    border-bottom: 1px solid #ccc;
 }
 /* 속박스 */
 .top{
@@ -39,7 +41,7 @@ nav.gnb ul{
     justify-content: center;
     /* 마진탑은 부모인 nav.gnb 바깥으로
     나가서 위의 박스를 밀고 있다! */
-    margin-top: 10px;
+    margin-top: 27px;
 }
 /* GNB a요소 */
 .gnb>ul>li>a{
@@ -56,20 +58,44 @@ nav.gnb ul{
 .gnb>ul>li.sm::before{
     content: '';
     position: absolute;
-    top: 128px;
+    top: 129px;
     left: 0;
-    z-index: -1;
+    /* z-index: -1; */
     width: 100%;
     /* 부모는? */
     height: 0;
     background-color: #fff;
     /* 트랜지션 */
-    transition: .6s ease-out;
+    transition: .45s ease-out;
 }
 /* 상위메뉴 오버시 서브배경보이기 */
 .gnb>ul>li.sm:hover::before{
-    height: 200px;
     border-bottom: 2px solid red;
+    transition-duration: .3s;
+}
+
+/* 상위메뉴 li오버시 서브메뉴 보이기 */
+
+/* 프로그램소개 */
+.gnb>ul>li:first-child:hover::before{
+    height: 120px;
+}
+.gnb>ul>li:first-child:hover .smenu{
+    height: 100px;
+}
+/* 동영상 */
+.gnb>ul>li:nth-child(3):hover::before{
+    height: 150px;
+}
+.gnb>ul>li:nth-child(3):hover .smenu{
+    height: 130px;
+}
+/* 사진첩 */
+.gnb>ul>li:nth-child(4):hover::before{
+    height: 90px;
+}
+.gnb>ul>li:nth-child(4):hover .smenu{
+    height: 70px;
 }
 
 
@@ -91,7 +117,10 @@ nav.gnb ul{
     white-space: nowrap;
     padding: 0 5px;
 
-    background-color: #fff;
+    /* 상단 위치이동 */
+    margin-top: 15px;
+
+    /* background-color: #fff; */
     /* 숨기기 */
     height: 0;
     overflow: hidden;
@@ -100,10 +129,7 @@ nav.gnb ul{
 
     outline: 2px dashed red;
 }
-/* 상위메뉴 오버시 하위메뉴 보이기 */
-.gnb>ul>li:hover .smenu{
-    height: 120px;
-}
+
 .smenu a{
     font-size: 1.4rem;
     line-height: 2;
