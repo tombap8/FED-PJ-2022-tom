@@ -58,6 +58,26 @@ aside.tmenu{
     /* 플렉스 박스 : 하위 li요소 옆으로 흐름! */
     display: flex;
 }
+/* sns li박스 */
+.sns li{
+    width: 30px;
+    height: 30px;
+    background: url(../images/icons.png) no-repeat;
+}
+
+/* 스프라이츠(Sprites)로 배경이미지 넣기! */
+/* 트위터 */
+.sns li:nth-child(1){
+    background-position: 0px 0px;
+}
+/* 인스타그램 */
+.sns li:nth-child(2){
+    background-position: -30px 0px;
+}
+/* 페이스북 */
+.sns li:nth-child(3){
+    background-position: -60px 0px;
+}
 
 
 /****************** 2.메인영역 ******************/

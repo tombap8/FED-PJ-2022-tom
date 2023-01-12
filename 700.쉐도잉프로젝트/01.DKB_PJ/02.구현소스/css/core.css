@@ -46,3 +46,12 @@ body{
     background-color: #ddd;
     border-radius: 5px;
 }
+
+/* 배경이미지 설명넣기 숨기기 클래스
+IR(Image Replacement) */
+.ir{
+    display: block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
