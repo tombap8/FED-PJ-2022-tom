@@ -43,9 +43,13 @@ nav.gnb ul {
     나가서 위의 박스를 밀고 있다! */
     margin-top: 27px;
 }
+
+/* GNB 최상위 li */
 .gnb > ul > li {    
+    /* a요소의 패딩을 li로 이동함! */
     margin: 0 10px;
 }
+
 /* GNB a요소 */
 .gnb > ul > li > a {
     position: relative;
@@ -115,9 +119,8 @@ nav.gnb ul {
     margin-left: 50%;
 
     height: 3px;
-    transform: translateY(16px);
-    
-    /* margin-top: 5px; */
+
+    margin-top: 15px;
     background-color: #f00;
     /* 트랜지션: 속시이지 trs */
     transition: all 0.3s;
@@ -146,7 +149,7 @@ nav.gnb ul {
     padding: 0 5px;
 
     /* 상단 위치이동 */
-    margin-top: 25px;
+    margin-top: 15px;
 
     /* background-color: #fff; */
     /* 숨기기 */
