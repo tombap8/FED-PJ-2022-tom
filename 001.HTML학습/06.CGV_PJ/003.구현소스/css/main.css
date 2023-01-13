@@ -1,0 +1,31 @@
+@charset "utf-8";
+/* CGV PJ 메인 페이지 CSS - main.css */
+
+/* 외부 공통 CSS 합치기 */
+@import url(./reset.css);
+@import url(./core.css);
+
+
+/* 공사중 표시 */
+body * {
+    outline: 2px dashed ghostwhite;
+}
+
+/* 전체배경색 */
+body{
+    background-color: #000;
+}
+
+/**************** 1.상단영역 ****************/
+/* 속박스 */
+.top{
+    height: 80px;
+}
+/**************** 2.메인영역 ****************/
+.cont{
+    height: 788px;
+}
+/**************** 3.하단영역 ****************/
+.info{
+    height: 100px;
+}
