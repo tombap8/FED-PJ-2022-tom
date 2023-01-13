@@ -75,10 +75,10 @@ body{
 /* 2-2.예고편 선택메뉴 */
 .mlist{
     position: absolute;  
-    bottom: 30px;
+    bottom: 61px;
     left: 50%;
     width: 702px;
-    transform: translateX(-50%);
+    transform: translateX(-49%);
 
 }
 /* 선택메뉴 ul */
