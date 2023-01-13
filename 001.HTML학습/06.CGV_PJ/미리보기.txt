@@ -1,0 +1,7 @@
+[ CGV 미리보기 ]
+
+[버전1]
+https://tombap8.github.io/TOMCO2/001.HTML학습/07.CGV_PJ/003.site_v2/intro.html
+
+[버전2]
+https://tombap8.github.io/TOMCO4/001.HTML%ED%95%99%EC%8A%B5/07.CGV_PJ/003.%EA%B5%AC%ED%98%84%EC%86%8C%EC%8A%A4/intro.html

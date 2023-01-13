@@ -1,0 +1,46 @@
+@charset "utf-8";
+/* CGV PJ 초기화 CSS - reset.css */
+/* 기본셋팅됭 요소 디자인 초기화 */
+
+/* 마진,패딩 초기화 */
+html,body,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,figure,p,blockquote{
+    margin: 0;
+    padding: 0;
+}
+
+/* ul,ol 블릿/숫자없앰 */
+ul,ol{
+    list-style: none;
+}
+
+/* a요소 - 글자색, 밑줄없앰 */
+a{
+    color: #fff;
+    text-decoration: none;
+}
+
+/* 이미지 관련 */
+img{
+    border: none;
+    /* 이미지 링크시 기본보더 없앰
+    - 서버 배포시에 나올 수 있음! */
+
+    vertical-align: top;
+    /* 인라인요소간 세로정렬속성을 셋팅한이유는?
+        -> 블록박스안에 이미지가 단독으로 들어간
+        경우 하단에 4px공백이 생김. 이때 이것을
+        없애기 위해 vaertical-align속성을
+        top/middle/bottom 이런 값을 사용하면
+        공백이 없어진다!(단, 블록박스의 높이값은
+        auto 이며 이미지에 의해 블록박스의 높이가
+        결정되는 경우에 한한다!)
+    */
+}
+
+/* heading 요소 글자크기 리셋(root에 일치) */
+h1,h2,h3,h4,h5,h6{
+    font-size: 100%;
+    /* html의 기본글자 크기(16px)와 일치
+    %글자단위는 em과 같으므로 만약 부모박스에
+    글자크기가 지정되면 그 크기를 기준한다! */
+}
