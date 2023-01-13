@@ -62,7 +62,7 @@ body{
     left: 256px;
     width: 702px;
     height: 398px;
-    background-color: #f00;
+    background-color: #000;
 }
 /* 유튜브 아이프레임 */
 .screen iframe{
@@ -71,6 +71,33 @@ body{
     height: 100%;
     border: none;
 }
+
+/* 2-2.예고편 선택메뉴 */
+.mlist{
+    position: absolute;  
+    width: 50%;  
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+/* 선택메뉴 ul */
+.mlist ul{
+    /* 플렉스박스 */
+    display: flex;
+}
+/* 선택메뉴 상위li */
+.mlist ul>li{
+    flex: 1;
+    /* 등분할 설정 */
+}
+/* 포스터 이미지 */
+.mlist img{
+    width: 100%;
+    height: 100%;
+}
+
+
 /**************** 3.하단영역 ****************/
 .info{
     height: 100px;
