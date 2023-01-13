@@ -1,6 +1,16 @@
 @charset "utf-8";
 /* 아카이브 CSS - main.css */
 
+/* 웹폰트CDN */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Single+Day&family=Sunflower:wght@500&display=swap');
+
+/* 
+font-family: 'Bebas Neue', cursive;
+font-family: 'Single Day', cursive;
+font-family: 'Sunflower', sans-serif;
+
+ */
+
 html{
     scroll-behavior: smooth;
     /* #아이디명 스크롤 이동시 부드럽게 애니메이션 이동함! */
@@ -9,6 +19,10 @@ html{
 }
 body{
     overflow: hidden;
+    font-family: 
+    'Bebas Neue',
+    'Single Day';
+
 }
 
 /* 상단영역 */
@@ -30,11 +44,20 @@ ul,ol{
     list-style: none;
 }
 
+/* 전체 타이틀 */
+.tit{
+    font-size: 5rem;
+    font-family: 'Sunflower';
+    color: lightseagreen;
+}
+
 /************** GNB메뉴 **************/
 /* GNB박스 width 크기를 주고 마영오! */
 .gnb{
     width: 600px;
     margin: 0 auto;
+    white-space: nowrap;
+    font-family: 'Sunflower';
 }
 /* li 옆으로 흐르게 float */
 .gnb li{
@@ -74,10 +97,6 @@ body {
 -> 직계 하위 자식요소가 높이값을 %로 설정할때 
 body가 기준이 된다!  */
 }
-body {
-    /* 패딩탑 pt */
-    /* padding-top: 50px; */
-}
 
 /* 페이지박스 : div 블록박스 */
 .mybox {
@@ -109,10 +128,6 @@ body {
     background-image: url(../imgs/005.jpg);
 }
 
-/* GNB 셋팅 */
-.gnb{
-    white-space: nowrap;
-}
 
 /* 페이지별 컨텐츠 박스 */
 .pwrap {
