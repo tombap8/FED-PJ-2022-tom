@@ -2,7 +2,7 @@
 /* 아카이브 CSS - main.css */
 
 /* 웹폰트CDN */
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Single+Day&family=Sunflower:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Single+Day&family=Sunflower:wght@500&display=swap");
 
 /* 
 font-family: 'Bebas Neue', cursive;
@@ -11,22 +11,19 @@ font-family: 'Sunflower', sans-serif;
 
  */
 
-html{
+html {
     scroll-behavior: smooth;
     /* #아이디명 스크롤 이동시 부드럽게 애니메이션 이동함! */
     font-size: 10px;
     /* rem계산시 쉽도록 10px */
 }
-body{
+body {
     overflow: hidden;
-    font-family: 
-    'Bebas Neue',
-    'Single Day';
-
+    font-family: "Bebas Neue", "Single Day";
 }
 
 /* 상단영역 */
-#top{
+#top {
     position: fixed;
     width: 100%;
     /* 판타롱스타킹 이므로 100%로 가로폭 확장! */
@@ -38,41 +35,42 @@ body{
 }
 
 /* ul 초기화 (3無) */
-ul,ol{
+ul,
+ol {
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
 /* 전체 타이틀 */
-.tit{
+.tit {
     font-size: 5rem;
-    font-family: 'Sunflower';
+    font-family: "Sunflower";
     color: lightseagreen;
 }
 
 /************** GNB메뉴 **************/
 /* GNB박스 width 크기를 주고 마영오! */
-.gnb{
+.gnb {
     width: 600px;
     margin: 0 auto;
     white-space: nowrap;
-    font-family: 'Sunflower';
+    font-family: "Sunflower";
 }
 /* li 옆으로 흐르게 float */
-.gnb li{
+.gnb li {
     float: left;
     text-align: center;
     width: 150px;
 }
 /* ul박스 가상요소로 clear처리 */
-.gnb ul::after{
-    content: '';
+.gnb ul::after {
+    content: "";
     display: block;
     clear: both;
 }
 /* GNB a요소 */
-.gnb a{
+.gnb a {
     /* 글자색,밑줄없앰 */
     color: lime;
     text-decoration: none;
@@ -80,12 +78,7 @@ ul,ol{
     font-size: 30px;
     /* 그림자로 글자 테두리주기
     블러없는 그림자 4개사용 */
-    text-shadow: 
-        1px 0 #000,
-        -1px 0 #000,
-        0 1px #000,
-        0 -1px #000;
-
+    text-shadow: 1px 0 #000, -1px 0 #000, 0 1px #000, 0 -1px #000;
 }
 
 html,
@@ -116,18 +109,17 @@ body가 기준이 된다!  */
     background-size: cover;
 }
 /* 두번째 페이지박스 */
-#pg2{
+#pg2 {
     background-image: url(../imgs/001.jpg);
 }
 /* 세번째 페이지박스 */
-#pg3{
+#pg3 {
     background-image: url(../imgs/002.jpg);
 }
 /* 네번째 페이지박스 */
-#pg4{
+#pg4 {
     background-image: url(../imgs/005.jpg);
 }
-
 
 /* 페이지별 컨텐츠 박스 */
 .pwrap {
@@ -151,13 +143,13 @@ body가 기준이 된다!  */
 }
 
 /* .pwrap 하위 .part박스 */
-.part{
+.part {
     flex: 1;
     /* 1:1 비율로 등분할! */
     padding: 50px;
 }
 /* 서브타이틀 */
-.part h2{
+.part h2 {
     background-color: rgba(0, 0, 0, 0.444);
     padding: 20px;
     border-radius: 20px;
@@ -166,18 +158,68 @@ body가 기준이 된다!  */
     text-align: center;
     text-shadow: 2px 2px 2px #000;
 }
+.part h2 span {
+    display: inline-block;
+}
+.part h2 span{
+    animation: titAni 1s ease-in-out infinite;
+}
+
+@keyframes titAni {
+    0%{
+        transform: translateY(0);
+    }
+    25%{
+        transform: translateY(-50%);
+    }
+    50%{
+        transform: translateY(0);
+    }
+}
+
 /* .part a요소 */
-.part a{
+.part a {
+    display: inline-block;
     color: #222;
     text-decoration: none;
     font-size: 3.5rem;
-    line-height: 1.7;
+}
+/* 가상요소로 밑줄 애니만들기
+        대상선택:
+        1. GNB메뉴의 상위메뉴 a요소
+        2. 사이드메뉴의 1,2번 li하위 a요소 */
+.part a::after{
+    content: "";
+    display: block;
+
+    /* 변경속성 */
+    width: 0%;
+    margin-left: 100%;
+
+    height: 5px;
+    margin-top: 1px;
+    background-color: palevioletred;
+    /* 트랜지션: 속시이지 trs */
+    transition: all 0.3s;
+}
+/* 오버시 바 보이기 */
+.part a:hover::after {
+    width: 100%;
+    margin-left: 0%;
+    /* 마진left값은 트랜지션 안되고 
+            width만 돼야한다! */
+    transition-property: width;
+    /* 오버시 트랜지션 속성을 width만 적용! */
 }
 
 /* pg1 - 공통프로젝트 아이콘 */
-#pg1 .part a::before{
-    content: '🎭';
+#pg1 .part li::before {
+    content: "🎭";
     margin-right: 10px;
+    font-size: 3.5rem;
+}
+.part li{
+    padding: 5px 0;
 }
 
 /* h1요소 */
