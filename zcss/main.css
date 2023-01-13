@@ -4,6 +4,11 @@
 html{
     scroll-behavior: smooth;
     /* #아이디명 스크롤 이동시 부드럽게 애니메이션 이동함! */
+    font-size: 10px;
+    /* rem계산시 쉽도록 10px */
+}
+body{
+    overflow: hidden;
 }
 
 /* 상단영역 */
@@ -18,17 +23,18 @@ html{
     z-index: 9999;
 }
 
+/* ul 초기화 (3無) */
+ul,ol{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
 /************** GNB메뉴 **************/
 /* GNB박스 width 크기를 주고 마영오! */
 .gnb{
     width: 600px;
     margin: 0 auto;
-}
-/* ul 초기화 (3無) */
-.gnb ul{
-    margin: 0;
-    padding: 0;
-    list-style: none;
 }
 /* li 옆으로 흐르게 float */
 .gnb li{
@@ -103,13 +109,22 @@ body {
     background-image: url(../imgs/005.jpg);
 }
 
+/* GNB 셋팅 */
+.gnb{
+    white-space: nowrap;
+}
+
 /* 페이지별 컨텐츠 박스 */
 .pwrap {
     position: relative;
     top: 300px;
+    width: 90%;
     height: calc(100% - 350px);
     /* 부모높이값 보다 300px만큼 조금더 그 크기를 뺀
     높이값은 calc()로 계산한다! */
+
+    /* 플렉스박스 */
+    display: flex;
 
     background-color: rgba(255, 255, 255, 0.525);
     /* 둥근모서리 brad */
@@ -119,6 +134,37 @@ body {
     margin: 0 auto;
     /* 양쪽 마진이 auto이면 양쪽을 등분해서 가로 중앙이 된다! */
 }
+
+/* .pwrap 하위 .part박스 */
+.part{
+    flex: 1;
+    /* 1:1 비율로 등분할! */
+    padding: 50px;
+}
+/* 서브타이틀 */
+.part h2{
+    background-color: rgba(0, 0, 0, 0.444);
+    padding: 20px;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 4rem;
+    text-align: center;
+    text-shadow: 2px 2px 2px #000;
+}
+/* .part a요소 */
+.part a{
+    color: #222;
+    text-decoration: none;
+    font-size: 3.5rem;
+    line-height: 1.7;
+}
+
+/* pg1 - 공통프로젝트 아이콘 */
+#pg1 .part a::before{
+    content: '🎭';
+    margin-right: 10px;
+}
+
 /* h1요소 */
 .tit {
     /* 기본마진없앰 */
