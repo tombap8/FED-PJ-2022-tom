@@ -49,9 +49,20 @@ body{
 /**************** 2.메인영역 ****************/
 /* 속박스 */
 .cont{
+    position: relative;
+    /* 부모자격 - .screen */
     height: 788px;
     /* 극장배경 넣기 */
     background: url(../images/bg.jpg) no-repeat center top/100%;
+}
+/* 2-1.스크린 */
+.screen{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 100px;
+    height: 100px;
+    background-color: #f00;
 }
 /**************** 3.하단영역 ****************/
 .info{
