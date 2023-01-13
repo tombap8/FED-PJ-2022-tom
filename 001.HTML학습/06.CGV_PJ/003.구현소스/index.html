@@ -7,6 +7,40 @@
     <link rel="shortcut icon" type="image/x-icon" href="./images/logo_cgv.png" />
     <!-- 메인페이지 외부CSS -->
     <link rel="stylesheet" href="./css/main.css">
+
+    <!-- 자바스크립트 코드구역 : 인터널방식 -->
+    <script>
+        // JS 한줄주석
+        /* JS 여러줄주석 */
+
+        // JS코드구역 /////////////////
+
+        // JS는 만나는 즉시 실행함!
+        // alert("나야나!");
+
+        // 바로실행하지 않고 내가 호출하면 
+        // 코드를 실행하도록 코드저장구역만들기 -> 함수(function)
+        // 함수작성폼:
+        // function 이름(전달변수){코드}
+        function 멍멍(먹이){// 전달변수 - 값이 내부로전달!
+            // 변수는 메모리공간의 이름
+
+            alert(먹이);
+
+            // JS는 철저히 대소문자 구분함!!!
+            // 전체문서객체 : document
+            // 가져와요소아이디이름으로() : 
+            // -> getElementById(아이디명)
+            // -> src 선택된 요소의 src속성
+            document.getElementById('ifr').src = 
+            "https://www.youtube.com/embed/"+먹이+"?autoplay=1";
+
+        } //////// 멍멍함수 ///////////////////
+
+    </script>
+
+    <!-- 자바스크립트 코드 외부파일 호출 : 익스터널방식 -->
+    <!-- <script src="JS외부파일.js"></script> -->
 </head>
 <body>
     <!-- 1.상단영역 -->
@@ -69,7 +103,20 @@
             <nav class="mlist">
                 <ul>
                     <li>
-                        <a href="#" onclick="document.getElementById('ifr').src='https://www.youtube.com/embed/mI9oyFMUlfg?autoplay=1'">
+                        <!-- 
+                            [ 이벤트 속성 ]
+                            1. 모든 요소에 이미 이벤트 속성이 있다!
+                            on+이벤트명
+                            ex) click이벤트 -> onclick
+                            2. 이벤트 속성의 값은 JS문법 구역이다!
+                            -> 쌍따옴표 안에 쓰는 값이 JS코드구역임!
+                         -->
+                        <!-- <a href="#" 
+                        onclick="
+                        document.getElementById('ifr').src='https://www.youtube.com/embed/mI9oyFMUlfg?autoplay=1'
+                        "> -->
+
+                        <a href="#" onclick="멍멍('mI9oyFMUlfg')">
                             <img src="./images/m1.jpg" alt="닥터스트레인져1">
                             <!-- 영화정보 -->
                             <ol class="movtxt">
@@ -80,7 +127,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" onclick="멍멍('DSEfRVqjbFA')">
                             <img src="./images/m2.jpg" alt="쥬라기월드:도미니언">
                             <!-- 영화정보 -->
                             <ol class="movtxt">
@@ -91,7 +138,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" onclick="멍멍('mI9oyFMUlfg')">
                             <img src="./images/m3.jpg" alt="브로커">
                             <!-- 영화정보 -->
                             <ol class="movtxt">
@@ -102,7 +149,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" onclick="멍멍('mI9oyFMUlfg')">
                             <img src="./images/m4.jpg" alt="범죄도시2">
                             <!-- 영화정보 -->
                             <ol class="movtxt">
@@ -113,7 +160,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" onclick="멍멍('mI9oyFMUlfg')">
                             <img src="./images/m5.jpg" alt="몬스터싱어">
                             <!-- 영화정보 -->
                             <ol class="movtxt">
@@ -124,7 +171,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" onclick="멍멍('mI9oyFMUlfg')">
                             <img src="./images/m6.jpg" alt="스파이더맨:노웨이홈">
                             <!-- 영화정보 -->
                             <ol class="movtxt">
