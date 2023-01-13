@@ -20,10 +20,38 @@ body{
 /* 속박스 */
 .top{
     height: 80px;
+    /* 배경이미지 */
+    background: url(../images/curtain.jpg) repeat-x;
 }
+/* 1-1.로고 */
+.tit{
+    font-family: 'Jua', sans-serif;
+    color: aquamarine;
+    font-size: 40px;
+    line-height: 80px;
+    text-align: center;
+
+    /* 글로우 효과 */
+    text-shadow: 0 0 4px aquamarine;
+
+    /* 애니메이션: 이시이지반방마 */
+    animation: titAni .5s ease-in infinite alternate;
+    
+}
+/* 타이틀 글로우 효과 애니메이션 키프레임 */
+@keyframes titAni {
+    to{
+        text-shadow: 0 0 12px aquamarine;
+    }
+} /* 키프레임 */
+
+
 /**************** 2.메인영역 ****************/
+/* 속박스 */
 .cont{
     height: 788px;
+    /* 극장배경 넣기 */
+    background: url(../images/bg.jpg) no-repeat center top/100%;
 }
 /**************** 3.하단영역 ****************/
 .info{
