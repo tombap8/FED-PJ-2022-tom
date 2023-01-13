@@ -75,9 +75,9 @@ body{
 /* 2-2.예고편 선택메뉴 */
 .mlist{
     position: absolute;  
-    width: 50%;  
     bottom: 30px;
     left: 50%;
+    width: 702px;
     transform: translateX(-50%);
 
 }
@@ -85,16 +85,18 @@ body{
 .mlist ul{
     /* 플렉스박스 */
     display: flex;
+    /* 진행방향정렬 : 양쪽끝 맞춘후 사이간격일정 */
+    justify-content: space-between;
+    
 }
 /* 선택메뉴 상위li */
 .mlist ul>li{
-    flex: 1;
-    /* 등분할 설정 */
+    
 }
 /* 포스터 이미지 */
 .mlist img{
-    width: 100%;
-    height: 100%;
+    width: 99px;
+    height: 140px;
 }
 
 
