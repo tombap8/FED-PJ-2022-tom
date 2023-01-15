@@ -161,6 +161,7 @@ body가 기준이 된다!  */
 .part h2 span {
     display: inline-block;
 }
+  
 .part h2 span{
     animation: titAni 1s ease-in-out infinite;
 }
@@ -169,10 +170,10 @@ body가 기준이 된다!  */
     0%{
         transform: translateY(0);
     }
-    25%{
+    10%{
         transform: translateY(-50%);
     }
-    50%{
+    20%{
         transform: translateY(0);
     }
 }
