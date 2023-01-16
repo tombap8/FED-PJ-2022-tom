@@ -41,6 +41,29 @@ body{
     height: 280px;
     margin: 0 auto;
     background: url(../images/seashore.jpg) no-repeat center/auto 100%;
+
+    /******************************* 
+        [ 3D 원근설정 ]
+        1. 셋팅위치 : 3D원근 설정을 할
+        대상의 부모요소
+        2. 설정방법 : 
+        perspective: 수치;
+        -> 수치는 px단위로 숫자가 클수록
+        소실점이 먼것이므로 각도가 작아짐
+        (이 거리는 기준점에서 소실점까지의
+        거리임)
+    *******************************/
+    perspective: 480px;
+
+     /*********************************************** 
+        [ 뷰포인트(관찰자위치) 변경옵션 ]
+        perpective-origin : 가로 세로;
+        - 가로축: left, center, right, px, % 등 단위
+        - 세로축: top, center, bottom, px, % 등 단위
+        -> 두 값 중에 하나만 쓸 수 있고 복합일 경우
+        2가지를 같이 셋팅함!
+    ***********************************************/
+    /* perspective-origin: bottom; */
 }
 /* 문짝 */
 .door{
@@ -49,7 +72,59 @@ body{
     width: 150px;
     height: 280px;
     background-color: #c90;
+
+    /* 문짝회전 */
+    transform: rotateY(0deg);
+    /* 축변경 */
+    transform-origin: left;
+    /* 
+        [트랜스폼 회전축 변경속성]
+        transform-origin: 가로축 세로축
+        - 가로축: left, center, right, px, % 등 단위
+        - 세로축: top, center, bottom, px, % 등 단위
+    */
+
+    /* 애니메이션: 이시이지반방마 */
+    animation: 
+    /* 처음에 1초간 열린후 끝상태유지 */
+    openFirst 1s ease-in-out forwards,
+    /* 계속여닫기 애니 1초후 작동! */
+    openDoor 2s ease-in-out 1s infinite alternate;
+    /* 애니메이션 상태관리 - 처음에 멈춤 */
+    animation-play-state: paused;
+    /* 
+        animation-play-state 상태속성
+        1. running : 작동
+        2. paused : 멈춤
+    */
 }
+
+/* 문짝부모에 오버시 문짝애니작동! */
+.cont:hover .door{
+    animation-play-state: running;
+}
+
+/* 문짝 처음열기 키프레임 */
+@keyframes openFirst {
+    to{
+        transform: rotateY(60deg);
+    }
+} /* openFirst 키프레임 */
+
+/* 문짝 여닫기 키프레임 */
+@keyframes openDoor {
+    0%{
+        transform: rotateY(60deg);
+    }
+    100%{
+        transform: rotateY(-60deg);
+    }
+} /* openDoor 키프레임 */
+
+
+
+
+
 /* 손잡이 */
 .handle{
     position: absolute;
