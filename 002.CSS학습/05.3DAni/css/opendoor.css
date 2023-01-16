@@ -58,7 +58,7 @@ body{
     display: block;
     transform: translateY(100%);
     /* 애니메이션: 이시이지반방마 */
-    animation: upAni .3s ease-out 1.5s forwards;
+    animation: upAni .5s cubic-bezier(0.18, 0.89, 0.32, 1.28) 1.5s forwards;
 }
 /* 등장 키프레임 */
 @keyframes upAni {
@@ -84,7 +84,7 @@ body{
     내크기보다 좀더 많이 아랫쪽으로 이동함! */
     transform: translateY(120%);
     /* 애니메이션: 이시이지반방마 */
-    animation: upAni .6s ease-out 1s forwards;
+    animation: upAni .6s cubic-bezier(0.18, 0.89, 0.32, 1.28) 1s forwards;
 }
 /* 문프레임 */
 .frame{
