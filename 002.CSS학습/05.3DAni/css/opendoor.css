@@ -17,7 +17,9 @@ body{
 
 /* 전체 타이틀 */
 .tit{
-    height: 50px;
+    /* height: 50px;
+    -> auto로 유동적인 글자크기만큼만
+    사이즈 주지 말자! */
     font-family: 'Comfortaa', cursive;
     /* 최대글자크기 지정 */
     font-size: min(5vw,42px);
@@ -32,14 +34,19 @@ body{
     display: block;
     transform: translateY(100%);
     /* 애니메이션: 이시이지반방마 */
-    animation: txtAni .3s ease-out 1s forwards;
+    animation: upAni .3s ease-out 1.5s forwards;
 }
-/* 글자등장 키프레임 */
-@keyframes txtAni {
+/* 등장 키프레임 */
+@keyframes upAni {
     to{
         transform: translateY(0);
     }
-} /* txtAni 키프레임 */
+} /* upAni 키프레임 */
+
+/* 전체랩핑박스 */
+.wrap{
+    overflow: hidden;
+}
 
 /* 전체문부모 */
 .cont{
@@ -47,7 +54,10 @@ body{
     height: 300px;
     margin: 0 auto;
     background-color: #900;
-    transform: translateY(50px);
+    /* 트랜스폼 y축이동 */
+    transform: translateY(100%);
+    /* 애니메이션: 이시이지반방마 */
+    animation: upAni .6s ease-out 1s forwards;
 }
 /* 문프레임 */
 .frame{
