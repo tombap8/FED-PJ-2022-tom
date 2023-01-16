@@ -9,11 +9,23 @@
             text-align: center;
         }
 
+        /* 체크박스 숨기기 */
+        input[type=radio]{
+            display: none;
+            /* input요소를 숨겨도 작동은 된다! */
+        }
+
+        /* 라벨요소 */
         label{
             display: inline-block;
             line-height: 1.5;
             font-size: 25px;
             margin: 10px;
+        }
+        /* 라디오 버튼 체크시 라벨변경
+        체크된 라디오버튼의 다음 형제 라벨요소선택 */
+        input:checked + label{
+            outline: 10px dotted orangered;
         }
 
         ul.ball{
@@ -56,9 +68,16 @@
 
         /* 3. 3의배수번째
         nth-child(3n) -> 3의배수번째
-        n에 1부터 대입된 결과임! */
+        n에 0부터 대입된 결과임! */
       #rdo3:checked ~ ul > li:nth-child(3n) {
         background-color: lightseagreen;
+      }
+
+        /* 4. 2의배수+1번째
+        nth-child(2n+1) -> 2의배수+1번째
+        n에 0부터 대입된 결과임! */
+      #rdo4:checked ~ ul > li:nth-child(2n+1) {
+        background-color: lightskyblue;
       }
 
     </style>
@@ -78,20 +97,30 @@
         input요소로 들어간다!
     -->
 
+    <input type="radio" id="rdo1" name="rdo">
     <label for="rdo1">
-        1. 짝수번째
-    </label>
-    <input type="radio" id="rdo1" name="rdo"> <br>
+        1. 짝수번째 :nth-child(even)
+    </label> <br>
 
+    <input type="radio" id="rdo2" name="rdo">
     <label for="rdo2">
-        2. 홀수번째
-    </label>
-    <input type="radio" id="rdo2" name="rdo"> <br>
+        2. 홀수번째 :nth-child(odd)
+    </label> <br>
 
+    <input type="radio" id="rdo3" name="rdo">
     <label for="rdo3">
-        3. 3의배수번째
-    </label>
-    <input type="radio" id="rdo3" name="rdo"> <br>
+        3. 3의배수번째 :nth-child(3n)
+    </label> <br>
+
+    <input type="radio" id="rdo4" name="rdo">
+    <label for="rdo4">
+        4. 2의배수+1번째 :nth-child(2n+1)
+    </label> <br>
+
+    <input type="radio" id="rdo5" name="rdo">
+    <label for="rdo5">
+        5. 1부터 20번째 :nth-child(-n+20)
+    </label> <br>
 
     <ul class="ball">
         <li>1</li>
