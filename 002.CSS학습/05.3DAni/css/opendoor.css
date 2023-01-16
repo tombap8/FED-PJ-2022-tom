@@ -17,14 +17,29 @@ body{
 
 /* 전체 타이틀 */
 .tit{
+    height: 50px;
     font-family: 'Comfortaa', cursive;
     /* 최대글자크기 지정 */
     font-size: min(5vw,42px);
-    padding: 5vh 0;
+    margin: 5vh 0;
     text-align: center;
     color: #fff;
     text-shadow: 2px 2px 2px #222;
+    overflow: hidden;
 }
+/* 글자만 싸고 있는span */
+.tit span{
+    display: block;
+    transform: translateY(100%);
+    /* 애니메이션: 이시이지반방마 */
+    animation: txtAni .3s ease-out 1s forwards;
+}
+/* 글자등장 키프레임 */
+@keyframes txtAni {
+    to{
+        transform: translateY(0);
+    }
+} /* txtAni 키프레임 */
 
 /* 전체문부모 */
 .cont{
@@ -32,6 +47,7 @@ body{
     height: 300px;
     margin: 0 auto;
     background-color: #900;
+    transform: translateY(50px);
 }
 /* 문프레임 */
 .frame{
@@ -162,5 +178,20 @@ body{
 }
 /* 엘사이미지 */
 #elsa img{
-    margin-left: 100px;
+    margin-left: 133px;
+    transform-origin: bottom;
+    /* 애니메이션 : 이시이지반방마 */
+    animation: elsaAni 1s ease-in-out infinite alternate;
+    /* 처음에 멈춰있기 */
+    animation-play-state: paused;
 }
+/* 마우스 오버시 엘사애니 작동 */
+.cont:hover #elsa img{
+    animation-play-state: running;
+}
+/* 엘사 애니 키프레임 */
+@keyframes elsaAni {
+    to{
+        transform: rotate(-10deg);
+    }
+} /* elsaAni 키프레임 */
