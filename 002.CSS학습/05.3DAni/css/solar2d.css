@@ -25,9 +25,9 @@ body{
 }
 
 /* 공사중 표시 */
-body *{
+/* body *{
     outline: 1px dashed lightblue;
-}
+} */
 
 /* 태양계박스 */
 #solar{
@@ -75,6 +75,10 @@ body *{
 :root{
     /* 지구크기 */
     --esz: 80px;
+    /* 목성크기 */
+    --jsz: 150px;
+    /* 명왕성크기 */
+    --psz: 50px;
 }
 
 
@@ -87,4 +91,76 @@ body *{
     width: var(--esz);
     height: var(--esz);
     background: url(../images/earth.png) no-repeat 0/100% 100%;
+
+    /* 애니메이션 : 이시이지반방마 */
+    animation: earth 20s linear infinite;
 }
+
+/* 지구회전 키프레임 */
+@keyframes earth {
+    from{
+        transform: rotate(0deg) translateX(-250px) rotate(0deg);
+        /* 
+            [주변회전만들기]
+            1.첫번째 rotate : 0deg->360deg
+                -> 중앙회전
+            2.위치이동 translateX 
+                -> 주변을 도는 효과생김
+            3. 두번째 rotate : 0deg->-360deg
+                -> 반대회전은 옆으로 이동한
+                박스에 적용되어 세워져서
+                주변을 도는 효과가 생김!
+        */
+    }
+    to{
+        transform: rotate(360deg) translateX(-250px) rotate(-360deg);
+    }
+} /* 지구회전 키프레임 */
+
+/* 목성 */
+#jupiter{
+    position: absolute;
+    /* calc() 계산으로 정중앙이동 */
+    top: calc(50% - var(--jsz)/2);
+    left: calc(50% - var(--jsz)/2);
+    width: var(--jsz);
+    height: var(--jsz);
+    background: url(../images/jupiter.png) no-repeat 0/100% 100%;
+
+    /* 애니메이션 : 이시이지반방마 */
+    animation: jupiter 35s linear infinite;
+}
+
+/* 목성회전 키프레임 */
+@keyframes jupiter {
+    from{
+        transform: rotate(0deg) translateX(400px) rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg) translateX(400px) rotate(-360deg);
+    }
+} /* 목성회전 키프레임 */
+
+/* 명왕성 */
+#pluto{
+    position: absolute;
+    /* calc() 계산으로 정중앙이동 */
+    top: calc(50% - var(--psz)/2);
+    left: calc(50% - var(--psz)/2);
+    width: var(--psz);
+    height: var(--psz);
+    background: url(../images/pluto.png) no-repeat 0/100% 100%;
+
+    /* 애니메이션 : 이시이지반방마 */
+    animation: pluto 40s linear infinite;
+}
+
+/* 명왕성회전 키프레임 */
+@keyframes pluto {
+    from{
+        transform: rotate(0deg) translateY(650px) rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg) translateY(650px) rotate(-360deg);
+    }
+} /* 명왕성회전 키프레임 */
