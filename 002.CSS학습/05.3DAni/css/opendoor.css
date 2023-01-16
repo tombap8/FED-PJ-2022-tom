@@ -64,7 +64,19 @@ body{
         2가지를 같이 셋팅함!
     ***********************************************/
     /* perspective-origin: bottom; */
+
+    /* 파도치는 애니메이션 : 이시이지반방마 */
+    animation: waveAni 3s ease-in-out infinite alternate;
 }
+
+/* 배경이미지 크기변경으로 파도치는 키프레임 */
+@keyframes waveAni {
+    to{
+        background-size: auto 120%;
+    }
+} /* waveAni 키프레임 */
+
+
 /* 문짝 */
 .door{
     position: relative;
