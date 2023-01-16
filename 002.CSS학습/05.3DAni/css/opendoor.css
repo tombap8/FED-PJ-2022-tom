@@ -25,3 +25,38 @@ body{
     color: #fff;
     text-shadow: 2px 2px 2px #222;
 }
+
+/* 전체문부모 */
+.cont{
+    width: 200px;
+    height: 300px;
+    margin: 0 auto;
+    background-color: #900;
+}
+/* 문프레임 */
+.frame{
+    position: relative;
+    top: 20px;
+    width: 150px;
+    height: 280px;
+    margin: 0 auto;
+    background: url(../images/seashore.jpg) no-repeat center/auto 100%;
+}
+/* 문짝 */
+.door{
+    position: relative;
+    /* 부모자격 : .handle */
+    width: 150px;
+    height: 280px;
+    background-color: #c90;
+}
+/* 손잡이 */
+.handle{
+    position: absolute;
+    top: 140px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: blue;
+}
