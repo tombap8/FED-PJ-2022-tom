@@ -81,6 +81,8 @@ body{
 .door{
     position: relative;
     /* 부모자격 : .handle */
+    z-index: 1;
+    /* 엘사보다 위! */
     width: 150px;
     height: 280px;
     background-color: #c90;
@@ -146,4 +148,19 @@ body{
     height: 20px;
     border-radius: 50%;
     background-color: blue;
+}
+
+/* 엘사박스 */
+#elsa{
+    position: absolute;
+    top: 0;
+    
+    width: 150px;
+    height: 280px;
+    /* 엘사이미지 숨기기 */
+    overflow: hidden;
+}
+/* 엘사이미지 */
+#elsa img{
+    margin-left: 100px;
 }
