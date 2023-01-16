@@ -4,3 +4,24 @@
 /* 웹폰트 */
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap");
 /* font-family: 'Comfortaa', cursive; */
+
+/* 초기화 */
+html,body,h1{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #9c0;
+}
+
+/* 전체 타이틀 */
+.tit{
+    font-family: 'Comfortaa', cursive;
+    /* 최대글자크기 지정 */
+    font-size: min(5vw,42px);
+    padding: 5vh 0;
+    text-align: center;
+    color: #fff;
+    text-shadow: 2px 2px 2px #222;
+}
