@@ -37,6 +37,30 @@
             color: darkred;
             margin: 5px;
         }
+
+        /* 라디오버튼 체크시
+        하단 형제요소인 ul>li 변경하기 */
+        /* 체크박스/라디오버튼 체크시
+        가상클래스는 :checked */
+
+        /* 1. 짝수번째
+        nth-child(even) -> 짝수번째 */
+      #rdo1:checked ~ ul > li:nth-child(even) {
+        background-color: lightgreen;
+      }
+        /* 2. 홀수번째
+        nth-child(odd) -> 홀수번째 */
+      #rdo2:checked ~ ul > li:nth-child(odd) {
+        background-color: lightcoral;
+      }
+
+        /* 3. 3의배수번째
+        nth-child(3n) -> 3의배수번째
+        n에 1부터 대입된 결과임! */
+      #rdo3:checked ~ ul > li:nth-child(3n) {
+        background-color: lightseagreen;
+      }
+
     </style>
 </head>
 <body>
