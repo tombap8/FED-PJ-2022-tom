@@ -80,6 +80,27 @@
         background-color: lightskyblue;
       }
 
+        /* 5. 1부터 20번째 :nth-child(-n+20)
+        nth-child(-n+20) 
+        -> 1부터 20번째 :nth-child(-n+20)
+        n에 0부터 대입된 결과임! 
+        -n이므로 뒤에서부터 선택되어 첫번째까지
+        선택됨 -> (20-n)라고 쓰면 문법오류임! */
+      #rdo5:checked ~ ul > li:nth-child(-n+20) {
+        background-color: lightpink;
+      }
+
+        /* 6. 21부터 37번째 
+        li:nth-child(20) ~ li:nth-child(-n+37)
+        -> 출발은 20번째 요소 뒤인 21번부터 출발
+        n에 0부터 대입된 결과임! 끝에서부터 거꾸로
+        번호를 선택함!*/
+      #rdo6:checked ~ 
+      ul > li:nth-child(20) ~
+      li:nth-child(-n+37) {
+        background-color: lightsteelblue;
+      }
+
     </style>
 </head>
 <body>
@@ -120,6 +141,12 @@
     <input type="radio" id="rdo5" name="rdo">
     <label for="rdo5">
         5. 1부터 20번째 :nth-child(-n+20)
+    </label> <br>
+
+    <input type="radio" id="rdo6" name="rdo">
+    <label for="rdo6">
+        6. 21부터 37번째 
+        li:nth-child(20) ~ li:nth-child(-n+37)
     </label> <br>
 
     <ul class="ball">
