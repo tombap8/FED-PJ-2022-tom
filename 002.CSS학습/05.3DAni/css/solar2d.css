@@ -1,0 +1,90 @@
+@charset "utf-8";
+
+/* 태양계 2D 애니 - solar2d.css */
+
+html,body{
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+body{
+    background: url(../images/space.jpg) no-repeat center/cover;
+    overflow: hidden;
+    /* 스크롤바없앰 */
+}
+/* 공통클래스 */
+
+/* 배경이미지설명숨기기 */
+.ir{
+    display: block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+/* 공사중 표시 */
+body *{
+    outline: 1px dashed lightblue;
+}
+
+/* 태양계박스 */
+#solar{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* 박스 정중앙이동 */
+    
+    width: 250px;
+    height: 250px;
+}
+/* 태양박스 */
+#sun{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 250px;
+}
+/* 태양이미지 */
+#sun img{
+    width: 100%;
+    height: 100%;
+}
+
+/* 
+    [ CSS에서 변수사용하기 ]
+
+    [ 변수설정하기 ] 
+        :root{
+            --변수명1: 값1;
+            --변수명2: 값2;
+        }
+        
+    [ 변수호출사용 ]
+        var(--변수명)
+
+    [ 변수는 언제 사용하나? ]
+    ->>> 값은 값이 여러부분에서 사용될때
+    ->>> 미디어쿼리 등에서 변경이 필요한 경우
+    변수값만 변경하면 복잡한 값 변경이 불필요하게됨!
+
+*/
+:root{
+    /* 지구크기 */
+    --esz: 80px;
+}
+
+
+/* 지구 */
+#earth{
+    position: absolute;
+    /* calc() 계산으로 정중앙이동 */
+    top: calc(50% - var(--esz)/2);
+    left: calc(50% - var(--esz)/2);
+    width: var(--esz);
+    height: var(--esz);
+    background: url(../images/earth.png) no-repeat 0/100% 100%;
+}
