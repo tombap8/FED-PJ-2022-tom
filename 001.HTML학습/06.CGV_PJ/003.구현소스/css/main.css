@@ -78,6 +78,23 @@ body{
     border-radius: 5px;
     box-shadow: 0 0 5px #fff;
 }
+/* 메뉴박스 가상요소로 삼각형 만들기 */
+.smenu::before{
+    content: '';
+    display: block;
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+
+    /* 삼각형만들기:보더사용 */
+    border-bottom: 10px solid red;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+
+}
 /* 서브메뉴 ol */
 .smenu ol{
     border: 1px solid #ccc;
@@ -85,8 +102,20 @@ body{
 }
 /* 서브메뉴 a */
 .smenu a{
+    display: block;
+    /* a요소확장 */
     font-size: 1.6rem;
     line-height: 1.7;
+}
+/* 서브마우스 오버시 */
+.smenu a:hover{
+    color: red;
+}
+/* 오버시 가상요소로 이모티콘 */
+.smenu a:hover::after{
+    content: '🎃';
+    /* 오른쪽 끝으로 보내기 */
+    float: right;
 }
 
 
