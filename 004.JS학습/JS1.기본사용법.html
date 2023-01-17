@@ -340,11 +340,66 @@
             // 1. 함수호출확인!
             console.log("보여줘!");
 
-            // 2. 변경대상 선정 : document안의 특정요소
+            // 2. HTML 변경하기 //////////////////
 
-            // 2-1. 이미지를 넣을 박스요소 : #name
-            document.getElementById("name")
+            // 변경대상 선정 : document안의 특정요소
+            // 이미지를 넣을 박스요소 : #name
+            document
+            // 현재 html문서 전체
+            .getElementById("name")
+            // 가져와요소아이디로(아이디명)
             .innerHTML = '<img src="./images/kim.png" alt="김비서가왜그럴까?">';
+            // innerHTML = 값
+            // -> 이퀄 오른쪽의 값이 왼쪽에 들어감!
+            // innerHTML은 html코드를 넣는 역할을함!
+
+            // 3. CSS변경하기 ///////////////////
+            // 변경대상: .pbox
+
+            // 변수는 값을 저장하는 메모리공간
+            // 변수명은 호출시에 값이 나옴
+            // 변수명은 따옴표로 싸지 않는다!
+            // 변수명은 띄어쓰지 않는다
+            // 변수선언은 var 키워드를 사용한다!
+
+            // 변수에 요소 담기! 재사용을 위하여!
+            var 목표 = document.getElementsByClassName("pbox").item(0);
+            // 전체문서 : document            
+            // 가져와요소들클래스이름으로(클래스명) :
+            // getElementsByClassName("pbox")            
+            // 클래스요소 중 첫번째(0)선택 : item(0)
+
+            // [ 스타일시트를 변경하는 객체 : style ]
+            // - 하위속성은 모두 변수형으로 생성되어 있다!
+            // - 2음절 이상이름일때 -를 지우고 대문자로 시작함
+            // 예) border-radius -> borderRadius
+
+            // 3-1. 글자색 변경하기
+            목표.style.color = "lime";
+
+            // 3-2. 글자크기 변경하기
+            목표.style.fontSize = "2.5vw";
+
+            // 3-3. 트랜지션 추가하기
+            목표.style.transition = 
+            "2s,transform 1s 2s,top 3s 2s,left 3s 2s";
+
+            // 3-4. 원모양 만들기
+            목표.style.borderRadius = "50%";
+
+            // 3-5. 배경이미지넣기
+            목표.style.background = "url(./images/kimbs.jpg) no-repeat top/cover";
+
+            // 3-6. 위치이동
+            목표.style.top = "50%";
+            목표.style.left = "50%";
+
+            // 3-7. 트랜스폼적용(정중앙이동,회전,스케일)
+            목표.style.transform = 
+            "translate(-50%,-50%) rotate(360deg) scale(.7)";
+
+
+
             
        } /////////////// 보여줘 함수 ///////////////
 
