@@ -7,9 +7,9 @@
 
 
 /* 공사중 표시 */
-body * {
+/* body * {
     outline: 1px dashed ghostwhite;
-}
+} */
 
 /* 전체배경색 */
 body{
@@ -21,6 +21,8 @@ body{
 .top{
     position: relative;
     /* 부모자격 - .gnb */
+    z-index: 999;
+    /* GNB서브메뉴를 올리기위한 설정! */
     height: 80px;
     /* 배경이미지 */
     background: url(../images/curtain.jpg) repeat-x;
@@ -50,21 +52,41 @@ body{
 /* 1-2.GNB메뉴 */
 .gnb{
     position: absolute;
-    bottom: 0;
-    right: 0;
+    bottom: 15px;
+    right: 10px;
 }
 /* ul박스 */
 .gnb ul{
     display: flex;
+    font-family: 'Jua', sans-serif;
 }
 /* 상위li 두번째부터 */
 .gnb ul>li+li{
-    margin-left: 10px;
+    margin-left: 20px;
 }
 /* 상위메뉴 a */
 .gnb ul>li>a{
-    font-family: 'Jua', sans-serif;
     font-size: 2rem;/* 20px */
+}
+
+/* 서브메뉴 */
+.smenu{
+    position: absolute;
+    width: 140px;
+    padding: 3px;
+    background: url(../images/bg_smenu.png) no-repeat center/cover;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #fff;
+}
+/* 서브메뉴 ol */
+.smenu ol{
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+/* 서브메뉴 a */
+.smenu a{
+    font-size: 1.6rem;
+    line-height: 1.7;
 }
 
 
