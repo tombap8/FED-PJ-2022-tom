@@ -4,15 +4,100 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+        }
+        .set{
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .set li{
+            flex: 1;
+        }
+        .st2 li:nth-child(1){
+            background: url(./lim_imgs/1.jpg) no-repeat center/cover;
+        }
+        .st2 li:nth-child(2){
+            background: url(./lim_imgs/2.jpg) no-repeat center/cover;
+        }
+        .st2 li:nth-child(3){
+            background: url(./lim_imgs/3.jpg) no-repeat center/cover;
+        }
+        .st2 li:nth-child(4){
+            background: url(./lim_imgs/4.jpg) no-repeat center/cover;
+        }
+        .st2 li:nth-child(5){
+            background: url(./lim_imgs/5.jpg) no-repeat center/cover;
+        }
+
+        .st2 .stg{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            opacity: 0;
+            transition: 1s ease-in-out;
+        }
+        .st2 li:hover .stg{
+            opacity: 1;
+        }
+        
+        .st2 li:nth-child(1) .stg{
+            left: 0;
+            right: 20%;
+            background: url(./lim_imgs/11.jpg) no-repeat fixed center/cover;
+        }
+        .st2 li:nth-child(1):hover .stg{
+            left: 0;
+            right: 100%;
+            z-index: 1;
+        }
+        .st2 li:nth-child(2) .stg{
+            left: 20%;
+            right: 40%;
+            background: url(./lim_imgs/22.jpg) no-repeat fixed center/cover;
+        }
+        .st2 li:nth-child(3) .stg{
+            left: 40%;
+            right: 60%;
+            background: url(./lim_imgs/33.jpg) no-repeat fixed center/cover;
+        }
+        .st2 li:nth-child(4) .stg{
+            left: 60%;
+            right: 80%;
+            background: url(./lim_imgs/44.jpg) no-repeat fixed center/cover;
+        }
+        .st2 li:nth-child(5) .stg{
+            left: 80%;
+            right: 100%;
+            background: url(./lim_imgs/55.jpg) no-repeat fixed center/cover;
+        }
+    </style>
 </head>
 <body>
-    <div>
-        <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+    <div class="wrap">
+        <ul class="set st2">
+            <li>
+                <div class="stg"></div>
+            </li>
+            <li>
+                <div class="stg"></div>
+            </li>
+            <li>
+                <div class="stg"></div>
+            </li>
+            <li>
+                <div class="stg"></div>
+            </li>
+            <li>
+                <div class="stg"></div>
+            </li>
         </ul>
     </div>
     
