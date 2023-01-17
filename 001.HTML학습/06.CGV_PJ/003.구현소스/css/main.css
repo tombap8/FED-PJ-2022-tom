@@ -60,6 +60,11 @@ body{
     display: flex;
     font-family: 'Jua', sans-serif;
 }
+/* 상위li */
+.gnb ul>li{
+    position: relative;
+    /* 부모자격 : .smenu */
+}
 /* 상위li 두번째부터 */
 .gnb ul>li+li{
     margin-left: 20px;
@@ -72,12 +77,28 @@ body{
 /* 서브메뉴 */
 .smenu{
     position: absolute;
+    /* 부모박스 가로방향 중앙맞추기 */
+    left: 50%;
+    /* 부모는? .gnb ul>li */
+    transform: translate(-50%,5px);
+    /* x축은 자기크기의 
+    50%만큼 왼쪽이동, y축은 5px이동 */
     width: 140px;
     padding: 3px;
     background: url(../images/bg_smenu.png) no-repeat center/cover;
     border-radius: 5px;
     box-shadow: 0 0 5px #fff;
+
+    /* 처음에 서브메뉴 숨기기 */
+    display: none;
 }
+/* 상위메뉴 li오버시 서브메뉴 보이기 */
+.gnb ul>li:hover .smenu{
+    display: block;
+}
+
+
+
 /* 메뉴박스 가상요소로 삼각형 만들기 */
 .smenu::before{
     content: '';
@@ -90,7 +111,7 @@ body{
     height: 0;
 
     /* 삼각형만들기:보더사용 */
-    border-bottom: 10px solid red;
+    border-bottom: 10px solid #313131;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
 
