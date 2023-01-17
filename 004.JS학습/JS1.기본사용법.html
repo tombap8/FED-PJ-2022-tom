@@ -425,12 +425,17 @@
         // 1. 호출확인!
         console.log("바꿔!");
 
-        // 2.대상: .pbox 배경이미지 변경
-        document.getElementsByClassName("pbox").item(0)
-        .style.backgroundImage = "url(https://image.kmib.co.kr/online_image/2022/0727/2022072621325079008_1658838770_0017317378.jpg)";
+        // 2.대상: .pbox 
+        var 목표 = 
+        document.getElementsByClassName("pbox").item(0);
+
+        // 3. CSS변경하기 : 배경이미지 변경
+        목표.style.backgroundImage = "url(https://image.kmib.co.kr/online_image/2022/0727/2022072621325079008_1658838770_0017317378.jpg)";
 
         // 확인미션:
-        // 기존HTML을 "우 to the 영 to the 우" 로 변경하시오!
+        // 기존데이터를 "우 to the 영 to the 우" 로 변경하시오!
+        // innerText - 텍스트로 된 데이터를 요소안에 넣을때 사용!
+        목표.innerText = "우 to the 영 to the 우";
 
       } ////////////// 바꿔 함수 ////////////////////
       
