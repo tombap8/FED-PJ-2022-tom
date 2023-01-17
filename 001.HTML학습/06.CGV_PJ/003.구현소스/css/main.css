@@ -73,7 +73,18 @@ body{
 }
 /* 상위메뉴 a */
 .gnb ul>li>a{
+    /* 트랜스폼 적용위해 인라인블록 */
+    display: inline-block;
     font-size: 2rem;/* 20px */
+    /* 트랜지션 */
+    transition: .3s;
+}
+/* 오버시 변경 */
+.gnb ul>li:hover>a{
+    transform: scale(1.3);
+    color: aquamarine;
+    /* 애니메이션: 이시이지반방마 */
+    animation: titAni .5s ease-in infinite alternate;
 }
 
 /* 서브메뉴 */
