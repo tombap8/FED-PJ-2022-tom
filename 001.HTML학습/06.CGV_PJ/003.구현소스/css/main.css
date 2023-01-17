@@ -19,6 +19,8 @@ body{
 /**************** 1.상단영역 ****************/
 /* 속박스 */
 .top{
+    position: relative;
+    /* 부모자격 - .gnb */
     height: 80px;
     /* 배경이미지 */
     background: url(../images/curtain.jpg) repeat-x;
@@ -44,6 +46,26 @@ body{
         text-shadow: 0 0 12px aquamarine;
     }
 } /* 키프레임 */
+
+/* 1-2.GNB메뉴 */
+.gnb{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+/* ul박스 */
+.gnb ul{
+    display: flex;
+}
+/* 상위li 두번째부터 */
+.gnb ul>li+li{
+    margin-left: 10px;
+}
+/* 상위메뉴 a */
+.gnb ul>li>a{
+    font-family: 'Jua', sans-serif;
+    font-size: 2rem;/* 20px */
+}
 
 
 /**************** 2.메인영역 ****************/
