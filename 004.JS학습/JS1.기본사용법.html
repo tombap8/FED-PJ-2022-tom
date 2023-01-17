@@ -398,6 +398,19 @@
             목표.style.transform = 
             "translate(-50%,-50%) rotate(360deg) scale(.7)";
 
+            // 3-8. 전체 배경색 변경하기
+            // 대상: body
+            // JS에서 body는 특별히 취급해서
+            // document.body 라고 선택함!
+            var 바디 = document.body;
+            바디.style.backgroundColor = "lightgreen";
+            바디.style.transition = "5s 3s";
+
+            // 4. 속성변경하기 : title속성변경
+            // 우영우 드라마로 더블클릭 안내하기
+            // 대상: .pbox -> 목표
+            목표.title = "더블클릭하시면 우영우를 보실 수 있습니다!";
+            // 요소선택.속성명 = 값 -> 속성값이 변경됨!
 
 
             
@@ -407,6 +420,16 @@
             함수명: 바꿔
             기능: 다른 드라마의 배경과 글자로 변경함
        ********************************************/
+      function 바꿔(){
+
+        // 1. 호출확인!
+        console.log("바꿔!");
+
+        // 2.대상: .pbox 배경이미지 변경
+        document.getElementsByClassName("pbox").item(0)
+        .style.backgroundImage = "url(https://image.kmib.co.kr/online_image/2022/0727/2022072621325079008_1658838770_0017317378.jpg)";
+
+      } ////////////// 바꿔 함수 ////////////////////
       
 
       /************************************************** 
@@ -498,7 +521,7 @@
 <body>
 
     <!-- 드라마 소개박스 -->
-    <p class="pbox" title="여기를 클릭하세요!" onclick="보여줘()">
+    <p class="pbox" title="여기를 클릭하세요!" onclick="보여줘()" ondblclick="바꿔()">
         나는 요즘 매일 생각한다! <br>
         도대체 <span id="name"></span>
     </p>
