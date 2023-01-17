@@ -52,7 +52,7 @@ body{
 /* 1-2.GNB메뉴 */
 .gnb{
     position: absolute;
-    bottom: 15px;
+    bottom: 10px;
     right: 10px;
 }
 /* ul박스 */
@@ -64,6 +64,8 @@ body{
 .gnb ul>li{
     position: relative;
     /* 부모자격 : .smenu */
+    padding-bottom: 5px;
+    /* 서브메뉴와 공간연결을 위해 하단패딩줌! */
 }
 /* 상위li 두번째부터 */
 .gnb ul>li+li{
@@ -137,6 +139,21 @@ body{
     content: '🎃';
     /* 오른쪽 끝으로 보내기 */
     float: right;
+}
+/* 예매 */
+.gnb ul>li:nth-child(2) 
+.smenu a:hover::after{
+    content: '🎪';
+}
+/* 극장 */
+.gnb ul>li:nth-child(3) 
+.smenu a:hover::after{
+    content: '👓';
+}
+/* 이벤트&컬처 */
+.gnb ul>li:nth-child(4) 
+.smenu a:hover::after{
+    content: '😻';
 }
 
 
