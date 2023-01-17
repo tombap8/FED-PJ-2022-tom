@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃 미디어쿼리1</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 공통class */
+        .ibx {
+            /* 속박스 */
+            max-width: 1200px;
+            /* 1200px 보다 작아지면 auto */
+            margin: 0 auto;
+            outline: 1px dashed red;
+        }
+
+        .ibx::after {
+            /* float해제 */
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .pbx {
+            /* 파티션박스 */
+            float: left;
+            outline: 1px dotted lime;
+        }
+
+        /* 개별 디자인 */
+
+        /* 1. 상단영역 */
+        .top>.pbx {
+            width: 33.33%;
+            /* 3등분 */
+            height: 120px;
+        }
+
+        .top1 {
+            background: url(./images/jeong1.jpg) no-repeat top/cover;
+        }
+
+        .top2 {
+            background: url(./images/jeong2.jpg) no-repeat top/cover;
+        }
+
+        .top3 {
+            background: url(./images/jeong3.jpg) no-repeat top/cover;
+        }
+
+        /* 2. 중앙영역 */
+        .cont>.pbx {
+            width: 25%;
+            /* 4등분 */
+            height: 300px;
+        }
+
+        .cont1 {
+            background: url(./images/jeong4.jpg) no-repeat top/cover;
+        }
+
+        .cont2 {
+            background: url(./images/jeong5.jpg) no-repeat top/cover;
+        }
+
+        .cont3 {
+            background: url(./images/jeong6.jpg) no-repeat top/cover;
+        }
+
+        .cont4 {
+            background: url(./images/jeong7.jpg) no-repeat top/cover;
+        }
+
+        /* 3. 하단영역 */
+        .info>.pbx {
+            width: 50%;
+            /* 2등분 */
+            height: 200px;
+        }
+
+        .info1 {
+            background: url(./images/jeong8.jpg) no-repeat top/cover;
+        }
+
+        .info2 {
+            background: url(./images/jeong9.jpg) no-repeat top/cover;
+        }
+
+        /* 크기별 미디어쿼리 */
+
+        /************** 1024px 이하 **************/
+        @media screen and (max-width:1024px) {
+
+        /* 1024px 이하 */
+
+        /*************** 800px 이하 ***************/
+        @media screen and (max-width:800px) {
+
+        /* 800px 이하 */
+
+
+        /**************** 500px 이하 ****************/
+        /* 500px 이하 */
+    </style>
+</head>
+
+<body>
+    <!-- 1. 상단영역 -->
+    <div>
+        <header class="ibx top">
+            <div class="pbx top1"></div>
+            <div class="pbx top2"></div>
+            <div class="pbx top3"></div>
+        </header>
+    </div>
+    <!-- 2. 중앙영역 -->
+    <div>
+        <main class="ibx cont">
+            <div class="pbx cont1"></div>
+            <div class="pbx cont2"></div>
+            <div class="pbx cont3"></div>
+            <div class="pbx cont4"></div>
+        </main>
+    </div>
+    <!-- 3. 하단영역 -->
+    <div>
+        <footer class="ibx info">
+            <div class="pbx info1"></div>
+            <div class="pbx info2"></div>
+        </footer>
+    </div>
+
+</body>
+
+</html>
