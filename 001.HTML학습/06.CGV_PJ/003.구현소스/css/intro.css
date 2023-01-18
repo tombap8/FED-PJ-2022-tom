@@ -19,6 +19,14 @@ html,body{
     height: 100%;
     object-fit: cover;
     /* object-position: -100px -200px; */
+
+    /* 필터의 명도를 조정하여 어두워보이게함 */
+    filter: brightness(50%);
+    /* 
+        용어체크:
+        1) 오버레이효과(overlay) - 어둡게처리
+        2) 트렌스페런트효과(transparent) - 밝게처리
+    */
 }
 
 /* 
