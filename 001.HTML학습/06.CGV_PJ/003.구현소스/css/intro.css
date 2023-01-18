@@ -37,7 +37,7 @@ html,body{
     /* 트랜스폼 정중앙이동! */
     transform: translate(-50%, -50%);
 
-    outline: 4px dotted lime;
+    /* outline: 4px dotted lime; */
 }
 /* Click Here 글자박스 */
 #enter span{
@@ -50,7 +50,7 @@ html,body{
 }
 /* 엔터박스 오버시 글자박스변경 */
 #enter:hover span{
-    transform: scale(2);
+    transform: scale(2) rotateX(360deg);
     color: chartreuse;
 }
 
@@ -62,8 +62,44 @@ html,body{
 }
 /* 엔터박스 오버시 로고이미지변경 */
 #enter:hover img{
-    transform: 
-    rotate(-15deg) scale(1.5);
+    /* 애니메이션: 이시이지반방마 */
+    animation: 
+    /* 먼저커지고 왼쪽회전 */
+    logoAni1 .4s linear forwards,
+    /* 왼쪽,오른쪽 회전반복 */
+    logoAni2 .4s linear .4s infinite alternate;
+
+    /* transform: 
+    rotate(-15deg) scale(1.5); */
+}
+/* 로고 애니 키프레임 */
+@keyframes logoAni1 {
+    50%{
+        transform: 
+        rotate(0deg) scale(1.5);
+    }
+    100%{
+        transform: 
+        rotate(-15deg) scale(1.5);
+    }
+}
+/* 로고 애니 키프레임 */
+@keyframes logoAni2 {
+    0%{
+        transform: 
+        rotate(-15deg) scale(1.5);
+    }
+    100%{
+        transform: 
+        rotate(15deg) scale(1.5);
+    }
+}
+/* 로고 애니 키프레임 */
+@keyframes logoAni3 {
+    100%{
+        transform: 
+        rotate(0deg) scale(1);
+    }
 }
 
 
