@@ -40,8 +40,8 @@
         .st2 .stg{
             position: absolute;
             top: 0;
-            bottom: 0;
-            opacity: 0;
+            width: 20%;
+            height: 100%;
             transition: 1s ease-in-out;
         }
         .st2 li:hover .stg{
@@ -50,19 +50,24 @@
         
         .st2 li:nth-child(1) .stg{
             left: 0;
-            right: 20%;
             background: url(./lim_imgs/11.jpg) no-repeat fixed center/cover;
         }
         .st2 li:nth-child(1):hover .stg{
-            left: 0;
-            right: 100%;
+            width: 100%;
             z-index: 1;
         }
+
         .st2 li:nth-child(2) .stg{
             left: 20%;
             right: 40%;
             background: url(./lim_imgs/22.jpg) no-repeat fixed center/cover;
         }
+        .st2 li:nth-child(2):hover .stg{
+            left: 0;
+            width: 100%;
+            z-index: 1;
+        }
+
         .st2 li:nth-child(3) .stg{
             left: 40%;
             right: 60%;

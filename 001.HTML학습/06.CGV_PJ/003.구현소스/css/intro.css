@@ -1,0 +1,14 @@
+@charset "utf-8";
+/* CGV PJ 인트로 페이지 CSS - intro.css */
+
+/* 외부 공통 CSS 합치기 */
+@import url(./reset.css);
+@import url(./core.css);
+
+/* 전체 페이지 보이는 화면기준 */
+html,body{
+    width: 100vw;
+    height: 100vh;
+    /* 스크롤바 숨기기 */
+    overflow: hidden;
+}
