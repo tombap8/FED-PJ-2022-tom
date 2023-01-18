@@ -444,9 +444,12 @@
             함수명: 맘대로해라
             기능: 선택요소를 중앙으로 보낸다!
       **************************************************/
-     function 맘대로해라(){
+     function 맘대로해라(헐){ // 헐 - 전달변수
         // 1. 함수호출확인!
-        console.log("나야나!!!");
+        console.log("나야나!!!",헐);
+        // 콘솔로그에 값 합치기
+        // 1) console.log(a+b)
+        // 2) console.log(a,b)
 
 
      } ///////////// 맘대로해라 함수 ///////////////////
@@ -545,9 +548,9 @@
     <!-- 원모양 박스 -->
     <div class="박스야">
         <!-- 원모양 -->
-        <div class="원이야" onmouseover="맘대로해라()"></div>
-        <div class="원이야"></div>
-        <div class="원이야"></div>
+        <div class="원이야" onmouseover="맘대로해라('일번')"></div>
+        <div class="원이야" onmouseover="맘대로해라('이번')"></div>
+        <div class="원이야" onmouseover="맘대로해라('삼번')"></div>
 
         <!-- 사각형으로 변할 원박스 -->
         <div class="넌뭐냐" title="반드시 더블클릭 해주세요~!!!"></div>
