@@ -57,8 +57,8 @@ html,body{
 /* 엔터박스 로고 이미지 */
 #enter img{
     /* 트랜지션: 속시이지 */
-    transition: 
-    all .3s ease-out .2s;
+    /* transition: 
+    all .3s ease-out .2s; */
 }
 /* 엔터박스 오버시 로고이미지변경 */
 #enter:hover img{
@@ -94,14 +94,6 @@ html,body{
         rotate(15deg) scale(1.5);
     }
 }
-/* 로고 애니 키프레임 */
-@keyframes logoAni3 {
-    100%{
-        transform: 
-        rotate(0deg) scale(1);
-    }
-}
-
 
 
 /* 
