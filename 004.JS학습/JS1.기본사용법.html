@@ -444,12 +444,34 @@
             함수명: 맘대로해라
             기능: 선택요소를 중앙으로 보낸다!
       **************************************************/
-     function 맘대로해라(헐){ // 헐 - 전달변수
-        // 1. 함수호출확인!
+     function 맘대로해라(헐){ // 헐 - 전달변수(순번값 들어옴)
+        // 1. 함수호출확인! + 전달값확인!
         console.log("나야나!!!",헐);
         // 콘솔로그에 값 합치기
         // 1) console.log(a+b)
         // 2) console.log(a,b)
+
+        // 2. 변경대상: .박스야 .원이야
+
+        // 더 간단한 선택방법 : 
+        // querySelector(CSS선택자) / querySelectorAll(CSS선택자)
+        var 멍청이 = 
+        document.querySelectorAll(".박스야 .원이야").item(헐);
+        
+        // 변수에 담긴 요소집합(컬렉션집합)을 확인
+        console.log(멍청이);
+
+
+        // 기존 길게쓰는 방식:
+        // document.getElementsByClassName("박스야").item(0)
+        // .getElementsByClassName("원이야").item(0)
+
+        // 3. 변경내용 : 트랜지션으로 화면중앙으로 이동하기
+        // -> .원이야 중에서 몇번째인지 헐...변수에 담김!
+        멍청이.style.transition = "1s ease-out";
+        멍청이.style.top = "50%";
+        멍청이.style.right = "50%";
+        멍청이.style.transform = "translate(50%,-50%)";
 
 
      } ///////////// 맘대로해라 함수 ///////////////////
@@ -548,9 +570,9 @@
     <!-- 원모양 박스 -->
     <div class="박스야">
         <!-- 원모양 -->
-        <div class="원이야" onmouseover="맘대로해라('일번')"></div>
-        <div class="원이야" onmouseover="맘대로해라('이번')"></div>
-        <div class="원이야" onmouseover="맘대로해라('삼번')"></div>
+        <div class="원이야" onmouseover="맘대로해라(0)"></div>
+        <div class="원이야" onmouseover="맘대로해라(1)"></div>
+        <div class="원이야" onmouseover="맘대로해라(2)"></div>
 
         <!-- 사각형으로 변할 원박스 -->
         <div class="넌뭐냐" title="반드시 더블클릭 해주세요~!!!"></div>
