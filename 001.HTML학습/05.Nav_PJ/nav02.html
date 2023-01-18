@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. 가로네비 서브별 드롭다운 가로형</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        .gnb{
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+        }
+        .gnb ul{
+            /* 플렉스박스 */
+            display: flex;
+            /* 진행방향정렬 : 중앙 */
+            justify-content: center;
+
+            /* 3無 */
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .gnb ul>li{
+            /* 투명하단보더 */
+            border-bottom: 3px solid transparent;
+        }
+        /* li오버시 */
+        .gnb ul>li:hover{
+            /* 하단보더색넣기 */
+            border-bottom-color: darkblue;
+        }
+        /* li오버시 a */
+        .gnb ul>li:hover>a{
+            color: darkblue;
+        }
+        .gnb ul>li>a{
+            /* a확장! */
+            display: block;
+            /* a요소에서 글자색,밑줄없앰 */
+            color: #444;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 56px;
+            padding: 0 15px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>2. 가로네비 서브별 드롭다운 가로형</h1>
+    <div class="gnb">
+        <ul>
+            <li>
+                <a href="#">홈페이지</a>
+            </li>
+            <li>
+                <a href="#">쇼핑몰</a>
+            </li>
+            <li>
+                <a href="#">모바일/앱</a>
+            </li>
+            <li>
+                <a href="#">기술력</a>
+            </li>
+            <li>
+                <a href="#">호스팅/유지관리</a>
+            </li>
+            <li>
+                <a href="#">포트폴리오</a>
+            </li>
+            <li>
+                <a href="#">회사소개</a>
+            </li>
+            <li>
+                <a href="#">고객센터</a>
+            </li>
+        </ul>
+    </div>
+    
+</body>
+</html>
