@@ -483,6 +483,39 @@
         기능: 오른쪽 상단으로 먼저 이동후 사각형으로
             전체 채우기 애니메이션 + 환영메시지 넣기
      ****************************************************/
+    function 사각사각(){
+        // 1. 호출확인
+        console.log("사각사각!");
+
+        // 2. 대상선정: .넌뭐냐
+        var 나야나 = document.querySelector(".넌뭐냐");
+        // querySelector(선택자) 는 무조건 첫번째 만나는 하나만 선택한다!
+        console.log("나야나,넌 뭐냐?",나야나);
+
+        // 3. 변경내용: top, 트랜지션, width, height
+        나야나.style.top = "0";
+        나야나.style.borderRadius = "0";
+        나야나.style.width = "100vw";
+        나야나.style.height = "100vh";
+        나야나.style.transition = "3s 1s,top 1s 0s";
+        // top값은 1초간 기다림 없이 애니
+        // 모든값은 1초후 3초간 애니
+
+        // 4. 추가변경: 글자변경
+        나야나.innerText = "JS입문을 환영합니다!";
+        // innerText = 값 -> 선택요소 내부에 글자 데이터 넣기!
+
+        // 5. 글자관련 CSS변경하기
+        나야나.style.fontSize = "6vw";
+        나야나.style.color = "aqua";
+        나야나.style.fontWeight = "bold";
+        나야나.style.textShadow = "5px 5px 3px #000";
+        나야나.style.lineHeight = "100vh";
+
+
+
+    } ///////////// 사각사각 함수 /////////////////////////
+    //////////////////////////////////////////////////////
     
 
     </script>
@@ -575,7 +608,7 @@
         <div class="원이야" onmouseover="맘대로해라(2)"></div>
 
         <!-- 사각형으로 변할 원박스 -->
-        <div class="넌뭐냐" title="반드시 더블클릭 해주세요~!!!"></div>
+        <div class="넌뭐냐" title="반드시 더블클릭 해주세요~!!!" ondblclick="사각사각()"></div>
 
     </div>
 
