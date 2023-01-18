@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2. 가로네비 서브별 드롭다운 가로형</title>
     <style>
+        /* 초기화 */
+        html,body{
+            margin: 0;
+            padding: 0;
+        }
         h1{
             text-align: center;
         }
@@ -14,6 +19,8 @@
             padding: 0;
             list-style: none;
         }
+
+        /* GNB메뉴 */
         .gnb{
             border-top: 1px solid #ccc;
             border-bottom: 1px solid #ccc;
@@ -25,10 +32,18 @@
             justify-content: center;
 
         }
-        .gnb>ul>li{
+
+        /* 상위메뉴 하단보더 셋팅 */
+        .gnb>ul>li>a{
             /* 투명하단보더 */
             border-bottom: 3px solid transparent;
         }
+        /* li오버시 */
+        .gnb>ul>li:hover>a{
+            /* 하단보더색넣기 */
+            border-bottom-color: darkblue;
+        }
+
         /* 상위li에 서브메뉴 배경넣기 */
         .gnb>ul>li::after{
             content: '';
@@ -42,6 +57,7 @@
             /* 앱솔루트 Y축 위치미세조정 */
             margin-top: 4px;
             background-color: #ececec;
+            border-bottom: 5px solid darkblue;
             
             /* 처음에 안보임 */
             display: none;
@@ -52,14 +68,9 @@
             display: block;
         }
 
-        /* 두번째 li부터 */
+        /* 두번째 li부터 사이간격 : 패딩으로! */
         .gnb>ul>li+li{
-            margin-left: 10px;
-        }
-        /* li오버시 */
-        .gnb>ul>li:hover{
-            /* 하단보더색넣기 */
-            border-bottom-color: darkblue;
+            padding-left: 10px;
         }
         /* li오버시 a */
         .gnb>ul>li:hover>a{
@@ -76,6 +87,7 @@
             font-weight: bold;
             line-height: 56px;
             padding: 0 25px;
+            /* outline: 1px dashed red; */
         }
 
         /* 서브메뉴 */
