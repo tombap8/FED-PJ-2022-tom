@@ -6,6 +6,66 @@
 @import url(./reset.css);
 
 /************** 1.상단영역 **************/
+/* 타이틀 공통 */
+.tit {
+    position: absolute;
+    z-index: 1;
+    top: 50px;
+    left: 50%;
+    /* 가로중앙이동:트랜스폼(트랜스레이트) */
+    transform: translateX(-50%);
+    /* 자신의 크기 절반(50%)만큼 왼쪽방향(-)이동 */
+
+    width: 500px;
+    height: 100px;
+    /* border: 5px double #fff; */
+}
+
+/* 타이틀 하위 공통 li */
+.tit > li {
+    /* 박스셋팅 */
+    width: 50px;
+    height: 50px;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    background-color: red;
+    text-align: center;
+    /* 글자셋팅 - font: 스두크/줄체 */
+    font: bold 14px/50px Verdana;
+    color: #fff;
+}
+
+/* 타이틀박스 7 */
+.t7 {
+    width: 450px;
+    height: 200px;
+
+    /* 플렉스박스 */
+    display: flex;
+    /* 랩핑박스 */
+    flex-wrap: wrap;
+    /* 수평정렬 : 등분할공간 */
+    justify-content: space-evenly;
+    /* 수직정렬(여러줄) : 중앙 */
+    align-content: center;
+}
+/* 자체응용 - 줄바꿈을 위한 li */
+/* 원리는 줄바꿈을 할 부분에서
+가로크기 100%를 차지하게 해서
+줄바꿈효과를 준다! */
+.t7 li.brk{
+    /* width: 100%; */
+    flex-basis: 100%;
+    /* flex-basis는 width와
+    동일하지만 flex에서만 사용가능! */
+
+    /* 기존의 디자인 없애기 */
+    height: 0;
+    border: none;
+
+    /* 윗쪽 마진으로 간격주기 */
+    margin-top: 20px;
+}
 /************** 2.메인영역 **************/
 /* 파티션 박스 ul */
 .cont>ul{
@@ -22,6 +82,9 @@
     /* 플렉스 자식요소 등분할 설정 */
     flex: 1;
     /* 가로는 등분할, 세로는 100%채움! */
+
+    /* 커서 손가락모양 */
+    cursor: pointer;
 
     /* 트랜지션: 속시이지 */
     transition: all .4s ease-out;
