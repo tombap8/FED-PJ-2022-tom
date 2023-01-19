@@ -4,9 +4,34 @@
 
 /* 1024px이하 */
 @media screen and (max-width: 1024px) {
+    /* 링크박스 */
+    .link {
+        top: 40px;
+    }
     /* 링크이동 버튼 */
     .link a {
         font-size: 35px;
+    }
+    /* 
+        [ 기존 애니메이션 적용 요소 변경시 ]
+        애니메이션을 없애고(none) 디자인을
+        변경한다!
+        필요에따라 애니메이션을 다시 설정한다!
+    */
+    /* 로고박스 */
+    .logo {
+        animation: none;
+        top: 30px;
+        left: 30px;
+        transform: scale(1);
+        width: 150px;
+        height: 150px;
+        font-size: 25px;
+    }
+    /* 로고애니메이션 재설정 */
+    .logo {
+        animation: 
+        logoAni2 0.5s ease-in-out 3s infinite alternate;
     }
 }
 /* 1024px이하 */
@@ -22,13 +47,31 @@
         /* 다중열개수 */
         column-count: 2;
     }
-
 }
 /* 900px이하 */
 
 /* 500px이하 */
 @media screen and (max-width: 500px) {
-    
+    .link{
+        position: static;
+        text-align: center;
+        padding: 20px 0;
+    }
+    .logo {
+        animation: none;
+        top: 90px;
+        left: 30px;
+        transform: scale(1);
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        font-size: 20px;
+    }
+    /* 로고애니메이션 재설정 */
+    .logo {
+        animation: 
+        logoAni2 0.5s ease-in-out 3s infinite alternate;
+    }
     /* 2-2-3.내용단락 */
     .dcbx p {
         /* 다중열개수 */
