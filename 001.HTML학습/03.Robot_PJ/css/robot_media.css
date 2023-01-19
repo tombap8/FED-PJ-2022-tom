@@ -1,0 +1,37 @@
+@charset "utf-8";
+
+/* Robot PJ 미디어쿼리 CSS - robot_media.css */
+
+/* 1024px이하 */
+@media screen and (max-width: 1024px) {
+    /* 링크이동 버튼 */
+    .link a {
+        font-size: 35px;
+    }
+}
+/* 1024px이하 */
+
+/* 900px이하 */
+@media screen and (max-width: 900px) {
+    /* 로봇설명박스 */
+    .dcbx {
+        margin: 0 30px;
+    }
+    /* 2-2-3.내용단락 */
+    .dcbx p {
+        /* 다중열개수 */
+        column-count: 2;
+    }
+}
+/* 900px이하 */
+
+/* 500px이하 */
+@media screen and (max-width: 500px) {
+    
+    /* 2-2-3.내용단락 */
+    .dcbx p {
+        /* 다중열개수 */
+        column-count: 1;
+    }
+}
+/* 500px이하 */
