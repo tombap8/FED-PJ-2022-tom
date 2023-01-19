@@ -21,11 +21,10 @@
                 <!-- 로고와 탑메뉴를 싸는 박스 
                     : 탑메뉴 부모자격박스 -->
                 <section class="tarea">
-                    
                     <!-- 1-1.로고 -->
                     <h1 class="logo">
                         <a href="index.html">
-                            <img src="./images/tvnlogo2.png" alt="tvN로고">
+                            <img src="./images/tvnlogo2.png" alt="tvN로고" />
                         </a>
                     </h1>
 
@@ -43,23 +42,17 @@
                                 <ol class="sns">
                                     <li>
                                         <a href="#">
-                                            <span class="ir">
-                                                트위터 바로가기
-                                            </span>
+                                            <span class="ir"> 트위터 바로가기 </span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <span class="ir">
-                                                인스타그램 바로가기
-                                            </span>
+                                            <span class="ir"> 인스타그램 바로가기 </span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <span class="ir">
-                                                페이스북 바로가기
-                                            </span>
+                                            <span class="ir"> 페이스북 바로가기 </span>
                                         </a>
                                     </li>
                                 </ol>
@@ -133,8 +126,6 @@
                         </li>
                     </ul>
                 </nav>
-                
-
             </header>
         </div>
         <!-- 2. 메인영역 -->
@@ -248,7 +239,65 @@
         </div>
         <!-- 3. 하단영역 -->
         <div id="info">
-            <footer class="info ibx"></footer>
+            <footer class="info ibx">
+                <!-- 3-1. 하단링크 -->
+                <div class="blink">
+                    <ul>
+                        <li>
+                            <a href="#">법적고지</a>
+                        </li>
+                        <li>
+                            <a href="#">영상정보처리기기운영/관리방침</a>
+                        </li>
+                        <li>
+                            <a href="#">이메일무단수집거부</a>
+                        </li>
+                        <li>
+                            <a href="#">사이버감사실</a>
+                        </li>
+                        <li>
+                            <a href="#">찾아오시는길</a>
+                        </li>
+                        <li>
+                            <a href="#">개인정보처리방침</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- 3-2. 회사정보 -->
+                <div class="addr">
+                    <address>
+                        (주)씨제이이엔엠 CJ ENM 대표이사 강호성, 허민호 <br />
+                        주소 (03926) 서울시 마포구 상암산로 66 사업자 등록번호 106-81-51510 개인정보보호책임자 김재환 <br />
+                        © CJ ENM. All Rights Reserved.
+                    </address>
+                </div>
+                <!-- 3-3. 하단로고 -->
+                <div class="blogo">
+                    <img src="./images/blogo.png" alt="하단로고">
+                </div>
+                <!-- 3-4. 바로가기 -->
+                <div class="brand">
+                    <select name="sel" id="sel">
+                        <option value="init">브랜드 바로가기</option>
+                        <option value="tvn">tvN</option>
+                        <option value="ocn">OCN</option>
+                        <option value="mnet">MNET</option>
+                    </select>
+                    <!-- 
+                        [ select 요소 ]
+                        - 지정된 값을 선택하는 입력요소
+                        - name속성은 폼요소로 전송시 사용됨
+                        - 하위필수요소 : option - 각 선택항목
+                        - 옵션을 그룹화하는 요소 : optgroup
+                        (참고:https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_optgroup)
+                        - 유의사항 : 값을 선택할 경우 선택값은
+                        option 요소의 속성인 value값을 읽어감!
+                        단, value를 안쓸 수 있는데 이런경우
+                        내부 데이터값을 읽어감
+                        
+                     -->
+                </div>
+            </footer>
         </div>
     </body>
 </html>

@@ -256,6 +256,83 @@ aside.tmenu {
 }
 
 /****************** 3.하단영역 ******************/
+/* 겉박스 */
+#info{
+    background-color: rgba(255, 255, 255, 0.7);
+}
+/* 속박스 */
 .info {
+    position: relative;
+    /* 부모자격 - .brand */
     height: 241px;
+}
+/******* 3-1. 하단링크 *******/
+.blink{
+    padding-top: 10px;
+}
+/* 하단링크 리스트 */
+.blink ul{
+    /* 플렉스박스 */
+    display: flex;
+    /* 진행방향정렬 */
+    justify-content: center;
+
+}
+.blink a{
+    font-size: 1.4rem;
+    text-decoration: none;
+    color: #222;
+    font-weight: bold;
+}
+.blink li+li{
+    margin-left: 15px;
+}
+/* 오버시 */
+.blink li a:hover{
+    color: red;
+    text-decoration: underline;
+}
+
+/******* 3-2. 회사정보 *******/
+.addr{
+    padding: 10px;
+}
+.addr address{
+    /* 글자셋팅 */
+    font-size: 1.4rem;
+    font-style: normal;
+    text-align: center;
+    line-height: 2;
+
+    /* 박스셋팅 */
+    max-width: 804px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 4px double #222;
+}
+
+/******* 3-3. 하단로고 *******/
+.blogo{
+    text-align: center;
+}
+
+/******* 3-4. 바로가기 *******/
+.brand{
+    position: absolute;
+    top: 10px;
+    right: 0;
+    /* 나의 부모는? .info */
+}
+/* 선택박스 */
+#sel{
+    font-size: 1.4rem;
+    color: #222;
+    font-weight: bold;
+
+    padding: 8px;
+}
+/* 선택시(포커스갈때) 브라우저
+기본 아웃라인 없애기 */
+#sel:focus{
+    outline: none;
 }
