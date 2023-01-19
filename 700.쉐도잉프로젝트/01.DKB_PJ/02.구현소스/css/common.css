@@ -27,7 +27,7 @@ h1.logo {
     width: 100px;
     margin: 0 auto;
     padding-top: 20px;
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
 }
 /* 로고 이미지 */
 .logo img {
