@@ -19,9 +19,8 @@ html{
 
 
 /* 전체가로스크롤 방지 */
-html,body{
+body{
     overflow-x: hidden;
-    overflow-y: auto;
 }
 
 /* 초기화 */

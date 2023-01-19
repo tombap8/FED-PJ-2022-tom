@@ -52,6 +52,12 @@
 
 /* 500px이하 */
 @media screen and (max-width: 500px) {
+    html,body{
+        width: 100vw;
+        /* 보이는화면 가로크기 채움 */
+        overflow-x: hidden;
+        /* x축 스크롤 없애기! */
+    }
     .link{
         position: static;
         text-align: center;
