@@ -156,7 +156,7 @@ animation: 이시이지반방마
 @keyframes rightArm1-2 {
     /* 팔상단 계속흔들기 */
     from{
-        transform: rotate(-122deg);
+        transform: rotate(-162deg);
     }
     to{
         transform: rotate(-142deg);
@@ -165,23 +165,23 @@ animation: 이시이지반방마
 @keyframes rightArm2 {
     /* 팔하단 계속흔들기 */
     from{
-        transform: rotate(10deg);
+        transform: rotate(-30deg);
     }
     to{
-        transform: rotate(-10deg);
+        transform: rotate(20deg);
     }
 }
 @keyframes rightArm3 {
     /* 오른손 계속흔들기 */
     from{
         transform: 
-        rotate(20deg) 
+        rotate(-20deg) 
         rotateY(180deg);        
         right: -22px;
     }
     to{
         transform: 
-        rotate(-20deg) 
+        rotate(20deg) 
         rotateY(180deg);        
         right: -22px;
     }
