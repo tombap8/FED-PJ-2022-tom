@@ -114,3 +114,10 @@ https://vaultartspace.gucci.com/gallery/room
 -> (실험실 예약5) : 
 https://vaultartspace.gucci.com/artists
 3) 3D 화면전환효과 -> (실험실 예약6:큐브애니 후에 하자!)
+
+5. 만화 캐릭터제작 사이트
+https://empiempi.me/
+1) 로딩시 숫자넘어가기 -> SVG애니메이션에서 우리도함!
+2) 마우스 포인터 따라다니는 거 -> 제이쿼리에서함!
+3) 서브페이지에서 다른 서브페이지로 자연스럽게 이동
+4) 글자에만 색이 지나가면서 채워짐 -> SVG 클리핑에서 할 예정!

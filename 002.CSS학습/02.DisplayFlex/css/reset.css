@@ -1,0 +1,22 @@
+@charset "utf-8";
+/* 요소 리셋 CSS - reset.css 
+-> 초기화대상: 기본셋팅이 되어 있는 요소들 */
+
+/* 1. 마진,패딩 초기화 */
+html,body,h1,h2,h3,h4,h5,h6,p,figure,
+ul,ol,dl,dt,dd{
+    margin: 0;
+    padding: 0;
+}
+
+/* 2. 리스트 초기화 */
+ul,ol{
+    list-style: none;
+    /* 블릿,숫자없앰 */
+}
+
+/* 3. root - html 글자크기셋팅 */
+html{
+    font-size: 10px;
+    /* rem단위 계산 편의상 10px */
+}
