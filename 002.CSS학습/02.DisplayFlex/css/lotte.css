@@ -5,3 +5,37 @@
 /* 외부파일 합치기 */
 @import url(./reset.css);
 
+/************** 1.상단영역 **************/
+/************** 2.메인영역 **************/
+/* 파티션 박스 ul */
+.cont>ul{
+    /* 플렉스박스 */
+    display: flex;
+    /* 높이값을 보이는 화면기준 채우기 */
+    height: 100vh;
+}
+/* 파티션 박스 li */
+.cont>ul>li{
+    /* 플렉스 자식요소 등분할 설정 */
+    flex: 1;
+    /* 가로는 등분할, 세로는 100%채움! */
+}
+
+/* 각 파티션 박스에 배경 이미지 넣기 */
+.cont > ul > li:first-child {
+    background: url(../images/m01_bg.jpg) no-repeat center/cover;
+}
+.cont > ul > li:nth-child(2) {
+    background: url(../images/m02_bg.jpg) no-repeat center/cover;
+}
+.cont > ul > li:nth-child(3) {
+    background: url(../images/m03_bg.jpg) no-repeat center/cover;
+}
+.cont > ul > li:nth-child(4) {
+    background: url(../images/m04_bg.jpg) no-repeat center/cover;
+}
+.cont > ul > li:nth-child(5) {
+    background: url(../images/m05_bg.jpg) no-repeat center/cover;
+}
+
+/************** 3.하단영역 **************/
