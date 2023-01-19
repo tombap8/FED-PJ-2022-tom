@@ -157,3 +157,11 @@
 }
 
 /************** 3.하단영역 **************/
+.info{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 7px 0;
+    background-color: #da041c;
+}
