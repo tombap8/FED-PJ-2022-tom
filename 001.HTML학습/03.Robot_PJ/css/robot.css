@@ -462,7 +462,7 @@ body{
     /* 회전축변경 : 세로방향 top */
     transform-origin: top;
 
-    outline: 2px dashed lime;
+    /* outline: 2px dashed lime; */
 }
 /* 왼쪽손 배경이미지 */
 .a1 span::after{
