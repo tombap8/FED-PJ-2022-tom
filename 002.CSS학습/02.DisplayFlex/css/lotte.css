@@ -17,7 +17,7 @@
     /* 자신의 크기 절반(50%)만큼 왼쪽방향(-)이동 */
 
     width: 500px;
-    height: 100px;
+    /* height: 100px; */
     /* border: 5px double #fff; */
 }
 
@@ -38,7 +38,7 @@
 /* 타이틀박스 7 */
 .t7 {
     width: 450px;
-    height: 200px;
+    /* height: 200px; */
 
     /* 플렉스박스 */
     display: flex;
@@ -64,7 +64,7 @@
     border: none;
 
     /* 윗쪽 마진으로 간격주기 */
-    margin-top: 20px;
+    margin-top: 40px;
 }
 /************** 2.메인영역 **************/
 /* 파티션 박스 ul */
