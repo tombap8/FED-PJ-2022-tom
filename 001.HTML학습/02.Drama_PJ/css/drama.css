@@ -1,0 +1,14 @@
+@charset "utf-8";
+/* 한국최신드라마 리스트 CSS - drama.css */
+
+/* 웹폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Hahmlet&display=swap');
+/* 
+    font-family: 'Hahmlet', serif;
+*/
+
+/* 초기화 */
+html,body{
+    margin: 0;
+    padding: 0;
+}

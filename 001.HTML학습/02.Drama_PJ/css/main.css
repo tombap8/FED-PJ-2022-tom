@@ -1,0 +1,92 @@
+@charset "utf-8";
+/* 최신드라마 페이지 CSS - main.css */
+
+/* 큰제목 */
+h1.tit{
+    text-align: center;
+    /* 글자중앙 */
+    color: #e200d7;
+    text-shadow: 2px 2px 2px #555;
+    /* 글자그림자: x y 블러 색 */
+}
+/* 메뉴 */
+.menu{
+    text-align: center;
+    margin-bottom: 50px;
+    /* 
+        margin - 마진(바깥여백)
+        __________________________
+        margin-bottom: 아래쪽 마진
+        margin-top: 위쪽 마진
+        margin-left: 왼쪽 마진
+        margin-right: 오른쪽 마진
+    */
+}
+/* 메뉴 링크 */
+.menu a{
+    color: #222;
+    text-decoration: none;
+}
+/* 메뉴 마우스 오버시 + 클래스 on*/
+.menu a:hover,
+.menu a.on{
+    color: lightseagreen;
+    text-decoration: overline;
+}
+/* 마지막 a요소에 왼쪽보더 주기 */
+.menu a:last-child{
+    border-left: 3px solid blue;
+    padding-left: 10px;
+    margin-left: 5px;
+}
+/* 드라마 테이블 박스 */
+.drama{
+    width: 850px;
+    margin: 0 auto;
+    /* 마진: 위아래0 양쪽auto */
+    /* 마영오! - 가로 중앙정렬 */
+    /* 마영오는 블록박스 또는 테이블만 적용됨! */
+    border: 4px double #000;
+    padding: 10px;
+}
+/* 드라마 테이블 */
+#drama{
+    width: 100%;
+    border-collapse: collapse;
+    /* 
+        기본적으로 테이블에는 사이간격이 존재함
+        이것을 없애려면 위와 같이 셋팅함
+        collapse(무너지다)
+        기본값: seperate(나누다)
+    */
+}
+
+/* 테이블 이미지 */
+#drama img{
+    border-radius: 10px;
+    /* 테두리 둥근 모서리 */
+}
+/* 두번째, 네번째 td (짝수) */
+#drama td:nth-child(even){
+    width: 250px;
+    /* background-color: red; */
+    padding: 10px;
+    line-height: 2.5;
+    /* 줄간격 */
+}
+/* 드라마 정보 a링크 */
+#drama a{
+    color: #222;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    /* 기본글자 크기는 16px
+    12pt = 16px 이육사 */
+}
+/* 마우스 오버시 */
+#drama a:hover{
+    color: #f00;
+    text-decoration: underline;
+}
+
+
