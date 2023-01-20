@@ -59,11 +59,15 @@
 }
 /* 1024px 사이즈 이하 미디어쿼리 끝 */
 
-/* 500px 사이즈 이하 미디어쿼리 시작 */
-@media screen and (max-width: 500px) {
+/* 780px 사이즈 이하 미디어쿼리 시작 */
+@media screen and (max-width: 780px) {
     /* 디스플레이 없애기 */
     .tmenu, .gnb{
         display: none;
+    }
+    /* 햄버거 버튼 보이기 */
+    .ham{
+        display: block;
     }
     /* 상단영역 */
     .top{
@@ -103,4 +107,4 @@
         display: none;
     }
 }
-/* 500px 사이즈 이하 미디어쿼리 끝 */
+/* 780px 사이즈 이하 미디어쿼리 끝 */
