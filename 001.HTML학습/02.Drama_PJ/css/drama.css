@@ -12,3 +12,84 @@ html,body{
     margin: 0;
     padding: 0;
 }
+
+/* 테이블 공통 */
+.tbl{
+    /* 글자체 */
+    font-family: 'Hahmlet', serif;
+    /* 글자색 */
+    color: #222;
+    /* 테이블 기본간극 없애기 
+    table태그에 border="1"을 넣고
+    확인해 본다! */
+    border-collapse: collapse;
+    /* 기본값 seperate */
+}
+
+/* 드라마 테이블 전체 */
+#drama{
+    font-size: 24px;
+    margin: 0 auto; 
+    width: 1000px;
+    /* 테이블은 width 지정이 없으면
+    내용만큼 늘어남! 좁으면 아래로 내용이
+    줄바꿈한다! */
+}
+/* 테이블 제목 */
+#drama caption{
+    font-size: 35px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    padding: 50px 0 20px;
+}
+/* td와 th 패딩 */
+#drama td, #drama th{
+    padding: 8px 10px;
+}
+/* td에 밑줄넣기 */
+#drama tbody td{
+    border-bottom: 1px solid #ccc;
+}
+/* th에 윗줄, 아랫줄 두꺼운 보더넣기 */
+#drama th{
+    border-top: 2px solid #555;
+    border-bottom: 2px solid #555;
+}
+/* tbody 마지막 tr에 아랫줄 두꺼운보더넣기 */
+#drama tbody tr:last-child td{
+    border-bottom: 2px solid #555;
+}
+/* tbody의 첫번째 td(번호항목) 중앙정렬 */
+#drama tbody td:first-child{
+    text-align: center;
+    /* background-color: #f00; */
+}
+/* 하단부분(tfoot) */
+#drama tfoot td{
+    text-align: center;
+    padding: 45px 0;
+}
+/* 본문 배경색 짝수만 넣기 
+짝수-even, 홀수-odd */
+#drama tbody tr:nth-child(even) td{
+    background-color: #f0f0f0;
+}
+/* 링크 a 변경 */
+#drama a{
+    color: #222;
+    text-decoration: none;
+}
+/* 링크 오버시 */
+#drama tbody a:hover{
+    color: hotpink;
+    text-decoration: underline;
+    text-decoration-style: wavy;
+}
+#drama tfoot a:hover{
+    color: darkgreen;
+    text-decoration: overline;
+    text-decoration-style: double;
+}
+
+
+
