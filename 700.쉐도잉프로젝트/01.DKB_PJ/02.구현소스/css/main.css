@@ -168,16 +168,19 @@ body{
 /* 캐릭터 설명문단 */
 .cd p{
     font-family: 'Single Day','ZCOOL KuaiLe', cursive;
-    font-size: 18px;
+    /* 글자크기 최대18px, 화면가로크기의 1.3% */
+    font-size: min(1.3vw,18px);
     line-height: 1.6;
-    padding: 10px;
+    /* 패딩크기 최대15px, 화면가로크기의 1% */
+    padding: min(1vw,15px);
     /* 양쪽정렬 justify - taj */
     text-align: justify;
 }
 
 /* 캐릭터 첫번째 문단 첫글자 가상요소로 디자인 변경하기! */
 .cd p:first-child::first-letter{
-    font-size: 50px;
+    /* 글자크기 최대50px, 화면가로크기의 3% */
+    font-size: min(3vw,50px);
     color: cyan;
     /* 그림자로 글자 테두리주기
     블러없는 그림자 4개사용 */
