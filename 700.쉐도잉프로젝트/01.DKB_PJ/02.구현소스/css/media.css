@@ -69,5 +69,38 @@
     .top{
         height: 80px;
     }
+    /* 캐릭터박스 한줄에 하나 */
+    .cat{
+        width: 99%;
+    }
+    /* 캐릭터 설명박스 */
+    .cd{
+        /* 자리차지 포지션으로 전환! */
+        position: static;
+    }
+    /* 설명박스 제목 */
+    .cd h3{
+        font-size: 4.5vw;
+    }
+    /* 설명박스 문단 */
+    .cd p{
+        font-size: 4vw;
+        padding: 3vw;
+    }
+    /* 문단 첫글자 */
+    .cd p:first-child::first-letter{
+        font-size: 8vw;
+    }
+
+    /* 하단영역 */
+    /* 브랜드 바로가기 */
+    .brand{
+        bottom: 10px;
+        top: auto;
+    }
+    /* 하단링크 일부 숨기기(li:1~3) */
+    .blink li:nth-child(-n+3){
+        display: none;
+    }
 }
 /* 500px 사이즈 이하 미디어쿼리 끝 */
