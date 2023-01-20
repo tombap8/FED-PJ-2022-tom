@@ -61,6 +61,11 @@
 
 /* 780px 사이즈 이하 미디어쿼리 시작 */
 @media screen and (max-width: 780px) {
+    /* 가로스크롤 없애기 */
+    html,body{
+        width: 100vw;
+        overflow-x: hidden;
+    }
     /* 디스플레이 없애기 */
     .tmenu, .gnb{
         display: none;
