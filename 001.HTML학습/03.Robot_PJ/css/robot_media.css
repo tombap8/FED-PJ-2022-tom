@@ -53,6 +53,11 @@
 /* 500px이하 */
 @media screen and (max-width: 500px) {
     html,body{
+        position: relative;
+        /* 부모자격 없이 앱솔루트인 요소가
+        html,body 바깥쪽으로 나가서 가로스크롤
+        생기는 경우가 있으므로 최종적으로
+        body가 부모자격을 가지도록 함! */
         width: 100vw;
         /* 보이는화면 가로크기 채움 */
         overflow-x: hidden;
