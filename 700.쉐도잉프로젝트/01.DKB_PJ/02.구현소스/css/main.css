@@ -142,8 +142,11 @@ body{
 /* 캐릭터 설명 타이틀 */
 .cd h3{
     font-family: 'Gugi', cursive;
-    font-size: 24px;
+    /* 글자크기 최대24px, 화면가로크기의 1.7% */
+    font-size: min(24px,1.7vw);
     font-weight: normal;
+    /* 줄바꿈 방지 */
+    white-space: nowrap;
     padding: 15px 10px 5px;
     letter-spacing: -1px;
 }

@@ -1,0 +1,60 @@
+@charset "utf-8";
+
+/* 도깨비PJ 공통 미디어쿼리 - media.css */
+
+/* 1200px 사이즈 이하 미디어쿼리 시작 */
+@media screen and (max-width: 1200px) {
+    /* 하단 - 브랜드바로가기 */
+    .brand {
+        top: 159px;
+        right: 10px;
+    }
+}
+/* 1200px 사이즈 이하 미디어쿼리 끝 */
+
+/* 1024px 사이즈 이하 미디어쿼리 시작 */
+@media screen and (max-width: 1024px) {
+    /* 전체 글자크기 변경 */
+    html {
+        /* rem단위 글자 모두 변경 */
+        font-size: 8.235px;
+        /* 
+            [ 기준 글자계산 : GNB메뉴 ]
+            처음 -> 1.7rem * 10px = 17px
+            변경 -> 1.7rem * 몇px = 14px
+            => 계산 : 몇px = 14px / 1.7rem
+            => 결과 : 8.235
+        */
+    }
+    /* 전체 캐릭터 박스 */
+    .cbx {
+        margin-top: 10vw;
+    }
+    /* 캐릭터 각 박스 공통 */
+    .cat {
+        position: relative;
+        /* 부모자격 - .cd */
+        width: 49%;
+        margin-bottom: 20px;
+    }
+    /* .cat에 오버시 .ci박스 마진탑 제자리 */
+    .cat:hover .ci {
+        margin-top: 0;
+    }
+    /* 캐릭터 설명박스 */
+    .cd {
+        position: absolute;
+        z-index: 1;
+    }
+
+    /* 등장글자 없앰 */
+    #mvtxt {
+        display: none;
+    }
+}
+/* 1024px 사이즈 이하 미디어쿼리 끝 */
+
+/* 1024px 사이즈 이하 미디어쿼리 시작 */
+@media screen and (max-width: 1024px) {
+}
+/* 1024px 사이즈 이하 미디어쿼리 끝 */
