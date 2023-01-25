@@ -4,6 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS3-1. 제어문 - if문, switch case문, for문, while문</title>
+    <!-- JS코드구역 -->
+    <script>
+
+        /****************************************** 
+            함수명: jumsu
+            기능: 점수에 따른 평가출력하기
+                1. 점수에 따른 메시지 출력
+                2. 점수에 따른 메시지 글자색 변경
+                3. 점수에 따른 칭찬스티커 보이기
+        ******************************************/
+       function jumsu(){
+            // 함수는 코드를 저장하는 공간임!
+            // 어떤값을 가져오거나 가지고 나갈 수 있음!
+
+            // 1. 함수를 만들고 처음할일은? 호출확인!
+            console.log("점수요~~~!");
+
+       } /////////////// jumsu 함수 ////////////////
+       /////////////////////////////////////////////
+
+    </script>
 </head>
 <body>
     <h1>JS 제어문</h1>
@@ -13,7 +34,9 @@
     <h3>평가출력</h3>
     <label for="jumsu">점수입력:</label>
     <input type="text" id="jumsu" placeholder="점수를 입력하세요!" maxlength="3">
-    <button class="sbtn">평가하기</button>
+    <!-- 버튼클릭시 클릭이벤트 속성과
+    미리만든 함수를 연결한다! -->
+    <button class="sbtn" onclick="jumsu()">평가하기</button>
 
     <!-- 
         [ label요소 ]
