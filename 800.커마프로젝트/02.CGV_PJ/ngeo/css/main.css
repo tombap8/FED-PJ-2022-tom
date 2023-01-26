@@ -1,0 +1,252 @@
+@charset "utf-8";
+
+/* 웹폰트 CDN */
+@import url('https://fonts.googleapis.com/css2?family=Antic&family=Anton&family=Righteous&family=Teko:wght@300;400&display=swap');
+
+
+/* 초기화 CSS 호출 */
+@import url(reset.css);
+
+
+body {
+    background-color: #000;
+}
+
+/* 레이아웃 공통 */
+.part {
+    width: 1500px;
+    margin: 0 auto;
+}
+
+.plist {
+    width: 800px;
+}
+
+/* 1. 상단부분 */
+#top {
+    position: relative;
+    height: 80px;
+    background: url(../img/top.png) center/cover;
+     z-index: 9999;
+}
+/* 1-1. 페이지타이틀 */
+.tit{
+    color: rgb(255, 252, 77);
+    font-size: 40px;
+    line-height: 83px;
+    text-align: center;
+    font-family: 'Righteous', cursive;
+    text-shadow: 0 0 10px rgb(255, 252, 77);
+}
+
+/* 1-2.전체메뉴(GNB) */
+.gnb{
+    position: absolute;
+    bottom: 15px;
+    right: 40px;
+}
+.gnb li{
+    position: relative;
+    padding: 0 10px;
+}
+.gnb a{
+    font-family: 'Anton', sans-serif;
+}
+
+/* 하위메뉴 */
+.smenu{
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 110px;
+    padding: 10px;
+    background: no-repeat center/cover;
+    background-color: black;
+    font-size: 11px;
+    display: none;
+    float: left;
+}
+
+.gnb>ul>li:hover .smenu{
+    display: block;
+}
+
+.smenu li{float: none;}
+
+.smenu a{
+    display: block;
+    width: 85px;
+}
+.smenu li{float: left;}
+
+
+.smenu a:hover{
+    color: rgb(255, 252, 77);
+}
+
+.smenu a::after{
+    content: '★';
+    font-size: 15px;
+    float: right;
+    transform: translateY(-5px);
+    opacity: 0;
+}
+
+.smenu a:hover::after{
+    opacity: 1;/* 보이게함 */
+}
+
+
+.smenu ol{
+    border: 2px solid rgb(255, 252, 77);
+    padding: 10px 0;
+}
+
+/* 1-3 홈버튼 */
+.home{
+    position: absolute;
+    bottom: 15px;
+    left: 60px;
+}
+
+.home a{
+    font-family: 'Anton', sans-serif;
+}
+
+.home a:hover{
+    color: rgb(255, 252, 77);
+}
+
+
+
+/* 2. 메인부분 */
+#cont {
+    position: relative;
+    /* 부모자격 */
+    height: 750px;
+    background: url(../img/bg.jpg) no-repeat center/cover;
+}
+/* 2-1. 스크린박스 */
+#screen{
+    position: absolute;
+    top: 184px;
+    left: 414px;
+    width: 672px;
+    height: 367px;
+    background-color: #000;
+}
+/* 스크린 아이프레임 */
+#screen iframe{
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* 2-2.선택메뉴 */
+.plist{
+    position: relative;
+    top: 600px;
+    left: 330px;
+    overflow: hidden;
+}
+/* li 디자인 */
+.plist ul>li{
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+/* 이름박스 */
+.ptxt{
+    position: absolute;
+    top: 100%;
+    width: 80px;
+    height: 80px;
+
+    text-align: center;
+
+    background-color: rgba(0, 0, 0, 0.705);
+    transition: top .4s ease-out;
+
+    border-radius: 50% 50%;
+}
+
+
+.plist>ul>li:hover .ptxt{
+    top: 0;
+}
+
+.ptxt li{
+    float: none;
+}
+
+.ptxt li{
+    float: none;
+    margin-top: 30px;
+    font-family: 'Teko', sans-serif;
+    font-size: 15px;
+    color: #fff;
+    text-align: center;
+}
+
+
+
+/* 3. 하단부분 */
+#info {
+    position: relative;
+    height: 100px;
+}
+/* 3-1.회사정보박스 */
+#info address{
+    font-style: normal;
+    color: #fff;
+    font-family: 'Antic', sans-serif;
+    font-size: 10px;
+    line-height: 20px;
+
+    /* 안쪽여백 */
+    padding-top: 20px;
+    padding-left: 20px;
+}
+/* 하단로고 이미지 */
+#info address img{
+    float: left;
+    margin-right: 50px;
+}
+/* 3-2. sns버튼 */
+.sns{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.bld{
+    display: block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+.sns li{
+    float: left;
+    margin: 5px;
+}
+
+/* 페이스북 */
+.sns li:nth-child(1){
+    background-position: -509px -429px;
+}
+/* 트위터 */
+.sns li:nth-child(2){
+    background-position: -551px -429px;
+}
+/* 인스타그램 */
+.sns li:nth-child(3){
+    background-position: -593px -429px;
+}
+
+.sns a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}

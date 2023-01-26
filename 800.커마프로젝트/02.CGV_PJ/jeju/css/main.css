@@ -1,0 +1,237 @@
+@charset "utf-8";
+
+
+
+@import url(reset.css);
+
+
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Gothic:wght@700&display=swap');
+
+/* font-family: 'Do Hyeon', sans-serif;
+font-family: 'Nanum Gothic', sans-serif; */
+
+/* Jeju 메인페이지 CSS - main.css */
+body{
+    background-color: lightskyblue;
+}
+/* 레이아웃 공통 */
+.part{
+    width: 1200px;
+    margin: 0 auto;
+    /* outline: 2px dotted red; */
+}
+
+
+/* 1. 상단부분 */
+#top{
+    position: relative;
+    height: 80px;
+    z-index: 999;
+    font-family: 'Do Hyeon', sans-serif;
+
+}
+/* 로고이미지 */
+.logo>a{
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: 120px;
+    height: 80px;
+    background: url(../imgs/img_commons.png)no-repeat;
+    background-position: 7px 11px;
+    
+}
+
+/* 전체메뉴(gnb) */
+.gnb{
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin: 16px 0px;
+}
+.gnb ul{
+    font-size: 19px;
+}
+.gnb a{
+    color: #383838;
+}
+.gnb ul:hover::after{
+    position: absolute;
+    top: 32px;
+    left: -303px;
+    width: 1200px;
+    border-bottom: 1px solid #787878;
+}
+
+.gli{
+    padding: 0 35px;
+}
+.gli:hover .smenu li{
+    top: 100%;
+}
+
+/* 하위메뉴 */
+.smenu{
+    position: absolute;
+    top: 20px;
+    left: 0;
+    padding-top: 10px;
+    width: 600px;
+    height: 50px;
+    margin: 0 auto;
+    font-size: 15px;
+    line-height: 25px;
+
+    /* border-radius: 10px; */
+    display: none;
+
+}
+li:nth-of-type(1) .smenu ol{
+    margin-left: 18px;
+}
+li:nth-of-type(2) .smenu ol{
+    margin-left: 100px;
+}
+li:nth-of-type(3) .smenu ol{
+    margin-left: 240px;
+}
+li:nth-of-type(4) .smenu ol{
+    margin-left: 230px;
+}
+
+
+.smenu li{
+    /* float: none; */
+    margin: 12px 23px;
+}   
+.smenu li a{
+    color: #fff;
+    font-weight: normal;
+}
+.gnb li:hover .smenu{
+    display: block;
+}
+.smenu li:hover a{
+    color: yellow;
+    text-decoration: underline;
+}
+
+
+/* 2. 메인부분 */
+#cont{
+    position: relative;
+    height: 788px;
+}
+/* 스크린박스 */
+#screen{
+    position: absolute;
+    top: 50px;
+    left: 208px;
+    width: 800px;
+    height: 500px;
+    background-color: lightslategrey;
+}
+/* 스크린 아이프레임 */
+#screen iframe{
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* 영상 선택메뉴 */
+.mlist{
+    position: absolute;
+    bottom: 23px;
+    left: 77px;
+    overflow: hidden;
+    
+}
+.mlist>ul li{
+    padding: 0 5px;
+    cursor: pointer;
+}
+/* 영상 이미지 크기 */
+.mlist img{
+    width: 200px;
+    height: 180px;
+    border-radius: 15%;
+    box-shadow: 0 0 15px lightcyan;
+}
+/* 영상텍스트박스 */
+.movtxt{
+    font-family: 'Do Hyeon', sans-serif;
+    letter-spacing: 1px;
+    position: absolute;
+    top: 100%;
+    padding-top: 25px;
+    box-sizing: border-box;
+    width: 200px;
+    height: 180px;
+    font-size: 14px;
+    line-height: 40px;
+    color: pink;
+    text-align: center;
+    font-weight: bold;
+    background-color: rgba(32, 178, 171, 0.425);
+    border-radius: 15%;
+    transition: all .5s linear;
+}
+/* 마우스오버시 텍스트 올라옴 */
+.mlist>ul>li:hover .movtxt{
+    top: 0;
+    border-radius: 15%;
+}
+.movtxt li{
+    float: none;
+}
+
+/* 3. 하단부분 */
+#info{
+    font-family: 'Nanum Gothic', sans-serif;
+    position: relative;
+    height: 130px;
+    width: 100%;
+    background: #fff;
+}
+
+/* 회사정보박스 */
+#info address{
+    font-weight: bold;
+    font-style: normal;
+    color: #000;
+    font-size: 12px;
+    line-height: 20px;
+    padding-top: 20px;
+    padding-left: 20px;
+    margin-left: 348px;
+}
+
+.sns{
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    margin-right: 140px;
+}
+.sns li{
+    width: 36px;
+    height: 36px;
+    float: left;
+    margin: 0 2px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    /* outline: 2px dotted blue; */
+    background: url(../imgs/img_commons.png)no-repeat;
+}
+
+.sns li:nth-child(1){
+    background-position: -161px -236px;
+}
+.sns li:nth-child(2){
+    background-position: -207px -236px;
+}
+.sns li:nth-child(3){
+    background-position: -253px -236px;
+}

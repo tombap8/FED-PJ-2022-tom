@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>제주도여행</title>
+        <link rel="stylesheet" href="css/main.css">
+        <script>
+            function show (dd) {
+            document
+                .getElementById("mv")
+                .src = "https://www.youtube.com/embed/" + dd + "?autoplay=1";
+            }
+        </script>
+
+    </head>
+    <body>
+        <!-- 상단부분 -->
+        <header id="top" class="part">
+            <!-- 로고이미지 -->
+            <h1 class="logo">
+                <a href="#">
+                </a>
+            </h1>
+            <!-- 전체메뉴(GNB) -->
+            <nav class="gnb">
+                <ul>
+                    <li class="gli">
+                        <a href="#">관광지</a>
+                        <!-- 서브메뉴 -->
+                        <div class="smenu">
+                            <ol>
+                                <li><a href="#">자연</a></li>
+                                <li><a href="#">문화관광</a></li>
+                                <li><a href="#">테마관광지</a></li>
+                                <li><a href="#">레저/체험</a></li>
+                            </ol>
+                        </div><!-- .smenu -->
+                    </li>
+                    <li class="gli">
+                        <a href="#">제주이야기</a>
+                        <!-- 서브메뉴 -->
+                        <div class="smenu">
+                            <ol>
+                                <li><a href="#">문화와역사</a></li>
+                                <li><a href="">유네스코</a></li>
+                                <li><a href="">템플스테이</a></li>
+                            </ol>
+                        </div><!-- .smenu -->
+                    </li>
+                    <li class="gli">
+                        <a href="#">여행필수정보</a>
+                        <!-- 서브메뉴 -->
+                        <div class="smenu">
+                            <ol>
+                                <li><a href="#">날씨/교통</a></li>
+                                <li><a href="">가이드북</a></li>
+                            </ol>
+                        </div><!-- .smenu -->
+                    </li>
+                    <li class="gli">
+                        <a href="#">제주여행추천</a>
+                        <!-- 서브메뉴 -->
+                        <div class="smenu">
+                            <ol>
+                                <li><a href="#">테마여행</a></li>
+                                <li><a href="#">축제와 행사</a></li>
+                                <li><a href="#">제주문화공연</a></li>
+                            </ol>
+                        </div><!-- .smenu -->
+                    </li>
+
+                </ul>
+            </nav>
+        </header>
+        <!-- 2. 메인부분 -->
+        <main id="cont" class="part">
+            <!-- 스크린박스 -->
+            <div id="screen">
+                <!-- 유튜브동영상 -->
+                <iframe id="mv" src="https://www.youtube.com/embed/cYegb6oFeIQ?autoplay=1" allow="autoplay"></iframe>
+            </div>
+
+            <!-- 영상 선택메뉴 -->
+            <nav class="mlist">
+                <ul>
+                    <li onclick="show('_PPfmnt06NQ')">
+                        <img src="imgs/성산일출봉.jpg" alt="성산일출봉">
+                        <!-- 영상정보 -->
+                        <ol class="movtxt">
+                            <li>성산일출봉</li>
+                            <li>(UNESCO 세계자연유산)</li>
+                            <li>제주도 지질여행</li>
+                        </ol>
+                    </li>
+                    <li onclick="show('GDGwAVvOqx0')">
+                        <img src="imgs/우도.jpg" alt="우도">
+                        <!-- 영상정보 -->
+                        <ol class="movtxt">
+                            <li>우도</li>
+                            <li>제주 안의 또 다른 제주</li>
+                            <li>산호의 섬</li>
+                        </ol>
+                    </li>
+                    <li onclick="show('H_Pt-DwVYOw')">
+                        <img src="imgs/비자림.jpg" alt="비자림">
+                        <!-- 영상정보 -->
+                        <ol class="movtxt">
+                            <li>비자림</li>
+                            <li>천연기념물 제 374호</li>
+                            <li>수목원</li>
+                        </ol>
+                    </li>
+                    <li onclick="show('Ci4kUFOb-qA')">
+                        <img src="imgs/가파도.jpg" alt="가파도">
+                        <!-- 영상정보 -->
+                        <ol class="movtxt">
+                            <li>가파도</li>
+                            <li>[ 加波島 ]</li>
+                            <li>바다 위 오지 섬마을</li>
+                        </ol>
+                    </li>
+                    <li onclick="show('jpUE3aOZheI')">
+                        <img src="imgs/빵지순례.jpg" alt="빵집">
+                        <!-- 영상정보 -->
+                        <ol class="movtxt">
+                            <li>빵지순례</li>
+                            <li>제주빵집</li>
+                        </ol>
+                    </li>
+                </ul>
+            </nav>
+        </main>
+        <!-- 3. 하단부분 -->
+        <footer id="info" class="part">
+            <address>
+                개인정보처리방침 | 이용약관 | 틀린정보신고 | 제주관광문의 | 제주관광사진 | 이용JEJU TourAPI | 제주소식 | 관광업체등록신청 | <br><br>
+                (63122) 제주특별자치도 제주시 선덕로 23(연동) 제주웰컴센터 <br>
+                관광문의 : 제주관광공사Tel : 064-740-6000~1FAX : 064-740-6090사업자등록번호 : 616-82-21432 <br>
+                관광불편신고 : 제주안내 120콜센터(국번없이 120번)
+            </address>
+            <!-- sns버튼 -->
+            <ul class="sns">
+                <li><a href="https://www.facebook.com/visitjeju.kr/" target="_blank" title="페이스북바로가기"></a></li>
+                <li><a href="https://blog.naver.com/jtowelcome" target="_blank" title="네이버블로그바로가기"></a></li>
+                <li><a href="https://www.instagram.com/visitjeju.kr/" target="_blank" title="인스타그램바로가기"></a></li>
+            </ul>
+        </footer>
+    </body>
+</html>

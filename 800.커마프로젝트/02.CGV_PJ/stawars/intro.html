@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스타워즈 인트로 페이지</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+        /* font-family: 'Audiowide', cursive; */
+        @import url(CSS/reset.css);
+        h1{
+            margin: 0;
+            padding: 0;
+        }
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        body::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            opacity: .5;
+        }
+        #myvid{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        #enter{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%) scale(0.2);
+            margin: 0;
+            padding: 0;
+            z-index: 1;
+        }
+        #enter span{
+            display: block;
+            color: #fff;
+            text-align: center;
+            font-size: 7000px;
+            font: bold 34px/40 'Audiowide', cursive ;
+        }
+        #enter img{
+            transition: transform 0.4s ease-out;
+        }
+        #enter:hover img{
+            transform: rotate(-15deg) scale(1.5);
+        }
+        #enter:hover span{
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%) scale(7);
+            color: chartreuse;
+        }
+        .sp{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%) scale(5);
+        }
+        
+    </style>
+</head>
+
+<body>
+    <video id="myvid" src="img/Star Wars Intro HD 1080p.mp4" autoplay muted loop></video>
+    <h1>
+        <a id="enter" href="index.html">
+            <img src="img/DeathStar2.png" alt="스타워즈 영상관 가기">
+            <span class="sp">Click Star!</span>
+        </a>
+
+    </h1>
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Cars Main Page</title>
+        <link rel="stylesheet" href="./css/main.css">
+        <script>
+            function play(video){
+                document.getElementById("mv").src = "https://www.youtube.com/embed/"+video+"?autoplay=1";
+            }
+    </script>
+    </head>
+    <body>
+        <!-- A. 상단 -->
+        <header id="top" class="part">
+            <!-- 1.페이지 타이틀 -->
+            <img class="tit" src="image/title.jpg" alt="Cars 로고 타이틀">
+            <!-- 2.전체메뉴(시리즈 안내) -->
+            <nav class="gnb">
+                <ul>
+                    <li onclick="play('SbXIj2T-_uk')">Cars1</li>
+                    <li onclick="play('lg5hj2c5Nkk')">Cars2</li>
+                    <li onclick="play('2LeOH9AGJQM')">Cars3</li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- B. 메인 -->
+        <main id="cont" class="part">
+            <!-- 3. 스크린박스 -->
+            <div id="screen">
+                <iframe id="mv" src="https://www.youtube.com/embed/SbXIj2T-_uk?autoplay=1" allow="autoplay"></iframe>
+            </div>
+
+            <!-- 4.캐릭터 선택메뉴 -->
+            <nav class="mlist">
+                <ul>
+                    <li>
+                        <img src="image/mcqueen.jpeg" alt="Lightning Mcqueen">
+                        <ol class="movtxt">
+                            <li>Montgomery "Lightning" McQueen</li>
+                            <li>Piston Cup Racer</li>
+                            <li>Chevrolet Corvette C1</li>
+                        </ol>
+                    </li>
+                    <li>
+                        <img src="image/mater.jpeg" alt="Mater">
+                        <ol class="movtxt">
+                            <li>Sir Tow Mater </li>
+                            <li>Tow Truck</li>
+                            <li>International Harvester <br> L-170 Boom Truck</li>
+                        </ol>
+                    </li>
+                    <li>
+                        <img src="image/hudson.jpeg" alt="Doc Hudson">
+                        <ol class="movtxt">
+                            <li>Hudson Hornet</li>
+                            <li>Former Race Car</li>
+                            <li>Hudson Commodore Eight</li>
+                        </ol>
+                    </li>
+                    <li>
+                        <img src="image/sally.jpeg" alt="Sally">
+                        <ol class="movtxt">
+                            <li>Sally Carrera</li>
+                            <li>Town Attorney</li>
+                            <li>Porsche 996 motorcar</li>
+                        </ol>
+                    </li>
+                    <li>
+                        <img src="image/chick.jpeg" alt="Chick Hicks">
+                        <ol class="movtxt">
+                            <li>Chick Hicks</li>
+                            <li>Piston Cup Racer</li>
+                            <li>Shyster Cremlin</li>
+                        </ol>
+                    </li>
+                    <li>
+                        <img src="image/guido.jpeg" alt="Guido">
+                        <ol class="movtxt">
+                            <li>Guido</li>
+                            <li>Car Engineer</li>
+                            <li>Alza Tutto Forklift</li>
+                        </ol>
+                    </li>
+                </ul>
+            </nav>
+        </main>
+        <!-- 3. 하단부분 -->
+        <footer id="info" class="part">
+            <address>
+            <img src="image/logo.png" alt="제작사로고">
+                &copy; 1986 &#126; 2021 DISNEY &amp; PIXAR
+            </address>
+            <ul class="sns">
+                <li>
+                    <a href="https://www.youtube.com/results?search_query=pixar+cars" target="_blank" title="유튜브 바로가기"><img src="" alt="">
+                        <span class="bld">유튜브 바로가기</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://ko-kr.facebook.com/PixarCars/" target="_blank" title="페이스북 바로가기"><img src="" alt="">
+                        <span class="bld">페이스북 바로가기</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/pixarcars" target="_blank" title="트위터 바로가기"><img src="" alt="">
+                        <span class="bld">트위터 바로가기</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/pixarcars/" target="_blank" title="인스타그램 바로가기"><img src="" alt="">
+                        <span class="bld">인스타그램 바로가기</span>
+                    </a>
+                </li>
+                
+            </ul>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스타워즈</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap");
+
+        /* font-family: 'Noto Sans KR', sans-serif; */
+        @import url(CSS/reset.css);
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            background: url(img/sp.png) no-repeat center/cover;
+        }
+
+        .part {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        #top {
+            position: relative;
+            height: 80px;
+            z-index: 99;
+        }
+
+        .tit {
+            text-align: center;
+            font: 40px/4 'Noto Sans KR';
+            color: cyan;
+            text-shadow: 0 0 0px aquamarine;
+            animation: titani 2s ease-in-out infinite alternate;
+        }
+
+        .gnb {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+        }
+
+        .gnb li {
+            position: relative;
+            padding: 0 10px;
+        }
+
+        .gnb a {
+            font-family: 'Noto Sans KR';
+        }
+
+        .smenu {
+            position: absolute;
+            top: 27px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 5px;
+            width: 110px;
+            font-size: 11px;
+            display: none;
+        }
+
+        .gnb>ul>li:hover .smenu {
+            display: block;
+        }
+
+        .smenu li {
+            float: none;
+        }
+
+        .smenu a {
+            display: inline-block;
+            width: 100%;
+        }
+
+        .smenu a:hover {
+            color: cyan;
+        }
+
+        .smenu a::after {
+            content: '☞';
+            font-size: 14px;
+            float: right;
+            transform: translateY(-4px);
+            opacity: 0;
+        }
+
+        .smenu::before {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-bottom: 10px solid rgb(255, 255, 255);
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            left: 50%;
+            top: -5px;
+            transform: translateX(-50%);
+        }
+
+        .smenu ol {
+            border: 2px solid #ccc;
+            padding: 10px 0;
+        }
+
+        .smenu a:hover::after {
+            opacity: 1;
+        }
+
+        .hline {
+            border-top: 2px solid #ccc;
+            padding-top: 9px;
+        }
+
+        #cam {
+            transform: scale(1);
+            position: absolute;
+            bottom: 0px;
+            right: -25px;
+        }
+
+        #cam img {
+            position: relative;
+            z-index: 1;
+            width: 50px;
+            transform: rotate(15deg);
+            transition: transform .5s .3s;
+        }
+
+        .bim {
+            position: absolute;
+            top: -17px;
+            right: 7%;
+            width: 0;
+            height: 71px;
+            background: url(img/light.png) no-repeat;
+            background-position: right/center;
+            background-size: auto 100%;
+            transition: width .5s linear;
+        }
+
+        #cam:hover .bim {
+            transition-delay: .5s;
+            width: 290px;
+        }
+
+        #cam:hover img {
+            transform: rotate(0deg);
+            transition-delay: 0;
+        }
+
+        #cont {
+            position: relative;
+            height: 788px;
+        }
+
+        #screen {
+            position: relative;
+            top: 136px;
+            left: 257px;
+            width: 701px;
+            height: 398px;
+            background-color: #000;
+        }
+
+        #screen iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .mlist {
+            position: absolute;
+            bottom: 60px;
+            left: 250px;
+            overflow: hidden;
+        }
+
+        .mlist ul>li {
+            padding: 0 10px;
+            cursor: pointer;
+        }
+
+        .mlist img {
+            width: 99px;
+            height: 140px;
+        }
+
+        .movtxt {
+            position: absolute;
+            top: 100%;
+            width: 99px;
+            height: 140px;
+            font-family: 'Noto Sans KR';
+            font-size: 14px;
+            list-style: 25px;
+            color: #fff;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.5);
+            transition: top .4s ease-out;
+        }
+
+        .mlist>ul>li:hover .movtxt {
+            top: 0;
+        }
+
+        .movtxt li {
+            float: none;
+        }
+
+        .movtxt li:first-child {
+            margin-top: 30px;
+            color: aqua;
+            font-size: 17px;
+            letter-spacing: -1px;
+        }
+
+        #info {
+            position: relative;
+            height: 100px;
+        }
+
+        #info address {
+            font-style: normal;
+            color: #fff;
+            font-family: 'Noto Sans KR';
+            font-size: 15px;
+            line-height: 20px;
+            padding-top: 20px;
+            padding-left: 20px;
+
+        }
+        .int{
+            display: block;
+            margin-left: 15%;
+        }
+
+        #info address img {
+            position: absolute;
+            transform: scale(.5);
+            float: left;
+            margin-right: 2px;
+            margin-top: -32px;
+        }
+
+        .sns {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .bld {
+            display: block;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .sns li {
+            width: 34px;
+            height: 34px;
+            float: left;
+            margin: 2px;
+            background: url(img/sprites_logo.png) no-repeat;
+        }
+
+        .sns li:nth-child(1) {
+            background-position: -509px -429px;
+        }
+
+        .sns li:nth-child(2) {
+            background-position: -551px -429px;
+        }
+
+        .sns li:nth-child(3) {
+            background-position: -593px -429px;
+        }
+
+        .sns a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+
+
+        @keyframes titani {
+            to {
+                text-shadow: 0 0 30px aquamarine;
+            }
+        }
+
+        #act1 {
+            position: absolute;
+            transform: scale(0);
+            animation: act1ani 5s ease-in infinite;
+            z-index: -3;
+        }
+
+        @keyframes act1ani {
+            0% {
+                top: -20%;
+                left: -20%;
+                transform: scale(0);
+            }
+
+            40% {
+                top: 40%;
+                left: 40%;
+                transform: scale(.8);
+            }
+
+            60% {
+                top: 40%;
+                left: 40%;
+                transform: scale(.8);
+            }
+
+            100% {
+                top: 120%;
+                left: 120%;
+                transform: scale(2.5);
+            }
+        }
+
+        .earth {
+            position: absolute;
+            transform: scale(.8);
+            left: -20%;
+            bottom: -600px;
+            animation: earthani 15s ease-in-out infinite alternate;
+            z-index: -2;
+        }
+
+        @keyframes earthani {
+            to {
+                transform: scale(.9);
+                left: -20%;
+                bottom: -600px;
+            }
+
+        }
+
+        .deth {
+            position: absolute;
+            transform: scale(.35);
+            left: -200px;
+            bottom: -300px;
+            animation: dethani 5s ease-in-out infinite alternate;
+            z-index: -1;
+        }
+
+        @keyframes dethani {
+            to {
+                transform: scale(.4);
+                left: -150px;
+                bottom: -250px;
+            }
+        }
+    </style>
+    <script>
+        function 멍멍(먹이){
+            document
+            .getElementById("mv")
+            .src = "https://www.youtube.com/embed/" + 먹이 + "?autoplay=1";
+        }
+    </script>
+</head>
+
+<body>
+    <header id="top" class="part">
+        <h1 class="tit">스타워즈 별들의전쟁</h1>
+        <nav class="gnb">
+            <ul>
+                <li>
+                    <a href="#">영화</a>
+                    <div class="smenu">
+                        <ol>
+                            <li>
+                                <a href="#">무비차트</a>
+                            </li>
+                            <li>
+                                <a href="#">HD 트레일러</a>
+                            </li>
+                            <li>
+                                <a href="#">무비파인더</a>
+                            </li>
+                            <li>
+                                <a class="hline" href="#">CGV아트하우스</a>
+                            </li>
+                        </ol>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">예매</a>
+                    <div class="smenu">
+                        <ol>
+                            <li>
+                                <a href="#">빠른 예매</a>
+                            </li>
+                            <li>
+                                <a href="#">상영 시간표</a>
+                            </li>
+                        </ol>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">극장</a>
+                    <div class="smenu">
+                        <ol>
+                            <li>
+                                <a href="#">CGV 극장</a>
+                            </li>
+                            <li>
+                                <a href="#">특별관</a>
+                            </li>
+                            <li>
+                                <a class="hline" href="#">CLUB 써비스</a><!-- 가운데 라인 -->
+                            </li>
+                        </ol>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">이벤트&amp;컬처</a>
+                    <div class="smenu">
+                        <ol>
+                            <li>
+                                <a href="#">이벤트</a>
+                            </li>
+                            <li>
+                                <a href="#">기프트샵</a>
+                            </li>
+                            <li>
+                                <a href="#">메거진</a>
+                            </li>
+                        </ol>
+                    </div>
+                </li>
+            </ul>
+
+            </ul>
+
+        </nav>
+        <aside id="cam">
+            <img src="img/Yoda.png" alt="영사기">
+            <div class="bim"></div>
+        </aside>
+    </header>
+    <main id="cont" class="part">
+        <div id="screen">
+            <iframe id="mv" src="https://www.youtube.com/embed/zP4LyaOLD0A?autoplay=1" allow="autoplay"></iframe>
+        </div>
+
+        <nav class="mlist">
+            <ul>
+                <li onclick="멍멍('vZ734NWnAHA')">
+                    <img src="img/sta1.jpg" alt="스타워즈1">
+                    <ol class="movtxt">
+                        <li>스타워즈1</li>
+                        <li>한 솔로, 레아 오르가나</li>
+                        <li>SF무비</li>
+                    </ol>
+                </li>
+                <li onclick="멍멍('G8qhmS9Ywbw')">
+                    <img src="img/sta2.jpg" alt="스타워즈2">
+                    <ol class="movtxt">
+                        <li>스타워즈2</li>
+                        <li>한 솔로, 레아 오르가나</li>
+                        <li>SF무비</li>
+                    </ol>
+                </li>
+                <li onclick="멍멍('UMdBFEiamKU')">
+                    <img src="img/sta3.jpg" alt="스타워즈3">
+                    <ol class="movtxt">
+                        <li>스타워즈3</li>
+                        <li>한 솔로, 레아 오르가나</li>
+                        <li>SF무비</li>
+                    </ol>
+                </li>
+                <li onclick="멍멍('g5KyF9psz9A')">
+                    <img src="img/sta4.jpg" alt="스타워즈4">
+                    <ol class="movtxt">
+                        <li>스타워즈4</li>
+                        <li> 파드메 아미달라, 아나킨 스카이워커</li>
+                        <li>SF무비</li>
+                    </ol>
+                </li>
+                <li onclick="멍멍('gYbW1F_c9eM')">
+                    <img src="img/sta5.jpg" alt="스타워즈5">
+                    <ol class="movtxt">
+                        <li>스타워즈5</li>
+                        <li> 파드메 아미달라, 아나킨 스카이워커</li>
+                        <li>SF무비</li>
+                    </ol>
+                </li>
+                <li onclick="멍멍('HrkehqJHfGA')">
+                    <img src="img/sta6.jpg" alt="스타워즈6">
+                    <ol class="movtxt">
+                        <li>스타워즈6</li>
+                        <li> 파드메 아미달라, 아나킨 스카이워커</li>
+                        <li>SF무비</li>
+                    </ol>
+                </li>
+            </ul>
+        </nav>
+    </main>
+    <footer id="info" class="part">
+        <address>
+            <img src="img/logo.png" alt="하단로고">
+            <span class="int">
+                루카스필름(Lucasfilm)은 1971년 헐리우드의 저명한 영화 감독인 조지 루카스가 설립한 미국의 영화 & TV 제작사이다. <br> 캘리포니아주 샌프란시스코에 본사를 두고 있으며,
+                Letterman Digital Arts Center에 기반을 두고 운영하고 있다. <br>
+                2012년, 월트 디즈니 컴퍼니에 인수되었으며,[2] 주요 작품으로는 스타워즈, 인디아나 존스가 있다.
+            </span>
+        </address>
+        <ul class="sns">
+            <li>
+                <a href="https://www.facebook.com/CJCGV" target="_blank" title="페이스북 바로가기">
+                    <span class="bld">페이스북 바로가기</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.instagram.com/cgv_korea/" target="_blank" title="트위터 바로가기">
+                    <span class="bld">트위터 바로가기</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.instagram.com/cgv_korea/" target="_blank" title="인스타그램 바로가기">
+                    <span class="bld">인스타그램 바로가기</span>
+                </a>
+            </li>
+
+        </ul>
+
+    </footer>
+
+
+    <div class="earth"><img src="img/earth.png" alt="지구"></div>
+    <div id="act1"> <img src="img/sta.png" alt="우주선"></div>
+    <div class="deth"><img src="img/deth.PNG" alt="데스스타"></div>
+
+</body>
+
+</html>

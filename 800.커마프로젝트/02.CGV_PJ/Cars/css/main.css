@@ -1,0 +1,175 @@
+@charset "utf-8";
+/* 외부 CSS 파일 상단에는 반드시 인코딩형식을
+지정해야만 문자가 깨짐없이 잘 실행된다 */
+
+/* 웹폰트 CDN - Itim */
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap'); 
+    
+
+/* 초기화 CSS 호출 */
+@import url(reset.css);
+
+/* Cars 메인 페이지 CSS - main.css */
+body {
+    background-color: #000;
+}
+
+/* 레이아웃 공통 */
+.part {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/* A. 상단부분 */
+#top {
+    position: relative;
+    width: 900px;
+    height: 100px;
+    z-index: 999; /* 상단부에 메뉴가 아래로 내려가 안보이기 때문에 우선순위를 높게 줌 */
+}
+/* 1. 페이지타이틀 */
+.tit{
+    position: relative;
+    left: calc(50% - 100px);
+    width: 200px;
+    height: 100px;
+}
+/* 2.전체메뉴(시리즈 안내) */
+.gnb{
+    position: absolute;
+    bottom: 15px;
+    right: 0;
+}
+.gnb li{
+    position: relative;
+    padding: 0 10px;
+    font-family: 'Itim', sans-serif;
+    color: #fff;
+    font-size: 24px;
+    text-shadow: 1px 1px 10px white;
+    cursor: pointer;
+}
+
+/* 2. 메인부분 */
+#cont {
+    position: relative;
+    height: 800px;
+    background: url(../image/bg.jpg) no-repeat ;
+}
+/* 3. 스크린박스 */
+#screen{
+    position: absolute;
+    top: 50px;
+    left: calc(50% - 450px);
+    width: 900px;
+    height: 500px;
+    background-color: #000;
+}
+/* 스크린 아이프레임 */
+#screen iframe{
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* 4.캐릭터 안내메뉴 */
+.mlist{
+    position: absolute;
+    bottom: 80px;
+    left: 142px;
+    overflow: hidden;
+}
+
+.mlist ul>li{
+    padding: 0 6px;
+    cursor: pointer;
+
+    
+}
+/* 이미지 크기 지정 */
+.mlist img{
+    width: 140px;
+    height: 100px;
+}
+.mlist>ul>li:hover .movtxt {
+    top: 0;
+}
+.movtxt {
+    position: absolute;
+    top: 100%; 
+    width: 140px;
+    height: 100px;
+    font-family: 'Itim', cursive;
+    font-size: 12px;
+    line-height: 18px;
+    color: #fff;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    transition: top .4s ease-out;
+}
+.movtxt li {
+    float: none;
+}
+.movtxt li:first-child {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    color: lightskyblue;
+    font-size: 15px;
+}
+
+/* C. 하단부분 */
+#info {
+    position: relative;
+    width: 900px;
+    height: 100px;
+}
+/* 5. 제작사 로고 */
+#info address img {
+    height: 60px;
+    float: left;
+    margin-top: 20px; 
+    margin-right: 140px;
+}
+/* 6. 하단정보 */
+#info address {
+    font-family: 'Itim', cursive;
+    font-style: normal;
+    color: rgb(243, 242, 242);
+    font-size: 20px;
+    line-height: 100px;
+}
+/* 7. sns 버튼 */
+.sns {
+    position: absolute;
+    top: 30px;
+    right: 0;
+}
+/* IR 배경이미지 숨기기 */
+.bld {
+    display: block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+/* li 박스 */
+.sns li {
+    width: 34px;
+    height: 34px;
+    float: left;
+    margin: 2px;
+    background: url(../image/sprites_logo.png) no-repeat;
+}
+
+/* 스프라이츠 위치 */
+.sns li:nth-child(1){
+    background-position: -464px -429px;
+}
+.sns li:nth-child(2){
+    background-position: -509px -429px;
+}
+.sns li:nth-child(3){
+    background-position: -551px -429px;
+}
+.sns li:nth-child(4){
+    background-position: -593px -429px;
+}

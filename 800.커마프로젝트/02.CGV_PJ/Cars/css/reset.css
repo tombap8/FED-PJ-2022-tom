@@ -1,0 +1,31 @@
+@charset "utf-8";
+/* 상단 인코딩설정 필수! */
+/* 공통 초기화 CSS - reset.css */
+
+/* 마진,패딩 없애기 */
+html,body,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd{
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    text-decoration: none;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+ol::after, ul::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+li {
+    float: left;
+}
