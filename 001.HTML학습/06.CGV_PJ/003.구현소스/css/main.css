@@ -204,9 +204,9 @@ body{
 /* 2-2.예고편 선택메뉴 */
 .mlist{
     position: absolute;  
-    bottom: 61px;
+    bottom: 5.4%;
     left: 50%;
-    width: 702px;
+    width: 60%;
     transform: translateX(-49%);
 
     /* 앱솔루트 부모자격이 있는 요소의
