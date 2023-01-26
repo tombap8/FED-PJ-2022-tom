@@ -260,7 +260,7 @@ body{
 
     /* 글자셋팅 */
     font-family: 'Cute Font', cursive;
-    font-size: 14px;
+    font-size: min(14px,1.1vw);
     line-height: 2;
 
     /* 트랜지션: 속시이지 */
@@ -270,6 +270,13 @@ body{
 /* 상위li에 마우스 오버시 영화정보 올라오기 */
 .mlist ul>li:hover .movtxt{
     top: 0;
+}
+
+/* 영화정보박스 제목만 변경 */
+.movtxt li:first-child {
+    font-size: min(17px,1.2vw);
+    color: aqua;
+    white-space: nowrap;
 }
 
 
