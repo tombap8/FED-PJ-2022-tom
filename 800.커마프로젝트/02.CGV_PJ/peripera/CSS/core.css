@@ -1,0 +1,53 @@
+@charset "utf-8";
+/* 공통핵심 CSS - core.css */
+/* 웹폰트, 공용클래스 */
+
+/* 웹폰트 : CDN */
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&family=Roboto:wght@400;500&display=swap');;
+/* 
+font-family: 'Raleway', sans-serif;
+font-family: 'Roboto', sans-serif;
+*/
+
+
+/* 2. 공통 class */
+/* 비율유지박스 class */
+.rbx {
+    position: relative;
+    /* 비율유지속박스의 부모자격 */
+}
+/* 비율생성 가상요소 */
+.rbx::before {
+    content: '';
+    display: block;
+/* padding-top값 퍼센트로 비율로맞게 각각 치환 */
+}
+
+/* 비율유지 속박스 */
+.rbxIn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+/* body *{
+    outline: 1px dashed silver;
+} */
+
+.part {
+    max-width: 1500px;
+    /* 최대 1480px, 이하일 땐 auto */
+    margin: 0 auto;
+    /* 가로 중앙정렬 */
+}
+
+/* image replacement IR 클래스  */
+.ir {
+    display: block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}

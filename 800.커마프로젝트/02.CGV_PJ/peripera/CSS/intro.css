@@ -1,0 +1,46 @@
+@charset "utf-8";
+@import url(./reset.css);
+@import url(./core.css);
+
+/* video 전체화면 높이값 채우기 */
+html, body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#vid {
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    filter: brightness(40%);
+}
+
+#click {
+    position: absolute;
+    font-size: min(50px,3vw);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+
+#click span {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.384);
+    padding: 15px;
+    color: #fff;
+    border-radius: 5px;
+    text-shadow: -4px 4px 4px #000;
+}
+
+#click img {
+    width:min(300px,24vw);
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.671);
+    border-radius: 5px;
+}
+
+#click span:active {
+    text-shadow: 0.2px 0.5px 0 #000;
+}

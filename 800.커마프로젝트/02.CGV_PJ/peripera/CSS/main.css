@@ -1,0 +1,305 @@
+@charset "utf-8";
+@import url(reset.css);
+@import url(core.css);
+
+/* body * {
+    outline: 1px dotted red;
+} */
+
+body {
+    background-color: rgb(255, 255, 250);
+}
+
+/* 상단 */
+
+header {
+    display: flex;
+    background-color: #fab2c575;
+}
+
+
+.menu {
+    position: relative;
+    display: flex;
+    padding: 12px 35px 10px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.menu a {
+    color: rgb(96, 96, 96);
+    padding: 15px 10px;
+}
+
+.menu>li {
+    margin-right: 30px;
+}
+
+/* 메인메뉴 호버시 폰트컬러 바꾸기 */
+
+.menu>li>a:hover {
+    color: rgb(37, 37, 37);
+}
+
+.smenu {
+    position: absolute;
+    top: 45px;
+    line-height: 20px;
+    margin-top: 2px;
+    display: none;
+    border-left: 1px sold grey;
+}
+
+.smenu li {
+    display: inline-block;
+}
+
+/* 메뉴 호버시 서브메뉴 나타남 */
+.menu li:hover .smenu {
+    display: block;
+}
+
+.smenu a {
+    color: #888;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+/* 서브메뉴 각각 호버시 폰트색 진하게 */
+.smenu li a:hover {
+    color: #ea6d8f;
+}
+
+
+/* 메인 */
+main {
+    padding: 50px 100px;
+}
+
+.upper_con {
+    margin-top: 80px;
+}
+
+.upper_con h1 {
+    font-size: 24px;
+}
+
+.upper_con p {
+    color: #777;
+    margin-top: 2px;
+}
+
+/* 메인 메뉴 */
+
+.main_menu {
+    margin-top: 60px;
+}
+
+.main_menu ul {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.main_menu ul li {
+    flex:1;
+    min-width:200px;
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #fff;
+    flex: 1;
+    border: 1px solid #999;
+    text-align: center;
+    padding: 8px 20px 7px;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.main_menu ul li:first-child,
+.main_menu ul li:nth-child(2) {
+    margin-right: 5px;
+}
+
+
+.main_menu ul li a {
+    color: #333;
+}
+
+.main_menu ul li:first-child {
+    background-color: #ea6d8f;
+}
+.main_menu ul li:first-child a {
+    color: #fff;
+}
+.main_menu ul li:hover {
+    background-color: #ea6d8f;
+    transition: background-color 0.1s ease-in; 
+
+}
+.main_menu ul li:hover a{
+    color: #fff;
+    
+}
+
+
+/* 메인 컨텐츠 */
+
+.main_con {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+/* 메인 컨텐츠 - 왼쪽 */
+
+.left_con {
+    margin-top: 120px;
+    margin-right: 130px;
+    text-align: right;
+}
+
+.left_con h3 {
+    color: #888;
+    font-family: 'Raleway', sans-serif;
+    text-align-last: left;
+}
+.left_con h3:after {
+    content: '';
+    display: block;
+    border-bottom: 2px solid rgb(204, 204, 204);
+    margin-top: 25px;
+    width: 220px;
+}
+
+.main_i{
+    background: url(../Images/main_image.png) no-repeat center/cover;
+    width: 300px;
+    height: 500px;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: background-image 0.1s ease;
+}
+.main_i:hover {
+    background-image: url(../Images/sub_image.png);
+}
+
+
+.sub_i {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-color: pink;
+    margin-top: 10px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+
+
+.sub1 {
+    background: url(../Images/sub_image.png) no-repeat center/cover;
+}
+
+.sub2 {
+    background: url(../Images/main_image.png) no-repeat center/cover;
+}
+
+.sub_i:hover {
+    outline: 4px solid rgb(240, 131, 149);
+}
+
+/* 메인 - 오른쪽 */
+.right_con {
+    margin-top: 110px;
+
+}
+.video_bg {
+    position: relative;
+    width: 630px;
+}
+
+.video_bg img{
+    width: 100%;
+}
+.video {
+    position: absolute;
+    z-index: 2;
+    width: 93%;
+    height: 72%;
+    top: 36px;
+    left: 7px;
+    bottom: 0;
+}
+.vid {
+    width: 100%;
+    height: 100%;
+}
+
+.T_list {
+    width: 630px;
+    margin-top: 10px;
+}
+.T_list ul{
+    display: flex;
+    flex-wrap: wrap;
+    width: 630px;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+.T_list li {
+    position: relative;
+}
+
+
+.T_list img {
+    width: 190px;
+    padding: 5px;
+    padding-top: 10px;
+    filter: grayscale(10%)
+}
+
+
+.T_list a span {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #4a4a579f;
+}
+
+.T_list a:hover img{
+    padding: 5px;
+    padding-top: 10px;
+    filter: grayscale(90%);
+}
+.T_list a:hover span {
+    background-color: #ea6d8f;
+}
+footer.part {
+    margin-top: 100px;
+
+}
+footer {
+    padding: 10px 20px 15px 30px;
+    background-color: rgba(216, 216, 216, 0.452);
+    display: flex;
+}
+.l_footer {
+    margin: 0 10px;
+}
+.r_footer {
+    margin-top: 20px;
+    margin-right: 10px;
+}
+
+.sub1:hover .main_i{
+    display: none;
+    
+}

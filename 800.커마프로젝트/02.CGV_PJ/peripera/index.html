@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/main.css">
+    <link rel="stylesheet" href="./CSS/media.css">
+    <link rel="shortcut icon" href="http://www.periperacosmetic.com/ko/images/favicon.ico">
+    <title>PERIPERA</title>
+    <script>
+        function play(source) {
+            document.querySelector(".vid").src = "https://www.youtube.com/embed/" + source +
+            "?autoplay=1&playsinline=1";
+        } /////// play 함수
+    </script>
+</head>
+
+<body>
+    <!-- 상단영역 -->
+    <header class="part">
+        <nav class="nav_bar">
+            <ul class="menu">
+                <li>
+                    <a href="#">BRAND</a>
+                    <div class="smenu">
+                        <ol>
+                            <li>
+                                <a href="#"> COMPANY</a>
+                            </li>
+                            <li>
+                                <a href="#"> BRAND</a>
+                            </li>
+                            <li>
+                                <a href="#"> SHOP</a>
+                            </li>
+                        </ol>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">PRODUCT</a>
+                    <div class="smenu">
+                        <ol>
+                            <li>
+                                <a href="#">NEW</a>
+                            </li>
+                            <li>
+                                <a href="#">BEST</a>
+                            </li>
+                            <li>
+                                <a href="#">BY TYPE</a>
+                            </li>
+                        </ol>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">MEDIA</a>
+                    <div class="smenu">
+                        <ol>
+                            <li>
+                                <a href="#">VIDEO</a>
+                            </li>
+                            <li>
+                                <a href="#">SNS</a>
+                            </li>
+                        </ol>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <!-- 메인영역 -->
+    <main class="part">
+        <div class="upper_con part">
+            <h1>NEW</h1>
+            <p>PERIPERA PRODUCT AN GLANCE!</p>
+        </div>
+        <div class="main_menu part">
+            <ul>
+                <li>
+                    <a href="#">NEW</a>
+                </li>
+                <li>
+                    <a href="#">BEST</a>
+                </li>
+                <li>
+                    <a href="#">BY TYPE</a>
+                </li>
+            </ul>
+        </div>
+        <div class="main_con part">
+            <div class="left_con">
+                <h3>
+                    All Take Mood palette
+                </h3>
+                <div class="con_i">
+                    <div class="main_i">
+                    </div>
+                    <div class="sub_i sub1">
+                    </div>
+                    <div class="sub_i sub2">
+                    </div>
+                </div>
+            </div>
+            <div class="right_con">
+                <div class="video_bg">
+                    <img src="./Images/video_bg.png" alt="비디오배경">
+                    <div class="video">
+                        <iframe class="vid"
+                            src="https://www.youtube.com/embed/WM66ozywgTU?&amp;playlist=WM66ozywgTU&loop=1&mute=1&loop=1&controls=0&playsinline=1"
+                            allow="autoplay;"></iframe>
+                    </div>
+                </div>
+                <div class="T_list">
+                    <ul>
+                        <li>
+                            <a href="#" onclick="play('iruRfRZ8fJI')">
+                                <img src="./Images/no1.png" alt="tape1">
+                                <span>Track1</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="play('7TexwOf0Ztc')">
+                                <img src="./Images/no2.png" alt="tape2">
+                                <span>Track2</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="play('arxweJwv8UA')">
+                                <img src="./Images/no3.png" alt="tape3">
+                                <span>Track3</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="play('uyj4Ipd6CCo')">
+                                <img src="./Images/no4.png" alt="tape4">
+                                <span>Track4</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="play('MFU6rdHbPN4')">
+                                <img src="./Images/no5.png" alt="tape5">
+                                <span>Track5</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="play('N6oSXTpNzrg')">
+                                <img src="./Images/no6.png" alt="tape6">
+                                <span>Track6</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- 하단영역 -->
+    <footer class="part">
+        <div class="l_footer">
+            <img class="Blogo" src="./Images/logo.png" width="120" alt="하단로고">
+            <p>
+                66, Wangsimni-ro, Seongdong-gu, Seoul, Republic of Korea
+                COPYRIGHTS(C) 2016 CLUBCLIO.CO.LTD. ALL RIGHTS RESERVED.
+            </p>
+        </div>
+        <div class="r_footer">
+            <p>
+                Customer Center 82-80-080-1510Service hours Mon~Fri : 09:00~17:00(Closed on Sat/Sun/Holiday
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>
