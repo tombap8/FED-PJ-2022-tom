@@ -83,7 +83,7 @@
                 display: block;
                 padding-top: 56.25%;
                 /* 
-                    비율을 만들어 보자!
+                    [ 비율을 만들어 보자! 비례식법 ]
                     예) 16 : 9 = 100 : x
                     x = 9 * 100 / 16
                       = 56.25
@@ -100,7 +100,15 @@
             .rbx::before{
                 content: '';
                 display: block;
-                padding-top: 56.25%;
+                padding-top: calc(100% / 16 * 9);
+                /* 
+                    [ 비율을 만들어 보자! calc()사용법 ]
+
+                    calc(100% / 가로비율 * 세로비율)
+
+                    예) 16 : 9 비율일 경우
+                    padding-top: calc(100% / 16 * 9)
+                */
             }
             /* 비율유지 속박스
             - 겉박스 밀착 앱솔루트 속박스
@@ -138,6 +146,35 @@
                 4. 앱솔루트 속박스를 만들어 컨텐츠 공간확보
                 (단, 비율유지박스에 부모자격필수!)
             ************************************************/
+
+            /* 5.비율유지박스 :aspect-ratio 속성사용 */
+            .arbx{
+                aspect-ratio: 16 / 9;
+                /* 
+                    [ aspect-ratio 속성 사용하기 ]
+                    aspect-ratio: 가로비 / 세로비;
+
+                    -> width값은 셋팅하고 height값은 auto임!
+                    -> 값을 하나만 쓰면 가로비만 세로를 1로볼때
+                    설정됨!
+
+                    예) 
+                    1:1 비율
+                    aspect-ratio: 1 / 1;
+                    aspect-ratio: 1;
+
+                    16:9 비율
+                    aspect-ratio: 16 / 9;
+
+                    세로에 대한 가로 80% 비율
+                    aspect-ratio: .8;
+
+                    세로에 대한 가로 200% 비율
+                    aspect-ratio: 2;
+                */
+            }
+
+
         </style>
     </head>
     <body>
@@ -167,6 +204,18 @@
                </dl>
                 
             </div>
+        </div>
+
+
+        <h2>5.비율유지박스 :aspect-ratio 속성사용</h2>
+        <div class="bx arbx">
+            <!-- 컨텐츠 넣기 -->
+             <dl class="cat">
+                <dt>출연진</dt>
+                <dd>이제훈(김도기역)</dd>
+                <dd>이솜(강하나역)</dd>
+                <dd>김의성(장성철역)</dd>
+            </dl>
         </div>
     </body>
 </html>
