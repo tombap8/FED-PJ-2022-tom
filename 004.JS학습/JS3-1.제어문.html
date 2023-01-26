@@ -272,6 +272,73 @@
                 if(aa>10) my = "ㅎㅎㅎ";
 
        *************************************************/
+
+
+       /************************************************* 
+            함수명: local
+            기능: 지역명을 입력하면 지역국번을 안내한다!
+       *************************************************/
+      function local(){
+            // 1.호출확인
+            console.log("지역국번이 뭐야?");
+
+            // 2.대상선정
+            // 2-1. 입력대상 : input#local
+            var tg = document.querySelector("#local");
+
+            // 2-2. 출력대상 : #info
+            var info = document.querySelector("#info");
+
+            // console.log(tg,info);
+
+            // 3. 입력된 값 읽어오기 -> 지역명
+            var txt = tg.value;
+            // 요소.value -> 요소의 value값 읽기/쓰기
+
+            console.log("지역명:",txt);
+
+            // 메시지 변수 //////////
+            var msg;
+
+            // 4. 지역명을 switch case문으로 분류하여 메시지넣기
+
+      } /////////////////// local 함수 ///////////////////
+      ////////////////////////////////////////////////////
+
+      /***************************************************** 
+        [ switch case문 ]
+        - 단일조건을 분류하여 실행문을 만들어 줄때 사용하는 제어문
+
+        ((구문구조))
+        ________________________________________
+
+        switch(변수){
+            case 경우1: 실행코드; break;
+            case 경우2: 실행코드; break;
+            case 경우3: 실행코드; break;
+            ...
+            default: 실행문;
+        }
+        ________________________________________
+
+        ((구문해석))
+
+        1. 변수값에 해당하는 경우 그 값에 해당하는
+        case에 들어가서 실행코드를 실행함
+
+        2. 각 case 끝에 break 예약어를 반드시 써야함!
+        -> 안쓰면 다른 case에 또 들어가는 경우가 생김!
+        -> 일반적으로 break 키워드는 제어문을 빠져나갈때 씀!
+
+        3. default 는 if문의 else문과 비슷하여 해당 케이스가 
+        없으면 이 부분이 실행됨(단, 필요시 사용)
+        -> default문에는 break를 쓰지 않는다!
+        
+      *****************************************************/
+
+
+
+
         </script>
         <style>
             /* 칭찬스티커 */
@@ -346,8 +413,8 @@
         <h2>switch case문 연습</h2>
         <h3 id="info">국번안내</h3>
         <label for="local">지역명 입력:</label>
-        <input type="text" id="local" placeholder="지역명을 '도'를 빼고 쓰세요!" maxlength="10">
-        <button class="sbtn">국번문의</button>
+        <input type="text" id="local" placeholder="지역명을 '도'를 빼고 쓰세요!" maxlength="10" onkeypress="if(event.keyCode===13)local()">
+        <button class="sbtn" onclick="local()">국번문의</button>
 
 
 
