@@ -82,7 +82,7 @@
 
 
                 /************************************** 
-                    [ 숫자여부 판별 ]
+                    [ 빈값/숫자여부/숫자범위 판별 ]
                     -> is Not a Number? -> isNaN()
                     -> 숫자가 아니니? 판별 내장함수는?
                     isNaN(변수)
@@ -94,7 +94,7 @@
                 // 입력된 값(score) 숫자여부판별
                 console.log("숫자가 아니니? ",isNaN(score));
 
-                // 빈값 체크 if문 /////
+                //////////// [ 빈값 체크 if문 ] //////////
                 if(score==""){
 
                     // 초기화함수 호출!
@@ -105,6 +105,7 @@
 
                 } ///// if /////
 
+                ////////// [ 숫자여부판별 else if문 ] /////
                 else if(isNaN(score)){
                     // alert("숫자가 아니니 돌아가!");
 
@@ -119,6 +120,8 @@
                     // return 어떤값 -> 리턴뒤에 값을 안쓸 수 있음
                     return;
                 } ///// else if /////
+
+                /////// [ 숫자범위 판별 else if문 ] /////////
                 //// 숫자 범위가 0미만 100초과일 경우 메시지
                 else if(score < 0 || score > 100){
                     // 초기화함수 호출
@@ -126,10 +129,9 @@
                     // 함수빠져나가기
                     return;
                 } ////// else if /////
+
+                /////////////////////////////////////////////
                 
-
-
-
 
                 //////// 변수만들기 ////////
 
@@ -336,5 +338,22 @@
         <div id="jshow">
             <span class="ir">칭찬스티커</span>
         </div>
+
+        <br><br>
+        <hr>
+
+        <!-- switch case문 연습 -->
+        <h2>switch case문 연습</h2>
+        <h3 id="info">국번안내</h3>
+        <label for="local">지역명 입력:</label>
+        <input type="text" id="local" placeholder="지역명을 '도'를 빼고 쓰세요!" maxlength="10">
+        <button class="sbtn">국번문의</button>
+
+
+
+
+
+
+
     </body>
 </html>
