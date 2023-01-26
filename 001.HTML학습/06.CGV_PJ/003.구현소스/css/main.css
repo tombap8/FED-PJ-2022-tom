@@ -222,14 +222,22 @@ body{
     justify-content: space-between;
     
 }
+/* 상위li 두번째 부터 끝까지 왼쪽마진 */
+.mlist ul>li+li{
+    margin-left: 1.5%;
+}
 /* 선택메뉴 상위li */
 .mlist ul>li{
+    position: relative;
+    /* 부모자격 - .movtxt */
+    flex: 1;
+    /* 등분할설정 */
     overflow: hidden;
 }
 /* 포스터 이미지 */
 .mlist img{
-    width: 99px;
-    height: 140px;
+    width: 100%;
+    /* height: 140px; */
 }
 
 /* 영화정보박스 */
@@ -244,8 +252,9 @@ body{
     /* 앱솔루트 포지션 */
     position: absolute;
     top: 100%;
-    width: 99px;
-    height: 140px;
+    width: 100%;
+    height: 100%;
+    /* 부모는? 싸고있는 li */
     text-align: center;
     background-color: rgba(0, 0, 0, 0.7);
 
