@@ -1,0 +1,166 @@
+@charset "utf-8";
+
+/* 미디어쿼리 1350px 이하 */
+@media screen and (max-width:1350px){
+    .subimg{
+        bottom: 3%;
+    }
+    .subimg img:hover{
+        transition:  .5s ease-out .5s;
+        transform: scale(1.2);
+    }
+}
+
+
+
+/* 미디어쿼리 1350px 이하끝 */
+
+/******* 미디어쿼리 : 1050px 이하 시작 *******/
+@media screen and (max-width:1050px) {
+
+    #cam{
+        display: block;
+    }
+
+    .gnb{
+        position: absolute;
+        top: 73px;
+    }
+
+    /* GNB ul */
+    .glist {
+        position: absolute;
+        right: -68px;
+        width: 120px;
+        background: #000;
+        background-size: 130px;
+        text-align: center;
+        outline: 1px solid #fff;
+        border-radius: 3%;
+        flex-direction: column;
+        /* 플렉스 방향: 세로  */
+        display: none;
+        padding: 10px;
+        border: 1px solid #fff;
+    }
+
+    /* GNB에 마우스 오버시 .glist보이기 */
+    .gnb:hover .glist {
+        display: flex;
+    }
+
+    /* 상위메뉴 li에 오버시에 .smenu숨기기 */
+    .glist>li:hover .smenu {
+        display: none;
+    }
+
+    /* GNB li 리스트 */
+    .glist>li {
+        /* 상위메뉴 li */
+        padding-bottom: 10px;
+    }
+
+
+
+}
+
+/******* 미디어쿼리 : 1050px 이하 끝 *******/
+
+/******* 미디어쿼리 : 780px 이하 시작 *******/
+@media screen and (max-width:780px) {
+
+    /* 회사정보 */
+    #info address {
+        padding: 10px;
+        text-align: center;
+    }
+
+    /* 하단로고 이미지 */
+    #info img {
+        display: block;
+        float: none;
+        margin: 10px auto;
+    }
+
+    /* 3-2. sns박스 */
+    ul.sns {
+        position: static;
+        justify-content: center;
+        margin: 10px 0;
+    }
+
+}
+
+/******* 미디어쿼리 : 780px 이하 끝 *******/
+
+
+/**************** 모바일파트 ****************/
+
+/******* 미디어쿼리 : 600px 이하 시작 *******/
+@media screen and (max-width:600px) {
+
+    /* 타이틀 글자크기 */
+
+    /* 하단 회사주소만 숨기기 */
+    #info address .addtxt {
+        display: none;
+    }
+
+    /* 하단영역 높이값없앰 */
+    /* 하단영역높이는 결과적으로 124px */
+    #info {
+        height: auto;
+        padding: 10px;
+    }
+
+    /* sns 마진없앰*/
+    ul.sns {
+        margin: 0;
+    }
+
+    /* 로고 이미지 : 위아래 마진없앰*/
+    #info img {
+        margin: 0 auto;
+    }
+
+    /* 메인영역 높이값 비율변경하기 */
+    #cont.rbx::before {
+        padding-top: 90%;
+    }
+
+    .rbx{
+        margin: 15px;
+    }
+
+
+    /* 스크린 박스 - 위치,크기조정 */
+    .mainimg {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 40%;
+    }
+
+    /* 예고편 선택메뉴 변경하기 */
+    .subimg {
+        bottom: auto;
+        top: 45%;
+        /* 위치기준을 bottom에서 top으로 변경! */
+        width: 100%;
+    }
+
+    .subimg ul>li {
+        flex: none;
+        width: 40%;
+        /* flex: 1로 등분할 설정을 없애고
+        하나당 크기를 3등분 크기로 설정함.
+        33.33%인데 양쪽 마진이 2%가 설정되었으므로
+        이를 제외한 31.33%로 설정함
+        -> 한줄에 3개씩 2줄 설정! */
+    }
+
+
+
+}
+
+/******* 미디어쿼리 : 600px 이하 끝 *******/

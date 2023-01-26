@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>netflix</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/media.css">
+</head>
+<script>
+    function img(U, g) {
+        // var chgImg = document.querySelector(".subimg img");
+        // console.log(chgImg);
+
+        // var isrc;
+       
+        if (g)
+            U.querySelector("div").innerHTML = `<video src="imges/1.mp4" muted autoplay>`;
+        else
+            U.querySelector("div").innerHTML = "";
+
+        // switch(U){
+        //     case "a" :
+        //     isrc = "imges/img2.webp";
+        // }
+
+        // chgImg.setAttribute("src",isrc);
+    }
+    function img1(U, g){
+        if (g)
+        U.querySelector("div").innerHTML = `<video src="imges/2.mp4" muted autoplay>`;
+            else 
+            U .querySelector("div").innerHTML = "";
+    }
+    function img2(U, g){
+        if (g)
+        U.querySelector("div").innerHTML = `<video src="imges/3.mp4" muted autoplay>`;
+            else 
+            U .querySelector("div").innerHTML = "";
+    }
+    function img3(U, g){
+        if (g)
+        U.querySelector("div").innerHTML = `<video src="imges/4.mp4" muted autoplay>`;
+            else 
+            U .querySelector("div").innerHTML = "";
+    }
+    function img4(U, g){
+        if (g)
+        U.querySelector("div").innerHTML = `<video src="imges/5.mp4" muted autoplay>`;
+            else 
+            U .querySelector("div").innerHTML = "";
+    }
+    function img5(U, g){
+        if (g)
+        U.querySelector("div").innerHTML = `<video src="imges/6.mp4" muted autoplay>`;
+            else 
+            U .querySelector("div").innerHTML = "";
+    }
+    function img6(U, g){
+        if (g)
+        U.querySelector("div").innerHTML = `<video src="imges/7.mp4" muted autoplay>`;
+            else 
+            U .querySelector("div").innerHTML = "";
+    }
+    function img7(U, g){
+        if (g)
+        U.querySelector("div").innerHTML = `<video src="imges/8.mp4" muted autoplay>`;
+            else 
+            U .querySelector("div").innerHTML = "";
+    }
+    subimg.div.style.transition = "2s ease-in-out .5s";
+
+    
+
+
+
+</script>
+
+<body>
+    <!-- 상단 -->
+    <header id="top" class="part">
+        <!-- 타이틀 -->
+        <h1 class="tit"><img src="imges/Netflix_Logo_PMS.png" alt="넷플릭스 로고"></h1>
+        <!-- 메뉴 -->
+        <nav class="gnb">
+            <ul class="glist">
+                <li>
+                    <a href="#">홈</a>
+                </li>
+                <li>
+                    <a href="#">시리즈</a>
+                    <div class="smenu">
+                        <ol>
+                            <li>
+                                <a href="#">한국 드라마</a>
+                                <div></div>
+                            </li>
+                            <li>
+                                <a href="#">미국 시리즈</a>
+                                <div></div>
+                            </li>
+                            <li>
+                                <a href="#">영국 드라마</a>
+                                <div></div>
+                            </li>
+                            <li>
+                                <a href="#">코미디</a>
+                                <div></div>
+                            </li>
+                            <li>
+                                <a href="#">로맨스</a>
+                                <div></div>
+                            </li>
+                        </ol>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">영화</a>
+                    <div class="smenu">
+                        <ol>
+                            <li>
+                                <a href="#" onmouseover="a">한국</a>
+                                <div></div>
+                            </li>
+                            <li>
+                                <a href="#">해외</a>
+                                <div></div>
+                            </li>
+                            <li>
+                                <a href="#">인디</a>
+                                <div></div>
+                            </li>
+                            <li>
+                                <a href="#">액션</a>
+                                <div></div>
+                            </li>
+                            <li>
+                                <a href="#">판타지</a>
+                                <div></div>
+                            </li>
+                        </ol>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">NEW! 요즘 대새 콘텐츠</a>
+                </li>
+                <li>
+                    <a href="#">내가 찜한 콘텐츠</a>
+                </li>
+            </ul>
+            <aside id="cam">
+                <!-- 영사기 이미지 -->
+                <img src="imges/gnb.png" alt="영사기">
+                <!-- 빔표시박스 -->
+                <div class="bim"></div>
+            </aside>
+        </nav>
+    </header>
+    <main id="cont" class="part rbx">
+        <a href="#" class="mainimg">
+            <iframe
+                src="https://www.youtube.com/embed/_A9_yjNRR0w?autoplay=1&mute=1&loop=1&playlist=_A9_yjNRR0w&playsinline=1"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </a>
+        <nav class="subimg">
+            <ul>
+                <li onmouseenter="img(this,1)" onmouseleave="img(this,0)">
+                    <a href="#">
+                        <img src="imges/img1.webp" alt="이태원클라쓰">
+                        <div></div>
+                    </a>
+                </li>
+                <li onmouseenter="img1(this,1)" onmouseleave="img1(this,0)">
+                    <a href="#">
+                        <img src="imges/img2.webp" alt="귀멸의칼날">
+                        <div></div>
+                    </a>
+                </li>
+                <li onmouseenter="img2(this,1)" onmouseleave="img2(this,0)">
+                    <a href="#">
+                        <img src="imges/img3.webp" alt="백일의낭군">
+                        <div></div>
+                    </a>
+                </li>
+                <li onmouseenter="img3(this,1)" onmouseleave="img3(this,0)">
+                    <a href="#">
+                        <img src="imges/img4.webp" alt="빈센조">
+                        <div></div>
+                    </a>    
+                </li>
+                <li onmouseenter="img4(this,1)" onmouseleave="img4(this,0)">
+                    <a href="#">
+                        <img src="imges/img5.webp" alt="뷰티인사이드">
+                        <div></div>
+                    </a>
+                </li>
+                <li onmouseenter="img5(this,1)" onmouseleave="img5(this,0)"> 
+                    <a href="#">
+                        <img src="imges/img6.webp" alt="비밀의숲">
+                        <div></div>
+                    </a>
+                </li>
+                <li onmouseenter="img6(this,1)" onmouseleave="img6(this,0)">
+                    <a href="#">
+                        <img src="imges/img7.webp" alt="미생">
+                        <div></div>
+                    </a>
+                </li>
+                <li onmouseenter="img7(this,1)" onmouseleave="img7(this,0)">
+                    <a href="#">
+                        <img src="imges/img8.jpg" alt="고요의바다">
+                        <div></div>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </main>
+    <footer id="info" class="part">
+        <!-- 회사정보 -->
+        <ul class="sns">
+            <li>
+                <a href="https://www.facebook.com/NetflixKR" target="_blank" title="페이스북 바로가기">
+                    <span class="ir">페이스북바로가기</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.instagram.com/netflixkr/" target="_blank" title="인스타 바로가기">
+                    <span class="ir">인스타바로가기</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://twitter.com/netflixkr" target="_blank" title="트위터 바로가기">
+                    <span class="ir">트위터바로가기</span>
+                </a>
+            </li>
+        </ul>
+        <!-- 주소 -->
+        <address>
+            <div class="addtxt">
+                넷플릭스서비시스코리아 유한회사 통신판매업신고번호: 제2018-서울종로-0426호 전화번호: 080-001-9587
+            </div>
+            <div class="addtxt">
+                대표: 레지널드 숀 톰프슨
+            </div>
+            <div class="addtxt">
+                이메일 주소: korea@netflix.com
+            </div>
+            <div class="addtxt">
+                주소: 대한민국 서울특별시 종로구 우정국로 26, 센트로폴리스 A동 20층 우편번호 03161
+            </div>
+            <div class="addtxt">
+                주소: 대한민국 서울특별시 종로구 우정국로 26, 센트로폴리스 A동 20층 우편번호 03161
+            </div>
+            <div class="addtxt">
+                클라우드 호스팅: Amazon Web Services Inc.
+            </div>
+            <div class="addtxt">
+                <a href="https://www.ftc.go.kr/www/bizCommList.do?key=232">공정거래위원회 웹사이트</a>
+            </div>
+            <div class="addtxt">
+                {66962d7d-0d04-40d2-8f26-a696f07267c6}
+            </div>
+        </address>
+    </footer>
+</body>
+
+</html>

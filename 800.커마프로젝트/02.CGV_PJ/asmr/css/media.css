@@ -1,0 +1,173 @@
+@charset "utf-8";
+/* ASMR Best Collection 미디어쿼리 */
+
+
+
+
+
+/* ********** 600px 이하 시작 ********* */
+@media screen and (max-width:600px) {
+
+    #top {
+        position: relative;
+        height: 100px;
+    }
+
+    /* 타이틀 글자크기 */
+    h1.tit {
+        font-size: 8vw;
+        line-height: 12vh;
+    }
+
+    /* 네비게이션 바 정리 */
+    .glist {
+        position: absolute;
+        top: -35px;
+        right: 0;
+        display: block;
+        text-align: right;
+    }
+    .glist>li:first-child{
+        display: block;
+        font-family: 'Amatic SC', cursive;
+    }
+    .glist>li:first-child a{
+        font-size: 25px;
+        color: rgb(255, 217, 0);
+    }
+    /* 2,3번째 메뉴 숨기기 */
+    .glist>li:nth-child(2) {
+        display: none;
+        transition: .5s ease-in;
+    }
+    .glist>li:nth-child(3) {
+        display: none;
+        transition: .5s ease-in;
+    }
+    .glist>li:nth-child(4) {
+        display: none;
+        transition: .5s ease-in;
+    }
+
+    .gnb:hover .glist>li:nth-child(2) {
+        display: block;
+        transition: .5s ease-in;
+    }
+    .gnb:hover .glist>li:nth-child(3) {
+        display: block;
+        transition: .5s ease-in;
+    }
+    .gnb:hover .glist>li:nth-child(4) {
+        display: block;
+        transition: .5s ease-in;
+    }
+
+    /* 서브메뉴 없애기 */
+    .glist li:hover .smenu {
+        display: none;
+    }
+
+
+    /* *************************************** */
+    /* 메인영역 높이값 비율 변경하기 */
+    #cont.rbx::before {
+        padding-top: 150%;
+    }
+    
+    #cont {
+        position: relative;
+        background-size: 140%;
+        background-position: center top;
+        background-color: black;
+        width: 100%;
+        height: auto;
+        /* margin-bottom: 250%; */
+    }
+
+    /* 화면 비율 */
+    #screen {
+        /* position: absolute; */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 35%;
+    }
+
+    /* 플레이리스트 6개  */
+    .mlist {
+        top: 50%;
+        /* 위치 기준을 탑으로 변경 */
+        width: 70%;
+        bottom: auto;
+    }
+
+    .mlist ul {
+        display: block;
+        /* flex-wrap: nowrap; */
+        /* 줄바꿈 허용 */
+    }
+
+    .mlist ul>li {
+        position: relative;
+        flex: none;
+        width: 100%;
+        margin: 7% 0;
+        overflow: hidden;
+    }
+
+    .movtxt {
+        font-size: 7vw;
+        white-space: nowrap;
+    }
+
+    .movtxt li:first-child {
+        font-size: 7vw;
+        white-space: nowrap;
+    }
+
+    /* 촛불 안보이게 */
+    .candle,
+    .candle2 {
+        display: none;
+    }
+
+    /* ***************************************** */
+    /* 하단영역 */
+    #info {
+        position: relative;
+        /* background: black; */
+        border-top: none;
+        margin-top: 250%;
+    }
+
+    /* 하단로고 이미지 */
+    #info address{
+        width: 100%;
+    }
+    #info address span{
+        display: none;
+    }
+    #info img{
+        position: absolute;
+        left: 40%;
+        transform: translateX(-50%);
+    }
+
+    /* sns 아이콘 */
+    .sns {
+        position: static;
+        justify-content: center;
+    }
+    .sns li{
+        padding: 0 10px;
+        margin-bottom: 10px;
+    }
+
+
+}
+
+
+
+
+
+/* ********** 600px 이하 끝 ********* */

@@ -1,0 +1,76 @@
+@charset "utf-8" ;
+
+@import url(reset.css);
+@import url(core.css);
+
+html, body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#myvid {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(70%);
+}
+
+img {
+    width: 15vw;
+}
+
+#enter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+h1{
+    width: 50%;
+    display: flex;
+    justify-content: space-around
+}
+
+#enter span{
+    display: block;
+    text-align: center;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 150%;
+    margin: 20px;
+
+}
+@keyframes titAni {
+    to{
+        text-shadow: 0 0 12px white;
+    }    
+} /* titAni 키프레임 */
+
+
+a:hover {
+    transform: scale(1.1);
+    text-shadow: 0 0 4px white;
+    animation: titAni 1.5s infinite alternate;
+}
+
+img:hover{
+    outline: 2px solid white;
+    transform: scale(1.1);
+}
+
+@media screen and (max-width:800px) {
+    h1 {
+        flex-direction: column;
+        width:auto;
+    }
+    img{
+        width: 120px;
+    }
+}
+
+
+
+
+
+

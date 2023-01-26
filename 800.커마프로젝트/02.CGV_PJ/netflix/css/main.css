@@ -1,0 +1,300 @@
+@charset "utf-8" ;
+
+@import url(reset.css);
+@import url(core.css);
+
+
+body{
+    background-color: #000;
+}
+
+
+/* body * {
+    outline: 1px dashed #ccc;
+}
+ */
+
+/* 레이아웃 공통 class */
+.part{
+    position: relative;
+    max-width: 1200px;
+    /* 최대 1200px, 이하일땐 auto */
+    margin: 0 auto;
+    /* 마영오! - 가로중앙 */
+}
+
+#top{
+    height: 80px;
+}
+
+h1 img{
+    position: absolute;
+    height: 50px;
+    margin: 15px;
+}
+
+.gnb{
+    position: absolute;
+    left: 150px;
+    top: 30px;
+}
+
+.glist{
+    position: relative;
+    display: flex;
+    font-family: 'Nanum Gothic', sans-serif;
+    z-index: 1;
+}
+
+.glist>li{
+    position: relative;
+    padding: 0 10px;
+    padding-bottom: 20px;
+}
+
+/* 서브메뉴 */
+.smenu{
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+    width: 120px;
+    background: #000 ;
+    box-shadow: 0 0 5px #fff;
+    padding: 3px;
+    display: none;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+.glist li:hover .smenu{
+    display: block;
+}
+
+.smenu::before{
+    content: '';
+    display: block;
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    /* 삼각형만들기 */
+    width: 0;
+    height: 0;
+    border-bottom: 10px solid rgba(255, 255, 255, 0.342);
+    /* 역삼각형 */
+    /* border-top: 10px solid red; 삼각형*/
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    /* transparent는 투명색 */
+}
+
+.smenu ol{
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.smenu li{
+    font-size: 16px;
+    line-height: 2;
+}
+
+
+
+.smenu div{
+    opacity: 0;
+    border-bottom: 1px solid #ccc;
+
+}
+
+.smenu li:hover div{
+    opacity: 1;
+}
+
+
+
+/* 영사기 박스 */
+#cam{
+    position: absolute;
+    bottom: 0;
+    right: -51px;
+    display: none;
+    /* 부모는? .gnb */
+}
+/* 영사기 이미지 */
+#cam img{
+    position: relative;
+    z-index: 1;
+    /* 영사기가 빔박스보다 위에 보이게함! */
+    width: 50px;
+
+    /* 영사기 회전 */
+    transform: rotate(25deg);
+    /* 양수값은 시계방향 */
+
+    /* 트랜지션: 속시이지 */
+    transition: .5s ease-out .3s;
+    /* 돌아올땐 기다려~! */
+}
+/* GNB에 마우스 오버시 영사기 회전하기 */
+.gnb:hover #cam img{
+    transform: rotate(0deg);
+    transition-delay: 0s;
+    /* 기다리는 시간없음! */
+}
+
+/* 빔박스 */
+.bim{
+    position: absolute;
+    top: -16px;
+    right: 8px;
+    /* 부모는? #cam */
+    width: 0;/* 200px; */
+    height: 70px;
+    background: url(../imges/bim.png) no-repeat;
+    background-position: right center;
+    background-size: auto 100%;
+    /* 이미지 크기를 세로에 맞춤! */
+
+    /* 트랜지션: 속시이지 */
+    transition: width .3s linear;
+    /* 돌아올땐 기다리지마~! */
+}
+/* GNB에 오버시 영사기 쏘기(width:200px) */
+.gnb:hover .bim{
+    width: 200px;
+    transition-delay: .5s;
+    /* 오버시엔 0.5초 기다려! */
+
+    /* 애니메이션: 이시이지반방마 */
+    animation: bimAni .04s linear infinite alternate;
+}
+
+/* 빔이 너울너울 거리도록 애니메이션 키프레임 */
+@keyframes bimAni {
+    from{
+        opacity: 0.9;
+    }
+    to{
+        opacity: 0.5;
+    }
+} /* bimAni 키프레임 */
+
+/* 메인영역 */
+#cont{
+    position: relative;
+    padding-top: 70.33%;
+}
+
+
+.mainimg{
+    position: absolute;
+    width: 100%;
+    height: 60%;
+    top: 0;
+}
+
+.mainimg iframe{
+    width: 100%;
+    height: 100%;
+}
+
+.subimg {
+    position: absolute;
+    width: 100%;
+    bottom: 5%;
+}
+
+.subimg ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-right: 40px;
+    margin-left: 40px;
+}
+
+.subimg li{
+    width: 23%;
+}
+.subimg img,video{
+    width: 100%;
+    border-radius: 5px;
+}
+
+.subimg img:hover{
+    transition:  .5s ease-out .5s;
+    transform: scale(1.5);
+}
+
+
+.subimg li{
+    position: relative;
+}
+
+.subimg div{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+}
+.subimg div {
+    transform: scale(1.5);
+    transition: .5s ease-out .5s;
+}
+
+
+
+/* 하단영역 */
+
+
+#info{
+    position: relative;
+    height: 200px;
+}
+.sns{
+    position: absolute;
+    left: 20px;
+    top: 8px;
+    /* 부모는? #info */
+    display: flex;
+    /* 플렉스박스 */
+
+}
+
+.sns li{
+    width: 34px;
+    height: 34px;
+    background: url(../imges/sprites_logo.png) no-repeat;
+} 
+
+.sns li:first-child{
+    background-position: -510px -429px;
+}
+.sns li:nth-child(2){
+    background-position: -551px -429px;
+}
+.sns li:last-child{
+    background-position: -593px -429px;
+}
+.sns a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+address .addtxt{
+    color: #fff;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 13px;
+}
+
+address{
+    padding-top: 50px;
+    padding-left: 20px;
+}
+
+

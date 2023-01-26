@@ -1,0 +1,35 @@
+@charset "utf-8";
+
+@import url(core.css);
+@import url(main.css);
+@import url(reset.css);
+
+/* CGV 리셋 */
+/* 각종초기화 */
+
+/* 1. 마진 패딩 없애기 */
+html,body,h1,h2,h3,h4,h5,h6,ul,ol,dt,dd,p{
+  margin: 0;
+  padding: 0;
+}
+
+/* 가로스크롤 생김 방지 */
+html, body{
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+/* 2. a요소 리셋 */
+a{
+  text-decoration: none;
+}
+
+/* 3. ul,ol 리셋 */
+ul,ol{
+  list-style: none;
+}
+
+/* 4. h요소 글자 크기 리셋 */
+h1,h2,h3,h4,h5,h6{
+  /* font-size: 100%; */
+}

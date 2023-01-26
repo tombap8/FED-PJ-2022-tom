@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASMR Best Collection</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/core.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/media.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fontisto@v3.0.4/css/fontisto/fontisto.min.css">
+
+
+    <script>
+        window.addEventListener("load", function () {
+        })
+
+        function 유튜브(클릭재생) {
+            document //전체문서
+                .getElementById("mymv") //mymv 아이디 요소
+                .src = "https://www.youtube.com/embed/" + 클릭재생 +
+                "?autoplay=1&playsinline=1";
+        }
+    </script>
+
+</head>
+
+<body>
+    <!-- 상단영역 -->
+    <header id="top" class="part">
+        <!-- 타이틀 -->
+        <h1 class="tit">
+            ASMR Best Collection
+        </h1>
+        <!-- 네이게이션 바 -->
+        <nav class="gnb">
+            <ul class="glist">
+                <li>
+                    <a href="#">ASMR</a>
+                </li>
+                <li>
+                    <a href="#">Harry Potter</a>
+                    <!-- 서브메뉴 -->
+                    <div class="smenu">
+                        <ol>
+                            <li>
+                                <a href="#">ASMR Soupe</a>
+                            </li>
+                            <li>
+                                <a href="#">Tigger ASMR</a>
+                            </li>
+                            <li>
+                                <a href="#">ASMR rooms</a>
+                            </li>
+                        </ol>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">City Sound</a>
+                    <div class="smenu">
+                        <ol>
+                            <li>
+                                <a href="#">London</a>
+                            </li>
+                            <li>
+                                <a href="#">New York</a>
+                            </li>
+                            <li>
+                                <a href="#">Paris</a>
+                            </li>
+                        </ol>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">White Noise</a>
+                    <div class="smenu">
+                        <ol>
+                            <li>
+                                <a href="#">Rain Drops</a>
+                            </li>
+                            <li>
+                                <a href="#">Fireplace</a>
+                            </li>
+                        </ol>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- 메인영역 -->
+    <main id="cont" class="part rbx">
+        <div id="screen">
+            <iframe id="mymv"
+                src="https://www.youtube.com/embed/5rBg_NjFQmc?autoplay=1&mute=1&loop=1&playlist=5rBg_NjFQmc&&playsinline=1" allow="autoplay;">
+            </iframe>
+        </div>
+        <div class="candle">
+            <img src=".//images/candle.png" alt="candle">
+            <span></span>
+        </div>
+        <div class="candle2">
+            <img src=".//images/candle.png" alt="candle">
+            <span></span>
+        </div>
+        <nav class="mlist">
+            <ul>
+                <li>
+                    <a href="#"" onclick="유튜브('yBmPDPCd_ls')">
+                        <img src="../002.CGV_advanced/images/play01.jpg" alt="">
+                        <ol class="movtxt">
+                            <li>Soupe</li>
+                            <li>Great Hall</li>
+                        </ol>
+                        <div id="mvbx"></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"" onclick="유튜브('5rBg_NjFQmc')">
+                        <img src="../002.CGV_advanced/images/play02.jpg" alt="">
+                        <ol class="movtxt">
+                            <li>Soupe</li>
+                            <li>Gryffindor</li>
+                        </ol>
+                        <div id="mvbx"></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"" onclick="유튜브('XeUBb6GKHNg')">
+                        <img src="../002.CGV_advanced/images/play03.jpg" alt="">
+                        <ol class="movtxt">
+                            <li>Rooms</li>
+                            <li>Ravenclaw</li>
+                        </ol>
+                        <div id="mvbx"></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"" onclick="유튜브('9Yf59suTbWI')">
+                        <img src="../002.CGV_advanced/images/play04.jpg" alt="">
+                        <ol class="movtxt">
+                            <li>Soupe</li>
+                            <li>Hufflepuff</li>
+                        </ol>
+                        <div id="mvbx"></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"" onclick="유튜브('NqSbyaVTqII')">
+                        <img src="../002.CGV_advanced/images/play05.jpg" alt="">
+                        <ol class="movtxt">
+                            <li>Tigger</li>
+                            <li>Hogwarts</li>
+                        </ol>
+                        <div id="mvbx"></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"" onclick="유튜브('wIOc_6QZ3AI')">
+                        <img src="../002.CGV_advanced/images/play06.jpg" alt="">
+                        <ol class="movtxt">
+                            <li>Rooms</li>
+                            <li>Slytherin</li>
+                        </ol>
+                        <div id="mvbx"></div>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </main>
+
+
+    <!-- 하단영역 -->
+    <footer id="info" class="part">
+        <address>
+            <img src="../002.CGV_advanced/images/youtube.png" alt="유튜브로고">
+            <span>
+                Youtube Headquaters <br>
+                San Bruno is a city in San Mateo County <br> California, United States
+            </span>
+        </address>
+        <ul class="sns">
+            <li>
+                <a href="#" class="fi fi-instagram"></a>
+            </li>
+            <li>
+                <a href="#" class="fi fi-facebook"></a>
+            </li>
+            <li>
+                <a href="#" class="fi fi-twitter"></a>
+            </li>
+        </ul>
+    </footer>
+</body>
+
+</html>

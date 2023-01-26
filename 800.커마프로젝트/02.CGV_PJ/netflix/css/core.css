@@ -1,0 +1,40 @@
+@charset "utf-8" ;
+
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Roboto:wght@300&display=swap');
+
+
+/* 
+font-family: 'Nanum Gothic', sans-serif;
+font-family: 'Roboto', sans-serif; 
+*/
+
+
+/* 비율유지박스 class */
+.rbx{
+    position: relative;
+    /* 비율유지 속박스 부보 */
+
+}
+/* 비율생성 가상요소 */
+.rbx::before{
+    content: '';
+    display: block;
+    /* 패딩탑값 퍼센트 비율에 맞게 각각셋팅 */
+}
+
+.rbxIn{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.ir{
+    display: block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+
