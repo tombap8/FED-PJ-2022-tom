@@ -178,17 +178,19 @@ body{
 .cont{
     position: relative;
     /* 부모자격 - .screen */
-    height: 788px;
+    /* 비율설정 */
+    aspect-ratio: 1200/788;
+    /* height: 788px; */
     /* 극장배경 넣기 */
     background: url(../images/bg.jpg) no-repeat center top/100%;
 }
 /* 2-1.스크린 */
 .screen{
     position: absolute;
-    top: 136px;
-    left: 256px;
-    width: 702px;
-    height: 398px;
+    top: 17.2%;
+    left: 21.3%;
+    width: 58.6%;
+    height: 50.6%;
     background-color: #000;
 }
 /* 유튜브 아이프레임 */
