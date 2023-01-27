@@ -27,7 +27,7 @@
         */
     }
     /* 메인속박스 */
-    .cont{
+    .cont {
         /* 가로크기에 대한 비율을 만들어준다! */
         min-height: 100vw;
     }
@@ -62,30 +62,67 @@
 /* 780px 사이즈 이하 미디어쿼리 시작 */
 @media screen and (max-width: 780px) {
     /* 가로스크롤 없애기 */
-    html,body{
+    html,
+    body {
         width: 100vw;
         overflow-x: hidden;
     }
     /* 디스플레이 없애기 */
-    .tmenu{
+    .tmenu,
+    .smbx,
+    .gnb > ul > li > a::after,
+    .gnb {
         display: none;
     }
-    /* GNB메뉴 변경하기 */
-    .gnb{
+    /* GNB메뉴 변경하기 
+    -> .top에 .on을 준 경우 적용됨!
+    -> 메뉴를 fixed로 고정 */
+    .top.on .gnb {
+        display: block;
         position: fixed;
         top: 0;
         width: 100vw;
         height: 100vh;
-        background-color: #f00;
+        background-color: rgba(0, 0, 0, 0.5);
         z-index: 9999;
+    }
+    /* 플렉스박스 방향을 세로로변경! */
+    nav.gnb ul {
+        flex-direction: column;
+        text-align: center;
+        margin-top: 15vh;
+    }
+    /* GNB상위메뉴 a변경 */
+    .gnb > ul > li > a {
+        font-size: 5vh;
+        line-height: 10vh;
+        color: #fff;
+    }
+
+    /* 로고 */
+    h1.logo {
+        position: relative;
+        z-index: 99999;
     }
 
     /* 햄버거 버튼 보이기 */
-    .ham{
+    .ham {
         display: block;
     }
+    /* 햄버거 버튼 상위.top에 클래스on 
+    줄경우 x버튼으로 변경 */
+    .top.on .ham {
+        z-index: 9999;
+        color: #fff;
+        transform: scale(1.5);
+    }
+    .top.on .ham::before {
+        content: '×';
+    }
+
+
     /* 상단영역 */
-    .top{
+    .top {
         position: relative;
         /* 부모자격 - 햄버거 버튼(.ham)
         -> 가로스크롤문제를 발생하므로
@@ -93,36 +130,36 @@
         height: 80px;
     }
     /* 캐릭터박스 한줄에 하나 */
-    .cat{
+    .cat {
         width: 99%;
     }
     /* 캐릭터 설명박스 */
-    .cd{
+    .cd {
         /* 자리차지 포지션으로 전환! */
         position: static;
     }
     /* 설명박스 제목 */
-    .cd h3{
+    .cd h3 {
         font-size: 4.5vw;
     }
     /* 설명박스 문단 */
-    .cd p{
+    .cd p {
         font-size: 4vw;
         padding: 3vw;
     }
     /* 문단 첫글자 */
-    .cd p:first-child::first-letter{
+    .cd p:first-child::first-letter {
         font-size: 8vw;
     }
 
     /* 하단영역 */
     /* 브랜드 바로가기 */
-    .brand{
+    .brand {
         bottom: 10px;
         top: auto;
     }
     /* 하단링크 일부 숨기기(li:1~3) */
-    .blink li:nth-child(-n+3){
+    .blink li:nth-child(-n + 3) {
         display: none;
     }
 }
