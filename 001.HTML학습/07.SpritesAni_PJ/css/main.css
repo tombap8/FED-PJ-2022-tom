@@ -40,6 +40,29 @@ body {
 }
 
 /* 2.메뉴 */
+.gnb{
+    position: absolute;
+    top: 15vh;
+    left: 2vw;
+    z-index: 1;
+}
+.gnb ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.gnb a{
+    color: #fff;
+    text-decoration: none;
+    font-family: 'ZCOOL KuaiLe', cursive;
+    font-size: 32px;
+    line-height: 3;
+}
+/* 마우스 오버시 */
+.gnb a:hover{
+    color: #f00;
+    text-decoration: line-through;
+}
 
 /* 3. TV셋 */
 
