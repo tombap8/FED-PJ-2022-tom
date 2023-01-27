@@ -29,6 +29,15 @@ body {
 }
 
 /* 1. 타이틀 */
+.mtit{
+    position: absolute;
+    top: 2vh;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 52px;
+}
 
 /* 2.메뉴 */
 
