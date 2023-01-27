@@ -132,42 +132,42 @@ body {
 /* 키프레임 */
 
 /* 
-            [ 스프라이츠를 이용한 장면 넘기기 애니를 하려면? ]
-            1. 배경이미지 전체 길이를 알아야함
-            -> 이유: 이동셋팅시 가로이동일 경우에 전체길이값을 써야함!
+    [ 스프라이츠를 이용한 장면 넘기기 애니를 하려면? ]
+    1. 배경이미지 전체 길이를 알아야함
+    -> 이유: 이동셋팅시 가로이동일 경우에 전체길이값을 써야함!
 
-            (비율이 유지되는 이미지이므로 가로/세로중 한쪽값을 변경하면
-            다른쪽값은 자동으로 변경된다!)
+    (비율이 유지되는 이미지이므로 가로/세로중 한쪽값을 변경하면
+    다른쪽값은 자동으로 변경된다!)
 
-            참고) 비례식사용
-                가로 : 세로 = 1472px : 325px = x : 176px
-                x = 1472*176/325 = 797.14
-                전체가 8장면 이므로 한 장면당 100px(99.625px)로 정해짐
-            
-            -> 더 편한 방법은 그림판에서 축소/확대를 사용하여
-            길이를 알아내면 된다!    
-            
-            2. 코딩법:
+    참고) 비례식사용
+        가로 : 세로 = 1472px : 325px = x : 176px
+        x = 1472*176/325 = 797.14
+        전체가 8장면 이므로 한 장면당 100px(99.625px)로 정해짐
+    
+    -> 더 편한 방법은 그림판에서 축소/확대를 사용하여
+    길이를 알아내면 된다!    
+    
+    2. 코딩법:
 
-                animation: 이름 시간 steps(장면개수) infinite;
+    animation: 이름 시간 steps(장면개수) infinite;
 
-                -> 장면찍는 steps를 사용할때는 이징(가속도)불필요!
+    -> 장면찍는 steps를 사용할때는 이징(가속도)불필요!
 
-                [ 여러줄 애니메이션 처리법 ]
-                배경이미지 이동을 x,y축으로 분리하여 셋팅함
+    [ 여러줄 애니메이션 처리법 ]
+    배경이미지 이동을 x,y축으로 분리하여 셋팅함
 
-                -> 시간설정은 x축은 적당히 설정후
-                y축은 x축애니시간*줄수 로 설정한다!
+    -> 시간설정은 x축은 적당히 설정후
+    y축은 x축애니시간*줄수 로 설정한다!
 
-                예) x축 애니를 2초로 설정후 y축은 5줄이면 
-                -> 2초*5줄=10초
+    예) x축 애니를 2초로 설정후 y축은 5줄이면 
+    -> 2초*5줄=10초
 
-                1. x축이동 : steps(장면수)
-                    background-position-x : 값;
+    1. x축이동 : steps(장면수)
+        background-position-x : 값;
 
-                2. y축이동 : steps(줄수)
-                    background-position-y : 값;
-         */
+    2. y축이동 : steps(줄수)
+        background-position-y : 값;
+ */
 
 /* 3-2.꼬마 */
 .spani2{
@@ -258,28 +258,47 @@ body {
 }
 
 /* 확대애니메이션 class */
+.big{
+    transition: .8s;
+}
+.big:hover{
+    /* 오버시 확대,멈춤,위로 */
+    transform: scale(3);
+    animation-play-state: paused;
+    z-index: 1;
+}
+/* 웃는여자용 */
+.big2:hover{
+    transform: scale(.7);
+}
 
 /* 
-            [ z-index 사용의 일반용법 ]
-            1. z-index는 static이 아닌 포지션에 적용된다!
-            2. z-index는 부모요소에 설정되지 않은 경우
-                자식요소급에 설정된 요소와 비교한다!
-            3. z-index는 부모요소에 설정된 경우 자식요소의
-                z-index를 높여도 부모급요소보다 올라갈 수 없다!
+[ z-index 사용의 일반용법 ]
+1. z-index는 static이 아닌 포지션에 적용된다!
+2. z-index는 부모요소에 설정되지 않은 경우
+    자식요소급에 설정된 요소와 비교한다!
+3. z-index는 부모요소에 설정된 경우 자식요소의
+    z-index를 높여도 부모급요소보다 올라갈 수 없다!
 
-            -> 테스트는 h1.mtit 요소와 .spani1요소를 비교해보라!
-         */
+-> 테스트는 h1.mtit 요소와 .spani1요소를 비교해보라!
+*/
 
 /* 3-4. 흐르는 자막 */
 .fcap{
     position: absolute;
-    /* 두배크기 */
-    width: 200%;
+    /* 가로크기는 스크린만큼 */
+    width: 100%;
+    /* 넘치는 자식요소 숨기기 */
+    overflow: hidden;
 }
+/* 이동애니메이션은 ol */
 .fcap ol{
+    position: relative;
+    left: 0;
     /* 플렉스박스 */
     display: flex;
-
+    /* 두배크기 */
+    width: 200%;
 
     /* 줄바꿈방지 */
     white-space: nowrap;
@@ -288,7 +307,10 @@ body {
     padding: 0;
     list-style: none;
 
-    outline: 4px dashed red;
+    /* 애니메이션: 이시이지반방마 */
+    animation: fcap 5s linear infinite;
+
+    /* outline: 4px dashed red; */
 }
 .fcap li{
     flex: 1;
@@ -299,9 +321,13 @@ body {
     color: #fff;
     text-shadow: 1px 1px 1px #000;
 
-
-    outline: 2px dotted lime;
+    /* outline: 2px dotted lime; */
 }
 
 /* 흐르는 글자 키프레임 */
+@keyframes fcap {
+    to{
+        left: -100%;
+    }
+}
 /* 키프레임 */
