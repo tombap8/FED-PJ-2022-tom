@@ -72,11 +72,24 @@ body {
     width: 1280px;
     height: 720px;
     background: url(../images/tvset.png) no-repeat;
+    /* 배경위치조정 */
+    background-position: -36px 0;
     /* 마영오! */
     margin: 0 auto;
 }
 
 /* 스크린 */
+.screen{
+    position: absolute;
+    top: 212px;
+    left: 414px;
+    width: 453px;
+    height: 228px;
+
+    /* 배경넣기 */
+    background: url(../images/street.jpg) repeat-x;
+    background-size: auto 100%;
+}
 
 /* 스크린배경이동 키프레임 */
 
