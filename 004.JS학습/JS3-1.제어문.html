@@ -397,6 +397,29 @@
         -> default문에는 break를 쓰지 않는다!
 
       *****************************************************/
+
+      /***************************************************** 
+        함수명: gugu
+        기능: 구구단을 출력한다!
+      *****************************************************/
+     function gugu(U){ // U는 자기자신을 보내는값을 담는변수
+        // 1. 호출확인
+        console.log("구구단을 외자!",U);
+        // 전달변수 U에 this로 전송된 요소자신이 왔으므로
+        // 내부의 선택값이 무었인지 읽을 수 있다!
+
+        // 2. 선택값 가져오기
+        var opt = U.value;
+        console.log("선택값:",opt);
+
+        
+
+
+     } ////////////////// gugu 함수 ///////////////////////
+     //////////////////////////////////////////////////////
+
+
+
         </script>
         <style>
             /* 칭찬스티커 */
@@ -420,6 +443,16 @@
                 width: 0;
                 height: 0;
                 overflow: hidden;
+            }
+            /* 구구단 출력박스 */
+            .gugu{
+                width: 300px;
+                height: 300px;
+                border: 2px dashed blue;
+                text-align: center;
+                margin-top: 10px;
+                /* 박스 y축 스크롤 */
+                overflow-y: scroll;
             }
         </style>
     </head>
@@ -473,5 +506,41 @@
         <label for="local">지역명 입력:</label>
         <input type="text" id="local" placeholder="지역명을 '도'를 빼고 쓰세요!" maxlength="10" onkeypress="if(event.keyCode===13)local()" />
         <button class="sbtn" onclick="local()">국번문의</button>
+
+
+        <br><br>
+        <hr>
+
+        <!-- for문 연습 -->
+        <h2>for문 연습</h2>
+        <h3>구구단 출력하기</h3>
+        <select name="sel" id="sel" onchange="gugu(this)">
+            <!-- 함수에 this라고 보내면 요소자신을 함수에 전송한다! -->
+            <option value="1">구구단을 선택하세요!</option>
+            <option value="2">2단</option>
+            <option value="3">3단</option>
+            <option value="4">4단</option>
+            <option value="5">5단</option>
+            <option value="6">6단</option>
+            <option value="7">7단</option>
+            <option value="8">8단</option>
+            <option value="9">9단</option>
+            <option value="10">10단</option>
+            <option value="11">11단</option>
+            <option value="12">12단</option>
+            <option value="13">13단</option>
+            <option value="14">14단</option>
+            <option value="15">15단</option>
+            <option value="16">16단</option>
+            <option value="17">17단</option>
+            <option value="18">18단</option>
+            <option value="19">19단</option>
+            <option value="20">20단</option>
+        </select>
+        <!-- 구구단 출력박스 -->
+        <div class="gugu g1"></div>
+
+
+
     </body>
 </html>
