@@ -116,7 +116,7 @@ body {
     /* 애니메이션: 이시이지반방마 */
     animation: spani1 1s steps(8) infinite;
 
-    outline: 5px solid red;
+    /* outline: 5px solid red; */
 }
 
 /* 걷는존 키프레임 */
@@ -164,17 +164,85 @@ body {
          */
 
 /* 3-2.꼬마 */
+.spani2{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 72px;
+    background: url(../images/spAni01.png) no-repeat;
+
+    /* 애니메이션: 이시이지반방마 */
+    animation: spani2 1s steps(10) infinite;
+}
 
 /* 꼬마 키프레임 */
+@keyframes spani2 {
+    to{
+        background-position: -500px 0;
+    }
+}
 /* 키프레임 */
 
 /* 3-3.몬스터 */
+.spani3{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 118px;
+    height: 118px;
+    background: url(../images/spAni02.png) no-repeat;
+
+    /* 애니메이션: 이시이지반방마 */
+    animation: 
+    spani3X 1s steps(6) infinite,
+    spani3Y 3s steps(3) infinite;
+    /* x축은 6장면을 1초간 작동
+    y축은 3줄을 3초간 작동 */
+}
 
 /* 몬스터 키프레임 X축 */
+@keyframes spani3X {
+    to{
+        background-position-x: -710px;
+    }
+    /* x축은 가로크기를 마이너스로 씀 */
+}
+/* 몬스터 키프레임 Y축 */
+@keyframes spani3Y {
+    to{
+        background-position-y: -355px;
+    }
+    /* y축은 세로크기를 마이너스로 씀 */
+}
 
 /* 웃는여자 */
+.spani4{
+    position: absolute;
+    top: 7vh;
+    right: 0;
+    width: 256px;
+    /* 전체 width 1280px / 5장면 */
+    height: 407px;
+    /* 전체 height 1222px / 3줄 */
+    background: url(../images/girl_frames.png) no-repeat;
 
+    border: 20px ridge brown;
+    
+
+}
 /* 웃는여자 키프레임 X축 */
+@keyframes spani4X {
+    to{
+        background-position-x: -1280px;
+    }
+}
+/* 웃는여자 키프레임 Y축 */
+@keyframes spani4Y {
+    to{
+        background-position-y: -1222px;
+    }
+}
 
 /* 확대애니메이션 class */
 
