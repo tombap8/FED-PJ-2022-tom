@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>샐(장면넘기기)애니메이션</title>
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+    <style>
+        /*
+            웹폰트체
+            font-family: 'Gloria Hallelujah', cursive;
+            font-family: 'ZCOOL KuaiLe', cursive;
+        */
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #8cc63e;
+        }
+
+        /* 공통class */
+        .ir {
+            /* IR(배경설명숨기기) */
+            display: block;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+        }
+
+        /* 1. 타이틀 */
+        
+
+        /* 2.메뉴 */
+        
+        
+
+        /* 3. TV셋 */
+        
+
+        /* 스크린 */
+        
+
+        /* 스크린배경이동 키프레임 */
+        
+        /* 키프레임 */
+
+        /* 3-1.걷는존 */
+        
+
+        /* 걷는존 키프레임 */
+        
+
+        /* 키프레임 */
+
+        /* 
+            [ 스프라이츠를 이용한 장면 넘기기 애니를 하려면? ]
+            1. 배경이미지 전체 길이를 알아야함
+            -> 이유: 이동셋팅시 가로이동일 경우에 전체길이값을 써야함!
+
+            (비율이 유지되는 이미지이므로 가로/세로중 한쪽값을 변경하면
+            다른쪽값은 자동으로 변경된다!)
+
+            참고) 비례식사용
+                가로 : 세로 = 1472px : 325px = x : 176px
+                x = 1472*176/325 = 797.14
+                전체가 8장면 이므로 한 장면당 100px(99.625px)로 정해짐
+            
+            2. 코딩법:
+
+                animation: 이름 시간 steps(장면개수) infinite;
+
+                -> 장면찍는 steps를 사용할때는 이징(가속도)불필요!
+
+                [ 여러줄 애니메이션 처리법 ]
+                배경이미지 이동을 x,y축으로 분리하여 셋팅함
+
+                1. x축이동 : steps(장면수)
+                    background-position-x : 값;
+
+                2. y축이동 : steps(줄수)
+                    background-position-y : 값;
+         */
+
+        /* 3-2.꼬마 */
+        
+
+        /* 꼬마 키프레임 */
+        /* 키프레임 */
+
+        /* 3-3.몬스터 */
+        
+        /* 몬스터 키프레임 X축 */
+        
+
+
+        /* 웃는여자 */
+        
+        /* 웃는여자 키프레임 X축 */
+        
+
+
+        /* 확대애니메이션 class */
+        
+
+        /* 
+            [ z-index 사용의 일반용법 ]
+            1. z-index는 static이 아닌 포지션에 적용된다!
+            2. z-index는 부모요소에 설정되지 않은 경우
+                자식요소급에 설정된 요소와 비교한다!
+            3. z-index는 부모요소에 설정된 경우 자식요소의
+                z-index를 높여도 부모급요소보다 올라갈 수 없다!
+
+            -> 테스트는 h1.mtit 요소와 .spani1요소를 비교해보라!
+         */
+
+        /* 3-4. 흐르는 자막 */
+        
+
+        /* 흐르는 글자 키프레임 */
+        /* 키프레임 */
+
+
+    </style>
+</head>
+
+<body>
+    <!-- 1.제목 -->
+    <h1 class="mtit">John's Television</h1>
+    <!-- 2.메뉴 -->
+    <nav class="gnb">
+        <ul>
+            <li>
+                <a href="#">Watching</a>
+            </li>
+            <li>
+                <a href="#">Eating</a>
+            </li>
+            <li>
+                <a href="#">Listening</a>
+            </li>
+            <li>
+                <a href="#">Sleeping</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- 3. TV박스 -->
+    <section class="tvset">
+        <!-- 스크린 -->
+        <div class="screen">
+
+            <!-- 3-1.걷는존 -->
+            <div class="spani1 big">
+                <span class="ir">걷는존</span>
+            </div>
+
+            <!-- 3-2.꼬마 -->
+            <div class="spani2 big">
+                <span class="ir">손흔드는 꼬마</span>
+            </div>
+
+            <!-- 3-3.몬스터 -->
+            <div class="spani3 big">
+                <span class="ir">머리흔드는 몬스터</span>
+            </div>
+
+            <!-- 3-4.흐르는자막 -->
+            <!-- <div class="fcap">
+                <ol>
+                    <li>John's TV</li>
+                    <li>John's TV</li>
+                    <li>John's TV</li>
+                    <li>John's TV</li>
+                    <li>John's TV</li>
+                    <li>John's TV</li>
+                    <li>John's TV</li>
+                    <li>John's TV</li>
+                </ol>
+            </div> -->
+
+        </div><!-- .screen -->
+    </section>
+
+    <!-- 추가애니 -->
+    <!-- <div class="spani4 big big2">
+        <span class="ir">웃는여자</span>
+    </div> -->
+
+</body>
+
+</html>
