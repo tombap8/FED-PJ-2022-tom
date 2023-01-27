@@ -271,6 +271,37 @@ body {
          */
 
 /* 3-4. 흐르는 자막 */
+.fcap{
+    position: absolute;
+    /* 두배크기 */
+    width: 200%;
+}
+.fcap ol{
+    /* 플렉스박스 */
+    display: flex;
+
+
+    /* 줄바꿈방지 */
+    white-space: nowrap;
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    outline: 4px dashed red;
+}
+.fcap li{
+    flex: 1;
+    /* 플렉스자식요소 등분할 */
+    text-align: center;
+
+    font: bold 14px/20px Verdana;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+
+
+    outline: 2px dotted lime;
+}
 
 /* 흐르는 글자 키프레임 */
 /* 키프레임 */
