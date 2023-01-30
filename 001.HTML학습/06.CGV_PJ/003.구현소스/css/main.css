@@ -180,19 +180,23 @@ body{
 }
 /* 영사기 이미지 */
 #cam img{
+    position: relative;
+    z-index: 1;
+    /* 영사기가 위! */
     width: 50px;
+    transform: rotate(25deg);
 }
 /* 빔박스 */
 .beam{
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 200px;
+    top: -16px;
+    right: 13px;
+    width: 0;/* 200px; */
     height: 70px;
     background: url(../images/bim.png) no-repeat;
     background-position: right center;
     background-size: auto 100%;
-    outline: 2px dotted lime;
+    /* outline: 2px dotted lime; */
 }
 
 
