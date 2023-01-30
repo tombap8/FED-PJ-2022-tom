@@ -72,7 +72,7 @@
     .smbx,
     .gnb > ul > li > a::after,
     .gnb {
-        display: none;
+        /* display: none; */
     }
     /* GNB메뉴 변경하기 
     -> .top에 .on을 준 경우 적용됨!
@@ -90,7 +90,13 @@
     nav.gnb ul {
         flex-direction: column;
         text-align: center;
-        margin-top: 15vh;
+        margin-top: 20vh;
+    }
+    /* li셋팅 */
+    .gnb > ul > li {
+        margin: 0;
+        height: 10vh;
+        /* li가 6개이므로 보이는 높이의 60%차지함 */
     }
     /* GNB상위메뉴 a변경 */
     .gnb > ul > li > a {
@@ -118,6 +124,24 @@
     }
     .top.on .ham::before {
         content: '×';
+    }
+
+    /* 탑메뉴 */
+    aside.tmenu {
+        position: fixed;
+        z-index: 99999;
+        width: 100vw;
+        top: 85vh;
+    }
+    .tmenu ul {
+        /* 플렉스 진행방향 중앙 */
+        justify-content: center;
+    }
+    
+    .tmenu > ul > li > a {
+        /* 글자크기,색 */
+        color: #fff;
+        font-size: 6vw;
     }
 
 

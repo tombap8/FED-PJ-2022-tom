@@ -19,7 +19,7 @@ body{
     /* 콤마로 구분하여 여러 배경이미지를 넣을 수 있고
     먼저쓴 이미지가 위에 온다! */
     background: 
-    url(../images/bg_logo_a_01.png) no-repeat fixed 10% 20%/10%,
+    url(../images/bg_logo_a_01.png) no-repeat fixed 10% 28%/10%,
     url(../images/bg_mainvisual.jpg) no-repeat fixed center/cover;
     /* 외부CSS에서 이미지 경로를 잡을때 주의사항!
     -> CSS파일 위치에서 이미지를 찾아가야함! */
