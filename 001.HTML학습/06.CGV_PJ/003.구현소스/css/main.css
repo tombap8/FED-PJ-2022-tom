@@ -177,6 +177,8 @@ body{
     position: absolute;
     bottom: -10px;
     right: -60px;
+    z-index: -1;
+    /* 메뉴보다 아래! */
 }
 /* 영사기 이미지 */
 #cam img{
