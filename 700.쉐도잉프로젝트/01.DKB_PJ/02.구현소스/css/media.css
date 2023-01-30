@@ -72,7 +72,12 @@
     .smbx,
     .gnb > ul > li > a::after,
     .gnb {
-        /* display: none; */
+        display: none;
+    }
+    
+    /* 탑메뉴도 .top.on일때 나타남! */
+    .top.on .tmenu{
+        display: block;
     }
     /* GNB메뉴 변경하기 
     -> .top에 .on을 준 경우 적용됨!
@@ -136,6 +141,19 @@
     .tmenu ul {
         /* 플렉스 진행방향 중앙 */
         justify-content: center;
+        /* 플렉스 랩핑설정 */
+        flex-wrap: wrap;
+    }
+    .tmenu > ul > li:last-child{
+        /* 마지막 li 100% - 한줄차지! */
+       width: 100%;
+    }
+    /* sns메뉴 */
+    .tmenu ol {
+        display: flex;
+        justify-content: center;
+        margin-top: 2vh;
+        transform: scale(1.5);
     }
     
     .tmenu > ul > li > a {
