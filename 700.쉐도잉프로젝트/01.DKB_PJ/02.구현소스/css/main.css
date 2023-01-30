@@ -30,6 +30,8 @@ body{
 /**************** 메인영역 ****************/
 /* 메인영역 속박스 */
 .cont{
+    position: relative;
+    /* 부모자격 - #mvtxt */
     overflow: hidden;
     /* 자식요소 위,아래 마진 포함 */
 }
@@ -208,7 +210,7 @@ body{
 /* 등장글자 이미지 */
 #mvtxt{
     position: absolute;
-    top: 30vh;
+    top: 15vh;
     right: 5vw;
     width: min(20vw,327px);
 }
