@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if문 연습</title>
+    <!-- 웹폰트 CDN -->
+    <link href="https://fonts.googleapis.com/css?family=Audiowide&amp;display=swap" rel="stylesheet">
+    <style>
+        /* 타이틀 */
+        .tit {
+            text-align: center;
+            font: bold 72px/100px 'Audiowide';
+        }
+
+        /* 스틸컷장면박스 */
+        .photo {
+            text-align: center;
+            /* 인라인요소 가로중앙정렬 */
+            background-color: skyblue;
+            padding: 20px;
+            margin-bottom: 50px;
+        }
+
+        /* 메인이미지 */
+        #scene {
+            height: 290px;
+            /* width는 비율에 맞게 자동임! */
+        }
+
+        /* 선택버튼박스 */
+        .btnbx {
+            text-align: center;
+            /* 버튼요소는 인라인블록이지만 
+            인라인특성이 있으므로 글자중앙정렬적용됨! */
+        }
+
+        /* 버튼공통 */
+        .btns {
+            font-size: 42px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 전체 타이틀 -->
+    <h1 class="tit">All New Aladin</h1>
+
+    <!-- 스틸컷장면박스 -->
+    <div class="photo">
+        <img id="scene" src="./images/ala1.jpg" alt="알라딘스틸컷">
+    </div>
+
+    <!-- 선택버튼박스 -->
+    <div class="btnbx">
+        <button class="btns">포스터</button>
+        <button class="btns">장면1</button>
+        <button class="btns">장면2</button>
+        <button class="btns">장면3</button>
+    </div>
+
+</body>
+
+</html>
