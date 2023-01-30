@@ -80,10 +80,10 @@ body.on::after{
     /* 애니메이션: 이시지이반방마 */
     animation: cover .1s 6.5s forwards;
 }
-/* 가리막 키프레임 */
+/* 가림막 키프레임 */
 @keyframes cover {
     to{
         height: 0;
     }
 }
-/* 가리막 키프레임 */
+/* 가림막 키프레임 */
