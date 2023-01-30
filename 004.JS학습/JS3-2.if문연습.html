@@ -1,49 +1,47 @@
 <!DOCTYPE html>
 <html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>if문 연습</title>
+        <!-- 웹폰트 CDN -->
+        <link href="https://fonts.googleapis.com/css?family=Audiowide&amp;display=swap" rel="stylesheet" />
+        <style>
+            /* 타이틀 */
+            .tit {
+                text-align: center;
+                font: bold 72px/100px "Audiowide";
+            }
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>if문 연습</title>
-    <!-- 웹폰트 CDN -->
-    <link href="https://fonts.googleapis.com/css?family=Audiowide&amp;display=swap" rel="stylesheet">
-    <style>
-        /* 타이틀 */
-        .tit {
-            text-align: center;
-            font: bold 72px/100px 'Audiowide';
-        }
+            /* 스틸컷장면박스 */
+            .photo {
+                text-align: center;
+                /* 인라인요소 가로중앙정렬 */
+                background-color: skyblue;
+                padding: 20px;
+                margin-bottom: 50px;
+            }
 
-        /* 스틸컷장면박스 */
-        .photo {
-            text-align: center;
-            /* 인라인요소 가로중앙정렬 */
-            background-color: skyblue;
-            padding: 20px;
-            margin-bottom: 50px;
-        }
+            /* 메인이미지 */
+            #scene {
+                height: 290px;
+                /* width는 비율에 맞게 자동임! */
+            }
 
-        /* 메인이미지 */
-        #scene {
-            height: 290px;
-            /* width는 비율에 맞게 자동임! */
-        }
-
-        /* 선택버튼박스 */
-        .btnbx {
-            text-align: center;
-            /* 버튼요소는 인라인블록이지만 
+            /* 선택버튼박스 */
+            .btnbx {
+                text-align: center;
+                /* 버튼요소는 인라인블록이지만 
             인라인특성이 있으므로 글자중앙정렬적용됨! */
-        }
+            }
 
-        /* 버튼공통 */
-        .btns {
-            font-size: 42px;
-        }
-    </style>
-    <script>
-
-        /************************************************* 
+            /* 버튼공통 */
+            .btns {
+                font-size: 42px;
+            }
+        </style>
+        <script>
+            /************************************************* 
             [ DOM요소 로딩후 실행구역 설정하기 ]
 
             1. 왜 로딩구역 설정이 필요한가?
@@ -85,20 +83,18 @@
 
         *************************************************/
 
-        // 대상: window -> 창을 관할하는 최상위 객체
-        // -> 페이지 전체 로딩이벤트 설정시 많이 사용됨!
-        // window.addEventListener(이벤트명,함수);
+            // 대상: window -> 창을 관할하는 최상위 객체
+            // -> 페이지 전체 로딩이벤트 설정시 많이 사용됨!
+            // window.addEventListener(이벤트명,함수);
 
-        // window.addEventListener("load",setEvt);
-        window.addEventListener("DOMContentLoaded",setEvt);
+            // window.addEventListener("load",setEvt);
+            window.addEventListener("DOMContentLoaded", setEvt);
 
-        // 익명함수로 직접 코드를 구현하기도함!
-        // window.addEventListener("DOMContentLoaded",
-        // function(){구현코드});
+            // 익명함수로 직접 코드를 구현하기도함!
+            // window.addEventListener("DOMContentLoaded",
+            // function(){구현코드});
 
-
-
-        /************************************************* 
+            /************************************************* 
             [ JS 기능정의 ]
             -> 버튼을 클릭하면 버튼별로 해당 이미지를
             본 화면 메인의 이미지태그의 src속성을 변경한다!
@@ -109,72 +105,92 @@
             4. 변경 내용 : 메인 이미지의 src속성 변경
         *************************************************/
 
-        /*********************************************** 
+            /*********************************************** 
             함수명 : setEvt
             기능 : 버튼에 클릭이벤트 설정하기
         ***********************************************/
-       function setEvt(){
-           // 1. 이벤트 대상 : .btns
-           var btns = document.querySelectorAll(".btns");
-           console.log("버튼들:",btns);
+            function setEvt() {
+                // 1. 이벤트 대상 : .btns
+                var btns = document.querySelectorAll(".btns");
+                console.log("버튼들:", btns);
 
-           // 2. 이벤트 함수와 연결하기
-           // 클릭이벤트속성에 함수를 할당하는 방식으로 연결
-           // onclick = 함수
-           // 함수를 사용시 보낼값이 없다면 함수명만사용
-           // 보낼값이 있다면 익명함수사용
+                // 2. 이벤트 함수와 연결하기 //////////////////
 
-           // (1) 아무전달값이 없는 함수일 경우 함수명만 씀!
-            // btns.item(1).onclick = chgImg;
-            
-            // (2) 전달값이 있는 함수일 경우 소괄호를 쓰면 바로실행됨!
-            // 그리고 onclick 이벤트에 할당되지도 않는다!!!
-            // btns.item(1).onclick = chgImg('ㅎㅎ');
+                // [1] 클릭이벤트속성에 함수를 할당하는 방식으로 연결
+                // onclick = 함수
 
-            // (3) 전달값이 있는 함수일 경우 익명함수안에 전달값을 표현
-            // 해야만 바로 실행되지 않고 이벤트속성에 할당된다!
-            btns.item(1).onclick = function(){chgImg('ㅎㅎ');};
+                // 함수를 사용시 보낼값이 없다면 함수명만사용
+                // 보낼값이 있다면 익명함수사용
 
-            // 익명함수란 이름이 없는 함수본체만 있는 함수
-            // function(전달변수){코드}
-            // 특징: 코드가 바로실행되지 않고 저장만 함
-            // 주로 어떤 변수나 메서드의 코드를 저장할때 사용됨!
+                // (1) 아무전달값이 없는 함수일 경우 함수명만 씀!
+                // btns.item(1).onclick = chgImg;
 
-       } //////////////////// setEvt 함수 /////////////////
-       ////////////////////////////////////////////////////
+                // (2) 전달값이 있는 함수일 경우 소괄호를 쓰면 바로실행됨!
+                // 그리고 onclick 이벤트에 할당되지도 않는다!!!
+                // btns.item(1).onclick = chgImg('ㅎㅎ');
 
-       /*************************************************** 
+                // (3) 전달값이 있는 함수일 경우 익명함수안에 전달값을 표현
+                // 해야만 바로 실행되지 않고 이벤트속성에 할당된다!
+                // btns.item(1).onclick = function () {
+                //     chgImg("ㅎㅎ");
+                // };
+
+                // 익명함수란 이름이 없는 함수본체만 있는 함수
+                // function(전달변수){코드}
+                // 특징: 코드가 바로실행되지 않고 저장만 함
+                // 주로 어떤 변수나 메서드의 코드를 저장할때 사용됨!
+
+                // [2] addEventListener() 내장함수 사용하여 연결
+                // 위의 경우과 같은 이유로 전달값이 있는 경우
+                // 익명함수를 사용하여 함수구역을 표현한다!
+                // btns.item(2).addEventListener("click", function () {
+                //     chgImg("넌,누구냐?");
+                // });
+
+
+                // **** 버튼 4개를 모두 이벤트 셋팅하기 **** //
+                // for문 사용 : for(시;한;증){}
+                // 버튼 개수만큼 돌아준다!
+
+                // 버튼개수 : length -> 요소의 개수를 리턴함!
+                var bcnt = btns.length;
+                console.log("버튼개수:",bcnt);
+
+
+
+
+
+            } //////////////////// setEvt 함수 /////////////////
+            ////////////////////////////////////////////////////
+
+            /*************************************************** 
             함수명 : chgImg
             기능 : 이미지 src를 변경함!
        ***************************************************/
-      function chgImg(U){ // U - 전달변수 : 이벤트가 발생한 요소
-        // 1. 함수호출확인
-        console.log("나야나!",U);
+            function chgImg(U) {
+                // U - 전달변수 : 이벤트가 발생한 요소
+                // 1. 함수호출확인
+                console.log("나야나!", U);
+            } //////////////////// chgImg 함수 //////////////////
+            /////////////////////////////////////////////////////
+        </script>
+    </head>
 
-      } //////////////////// chgImg 함수 //////////////////
-      /////////////////////////////////////////////////////
+    <body>
+        <!-- 전체 타이틀 -->
+        <h1 class="tit">All New Aladin</h1>
 
+        <!-- 스틸컷장면박스 -->
+        <div class="photo">
+            <img id="scene" src="./images/ala1.jpg" alt="알라딘스틸컷" />
+        </div>
 
-
-    </script>
-</head>
-
-<body>
-    <!-- 전체 타이틀 -->
-    <h1 class="tit">All New Aladin</h1>
-
-    <!-- 스틸컷장면박스 -->
-    <div class="photo">
-        <img id="scene" src="./images/ala1.jpg" alt="알라딘스틸컷">
-    </div>
-
-    <!-- 선택버튼박스 -->
-    <div class="btnbx">
-        <button class="btns">포스터</button>
-        <button class="btns">장면1</button>
-        <button class="btns">장면2</button>
-        <button class="btns">장면3</button>
-    </div>
-</body>
-
+        <!-- 선택버튼박스 -->
+        <div class="btnbx">
+            <button class="btns">포스터</button>
+            <button class="btns">장면1</button>
+            <button class="btns">장면2</button>
+            <button class="btns">장면3</button>
+        </div>
+    </body>
 </html>
