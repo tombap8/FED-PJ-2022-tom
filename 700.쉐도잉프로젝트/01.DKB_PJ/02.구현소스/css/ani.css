@@ -5,7 +5,7 @@
 /* 전제조건:
 모든 애니메이션은 body.on 인 경우에 적용됨! */
 
-/* 1. 드라마 문구 등장애니 */
+/*********** 1. 드라마 문구 등장애니 ***********/
 /* 초기화 */
 body.on #mvtxt{
     /* 자신의 위치에서 오른쪽 아래로 이동 */
@@ -22,3 +22,29 @@ body.on #mvtxt{
         opacity: 1;
     }
 }/* 키프레임 */
+
+/********* 2. 캐릭터박스 순서대로 등장하기 *********/
+/* 초기화 */
+body.on .cat{
+    transform: translateY(-500%);
+
+    /* 애니메이션: 이시이지(반방)마 */
+    animation: cat 2s ease-out 2s forwards;
+}
+/* 애니메이션 지연시간 셋팅 */
+body.on .cat:nth-child(2){
+    animation-delay: 2.5s;
+}
+body.on .cat:nth-child(3){
+    animation-delay: 3s;
+}
+body.on .cat:nth-child(4){
+    animation-delay: 3.5s;
+}
+/* 키프레임 */
+@keyframes cat {
+    to{
+        transform: translateY(0);
+    }
+}
+/* 키프레임 */
