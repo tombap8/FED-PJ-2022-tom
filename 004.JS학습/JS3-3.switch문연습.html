@@ -41,11 +41,10 @@
             }
         </style>
         <script>
-
             // 대상: window -> 창을 관할하는 최상위 객체
             window.addEventListener("DOMContentLoaded", setEvt);
 
-        /************************************************* 
+            /************************************************* 
             [ JS 기능정의 ]
             -> 버튼을 클릭하면 버튼별로 해당 이미지를
             본 화면 메인의 이미지태그의 src속성을 변경한다!
@@ -56,7 +55,7 @@
             4. 변경 내용 : 메인 이미지의 src속성 변경
         *************************************************/
 
-       /*********************************************** 
+            /*********************************************** 
             함수명 : setEvt
             기능 : 버튼에 클릭이벤트 설정하기
         ***********************************************/
@@ -101,14 +100,22 @@
                 var scene = document.querySelector("#scene");
 
                 // 4. 할당될 src값 만들기 : switch문사용!
-                var isrc;// 이미지경로변수
+                var isrc; // 이미지경로변수
 
-                switch(){
-
+                switch (btxt) {
+                    case "포스터":
+                        isrc = "./images/ala1.jpg";
+                        break;
+                    case "장면1":
+                        isrc = "./images/ala4.jpg";
+                        break;
+                    case "장면2":
+                        isrc = "./images/ala3.jpg";
+                        break;
+                    case "장면3":
+                        isrc = "./images/ala2.jpg";
+                        break;
                 } ///////////// switch case문 ////////
-
-
-
 
                 // if(btxt === "포스터"){
                 //     isrc = "./images/ala1.jpg";
@@ -129,10 +136,8 @@
                 // scene.src = isrc;
 
                 // 2) setAttribute(속성명,값) 내장함수 이용하기
-                scene.setAttribute("src",isrc);
+                scene.setAttribute("src", isrc);
                 // 참고) getAttribute(속성명) -> 속성값 읽어오기 내장함수
-
-
             } //////////////////// chgImg 함수 //////////////////
             /////////////////////////////////////////////////////
         </script>
