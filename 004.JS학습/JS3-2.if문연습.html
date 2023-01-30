@@ -204,9 +204,13 @@
                 } // else if ////
 
                 // [ src속성 변경하기 ]
+
                 // 1) 속성에 할당하여 변경하기
-                scene.src = isrc;
+                // scene.src = isrc;
+
                 // 2) setAttribute(속성명,값) 내장함수 이용하기
+                scene.setAttribute("src",isrc);
+                // 참고) getAttribute(속성명) -> 속성값 읽어오기 내장함수
 
 
             } //////////////////// chgImg 함수 //////////////////
