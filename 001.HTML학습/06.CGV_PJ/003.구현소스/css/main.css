@@ -172,6 +172,29 @@ body{
     border-top: 1px solid #ccc;
 }
 
+/* 영사기박스 */
+#cam{
+    position: absolute;
+    bottom: -10px;
+    right: -60px;
+}
+/* 영사기 이미지 */
+#cam img{
+    width: 50px;
+}
+/* 빔박스 */
+.beam{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 70px;
+    background: url(../images/bim.png) no-repeat;
+    background-position: right center;
+    background-size: auto 100%;
+    outline: 2px dotted lime;
+}
+
 
 /**************** 2.메인영역 ****************/
 /* 속박스 */
