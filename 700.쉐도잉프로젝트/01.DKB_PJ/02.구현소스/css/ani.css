@@ -2,3 +2,23 @@
 
 /* 도깨비 PJ 메인 페이지 애니메이션 CSS - ani.css */
 
+/* 전제조건:
+모든 애니메이션은 body.on 인 경우에 적용됨! */
+
+/* 1. 드라마 문구 등장애니 */
+/* 초기화 */
+body.on #mvtxt{
+    /* 자신의 위치에서 오른쪽 아래로 이동 */
+    transform: translate(100%,100%);
+    /* 투명 */
+    opacity: 0;
+    /* 애니메이션: 이시이지(반방)마 */
+    animation: mvtxt 2s ease-out 1s forwards;
+}
+/* 키프레임 */
+@keyframes mvtxt {
+    to{
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+}/* 키프레임 */
