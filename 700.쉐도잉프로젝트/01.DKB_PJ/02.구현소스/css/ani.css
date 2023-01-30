@@ -48,3 +48,19 @@ body.on .cat:nth-child(4){
     }
 }
 /* 키프레임 */
+
+/*********** 3. 상단영역 등장 애니메이션 ***********/
+/* 초기화 */
+body.on #top{
+    transform: translateY(-100%);
+
+    /* 애니메이션: 이시이지(반방)마 */
+    animation: topAni 1.5s ease-out 5s forwards;
+}
+/* 키프레임 */
+@keyframes topAni {
+    to{
+        transform: translateY(0);
+    }
+}
+/* 키프레임 */
