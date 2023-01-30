@@ -215,7 +215,15 @@ body{
     width: 200px;
     /* 카메라 도는 0.5초 기다림 */
     transition-delay: .5s;
+    /* 애니메이션: 이시이지반방마 */
+    animation: beamAni .01s linear infinite alternate;
 }
+/* 빔 빛흔들리기 애니 키프레임 */
+@keyframes beamAni {
+    to{
+        opacity: 0.5;
+    }
+}/* 키프레임 */
 
 
 /**************** 2.메인영역 ****************/
