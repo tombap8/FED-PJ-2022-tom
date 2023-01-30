@@ -185,6 +185,15 @@ body{
     /* 영사기가 위! */
     width: 50px;
     transform: rotate(25deg);
+    /* 트랜지션: 속시이지 
+    - 돌아올때 0.3초 빔시간 기다림*/
+    transition: .5s ease-out .3s;
+}
+/* .gnb에 오버시 영사기회전 */
+.gnb:hover #cam img{
+    transform: rotate(0deg);
+    /* 오버시 기다림 없음 */
+    transition-delay: 0s;
 }
 /* 빔박스 */
 .beam{
@@ -197,6 +206,15 @@ body{
     background-position: right center;
     background-size: auto 100%;
     /* outline: 2px dotted lime; */
+
+    /* 트랜지션: 속시이지 */
+    transition: .3s ease-out;
+}
+/* .gnb에 오버시 빔쏘기 */
+.gnb:hover #cam .beam{
+    width: 200px;
+    /* 카메라 도는 0.5초 기다림 */
+    transition-delay: .5s;
 }
 
 
