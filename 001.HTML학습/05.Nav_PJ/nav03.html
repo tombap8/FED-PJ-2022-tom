@@ -87,6 +87,21 @@
             outline: 2px dashed yellow;
         }
 
+        /* 로고 */
+        .logo img{
+            height: 50px;
+        }
+        /* 로고 두번째 이미지 처음에 숨김 */
+        /* #top오버시 첫번째 로고 숨기기 */
+        .logo img:last-child,
+        #top:hover .logo img:first-child{
+            display: none;
+        }
+        /* #top오버시 두번째 로고 보이기 */
+        #top:hover .logo img:last-child{
+            display: inline;
+        }
+
         /* 네비게이션 박스 */
         .gnb{
             position: relative;
@@ -114,6 +129,15 @@
         .gnb dt{
             line-height: 110px;
         }
+        .gnb dt a{            
+            /* 트랜지션: 속시이지 */
+            transition: .4s ease-in-out;
+        }
+        /* #top오버시 dt a 글자색 변경 */
+        #top:hover .gnb dt a{        
+            color: #222;
+        }
+
         /* 서브메뉴 : dd */
         .gnb dd{
             line-height: 40px;
@@ -138,7 +162,10 @@
             <div>
                 <h1 class="logo">
                     <a href="#">
+                        <!-- 오버전 이미지 -->
                         <img src="./images/nav03/logo_w.png" alt="로고">
+                        <!-- 오비시 이미지 -->
+                        <img src="./images/nav03/logo_b.png" alt="로고">
                     </a>
                 </h1>
             </div>
