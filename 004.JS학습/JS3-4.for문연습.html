@@ -58,29 +58,30 @@
                 // for문으로 버튼개수만큼 돌아서 셋팅하기!
                 // for(시;한;증){코드}
                 for (var i = 0; i < mini.length; i++) {
-                    // 반복조건: 0부터시작 
-                    // mini개수보다 작을동안 
+                    // 반복조건: 0부터시작
+                    // mini개수보다 작을동안
                     // 1씩증가하면서 돈다!
 
-                    console.log("돌아!",i);
+                    console.log("돌아!", i);
                     // 1. 미니언즈 이미지마다 클릭설정하기
-                    mini[i].onclick = function(){
+                    mini[i].onclick = function () {
                         // 1. 클릭된 이미지의 data-cnt값 읽어오기
                         var cnt = this.getAttribute("data-cnt");
                         // getAttribute(속성명) -> 속성값 읽어오기
                         // alert("나는 몇개?"+cnt);
 
                         // 2. 파란상자에 미니언즈 넣기
-                        Bcase.innerHTML = `
-                        <img src="./images/Minions.png" alt="미니언즈">`;
-
-
-
+                        // += 대입연산자로 기존데이터에 더함!
+                        // for문으로 반복개수만큼 미니언즈 넣기!
+                        // for(시;한;증){코드}
+                        for (var j = 0; j < cnt; j++) {
+                            Bcase.innerHTML += `
+                            <img src="./images/Minions.png" alt="미니언즈">`;
+                        } ////// for문 ////////
                     }; ////// click 이벤트함수 ///////
 
                     // mini.item(순번)
                     // mini[순번]
-
                 } ////////// for문 /////////////
             } ////////////// loadFn 함수 ///////////////
             ////////////////////////////////////////////
