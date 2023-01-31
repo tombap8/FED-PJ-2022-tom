@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3. 가로네비 서브 전체 드롭다운 전체창</title>
     <style>
+        /* 웹폰트 CDN */
+        @import url('https://fonts.googleapis.com/css2?family=Maven+Pro&family=Noto+Sans+KR&display=swap');
+
+        /* 
+        font-family: 'Maven Pro', sans-serif;
+        font-family: 'Noto Sans KR', sans-serif; 
+        */
+
+
+
         /* 초기화 */
         html,body,h1,dl,dt,dd,ul,ol{
             margin: 0;
@@ -31,15 +41,70 @@
         }
 
         /* 1. 상단영역 */
+        /* 겉박스 */
+        #top{
+            position: relative;
+            /* 부모자격 */
+
+        }
+        
+        /* #top 가상요소로 배경색넣기 */
+        #top::after{
+            content: '';
+            position: absolute;
+            top: 110px;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background-color: #fff;
+            /* 트랜지션: 속시이지 */
+            transition: .4s ease-in-out;
+        }
+        /* #top오버시 가상요소 */
+        #top:hover::after{
+            height: 400px;
+        }
+
+        /* 속박스 */
         .top{
             /* 플렉스박스 */
             display: flex;
             max-width: 1600px;
             margin: 0 auto;
+
+            /* 웹폰트 적용 */
+            font-family: 'Maven Pro', 'Noto Sans KR', sans-serif; 
         }
         /* 상단영역 직계요소들 - 파티션 박스 */
         .top>div{
             outline: 2px dashed yellow;
+        }
+
+        /* 네비게이션 박스 */
+        .gnb{
+            position: relative;
+            z-index: 1;
+            /* 플렉스박스 */
+            display: flex;
+        }
+
+
+        .gnb dl{
+            text-align: center;
+        }
+        .gnb dl+dl{
+            margin-left: 50px;
+        }
+        /* 최상위메뉴 : dt */
+        .gnb dt{
+            line-height: 110px;
+        }
+        /* 서브메뉴 : dd */
+        .gnb dd{
+            line-height: 40px;
+        }
+        .gnb dd a{
+            color: #222;
         }
 
     </style>
@@ -52,7 +117,7 @@
     </h1>
 
     <!-- 네비게이션 전체 박스 -->
-    <div>
+    <div id="top">
         <header class="top">
             <!-- 1.로고파트 -->
             <div>
