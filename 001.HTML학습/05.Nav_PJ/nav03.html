@@ -92,13 +92,19 @@
             height: 50px;
         }
         /* 로고 두번째 이미지 처음에 숨김 */
-        /* #top오버시 첫번째 로고 숨기기 */
         .logo img:last-child,
-        #top:hover .logo img:first-child{
+        /* .store 두번째 이미지 처음에 숨김 */
+        .store img:last-child,
+        /* #top오버시 첫번째 로고 숨기기 */
+        #top:hover .logo img:first-child,
+        /* #top오버시 .store 첫번째 이미지 숨기기 */
+        #top:hover .store img:first-child{
             display: none;
         }
         /* #top오버시 두번째 로고 보이기 */
-        #top:hover .logo img:last-child{
+        #top:hover .logo img:last-child,
+        /* #top오버시 .store 두번째 이미지 보이기 */
+        #top:hover .store img:last-child{
             display: inline;
         }
 
@@ -144,6 +150,13 @@
         }
         .gnb dd a{
             color: #222;
+        }
+
+        /* 3. 기타파트 : .tlink */
+        .tlink{
+            /* 플렉스박스 */
+            display: flex;
+            list-style: none;
         }
 
     </style>
@@ -316,9 +329,12 @@
                             <img src="./images/nav03/lang_i_w.png" alt="다국어아이콘">
                         </a>
                     </li>
-                    <li>
+                    <li class="store">
                         <a href="#">
+                            <!-- 오버전 이미지 -->
                             <img src="./images/nav03/store_i3_w.png" alt="스토아아이콘">
+                            <!-- 오버시 이미지 -->
+                            <img src="./images/nav03/store_i3.png" alt="스토아아이콘">
                         </a>
                     </li>
                 </ul>
