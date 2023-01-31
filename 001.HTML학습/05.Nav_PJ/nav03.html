@@ -15,6 +15,11 @@
             height: 100vh;
             background: url(./images/nav03/main_intro_banner_1_ksr.jpg) no-repeat center/cover;
         }
+        /* 공통 */
+        a{
+            color: #fff;
+            text-decoration: none;
+        }
 
         /* 전체 타이틀 */
         .tit{
@@ -25,6 +30,18 @@
             color: #fff;
         }
 
+        /* 1. 상단영역 */
+        .top{
+            /* 플렉스박스 */
+            display: flex;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        /* 상단영역 직계요소들 - 파티션 박스 */
+        .top>div{
+            outline: 2px dashed yellow;
+        }
+
     </style>
 </head>
 <body>
@@ -33,6 +50,46 @@
         서브 전체 <br>
         드롭다운 전체창
     </h1>
+
+    <!-- 네비게이션 전체 박스 -->
+    <div>
+        <header class="top">
+            <!-- 1.로고파트 -->
+            <div>
+                <h1 class="logo">
+                    <a href="#">
+                        <img src="./images/nav03/logo_w.png" alt="로고">
+                    </a>
+                </h1>
+            </div>
+            <!-- 2.네비파트 -->
+            <div>
+                <nav class="gnb">
+                    <dl>
+                        <dt>
+                            <a href="#">
+                                <img src="./images/nav03/story_white_s.png" alt="스토리 이미지">
+                            </a>
+                        </dt>
+                        <dd>
+                            <a href="#">셀리턴 스토리</a>
+                        </dd>
+                        <dd>
+                            <a href="#">뷰티풀 셀리턴</a>
+                        </dd>
+                        <dd>
+                            <a href="#">아름다운 공장</a>
+                        </dd>
+                        <dd>
+                            <a href="#">알파레이S 개발스토리</a>
+                        </dd>
+                    </dl>
+                </nav>
+            </div>
+            <!-- 3.기타파트 -->
+            <div></div>
+        </header>
+    </div>
     
 </body>
 </html>
