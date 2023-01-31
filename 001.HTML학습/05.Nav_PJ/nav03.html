@@ -45,7 +45,14 @@
         #top{
             position: relative;
             /* 부모자격 */
-
+            
+            /* 트랜지션: 속시이지 */
+            transition: .4s ease-in-out;
+        }
+        /* #top에 오버시 자기자신 */
+        #top:hover{
+            /* 배경색 변경 */
+            background-color: #fff;
         }
         
         /* #top 가상요소로 배경색넣기 */
@@ -86,6 +93,14 @@
             z-index: 1;
             /* 플렉스박스 */
             display: flex;
+            height: 110px;
+            overflow: hidden;
+            /* 트랜지션 */
+            transition: .4s ease-in-out;
+        }
+        /* #top오버시 GNB */
+        #top:hover .gnb{
+            height: 400px;
         }
 
 
