@@ -1,71 +1,110 @@
 <!DOCTYPE html>
 <html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>for문 연습1 - 파란상자에 미니언즈 집어넣기</title>
+        <style>
+            /* 미니언즈 이미지 */
+            .mini {
+                cursor: pointer;
+                /* 손가락모양 */
+                border: 5px dotted #fff;
+            }
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>for문 연습1 - 파란상자에 미니언즈 집어넣기</title>
-    <style>
-        /* 미니언즈 이미지 */
-        .mini {
-            cursor: pointer;
-            /* 손가락모양 */
-            border: 5px dotted #fff;
-        }
+            /* 마우스오버시 보더색 변경 */
+            .mini:hover {
+                border-color: red;
+            }
 
-        /* 마우스오버시 보더색 변경 */
-        .mini:hover {
-            border-color: red;
-        }
-
-        /* 파란색 가방 */
-        .Bcase {
-            border: 20px ridge blue;
-            min-height: 250px;
-            /* 최소높이를 주면 설정높이를 유지하다가
+            /* 파란색 가방 */
+            .Bcase {
+                border: 20px ridge blue;
+                min-height: 250px;
+                /* 최소높이를 주면 설정높이를 유지하다가
             내용이 많아지면 높이값이 늘어남! */
-        }
+            }
 
-        .Bcase img {
-            width: 150px;
-            /* 크기줄임 */
-        }
-    </style>
-    <!-- JS코드구역 -->
-    <script>
-        // html모두 로딩후 실행구역 //////
-        window.addEventListener("DOMContentLoaded",loadFn)
-        // 로드이벤트 : load / DOMContentLoaded
+            .Bcase img {
+                width: 150px;
+                /* 크기줄임 */
+            }
+        </style>
+        <!-- JS코드구역 -->
+        <script>
+            // html모두 로딩후 실행구역 //////
+            window.addEventListener("DOMContentLoaded", loadFn);
+            // 로드이벤트 : load / DOMContentLoaded
 
-        /**************************************** 
+            /**************************************** 
             함수명: loadFn
             기능 : 로딩후 바로 실행하는 코드구역
         ****************************************/
-       function loadFn(){
-            // 1. 로딩함수 호출확인
-            console.log("로딩완료!");
+            function loadFn() {
+                // 1. 로딩함수 호출확인
+                console.log("로딩완료!");
 
-            // 2. 대상선정
-            // 2-1. 이벤트 대상: .mini
-            var mini = document.querySelectorAll(".mini");
-            console.log(mini);
-       } ////////////// loadFn 함수 ///////////////
-       ////////////////////////////////////////////
-    </script>
-</head>
+                // 2. 대상선정
+                // 2-1. 이벤트 대상: .mini
+                var mini = document.querySelectorAll(".mini");
 
-<body>
-    <h1>for문 연습1 - 파란상자에 미니언즈 집어넣기</h1>
-    <img src="./images/Minions.png" alt="미니언즈" class="mini" title="나를 클릭하면 한개씩 가방에 들어갈꼬얌~!">
-    <img src="./images/Minions.png" alt="미니언즈" class="mini" title="나를 클릭하면 다섯개씩 가방에 들어갈꼬얌~!">
-    <img src="./images/Minions.png" alt="미니언즈" class="mini" title="나를 클릭하면 열개씩 가방에 들어갈꼬얌~!">
+                // 2-2. 변경대상: .Bcase
+                var Bcase = document.querySelector(".Bcase");
 
-    <!-- 리셋을 한다면 이렇게...! -->
-    <button class="rbtn">리셋</button>
+                // console.log(mini,Bcase);
 
-    <!-- 파란상자 -->
-    <div class="Bcase"></div>
+                // 3. 이벤트 셋팅하기
+                // 이벤트 종류 : click
+                // for문으로 버튼개수만큼 돌아서 셋팅하기!
+                // for(시;한;증){코드}
+                for (var i = 0; i < mini.length; i++) {
+                    // 반복조건: 0부터시작 
+                    // mini개수보다 작을동안 
+                    // 1씩증가하면서 돈다!
 
-</body>
+                    console.log("돌아!",i);
+                    // 1. 미니언즈 이미지마다 클릭설정하기
+                    mini[i].onclick = function(){
+                        // 1. 클릭된 이미지의 data-cnt값 읽어오기
+                        var cnt = this.getAttribute("data-cnt");
+                        // getAttribute(속성명) -> 속성값 읽어오기
+                        // alert("나는 몇개?"+cnt);
 
+                        // 2. 파란상자에 미니언즈 넣기
+                        Bcase.innerHTML = `
+                        <img src="./images/Minions.png" alt="미니언즈">`;
+
+
+
+                    }; ////// click 이벤트함수 ///////
+
+                    // mini.item(순번)
+                    // mini[순번]
+
+                } ////////// for문 /////////////
+            } ////////////// loadFn 함수 ///////////////
+            ////////////////////////////////////////////
+        </script>
+    </head>
+
+    <body>
+        <h1>for문 연습1 - 파란상자에 미니언즈 집어넣기</h1>
+        <!-- data-cnt는 각 미니언즈를 몇개씩 넣을지에 대한 정보값임 -->
+        <img src="./images/Minions.png" alt="미니언즈" class="mini" title="나를 클릭하면 한개씩 가방에 들어갈꼬얌~!" data-cnt="1" />
+        <img src="./images/Minions.png" alt="미니언즈" class="mini" title="나를 클릭하면 다섯개씩 가방에 들어갈꼬얌~!" data-cnt="5" />
+        <img src="./images/Minions.png" alt="미니언즈" class="mini" title="나를 클릭하면 열개씩 가방에 들어갈꼬얌~!" data-cnt="10" />
+
+        <!-- 
+        [ 데이터를 저장하기위한 속성사용하기 ]
+        개발자가 임의로 만들수 있는 속성은 시작할때 data- 로 쓴다!
+        형식:
+        <요소 data-내가만든이름="값">
+     -->
+
+        <!-- 리셋을 한다면 이렇게...! -->
+        <button class="rbtn">리셋</button>
+
+        <!-- 파란상자 -->
+        <div class="Bcase"></div>
+    </body>
 </html>
