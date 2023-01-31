@@ -37,9 +37,9 @@
             // 로드이벤트 : load / DOMContentLoaded
 
             /**************************************** 
-            함수명: loadFn
-            기능 : 로딩후 바로 실행하는 코드구역
-        ****************************************/
+                함수명: loadFn
+                기능 : 로딩후 바로 실행하는 코드구역
+            ****************************************/
             function loadFn() {
                 // 1. 로딩함수 호출확인
                 console.log("로딩완료!");
@@ -70,13 +70,12 @@
 
                     // console.log("돌아!", i);
 
-                    // 1. 미니언즈 이미지마다 클릭설정하기
+                    // 1. 미니언즈 이미지마다 클릭설정하기 /////////
                     mini[i].onclick = function () {
-
                         // 바깥for문의 i는 최종결과의 값만 내부에찍힘
                         // i값이 하나씩 전달되지 않는다!(참고로알아둘것!)
                         // console.log("for문변수:",i);
-                        
+
                         // 1. 클릭된 이미지의 data-cnt값 읽어오기
                         var cnt = this.getAttribute("data-cnt");
                         // this 키워드 : 이벤트설정된 요소 자신!!!
@@ -98,24 +97,22 @@
 
                         // console.log("변수j:",j);
                         // console.log("변수i:",i);
-
                     }; ////// click 이벤트함수 ///////
 
                     // mini.item(순번)
                     // mini[순번]
                 } ////////// for문 /////////////
 
-                // 4. 리셋버튼 셋팅하기
+                // 4. 리셋버튼 셋팅하기 /////////////////
                 // 대상: 이벤트대상 - rbtn / 변경대상 - Bcase
                 // 변경내용: Bcase의 내용지우기
-                rbtn.onclick = function(){
+                rbtn.onclick = function () {
                     // 1.호출확인
                     console.log("다지워~!");
                     // 2.파란상자내용 지우기
                     Bcase.innerHTML = "";
                     // 3. 개수표시 초기화
                     stxt.innerText = "0";
-
                 }; ////////// click 이벤트함수 /////////
 
                 // 리셋버튼 디자인변경
@@ -126,20 +123,17 @@
                 // 대상: .stxt span
                 // 할당형 함수를 만들어서 미니언즈를 추가할때마다
                 // 이 함수를 호출하게 한다!
-                var showCnt = function(){
+                var showCnt = function () {
                     // 1. 호출확인
                     console.log("지금 몇개?");
                     // 2. 파란상자안의 미니언즈 이미지개수 읽어오기
                     var cnt = Bcase.querySelectorAll("img").length;
                     // 3. 표시요소에 개수 출력하기 : .stxt span -> stxt
-                    stxt.innerText = cnt;                    
-
+                    stxt.innerText = cnt;
                 }; /////////// showCnt 함수 ///////////////
-                
 
                 // console.log("변수j:",j);
                 // console.log("변수i:",i);
-
             } ////////////// loadFn 함수 ///////////////
             ////////////////////////////////////////////
         </script>
@@ -160,9 +154,7 @@
      -->
 
         <!-- 현재 미니언즈 개수표시 -->
-        <h2 class="stxt">
-            현재 미니언즈 그룹개수 :  <span>0</span>개
-        </h2>
+        <h2 class="stxt">현재 미니언즈 그룹개수 : <span>0</span>개</h2>
 
         <!-- 리셋을 한다면 이렇게...! -->
         <button class="rbtn">리셋</button>
