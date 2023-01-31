@@ -97,7 +97,7 @@ html,body{
 .gubun{
     width: 1000px;
     margin: 0 auto;
-    outline: 1px dashed red;
+    /* outline: 1px dashed red; */
     margin-bottom: 100px;
 
     /* 자식float감싸기 */
@@ -112,6 +112,18 @@ table#gubun{
     float: right;
 }
 
+/* 구분테이블 td */
+#gubun td{
+    padding: 10px;
+}
+/* 구분테이블 첫번째 tr의 첫번째 td의 오른쪽 점선넣기 */
+#gubun tr:first-child td:first-child{
+    border-right: 1px dotted #999;
+}
+/* 구분테이블의 두번째 tr부터 끝까지 td 위쪽점선보더 넣기 */
+#gubun tr+tr td{
+    border-top: 1px dotted #999;
+}
 
 
 
