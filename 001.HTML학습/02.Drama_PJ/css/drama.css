@@ -110,11 +110,20 @@ table#gubun{
 
     /* 오른쪽 끝으로 보내기 */
     float: right;
+
+    /* td(테이블셀)에 
+    사이간격주기 */
+    border-collapse: separate;
+    border-spacing: 10px;
+    /* 셀 사이간격
+    border-spacing: 가로 세로;
+    border-spacing: 양방향; */
 }
 
 /* 구분테이블 td */
 #gubun td{
     padding: 10px;
+    /* border: 1px solid #000; */
 }
 /* 구분테이블 첫번째 tr의 첫번째 td의 오른쪽 점선넣기 */
 #gubun tr:first-child td:first-child{
@@ -122,7 +131,7 @@ table#gubun{
 }
 /* 구분테이블의 두번째 tr부터 끝까지 td 위쪽점선보더 넣기 */
 #gubun tr+tr td{
-    border-top: 1px dotted #999;
+    border-top: 4px dotted #999;
 }
 
 
