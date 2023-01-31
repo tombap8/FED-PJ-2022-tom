@@ -93,3 +93,25 @@ html,body{
 
 
 
+/* 구분테이블 박스 */
+.gubun{
+    width: 1000px;
+    margin: 0 auto;
+    outline: 1px dashed red;
+    margin-bottom: 100px;
+
+    /* 자식float감싸기 */
+    overflow: hidden;
+}
+/* 구분테이블 */
+table#gubun{
+    font-size: 20px;
+    border: 1px solid #999;
+
+    /* 오른쪽 끝으로 보내기 */
+    float: right;
+}
+
+
+
+
