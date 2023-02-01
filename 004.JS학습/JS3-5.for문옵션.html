@@ -56,15 +56,28 @@
                         console.log(btxt);
 
                         // 2. 버튼별 for문 옵션 적용하기
+                        // 출력하고자 하는 .forCls박스순번
+                        var num=0;
+                        btxt=="for문옵션1"?
+                        num=1:(btxt=="for문옵션2"?num=2:num=0);
+                        // 삼항 연산자 (비?집:놀이동산)
+
+                        console.log("순번:",num);
+
 
                         // 3. 이미지 출력하기
                         // 이미지 10개 출력하기
                         // 이미지이름이 1부터 10까지를 활용함!
+
+                        // 초기화
+                        tg[num].innerHTML = "";
+
+                        // for문으로 이미지넣기
                         for(var j=1;j<=10;j++){
                             // 이미지 넣을 대상은?
                             // .forCls를 담은 tg변수
-                            tg[0].innerHTML += `
-                            <img src="./images/num/num_01.png" alt="숫자이미지">`;
+                            tg[num].innerHTML += `
+                            <img src="./images/num/num_0${j}.png" alt="숫자이미지">`;
                         } /////////// for문 /////////////
 
                     }; //////////// click 이벤트함수 /////////
