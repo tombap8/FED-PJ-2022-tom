@@ -1,112 +1,117 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3. 가로네비 서브 전체 드롭다운 전체창</title>
-    <style>
-        /* 웹폰트 CDN */
-        @import url('https://fonts.googleapis.com/css2?family=Maven+Pro&family=Noto+Sans+KR&display=swap');
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>3. 가로네비 서브 전체 드롭다운 전체창</title>
+        <style>
+            /* 웹폰트 CDN */
+            @import url("https://fonts.googleapis.com/css2?family=Maven+Pro&family=Noto+Sans+KR&display=swap");
 
-        /* 
+            /* 
         font-family: 'Maven Pro', sans-serif;
         font-family: 'Noto Sans KR', sans-serif; 
         */
 
+            /* 초기화 */
+            html,
+            body,
+            h1,
+            dl,
+            dt,
+            dd,
+            ul,
+            ol {
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                width: 100vw;
+                height: 100vh;
+                background: url(./images/nav03/main_intro_banner_1_ksr.jpg) no-repeat center/cover;
+            }
+            /* 공통 */
+            a {
+                color: #fff;
+                text-decoration: none;
+            }
 
+            /* 전체 타이틀 */
+            .tit {
+                position: fixed;
+                top: 40vh;
+                left: 5vw;
+                font-size: 7vh;
+                color: #fff;
+            }
 
-        /* 초기화 */
-        html,body,h1,dl,dt,dd,ul,ol{
-            margin: 0;
-            padding: 0;
-        }
-        body{
-            width: 100vw;
-            height: 100vh;
-            background: url(./images/nav03/main_intro_banner_1_ksr.jpg) no-repeat center/cover;
-        }
-        /* 공통 */
-        a{
-            color: #fff;
-            text-decoration: none;
-        }
+            /* 1. 상단영역 */
+            /* 겉박스 */
+            #top {
+                position: relative;
+                /* 부모자격 */
 
-        /* 전체 타이틀 */
-        .tit{
-            position: fixed;
-            top: 40vh;
-            left: 5vw;
-            font-size: 7vh;
-            color: #fff;
-        }
+                /* 트랜지션: 속시이지 */
+                transition: 0.4s ease-in-out;
+            }
+            /* #top에 오버시 자기자신 */
+            #top:hover {
+                /* 배경색 변경 */
+                background-color: #fff;
+            }
 
-        /* 1. 상단영역 */
-        /* 겉박스 */
-        #top{
-            position: relative;
-            /* 부모자격 */
-            
-            /* 트랜지션: 속시이지 */
-            transition: .4s ease-in-out;
-        }
-        /* #top에 오버시 자기자신 */
-        #top:hover{
-            /* 배경색 변경 */
-            background-color: #fff;
-        }
-        
-        /* #top 가상요소로 배경색넣기 */
-        #top::after{
-            content: '';
-            position: absolute;
-            top: 110px;
-            left: 0;
-            width: 100%;
-            height: 0;
-            background-color: #fff;
-            /* 트랜지션: 속시이지 */
-            transition: .4s ease-in-out;
-        }
-        /* #top오버시 가상요소 */
-        #top:hover::after{
-            height: 400px;
-        }
+            /* #top 가상요소로 배경색넣기 */
+            #top::after {
+                content: "";
+                position: absolute;
+                top: 110px;
+                left: 0;
+                width: 100%;
+                height: 0;
+                background-color: #fff;
+                /* 트랜지션: 속시이지 */
+                transition: 0.4s ease-in-out;
+            }
+            /* #top오버시 가상요소 */
+            #top:hover::after {
+                height: 400px;
+            }
 
-        /* 속박스 */
-        .top{
-            /* 플렉스박스 */
-            display: flex;
-            /* 진행방향 정렬 
+            /* 속박스 */
+            .top {
+                /* 플렉스박스 */
+                display: flex;
+                /* 진행방향 정렬 
             - 양쪽끝 붙이고 사이간격일정 */
-            justify-content: space-between;
+                justify-content: space-between;
 
-            max-width: 1600px;
-            margin: 0 auto;
+                max-width: 1600px;
+                margin: 0 auto;
 
-            /* 플렉스 하위 div에 영향을 주는
+                /* 플렉스 하위 div에 영향을 주는
             높이값을 지정함! (세로중앙정렬) */
-            height: 110px;
-            /* 웹폰트 적용 */
-            font-family: 'Maven Pro', 'Noto Sans KR', sans-serif; 
-        }
-        /* 상단영역 직계요소들 - 파티션 박스 */
-        .top>div{
-            outline: 2px dashed yellow;
-        }
+                height: 110px;
+                /* 웹폰트 적용 */
+                font-family: "Maven Pro", "Noto Sans KR", sans-serif;
+            }
+            /* 상단영역 직계요소들 - 파티션 박스 */
+            .top > div {
+                outline: 2px dashed yellow;
+            }
 
-        /* 로고 */
-        .logo{            
-             /* 세로중앙이동 */
-            position: relative;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-        .logo img{
-            height: 50px;
-        }
+            /* 로고 */
+            .logo {
+                /* 세로중앙이동 */
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            .logo img {
+                height: 50px;
+            }
 
-        /* 로고 두번째 이미지 처음에 숨김 */
-        .logo img:last-child,
+            /* 로고 두번째 이미지 처음에 숨김 */
+            .logo img:last-child,
         /* .lang 두번째 이미지 처음에 숨김 */
         .lang img:last-child,
         /* .store 두번째 이미지 처음에 숨김 */
@@ -121,309 +126,307 @@
         /* #top오버시 .store 첫번째 이미지 숨기기 */
         #top:hover .store img:first-child,
         /* #top오버시 .simg 첫번째 이미지 숨기기 */
-        #top:hover .simg img:first-child
-        {
-            display: none;
-        }
+        #top:hover .simg img:first-child {
+                display: none;
+            }
 
-        /* #top오버시 두번째 로고 보이기 */
-        #top:hover .logo img:last-child,
+            /* #top오버시 두번째 로고 보이기 */
+            #top:hover .logo img:last-child,
         /* #top오버시 .lang 두번째 이미지 보이기 */
         #top:hover .lang img:last-child,
         /* #top오버시 .store 두번째 이미지 보이기 */
         #top:hover .store img:last-child,
         /* #top오버시 .simg 두번째 이미지 보이기 */
-        #top:hover .simg img:last-child
-        {
-            display: inline;
-        }
+        #top:hover .simg img:last-child {
+                display: inline;
+            }
 
-        /* 네비게이션 박스 */
-        .gnb{
-            position: relative;
-            z-index: 1;
-            /* 플렉스박스 */
-            display: flex;
-            height: 110px;
-            overflow: hidden;
-            /* 트랜지션 */
-            transition: .4s ease-in-out;
-        }
-        /* #top오버시 GNB */
-        #top:hover .gnb{
-            height: 400px;
-        }
+            /* 네비게이션 박스 */
+            .gnb {
+                position: relative;
+                z-index: 1;
+                /* 플렉스박스 */
+                display: flex;
+                height: 110px;
+                overflow: hidden;
+                /* 트랜지션 */
+                transition: 0.4s ease-in-out;
+            }
+            /* #top오버시 GNB */
+            #top:hover .gnb {
+                height: 400px;
+            }
 
-        /* GNB 전체 a요소 오버시 공통 */
-        .gnb a:hover{
-            color: #f00 !important;
-        }
+            /* GNB 전체 a요소 오버시 공통 */
+            .gnb a:hover {
+                color: #f00 !important;
+            }
 
+            .gnb dl {
+                text-align: center;
+            }
+            .gnb dl + dl {
+                margin-left: 50px;
+            }
+            /* 최상위메뉴 : dt */
+            .gnb dt {
+                line-height: 110px;
+            }
+            .gnb dt a {
+                /* 트랜지션: 속시이지 */
+                transition: 0.4s ease-in-out;
+            }
+            /* #top오버시 dt a 글자색 변경 */
+            #top:hover .gnb dt a {
+                color: #222;
+            }
+            /* 첫번째 dt 이미지메뉴 a요소 */
+            .simg {
+                transform: translateY(22px);
+                display: inline-block;
+                /* 
+                아래의 형제 dd요소에 영향을 줌
+                vertical-align: -22px; */
+            }
 
-        .gnb dl{
-            text-align: center;
-        }
-        .gnb dl+dl{
-            margin-left: 50px;
-        }
-        /* 최상위메뉴 : dt */
-        .gnb dt{
-            line-height: 110px;
-        }
-        .gnb dt a{            
-            /* 트랜지션: 속시이지 */
-            transition: .4s ease-in-out;
-        }
-        /* #top오버시 dt a 글자색 변경 */
-        #top:hover .gnb dt a{        
-            color: #222;
-        }
-        /* 첫번째 dt 이미지메뉴 */
-        .simg{
-            vertical-align: -22px;
-        }
+            /* 서브메뉴 : dd */
+            .gnb dd {
+                line-height: 40px;
+            }
+            .gnb dd a {
+                color: #222;
+            }
 
-        /* 서브메뉴 : dd */
-        .gnb dd{
-            line-height: 40px;
-        }
-        .gnb dd a{
-            color: #222;
-        }
+            /* 3. 기타파트 : .tlink */
+            .tlink {
+                /* 플렉스박스 */
+                display: flex;
+                list-style: none;
 
-        /* 3. 기타파트 : .tlink */
-        .tlink{
-            /* 플렉스박스 */
-            display: flex;
-            list-style: none;
+                /* 세로중앙이동 */
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            /* 기타파트 이미지공통 */
+            .tlink img {
+                height: 30px;
+            }
+            /* 사이간격 */
+            .tlink li + li {
+                margin-left: 25px;
+            }
 
-            /* 세로중앙이동 */
-            position: relative;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-        /* 기타파트 이미지공통 */
-        .tlink img{
-            height: 30px;
-        }
-        /* 사이간격 */
-        .tlink li+li{
-            margin-left: 25px;
-        }
+            /* 기타파트 가상요소로 글자넣기 */
+            .lang::after {
+                content: "KOR";
+                color: #fff;
+                font-size: 12px;
+                margin-left: -12px;
+            }
 
-        /* 기타파트 가상요소로 글자넣기 */
-        .lang::after{
-            content: 'KOR';
-            color: #fff;
-            font-size: 12px;
-            margin-left: -12px;
-        }
-        
-        .store::after{
-            content: 'STORE';
-            color: #fff;
-            font-size: 12px;
-            margin-left: -22px;
-        }
-        /* 오버시 */
-        #top:hover .lang::after,
-        #top:hover .store::after{
-            color: #222;
-        }
-        /* 자체오버시 */
-        .lang:hover::after,
-        .store:hover::after{
-            color: #f00 !important;
-        }
+            .store::after {
+                content: "STORE";
+                color: #fff;
+                font-size: 12px;
+                margin-left: -22px;
+            }
+            /* 오버시 */
+            #top:hover .lang::after,
+            #top:hover .store::after {
+                color: #222;
+            }
+            /* 자체오버시 */
+            .lang:hover::after,
+            .store:hover::after {
+                color: #f00 !important;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 class="tit">
+            3. 가로네비 <br />
+            서브 전체 <br />
+            드롭다운 전체창
+        </h1>
 
-    </style>
-</head>
-<body>
-    <h1 class="tit">
-        3. 가로네비 <br>
-        서브 전체 <br>
-        드롭다운 전체창
-    </h1>
-
-    <!-- 네비게이션 전체 박스 -->
-    <div id="top">
-        <header class="top">
-            <!-- 1.로고파트 -->
-            <div>
-                <h1 class="logo">
-                    <a href="#">
-                        <!-- 오버전 이미지 -->
-                        <img src="./images/nav03/logo_w.png" alt="로고">
-                        <!-- 오비시 이미지 -->
-                        <img src="./images/nav03/logo_b.png" alt="로고">
-                    </a>
-                </h1>
-            </div>
-            <!-- 2.네비파트 -->
-            <div>
-                <nav class="gnb">
-                    <!-- 1.스토리 -->
-                    <dl>
-                        <dt>
-                            <a href="#" class="simg">
-                                <!-- 오버전 이미지 -->
-                                <img src="./images/nav03/story_white_s.png" alt="스토리 이미지">
-                                <!-- 오버시 이미지 -->
-                                <img src="./images/nav03/story_gray_s.png" alt="스토리 이미지">
+        <!-- 네비게이션 전체 박스 -->
+        <div id="top">
+            <header class="top">
+                <!-- 1.로고파트 -->
+                <div>
+                    <h1 class="logo">
+                        <a href="#">
+                            <!-- 오버전 이미지 -->
+                            <img src="./images/nav03/logo_w.png" alt="로고" />
+                            <!-- 오비시 이미지 -->
+                            <img src="./images/nav03/logo_b.png" alt="로고" />
+                        </a>
+                    </h1>
+                </div>
+                <!-- 2.네비파트 -->
+                <div>
+                    <nav class="gnb">
+                        <!-- 1.스토리 -->
+                        <dl>
+                            <dt>
+                                <a href="#" class="simg">
+                                    <!-- 오버전 이미지 -->
+                                    <img src="./images/nav03/story_white_s.png" alt="스토리 이미지" />
+                                    <!-- 오버시 이미지 -->
+                                    <img src="./images/nav03/story_gray_s.png" alt="스토리 이미지" />
+                                </a>
+                            </dt>
+                            <dd>
+                                <a href="#">셀리턴 스토리</a>
+                            </dd>
+                            <dd>
+                                <a href="#">뷰티풀 셀리턴</a>
+                            </dd>
+                            <dd>
+                                <a href="#">아름다운 공장</a>
+                            </dd>
+                            <dd>
+                                <a href="#">알파레이S 개발스토리</a>
+                            </dd>
+                        </dl>
+                        <!-- 2.About US -->
+                        <dl>
+                            <dt>
+                                <a href="#">ABOUT US</a>
+                            </dt>
+                            <dd>
+                                <a href="#">경영이념</a>
+                            </dd>
+                            <dd>
+                                <a href="#">연혁</a>
+                            </dd>
+                            <dd>
+                                <a href="#">수상내역</a>
+                            </dd>
+                            <dd>
+                                <a href="#">글로벌 셀리턴</a>
+                            </dd>
+                            <dd>
+                                <a href="#">셀리턴 앰버서더</a>
+                            </dd>
+                            <dd>
+                                <a href="#">그룹사</a>
+                            </dd>
+                        </dl>
+                        <!-- 3. PRODUCT -->
+                        <dl>
+                            <dt>
+                                <a href="#">PRODUCT</a>
+                            </dt>
+                            <dd>
+                                <a href="#">페이스케어</a>
+                            </dd>
+                            <dd>
+                                <a href="#">두피케어</a>
+                            </dd>
+                            <dd>
+                                <a href="#">바디케어</a>
+                            </dd>
+                            <dd>
+                                <a href="#">넥케어</a>
+                            </dd>
+                            <dd>
+                                <a href="#">뷰티케어</a>
+                            </dd>
+                            <dd>
+                                <a href="#">의료기기</a>
+                            </dd>
+                        </dl>
+                        <!-- 4. R & D -->
+                        <dl>
+                            <dt>
+                                <a href="#">R & D</a>
+                            </dt>
+                            <dd>
+                                <a href="#">라이트테라피 역사</a>
+                            </dd>
+                            <dd>
+                                <a href="#">셀리턴 기술력</a>
+                            </dd>
+                            <dd>
+                                <a href="#">특허 및 출원</a>
+                            </dd>
+                            <dd>
+                                <a href="#">인체적용시험</a>
+                            </dd>
+                            <dd>
+                                <a href="#">셀리턴 자문위원회</a>
+                            </dd>
+                        </dl>
+                        <!-- 5. ARCHIVE -->
+                        <dl>
+                            <dt>
+                                <a href="#">ARCHIVE</a>
+                            </dt>
+                            <dd>
+                                <a href="#">브랜드 아이덴티티</a>
+                            </dd>
+                            <dd>
+                                <a href="#">비쥬얼 영상</a>
+                            </dd>
+                            <dd>
+                                <a href="#">비쥬얼 이미지</a>
+                            </dd>
+                        </dl>
+                        <!-- 6. CAREER -->
+                        <dl>
+                            <dt>
+                                <a href="#">CAREER</a>
+                            </dt>
+                            <dd>
+                                <a href="#">셀리터너</a>
+                            </dd>
+                            <dd>
+                                <a href="#">채용정보</a>
+                            </dd>
+                        </dl>
+                        <!-- 7. NEWS -->
+                        <dl>
+                            <dt>
+                                <a href="#">NEWS</a>
+                            </dt>
+                            <dd>
+                                <a href="#">셀리턴 소식↗</a>
+                            </dd>
+                            <dd>
+                                <a href="#">문의</a>
+                            </dd>
+                        </dl>
+                    </nav>
+                </div>
+                <!-- 3.기타파트 -->
+                <div>
+                    <ul class="tlink">
+                        <li>
+                            <a href="#">
+                                <img src="./images/nav03/cpl_bi.png" alt="나눔명문기업" />
                             </a>
-                        </dt>
-                        <dd>
-                            <a href="#">셀리턴 스토리</a>
-                        </dd>
-                        <dd>
-                            <a href="#">뷰티풀 셀리턴</a>
-                        </dd>
-                        <dd>
-                            <a href="#">아름다운 공장</a>
-                        </dd>
-                        <dd>
-                            <a href="#">알파레이S 개발스토리</a>
-                        </dd>
-                    </dl>
-                    <!-- 2.About US -->
-                    <dl>
-                        <dt>
-                            <a href="#">ABOUT US</a>
-                        </dt>
-                        <dd>
-                            <a href="#">경영이념</a>
-                        </dd>
-                        <dd>
-                            <a href="#">연혁</a>
-                        </dd>
-                        <dd>
-                            <a href="#">수상내역</a>
-                        </dd>
-                        <dd>
-                            <a href="#">글로벌 셀리턴</a>
-                        </dd>
-                        <dd>
-                            <a href="#">셀리턴 앰버서더</a>
-                        </dd>
-                        <dd>
-                            <a href="#">그룹사</a>
-                        </dd>
-                    </dl>
-                    <!-- 3. PRODUCT -->
-                    <dl>
-                        <dt>
-                            <a href="#">PRODUCT</a>
-                        </dt>
-                        <dd>
-                            <a href="#">페이스케어</a>
-                        </dd>
-                        <dd>
-                            <a href="#">두피케어</a>
-                        </dd>
-                        <dd>
-                            <a href="#">바디케어</a>
-                        </dd>
-                        <dd>
-                            <a href="#">넥케어</a>
-                        </dd>
-                        <dd>
-                            <a href="#">뷰티케어</a>
-                        </dd>
-                        <dd>
-                            <a href="#">의료기기</a>
-                        </dd>
-                    </dl>
-                    <!-- 4. R & D -->
-                    <dl>
-                        <dt>
-                            <a href="#">R & D</a>
-                        </dt>
-                        <dd>
-                            <a href="#">라이트테라피 역사</a>
-                        </dd>
-                        <dd>
-                            <a href="#">셀리턴 기술력</a>
-                        </dd>
-                        <dd>
-                            <a href="#">특허 및 출원</a>
-                        </dd>
-                        <dd>
-                            <a href="#">인체적용시험</a>
-                        </dd>
-                        <dd>
-                            <a href="#">셀리턴 자문위원회</a>
-                        </dd>
-                    </dl>
-                    <!-- 5. ARCHIVE -->
-                    <dl>
-                        <dt>
-                            <a href="#">ARCHIVE</a>
-                        </dt>
-                        <dd>
-                            <a href="#">브랜드 아이덴티티</a>
-                        </dd>
-                        <dd>
-                            <a href="#">비쥬얼 영상</a>
-                        </dd>
-                        <dd>
-                            <a href="#">비쥬얼 이미지</a>
-                        </dd>
-                    </dl>
-                    <!-- 6. CAREER -->
-                    <dl>
-                        <dt>
-                            <a href="#">CAREER</a>
-                        </dt>
-                        <dd>
-                            <a href="#">셀리터너</a>
-                        </dd>
-                        <dd>
-                            <a href="#">채용정보</a>
-                        </dd>
-                    </dl>
-                    <!-- 7. NEWS -->
-                    <dl>
-                        <dt>
-                            <a href="#">NEWS</a>
-                        </dt>
-                        <dd>
-                            <a href="#">셀리턴 소식↗</a>
-                        </dd>
-                        <dd>
-                            <a href="#">문의</a>
-                        </dd>
-                    </dl>
-
-                </nav>
-            </div>
-            <!-- 3.기타파트 -->
-            <div>
-                <ul class="tlink">
-                    <li>
-                        <a href="#">
-                            <img src="./images/nav03/cpl_bi.png" alt="나눔명문기업">
-                        </a>
-                    </li>
-                    <li class="lang">
-                        <a href="#">
-                            <!-- 오버전 이미지 -->
-                            <img src="./images/nav03/lang_i_w.png" alt="다국어아이콘">
-                            <!-- 오버시 이미지 -->
-                            <img src="./images/nav03/lang_i.png" alt="다국어아이콘">
-                        </a>
-                    </li>
-                    <li class="store">
-                        <a href="#">
-                            <!-- 오버전 이미지 -->
-                            <img src="./images/nav03/store_i3_w.png" alt="스토아아이콘">
-                            <!-- 오버시 이미지 -->
-                            <img src="./images/nav03/store_i3.png" alt="스토아아이콘">
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </header>
-    </div>
-    
-</body>
+                        </li>
+                        <li class="lang">
+                            <a href="#">
+                                <!-- 오버전 이미지 -->
+                                <img src="./images/nav03/lang_i_w.png" alt="다국어아이콘" />
+                                <!-- 오버시 이미지 -->
+                                <img src="./images/nav03/lang_i.png" alt="다국어아이콘" />
+                            </a>
+                        </li>
+                        <li class="store">
+                            <a href="#">
+                                <!-- 오버전 이미지 -->
+                                <img src="./images/nav03/store_i3_w.png" alt="스토아아이콘" />
+                                <!-- 오버시 이미지 -->
+                                <img src="./images/nav03/store_i3.png" alt="스토아아이콘" />
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </header>
+        </div>
+    </body>
 </html>
