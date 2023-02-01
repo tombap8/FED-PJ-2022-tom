@@ -83,6 +83,9 @@
             max-width: 1600px;
             margin: 0 auto;
 
+            /* 플렉스 하위 div에 영향을 주는
+            높이값을 지정함! (세로중앙정렬) */
+            height: 110px;
             /* 웹폰트 적용 */
             font-family: 'Maven Pro', 'Noto Sans KR', sans-serif; 
         }
@@ -182,6 +185,17 @@
             /* 플렉스박스 */
             display: flex;
             list-style: none;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        /* 기타파트 이미지공통 */
+        .tlink img{
+            height: 30px;
+        }
+        /* 사이간격 */
+        .tlink li+li{
+            margin-left: 25px;
         }
 
     </style>
