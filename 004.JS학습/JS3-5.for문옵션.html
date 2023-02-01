@@ -14,6 +14,39 @@
             height: 100px;
         }
     </style>
+    <!-- JS코드구역 -->
+    <script>
+        // 로드구역 ////////////
+        window.addEventListener("DOMContentLoaded",
+        function(){
+            
+            // 로딩확인
+            console.log("로딩완료!");
+
+            /**************************************** 
+                [ JS 기능정의 ]
+                -> 버튼 클릭시 해당버튼의 내용으로
+                연결된 대상에 이미지를 연속적으로 
+                넣어준다!
+                1. 이벤트대상: button
+                2. 이벤트종류: click
+                3. 변경대상: .forCls
+                4. 변경내용: 변경대상에 이미지넣기
+                -> 연속된 이미지를 for문으로 넣기
+            ****************************************/
+
+            // 1. 대상선정
+            // 이벤트 대상 : button
+            var btns = document.querySelectorAll("button");
+
+            // 변경대상 : .forCls
+            var tg = document.querySelectorAll(".forCls");
+
+            console.log(btns,tg);
+
+
+        }); /////////////// 로드구역 //////////////
+    </script>
 </head>
 
 <body>
