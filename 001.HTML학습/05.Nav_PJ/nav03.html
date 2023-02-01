@@ -283,9 +283,39 @@
                 var limit = tg.length;
 
                 for (var i = 0; i < limit; i++) {
-                    console.log("나야나!",i);
+                    // console.log("나야나!",i);
+
+                    // 대상요소를 구체적으로 선택함
+                    // i는 0,1,2 순으로 들어옴 -> 순번!
+                    // tg에는 대상이 컬렉션집합으로 들어있음
+                    // tg.item(순번) / tg[순번]
+                    // 사용이벤트속성 : onmouseover / onmouseout
+
+                    // [ 대상에 마우스 오버시 ]
+                    tg[i].onmouseover = function(){
+                        // this키워드로 오버된 요소 자신의 정보를
+                        // 알아낸다!
+                        // this === tg[i]
+
+                        // 1. 이미지의 설명속성값을 읽어옴!
+                        // 이미지설명속성값으로 대상의 구분함!
+                        var ialt = this.alt;
+                        console.log("이미지설명:",ialt);
+
+                        // 2. 변경될 이미지의 경로를 대상별로 할당
+                        var isrc;
+                        // switch case문으로 분기!
+                        switch(ialt){
+                            case "": isrc="";break;
+                            case "": isrc="";break;
+                            case "": isrc="";break;
+                        } //////// switch case문 /////
+
+                    }; /////// mouseover 이벤트함수 /////
+
+
                 } ///////// for문 ///////////
-                
+
             }); ////////// 로드구역 ////////////////
         </script>
     </head>
