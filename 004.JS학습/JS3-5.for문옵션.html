@@ -46,12 +46,10 @@
                 // 2. 이벤트 설정 및 기능구현
                 // for(시;한;증){코드}
                 for (var i = 0; i < btns.length; i++) {
-
-                    console.log("나야나!",i);
+                    console.log("나야나!", i);
 
                     // 1. 이벤트 설정하기
-                    btns[i].onclick = function(){
-
+                    btns[i].onclick = function () {
                         // 1. 버튼요소 텍스트 읽기
                         // this === btns[i]
                         var btxt = this.innerText;
@@ -59,15 +57,12 @@
 
                         // 2. 버튼별 for문 옵션 적용하기
                         // 출력하고자 하는 .forCls 찾아 변수할당!
-                        var tg = 
-                        this.parentElement
-                        // parentElement -> 부모요소로 올라감!
-                        .querySelector(".forCls");
+                        var tg = this.parentElement
+                            // parentElement -> 부모요소로 올라감!
+                            .querySelector(".forCls");
                         // 부모로 올라가서 그 아래의 .forCls선택!
 
-                        console.log("출력할요소:",tg);
-
-
+                        console.log("출력할요소:", tg);
 
                         // -> num 안씀!
                         // var num=0;
@@ -76,7 +71,6 @@
                         // 삼항 연산자 (비?집:놀이동산)
 
                         // console.log("순번:",num)
-
 
                         // 3. 이미지 출력하기
                         // 이미지 10개 출력하기
@@ -87,43 +81,33 @@
                         tg.innerHTML = "";
 
                         // for문으로 이미지넣기
-                        for(var j=1;j<=10;j++){
-
+                        for (var j = 1; j <= 10; j++) {
                             // 출력전에 for문 옵션을 사용하여
                             // 출력내용을 컨트롤한다!
 
                             // 1. 두번째버튼일때 4,7번 생략하고 출력하기
-                            if(btxt==="for문옵션1"&&
-                            (j===4 || j===7)) continue;
+                            if (btxt === "for문옵션1" && (j === 4 || j === 7)) continue;
                             // continue 키워드
                             // -> 안내려가고 for문 계속진행
                             // -> 중간 코드 건너뛰기를 함!
 
                             // 2. 세번째버튼일때 6번째에 나감!
                             // break 키워드 -> 제어문을 나감!
-                            if(btxt==="for문옵션2"&&j===6) break;
+                            if (btxt === "for문옵션2" && j === 6) break;
 
                             // 3. 2~4,9 빼고 돌리기
-                            if(btxt==="for문옵션연습"&&
-                            (j>=2&&j<=4)||j===9) continue;
-
-
+                            if ((btxt === "for문옵션연습" && 
+                            j >= 2 && j <= 4) || j === 9) continue;
 
                             // 이미지 넣을 대상은?
                             // .forCls를 담은 tg변수
                             tg.innerHTML += `
                             <img src="./images/num/num_0${j}.png" alt="숫자이미지">`;
                         } /////////// for문 /////////////
-
                     }; //////////// click 이벤트함수 /////////
 
-
-
-
                     // btns[i].addEventListener("click",function(){})
-
                 } ////////// for문 /////////////
-
             }); /////////////// 로드구역 //////////////
         </script>
     </head>

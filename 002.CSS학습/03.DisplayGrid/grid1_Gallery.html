@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid1 - Gallery</title>
+    <style>
+        /**************************************************** 
+                    [ 그리드 디스플레이 ]
+
+        - 가로,세로 양방향 레이아웃을 위한 디스플레이 속성
+        - 주요 속성:
+        1. grid-template-colums
+            - 가로방향 width폭을 지정하는 속성
+            - 값은 순서대로 값을씀 (개수만큼 한줄 컬럼결정)
+            - 반복을 사용할 수 있다
+                -> repeat(개수,설정값)
+            - 설정값: px,%,vw,rem 등 구체적인값
+                또는 비율값 -> 숫자fr (가로크기 전체의 비율)
+                fr은 fraction에서 나온말
+                예) 1fr 2fr -> 1:2비율 
+        2. grid-template-rows
+            - 세로방향의 height값을 지정하는 속성
+            - 값은 순서대로 값을씀
+            - 나머지는 1번과 동일
+            - 만약 이 값을 설정하지 않으면 모든 박스에 대한
+            기본비를 유지함!(내가 원하는 비는 별도로 설정함)
+            -> 기본비에 대한 기준은 내부컨텐츠임
+            (이미지라면 이미지 기본비를 기준함)
+            
+        3. grid-column-gap
+            - 가로방향 사이간격
+        
+        4. grid-row-gap
+            - 세로방향 사이간격
+        ________________________________
+        
+        5.  가로정렬, 세로정렬은 flex와 개념상 동일하다! 
+        - 한줄일때 (진행방에 여러개있을 경우)
+        justify-content -> 가로진행방향 정렬
+        align-content -> 세로진행방향 정렬
+        - 여러줄일때
+        justify-items -> 가로방향 다중 정렬 (flex에 없음!)
+        align-items -> 세로방향 다중 정렬
+
+        ___________________________________
+
+        그리드 사용 예시 사이트: 매치 리스트
+        https://www.matchroomboxing.com/
+
+    ****************************************************/
+        /* 타이틀 */
+        .tit {
+            text-align: center;
+            /* 글자 최소크기 지정 */
+            font-size: max(3vw,25px);
+        }
+
+        /* 그리드 박스 */
+
+        
+
+        /* 1100px이하 미디어쿼리 시작 */
+        @media screen and (max-width:1100px) {
+            
+        }
+
+        /* 1100px이하 미디어쿼리 끝 */
+
+        /* 1000px이하 미디어쿼리 시작 */
+        @media screen and (max-width:1000px) {
+            
+        }
+
+        /* 1000px이하 미디어쿼리 끝 */
+
+        /* 800px이하 미디어쿼리 시작 */
+        @media screen and (max-width:800px) {
+            
+        }
+
+        /* 800px이하 미디어쿼리 끝 */
+
+        /* 600px이하 미디어쿼리 시작 */
+        @media screen and (max-width:600px) {
+            
+        }
+
+        /* 600px이하 미디어쿼리 끝 */
+    </style>
+</head>
+
+<body>
+    <!-- 타이틀 -->
+    <h1 class="tit">그리드1 - 이미지 갤러리</h1>
+    <!-- 그리드 레이아웃 박스 -->
+   
+
+
+    <!-- 
+        .grid>div*50>img[src=img_gallery/$.jpg alt=dress]+(aside>h2{상품명$}+h3{상품가격$})
+    
+        젠코딩(에밋코딩) 약어소개
+        _____________________
+        
+        * 여러개
+        > 자식
+        + 형제
+        [] 속성
+        {} 데이터 -> 태그내부값
+        $ 연속번호자리
+    -->
+</body>
+
+</html>
