@@ -58,7 +58,88 @@
         }
 
         /* 그리드 박스 */
+        .grid{
+            /* 그리드 박스 */
+            display: grid;
 
+            /* 1200px최대크기, 마영오! */
+            max-width: 1200px;
+            margin: 0 auto;
+
+            /********************** 
+            [ 가로 그리드 템플릿 ] 
+            grid-template-columns           
+            **********************/
+            /* 1. 가로 사이즈를 구체적인 단위를 사용하여 설정하기(설정한 수치의 개수만큼 컬럼생성) */
+            /* grid-template-columns: 100px 200px 300px 400px; */
+
+            /* 2. fr단위로 가로전체에 대한 비율을 설정
+            -> 사용한 개수만큼 가로 컬럼이 생성됨!
+            fraction(부분) */
+            /* grid-template-columns: 1fr 3fr 5fr 2fr; */
+
+            /* 3. repeat(수치의 반복수, 반복수치) */
+            grid-template-columns: repeat(5,1fr);
+
+            /* 3번 repeat() 에 대한 다양한 실험! 
+                비율이 여러가지일 경우 띄어쓰기로
+                크기 수치를 표현함
+                -> 비의 반복수*반복수치의 개수
+                -> 아래의 예는 2*3 = 6 개의 컬럼생성됨!
+            */
+            /* grid-template-columns: repeat(2,300px 1fr 3fr); */
+
+            /************************ 
+                [ 세로 그리드 템블릿 ]
+                grid-template-rows
+            ************************/
+            /* 1. 구체적인 수치 높이값을 쓴만큼 셋팅
+            -> 나머지는 자동셋팅 */
+            /* grid-template-rows: 100px 200px 300px; */
+
+            /* 2. 높이값 전체에서의 비를 쓴만큼 셋팅 */
+            /* grid-template-rows: 1fr 3fr 5fr 2fr; */
+
+            /* 3. repeat(수치의 반복수, 반복수치) */
+            /* grid-template-rows: repeat(4,300px); */
+
+            /* 4. 모든높이값 동일하게 셋팅하기
+                grid-auto-rows: 수치값; -> 기본값 auto
+            */
+            /* grid-auto-rows: 400px; */
+
+            /*********************** 
+                [ 수평방향 간격 ]
+                grid-column-gap
+            ***********************/
+            grid-column-gap: min(1vw,10px);
+
+            /*********************** 
+                [ 수직방향 간격 ]
+                grid-row-gap
+            ***********************/
+            grid-row-gap: min(1.5vw,15px);
+
+
+        }
+
+        /* 갤러리 박스 */
+        .grid>div{
+            position: relative;
+            /* 부모자격 */
+
+            /* 비율박스 셋팅 : 
+            이미지 가로/세로 크기비율임! */
+            aspect-ratio: 280 / 400;
+        }
+
+        /* 그리드 갤러리 이미지 */
+        .grid img{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
         
 
         /* 1100px이하 미디어쿼리 시작 */
@@ -95,7 +176,358 @@
     <!-- 타이틀 -->
     <h1 class="tit">그리드1 - 이미지 갤러리</h1>
     <!-- 그리드 레이아웃 박스 -->
-   
+    <div class="grid">
+        <div>
+            <img src="img_gallery/1.jpg" alt="dress">
+            <aside>
+                <h2>상품명1</h2>
+                <h3>상품가격1</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/2.jpg" alt="dress">
+            <aside>
+                <h2>상품명2</h2>
+                <h3>상품가격2</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/3.jpg" alt="dress">
+            <aside>
+                <h2>상품명3</h2>
+                <h3>상품가격3</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/4.jpg" alt="dress">
+            <aside>
+                <h2>상품명4</h2>
+                <h3>상품가격4</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/5.jpg" alt="dress">
+            <aside>
+                <h2>상품명5</h2>
+                <h3>상품가격5</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/6.jpg" alt="dress">
+            <aside>
+                <h2>상품명6</h2>
+                <h3>상품가격6</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/7.jpg" alt="dress">
+            <aside>
+                <h2>상품명7</h2>
+                <h3>상품가격7</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/8.jpg" alt="dress">
+            <aside>
+                <h2>상품명8</h2>
+                <h3>상품가격8</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/9.jpg" alt="dress">
+            <aside>
+                <h2>상품명9</h2>
+                <h3>상품가격9</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/10.jpg" alt="dress">
+            <aside>
+                <h2>상품명10</h2>
+                <h3>상품가격10</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/11.jpg" alt="dress">
+            <aside>
+                <h2>상품명11</h2>
+                <h3>상품가격11</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/12.jpg" alt="dress">
+            <aside>
+                <h2>상품명12</h2>
+                <h3>상품가격12</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/13.jpg" alt="dress">
+            <aside>
+                <h2>상품명13</h2>
+                <h3>상품가격13</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/14.jpg" alt="dress">
+            <aside>
+                <h2>상품명14</h2>
+                <h3>상품가격14</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/15.jpg" alt="dress">
+            <aside>
+                <h2>상품명15</h2>
+                <h3>상품가격15</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/16.jpg" alt="dress">
+            <aside>
+                <h2>상품명16</h2>
+                <h3>상품가격16</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/17.jpg" alt="dress">
+            <aside>
+                <h2>상품명17</h2>
+                <h3>상품가격17</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/18.jpg" alt="dress">
+            <aside>
+                <h2>상품명18</h2>
+                <h3>상품가격18</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/19.jpg" alt="dress">
+            <aside>
+                <h2>상품명19</h2>
+                <h3>상품가격19</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/20.jpg" alt="dress">
+            <aside>
+                <h2>상품명20</h2>
+                <h3>상품가격20</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/21.jpg" alt="dress">
+            <aside>
+                <h2>상품명21</h2>
+                <h3>상품가격21</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/22.jpg" alt="dress">
+            <aside>
+                <h2>상품명22</h2>
+                <h3>상품가격22</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/23.jpg" alt="dress">
+            <aside>
+                <h2>상품명23</h2>
+                <h3>상품가격23</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/24.jpg" alt="dress">
+            <aside>
+                <h2>상품명24</h2>
+                <h3>상품가격24</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/25.jpg" alt="dress">
+            <aside>
+                <h2>상품명25</h2>
+                <h3>상품가격25</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/26.jpg" alt="dress">
+            <aside>
+                <h2>상품명26</h2>
+                <h3>상품가격26</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/27.jpg" alt="dress">
+            <aside>
+                <h2>상품명27</h2>
+                <h3>상품가격27</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/28.jpg" alt="dress">
+            <aside>
+                <h2>상품명28</h2>
+                <h3>상품가격28</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/29.jpg" alt="dress">
+            <aside>
+                <h2>상품명29</h2>
+                <h3>상품가격29</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/30.jpg" alt="dress">
+            <aside>
+                <h2>상품명30</h2>
+                <h3>상품가격30</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/31.jpg" alt="dress">
+            <aside>
+                <h2>상품명31</h2>
+                <h3>상품가격31</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/32.jpg" alt="dress">
+            <aside>
+                <h2>상품명32</h2>
+                <h3>상품가격32</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/33.jpg" alt="dress">
+            <aside>
+                <h2>상품명33</h2>
+                <h3>상품가격33</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/34.jpg" alt="dress">
+            <aside>
+                <h2>상품명34</h2>
+                <h3>상품가격34</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/35.jpg" alt="dress">
+            <aside>
+                <h2>상품명35</h2>
+                <h3>상품가격35</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/36.jpg" alt="dress">
+            <aside>
+                <h2>상품명36</h2>
+                <h3>상품가격36</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/37.jpg" alt="dress">
+            <aside>
+                <h2>상품명37</h2>
+                <h3>상품가격37</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/38.jpg" alt="dress">
+            <aside>
+                <h2>상품명38</h2>
+                <h3>상품가격38</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/39.jpg" alt="dress">
+            <aside>
+                <h2>상품명39</h2>
+                <h3>상품가격39</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/40.jpg" alt="dress">
+            <aside>
+                <h2>상품명40</h2>
+                <h3>상품가격40</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/41.jpg" alt="dress">
+            <aside>
+                <h2>상품명41</h2>
+                <h3>상품가격41</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/42.jpg" alt="dress">
+            <aside>
+                <h2>상품명42</h2>
+                <h3>상품가격42</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/43.jpg" alt="dress">
+            <aside>
+                <h2>상품명43</h2>
+                <h3>상품가격43</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/44.jpg" alt="dress">
+            <aside>
+                <h2>상품명44</h2>
+                <h3>상품가격44</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/45.jpg" alt="dress">
+            <aside>
+                <h2>상품명45</h2>
+                <h3>상품가격45</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/46.jpg" alt="dress">
+            <aside>
+                <h2>상품명46</h2>
+                <h3>상품가격46</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/47.jpg" alt="dress">
+            <aside>
+                <h2>상품명47</h2>
+                <h3>상품가격47</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/48.jpg" alt="dress">
+            <aside>
+                <h2>상품명48</h2>
+                <h3>상품가격48</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/49.jpg" alt="dress">
+            <aside>
+                <h2>상품명49</h2>
+                <h3>상품가격49</h3>
+            </aside>
+        </div>
+        <div>
+            <img src="img_gallery/50.jpg" alt="dress">
+            <aside>
+                <h2>상품명50</h2>
+                <h3>상품가격50</h3>
+            </aside>
+        </div>
+    </div>
 
 
     <!-- 
