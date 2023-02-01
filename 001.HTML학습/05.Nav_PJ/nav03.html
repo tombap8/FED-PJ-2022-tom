@@ -256,18 +256,18 @@
         <!-- JS코드구역 -->
         <script>
             /////// 로드구역 ////////////////////////
-            window.addEventListener("load",function(){
+            window.addEventListener("load", function () {
                 // 호출확인
                 console.log("로딩완료!");
 
-                // 구현1 : 메뉴 이미지 오버시 이미지 변경하기
-                // 대상: 
+                ///////////////////////////////////////////
+                // 구현내용 : 메뉴 이미지 오버시 이미지 변경하기
+                ///////////////////////////////////////////
+                // 1. 대상선정:
                 // .simg img:last-child
                 // .lang img:last-child
                 // .store img:last-child
-                var tg = 
-                document
-                .querySelectorAll(`
+                var tg = document.querySelectorAll(`
                     .simg img:last-child,
                     .lang img:last-child,
                     .store img:last-child                
@@ -275,10 +275,18 @@
 
                 console.log(tg);
 
+                // 2. 이벤트 설정 및 구현하기
+                // 대상의 수만큼 for문으로 설정함!
+                // for(시;한;증){코드}
 
+                // 한계수 셋팅 : 대상의 개수
+                var limit = tg.length;
 
-
-            });////////// 로드구역 ////////////////
+                for (var i = 0; i < limit; i++) {
+                    console.log("나야나!",i);
+                } ///////// for문 ///////////
+                
+            }); ////////// 로드구역 ////////////////
         </script>
     </head>
     <body>
