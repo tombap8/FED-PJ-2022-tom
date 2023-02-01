@@ -261,9 +261,17 @@
                 console.log("로딩완료!");
 
                 // 구현1 : 메뉴 이미지 오버시 이미지 변경하기
-                // 대상: .simg img
+                // 대상: 
+                // .simg img:last-child
+                // .lang img:last-child
+                // .store img:last-child
                 var tg = 
-                document.querySelectorAll(".simg img:last-child");
+                document
+                .querySelectorAll(`
+                    .simg img:last-child,
+                    .lang img:last-child,
+                    .store img:last-child                
+                `);
 
                 console.log(tg);
 
