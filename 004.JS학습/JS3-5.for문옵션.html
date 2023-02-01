@@ -1,29 +1,26 @@
 <!DOCTYPE html>
 <html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <title>For문 옵션</title>
+        <style>
+            .forCls {
+                height: 100px;
+                border: 4px dotted lightseagreen;
+            }
 
-<head>
-    <meta charset="UTF-8">
-    <title>For문 옵션</title>
-    <style>
-        .forCls {
-            height: 100px;
-            border: 4px dotted lightseagreen;
-        }
+            .forCls img {
+                height: 100px;
+            }
+        </style>
+        <!-- JS코드구역 -->
+        <script>
+            // 로드구역 ////////////
+            window.addEventListener("DOMContentLoaded", function () {
+                // 로딩확인
+                console.log("로딩완료!");
 
-        .forCls img {
-            height: 100px;
-        }
-    </style>
-    <!-- JS코드구역 -->
-    <script>
-        // 로드구역 ////////////
-        window.addEventListener("DOMContentLoaded",
-        function(){
-            
-            // 로딩확인
-            console.log("로딩완료!");
-
-            /**************************************** 
+                /**************************************** 
                 [ JS 기능정의 ]
                 -> 버튼 클릭시 해당버튼의 내용으로
                 연결된 대상에 이미지를 연속적으로 
@@ -35,45 +32,77 @@
                 -> 연속된 이미지를 for문으로 넣기
             ****************************************/
 
-            // 1. 대상선정
-            // 이벤트 대상 : button
-            var btns = document.querySelectorAll("button");
+                // 1. 대상선정
+                // 이벤트 대상 : button
+                var btns = document.querySelectorAll("button");
 
-            // 변경대상 : .forCls
-            var tg = document.querySelectorAll(".forCls");
+                // 변경대상 : .forCls
+                var tg = document.querySelectorAll(".forCls");
 
-            console.log(btns,tg);
+                console.log(btns, tg);
+
+                // 2. 이벤트 설정 및 기능구현
+                // for(시;한;증){코드}
+                for (var i = 0; i < btns.length; i++) {
+
+                    console.log("나야나!",i);
+
+                    // 1. 이벤트 설정하기
+                    btns[i].onclick = function(){
+
+                        // 1. 버튼요소 텍스트 읽기
+                        // this === btns[i]
+                        var btxt = this.innerText;
+                        console.log(btxt);
+
+                        // 2. 버튼별 for문 옵션 적용하기
+
+                        // 3. 이미지 출력하기
+                        // 이미지 10개 출력하기
+                        // 이미지이름이 1부터 10까지를 활용함!
+                        for(var j=1;j<=10;j++){
+                            // 이미지 넣을 대상은?
+                            // .forCls를 담은 tg변수
+                            tg[0].innerHTML += `
+                            <img src="./images/num/num_01.png" alt="숫자이미지">`;
+                        } /////////// for문 /////////////
+
+                    }; //////////// click 이벤트함수 /////////
 
 
-        }); /////////////// 로드구역 //////////////
-    </script>
-</head>
 
-<body>
-    <h1>for문 옵션</h1>
 
-    <hr>
+                    // btns[i].addEventListener("click",function(){})
 
-    <h2>기본for문</h2>
-    <button>기본호출</button>
-    <br><br>
-    <div class="forCls"></div>
-    <hr>
+                } ////////// for문 /////////////
 
-    <h2>4번과 7번빼고 돌리기</h2>
-    <button>for문옵션1</button>
-    <br><br>
-    <div class="forCls"></div>
+            }); /////////////// 로드구역 //////////////
+        </script>
+    </head>
 
-    <hr>
+    <body>
+        <h1>for문 옵션</h1>
 
-    <h2>5번까지만 돌리기</h2>
-    <button>for문옵션2</button>
-    <br><br>
-    <div class="forCls"></div>
+        <hr />
 
-    <hr>
+        <h2>기본for문</h2>
+        <button>기본호출</button>
+        <br /><br />
+        <div class="forCls"></div>
+        <hr />
 
-</body>
+        <h2>4번과 7번빼고 돌리기</h2>
+        <button>for문옵션1</button>
+        <br /><br />
+        <div class="forCls"></div>
 
+        <hr />
+
+        <h2>5번까지만 돌리기</h2>
+        <button>for문옵션2</button>
+        <br /><br />
+        <div class="forCls"></div>
+
+        <hr />
+    </body>
 </html>
