@@ -76,6 +76,10 @@
         .top{
             /* 플렉스박스 */
             display: flex;
+            /* 진행방향 정렬 
+            - 양쪽끝 붙이고 사이간격일정 */
+            justify-content: space-between;
+
             max-width: 1600px;
             margin: 0 auto;
 
@@ -91,20 +95,37 @@
         .logo img{
             height: 50px;
         }
+
         /* 로고 두번째 이미지 처음에 숨김 */
         .logo img:last-child,
+        /* .lang 두번째 이미지 처음에 숨김 */
+        .lang img:last-child,
         /* .store 두번째 이미지 처음에 숨김 */
         .store img:last-child,
+        /* .simg 두번째 이미지 처음에 숨김 */
+        .simg img:last-child,
+
         /* #top오버시 첫번째 로고 숨기기 */
         #top:hover .logo img:first-child,
+        /* #top오버시 .lang 첫번째 이미지 숨기기 */
+        #top:hover .lang img:first-child,
         /* #top오버시 .store 첫번째 이미지 숨기기 */
-        #top:hover .store img:first-child{
+        #top:hover .store img:first-child,
+        /* #top오버시 .simg 첫번째 이미지 숨기기 */
+        #top:hover .simg img:first-child
+        {
             display: none;
         }
+
         /* #top오버시 두번째 로고 보이기 */
         #top:hover .logo img:last-child,
+        /* #top오버시 .lang 두번째 이미지 보이기 */
+        #top:hover .lang img:last-child,
         /* #top오버시 .store 두번째 이미지 보이기 */
-        #top:hover .store img:last-child{
+        #top:hover .store img:last-child,
+        /* #top오버시 .simg 두번째 이미지 보이기 */
+        #top:hover .simg img:last-child
+        {
             display: inline;
         }
 
@@ -142,6 +163,10 @@
         /* #top오버시 dt a 글자색 변경 */
         #top:hover .gnb dt a{        
             color: #222;
+        }
+        /* 첫번째 dt 이미지메뉴 */
+        .simg{
+            vertical-align: -22px;
         }
 
         /* 서브메뉴 : dd */
@@ -188,8 +213,11 @@
                     <!-- 1.스토리 -->
                     <dl>
                         <dt>
-                            <a href="#">
+                            <a href="#" class="simg">
+                                <!-- 오버전 이미지 -->
                                 <img src="./images/nav03/story_white_s.png" alt="스토리 이미지">
+                                <!-- 오버시 이미지 -->
+                                <img src="./images/nav03/story_gray_s.png" alt="스토리 이미지">
                             </a>
                         </dt>
                         <dd>
@@ -324,9 +352,12 @@
                             <img src="./images/nav03/cpl_bi.png" alt="나눔명문기업">
                         </a>
                     </li>
-                    <li>
+                    <li class="lang">
                         <a href="#">
+                            <!-- 오버전 이미지 -->
                             <img src="./images/nav03/lang_i_w.png" alt="다국어아이콘">
+                            <!-- 오버시 이미지 -->
+                            <img src="./images/nav03/lang_i.png" alt="다국어아이콘">
                         </a>
                     </li>
                     <li class="store">
