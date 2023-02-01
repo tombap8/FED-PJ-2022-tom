@@ -292,7 +292,7 @@
                     // 사용이벤트속성 : onmouseover / onmouseout
 
                     // [ 대상에 마우스 오버시 ]
-                    tg[i].onmouseover = function(){
+                    tg[i].onmouseover = function () {
                         // this키워드로 오버된 요소 자신의 정보를
                         // 알아낸다!
                         // this === tg[i]
@@ -300,22 +300,29 @@
                         // 1. 이미지의 설명속성값을 읽어옴!
                         // 이미지설명속성값으로 대상의 구분함!
                         var ialt = this.alt;
-                        console.log("이미지설명:",ialt);
+                        console.log("이미지설명:", ialt);
 
                         // 2. 변경될 이미지의 경로를 대상별로 할당
                         var isrc;
                         // switch case문으로 분기!
-                        switch(ialt){
-                            case "": isrc="";break;
-                            case "": isrc="";break;
-                            case "": isrc="";break;
+                        switch (ialt) {
+                            case "스토리 이미지":
+                                isrc = "./images/nav03/story_red_s.png";
+                                break;
+                            case "다국어아이콘":
+                                isrc = "./images/nav03/lang_i_on.png";
+                                break;
+                            case "스토아아이콘":
+                                isrc = "./images/nav03/store_i3_on.png";
+                                break;
                         } //////// switch case문 /////
 
+                        console.log("변경이미지:",isrc);
+
+                        
+
                     }; /////// mouseover 이벤트함수 /////
-
-
                 } ///////// for문 ///////////
-
             }); ////////// 로드구역 ////////////////
         </script>
     </head>
