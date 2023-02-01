@@ -291,11 +291,19 @@
                     // tg.item(순번) / tg[순번]
                     // 사용이벤트속성 : onmouseover / onmouseout
 
-                    // [ 대상에 마우스 오버시 ]
+                    // 오버시 / 아웃시 사용할 공통이미지변수
+                    var csrc; // common src
+
+                    ///// [ 대상에 마우스 오버시 ] //////
                     tg[i].onmouseover = function () {
                         // this키워드로 오버된 요소 자신의 정보를
                         // 알아낸다!
                         // this === tg[i]
+
+                        // 0. 아웃시 원본으로 돌아가기 위한 
+                        // 원래이미지경로 저장하기
+                        csrc = this.src;
+                        console.log("원본이미지:",csrc);
 
                         // 1. 이미지의 설명속성값을 읽어옴!
                         // 이미지설명속성값으로 대상의 구분함!
@@ -319,9 +327,21 @@
 
                         console.log("변경이미지:",isrc);
 
-                        
+                        // 3. 할당된 isrc 이미지경로를 대상의 src에 넣기
+                        // setAttribute(속성명,값)
+                        this.setAttribute("src",isrc);
 
                     }; /////// mouseover 이벤트함수 /////
+
+                    ///// [ 대상에 마우스 아웃시 ] //////
+                    tg[i].onmouseout = function(){
+                        // 원본이미지경로 확인
+                        console.log("아웃시확인:",csrc);
+                    }; ///////// mouseout 이벤트함수 ///////
+
+
+
+
                 } ///////// for문 ///////////
             }); ////////// 로드구역 ////////////////
         </script>
