@@ -95,6 +95,12 @@
         }
 
         /* 로고 */
+        .logo{            
+             /* 세로중앙이동 */
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
         .logo img{
             height: 50px;
         }
@@ -148,6 +154,11 @@
             height: 400px;
         }
 
+        /* GNB 전체 a요소 오버시 공통 */
+        .gnb a:hover{
+            color: #f00 !important;
+        }
+
 
         .gnb dl{
             text-align: center;
@@ -185,6 +196,8 @@
             /* 플렉스박스 */
             display: flex;
             list-style: none;
+
+            /* 세로중앙이동 */
             position: relative;
             top: 50%;
             transform: translateY(-50%);
@@ -196,6 +209,31 @@
         /* 사이간격 */
         .tlink li+li{
             margin-left: 25px;
+        }
+
+        /* 기타파트 가상요소로 글자넣기 */
+        .lang::after{
+            content: 'KOR';
+            color: #fff;
+            font-size: 12px;
+            margin-left: -12px;
+        }
+        
+        .store::after{
+            content: 'STORE';
+            color: #fff;
+            font-size: 12px;
+            margin-left: -22px;
+        }
+        /* 오버시 */
+        #top:hover .lang::after,
+        #top:hover .store::after{
+            color: #222;
+        }
+        /* 자체오버시 */
+        .lang:hover::after,
+        .store:hover::after{
+            color: #f00 !important;
         }
 
     </style>
