@@ -461,6 +461,18 @@
                     </div>
                 `;
 
+                // 삽입된 동영상박스 (#mv) CSS설정하기
+                var mv = document.querySelector("#mv");
+                var msy = mv.style;
+
+                msy.position = "fixed";
+                msy.top = "50%";
+                msy.left = "50%";
+                msy.transform = "translate(-50%,-50%)";
+                msy.width = "700px";
+                msy.height = "450px";
+                msy.backgroundColor = "#000";
+
            }; /////////////// playMv 함수 ///////////////
            //////////////////////////////////////////////
 
