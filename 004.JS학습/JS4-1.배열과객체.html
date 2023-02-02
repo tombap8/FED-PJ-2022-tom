@@ -422,6 +422,7 @@
             tg[5].style.lineHeight = "34px";
             // 손가락 모양
             tg[5].style.cursor = "pointer";
+            tg[5].style.fontSize = "14px";
 
             /////////////////////////////
             // 내용 출력하기 함수로 변경!!!
@@ -449,7 +450,10 @@
             
             
             
-            
+            // 버튼출력대상 : tg[7]
+
+            // 줄간격 조정
+            tg[6].style.lineHeight = "20px";
             
 
 
@@ -468,7 +472,7 @@
                     // 1. 버튼텍스트
                     var btxt = this.innerText;
                     console.log(btxt);
-
+                    
                     // 할당전 이전 영화객체
                     console.log(tomObj);
 
@@ -481,6 +485,19 @@
                         case "수희초이스": tomObj = SuheeObj; break;
                         case "유정초이스": tomObj = aladdin; break;
                         case "성해초이스": tomObj = shObj; break;
+                        case "소미초이스": tomObj = somObj; break;
+                        case "수진초이스": tomObj = SJObj; break;
+                        case "요한초이스": tomObj = yhObj; break;
+                        case "다미초이스": tomObj = mov; break;
+                        case "민경초이스": tomObj = mkObj; break;
+                        case "다인초이스": tomObj = leaveObj; break;
+                        case "새미초이스": tomObj = SMObj; break;
+                        case "명진초이스": tomObj = mjObj; break;
+                        case "동호초이스": tomObj = GSObj; break;
+                        case "지은초이스": tomObj = jenObj; break;
+                        case "동한초이스": tomObj = myV; break;
+                        case "승준초이스": tomObj = motoraObj; break;
+                        case "해원초이스": tomObj = seoObj; break;
                     } ///////// switch case문 ////////
 
                     // 기존 영화객체변수값이 변경되었는지 확인!
@@ -581,6 +598,19 @@
             <button>수희초이스</button>
             <button>유정초이스</button>
             <button>성해초이스</button>
+            <button>소미초이스</button> <br>
+            <button>수진초이스</button>
+            <button>요한초이스</button>
+            <button>다미초이스</button>
+            <button>민경초이스</button>
+            <button>다인초이스</button>
+            <button>새미초이스</button> <br>
+            <button>명진초이스</button>
+            <button>동호초이스</button>
+            <button>지은초이스</button>
+            <button>동한초이스</button>
+            <button>승준초이스</button>
+            <button>해원초이스</button>
         </div>
 
         <!-- 예고편 동영상용 박스 -->
