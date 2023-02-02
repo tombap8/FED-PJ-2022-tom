@@ -226,7 +226,26 @@
                 "팬레터": function(){
                     // 1. 메시지 띄우기
                     alert("상남자 오빠! 지금뭐해?");
-                }
+
+                    // 스타일 선택변수
+                    var sty = tg[3].style
+
+                    // 2. 배경이미지 넣기
+                    sty.background = 
+                    "url(https://file.mk.co.kr/meet/neds/2022/05/image_readtop_2022_456627_16533579475052374.jpeg) repeat-x top/auto 100%";
+                    // 3. 글자색
+                    sty.color = "#fff";
+                    // 4. 글자그림자
+                    sty.textShadow = "0 0 5px #000";
+                    // 5. 글자내용변경
+                    tg[3].innerText = "손석구 최고 멋쨍이! 승승장구! 화이팅!!!";
+                    // 6. 줄간격
+                    sty.lineHeight = "84px";
+                    // 7. 박스크게하기
+                    sty.transform = "scale(1.2)";
+                    // 8. 트랜지션
+                    sty.transition = "1s ease-out 1s";
+                } // 팬레터 메서드 ////
             }); /// SSG 객체 /////////////////////
 
             // 객체 출력대상: tg[3]
