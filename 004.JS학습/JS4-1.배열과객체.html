@@ -489,6 +489,11 @@
                 csy.fontWeight = "bold";
                 csy.borderRadius = "50%";
                 csy.cursor = "pointer";
+                csy.lineHeight = "50px";
+
+                // 닫기버튼 클릭시 #mv 제거하기
+                cbtn.onclick = function(){mv.remove();};
+                // remove() 메서드 -> DOM에서 요소를 삭제함
 
            }; /////////////// playMv 함수 ///////////////
            //////////////////////////////////////////////
