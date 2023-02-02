@@ -320,10 +320,69 @@
                 msg: function(txt){ // txt 전달변수
                     // 1.메시지 띄우기
                     alert("팬레터:"+txt);
+
+                    // 스타일 할당변수
+                    var sty = tg[4].style;
+
+                    // 2. 배경이미지
+                    sty.background = "url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Gong_Yoo_%28Sep_2016%29.png/250px-Gong_Yoo_%28Sep_2016%29.png) repeat-x top/auto 100%";
+
+                    // 3. 글자색
+                    sty.color = "#fff";
+
+                    // 4. 글자그림자
+                    sty.textShadow = "0 0 5px #000";
+
+                    // 5. 줄간격
+                    sty.lineHeight = "30px";
+
+                    // 6. 높이값 변경
+                    sty.height = "100px";
+                    
+                    // 7. 상단패딩 변경
+                    sty.paddingTop = "100px";
+                    
+                    // 8. 트랜지션
+                    sty.transition = "2s ease-in-out .5s";
+
+
+
                 } //// msg메서드 /////
             }; //// GU 객체 /////////////////
 
-            
+            // GU객체 찍어보기
+            console.log("GU객체:",GU);
+
+            // GU객체 출력하기 ////////
+            // 출력대상: tg[4]
+
+            // 줄간격 조정
+            tg[4].style.lineHeight = "24px";
+
+            // 내용출력
+            tg[4].innerHTML = `
+                저는 ${GU.name}입니다.
+                몸무게는 비밀인데요 그래도 말씀드리자면
+                ${GU.weight}입니다. ㅎㅎㅎ <br>
+                제 대표작은 ${GU.work}입니다. <br>
+                제 소속사는 모르시는 분들이 많은데
+                ${GU.com}입니다. 빠이빠이~!
+            `;
+
+            // 툴팁 띄우기
+            // setAttribute(속성명,값)
+            tg[4].setAttribute("title",
+            GU.name+"의 팬레터를 확인하세요! 바로클릭!");
+
+            // 손가락모양
+            tg[4].style.cursor = "pointer";
+
+            // 공유박스 클릭시 GU객체 메서드 호출하기
+            tg[4].onclick = function(){
+                GU.msg("\n공유오빠, 오징어게임 싸다구 멋쪘어요!\n차기작도 기대해요!화이팅!!!");
+                // \n은 alert창에서 줄바꿈해줌
+            }; ////////// click 이벤트함수 /////
+
 
 
 
