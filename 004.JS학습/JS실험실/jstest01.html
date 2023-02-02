@@ -40,6 +40,11 @@
                 // y좌표 : event.pageY
                 console.log("x:",event.pageX,"\ny:",event.pageY);
 
+                // 무버에게 위치값 이동 셋팅하기(무버중앙위치 보정)
+                mover.style.top = (event.pageY-15)+"px";
+                mover.style.left = (event.pageX-15)+"px";
+
+
             }; //////////// mousemove 이벤트함수 //////
 
         }); ///////////// 로드구역 ///////////////
