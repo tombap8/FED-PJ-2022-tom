@@ -449,16 +449,67 @@
             
             
             
-            // 예고편 동영상용 박스
-            var mvbx = document.querySelector("#mvbx");
-            // console.log(mvbx);
+            
+            
 
+
+           //////////////////////////////////////////
+           // 영화초이스 버튼 클릭시
+           // 영화정보와 동영상을 변경한다!
+           /////////////////////////////////////////
+           // 대상: .choice button
+           var cho = document.querySelectorAll(".choice button");
+           console.log(cho);
+
+           // for문으로 버튼들을 click이벤트 설정한다!
+           for(var i=0;i<cho.length;i++){
+
+               cho[i].onclick = function(){
+                    // 1. 버튼텍스트
+                    var btxt = this.innerText;
+                    console.log(btxt);
+
+                    // 할당전 이전 영화객체
+                    console.log(tomObj);
+
+                    // 2. 버튼텍스트에 해당하는 객체를 기존 변수에 할당하기
+                    // switch()문사용
+                    // 새로운객체를 기존객체에 할당하기(변경하기)
+                    switch(btxt){
+                        case "성우초이스": tomObj = SW_obj; break;
+                        case "찬초이스": tomObj = jcObj; break;
+                        case "수희초이스": tomObj = SuheeObj; break;
+                        case "유정초이스": tomObj = aladdin; break;
+                        case "성해초이스": tomObj = shObj; break;
+                    } ///////// switch case문 ////////
+
+                    // 기존 영화객체변수값이 변경되었는지 확인!
+                    console.log(tomObj);
+
+                    // 3. 실제 적용 요소에 객체데이터 넣기
+                    // 위에서 함수로 생성한 expFn함수를 호출!
+                    expFn();
+    
+               }; //////////////// click 이벤트함수 ///////////
+
+           } //////////// for문 ////////////
+
+            }); ////////////// 로드구역 ////////////////////////
+
+
+
+            // -> 다른 영화객체에서 호출하고 있으므로
+            // 로드 구역 바깥으로 옮겨서 전역함수로 변경함!
             /******************************************* 
-                함수명: playMv
-                기능: 영화예고편 화면에 띄우기
-            *******************************************/
-           var playMv = function(mvcode){ // mvcode 예고편아이디
-
+             함수명: playMv
+             기능: 영화예고편 화면에 띄우기
+             *******************************************/
+             var playMv = function(mvcode){ // mvcode 예고편아이디
+                
+                // 예고편 동영상용 박스
+                var mvbx = document.querySelector("#mvbx");
+                // console.log(mvbx);
+                
                 // 1. 함수호출확인
                 console.log("플레이어!",mvcode);
 
@@ -509,49 +560,6 @@
 
            }; /////////////// playMv 함수 ///////////////
            //////////////////////////////////////////////
-
-
-           //////////////////////////////////////////
-           // 영화초이스 버튼 클릭시
-           // 영화정보와 동영상을 변경한다!
-           /////////////////////////////////////////
-           // 대상: .choice button
-           var cho = document.querySelectorAll(".choice button");
-           console.log(cho);
-
-           // for문으로 버튼들을 click이벤트 설정한다!
-           for(var i=0;i<cho.length;i++){
-
-               cho[i].onclick = function(){
-                    // 1. 버튼텍스트
-                    var btxt = this.innerText;
-                    console.log(btxt);
-
-                    // 할당전 이전 영화객체
-                    console.log(tomObj);
-
-                    // 2. 버튼텍스트에 해당하는 객체를 기존 변수에 할당하기
-                    // switch()문사용
-                    // 새로운객체를 기존객체에 할당하기(변경하기)
-                    switch(btxt){
-                        case "성우초이스": tomObj = SW_obj; break;
-                        case "찬초이스": tomObj = jcObj; break;
-                        case "수희초이스": tomObj = SuheeObj; break;
-                        case "유정초이스": tomObj = aladdin; break;
-                    } ///////// switch case문 ////////
-
-                    // 기존 영화객체변수값이 변경되었는지 확인!
-                    console.log(tomObj);
-    
-               }; //////////////// click 이벤트함수 ///////////
-
-           } //////////// for문 ////////////
-
-
-
-
-
-            }); ////////////// 로드구역 ////////////////////////
         </script>
     </head>
 
@@ -568,9 +576,9 @@
         <div class="cont choice">
             <button>성우초이스</button>
             <button>찬초이스</button>
-            <button>세중초이스</button>
             <button>수희초이스</button>
             <button>유정초이스</button>
+            <button>성해초이스</button>
         </div>
 
         <!-- 예고편 동영상용 박스 -->
