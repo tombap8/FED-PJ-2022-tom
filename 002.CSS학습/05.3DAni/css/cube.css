@@ -92,13 +92,23 @@ body{
     /* 먼저 y축회전후
     큐브 사이즈 절반을 앞쪽으로 이동 */
 }
-/* 4. 뒷면 */
+/* 4. 왼쪽면 */
 .cube span:nth-child(4){
-    background: url(../images/parisCity.jpg) no-repeat center/cover;
+    background: url(../images/cityMain.jpg) no-repeat center/cover;
 
     /* 화면방향(z축) */
-    transform: rotateY(180deg)
+    transform: rotateY(-90deg)
     translateZ(calc(var(--csz)/2));
     /* 먼저 y축회전후
+    큐브 사이즈 절반을 앞쪽으로 이동 */
+}
+/* 5. 왼쪽면 */
+.cube span:nth-child(5){
+    background: url(../images/citys.jpg) no-repeat center/cover;
+
+    /* 화면방향(z축) */
+    transform: rotateX(90deg)
+    translateZ(calc(var(--csz)/2));
+    /* 먼저 x축회전후
     큐브 사이즈 절반을 앞쪽으로 이동 */
 }
