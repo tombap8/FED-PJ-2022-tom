@@ -146,12 +146,46 @@
                 // 블록내부에서 전역변수 찍기! 앞
                 console.log("블록내부에서 전역변수 찍기! 앞");
                 console.log("seoul:",seoul);
+
+                // 블록에서 변수 재선언하기!!!
+                var seoul = "강남구";
+                // 하단에서 변수를 전역으로 다시 선언할당한 결과임!
+
+                // console.log("jeju:",jeju);
+                // let으로 선언변수는 선언전 사용불가
+                // 에러메시지 : Uncaught ReferenceError: Cannot access 'jeju' before initialization
+                
+                // let으로 지역변수 jeju 선언
+                let jeju = "마라도";
+                // 중괄호안의 let은 지역변수를 생성함!
+                
                 console.log("jeju:",jeju);
+
+                // 전역변수 let으로 선언된 같은 이름의 변수만들기
+                let toktok = "라인";
+                // 중괄호 바깥의 let변수와 구분함!
+                // 지역변수로 사용됨!
+
                 console.log("toktok:",toktok);
+
+                // var로 전역변수의 let변수를 다시 선언하기
+                // var sport = "배구";
+                // 전역에 선언된 let과 같은 이름으로 두번 변수를
+                // 선언할 수 없도록 막아줌!!!
+                // 에러메시지: Uncaught SyntaxError: Identifier 'sport' has already been declared
+
+
                 console.log("sport:",sport);
+                
+                // 선언하지 않은 변수를 할당하기
+                myitem = "곰인형";
+                console.log("myitem:",myitem);
+                // 기본적으로 선언없이 사용한 변수는
+                // var로 전역변수 선언된다!
+                // 함수안에서도 마찬가지임!
+                // 변수에 대한 관리가 어려워진다!!! 나쁜케이스!
+
                 //////////////////////////////////
-
-
 
                 // 블록내부에서 전역변수 찍기! 뒤
                 console.log("블록내부에서 전역변수 찍기! 뒤");
@@ -169,7 +203,12 @@
             console.log("jeju:",jeju);
             console.log("toktok:",toktok);
             console.log("sport:",sport);
-            //////////////////////////////
+            console.log("myitem:",myitem);
+            //////////////////////////////////////////////
+
+
+
+
 
 
         </script>
