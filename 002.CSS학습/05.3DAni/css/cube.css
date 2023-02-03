@@ -12,7 +12,9 @@ body{
 
 /* 변수셋팅 */
 :root{
-    /* 큐브 공통크기 */
+    /* 큐브 공통크기
+    --변수명
+    변수명은 내맘대로! */
     --csz: 300px;
 }
 
@@ -21,10 +23,52 @@ body{
     position: absolute;
     top: calc(50% - var(--csz)/2);
     left: calc(50% - var(--csz)/2);
-    /* 정중앙계산: 50% - 크기절반 */
+    /* 정중앙계산: 50% - 크기절반
+    calc() 연산시 주의사항 
+    -> +,-는 기호앞뒤 띄어쓰기
+    -> *,/는 붙여써도 됨
+     */
     width: var(--csz);
     height: var(--csz);
 
+    /* 
+        [ 입체로 설정하기 ]
+        - 입체로 설정할 요소의 부모박스에
+        아래와 같이 설정해 준다!
+        (부모는 싸고있는 요소!)
+        transform-style: preserve-3d;
+        - 기본값은 2D설정인 flat
+        - preserve-3d는 3D설정임
+    */
+    transform-style: preserve-3d;
+
+    /* 입체를 잘보이게 하기위해 약간회전함 */
+    transform: 
+    rotateX(10deg) rotateY(30deg);
+
     outline: 2px solid red;
     
+}
+
+/* 큐브각면 공통 */
+.cube span{
+    position: absolute;
+    /* 앱솔루트는 자동블록됨! */
+    width: 100%;
+    height: 100%;
+    /* 부모는? .cube */
+
+    /* 투명도 */
+    opacity: 0.8;
+    outline: 1px dashed #000;
+}
+
+/* 1. 앞면 */
+.cube span:nth-child(1){
+    background: url(../images/newyorkCity.jpg) no-repeat right/auto 105%;
+
+    /* 화면방향(z축) */
+    transform: 
+    translateZ(calc(var(--csz)/2));
+    /* 큐브 사이즈 절반을 앞쪽으로 이동 */
 }
