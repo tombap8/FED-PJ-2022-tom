@@ -46,7 +46,7 @@ body{
     transform: 
     rotateX(10deg) rotateY(30deg);
 
-    outline: 2px solid red;
+    /* outline: 2px solid red; */
     
 }
 
@@ -60,7 +60,7 @@ body{
 
     /* 투명도 */
     opacity: 0.8;
-    outline: 1px dashed #000;
+    outline: 1px solid #555;
 }
 
 /* 1. 앞면 */
@@ -104,11 +104,50 @@ body{
 }
 /* 5. 왼쪽면 */
 .cube span:nth-child(5){
-    background: url(../images/citys.jpg) no-repeat center/cover;
+    background: url(../images/citys.jpg) no-repeat center/100% 120%;
 
     /* 화면방향(z축) */
     transform: rotateX(90deg)
     translateZ(calc(var(--csz)/2));
     /* 먼저 x축회전후
     큐브 사이즈 절반을 앞쪽으로 이동 */
+}
+/* 6. 왼쪽면 */
+.cube span:nth-child(6){
+    background: url(../images/London_city.jpg) no-repeat center/cover;
+
+    /* 화면방향(z축) */
+    transform: rotateX(-90deg)
+    translateZ(calc(var(--csz)/2));
+    /* 먼저 x축회전후
+    큐브 사이즈 절반을 앞쪽으로 이동 */
+}
+
+/* 큐브회전 클래스 */
+.cube-ani{
+    /* 애니메이션: 이시이지반방마 */
+    animation: cubeAni 4s linear infinite;
+}
+
+/* 큐브회전 키프레임 */
+@keyframes cubeAni {
+    to{
+        /* x축 양의방향, y축 음의방향 */
+        transform: 
+        rotateX(370deg) rotateY(-330deg);
+        /* 
+            x축 양의 방향으로 10도에서 출발
+            양의 방향 360도+10도=370도
+            음의 방향 -360도+10도=-350도
+            ____________________________
+
+            y축 양의 방향으로 30도에서 출발
+            양의 방향 360도+30도=390도
+            음의 방향 -360도+30도=-330도
+        */
+
+        /* rotateX(370deg) rotateY(-330deg) rotateZ(360deg); */
+        /* z축회전도 적용할 수 있음 */
+
+    }
 }
