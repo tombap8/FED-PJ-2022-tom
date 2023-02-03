@@ -93,8 +93,9 @@
                 z-index: 2;
 
                 bottom: 10%;
-                left: 0;
-                width: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+                /* 가로중앙이동 */
 
                 color: #fff;
                 text-decoration: none;
@@ -149,7 +150,37 @@
                 ////////////////////////////
                 // 대상: .cont a -> .pt
                 var pt = document.querySelectorAll(".pt");
-                console.log(pt);
+                // console.log(pt);
+
+                // for문으로 모든 a요소에 이벤트 설정하기!
+                // for(시;한;증){코드}
+                for(var i=0;i<pt.length;i++){
+                    // 마우스 오버시 -> mouseenter
+                    pt[i].onmouseenter = function(){
+                        // 무버가 커지게함
+                        mover.style.transform = "scale(2)";
+                    }; ////// mouseenter 이벤트함수 ///////
+
+                    // 마우스 아웃시 -> mouseleave
+                    pt[i].onmouseleave = function(){
+                        // 무버가 원래크기로 변경
+                        mover.style.transform = "scale(1)";
+                    }; ////// mouseleave 이벤트함수 //////
+
+                } ////////////// for문 ///////////////
+
+                /*********************************** 
+                    [ 마우스 오버/아웃 이벤트 ]
+                    1. 오버시 이벤트
+                    1) mouseover -> 요소위에 올라갈때 발생
+                    2) mouseenter -> 요소 경계선 안으로 들어갈때 발생
+
+                    2. 아웃시 이벤트
+                    1) mouseout -> 요소를 벗어날때 발생
+                    2) mouseleave -> 요소 경계선 밖으로 나갈때 발생
+
+
+                ***********************************/
 
 
 
