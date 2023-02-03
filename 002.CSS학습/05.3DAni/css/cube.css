@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+/* 큐브 애니메이션 CSS - cube.css */
+html,body{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-image: linear-gradient(to bottom, #a1f4e0, #ef95fb);
+    height: 100vh;
+}
+
+/* 변수셋팅 */
+:root{
+    /* 큐브 공통크기 */
+    --csz: 300px;
+}
+
+/* 큐브 */
+.cube{
+    position: absolute;
+    top: calc(50% - var(--csz)/2);
+    left: calc(50% - var(--csz)/2);
+    /* 정중앙계산: 50% - 크기절반 */
+    width: var(--csz);
+    height: var(--csz);
+
+    outline: 2px solid red;
+    
+}
