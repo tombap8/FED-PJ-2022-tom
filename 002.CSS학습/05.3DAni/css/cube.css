@@ -72,3 +72,33 @@ body{
     translateZ(calc(var(--csz)/2));
     /* 큐브 사이즈 절반을 앞쪽으로 이동 */
 }
+/* 2. 오른쪽면 */
+.cube span:nth-child(2){
+    background: url(../images/seoulCity.jpg) no-repeat center/cover;
+
+    /* 화면방향(z축) */
+    transform: rotateY(90deg)
+    translateZ(calc(var(--csz)/2));
+    /* 먼저 y축회전후
+    큐브 사이즈 절반을 앞쪽으로 이동 */
+}
+/* 3. 뒷면 */
+.cube span:nth-child(3){
+    background: url(../images/parisCity.jpg) no-repeat center/cover;
+
+    /* 화면방향(z축) */
+    transform: rotateY(180deg)
+    translateZ(calc(var(--csz)/2));
+    /* 먼저 y축회전후
+    큐브 사이즈 절반을 앞쪽으로 이동 */
+}
+/* 4. 뒷면 */
+.cube span:nth-child(4){
+    background: url(../images/parisCity.jpg) no-repeat center/cover;
+
+    /* 화면방향(z축) */
+    transform: rotateY(180deg)
+    translateZ(calc(var(--csz)/2));
+    /* 먼저 y축회전후
+    큐브 사이즈 절반을 앞쪽으로 이동 */
+}
