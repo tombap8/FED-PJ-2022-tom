@@ -1,59 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS실험실 1 : 따라다니는 원</title>
-    <style>
-        body{
-            margin: 0;
-            width: 100vw;
-            height: 100vh;
-        }
-        .mover{
-            position: fixed;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background-color: rgba(255, 0, 0, 0.466);
-            /* 트랜지션
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>JS실험실 1 : 따라다니는 원</title>
+        <style>
+            /**************************************** 
+            [ CSS에서 변수 사용하기 ]
+
+            1. 변수 셋팅법
+            :root{
+                --변수명1: 값1;
+                --변수명2: 값2;
+                --변수명3: 값3;
+            }
+
+            2. 변수 호출 사용법
+            var(--변수명)
+
+            ->>> 변수는 언제 사용하나?
+            - 같은 값이 여러부분에서 사용될때
+            미디어쿼리 등에서 변경이 필요한 경우
+            변수값만 변경하면 복잡한 값변경이 대체됨!
+
+        ****************************************/
+            /* CSS변수처리 */
+            :root{
+                --msz: 50px;
+            }
+
+            body {
+                margin: 0;
+                width: 100vw;
+                height: 100vh;
+            }
+            .mover {
+                position: fixed;
+                width: var(--msz);
+                height: var(--msz);
+                border-radius: 50%;
+                background-color: red;
+
+                /* 겹치는 색상처리 블랜딩 모드 속성 */
+                mix-blend-mode: exclusion;
+
+                /* 트랜지션
             - 이징을 반드시 ease-out을 준다
             따라다니는 반응이 시작할때 바로 움직여야함 */
-            transition: .4s ease-out;
-        }
-    </style>
-    <!-- JS코드구역 -->
-    <script>
-        // 로딩구역
-        window.addEventListener("load",function(){
+                transition: 0.4s ease-out;
+            }
+            /* 컨텐츠박스 */
+            .cont {
+                display: flex;
+            }
+            .cont > div {
+                position: relative;
+                flex: 1;
+                text-align: center;
+            }
+            .cont > div > img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            /* 컨텐츠 a링크 */
+            .cont > div > a {
+                position: absolute;
+                bottom: 10%;
+                left: 0;
+                width: 100%;
 
-            console.log("로딩완료!");
+                color: #fff;
+                text-decoration: none;
+                font-size: 24px;
+                font-weight: bold;
+                text-shadow: 0 0 5px #000;
+                white-space: nowrap;
+            }
 
-            // 움직일 대상: 돌아다니는 원 .mover
-            var mover = document.querySelector(".mover");
-            // 이벤트 대상 : body
-            // 이벤트 종류 : 
-            // mousemove - 마우스가 대상위에서 움직일때 발생
-            document.body.onmousemove = function(){
-                // 마우스 포인터 위치 알아내기
-                // x좌표 : event.pageX
-                // y좌표 : event.pageY
-                console.log("x:",event.pageX,"\ny:",event.pageY);
+            .cont > div > a:hover {
+                color: #f00;
+            }
+        </style>
+        <!-- JS코드구역 -->
+        <script>
+            // 로딩구역
+            window.addEventListener("load", function () {
+                console.log("로딩완료!");
 
-                // 무버에게 위치값 이동 셋팅하기(무버중앙위치 보정)
-                mover.style.top = (event.pageY-15)+"px";
-                mover.style.left = (event.pageX-15)+"px";
+                // 움직일 대상: 돌아다니는 원 .mover
+                var mover = document.querySelector(".mover");
 
+                // 무버크기의 절반 계산
+                var gap = mover.clientWidth/2;
+                console.log("무버width:", gap);
 
-            }; //////////// mousemove 이벤트함수 //////
+                // [ 자바스크립트 요소의 크기구하기 (패딩포함) ]
+                // 가로크기 : 요소.clientWidth
+                // 세로크기 : 요소.clientHeight
 
-        }); ///////////// 로드구역 ///////////////
+                // 이벤트 대상 : body
+                // 이벤트 종류 :
+                // mousemove - 마우스가 대상위에서 움직일때 발생
+                document.body.onmousemove = function () {
+                    // 마우스 포인터 위치 알아내기
+                    // x좌표 : event.pageX
+                    // y좌표 : event.pageY
+                    // console.log("x:",event.pageX,"\ny:",event.pageY);
 
-    </script>
-</head>
-<body>
-    <!-- 돌아다니는 원 -->
-    <div class="mover"></div>
-    
-</body>
+                    // 위치값 보정 (gap은 무버크기의 절반)
+                    var posx = event.pageX - gap;
+                    var posy = event.pageY - gap;
+
+                    // 무버에게 위치값 이동 셋팅하기(무버중앙위치 보정)
+                    mover.style.top = posy + "px";
+                    mover.style.left = posx + "px";
+                }; //////////// mousemove 이벤트함수 //////
+            }); ///////////// 로드구역 ///////////////
+        </script>
+    </head>
+    <body>
+        <!-- 컨텐츠 박스 -->
+        <section class="cont">
+            <div>
+                <img src="../images/dress/1.jpg" alt="dress" />
+                <a href="#" class="pt">This is Ur New Dress!</a>
+            </div>
+            <div>
+                <img src="../images/dress/2.jpg" alt="dress" />
+                <a href="#" class="pt">This is Ur New Dress!</a>
+            </div>
+            <div>
+                <img src="../images/dress/3.jpg" alt="dress" />
+                <a href="#" class="pt">This is Ur New Dress!</a>
+            </div>
+            <div>
+                <img src="../images/dress/4.jpg" alt="dress" />
+                <a href="#" class="pt">This is Ur New Dress!</a>
+            </div>
+        </section>
+
+        <!-- 돌아다니는 원 -->
+        <div class="mover"></div>
+    </body>
 </html>
