@@ -46,7 +46,7 @@
                 width: var(--msz);
                 height: var(--msz);
                 border-radius: 50%;
-                background-color: red;
+                background-color: aqua;
 
                 /* 겹치는 색상처리 블랜딩 모드 속성
                     [mix-blend-mode 속성]
@@ -66,6 +66,7 @@
             .cont {
                 position: relative;
                 /* z-index: 99999; 
+                ((중요!!!))
                 -> 무버와 z-index로 위치관계 비교를 내부의 요소와
                 하려면 부모박스에 z-index를 주지 않아야 비교할 수 있다!
                 */
@@ -141,6 +142,19 @@
                     mover.style.top = posy + "px";
                     mover.style.left = posx + "px";
                 }; //////////// mousemove 이벤트함수 //////
+
+
+                ////////////////////////////
+                // a요소 오버시 원 크게하기!
+                ////////////////////////////
+                // 대상: .cont a -> .pt
+                var pt = document.querySelectorAll(".pt");
+                console.log(pt);
+
+
+
+
+
             }); ///////////// 로드구역 ///////////////
         </script>
     </head>
