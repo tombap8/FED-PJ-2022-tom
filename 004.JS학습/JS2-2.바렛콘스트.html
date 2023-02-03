@@ -133,7 +133,6 @@
             // if문의 중괄호 안에서 변수를 선언하면
             // 즉 중괄호가 지역역할을 못함!
 
-
             //// 2. if문에서 중괄호 : let 비교 ////
             if (true) {
                 let what = "뭣이?";
@@ -142,7 +141,6 @@
 
             // console.log("if문밖 what:", what);
             // if문 중괄호 안의 let은 지역변수이므로 바깥에서 못씀!
-
 
             /// 3. for문 중괄호 var //////////////
             for (var i = 3; i > 0; i--) {
@@ -165,7 +163,6 @@
             // ->>>>>>>> 결론!!!
             // ->>>>>>>> var는 오직 함수의 중괄호에서만 선언시 지역변수가 된다!!!
 
-
             //////////////////////////////////////////////////
             /////////////// let,const 테스트 //////////////////
             //////////////////////////////////////////////////
@@ -180,7 +177,7 @@
             {
                 // 블록내부에서 전역변수 찍기! 앞
                 console.log("블록내부에서 전역변수 찍기! 앞");
-                console.log("seoul:",seoul);
+                console.log("seoul:", seoul);
 
                 // 블록에서 변수 재선언하기!!!
                 var seoul = "강남구";
@@ -189,19 +186,19 @@
                 // console.log("jeju:",jeju);
                 // let으로 선언변수는 선언전 사용불가
                 // 에러메시지 : Uncaught ReferenceError: Cannot access 'jeju' before initialization
-                
+
                 // let으로 지역변수 jeju 선언
                 let jeju = "마라도";
                 // 중괄호안의 let은 지역변수를 생성함!
-                
-                console.log("jeju:",jeju);
+
+                console.log("jeju:", jeju);
 
                 // 전역변수 let으로 선언된 같은 이름의 변수만들기
                 let toktok = "라인";
                 // 중괄호 바깥의 let변수와 구분함!
                 // 지역변수로 사용됨!
 
-                console.log("toktok:",toktok);
+                console.log("toktok:", toktok);
 
                 // var로 전역변수의 let변수를 다시 선언하기
                 // var sport = "배구";
@@ -209,12 +206,11 @@
                 // 선언할 수 없도록 막아줌!!!
                 // 에러메시지: Uncaught SyntaxError: Identifier 'sport' has already been declared
 
+                console.log("sport:", sport);
 
-                console.log("sport:",sport);
-                
                 // 선언하지 않은 변수를 할당하기
                 myitem = "곰인형";
-                console.log("myitem:",myitem);
+                console.log("myitem:", myitem);
                 // 기본적으로 선언없이 사용한 변수는
                 // var로 전역변수 선언된다!
                 // 함수안에서도 마찬가지임!
@@ -224,28 +220,27 @@
 
                 // 블록내부에서 전역변수 찍기! 뒤
                 console.log("블록내부에서 전역변수 찍기! 뒤");
-                console.log("seoul:",seoul);
-                console.log("jeju:",jeju);
-                console.log("toktok:",toktok);
-                console.log("sport:",sport);
+                console.log("seoul:", seoul);
+                console.log("jeju:", jeju);
+                console.log("toktok:", toktok);
+                console.log("sport:", sport);
                 //////////////////////////////
             }
             /**********************************************/
 
             // 블록바깥에서 전역변수 찍기!
             console.log("블록바깥에서 전역변수 찍기!");
-            console.log("seoul:",seoul);
-            console.log("jeju:",jeju);
-            console.log("toktok:",toktok);
-            console.log("sport:",sport);
-            console.log("myitem:",myitem);
+            console.log("seoul:", seoul);
+            console.log("jeju:", jeju);
+            console.log("toktok:", toktok);
+            console.log("sport:", sport);
+            console.log("myitem:", myitem);
             //////////////////////////////////////////////
-
 
             //////////////////////////////////////////
             //// 변수 호이스팅(Variable Hoisting) /////
             cat = "고양이"; // 변수할당 먼저
-            console.log("cat:",cat);
+            console.log("cat:", cat);
             var cat; // 변수선언 나중
             // 위에서 변수에 uk의 경우와 마찬가지임!!!
             // 변수선언을 아래서 하는 허용은 var에서만 가능
@@ -254,7 +249,7 @@
             /// let은 변수 호이스팅을 허용하는가? ////
             let dog;
             dog = "강아지";
-            console.log("dog:",dog);
+            console.log("dog:", dog);
             // let dog;
             // let은 변수 호이스팅을 금지한다!
             // 에러메세지: Uncaught ReferenceError: Cannot access 'dog' before initialization
@@ -262,7 +257,7 @@
             // -> var를 사용하지 않는 중요한 이유중 하나임!!!
 
             var cat = "먼치킨";
-            console.log("cat:",cat);
+            console.log("cat:", cat);
             // var는 재선언가능함
 
             // let dog = "시바견";
@@ -274,7 +269,7 @@
             // fish = "고등어";
 
             const fish = "고등어";
-            console.log("상수 fish:",fish);
+            console.log("상수 fish:", fish);
             // 원칙1 : 상수는 선언과 동시에 할당해야함!
 
             // fish = "참치";
@@ -287,14 +282,45 @@
             ////////// const의 활용 : 배열, 객체, 함수 /////
             //////////////////////////////////////////////
 
+            // [1. 배열 ] //////////////////
+            const arr = ["상추", "고기", "마늘"];
+            console.log("배열 arr값:", arr);
 
+            // 재할당 시도시 에러남! 재할당 불가!!!
+            // arr = "닭고기";
 
+            // 배열값 추가
+            arr.push("닭고기");
+            console.log("배열 arr값:", arr);
 
+            // 배열값은 변경가능 그러나 새로운 데이터할당 불가!
 
+            // [2. 객체]
+            const obj = { name: "김수현" };
+            console.log("객체 obj:", obj);
 
+            // 재할당불가!
+            // obj = 100;
 
+            // 객체에 속성 추가하기 ///
+            // 추가방법: Object객체의 속성정의 메서드 사용함!
+            // -> Object.defineProperty(객체명,속성명,{value:속성값})
+            Object.defineProperty(obj, "weight", { value: "74kg" });
+            console.log("객체 obj:", obj);
 
+            // [3. 함수] ////////////////////
+            const fn = function (txt) {
+                console.log("나야나", txt);
+            }; /////// fn 함수 /////////////
 
+            // 함수호출!
+            fn("화이팅!");
+
+            // 그밖에 배열,객체,함수 외에 요소를 담을경우에도
+            // 많이 사용된다!!!
+
+            // 사용 이유는? 실수로 재할당될 위험에서 지키기위함
+            // 또는 보안상 이유로 많이 사용된다!!!
 
         </script>
     </head>
