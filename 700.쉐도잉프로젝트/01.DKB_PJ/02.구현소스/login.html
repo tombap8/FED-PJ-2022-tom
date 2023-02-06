@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <!-- 메타요소는 페이지의 기본 정보를 전달함
+    이런정보를 메타정보라고 함 -->
+        <!-- 페이지 인코딩 셋팅도 메타요소로 셋팅함! 필수! -->
+        <meta charset="UTF-8" />
+        <!-- meta description 사이트설명
+        (구글에서는 이것을 검색컨텐츠로 수집함) -->
+        <meta name="description" content="불멸의 삶을 끝내기 위해 인간 신부가 필요한 도깨비, 그와 기묘한 동거를 시작한 기억상실증 저승사자. 그런 그들 앞에 &#39;도깨비 신부&#39;라 주장하는 &#39;죽었어야 할 운명&#39;의 소녀가 나타나며 벌어지는 神비로운 낭만 설화." />
+        <!-- meta keywords 사이트 키워드 -->
+        <meta name="keywords" content="도깨비, 도깨비,공유,김은숙,김고은,이동욱,유인나,육성재,금토드라마" />
+        <!-- 뷰포트필수!!! -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>도깨비 PJ - 로그인 페이지</title>
+        <!-- 외부CSS 불러오기 -->
+        <link rel="stylesheet" href="./css/login.css" />
+        <!-- 미디어쿼리 불러오기 : 메인아래있어야함! -->
+        <link rel="stylesheet" href="./css/media.css">
+        <!-- 외부JS 불러오기 -->
+        <script src="./js/common.js" defer></script>
+        <!-- defer 는 html코드를 모두 로딩후 실행하는 속성임 -->
+
+        <!-- 링크 시스템 JS -->
+        <script src="./js/linksys.js"></script>
+    </head>
+    <body class="scbar">
+        <!-- 1. 상단영역 -->
+        <div id="top">
+            <header class="top ibx">
+                <!-- 로고와 탑메뉴를 싸는 박스 
+                    : 탑메뉴 부모자격박스 -->
+                <section class="tarea">
+                    <!-- 1-1.로고 -->
+                    <h1 class="logo">
+                        <a href="index.html">
+                            <img src="./images/tvnlogo2.png" alt="tvN로고" />
+                        </a>
+                    </h1>
+
+                    <!-- 1-3.탑메뉴 -->
+                    <!-- aside: div급의 "한쪽에...쓰는"블록박스 -->
+                    <aside class="tmenu">
+                        <ul>
+                            <li>
+                                <a href="#">로그인</a>
+                            </li>
+                            <li>
+                                <a href="#">회원가입</a>
+                            </li>
+                            <li>
+                                <ol class="sns">
+                                    <li>
+                                        <a href="#">
+                                            <span class="ir"> 트위터 바로가기 </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span class="ir"> 인스타그램 바로가기 </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span class="ir"> 페이스북 바로가기 </span>
+                                        </a>
+                                    </li>
+                                </ol>
+                            </li>
+                        </ul>
+                    </aside>
+                </section>
+
+                <!-- 1-2.GNB메뉴 -->
+                <nav class="gnb">
+                    <ul>
+                        <li class="sm">
+                            <a href="#">프로그램 소개</a>
+                            <!-- 서브메뉴박스 -->
+                            <div class="smbx">
+                                <ol class="smenu">
+                                    <li>
+                                        <a href="#">프로그램 소개</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">인물소개</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">인물관계도</a>
+                                    </li>
+                                </ol>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#">미리보기</a>
+                        </li>
+                        <li class="sm">
+                            <a href="#">동영상</a>
+                            <!-- 서브메뉴박스 -->
+                            <div class="smbx">
+                                <ol class="smenu">
+                                    <li>
+                                        <a href="#">클립영상</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">다시보기</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">예고편</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">스페셜</a>
+                                    </li>
+                                </ol>
+                            </div>
+                        </li>
+                        <li class="sm">
+                            <a href="#">사진첩</a>
+                            <!-- 서브메뉴박스 -->
+                            <div class="smbx">
+                                <ol class="smenu">
+                                    <li>
+                                        <a href="#">현장 포토</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">대표 포스터</a>
+                                    </li>
+                                </ol>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#">OST</a>
+                        </li>
+                        <li>
+                            <a href="#">시청자 게시판</a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- 모바일 햄버거버튼 -->
+                <button class="ham"></button>
+            </header>
+        </div>
+        <!-- 2. 메인영역 -->
+        <div id="cont">
+            <main class="cont ibx">
+                <!-- 2-2.타이틀 -->
+                <h2 class="stit">Log In</h2>
+                <!-- 2-3.컨텐츠박스 -->
+                <section class="scont">
+                    
+                </section>
+            </main>
+        </div>
+        <!-- 3. 하단영역 -->
+        <div id="info">
+            <footer class="info ibx">
+                <!-- 3-1. 하단링크 -->
+                <div class="blink">
+                    <ul>
+                        <li>
+                            <a href="#">법적고지</a>
+                        </li>
+                        <li>
+                            <a href="#">영상정보처리기기운영/관리방침</a>
+                        </li>
+                        <li>
+                            <a href="#">이메일무단수집거부</a>
+                        </li>
+                        <li>
+                            <a href="#">사이버감사실</a>
+                        </li>
+                        <li>
+                            <a href="#">찾아오시는길</a>
+                        </li>
+                        <li>
+                            <a href="#">개인정보처리방침</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- 3-2. 회사정보 -->
+                <div class="addr">
+                    <address>
+                        (주)씨제이이엔엠 CJ ENM 대표이사 강호성, 허민호 <br />
+                        주소 (03926) 서울시 마포구 상암산로 66 사업자 등록번호 106-81-51510 개인정보보호책임자 김재환 <br />
+                        © CJ ENM. All Rights Reserved.
+                    </address>
+                </div>
+                <!-- 3-3. 하단로고 -->
+                <div class="blogo">
+                    <img src="./images/blogo.png" alt="하단로고">
+                </div>
+                <!-- 3-4. 바로가기 -->
+                <div class="brand">
+                    <select name="sel" id="sel">
+                        <option value="init">브랜드 바로가기</option>
+                        <option value="tvn">tvN</option>
+                        <option value="ocn">OCN</option>
+                        <option value="mnet">MNET</option>
+                    </select>
+                    <!-- 
+                        [ select 요소 ]
+                        - 지정된 값을 선택하는 입력요소
+                        - name속성은 폼요소로 전송시 사용됨
+                        - 하위필수요소 : option - 각 선택항목
+                        - 옵션을 그룹화하는 요소 : optgroup
+                        (참고:https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_optgroup)
+                        - 유의사항 : 값을 선택할 경우 선택값은
+                        option 요소의 속성인 value값을 읽어감!
+                        단, value를 안쓸 수 있는데 이런경우
+                        내부 데이터값을 읽어감
+                        
+                     -->
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>
