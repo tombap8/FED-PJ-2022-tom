@@ -6,3 +6,21 @@
 @import url(core.css);
 @import url(common.css);
 
+/* 메인 겉박스 */
+#cont{
+    background-color: #d7d7d7;
+}
+/* 메인 속박스 */
+.cont{
+    text-align: center;
+}
+/* 인물관계도 이미지 */
+#catimg{
+    max-width: 100%;
+    /* 이미지크기 최대 100%의 의미는?
+    -> 싸고 있는 박스가 이미지 크기보다
+    작아질때 이미지 가로크기는 100%로
+    자동전환된다! 이미지를 박스에 무조건
+    보이게 할 경우 이것을 셋팅함! */
+}
+
