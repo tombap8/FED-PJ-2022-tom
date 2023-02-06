@@ -101,6 +101,29 @@
         // 함수호출하기
         console.log(we("프론트엔드 개발자"));
 
+        // 로딩구역 ///////////////////////
+        // 익명함수를 쓰는 곳엔 모두 화살표함수 사용가능!
+        window.addEventListener("load",()=>{
+
+            // 버튼요소 
+            let btn = document.querySelectorAll(".btn");
+
+            // 버튼요소 클릭시 글자바꾸기 //////
+            // 기존 익명함수사용
+            btn[0].onclick = function(){
+                console.log("익명함수");
+
+            }; ////// click 이벤트 함수 /////
+
+
+            // 화살표함수사용
+            btn[1].onclick = ()=>{
+                console.log("화살표함수");
+
+            }; ////// click 이벤트 함수 /////
+
+        }); ///////////// 로드구역 //////////////
+
 </script>
 
 </head>
