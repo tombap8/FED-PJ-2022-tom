@@ -111,7 +111,7 @@
             // 버튼요소 클릭시 글자바꾸기 //////
             // 기존 익명함수사용
             btn[0].onclick = function(){
-                console.log("익명함수");
+                console.log("익명함수",this);
                 // this키워드로 버튼 자신의 글자변경
                 this.innerText = "올드익명함수다!";
 
@@ -120,11 +120,39 @@
 
             // 화살표함수사용
             btn[1].onclick = ()=>{
-                console.log("화살표함수");
+                console.log("화살표함수",this);
                 // this키워드로 버튼 자신의 글자변경
-                this.innerText = "화살표함수다!";
+                // 화살표함수의 this는 window객체를 가리킴
+                // 요소자신을 가리키려면 이벤트 객체속성을 사용하여 구함
+                // event.currentTarget
+                // -> 이벤트가 발생한 현재타겟요소
+                // this.innerText = 
+                event.currentTarget
+                .innerText = 
+                "화살표함수다!";
 
             }; ////// click 이벤트 함수 /////
+const aaa = {
+    bbb : function(){},
+    ccc : ()=>{}
+}
+            /************************************ 
+                화살표함수를 사용할때
+                this 키워드의 의미는 다르다!!!
+
+                화살표함수에서 this는 window객체를 의미!
+                (자신을 생성한 객체를 가리킨다!
+                즉, 여기서는 window로딩구역안에 생성되어서
+                window객체를 가리키고 만약 이것이 어떤
+                Object안에 메서드라면 그 Object를 가리킴!)
+                -> JS this키워드를 자세히 알아볼것임!!!
+
+                this 키워드 대신
+                event.currentTarget 을 사용하여
+                현재요소 자신을 의미하도록
+                코딩해야함!
+
+            ************************************/
 
         }); ///////////// 로드구역 //////////////
 
