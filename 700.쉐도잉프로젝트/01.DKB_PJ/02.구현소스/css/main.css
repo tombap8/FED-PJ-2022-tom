@@ -140,6 +140,10 @@ body{
 .cat:hover .cd{
     height: 250px;
 }
+/* 중간 미디어쿼리에서 겹쳐질때 위로 올라오도록 설정추가 */
+.cat:hover{
+    z-index: 1;
+}
 
 /* 캐릭터 설명 타이틀 */
 .cd h3{
