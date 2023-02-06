@@ -112,6 +112,8 @@
             // 기존 익명함수사용
             btn[0].onclick = function(){
                 console.log("익명함수");
+                // this키워드로 버튼 자신의 글자변경
+                this.innerText = "올드익명함수다!";
 
             }; ////// click 이벤트 함수 /////
 
@@ -119,6 +121,8 @@
             // 화살표함수사용
             btn[1].onclick = ()=>{
                 console.log("화살표함수");
+                // this키워드로 버튼 자신의 글자변경
+                this.innerText = "화살표함수다!";
 
             }; ////// click 이벤트 함수 /////
 
