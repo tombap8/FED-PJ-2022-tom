@@ -1,0 +1,40 @@
+@charset "utf-8";
+/* 도깨비 PJ 회원가입페이지 CSS - member.css */
+
+/* 공통 외부 CSS 합치기 */
+@import url(reset.css);
+@import url(core.css);
+@import url(common.css);
+
+
+/* 메인 겉박스 */
+#cont{
+    background-color: #d7d7d7;
+}
+
+/* 메인 속박스 */
+.cont{
+    /* 최소높이 수정 */
+    min-height: 600px;
+}
+
+/* 2-1.타이틀 */
+.stit{
+    font-size: 5rem;
+    font-weight: normal;
+    text-align: center;
+    padding: 40px 0 20px;
+}
+/* 2-2.컨텐츠박스 */
+.scont{
+    max-width: 700px;
+    min-height: 275px;
+    margin: 0 auto;
+
+    background-color: #fff;
+    border-radius: 10px;
+    border: 2px  solid #777;
+    padding: 60px 15px;
+    /* 박스크기유지 : 보더,패딩포함 */
+    box-sizing: border-box;
+}
