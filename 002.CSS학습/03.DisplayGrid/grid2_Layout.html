@@ -1,17 +1,115 @@
 <!DOCTYPE html>
 <html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Grid Display 2 - Layout</title>
+        <style>
+            /* CSS변수 셋팅하기 */
+            :root {
+                /* 
+                1. 설정시 :root{} 안에
+                --변수명:값; 
+                2. 호출시 var(--변수명)
+                */
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Grid Display 2 - Layout</title>
-    <style>
-/* 제목 */
-        .tit {
-            text-align: center;
-            font-size: 3vw;
-        }
-/************************************* 
+                /* 영역별 높이값 */
+                --ht1: 200px;
+                --ht2: 400px;
+                --ht3: 300px;
+                /* 영역별 배경색 */
+                --bc1: lightgreen;
+                --bc2: lightsalmon;
+                --bc3: lightskyblue;
+            }
+
+            /* 제목 */
+            .tit {
+                text-align: center;
+                font-size: 3vw;
+            }
+
+            .grid {
+                /* 그리드박스 */
+                display: grid;
+                /* 가로방향 12그리드 셋팅 */
+                grid-template-columns: repeat(12, 1fr);
+                /* 세로방향 높이값 셋팅 */
+                grid-template-rows: var(--ht1) var(--ht2) var(--ht3);
+
+                /* 기본박스 설정 */
+                max-width: 1200px;
+                margin: 0 auto;
+                margin-bottom: 200px;
+            }
+
+            /* 컨텐츠 영역 박스 공통 */
+            .grid > div {
+                border: 2px solid #ccc;
+                font-size: 40px;
+                text-align: center;
+                color: #888;
+            }
+
+            /* 각 라인영역별 셋팅 */
+            /* 첫째줄 */
+            .rw1{
+                line-height: var(--ht1);
+                background-color: var(--bc1);
+            }
+            /* 둘째줄 */
+            .rw2{
+                line-height: var(--ht2);
+                background-color: var(--bc2);
+            }
+            /* 셋째줄 */
+            .rw3{
+                line-height: var(--ht3);
+                background-color: var(--bc3);
+            }
+
+            /* ((중요: 각 컨텐츠 박스 그리드 위치영역 설정하기!!!)) */
+
+            /* 각 그리드 영역 표시는 grid-column
+            속성을 사용하여 표시함
+            -> 시작라인번호 / 끝라인번호
+            -> 브라우저 grid버튼을 클릭하면
+            화면에 영역별 그리드 라인번호표시됨! */
+
+            /* 1. 로고 - 2개영역 */
+            .logo {
+                grid-column: 1 / 3;
+            }
+            /* 2. GNB - 7개영역 */
+            .gnb {
+                grid-column: 3 / 10;
+            }
+            /* 3. 상단사이드 - 3개영역 */
+            .side {
+                grid-column: 10 / 13;
+            }
+            /* 4. 배너 - 10개영역 */
+            .ban {
+                grid-column: 1 / 11;
+            }
+            /* 5. 배너사이드 - 2개영역 */
+            .bnside {
+                grid-column: 11 / 13;
+            }
+            /* 6. 하단좌측 - 3개영역 */
+            .bleft{
+                grid-column: 1 / 4;
+            }
+            /* 7. 하단정보 - 6개영역 */
+            .binfo{
+                grid-column: 4 / 10;
+            }
+            /* 8. 하단우측 - 3개영역 */
+            .bright{
+                grid-column: 10 / 13;
+            }
+
+            /************************************* 
         
             [ 그리드 위치 영역 속성 ]
 
@@ -26,44 +124,42 @@
             볼 수 있음!)
 
             >>>>> 셋팅시 유의사항 <<<<<<<
-- grid-column 을 설정할때 만약 그리드범위에
+            - grid-column 을 설정할때 만약 그리드범위에
             넘치면 자동으로 아랫줄로 떨어진다!
             그러므로 grid-row를 따로 잡아줄 필요가 없다!
             단, 별도의 위치를 세로방향으로 변경해야할 경우
             grid-row를 설정해야 한다!
         
         *************************************/
-/* 미디어쿼리 1024px이하 시작 */
-        @media screen and (max-width: 1024px) {
-}
+            /* 미디어쿼리 1024px이하 시작 */
+            @media screen and (max-width: 1024px) {
+            }
 
-        /* 미디어쿼리 1024px이하 끝 */
-/* 미디어쿼리 700px이하 시작 */
-        @media screen and (max-width: 700px) {
+            /* 미디어쿼리 1024px이하 끝 */
+            /* 미디어쿼리 700px이하 시작 */
+            @media screen and (max-width: 700px) {
+            }
 
-}
+            /* 미디어쿼리 700px이하 끝 */
+        </style>
+    </head>
 
-        /* 미디어쿼리 700px이하 끝 */
-    </style>
-</head>
+    <body>
+        <h1 class="tit">그리드2 - 사이트 레이아웃1</h1>
 
-<body>
-    <h1 class="tit">그리드2 - 사이트 레이아웃1</h1>
-
-    <!-- 그리드 적용박스 -->
-    <div class="grid">
-        <!-- 상단부분 -->
-        <div class="logo rw1">Logo</div>
-        <div class="gnb rw1">GNB</div>
-        <div class="side rw1">Side</div>
-        <!-- 중앙부분 -->
-        <div class="ban rw2">Banner</div>
-        <div class="bnside rw2">BnSide</div>
-        <!-- 하단부분 -->
-        <div class="bleft rw3">Bleft</div>
-        <div class="binfo rw3">Binfo</div>
-        <div class="bright rw3">Bright</div>
-    </div>
-</body>
-
+        <!-- 그리드 적용박스 -->
+        <div class="grid">
+            <!-- 상단부분 -->
+            <div class="logo rw1">Logo</div>
+            <div class="gnb rw1">GNB</div>
+            <div class="side rw1">Side</div>
+            <!-- 중앙부분 -->
+            <div class="ban rw2">Banner</div>
+            <div class="bnside rw2">BnSide</div>
+            <!-- 하단부분 -->
+            <div class="bleft rw3">Bleft</div>
+            <div class="binfo rw3">Binfo</div>
+            <div class="bright rw3">Bright</div>
+        </div>
+    </body>
 </html>
