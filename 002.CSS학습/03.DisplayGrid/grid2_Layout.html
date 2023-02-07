@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid Display 2 - Layout</title>
+    <style>
+/* 제목 */
+        .tit {
+            text-align: center;
+            font-size: 3vw;
+        }
+/************************************* 
+        
+            [ 그리드 위치 영역 속성 ]
+
+            1. 가로방향 위치속성
+                grid-column : 시작위치번호 / 끝위치번호;
+
+            2. 세로방향 위치속성
+                grid-row : 시작위치번호 / 끝위치번호;
+
+            -> 각 위치값은 그리드 기준선 번호를 참고함
+            (브라우저에서 그리드 소스 버튼을 클릭하여
+            볼 수 있음!)
+
+            >>>>> 셋팅시 유의사항 <<<<<<<
+- grid-column 을 설정할때 만약 그리드범위에
+            넘치면 자동으로 아랫줄로 떨어진다!
+            그러므로 grid-row를 따로 잡아줄 필요가 없다!
+            단, 별도의 위치를 세로방향으로 변경해야할 경우
+            grid-row를 설정해야 한다!
+        
+        *************************************/
+/* 미디어쿼리 1024px이하 시작 */
+        @media screen and (max-width: 1024px) {
+}
+
+        /* 미디어쿼리 1024px이하 끝 */
+/* 미디어쿼리 700px이하 시작 */
+        @media screen and (max-width: 700px) {
+
+}
+
+        /* 미디어쿼리 700px이하 끝 */
+    </style>
+</head>
+
+<body>
+    <h1 class="tit">그리드2 - 사이트 레이아웃1</h1>
+
+    <!-- 그리드 적용박스 -->
+    <div class="grid">
+        <!-- 상단부분 -->
+        <div class="logo rw1">Logo</div>
+        <div class="gnb rw1">GNB</div>
+        <div class="side rw1">Side</div>
+        <!-- 중앙부분 -->
+        <div class="ban rw2">Banner</div>
+        <div class="bnside rw2">BnSide</div>
+        <!-- 하단부분 -->
+        <div class="bleft rw3">Bleft</div>
+        <div class="binfo rw3">Binfo</div>
+        <div class="bright rw3">Bright</div>
+    </div>
+</body>
+
+</html>
