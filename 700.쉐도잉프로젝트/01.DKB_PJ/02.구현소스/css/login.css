@@ -93,3 +93,46 @@ input:focus{
     font-size: 1.5rem;
     text-shadow: 1px 1px #555;
 }
+/* 기타링크박스 */
+.addbx{
+    text-align: center;
+    margin-top: 50px;
+    font-size: 1.6rem;
+    /* 체크박스 빠르게 체크시
+    영역이 잡히는것 막기 */
+    user-select: none;
+}
+/* 체크박스 라벨 숨기기 */
+.addbx input{
+    display: none;
+}
+/* 체크박스 라벨을 체크박스로 만들기 */
+.addbx input+label{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    color: orangered;
+    vertical-align: -1px;
+    /* outline: 1px solid red; */
+}
+/* 체크박스 체크시 아이콘 변경 */
+.addbx input:checked+label{
+    font-weight: 900;
+    /* 체크된 상태의 아이콘은 두께만 변경하면 됨! */
+}
+/* 기타링크 구분선넣기 */
+/* span+span 앞에 span있는 span */
+.addbx span+span::before{
+    content: '|';
+    margin: 0 15px;
+}
+/* 기타링크 a요소 */
+.addbx a{
+    text-decoration: none;
+    color: #000;
+}
+.addbx a:hover{
+    color: orangered;
+    text-decoration: underline;
+    text-decoration-style: wavy;
+}
