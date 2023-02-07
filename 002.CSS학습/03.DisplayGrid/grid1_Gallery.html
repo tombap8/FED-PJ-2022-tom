@@ -131,6 +131,9 @@
             /* 비율박스 셋팅 : 
             이미지 가로/세로 크기비율임! */
             aspect-ratio: 280 / 400;
+
+            /* 이미지 확대시 넘치는 이미지 숨기기 */
+            overflow: hidden;
         }
 
         /* 그리드 갤러리 이미지 */
@@ -139,6 +142,44 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            /* 트랜지션: 속시이지 */
+            transition: .3s;
+        }
+        /* 오버시 이미지확대 */
+        .grid> div:hover img{
+            /* transform: scale(1.1); */
+            animation: magAni 10s linear infinite alternate;
+        }
+
+        /* 계속 확대/축소 애니 키프레임 */
+        @keyframes magAni {
+            to{
+                transform: scale(1.5);
+            }
+        } /* 키프레임 */
+
+        /* 상품설명박스 */
+        .grid aside{
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.422);
+        }
+        /* 상품명 글자박스(h2) */
+        .grid aside h2{
+            font-size: min(1.8vw,24px);
+            font-weight: normal;
+            margin: min(1.2vw,14px) 0 0;
+            /* 마진: 위 양쪽 아래 */
+        }
+        /* 상품가격 글자박스(h3) */
+        .grid aside h3{
+            font-size: min(1.4vw,18px);
+            font-weight: normal;
+            margin: min(0.8vw,10px) 0;
+            /* 마진: 위아래 양쪽 */
         }
         
 
