@@ -6,6 +6,7 @@
     <title>for문 확장 - for of문</title>
     <script>
         // 배열 만들기
+        // 배열구성 [제목,주연,내용]
         const mv1 = [
             "조제",
             "한지민(조제), 남주혁(영석)",
@@ -36,8 +37,42 @@
         // DOMContentLoaded -> html태그를 모두 그리면 발생이벤트
         window.addEventListener("DOMContentLoaded", () => {
 
+            ///////////////////////////////
+            // querySelector 함수 만들기 ///
+            ///////////////////////////////
+            // const qs = (x)=>{return document.querySelector(x)};
+            const qs = x => document.querySelector(x);
+            const qsa = x => document.querySelectorAll(x);
+            // 길게 써야하는 부분을 함수로 만들고
+            // 이것을 호출하여 리턴받는 함수기능을 활용한다!
+            // 위의 함수는 선택자객체를 컬렉션으로 만드는 코드를
+            // 리턴하여 실제로 사용할때 함수명을 아주 짧게 줄이게해준다!
+
             // 1. 로딩구역 확인
             console.log("로딩완료!");
+
+            // 2. 대상선정
+            // 2-1. 이벤트 대상 : .btngo
+            const btngo = qsa(".btngo");
+            console.log(btngo);
+
+            // 2-2. 출력대상 : .minfo
+            const minfo = qsa(".minfo");
+            console.log(minfo);
+
+            // 3. 버튼에 클릭이벤트 설정하기
+            // for(시;한;증){코드} -> 일반for문설정
+            // 시작값은 0부터, 한계값은 개수보다 작게, 증감은 ++
+            //-> 항상 셋팅이 너무 뻔하다~~~~~!
+            // ES6에서 이것을 자동화하는 for문이 등장함!
+            // 바로 for of문!!!
+
+            // x변수는 of뒤의 배열/컬렉션을 
+            // 하나씩 담고 for문 안으로 들어간다!
+            // let변수이므로 for문 중괄호 안의 지역변수가 된다!
+            for(let x of btngo){
+                console.log("x는?",x);
+            } ////////// for of문 //////////////
 
             /******************************************* 
                 [ for of 문 ]
