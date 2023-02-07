@@ -11,12 +11,12 @@
         <!-- meta keywords 사이트 키워드 -->
         <meta name="keywords" content="도깨비, 도깨비,공유,김은숙,김고은,이동욱,유인나,육성재,금토드라마" />
         <!-- 뷰포트필수!!! -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>도깨비 PJ - 로그인 페이지</title>
         <!-- 외부CSS 불러오기 -->
         <link rel="stylesheet" href="./css/login.css" />
         <!-- 미디어쿼리 불러오기 : 메인아래있어야함! -->
-        <link rel="stylesheet" href="./css/media.css">
+        <link rel="stylesheet" href="./css/media.css" />
         <!-- 외부JS 불러오기 -->
         <script src="./js/common.js" defer></script>
         <!-- defer 는 html코드를 모두 로딩후 실행하는 속성임 -->
@@ -147,7 +147,57 @@
                 <h2 class="stit">Log In</h2>
                 <!-- 2-3.컨텐츠박스 -->
                 <section class="scont">
-                    
+                    <!-- 
+                        [ form 요소 ]
+                        입력데이터를 서버로 전송하기 위한 요소
+                        (속성)
+                        action - 전송할 서버처리 페이지
+                        method - 1) post : post전달방식
+                                -> 페이지에 숨겨서 전송함
+                                (민감한 데이터 처리시 사용)
+                                2) get : get전달방식
+                                -> URL 뒤에 키,값 쌍으로 전달
+                                (페이지 데이터 셋팅 등 사용)
+
+                     -->
+                    <form action="process.php" method="post">
+                        <!-- 아이디박스 -->
+                        <div class="minput">
+                            <label for="mid">아이디</label>
+                            <input type="text" name="mid" id="mid" maxlength="10" placeholder="아이디를 입력해주세요" />
+                            <!-- name속성은 서버쪽 사용용도로 작성함(id명과 같은 이름 많이씀) -->
+                        </div>
+                        <div class="minput">
+                            <!-- 비번박스 -->
+                            <label for="mpw">비밀번호</label>
+                            <input type="password" name="mpw" id="mpw" maxlength="10" placeholder="비밀번호를 입력해주세요" />
+                        </div>
+                        <!-- 버튼박스 -->
+                        <div class="btnbx">
+                            <input type="submit" id="sbtn" value="LOGIN" />
+                            <!-- type이 submit이면
+                            form요소 안의 모든 입력요소를
+                            target 페이지(action값)로 전송하는
+                            기능버튼이다! -->
+                        </div>
+                        <!-- 기타링크 -->
+                        <div class="addbx">
+                            <span>
+                                <input type="checkbox" id="chkbx" name="chkbx">
+                                <label for="chkbx">ㅋ</label>
+                                아이디저장
+                            </span>
+                            <span>
+                                <a href="#">아이디찾기</a>
+                            </span>
+                            <span>
+                                <a href="#">비밀번호찾기</a>
+                            </span>
+                            <span>
+                                <a href="#">회원가입</a>
+                            </span>
+                        </div>
+                    </form>
                 </section>
             </main>
         </div>
@@ -187,7 +237,7 @@
                 </div>
                 <!-- 3-3. 하단로고 -->
                 <div class="blogo">
-                    <img src="./images/blogo.png" alt="하단로고">
+                    <img src="./images/blogo.png" alt="하단로고" />
                 </div>
                 <!-- 3-4. 바로가기 -->
                 <div class="brand">
