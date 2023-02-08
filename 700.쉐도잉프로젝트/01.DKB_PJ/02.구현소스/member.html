@@ -191,6 +191,49 @@
                                     checked 속성은 처음 기본선택옵션임
                                  -->
                             </li>
+                            <!-- 6.이메일 -->
+                            <li>
+                                <label for="email1">이메일</label>
+                                <input type="text" name="email1" id="email1" placeholder="이메일앞주소">
+                                <span class="gol">@</span>
+                                <select name="seleml" id="seleml">
+                                    <option value="init">
+                                        선택해주세요
+                                    </option>
+                                    <option value="naver.com">
+                                        naver.com
+                                    </option>
+                                    <option value="daum.net">
+                                        daum.net
+                                    </option>
+                                    <option value="hotmail.com">
+                                        hotmail.com
+                                    </option>
+                                    <option value="hanmail.net">
+                                        hanmail.net
+                                    </option>
+                                    <option value="gmail.com">
+                                        gmail.com
+                                    </option>
+                                    <option value="free">
+                                        직접입력
+                                    </option>
+                                </select>
+                                <!-- 메시지박스 -->
+                                <span class="msg">요기요기</span>
+                            </li>
+                            <!-- 7.이메일 뒷주소 직접입력창 -->
+                            <li>
+                                <label for="email2">이메일 뒷주소 직접입력</label>
+                                <input type="text" name="email2" id="email2" placeholder="이메일뒷주소">
+                            </li>
+                            <!-- 8.서브밋 버튼 -->
+                            <li>
+                                <input id="btnj" type="submit" value="가입하기">
+                                <!-- submit버튼은 클릭시 form요소의
+                                모든 입력내용을 action지정 페이지로
+                                전송한다! -->
+                            </li>
                         </ul>
                     </form>
                 </section>
