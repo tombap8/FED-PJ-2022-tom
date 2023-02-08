@@ -25,12 +25,38 @@ window.addEventListener("DOMContentLoaded",()=>{
 
             // 2. 링크 분기하기
             switch(atxt){
-                case "": url = ""; break;
-                case "": url = ""; break;
-                case "": url = ""; break;
+                case "인물관계도": url = "cat"; break;
+                case "로그인": url = "login"; break;
+                case "회원가입": url = "member"; break;
                 default: url = "esc";
-
             } ///////// switch case문 /////
+
+            // 3. 내용에 따른 처리
+            if(url==="esc"){
+                alert(`
+                    공사중입니다~!^^
+                `);
+            } ///// if /////
+            else{
+                location.href = url+".html";
+                /* 
+                [ 페이지 이동하기 ]
+
+                ((현재창열기))
+                window.location.href = 이동할주소
+                -> window는 주로 생략함
+                location.href = 이동할주소
+
+                ((새창열기))
+                window.open()
+                .location.href = 이동할주소
+
+                -> window.open()은 원래 팝업창 띄우기임!
+                */
+
+            } ///// else //////
+
+
 
         }; //////// click 이벤트함수 ////
 
