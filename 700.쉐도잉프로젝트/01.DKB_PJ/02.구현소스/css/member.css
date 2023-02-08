@@ -16,6 +16,7 @@
 .cont{
     /* 최소높이 수정 */
     min-height: 600px;
+    padding: 0 5px 30px;
 }
 
 /* 2-1.타이틀 */
@@ -52,7 +53,7 @@
     /* 부모자격 - .msg */
     height: 50px;
     line-height: 50px;
-    outline: 2px dotted red;
+    /* outline: 2px dotted red; */
 }
 /* 라벨공통 타이틀(.itit) */
 .itit{
@@ -119,7 +120,26 @@
     float: right;
     margin-top: 5px;
     margin-right: 44px;
-    /* display: none; */
+    display: none;
     /* 처음에 숨기기
     -> 직접입력 상태일때만 보임 */
+}
+/* 가입하기 버튼 */
+#btnj{
+    position: absolute;
+    top: 5px;
+    right: 44px;
+    width: 113px;
+    height: 40px;
+
+    border: 1px solid #777;
+    border-radius: 5px;
+    background-image: linear-gradient(to bottom,#ddd,#555);
+
+    color: #fff;
+    text-shadow: 1px 1px 1px #555;
+
+    /* 손가락모양 */
+    cursor: pointer;
+
 }
