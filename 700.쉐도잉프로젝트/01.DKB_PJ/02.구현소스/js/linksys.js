@@ -18,7 +18,29 @@ window.addEventListener("DOMContentLoaded",()=>{
         x.onclick = () => {
             // 1. a요소의 글자데이터
             let atxt = x.innerText;
-            console.log(atxt);
+
+            // 만약 이미지가 있으면 img요소의 alt읽어서
+            // atxt변수에 재할당하기!
+            // if(true){
+            // if(null){
+            // if(undefined){
+            // ->> 데이터가 null인 경우는 if문에서
+            // ->> 데이터가 undefined인 경우는 if문에서
+            // false와 같이 취급된다!
+            // 만약 요소가 없으면 null 이 리턴된다!
+            // undefined 는 변수의 값이나 함수가 생성되지
+            // 않은 경우 리턴되는 기본할당값이다!
+
+            // 클릭된 a요소 하위의 img요소를 가져옴
+            let chk = x.querySelector("img");
+
+            if(chk){ // 있으면 if문 안으로 들어감!
+                // atxt변수에 img의 alt속성값 넣기
+                atxt = chk.alt;
+                console.log("재할당!",atxt);
+            } /////// if문 //////
+
+            console.log(atxt,chk);
 
             // 주소할당변수
             let url;
@@ -28,6 +50,7 @@ window.addEventListener("DOMContentLoaded",()=>{
                 case "인물관계도": url = "cat"; break;
                 case "로그인": url = "login"; break;
                 case "회원가입": url = "member"; break;
+                case "tvN로고": url = "index"; break;
                 default: url = "esc";
             } ///////// switch case문 /////
 
@@ -57,6 +80,16 @@ window.addEventListener("DOMContentLoaded",()=>{
             } ///// else //////
 
 
+            // a요소의 기본이동 기능을 막는다!
+            return false;
+            // 이 함수를 호출한 곳으로 돌아갈때
+            // false를 가지고 돌아가라!
+            // false는 빛이없음, 즉 신호없음
+            // -> 브라우저는 기본 기능을 없애준다!
+
+            // (확인) 각 a요소의 href="#" 으로인한
+            // 상단이동이 안됨!
+            // tvN 로고 이동기능이 안됨!
 
         }; //////// click 이벤트함수 ////
 
