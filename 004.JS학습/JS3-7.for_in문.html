@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체를 위한 for in문</title>
+    <style>
+        h1,.btns,.show{
+            text-align: center;
+        }
+        button {
+            font-size: 30px;
+        }
+
+        .minfo {
+            display: flex;
+            /* 자식요소 박스 옆으로 흐르게! */
+            /* outline: 1px solid red; */
+            width: 500px;
+            margin: 0 auto;
+        }
+
+        .photo img {
+            height: 200px;
+            margin-right: 20px;
+        }
+
+        /* 영화한마디 글자박스 */
+        .showtit {
+            display: none;
+            text-align: center;
+        }
+
+        .show span {
+            display: inline-block;
+            /* 가로,세로 등 디자인 적용+한줄에 나옴 */
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            /* 원 */
+            border: 5px solid #d30000;
+            background-color: #00f;
+            font-size: 30px;
+            color: #fff;
+
+            /* 동그라미 박스 정중앙 */
+            text-align: center;
+            line-height: 50px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        /// 영화정보 객체 ////
+        const mvi = {
+            "조제": {
+                "포스터": "https://movie-phinf.pstatic.net/20201116_276/1605491658399poUOC_JPEG/movie_image.jpg?type=m99_141_2",
+                "제목": "조제",
+                "개요": "멜로/로맨스, 드라마",
+                "감독": "김종관",
+                "출연": "한지민, 남주혁",
+                "문구": "조제 보러 오세요"
+            },
+            "이웃사촌": {
+                "포스터": "https://movie-phinf.pstatic.net/20201111_193/1605056611896fc6Ef_JPEG/movie_image.jpg?type=m99_141_2",
+                "제목": "이웃사촌",
+                "개요": "드라마, 코미디",
+                "감독": "이환경",
+                "출연": "정우, 김희원",
+                "문구": "이웃을 사랑합시다"
+            },
+            "도굴": {
+                "포스터": "https://movie-phinf.pstatic.net/20201104_45/160445535053439akc_JPEG/movie_image.jpg?type=m99_141_2",
+                "제목": "도굴",
+                "개요": "범죄",
+                "감독": "박정배",
+                "출연": "이제훈, 조우진, 신혜선, 임원희",
+                "문구": "도굴은 범죄예요"
+            }
+        }; ///////////////// mvi 객체 //////////////////////
+
+        //////////////////// 로드구역 ///////////////////////
+        window.addEventListener("DOMContentLoaded", () => {
+
+            console.log("로딩완료");
+
+            /******************************************************** 
+                [ 구현내용 ]
+                - 버튼을 클릭하면 해당 영화의 정보를 화면에 보여준다!
+                - 이벤트 대상: button
+                - 이벤트 종류: click
+                - 이벤트 대상 구분: 클릭된 버튼의 글자데이터
+                - 변경대상: .tit, .sum, .dir, .act
+                - 변경내용: 
+                    대상의 각 내용에 맞게 객체로부터 정보를 셋팅함!
+            ********************************************************/
+
+            /************************************************* 
+                [ 객체를 위한 for in 문 ]
+
+                - 구문: 
+                for(변수 in 객체){코드}
+
+                - 작동원리:
+                객체의 개수만큼 순서대로 속성명과 속성값을 가져옴
+
+                - 변수는 객체의 속성명이다!
+
+                - 객체의 값을 사용하려면 for in 문 안에
+                    객체[변수] 로 쓰면됨!
+
+            *************************************************/
+
+
+        }); //////////////// 로드구역 ///////////////////////
+        /////////////////////////////////////////////////////
+    </script>
+</head>
+
+<body>
+    <h1>영화정보</h1>
+    <div class="btns">
+        <button>조제</button>
+        <button>이웃사촌</button>
+        <button>도굴</button>
+    </div>
+
+    <hr>
+
+    <div class="minfo">
+        <!-- 1. 포스터 -->
+        <div class="photo"></div>
+        <div class="cont">
+            <!-- 2. 제목 -->
+            <h2 class="tit"></h2>
+            <!-- 3. 개요 -->
+            <h3 class="sum"></h3>
+            <!-- 4. 감독 -->
+            <h3 class="dir"></h3>
+            <!-- 5. 출연 -->
+            <h3 class="act"></h3>
+        </div>
+    </div>
+
+    <!-- 영화 한마디 -->
+    <h2 class="showtit">♥ 영화한마디!</h2>
+    <!-- 6. 문구 -->
+    <div class="show"></div>
+
+</body>
+
+</html>
