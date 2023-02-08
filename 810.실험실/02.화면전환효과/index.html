@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02.화면전환효과</title>
+    <style>
+        html,body,h1{
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 페이지 전환효과용 가림막 */
+        body::after{
+            content: '';
+            display: block;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 0;/* 변경요소 */
+            background-color: lightseagreen;
+            /* 트랜지션: 속시이지 */
+            transition: all .8s ease-in-out;
+        }
+        /* 1단계:body.on일때 가상요소 after적용 */
+        body.on::after{
+            height: 100vh;
+        }
+        /* 2단계:body.on.go일때 가상요소 after적용 */
+        body.on.go::after{
+            top: 100%;
+            height: 0;
+        }
+
+
+        .pg{
+            /* width: 100%; 
+            -> 100vw로 잡을 경우 DT에서 가로스크롤이
+            약간 생김. 이유는 스크롤바 트랙을 포함하기때문임. 모바일에서는 스크롤바 트랙이 없기때문임
+            설정시 100%나 안주면 auto이므로 안줘도 되면 안주는게 좋다! */
+            height: 100vh;
+        }
+
+        .pg h1{
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: center;
+            font-size: 8vw;
+        }
+
+    </style>
+    <!-- JS코드구역 -->
+    <script>
+        /* 타임아웃으로 일정시간뒤 작동함수 셋팅 */
+        // setTimeout(함수,시간)
+        setTimeout(()=>{
+            console.log("1단계 작동!!");
+
+            // 대상:body
+            let tg = document.body;
+            tg.classList.add("on");
+
+            // 2단계 .go넣기
+            setTimeout(() => {
+
+                // 자체글자변경
+                document.querySelector(".pg h1")
+                .innerText = "짜잔잔잔짠~~~~!"
+
+                // body에 .go넣기
+                tg.classList.add("go");
+
+
+
+            }, 1000);
+
+        },2000); /// setTimeout ////
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="pg">
+            <h1>This is First One!</h1>
+        </div>
+        <div class="pg">
+            <h1>This is Second One!</h1>
+        </div>
+    </div>
+    
+</body>
+</html>
