@@ -104,6 +104,29 @@
                         // 매칭 데이터 찍어보기
                         console.log(data);
 
+                        // 3. 출력요소에 배열 데이터 찍기
+                        // forEach메서드 사용!
+                        // data변수에 배열할당됨!
+                        data.forEach((val,idx)=>{
+                            // console.log("배열이양:",val,idx);
+
+                            // 배열의 순번이 담긴 idx를 사용하여
+                            // 같은 순번의 출력요소 minfo컬렉션
+                            // 순번에 적용하여 val에 담긴 배열값을
+                            // innerHTML로 출력한다!
+                            minfo[idx].innerHTML = val;
+
+
+                        }); ////// forEach메서드 /////
+
+
+                        // 간단히 쓰면 아래와 같다~!
+                        // data.forEach((val,idx)=>
+                        //     minfo[idx].innerHTML = val);
+
+
+
+
                     }; ///// click이벤트 함수 ////
 
                 }); ///// forEach메서드 ///////
