@@ -10,18 +10,19 @@
             [미션문:] 아래 주소의 모양으로 배열변수에 셋팅된
             값을 분석하여 for of(혹은 forEach메서드)를 사용하여
             해당 타겟요소에 html과 데이터를 구성하시오.
+            (로딩후 바로 출력한다!)
 
             .minfo 하위 구조는 아래와 같다
             <div>
-                <img src...>
-                <h2>타이틀</h2>
+                <img src="배열[0]">
+                <h2>배열[1]</h2>
             </div>
 
             => 셈플주소
             https://movie.naver.com/movie/bi/mi/basic.naver?code=187311
             하단"관련 영화 추천"
             */
-            // 배열 만들기
+            // 배열 만들기 : 다중배열 [][]
             const mvinfo = [
                 ["원스 어폰 어 타임... 인 할리우드", "https://s.pstatic.net/movie.phinf/20191126_77/1574730867371pYEWz_JPEG/movie_image.jpg?type=m133_190_2"],
                 ["퓨리", "https://s.pstatic.net/movie.phinf/20141105_67/1415155139518WWeIr_JPEG/movie_image.jpg?type=m133_190_2"],
@@ -33,12 +34,51 @@
             /////////// 로드구역 /////////////////////////////////////
             // DOMContentLoaded -> html태그를 모두 그리면 발생이벤트
             window.addEventListener("DOMContentLoaded", () => {
-                // 1. 로딩구역 확인
+                // 로딩구역 확인
                 console.log("로딩완료!");
 
+                // 1. 배열변수 -> mvinfo
+
+                // 2. 출력대상 : .minfo
+                const minfo = document.querySelector(".minfo");
+                console.log(minfo);
+
+                // 3. 배열데이터만큼 태그만들기 : for of 사용!
+                // 힌트: 태그를 담을 변수를 만들고 for 문을 돌아서
+                // += 대입연산자로 태그를 모두 저장한다!
+
+                let hcode = ""; // String변수 초기화!
+
+                // for(let x of mvinfo){
+                //     // console.log("배열값:",x);
+                //     hcode += `
+                //         <div>
+                //             <img src="${x[1]}" alt="포스터">
+                //             <h2>${x[0]}</h2>
+                //         </div>
+                //     `;
+
+                // } ///////// for of문 //////////////
+
+                // forEach메서드 사용할 경우
+                mvinfo.forEach(
+                    val =>
+                        hcode += `
+                        <div>
+                            <img src="${val[1]}" alt="포스터">
+                            <h2>${val[0]}</h2>
+                        </div>
+                    `
+                ); ////////// forEach메서드 /////
+
+                console.log("hcode:",hcode);
+
+                // 4. 출력하기 : innerHTML 사용!
+                minfo.innerHTML = hcode;
+
                 
-            }); //////////////// 로드구역 /////////////////////////////
-            //////////////////////////////////////////////////////////
+            }); ////////// 로드구역 ////////////////////////
+            ///////////////////////////////////////////////
         </script>
         <style>
 
@@ -75,6 +115,15 @@
             }
             .minfo > div{
                 flex: 1;
+            }
+            
+            /* 추가CSS */
+            .minfo img{
+                width: 100%;
+                aspect-ratio: 1/1.5;
+            }
+            h2{
+                font-size: 12px;
             }
         </style>
     </head>
