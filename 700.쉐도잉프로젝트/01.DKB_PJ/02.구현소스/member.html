@@ -193,7 +193,7 @@
                             </li>
                             <!-- 6.이메일 -->
                             <li>
-                                <label for="email1">이메일</label>
+                                <label class="itit" for="email1">이메일</label>
                                 <input type="text" name="email1" id="email1" placeholder="이메일앞주소">
                                 <span class="gol">@</span>
                                 <select name="seleml" id="seleml">
@@ -233,6 +233,21 @@
                                 <!-- submit버튼은 클릭시 form요소의
                                 모든 입력내용을 action지정 페이지로
                                 전송한다! -->
+
+                                <!-- 
+                                    [ 참고: submit기능 ]
+                                    1. 일반button 요소가 form요소안에
+                                    위치하면 클릭시 서브밋된다!
+                                    2. 어떤 요소라도 JS코드로 form요소
+                                    의 submit() 내장함수를 호출하면
+                                    서브밋된다!
+
+                                    (실제예코드)
+                                    
+                                    <button>버튼전송</button>
+
+                                    <a href="#" onclick="document.querySelector('form').submit()">a요소전송</a>
+                                 -->
                             </li>
                         </ul>
                     </form>

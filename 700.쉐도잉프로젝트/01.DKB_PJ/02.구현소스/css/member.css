@@ -34,7 +34,26 @@
     background-color: #fff;
     border-radius: 10px;
     border: 2px  solid #777;
-    padding: 60px 15px;
+    padding: 30px 50px;
     /* 박스크기유지 : 보더,패딩포함 */
     box-sizing: border-box;
+}
+
+/* 리스트 ul */
+.scont ul{
+    font-size: 2rem;
+    /* html 10px*2=20px */
+    font-weight: bold;
+    color: #333;
+}
+/* 리스트 li */
+.scont li{
+    height: 50px;
+    line-height: 50px;
+    outline: 2px dotted red;
+}
+/* 라벨공통 타이틀(.itit) */
+.itit{
+    display: inline-block;
+    width: 200px;
 }
