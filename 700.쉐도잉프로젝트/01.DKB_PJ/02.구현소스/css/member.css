@@ -48,6 +48,8 @@
 }
 /* 리스트 li */
 .scont li{
+    position: relative;
+    /* 부모자격 - .msg */
     height: 50px;
     line-height: 50px;
     outline: 2px dotted red;
@@ -56,4 +58,68 @@
 .itit{
     display: inline-block;
     width: 200px;
+}
+
+/* 메시지박스 */
+.msg{
+    position: absolute;
+    top: 35px;
+    left: 0;
+    /* 부모는? .scont li */
+    height: 15px;
+    line-height: 15px;
+
+    font-size: 10px;
+    color: red;
+    white-space: nowrap;
+}
+/* 메시지 글자색 변경 클래스 */
+.msg.on{
+    color: green;
+}
+
+
+/* 입력박스 공통 */
+.scont input[type=text],
+.scont input[type=password]{
+    width: 340px;
+    height: 36px;
+    font-size: 2rem;
+    border: 1px solid #777;
+    border-radius: 5px;
+    padding-left: 5px;
+}
+/* 라디오버튼 */
+.scont input[type=radio]{
+    width: 20px;
+    height: 20px;
+    /* 인라인요소간 세로정렬 */
+    vertical-align: -4px;
+}
+
+/* 이메일 앞주소 */
+#email1{
+    width: 170px;
+}
+/* 이메일 선택박스 
+드롭다운박스==콤보박스 */
+#seleml{
+    width: 146px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 2rem;
+}
+/* 이메일 뒷주소 */
+/* 라벨숨기기 */
+.ee{
+    display: none;
+}
+#email2{
+    width: 136px;
+    float: right;
+    margin-top: 5px;
+    margin-right: 44px;
+    /* display: none; */
+    /* 처음에 숨기기
+    -> 직접입력 상태일때만 보임 */
 }
