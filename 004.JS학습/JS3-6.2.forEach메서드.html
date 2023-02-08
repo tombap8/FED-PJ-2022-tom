@@ -55,7 +55,58 @@
                 const minfo = qsa(".minfo");
                 // console.log(minfo);
 
-                // 3. 버튼에 클릭이벤트 설정하기
+                // 3. 버튼에 클릭이벤트 설정하기 ///////////
+
+                // btngo.forEach((ele,idx,obj)=>{
+                //     console.log("버튼셋팅!",ele,idx,obj);
+
+                // btngo.forEach((헐,할)=>{
+                //     console.log("버튼셋팅!",헐,할);
+
+                btngo.forEach(ele=>{
+                    // console.log("버튼셋팅!",ele);
+
+                    // 1. 클릭이벤트 설정
+                    ele.onclick = () => {
+                        // 1. 버튼텍스트
+                        let btxt = ele.innerText;
+                        // console.log(btxt);
+
+                        // 2. 버튼별 배열할당하기 : switch 사용
+                        // 버튼에 따른 배열변수 할당할 변수
+                        let data;
+
+                        // 버튼별 분기하기
+                        switch (btxt) {
+                            case "공조2: 인터내셔날":
+                                data = mv4;
+                                break;
+                            case "육사오(6/45)":
+                                data = mv5;
+                                break;
+                            case "조제":
+                                data = mv1;
+                                break;
+                            case "원더 우먼 1984":
+                                data = mv2;
+                                break;
+                            case "도굴":
+                                data = mv3;
+                                break;
+                            case "더 퍼스트 슬램덩크":
+                                data = mv6;
+                                break;
+                            case "바빌론":
+                                data = mv7;
+                                break;
+                        } /////// switch case문 /////////
+
+                        // 매칭 데이터 찍어보기
+                        console.log(data);
+
+                    }; ///// click이벤트 함수 ////
+
+                }); ///// forEach메서드 ///////
 
                 /************************************ 
                 [ 배열과 컬렉션을 위한 forEach() ]
