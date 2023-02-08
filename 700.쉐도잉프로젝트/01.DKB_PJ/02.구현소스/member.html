@@ -151,38 +151,45 @@
                         <ul>
                             <!-- 1.아이디 -->
                             <li>
-                                <label for="mid">아이디</label>
+                                <label class="itit" for="mid">아이디</label>
                                 <input type="text" name="mid" id="mid" maxlength="20" placeholder="아이디를 입력해주세요!">
                                 <!-- 메시지박스 -->
                                 <span class="msg">요기요기</span>
                             </li>
                             <!-- 2.비밀번호 -->
                             <li>
-                                <label for="mpw">비밀번호</label>
+                                <label class="itit" for="mpw">비밀번호</label>
                                 <input type="password" name="mpw" id="mpw" maxlength="20" placeholder="비밀번호를 입력해주세요!">
                                 <!-- 메시지박스 -->
                                 <span class="msg">요기요기</span>
                             </li>
                             <!-- 3.비밀번호확인 -->
                             <li>
-                                <label for="mpw2">비밀번호확인</label>
+                                <label class="itit" for="mpw2">비밀번호확인</label>
                                 <input type="password" name="mpw2" id="mpw2" maxlength="20" placeholder="비밀번호확인을 입력해주세요!">
                                 <!-- 메시지박스 -->
                                 <span class="msg">요기요기</span>
                             </li>
                             <!-- 4.이름 -->
                             <li>
-                                <label for="mnm">이름</label>
+                                <label class="itit" for="mnm">이름</label>
                                 <input type="text" name="mnm" id="mnm" maxlength="20" placeholder="이름을 입력해주세요!">
                                 <!-- 메시지박스 -->
                                 <span class="msg">요기요기</span>
                             </li>
-                            <!-- 4.이름 -->
+                            <!-- 5.성별 -->
                             <li>
-                                <label for="mnm">이름</label>
-                                <input type="text" name="mnm" id="mnm" maxlength="20" placeholder="이름을 입력해주세요!">
-                                <!-- 메시지박스 -->
-                                <span class="msg">요기요기</span>
+                                <span class="itit">성별</span>                       
+                                <label for="gen1">남성</label>
+                                <input type="radio" name="gen" id="gen1">
+                                <label for="gen2">여성</label>
+                                <input type="radio" name="gen" id="gen2" checked>
+                                <!-- 
+                                    라디오버튼의 name속성을
+                                    같은 이름으로 쓰면 그룹핑되어서
+                                    하나만 선택된다!
+                                    checked 속성은 처음 기본선택옵션임
+                                 -->
                             </li>
                         </ul>
                     </form>
