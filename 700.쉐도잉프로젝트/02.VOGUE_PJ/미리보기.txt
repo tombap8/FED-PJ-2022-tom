@@ -1,0 +1,16 @@
+[ 보그 PJ 미리보기 ]
+
+- 보그 원본사이트
+https://www.vogue.co.kr/
+
+- 버전1: 마우스 오버시 따라다니는 원
+
+https://tombap8.github.io/KITA-FED212/001.HTML학습/008.VOGUE_PJ/002.site/index.html
+
+- 버전2 : 부드러운 스크롤 + 스크롤 등장액션
+
+https://tombap8.github.io/GITA-FED213/001.HTML학습/09.VOGUE_PJ/002.site/index.html
+
+
+- 버전3 : 
+https://tombap8.github.io/TOMCO2/001.HTML%ED%95%99%EC%8A%B5/08.VOGUE_PJ/002.site/index.html

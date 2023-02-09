@@ -1,0 +1,283 @@
+--------------- html ---------------------------------
+
+<!-- header.top 안에 넣기 -->
+
+
+<!-- 모바일용 햄버거버튼 -->
+<a href="#" class="mobtn hbtn fi fi-nav-icon">
+    <span class="ir">GNB button</span>
+</a>
+<!-- 모바일용 검색버튼 -->
+<a href="#" class="mobtn sbtn fi fi-search">
+    <span class="ir">search</span>
+</a>
+
+----------------------------------------------------
+
+<!-- header.top 바깥에 넣기(#top안에) -->
+
+<!-- 1.4.모바일 검색박스 -->
+        <div class="mos">
+            <div class="mwrap">
+                <!-- 입력창박스 -->
+                <div id="search">
+                    <input type="text" class="search">
+                </div>
+                <!-- 검색버튼 -->
+                <button class="scbtn fi fi-search">
+                    <span class="ir">돋보기검색아이콘</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- 1.5.모바일 전체메뉴 -->
+        <div id="mobx">
+            <!-- 1.5-1.모바일 GNB 메뉴 -->
+            <nav class="mognb">
+                <ul>
+                    <li>
+                        <a href="#">FASHION</a>
+                    </li>
+                    <li>
+                        <a href="#">BEAUTY</a>
+                    </li>
+                    <li>
+                        <a href="#">LIVING</a>
+                    </li>
+                    <li>
+                        <a href="#">PEOPLE</a>
+                    </li>
+                    <li>
+                        <a href="#">VIDEO</a>
+                    </li>
+                    <li>
+                        <a href="#">RUNWAY</a>
+                    </li>
+                    <li>
+                        <a href="#">SHOPPING</a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- 1.5-2.모바일 sns 메뉴 -->
+            <div class="mosns">
+                <a href="#" class="fi fi-instagram">
+                    <span class="ir">인스타그램</span>
+                </a>
+                <a href="#" class="fi fi-facebook">
+                    <span class="ir">페이스북</span>
+                </a>
+                <a href="#" class="fi fi-twitter">
+                    <span class="ir">트위터</span>
+                </a>
+                <a href="#" class="fi fi-youtube-play">
+                    <span class="ir">유튜브</span>
+                </a>
+                <a href="#">
+                    <span class="ir">카카오스토리</span>
+                </a>
+
+            </div>
+            <!-- 1.5-3.매거진박스 -->
+            <figure class="magbox">
+                <!-- 잡지커버이미지 -->
+                <a class="mcover" href="#">
+                    <img src="./images/cover.jpg" alt="보그표지">
+                </a>
+                <!-- 잡지설명 -->
+                <figcaption>
+                    정기구독을 신청하면 최대 30% 할인혜택을 드립니다!
+                </figcaption>
+                <!-- 정기구독버튼 -->
+                <button class="magbtn">정기구독 신청</button>
+            </figure>
+
+            <!-- 하단링크박스 -->
+            <ul class="moblink">
+                <li>
+                    <a href="#">회사소개 /</a>
+                </li>
+                <li>
+                    <a href="#">광고 및 제휴 /</a>
+                </li>
+                <li>
+                    <a href="#">
+                        <strong>개인정보 처리방침</strong>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+
+        ---------------- css -----------------------------
+
+        
+/* 모바일 전용버튼 */
+.mobtn{/* 공통 */
+    position: absolute;
+    /* 부모는? #top(모바일에서 fixed) */
+    width: 21px;
+    height: 21px;
+    top: 50%;
+    transform: translateY(-50%);
+    /* 세로중앙이동 */
+    display: none;/* 처음에 안보임 */
+}
+/* 모바일용 햄버거 버튼 */
+.hbtn{
+    left: 10px;
+    font-size: 15px;
+}
+/* 모바일용 검색버튼 */
+.sbtn{
+    right: 10px;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+/* 1.4. 모바일 검색박스 */
+.mos{
+    padding: 15px 30px;
+    background-color: #fff;
+    display: none;/* 처음에 숨기기 */
+}
+/* 검색속박스 */
+.mwrap{
+    position: relative;
+    /* 부모자격 */
+    width: 100%;
+    height: 35px;
+    background-color: #000;
+}
+/* 검색입력창 - 부모박스의 크기에 따라 유동적인 박스 */
+#search{
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 50px;
+    bottom: 9px;
+}
+/* 입력양식 */
+#search input{
+    width: 100%;
+    height: 100%;
+    padding-left: 10px;
+}
+/* input박스는 일반 div박스와 다르기때문에 겉박스를 만들고
+채우기 형식으로 디자인함! */
+
+/* 검색버튼 */
+.scbtn{
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* 1.5. 모바일 전체메뉴박스 (#top의 하위자식으로 편성) */
+#mobx{
+    padding-left: 15px;
+    padding-top: 6px;
+    padding-bottom: 30px;
+    background-color: #fff;
+    display: none;/* 처음에 안보임 */
+}
+/* 1.5-1.모바일 GNb */
+.mognb{
+    padding-left: 15px;
+}
+.mognb a{
+    font-family: "Roboto";
+    font-size: 25px;
+    font-weight: 300;
+    line-height: 2;
+    color: #333;
+}
+/* 1.5-2. 모바일 SNS */
+.mosns{
+    margin-top: 24px;
+    margin-left: 13px;
+}
+/* sns박스 a */
+.mosns a{
+    display: inline-block;
+    width: 42px;
+    height: 42px;
+    margin: 0 2px 10px;
+    font-size: 20px;
+    text-align: center;
+    /* 박스내의 인라인요소 가로중앙정렬 */
+    vertical-align: top;
+    /* 인라인 요소간 세로정렬(top-윗줄맞춤) */
+    line-height: 40px;
+    /* 보더가 2px내부에 포함되어서 2px뺀 높이와 같음! */
+    /* 글자가 박스 세로 중앙에 오도록 설정 */
+
+    /* 원형디자인 */
+    border: 1px solid #d2d2d2;
+    border-radius: 50%;
+    box-sizing: border-box;/* 보더포함 */
+}
+/* 트위터 아이콘 박스 */
+.mosns a.fi-twitter{
+    font-size: 16px;
+    /* 가로크기가 16px에 맞게 글자크기조정 */
+}
+/* 유튜브 아이콘 박스 */
+.mosns a.fi-youtube-play{
+    font-size: 15px;
+    /* 가로크기가 16px에 맞게 글자크기조정 */
+}
+/* mosns 마지막 a요소에 카스아이콘 넣기 */
+.mosns a:last-child{
+    background: url(../images/sns_kakao.png) no-repeat center/auto 50%;
+}
+
+/* 1.5-3.매거진박스 */
+.magbox{    
+    margin: 0;
+    padding: 10px 30px 0 15px;
+    font-family: 'NanumBarunGothic', sans-serif;
+}
+/* 잡지커버이미지 */
+.mcover img{
+    width: 100%;
+}
+/* 잡지설명 */
+.magbox figcaption{
+    font-size: 13px;
+    line-height: 2;
+    color: #222;
+}
+/* 정기구독버튼 */
+.magbtn{
+    font-size: 20px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    width: 100%;
+    font-weight: bold;
+    padding: 5px 0;
+}
+/* 모바일 하단링크 */
+.moblink{
+    display: flex;
+    margin-left: 15px;
+    line-height: 3.5;
+    font-size: 15px;
+    letter-spacing: -1px;
+}
+.moblink li+li{/* 2번째 li부터 */
+    padding-left: 7px;
+}
+.moblink a{
+    color: #222;
+}

@@ -1,0 +1,208 @@
+@charset "utf-8";
+/* 보그 PJ 공통핵심 CSS - core.css */
+/* 웹폰트, 공용클래스 */
+
+/*********** 1. 웹폰트 ***********/
+/* Roboto체 + Roboto Condensed체 - CDN */
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Roboto:wght@300&display=swap");
+
+/* 
+font-family: 'Roboto', sans-serif;
+font-family: 'Roboto Condensed', sans-serif;
+*/
+/* 나눔바른고딕 */
+@font-face {
+    font-family: nbg;
+    src: url(../fonts/NanumBarunGothicLightSubset.woff) format("woff");
+}
+
+/* Pistilli체 */
+@font-face {
+    font-family: pist;
+    src: url(../fonts/Pistilli-Roman.woff) format("woff");
+}
+
+/* 
+  [ 공통 클래스 이름정의 ]
+  1. ibx - inside box 속박스
+  2. rbx - ratio box 비율박스
+  3. rbxIn - box in ratio box 비율유지 속박스
+  4. fbx - flex box 플렉스 디스플레이 박스
+  5. pt1, pt2 - part1, part2 각 부분박스
+  6. cbx - content box 내용박스
+  7. bgi - background image 관련 속성
+*/
+
+/* 공사중 표시 */
+/* body * {
+    outline: 1px dashed gray;
+} */
+
+/************* 2. 공통 class *************/
+
+/* 2-1. 중앙 속박스 */
+.ibx {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* 2-2. 비율유지박스 */
+.rbx {
+    /* 부모자격필수!
+  (비율유지속박스 앱솔루트의 부모) */
+    position: relative;
+}
+/* 가상요소로 비율밀기 */
+.rbx::before {
+    content: "";
+    display: block;
+}
+/* .pt1 비율: 55.7% */
+.pt1.rbx::before {
+    padding-top: 55.7%;
+}
+/* .pt2 비율: 50% */
+.pt2.rbx::before {
+    padding-top: 50%;
+}
+
+/* 2-3. 비율유지속박스 */
+.rbxIn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    /* 부모는? .rbx */
+}
+
+/* 2-4. 플렉스 박스 */
+.fbx {
+    display: flex;
+}
+/* 플렉스 적용하위 .cbx */
+.fbx .cbx {
+    flex: 1;
+    /* 등분할 설정
+  height값을 100% 안줘도
+  자동으로 부모박스를 채운다! */
+}
+
+/* 2-5. 유형별 박스 */
+/* 1개 컨텐츠박스형 */
+/* .pt1 {
+    height: 724px; -> 비율박스적용시 높이값 없음!
+} */
+/* 3개 컨텐츠박스형 */
+/* .pt2 {
+    height: 650px; -> 비율박스적용시 높이값 없음!
+} */
+
+/* 2-6. 컨텐츠 박스 */
+.cbx {
+    /* 렐러티브 부모자격 */
+    position: relative;
+    /* 크기유지박스 설정 - 보더,패딩 포함 */
+    box-sizing: border-box;
+    padding: 15px;
+}
+/* .pt1 하위 .cbx만 높이값 100%설정 */
+.pt1 .cbx {
+    height: 100%;
+}
+
+/* 가상요소로 반투명 검정배경 그라데이션 넣기 */
+/* h2요소보다 먼저 그려서 자연스럽게 아래오도록 ::before사용! */
+.cbx::before {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    /* background-color: red; */
+    /* 그라데이션: 아래쪽에서 위쪽으로
+  검정색에서 투명으로 변화함! */
+    background-image: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.839),
+        rgba(0, 0, 0, 0)
+    );
+}
+
+/* 컨텐츠박스 가상요소로 보더애니 구현 */
+.cbx::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border: 0 solid red;
+
+    /* 트랜지션: 속시이지 */
+    transition: border 0.2s ease-in;
+}
+/* .cbx에 오버시 보더애니 */
+.cbx:hover::after {
+    border-width: 20px;
+    /* 보더 두께만 변경됨! */
+}
+
+/* 컨텐츠 타이틀 박스(h2) */
+.cbx h2 {
+    /* 앱솔루트 포지션 */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    /* 부모는? .cbx */
+
+    padding: min(50px,3.4vw);
+    /* 보더,패딩포함 크기유지박스 */
+    box-sizing: border-box;
+
+    /* 글자설정 - 영문체,한글체 */
+    font-family: pist, nbg;
+    font-size: min(3vw,33px);
+    font-weight: normal;
+    text-align: center;
+    color: #fff;
+}
+/* 컨텐츠 타이틀 작은글자 */
+.cbx h2 small{
+    font-size: 14px;
+}
+
+/* 2-7. 배경공통 적용 클래스 */
+.bgi {
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* 글자 숨김 클래스(IR배경이미지 설명 등  숨기기) */
+.ir {
+    display: block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+/* 공통 배경색 클래스 */
+.bgc{
+    background-color: #f9f9f9;
+}
+
+/* 등장액션 클래스 */
+.scAct{
+    transform: translateY(20%);
+    opacity: 0;
+    transition: .8s ease-in-out;
+}
+/* 등장클래스(on추가) */
+.scAct.on{
+    transform: translateY(0);
+    opacity: 1;
+}
