@@ -180,12 +180,22 @@
                             // 문구 데이터를 for of문으로 하나씩 넣기
                             for(let m of txt){ // m은 한글자씩!
                                 console.log("한글자씩:",m);
-                                newtxt += `<span>${m}</span>`;
+                                // 스페이스 문자일 경우 띄어쓰기기호로!
+                                if(m === " "){
+                                    newtxt += "&nbsp;&nbsp;&nbsp;";
+                                } //// if /////
+                                else{ // 그밖에 문자일 경우
+                                    newtxt += `<span>${m}</span>`;
+                                } //// else /////
                             } /////// for of ////////
 
                             // 문구 데이터를 대상에 출력!
                             // 대상: .show
                             qs(".show").innerHTML = newtxt;
+
+                            // 영화한마디 박스 보이게 하기
+                            // 대상: .showtit
+                            qs(".showtit").style.display = "block";
 
 
                         } ///////// if문 ////////////
