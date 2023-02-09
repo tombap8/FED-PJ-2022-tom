@@ -114,7 +114,12 @@
 
                     // 1. 클릭된 버튼의 글자읽기
                     let btxt = x.innerText;
-                    console.log(btxt);
+                    // console.log(btxt);
+
+                    // 2. 버튼 텍스트와 같은 
+                    // 객체속성명의 값을 변수에 할당함!
+                    let data = mvi[btxt];
+                    console.log("할당객체:",data);
 
                 }; ////// click이벤트 함수 /////
             } ////////// for of 문 ///////////////
