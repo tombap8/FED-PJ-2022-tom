@@ -6,3 +6,33 @@
 @import url(./reset.css);
 @import url(./core.css);
 @import url(./common.css);
+
+/* 개별배경이미지 */
+/* 1번 - 1개 */
+.bg1{
+    background-image: url(../images/cont1a.jpg);
+}
+/* 2번 - 3개 */
+.bg2{
+    background-image: url(../images/cont2-1.jpg);
+}
+.bg3{
+    background-image: url(../images/cont2-2.jpeg);
+}
+.bg4{
+    background-image: url(../images/cont2-3.jpg);
+}
+/* 3번 - 1개 */
+.bg5{
+    background-image: url(../images/cont3a.jpg);
+}
+/* 4번 - 3개 */
+.bg6{
+    background-image: url(../images/cont4-1.jpg);
+}
+.bg7{
+    background-image: url(../images/cont4-2.jpg);
+}
+.bg8{
+    background-image: url(../images/cont4-3.jpg);
+}

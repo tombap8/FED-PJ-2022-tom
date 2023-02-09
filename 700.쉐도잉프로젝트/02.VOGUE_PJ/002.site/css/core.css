@@ -67,6 +67,12 @@ body * {
     flex: 1;
 }
 
+/* 2-3. 배경이미지 공통셋팅 클래스 */
+.bgi{
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 
 /* 글자 숨김 클래스(IR배경이미지 설명 등  숨기기) */
 .ir {
@@ -75,3 +81,5 @@ body * {
     height: 0;
     overflow: hidden;
 }
+
+
