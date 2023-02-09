@@ -36,3 +36,27 @@
 .bg8{
     background-image: url(../images/cont4-3.jpg);
 }
+/* 5번 - 1개 */
+.bg9{
+    background-image: url(../images/cont5a.jpg);
+}
+/* 6번 - 3개 */
+.bg10{
+    background-image: url(../images/cont6-1.png);
+}
+.bg11{
+    background-image: url(../images/cont6-2.jpg);
+}
+.bg12{
+    background-image: url(../images/cont6-3.png);
+}
+/* 7번 - 3개 */
+.bg13{
+    background-image: url(../images/cont7-1.jpg);
+}
+.bg14{
+    background-image: url(../images/cont7-2.jpg);
+}
+.bg15{
+    background-image: url(../images/cont7-3.jpg);
+}
