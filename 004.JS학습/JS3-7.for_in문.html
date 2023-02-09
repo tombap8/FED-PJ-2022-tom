@@ -125,7 +125,37 @@
                     // 2. 버튼 텍스트와 같은 
                     // 객체속성명의 값을 변수에 할당함!
                     let data = mvi[btxt];
-                    console.log("할당객체:",data);
+                    // console.log("할당객체:",data);
+
+                    // 3. 해당요소에 데이터 넣기
+                    // for in문 사용!!!
+                    // for(변수 in 객체){코드}
+                    // -> 변수는 속성명!
+                    for(let z in data){
+                        // z는? 속성명
+                        // 속성값은 어떻게 가져와? 객체명[z]
+                        // console.log(z,data[z]);
+
+                        // 각 속성명에 해당하는 데이터 셋팅하기!
+                        // switch case문으로 분기!
+                        switch(z){
+                            // 1. 포스터넣기 -> .photo
+                            case "포스터": 
+                                qs(".photo").innerHTML=
+                                `<img src="${data[z]}" alt="${btxt}의 포스터">`;
+                                break;
+                            // 2. 제목넣기 -> .tit
+                            case "제목":
+                                qs(".tit").innerText=data[z];
+                                break;
+                            // 3. 장르넣기 -> .sum
+                            // 4. 감독넣기 -> .dir
+                            // 5. 배우넣기 -> .act
+
+                        } //////// switch case //////
+
+
+                    } ///////// for in 문 /////////
 
                 }; ////// click이벤트 함수 /////
             } ////////// for of 문 ///////////////
