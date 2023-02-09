@@ -5,3 +5,4 @@
 /* 외부CSS파일 합치기 */
 @import url(./reset.css);
 @import url(./core.css);
+@import url(./common.css);
