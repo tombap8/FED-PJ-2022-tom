@@ -146,13 +146,36 @@
                                 break;
                             // 2. 제목넣기 -> .tit
                             case "제목":
-                                qs(".tit").innerText=data[z];
+                                qs(".tit").innerText=
+                                "★영화명:"+data[z];
                                 break;
                             // 3. 장르넣기 -> .sum
+                            case "개요":
+                                qs(".sum").innerText=
+                                "★장르:"+data[z];
+                                break;
                             // 4. 감독넣기 -> .dir
+                            case "감독":
+                                qs(".dir").innerText=
+                                "★감독:"+data[z];
+                                break;
                             // 5. 배우넣기 -> .act
+                            case "출연":
+                                qs(".act").innerText=
+                                "★배우:"+data[z];
+                                break;
 
                         } //////// switch case //////
+
+                        // 영화 한마디 넣기 /////
+                        // for of문으로 문자데이터 잘라넣기!
+                        // 한글자씩 span태그로 싸서 해당요소에 넣음!
+                        if(z==="문구"){
+                            // 1. 데이터 담기
+                            let txt = data[z];
+                            console.log("문구데이터:",txt);
+
+                        } ///////// if문 ////////////
 
 
                     } ///////// for in 문 /////////
