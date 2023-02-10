@@ -24,6 +24,10 @@
     .city li:hover {
         transform: none !important;
     }
+    .city a{
+        font-size: 5vw;
+        white-space: nowrap;
+    }
 
     /* 2. 큐브크기 변경하기 */
     :root {
