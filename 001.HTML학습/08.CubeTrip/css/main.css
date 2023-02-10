@@ -204,41 +204,7 @@ body{
     큐브 사이즈 절반을 앞쪽으로 이동 */
 }
 
-/* 큐브회전 클래스 */
-.cube-ani{
-    /* 애니메이션: 이시이지반방마 */
-    animation: cubeAni 4s linear infinite;
-    /* 애니메이션 처음에 멈춰있기 */
-    animation-play-state: paused;
-}
-/* 큐브회전 작동 클래스 + .on */
-.cube-ani.on{
-    /* 애니메이션 작동하기 */
-    animation-play-state: running;
-}
 
-/* 큐브회전 키프레임 */
-@keyframes cubeAni {
-    to{
-        /* x축 양의방향, y축 음의방향 */
-        transform: 
-        rotateX(370deg) rotateY(-330deg);
-        /* 
-            x축 양의 방향으로 10도에서 출발
-            양의 방향 360도+10도=370도
-            음의 방향 -360도+10도=-350도
-            ____________________________
-
-            y축 양의 방향으로 30도에서 출발
-            양의 방향 360도+30도=390도
-            음의 방향 -360도+30도=-330도
-        */
-
-        /* rotateX(370deg) rotateY(-330deg) rotateZ(360deg); */
-        /* z축회전도 적용할 수 있음 */
-
-    }
-}
 
 /* 4.도시정보박스 */
 .cbx{
@@ -288,5 +254,8 @@ p.cinfo{
     font-size: min(16px,2vw);
     line-height: min(28px,1.5vw);
     background-color: rgba(0, 0, 0, 0.3);
+
+    /* 내용 넘칠때만 세로스크롤바 자동생성 */
+    overflow: auto;
 
 }
