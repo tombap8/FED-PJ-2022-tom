@@ -146,6 +146,7 @@ body{
     rotateX(10deg) rotateY(30deg); */
 
     /* outline: 2px solid red; */
+    opacity: 1;
     
 }
 
@@ -245,7 +246,7 @@ body{
 
     /* 처음에 투명하게 */
     opacity: 0;
-    transform-style: preserve-3d;
+    /* opacity값을 지정하면 z-index오류가 생길 수 있다! */
     
     /* outline: 2px dashed red; */
 }
@@ -257,7 +258,6 @@ body{
     border: 3px solid #fff;
     /* 크기유지 */
     box-sizing: border-box;/* 화면방향(z축) */
-    transform: translateZ(calc(var(--csz)/2));
 
 }
 /* 도시명 */
