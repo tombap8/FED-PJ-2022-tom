@@ -245,7 +245,6 @@ body{
 
     /* 처음에 투명하게 */
     opacity: 0;
-    z-index: 1;
     transform-style: preserve-3d;
     
     /* outline: 2px dashed red; */
@@ -257,7 +256,9 @@ body{
     height: 100%;
     border: 3px solid #fff;
     /* 크기유지 */
-    box-sizing: border-box;
+    box-sizing: border-box;/* 화면방향(z축) */
+    transform: translateZ(calc(var(--csz)/2));
+
 }
 /* 도시명 */
 h2.cname{
