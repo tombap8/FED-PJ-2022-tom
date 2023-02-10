@@ -45,7 +45,7 @@ body{
     right: 50px;
 }
 .city ul{
-    width: 200px;
+    width: min(15vw,200px);
     list-style: none;
     perspective: 50vw;
 }
@@ -92,7 +92,7 @@ body{
     display: block;
     width: 100%;
     height: 100%;
-    font: 52px/10vh 'East Sea Dokdo', cursive;
+    font: 5vh/10vh 'East Sea Dokdo', cursive;
     text-decoration: none;
     text-align: center;
     color: #fff;
