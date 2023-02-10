@@ -27,6 +27,9 @@ function loadFn() {
     // 1-4. 변경대상3 : 도시정보 - .cinfo
     const cinfo = document.querySelector(".cinfo");
 
+    // 1-5. 변경대상4 : 도시정보박스 - .cbx
+    const cbx = document.querySelector(".cbx");
+
     // console.log(cbx);
 
     // 2. 메뉴에 클릭이벤트 설정하기
@@ -35,6 +38,12 @@ function loadFn() {
         // x는 각각의 a요소
         // 1. 클릭이벤트설정
         x.onclick = () => {
+
+            // 0. 도시정보박스 숨기기(트랜지션 없애기!!!)
+            cbx.style.opacity = "0"; 
+            cbx.style.transition = "none";
+
+
             // 1. 메뉴 텍스트 읽기
             let mtxt = x.innerText;
             // console.log(mtxt);
@@ -91,6 +100,15 @@ function loadFn() {
             cinfo.innerText = city[mtxt];
 
             // console.log(city[mtxt]);
+
+            // 5. 도시정보박스 보이기
+            // 대상: .cbx
+            // 내용: 큐브 1.5초간 회전후 도시정보박스가 보여야한다!
+            // 1.5초 후에 코드를 실행한다! -> setTimeout(함수,시간)
+            setTimeout(()=>{
+                cbx.style.opacity = "1"; 
+                cbx.style.transition = "opacity .8s ease-in-out";
+            },1500); /////// 타임아웃 /////
 
 
         }; ////// click 이벤트 함수 /////
