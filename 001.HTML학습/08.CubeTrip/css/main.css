@@ -245,7 +245,7 @@ body{
 
     /* 처음에 투명하게 */
     opacity: 0;
-    z-index: 999;
+    z-index: 1;
     transform-style: preserve-3d;
     
     /* outline: 2px dashed red; */
