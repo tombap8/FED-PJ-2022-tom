@@ -14,11 +14,11 @@
     /* 큐브 공통크기
     --변수명
     변수명은 내맘대로! */
-    --csz: 300px;
+    --csz: 25vw;
 }
 
 /* 초기화 */
-html,body,h1,ul{
+html,body,h1,h2,ul,p{
     margin: 0;
     padding: 0;
 }
@@ -41,8 +41,8 @@ body{
 /**************** 2.메뉴버튼 ****************/
 .city{
     position: fixed;
-    top: 50px;
-    right: 50px;
+    top: 3vw;
+    right: 3vw;
 }
 .city ul{
     width: min(15vw,200px);
@@ -124,8 +124,8 @@ body{
     transform-style: preserve-3d;
 
     /* 입체를 잘보이게 하기위해 약간회전함 */
-    transform: 
-    rotateX(10deg) rotateY(30deg);
+    /* transform: 
+    rotateX(10deg) rotateY(30deg); */
 
     /* outline: 2px solid red; */
     
@@ -144,18 +144,18 @@ body{
     outline: 1px solid #555;
 }
 
-/* 1. 앞면 */
+/* 1. 앞면 : 시티메인 */
 .cube span:nth-child(1){
-    background: url(../images/newyorkCity.jpg) no-repeat right/auto 105%;
+    background: url(../images/cityMain.jpg) no-repeat center/cover;
 
     /* 화면방향(z축) */
     transform: 
     translateZ(calc(var(--csz)/2));
     /* 큐브 사이즈 절반을 앞쪽으로 이동 */
 }
-/* 2. 오른쪽면 */
+/* 2. 오른쪽면 : 런던 */
 .cube span:nth-child(2){
-    background: url(../images/seoulCity.jpg) no-repeat center/cover;
+    background: url(../images/London_city.jpg) no-repeat center/cover;
 
     /* 화면방향(z축) */
     transform: rotateY(90deg)
@@ -163,7 +163,7 @@ body{
     /* 먼저 y축회전후
     큐브 사이즈 절반을 앞쪽으로 이동 */
 }
-/* 3. 뒷면 */
+/* 3. 뒷면 : 파리 */
 .cube span:nth-child(3){
     background: url(../images/parisCity.jpg) no-repeat center/cover;
 
@@ -173,9 +173,9 @@ body{
     /* 먼저 y축회전후
     큐브 사이즈 절반을 앞쪽으로 이동 */
 }
-/* 4. 왼쪽면 */
+/* 4. 왼쪽면 : 베를린 */
 .cube span:nth-child(4){
-    background: url(../images/cityMain.jpg) no-repeat center/cover;
+    background: url(../images/berlin_city.jpg) no-repeat center/cover;
 
     /* 화면방향(z축) */
     transform: rotateY(-90deg)
@@ -183,9 +183,9 @@ body{
     /* 먼저 y축회전후
     큐브 사이즈 절반을 앞쪽으로 이동 */
 }
-/* 5. 왼쪽면 */
+/* 5. 윗면 : 서울 */
 .cube span:nth-child(5){
-    background: url(../images/citys.jpg) no-repeat center/100% 120%;
+    background: url(../images/seoulCity.jpg) no-repeat center/cover;
 
     /* 화면방향(z축) */
     transform: rotateX(90deg)
@@ -193,9 +193,9 @@ body{
     /* 먼저 x축회전후
     큐브 사이즈 절반을 앞쪽으로 이동 */
 }
-/* 6. 왼쪽면 */
+/* 6. 아랫쪽면 : 뉴욕 */
 .cube span:nth-child(6){
-    background: url(../images/London_city.jpg) no-repeat center/cover;
+    background: url(../images/newyorkCity.jpg) no-repeat right/auto 105%;
 
     /* 화면방향(z축) */
     transform: rotateX(-90deg)
@@ -238,4 +238,55 @@ body{
         /* z축회전도 적용할 수 있음 */
 
     }
+}
+
+/* 4.도시정보박스 */
+.cbx{
+    position: absolute;
+    top: calc(50% - var(--csz)/2);
+    left: calc(50% - var(--csz)/2);
+    /* 정중앙계산: 50% - 크기절반
+    calc() 연산시 주의사항 
+    -> +,-는 기호앞뒤 띄어쓰기
+    -> *,/는 붙여써도 됨
+     */
+    width: var(--csz);
+    height: var(--csz);
+
+    /* 글자설정 */
+    font-family: 'Jua', sans-serif;
+    color: #fff;
+    text-shadow: 0 0 2px #000;
+
+    /* 처음에 투명하게 */
+    opacity: 0;
+    
+    /* outline: 2px dashed red; */
+}
+/* 도시정보 속박스 */
+.ctxt{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 3px solid #fff;
+    /* 크기유지 */
+    box-sizing: border-box;
+}
+/* 도시명 */
+h2.cname{
+    line-height: min(7vw,100px);
+    text-align: center;
+    font-size: min(40px,2.5vw);
+}
+/* 도시설명 */
+p.cinfo{
+    /* 타이틀을 제외한 영역채우기 */
+    height: calc(100% - min(7vw,100px));
+    box-sizing: border-box;
+
+    padding: min(10px,1vw);
+    font-size: min(16px,2vw);
+    line-height: min(28px,1.5vw);
+    background-color: rgba(0, 0, 0, 0.3);
+
 }
