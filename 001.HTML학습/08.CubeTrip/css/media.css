@@ -41,7 +41,7 @@
     }
     p.cinfo {
         height: calc(100% - 10vw);
-        font-size: 4vw;
+        font-size: 3.5vw;
         line-height: 5vw;
     }
 }
