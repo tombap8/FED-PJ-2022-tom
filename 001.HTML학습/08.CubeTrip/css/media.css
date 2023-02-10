@@ -1,0 +1,122 @@
+@charset "utf-8";
+/* 큐브트립 미디어쿼리 CSS - media.css */
+/* 미디어쿼리는 다른파일에서 @import방식으로 사용하면 안된다!
+반드시 link방식으로 html파일에 삽입한다! */
+
+/* 모바일 미디어쿼리 */
+@media only screen and (max-width:950px) {
+
+    /* html,body */
+    html,
+    body {
+        width: 100vw;
+        height: auto;/* 높이값 자동! */
+    }
+    body{
+        overflow-y: scroll;/* 세로스크롤바 */
+        background-attachment: fixed;/* 배경고정 */
+        padding-bottom: 50px;/* 하단공간 */
+    }
+
+    /* 1.메뉴박스 
+    - 가로로 흐르게 상단에 위치 크기변경*/
+    .city {
+        top: 0;
+        right: auto;
+        width: 100%;
+        z-index: 9999;/* 메뉴맨위 */
+    }
+
+    .city ul {
+        width: 100%;
+    }
+
+    .city li {
+        height: 8vmax;
+        width: 16.66%;
+        float: left;
+    }
+
+    .city a {
+        font: bold 5vw/8vmax 'East Sea Dokdo', cursive;
+    }
+
+    /* 마우스 오버시 설정 없애기 */
+    .city li:hover {
+        background-image:
+            linear-gradient(to right, transparent, blue) !important;
+        transform: none !important;
+    }
+
+    /* 3.큐브박스 */
+    /* 큐브 */
+    .cube {
+        position: relative;
+        /* 자리차지하는 포지션 변경! */
+        top: calc(50% - 100px);
+        left: calc(50% - 100px);
+        width: 200px;
+        height: 200px;
+    }
+
+    /* 큐브 각면 셋팅 */
+    /* 1. 앞면 */
+    .cube>li:nth-child(1) {
+        transform: translateZ(100px);
+    }
+
+    /* 2. 오른쪽면:런던 */
+    .cube>li:nth-child(2) {
+        transform: rotateY(90deg) translateZ(100px);
+    }
+
+    /* 3. 뒷면:파리 */
+    .cube>li:nth-child(3) {
+        transform: rotateY(180deg) translateZ(100px);
+    }
+
+    /* 4. 왼쪽면:베를린 */
+    .cube>li:nth-child(4) {
+        transform: rotateY(-90deg) translateZ(100px);
+    }
+
+    /* 5. 윗면:서울 */
+    .cube>li:nth-child(5) {
+        transform: rotateX(90deg) translateZ(100px);
+    }
+
+    /* 6. 아랫면:뉴욕 */
+    .cube>li:nth-child(6) {
+        transform: rotateX(-90deg) translateZ(100px);
+    }
+
+
+    /* 4.도시설명박스 */
+    .cbx {
+        position: relative;
+        /* 자리차지하는 포지션 */
+        top: auto;
+        left: auto;
+        transform: none;
+        width: 90%;
+        height: auto;
+        margin: 0 auto;/* 가로중앙 */
+        margin-top: 50px;/* 상단여백 */
+    }
+
+    /* 개별도시박스 */
+    .ctxt {
+        position: static;
+        /* 자리차지 포지션 */
+        height: auto;
+    }
+
+    /* 도시설명 */
+    .ctxt p {
+        height: auto;
+    }
+
+
+}
+
+/* 미디어쿼리  */

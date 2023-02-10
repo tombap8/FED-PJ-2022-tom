@@ -1,0 +1,241 @@
+@charset "utf-8";
+/* 큐브트립 메인 CSS - main.css */
+
+/* 웹폰트 */
+@import url('https://fonts.googleapis.com/css?family=Black+And+White+Picture|East+Sea+Dokdo|Jua&display=swap');
+/*
+    font-family: 'Black And White Picture', sans-serif;
+    font-family: 'East Sea Dokdo', cursive;
+    font-family: 'Jua', sans-serif;
+*/
+
+html,body{
+    margin: 0;
+    padding: 0;
+    height: 100%;/* 보이는화면기준 */
+}
+body{
+    overflow: hidden;/* 넘치는자식숨기기 */
+    background-image: 
+    linear-gradient(to bottom,#777 30%,#ccc 70%);
+}
+
+/* 1.전체제목 */
+.tit{
+    text-align: center;
+    font-family: 'Black And White Picture', sans-serif;
+    color: #fff;
+    font-size: 60px;
+    font-weight: normal;
+    background: 
+    url(../images/citybg.png) no-repeat center/auto 100%;
+    padding-top: 50px;
+}
+
+/* 2.메뉴박스 */
+.city{
+    position: fixed;/* 화면기준 */
+    top: 50px;
+    right: 50px;
+}
+.city ul{
+    width: 200px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    /* 자식요소인 li에 원근설정을 여기에 준다! */
+    perspective: 480px;
+}
+.city li{
+    height: 100px;
+    background-image: 
+    linear-gradient(to right, transparent, blue);
+    /* transparent는 투명설정시 설정값 */
+    transform-origin: right;/* 트랜스폼 축변경 */
+
+    /* 트랜지션: 속시이지 */
+    transition: transform .4s ease-out;
+}
+.city a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    font: bold 52px/100px 'East Sea Dokdo', cursive;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+}
+/* 마우스 오버시 */
+.city li:nth-child(1):hover{    
+    background-image: 
+    linear-gradient(to right, transparent, red);
+    transform: rotateY(15deg);
+}
+.city li:nth-child(2):hover{    
+    background-image: 
+    linear-gradient(to right, transparent, orange);
+    transform: rotateY(30deg);
+}
+.city li:nth-child(3):hover{    
+    background-image: 
+    linear-gradient(to right, transparent, yellow);
+    transform: rotateY(-25deg);
+}
+.city li:nth-child(4):hover{    
+    background-image: 
+    linear-gradient(to right, transparent, orangered);
+    transform: rotateY(45deg);
+}
+.city li:nth-child(5):hover{    
+    background-image: 
+    linear-gradient(to right, transparent, cyan);
+    transform: rotateY(-55deg);
+}
+.city li:nth-child(6):hover{ 
+    background-image: 
+    linear-gradient(to right, transparent, coral);
+    transform: rotateY(20deg);
+}
+
+/* 3.큐브박스 */
+/* 큐브 */
+.cube{
+    position: absolute;
+    top: calc(50% - 200px);
+    left: calc(50% - 200px);
+    /* calc(%수치 - 특정px)
+    CSS의 고유계산함수임(주의:빼기기호 앞뒤공백필수!) */
+    width: 400px;
+    height: 400px;
+    /* outline: 2px solid #000; */
+
+    /* 3無 */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    /* 
+        [ 입체로 설정하기! ]
+        - 입체로 설정할 요소의 부모박스에 아래와 같이
+        설정한다!
+
+        transform-style: preserve-3d
+
+        - 기본값은 flat 즉, 2D
+        - preserve-3d 는 3D 전환설정!
+    */
+    transform-style: preserve-3d;
+    transform: rotateX(0deg) rotateY(0deg);
+    /* 입체를 잘보기위해 x축,y축으로 약간회전해 놓는다 */
+
+}
+
+/* 큐브각면 공통 */
+.cube>li{
+    position: absolute;
+    /* 부모? .cube */
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;/* 반투명 */
+}
+
+/* 큐브 각면 셋팅 */
+/* 1. 앞면 */
+.cube>li:nth-child(1){
+    background: 
+    url(../images/cityMain.jpg) no-repeat center/cover;
+    transform: translateZ(200px);
+    /* 화면방향으로 li크기의 절반만큼 이동함 */
+}
+/* 2. 오른쪽면:런던 */
+.cube>li:nth-child(2){
+    background: 
+    url(../images/London_city.jpg) no-repeat center/cover;
+    transform: rotateY(90deg) translateZ(200px);
+    /* 화면방향으로 li크기의 절반만큼 이동함 */
+}
+/* 3. 뒷면:파리 */
+.cube>li:nth-child(3){
+    background: 
+    url(../images/parisCity.jpg) no-repeat center/cover;
+    transform: rotateY(180deg) translateZ(200px);
+    /* 화면방향으로 li크기의 절반만큼 이동함 */
+}
+/* 4. 왼쪽면:베를린 */
+.cube>li:nth-child(4){
+    background: 
+    url(../images/berlin_city.jpg) no-repeat center/cover;
+    transform: rotateY(-90deg) translateZ(200px);
+    /* 화면방향으로 li크기의 절반만큼 이동함 */
+}
+/* 5. 윗면:서울 */
+.cube>li:nth-child(5){
+    background: 
+    url(../images/seoulCity.jpg) no-repeat center/cover;
+    transform: rotateX(90deg) translateZ(200px);
+    /* 화면방향으로 li크기의 절반만큼 이동함 */
+}
+/* 6. 아랫면:뉴욕 */
+.cube>li:nth-child(6){
+    background: 
+    url(../images/newyorkCity.jpg) no-repeat right/auto 110%;
+    transform: rotateX(-90deg) translateZ(200px);
+    /* 화면방향으로 li크기의 절반만큼 이동함 */
+}
+
+/* 4.도시설명박스 */
+.cbx{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* 정중앙이동 */
+    width: 400px;
+    height: 400px;
+
+    /* 글자설정 */
+    font-family: 'Jua', sans-serif;
+    color: #fff;
+    text-shadow: 0 0 1px #000;
+    opacity: 0;/* 처음에 투명함 */
+
+}
+/* 개별도시박스 */
+.ctxt{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 3px solid #fff;
+    box-sizing: border-box;/* 크기유지 */
+}
+/* 도시명 */
+.ctxt h2{
+    margin: 0;
+    padding: 0;
+    line-height: 100px;
+    text-align: center;
+    font-size: 50px;
+}
+/* 도시설명 */
+.ctxt p{
+    height: calc(100% - 100px);
+    /* 타이틀h2의 높이값을 뺀 나머지 높이 */
+
+    margin: 0;
+    padding: 10px;
+    /* 가로크기를 지정하지 않고 
+    패딩주면 내부에 생김 
+    주의: width:100%를 주는 것도 
+    구체적인 크기를 준것과 같다! 패딩크기만큼 늘어남!
+    블록박스에서 width는 지정하지 않는 것은
+    width:auto라는 상태와 같다!*/
+
+    font-size: 16px;
+    line-height: 28px;
+    background-color: rgba(0,0,0,.2);
+    box-sizing: border-box;
+    /* 패딩값이 가로방향은 자동이지만 
+    세로방향은 밀려서 커지므로
+    크기유지 설정을 한다! */
+}
