@@ -241,6 +241,7 @@ body{
     font-family: 'Jua', sans-serif;
     color: #fff;
     text-shadow: 0 0 2px #000;
+    transform-style: preserve-3d;
 
     /* 처음에 투명하게 */
     opacity: 0;
