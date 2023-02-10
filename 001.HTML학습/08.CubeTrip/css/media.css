@@ -6,7 +6,37 @@
 /* 모바일 미디어쿼리 */
 @media only screen and (max-width:950px) {
 
-   
+    /* 1.메뉴박스 하단으로 위치 변경하기 */
+    .city {
+        top: auto;
+        bottom: 3vw;
+        right: auto;
+        left: 3vw;
+        width: 94vw;
+    }
+    .city ul{
+        display: flex;
+        width: auto;
+    }
+    .city li{
+        flex: 1;
+    }
+
+    /* 2. 큐브크기 변경하기 */
+    :root {
+        --csz: 65vw;
+    }
+
+    /* 3. 도시설명박스 */
+    h2.cname {
+        line-height: 10vw;
+        font-size: 6vw;
+    }
+    p.cinfo {
+        height: calc(100% - 10vw);
+        font-size: 4vw;
+        line-height: 5vw;
+    }
 }
 
 /* 미디어쿼리  */
