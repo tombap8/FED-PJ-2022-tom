@@ -9,7 +9,161 @@
     font-family: 'Jua', sans-serif;
 */
 
+/******* 변수셋팅 *******/
+:root{
+    /* 큐브 공통크기
+    --변수명
+    변수명은 내맘대로! */
+    --csz: 300px;
+}
+
 html,body{
     margin: 0;
     padding: 0;
+}
+
+/**************** 1.전체제목 ****************/
+
+/**************** 2.메뉴버튼 ****************/
+
+/**************** 3.큐브박스 ****************/
+/* 큐브 */
+.cube{
+    position: absolute;
+    top: calc(50% - var(--csz)/2);
+    left: calc(50% - var(--csz)/2);
+    /* 정중앙계산: 50% - 크기절반
+    calc() 연산시 주의사항 
+    -> +,-는 기호앞뒤 띄어쓰기
+    -> *,/는 붙여써도 됨
+     */
+    width: var(--csz);
+    height: var(--csz);
+
+    /* 
+        [ 입체로 설정하기 ]
+        - 입체로 설정할 요소의 부모박스에
+        아래와 같이 설정해 준다!
+        (부모는 싸고있는 요소!)
+        transform-style: preserve-3d;
+        - 기본값은 2D설정인 flat
+        - preserve-3d는 3D설정임
+    */
+    transform-style: preserve-3d;
+
+    /* 입체를 잘보이게 하기위해 약간회전함 */
+    transform: 
+    rotateX(10deg) rotateY(30deg);
+
+    /* outline: 2px solid red; */
+    
+}
+
+/* 큐브각면 공통 */
+.cube span{
+    position: absolute;
+    /* 앱솔루트는 자동블록됨! */
+    width: 100%;
+    height: 100%;
+    /* 부모는? .cube */
+
+    /* 투명도 */
+    opacity: 0.8;
+    outline: 1px solid #555;
+}
+
+/* 1. 앞면 */
+.cube span:nth-child(1){
+    background: url(../images/newyorkCity.jpg) no-repeat right/auto 105%;
+
+    /* 화면방향(z축) */
+    transform: 
+    translateZ(calc(var(--csz)/2));
+    /* 큐브 사이즈 절반을 앞쪽으로 이동 */
+}
+/* 2. 오른쪽면 */
+.cube span:nth-child(2){
+    background: url(../images/seoulCity.jpg) no-repeat center/cover;
+
+    /* 화면방향(z축) */
+    transform: rotateY(90deg)
+    translateZ(calc(var(--csz)/2));
+    /* 먼저 y축회전후
+    큐브 사이즈 절반을 앞쪽으로 이동 */
+}
+/* 3. 뒷면 */
+.cube span:nth-child(3){
+    background: url(../images/parisCity.jpg) no-repeat center/cover;
+
+    /* 화면방향(z축) */
+    transform: rotateY(180deg)
+    translateZ(calc(var(--csz)/2));
+    /* 먼저 y축회전후
+    큐브 사이즈 절반을 앞쪽으로 이동 */
+}
+/* 4. 왼쪽면 */
+.cube span:nth-child(4){
+    background: url(../images/cityMain.jpg) no-repeat center/cover;
+
+    /* 화면방향(z축) */
+    transform: rotateY(-90deg)
+    translateZ(calc(var(--csz)/2));
+    /* 먼저 y축회전후
+    큐브 사이즈 절반을 앞쪽으로 이동 */
+}
+/* 5. 왼쪽면 */
+.cube span:nth-child(5){
+    background: url(../images/citys.jpg) no-repeat center/100% 120%;
+
+    /* 화면방향(z축) */
+    transform: rotateX(90deg)
+    translateZ(calc(var(--csz)/2));
+    /* 먼저 x축회전후
+    큐브 사이즈 절반을 앞쪽으로 이동 */
+}
+/* 6. 왼쪽면 */
+.cube span:nth-child(6){
+    background: url(../images/London_city.jpg) no-repeat center/cover;
+
+    /* 화면방향(z축) */
+    transform: rotateX(-90deg)
+    translateZ(calc(var(--csz)/2));
+    /* 먼저 x축회전후
+    큐브 사이즈 절반을 앞쪽으로 이동 */
+}
+
+/* 큐브회전 클래스 */
+.cube-ani{
+    /* 애니메이션: 이시이지반방마 */
+    animation: cubeAni 4s linear infinite;
+    /* 애니메이션 처음에 멈춰있기 */
+    animation-play-state: paused;
+}
+/* 큐브회전 작동 클래스 + .on */
+.cube-ani.on{
+    /* 애니메이션 작동하기 */
+    animation-play-state: running;
+}
+
+/* 큐브회전 키프레임 */
+@keyframes cubeAni {
+    to{
+        /* x축 양의방향, y축 음의방향 */
+        transform: 
+        rotateX(370deg) rotateY(-330deg);
+        /* 
+            x축 양의 방향으로 10도에서 출발
+            양의 방향 360도+10도=370도
+            음의 방향 -360도+10도=-350도
+            ____________________________
+
+            y축 양의 방향으로 30도에서 출발
+            양의 방향 360도+30도=390도
+            음의 방향 -360도+30도=-330도
+        */
+
+        /* rotateX(370deg) rotateY(-330deg) rotateZ(360deg); */
+        /* z축회전도 적용할 수 있음 */
+
+    }
 }
