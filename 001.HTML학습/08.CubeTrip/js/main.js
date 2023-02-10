@@ -79,7 +79,8 @@ function loadFn() {
 
             // 3. 회전값 적용하기(transform에 setval변수값 할당하기)
             cube.style.transform = setval;
-            cube.style.transition = "1.5s ease-in-out";
+            cube.style.transition = 
+            "transform 1.5s ease-in-out";
 
             // 만약 "출발"을 클릭한 경우 아래 코드 실행 안하기!!!
             if (mtxt === "출발") return;
