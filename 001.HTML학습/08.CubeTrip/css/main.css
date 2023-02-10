@@ -17,12 +17,26 @@
     --csz: 300px;
 }
 
-html,body{
+/* 초기화 */
+html,body,h1,ul{
     margin: 0;
     padding: 0;
 }
+body{
+    height: 100vh;
+    background-image: linear-gradient(to bottom,#777 30%,#ccc 70%);
+}
 
 /**************** 1.전체제목 ****************/
+.tit{
+    text-align: center;
+    font-family: 'Black And White Picture', sans-serif;
+    color: #fff;
+    font-size: 60px;
+    font-weight: normal;
+    padding-top: 50px;
+    background: url(../images/citybg.png) no-repeat center 20px/auto 85%;
+}
 
 /**************** 2.메뉴버튼 ****************/
 
