@@ -256,7 +256,8 @@ body{
     border: 3px solid #fff;
     /* 크기유지 */
     box-sizing: border-box;/* 화면방향(z축) */
-    transform: (calc(var(--csz)));
+    transform: 
+    translateZ(calc(var(--csz)));
     
 
 }
