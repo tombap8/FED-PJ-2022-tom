@@ -4,8 +4,7 @@
 반드시 link방식으로 html파일에 삽입한다! */
 
 /* 모바일 미디어쿼리 */
-@media only screen and (max-width:950px) {
-
+@media only screen and (max-width: 950px) {
     /* 1.메뉴박스 하단으로 위치 변경하기 */
     .city {
         top: auto;
@@ -14,12 +13,16 @@
         left: 3vw;
         width: 94vw;
     }
-    .city ul{
+    .city ul {
         display: flex;
         width: auto;
     }
-    .city li{
+    .city li {
         flex: 1;
+    }
+    /* li에 오버시 트랜스폼 없애기 */
+    .city li:hover {
+        transform: none !important;
     }
 
     /* 2. 큐브크기 변경하기 */

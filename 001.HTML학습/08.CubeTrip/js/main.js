@@ -43,6 +43,14 @@ function loadFn() {
             cbx.style.opacity = "0"; 
             cbx.style.transition = "none";
 
+            // 도시정보 스크롤생길 경우
+            // 내려놓고 다른 도시가면 스크롤위치가
+            // 내려가 있기때문에 스크롤위치
+            // 맨위로 셋팅하기!!
+            cinfo.scrollTo(0,0);
+            // scrollTo(가로스크롤위치,세로스크롤위치)
+            // -> 스크롤 이동 메서드!
+
 
             // 1. 메뉴 텍스트 읽기
             let mtxt = x.innerText;
@@ -108,7 +116,7 @@ function loadFn() {
             // 1.5초 후에 코드를 실행한다! -> setTimeout(함수,시간)
             setTimeout(()=>{
                 cbx.style.opacity = "1"; 
-                cbx.style.transition = "opacity .8s ease-in-out";
+                cbx.style.transition = "opacity 0.8s ease-in-out";
             },1500); /////// 타임아웃 /////
 
 
