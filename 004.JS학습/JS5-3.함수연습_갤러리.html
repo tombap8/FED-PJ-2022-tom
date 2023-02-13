@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rolling Gallery</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            /* 보이는 화면 기준채우기 */
+        }
+
+        body {
+            background: url(./images/space.jpg) no-repeat center/auto 200%;
+        }
+
+        /* a요소 */
+        a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        /* 갤러리 부모박스 */
+        .wrap {
+            position: relative;
+            /* 부모자격 - #mini */
+            width: 520px;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 20px;
+            /* outline: 2px dotted red; */
+        }
+
+        /* 메인이미지박스 */
+        #mbox {
+            display: inline-block;
+        }
+
+        /* 이미지 중간맞추기 */
+        #mbox img {
+            vertical-align: -79px;
+        }
+
+        /* 이미지 텍스트 출력박스 */
+        .imgtxt {
+            text-align: center;
+            color: red;
+            text-shadow: 1px 1px 1px #777;
+        }
+
+        /* 자동넘김 버튼박스 */
+        .abtn {
+            text-align: center;
+        }
+
+        .abtn button {
+            font-size: 1.5rem;
+        }
+
+        /* 처음에 멈춤버튼 숨기기 */
+        .stop {
+            display: none;
+        }
+
+        /* 미니언즈 */
+        #mini {
+            position: absolute;
+            top: 80%;
+            left: -20%;
+            /* 부모는? #wrap */
+            width: 150px;
+            transform: rotate(720deg);
+            transition: all 1.5s ease-out;
+        }
+
+        /* 미니언즈 변경클래스1 */
+        #mini.on1 {
+            top: 0;
+            left: 0;
+            transform: rotate(0deg);
+        }
+
+        /* 미니언즈 변경클래스2 */
+        #mini.on2 {
+            top: 0;
+            left: 80%;
+            transform: rotate(-720deg);
+        }
+    </style>
+    <!-- JS코딩구역 -->
+    <script>
+        /////////////// 로드구역 //////////////////
+        window.addEventListener("load", () => {
+
+            console.log("로딩완료!");
+
+            /********************************************* 
+                [ 롤링갤러리 기능정의 ]
+
+                - 버튼클릭시 메인 이미지 변경하기
+                1. 오른쪽버튼 클릭시 메인이미지가
+                다음 순번의 이미지로 변경된다.
+                (단,마지막 이미지 다음이미지는 처음이미지다)
+                2. 왼쪽버튼 클릭시 메인이미지가
+                이전 순번의 이미지로 변경된다.
+                (단, 처음이미지 이전이미지는 마지막 이미지다)
+
+                _____________________________________
+
+                [ 롤링갤러리 기능구현 설계 ]
+
+                1. 이미지 번호를 전역변수로 설정한다.
+                2. 버튼클릭시 전역변수 이미지번호를 증감하여
+                실제로 변경될 이미지 코드의 src속성값으로
+                설정한다.
+                3. 증감시 오른쪽버튼은 ++(1씩증가)
+                    왼쪽버튼은 --(1씩감소)
+                4. 제한조건 :
+                    마지막 다음번호는 1
+                    처음 이전번호는 7
+                    (1~7까지 7개의 이미지가 있다)
+                    if문으로 조건을 체크한다!
+
+
+            *********************************************/
+
+            // 함수바깥쪽에 전역변수 선언 및 할당!
+
+            // 1. 이미지 번호 변수
+            
+            // 2. 이미지설명 배열변수
+            const itxt = [
+                "노랑잉꼬가 먹이를 꼭꼭 찍어먹어요~",
+                "분홍장미가 머리칼을 너풀너풀 날려요~",
+                "백조같은 거위가 뚱하니 바라보아요~",
+                "바이킹이 너무 어지러워 토가 나와요~",
+                "눈사람이 가짜인데 진짜같아 보여요~",
+                "이 양은 보통양이 아니고 복제양 돌리예요~",
+                "잉꼬 한쌍이 영화를 찍어요~"
+            ];
+
+            // 3. 이미지 설명 글자색 배열변수
+            
+
+
+            // 변경대상1: 메인이미지 - #mbox img
+            const mimg = document.querySelector("#mbox img");
+
+            // 변경대상2: 글자박스 - .imgtxt
+            const imgtxt = document.querySelector(".imgtxt");
+
+            // 이벤트 대상 : .btn
+            const btns = document.querySelectorAll(".btn");
+
+            // console.log(mimg,imgtxt,btns);
+
+            ////////////////////////////////////
+            // 이동버튼 클릭설정하기 /////////////
+
+            btns.forEach((ele,idx)=>{ 
+                // ele - 요소자신 / idx - 요소순번
+                ele.onclick = () => goSlide(idx);
+            }); //////// forEach ////////////////
+
+
+            // 더 생략해서 쓰면 아래와 같다!
+            // btns.forEach((ele,idx)=>
+            //     ele.onclick = () => goSlide(idx));
+
+
+
+            
+
+            /**************************************** 
+                함수명: goSlide
+                기능: 갤러리 이미지,글자 변경하기
+            ****************************************/
+           const goSlide = (seq) => { // seq - 버튼순번
+                // 1. 함수호출 및 전달값 확인
+                console.log("왕빛나!",seq);
+           }; ////////// goSlide 함수 ///////////////
+
+
+
+
+
+            /******************************************* 
+                [ JS 타이밍 함수 : Timing Function ]
+
+                1. setInterval(함수,시간)
+                - 일정시간 간격으로 함수를 호출!
+                - 시간은 1/1000초, 단위안씀(예:1000->1초)
+                -> 인터발함수를 지울때는 변수에 담고
+                아래 함수를 호출한다!
+                ->>> clearInterval(변수)
+
+                ____________________________________
+
+                1. setTimeout(함수,시간)
+                - 일정시간 후 한번만 함수를 호출!
+                - 시간은 1/1000초, 단위안씀
+                -> 타임아웃을 지울때는 변수에 담고
+                아래 함수를 호출한다!
+                ->>> clearTimeout(변수)
+
+                ******************************
+
+                [ JS 클래스 관련 내장함수 ]
+                classList 객체
+                -> 클래스를 요소에 넣거나 빼거나 클래스여부 판별
+                ((관련메서드))
+                1. add(클래스명) : 클래스추가
+                2. remove(클래스명) : 클래스제거
+                3. toggle(클래스명) : 클래스추가/제거
+                4. contains(클래스명) : 클래스명 일치시 true
+                5. replace(이전클래스명,변경클래스명)
+                    : 특정클래스를 다른 클래스로 변경
+
+                -> 클래스 추가나 제거시 콤마로 구분하여
+                여러개의 클래스를 추가하거나 제거할 수 있다!
+                예) 요소.classList.add("tt","cc","dd")
+
+            *******************************************/
+
+            
+
+
+            // 타임아웃 함수로 미니언즈 애니하기!!! ////
+            // 원리: 미리셋팅된 클래스를 미니언즈요소에
+            // 일정시간 후 넣고/빼고/넣기를 해준다!
+            // 변경대상: #mini
+            
+
+        }); /////////// 로드구역 ///////////////////
+    </script>
+</head>
+
+<body>
+    <!-- 갤러리 박스 -->
+    <div class="wrap">
+        <!-- 타이틀 -->
+        <h1>Rolling Gallery</h1>
+        <!-- 왼쪽이동버튼 -->
+        <a href="#" class="btn lb">
+            <img src="./images/left_btn.png" alt="왼쪽버튼">
+        </a>
+        <!-- 메인이미지박스 -->
+        <div id="mbox">
+            <img src="./images/img1.jpg" alt="메인이미지">
+        </div>
+        <!-- 오른쪽이동버튼 -->
+        <a href="#" class="btn rb">
+            <img src="./images/right_btn.png" alt="오른쪽버튼">
+        </a>
+        <!-- 미니언즈 -->
+        <img src="./images/Minions.png" alt="미니언즈" id="mini">
+    </div>
+
+    <!-- 이미지별 설명 텍스트 출력박스 -->
+    <h2 class="imgtxt"></h2>
+
+    <!-- 자동넘김 버튼박스 -->
+    <div class="abtn">
+        <button class="start">자동넘김</button>
+        <button class="stop">멈춤</button>
+    </div>
+
+</body>
+
+</html>
