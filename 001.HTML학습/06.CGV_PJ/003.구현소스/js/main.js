@@ -23,6 +23,7 @@ window.addEventListener("DOMContentLoaded",()=>{
     // 2. 클릭이벤트 함수 설정하기
     // for of사용! -> 배열/컬렉션 일때 사용!
     for(let x of mlist){ // x 각 li요소
+
         x.onclick = ()=>{
 
             // 1. li에 클래스 초기화!
