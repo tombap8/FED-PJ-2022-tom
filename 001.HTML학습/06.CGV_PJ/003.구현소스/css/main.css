@@ -615,3 +615,45 @@ body{
 
 
 *****************************************/
+
+
+
+/* 구글맵 지도박스 */
+.gmap{
+    position: fixed;
+    top: -50%;
+    /* 처음에 top값으로 윗쪽에 숨김! */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* 정중앙이동 */
+
+    width: 600px;
+    height: 450px;
+    background-color: #fff;
+    border: 20px solid hotpink;
+    border-radius: 10px;
+
+    z-index: 999;
+    /* 트랜지션: 속시이지 */
+    transition: top .8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+/* 구글맵에 클래스"on"적용시 등장하기 */
+.gmap.on{
+    top: 50%;
+}
+/* 닫기버튼 */
+.cbtn{
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #000;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+/* 기본 포커스 아웃라인 제거 */
+.cbtn:focus{
+    outline: none;
+}
