@@ -265,8 +265,8 @@ body{
     transform: translateX(-49%);
 
     /* 앱솔루트 부모자격이 있는 요소의
-    overflow가 적용됨! */
-    overflow: hidden;
+    overflow가 적용됨! -> li각각에 처리함 */
+    /* overflow: hidden; */
 
 }
 /* 선택메뉴 ul */
@@ -275,6 +275,8 @@ body{
     display: flex;
     /* 진행방향정렬 : 양쪽끝 맞춘후 사이간격일정 */
     justify-content: space-between;
+    /* 원근3D적용 -> 보이는 화면 높이값의 50% */
+    perspective: 50vh;
     
 }
 /* 상위li 두번째 부터 끝까지 왼쪽마진 */
@@ -288,7 +290,26 @@ body{
     flex: 1;
     /* 등분할설정 */
     overflow: hidden;
+    
+    /* X축회전적용하기 */
+    transform: rotateX(30deg);
+    /* 회전축 변경 : 하단 */
+    transform-origin: bottom;
+    /* 트랜지션: 속시이지 */
+    transition: .4s;
 }
+/* 마우스 오버시 + 클래스"on"적용시
+포스터 일어나기! */
+.mlist ul>li:hover ,
+.mlist ul>li.on {
+    /* x축회전 */
+    transform: translateX(0);
+    /* 다른 li보다 위 */
+    z-index: 1;
+    /* 테두리 생김 */
+    outline: 1px solid aqua;
+}
+
 /* 포스터 이미지 */
 .mlist img{
     width: 100%;
