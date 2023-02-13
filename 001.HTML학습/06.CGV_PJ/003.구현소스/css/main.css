@@ -244,6 +244,8 @@ body{
 .anibx>span{
     /* 커튼 대문 역할 */
     position: absolute;
+    /* 변경속성 top 초기값 셋팅!(애니위해) */
+    top: 0;
     z-index: 1;
     display: block;
     width: 144px;
@@ -262,13 +264,13 @@ body{
     /* 애니메이션: 이시이(지)반(방마) */
     animation: anibxAni 2.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
     /* 트랜지션:속시이지 */
-    transition: transform .4s ease-in-out;
-    /* 트랜스폼 중심축 변경 */
-    transform-origin: top;
+    transition: top .4s ease-in-out .2s;
 }
 /* 오버시 타이틀애니박스 들춰지기 */
 .anibx:hover>span{
-    transform: rotateX(80deg);
+    top: -100%;
+    /* top은 기본값이 auto이므로
+    애니메이션 하려면 top:0 으로 초기값 필요! */
     outline: 1px solid aqua;
 }
 /* 타이틀 애니 키프레임 */
