@@ -266,8 +266,10 @@ body{
     /* 트랜지션:속시이지 */
     transition: top .4s ease-in-out .2s;
 }
-/* 오버시 타이틀애니박스 들춰지기 */
-.anibx:hover>span{
+/* 오버시 + 클래스 "on"적용시
+ 타이틀애니박스 보이기 */
+.anibx:hover>span,
+.anibx.on>span{
     top: -100%;
     /* top은 기본값이 auto이므로
     애니메이션 하려면 top:0 으로 초기값 필요! */
