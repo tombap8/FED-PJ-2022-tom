@@ -279,6 +279,111 @@ body{
     }
 }/* 키프레임 */
 
+/* 샐애니박스 */
+.cellAni{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 144px;
+    height: 80px;
+
+    /* 배경넣기 */
+    background: url(../images/street.jpg) repeat-x;
+    background-size: auto 100%;
+
+    /* 애니메이션: 이시이지반방마 */
+    animation: street 4s linear infinite;
+}
+
+/* 스크린배경이동 키프레임 */
+@keyframes street {
+    to{
+        background-position: -136px 0;
+    }
+}
+/* 키프레임 */
+
+/* 3-1.걷는존 */
+.spani1{
+    position: relative;
+    width: 30%;
+    height: 100%;
+    margin: 0 auto;
+
+    background: url(../images/spAni03.png) no-repeat;
+    background-size: auto 100%;
+
+    /* 애니메이션: 이시이지반방마 */
+    animation: spani1 1s steps(8) infinite;
+
+    /* outline: 5px solid red; */
+}
+
+/* 걷는존 키프레임 */
+@keyframes spani1 {
+    to{
+        background-position: -362px 0;
+    }
+    /* 배경이미지 x축 이동일 경우
+    줄였을때 이미지 전체 가로크기를
+    마이너스 값으로 써주면된다! */
+}
+
+/* 키프레임 */
+/* 3-2.꼬마 */
+.spani2{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 72px;
+    background: url(../images/spAni01.png) no-repeat;
+
+    /* 애니메이션: 이시이지반방마 */
+    animation: spani2 1s steps(10) infinite;
+}
+
+/* 꼬마 키프레임 */
+@keyframes spani2 {
+    to{
+        background-position: -500px 0;
+    }
+}
+/* 키프레임 */
+
+/* 3-3.몬스터 */
+.spani3{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    background: url(../images/spAni02.png) no-repeat;
+
+    /* 애니메이션: 이시이지반방마 */
+    animation: 
+    spani3X 1s steps(6) infinite,
+    spani3Y 3s steps(3) infinite;
+    /* x축은 6장면을 1초간 작동
+    y축은 3줄을 3초간 작동 */
+}
+
+/* 몬스터 키프레임 X축 */
+@keyframes spani3X {
+    to{
+        background-position-x: -240px;
+    }
+    /* x축은 가로크기를 마이너스로 씀 */
+}
+/* 몬스터 키프레임 Y축 */
+@keyframes spani3Y {
+    to{
+        background-position-y: -120px;
+    }
+    /* y축은 세로크기를 마이너스로 씀 */
+}
+
+
 
 /**************** 2.메인영역 ****************/
 /* 속박스 */
