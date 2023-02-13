@@ -235,15 +235,21 @@ body{
     /* 부모는? .top */
     width: 144px;
     height: 80px;
-    /* 나간글자 숨기기 */
-    overflow: hidden;
+    /* 원근설정 : 직계하위 span적용! */
+    perspective: 50vh;
+    /* 손가락모양 */
+    cursor: pointer;
 }
 /* 극장가는 길 타이틀박스 */
-.anibx span{
+.anibx>span{
     /* 커튼 대문 역할 */
+    position: absolute;
+    z-index: 1;
     display: block;
     width: 144px;
     height: 80px;
+    /* 나간글자 숨기기 */
+    overflow: hidden;
     text-align: center;
     line-height: 80px;
     font-family: 'Cute Font', cursive;
@@ -251,8 +257,19 @@ body{
     font-size: 20px;
     /* 줄바꿈방지 */
     white-space: nowrap;
+    /* 배경이미지넣기 */
+    background: url(../images/curtain.jpg) no-repeat;
     /* 애니메이션: 이시이(지)반(방마) */
     animation: anibxAni 2.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+    /* 트랜지션:속시이지 */
+    transition: transform .4s ease-in-out;
+    /* 트랜스폼 중심축 변경 */
+    transform-origin: top;
+}
+/* 오버시 타이틀애니박스 들춰지기 */
+.anibx:hover>span{
+    transform: rotateX(80deg);
+    outline: 1px solid aqua;
 }
 /* 타이틀 애니 키프레임 */
 @keyframes anibxAni {
@@ -335,18 +352,19 @@ body{
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 50px;
-    height: 72px;
+    width: 20px;
+    height: 29px;
     background: url(../images/spAni01.png) no-repeat;
-
-    /* 애니메이션: 이시이지반방마 */
+    /* 배경사이즈 변경 */
+    background-size: 200px;
+        /* 애니메이션: 이시이지반방마 */
     animation: spani2 1s steps(10) infinite;
 }
 
 /* 꼬마 키프레임 */
 @keyframes spani2 {
     to{
-        background-position: -500px 0;
+        background-position: -200px 0;
     }
 }
 /* 키프레임 */
@@ -359,7 +377,8 @@ body{
     width: 40px;
     height: 40px;
     background: url(../images/spAni02.png) no-repeat;
-
+    /* 배경사이즈 변경 */
+    background-size: 240px;
     /* 애니메이션: 이시이지반방마 */
     animation: 
     spani3X 1s steps(6) infinite,
