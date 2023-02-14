@@ -146,6 +146,8 @@
             ];
 
             // 3. 이미지 설명 글자색 배열변수
+            const tcolor = [
+                "red","orange","yellow","green","blue","navy","purple"];
             
 
 
@@ -222,6 +224,11 @@
                 // 글자출력박스 : .imgtxt -> imgtxt변수
                 // 배열의 순번은 이미지번호-1 이다!
                 imgtxt.innerText = itxt[inum-1];
+
+                // 5. 출력된 글자색 순서대로 변경하기
+                // 색상배열 -> tcolor[]
+                // 배열의 순번은 이미지번호-1 이다!
+                imgtxt.style.color = tcolor[inum-1];
 
 
            }; ////////// goSlide 함수 ///////////////
