@@ -72,5 +72,58 @@ const qsa = (x) => document.querySelectorAll(x);
 
 window.addEventListener("DOMContentLoaded", () => {
     console.log("로딩완료!");
+
+    // 1. 벌새
+    const bird = qs("#bird");
+    // 2. 내부박스
+    const ibx = qs(".inbox");
+    // 3. 내부박스 위치표시박스
+    const ibxWrap = qs(".inbox .wrap");
+    // 4. 전체 위치표시박스
+    const bd = qs("body>.wrap");
+
+    // 위치표시하기 for문 /////////
+
+    // 1. 내부박스 가로기준선넣기
+    for (let i = 0; i < 20; i++) {
+        // console.log(i);
+        ibxWrap.innerHTML += `<div class="ln" style="top:${100 * (i + 1)}px">${100 * (i + 1)}px</div>`;
+    }
+    
+    // 2. 내부박스 세로기준선넣기
+    for (let i = 0; i < 9; i++) {
+        // console.log(i);
+        ibxWrap.innerHTML += `<div class="ln2" style="left:${100 * (i + 1)}px">${100 * (i + 1)}px</div>`;
+    }
+
+    // 3. 전체 가로기준선넣기
+    for (let i = 0; i < 25; i++) {
+        // console.log(i);
+        bd.innerHTML += `<div class="ln" style="top:${100 * (i + 1)}px">${100 * (i + 1)}px</div>`;
+    }
+    
+    // 4. 전체 세로기준선넣기
+    for (let i = 0; i < 25; i++) {
+        // console.log(i);
+        bd.innerHTML += `<div class="ln2" style="left:${100 * (i + 1)}px">${100 * (i + 1)}px</div>`;
+    }
+
+    // 5. 내부박스에 임의의 박스 넣기
+    for (let i = 0; i < 5; i++) {
+        // console.log(i);
+        // 짝수일때
+        if (i % 2)
+            ibxWrap.innerHTML += `<div class="point" style="
+                        top:${120 * (i + 1)}px;
+                        left:${10 * (i + 1)}px">
+                        ${i + 1}번째박스</div>`;
+        // 홀수일때
+        else
+            ibxWrap.innerHTML += `<div class="point" style="
+                        top:${130 * (i + 1)}px;
+                        right:${10 * (i + 1)}px">
+                        ${i + 1}번째박스</div>`;
+    }
+
 }); //////////// 로드구역  ///////////////////////
 /////////////////////////////////////////////////
