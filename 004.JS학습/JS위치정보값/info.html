@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>위치정보 알아내기</title>
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/main.js"></script>
+    </head>
+
+    <body>
+        <!--위치정보표시-->
+        <div class="info">
+            <h2>[ 벌새 위치정보값 ]</h2>
+            <h2>
+                [ offset ] <br />
+                top : <span class="i1"></span>px <br />
+                left : <span class="i2"></span>px
+            </h2>
+            <h2>
+                [ getBoundingClientRect() ] <br />
+                top : <span class="i3"></span>px <br />
+                left : <span class="i4"></span>px
+            </h2>
+            <h2>
+                [ 바운딩값에 스크롤값 더함(top값) ] <br />
+                top : <span class="i31"></span>px <br />
+                현재스크롤위치 : <span class="i42"></span>px
+            </h2>
+        </div>
+        <!--위치정보표시-->
+        <div class="info info2">
+            <h2>[ 마우스포인터 위치정보값 ]</h2>
+            <section>
+                <div>
+                    <h2>
+                        [ page ] <br />
+                        X : <span class="i5"></span>px <br />
+                        Y : <span class="i6"></span>px
+                    </h2>
+                    <h2>
+                        [ client ] <br />
+                        X : <span class="i9"></span>px <br />
+                        Y : <span class="i10"></span>px
+                    </h2>
+                </div>
+                <div>
+                    <h2>
+                        [ screen ] <br />
+                        X : <span class="i7"></span>px <br />
+                        Y : <span class="i8"></span>px
+                    </h2>
+                    <h2>
+                        [ offset ] <br />
+                        X : <span class="i71"></span>px <br />
+                        Y : <span class="i82"></span>px
+                    </h2>
+                </div>
+            </section>
+        </div>
+        <!--박스정보표시-->
+        <div class="info info3">
+            <h2>[ 클릭한 박스정보값 ]</h2>
+            <section>
+                <div>
+                    <h2>
+                        [패딩만포함] <br />
+                        width : <span class="i11"></span>px <br />
+                        height : <span class="i12"></span>px
+                    </h2>
+                    <h2>
+                        [패딩+스크롤바] <br />
+                        width : <span class="i13"></span>px <br />
+                        height : <span class="i14"></span>px
+                    </h2>
+                </div>
+                <div>
+                    <h2>
+                        [보더+패딩+스크롤바] <br />
+                        width : <span class="i15"></span>px <br />
+                        height : <span class="i16"></span>px
+                    </h2>
+                    <h2>
+                        [ 위치 ] <br />
+                        top : <span class="i17"></span>px <br />
+                        left : <span class="i18"></span>px
+                    </h2>
+                </div>
+            </section>
+        </div>
+
+        <div class="page">
+            <div class="inbox">
+                <!--날아다니는 새-->
+                <img id="bird" src="bird.gif" alt="벌새" />
+                <!-- 내부박스에 선넣기 박스 -->
+                <div class="wrap"></div>
+            </div>
+        </div>
+
+        <!-- body에 선넣기 박스 -->
+        <div class="wrap"></div>
+    </body>
+</html>

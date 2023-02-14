@@ -1,0 +1,145 @@
+@charset "utf-8";
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+body {
+    height: 300vh;
+    overflow-x: hidden;
+    background-image: linear-gradient(to bottom, #6af3f8, #eaf755, #a3b5ff, #ffb0fc);
+}
+
+:root {
+    --iw: 2vw;
+}
+
+/*전체페이지*/
+.page {
+    position: relative;
+    /*부모*/
+    width: 100%;
+    height: 300vh;
+}
+
+/*정보표시박스*/
+.info {
+    position: fixed;
+    top: var(--iw);
+    left: var(--iw);
+    padding: 1vw;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 9999;
+    font-size: 0.8vw;
+    white-space: nowrap;
+}
+.info2 {
+    left: auto;
+    right: var(--iw);
+}
+.info3 {
+    top: auto;
+    bottom: var(--iw);
+    left: auto;
+    right: var(--iw);
+}
+
+.info > section {
+    display: flex;
+}
+.info > section > div {
+    flex: 1;
+    border: 4px double gray;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+/*벌새*/
+#bird {
+    position: absolute;
+    top: 10%;
+    left: 40%;
+    z-index: 999;
+    animation: bird 40s ease-in-out infinite alternate;
+}
+
+/*내부박스*/
+.inbox {
+    position: relative; /*부모자*/
+    top: 30vh;
+    width: 60vw;
+    height: 200vh;
+    margin: 0 auto;
+    outline: 2px dotted red;
+    z-index: 10;
+    cursor: wait;
+    overflow: hidden;
+    background-color: #00000043;
+}
+.wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/*벌새위치변경 애니메이션*/
+@keyframes bird {
+    0% {
+        top: 10%;
+        left: 40%;
+    }
+
+    40% {
+        top: 30%;
+        left: 20%;
+    }
+
+    60% {
+        top: 50%;
+        left: 80%;
+    }
+
+    100% {
+        top: 80%;
+        left: 30%;
+    }
+}
+
+.ln {
+    position: absolute;
+    width: 100%;
+    height: 0;
+    border-top: 1px dashed gray;
+    z-index: -1;
+    text-indent: 5px;
+}
+.ln2 {
+    position: absolute;
+    width: 0;
+    height: 300vh;
+    border-left: 1px dashed gray;
+    z-index: -1;
+    text-indent: 5px;
+}
+
+.inbox .ln,
+.inbox .ln2 {
+    border-color: red;
+    color: red;
+}
+
+.point {
+    position: absolute;
+    width: 20%;
+    height: 5%;
+    text-align: center;
+    border: 4px dotted blueviolet;
+    background-color: rgba(255, 140, 0, 0.661);
+    overflow: auto;
+}
+
+/*키프레임*/
