@@ -169,6 +169,7 @@
             btns.forEach((ele,idx)=>{ 
                 // ele - 요소자신 / idx - 요소순번
                 ele.onclick = () => goSlide(idx);
+                // ele.onclick = function(){goSlide(idx);};
             }); //////// forEach ////////////////
 
 
@@ -190,6 +191,7 @@
 
                 // 2. 버튼별 분기하기
                 // 2-1. 오른쪽 버튼 분기(이미지번호 증가)
+                // set 값이 1이면 true임!
                 if(seq){
                     // 1씩증가
                     inum++;
@@ -212,11 +214,14 @@
                 // 3. 변경대상에 변경코드 적용하기
                 // 변경대상: #mbox img -> mimg변수
                 mimg.src = `./images/img${inum}.jpg`;
+                // mimg.setAttribute("src",`./images/img${inum}.jpg`)
 
                 // 4. 이미지와 순서대로 매칭한 메시지배열의 글자를
                 // 글자출력박스에 찍어주기
                 // 메시지배열 : itxt 배열변수
                 // 글자출력박스 : .imgtxt -> imgtxt변수
+                // 배열의 순번은 이미지번호-1 이다!
+                imgtxt.innerText = itxt[inum-1];
 
 
            }; ////////// goSlide 함수 ///////////////
