@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS실험실 02 - 글자등장액션 1편</title>
+    <script>
+        ////// 로드구역 //////////
+        window.addEventListener("DOMContentLoaded",()=>{
+            // 구현내용: 글자를 박스에 넣고 하나씩 날아오면서 등장
+            // 1.대상선정: .stage
+            const stage = document.querySelector(".stage");
+            // console.log(stage);
+
+            // 2.데이터 변수할당
+            const mytxt = "무궁화꽃이 피었습니다";
+
+            // 3.데이터글자 한글자씩 태그싸기
+            // for of문사용!
+
+            let hcode=""; // 코드저장변수
+
+            for(let x of mytxt){
+                // 띄어쓰기일 경우 특수문자처리!
+                if(x===" ") x = "&nbsp;&nbsp;&nbsp";
+                // 코드만들어 변수에 대입연산자로 넣기!
+                hcode += `<span>${x}</span>`;
+            } //////////// for of ////////////
+
+            console.log(hcode);
+
+            // 4. 스테이지 박스에 글자넣기
+            stage.innerHTML = hcode;
+
+
+
+
+        }); ////////////// 로드구역 /////////////////////
+
+    </script>
+    <style>
+        body{
+            background-color: darkslateblue;
+        }
+        /* 글자스테이지 */
+        .stage{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            outline: 2px dashed yellow;
+
+            /* 글자설정 */
+            font-size: 5vw;
+            color: #fff;
+            white-space: nowrap;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="stage"></div>
+    
+</body>
+</html>
