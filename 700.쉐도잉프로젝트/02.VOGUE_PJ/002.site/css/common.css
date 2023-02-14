@@ -57,6 +57,28 @@
     background: url(../images/sns_kakao.png) no-repeat center/auto 100%;
 }
 
+/* 1-1-2.사이드메뉴 */
+.smbx{
+    /* 플렉스박스 */
+    display: flex;
+    /* 플렉스 진행방향 정렬 - 오른쪽끝 */
+    justify-content: flex-end;
+
+    /* 글자체: Roboto, 나눔바른고딕 */
+    font-family: "Roboto", nbg;
+    font-size: 12px;
+}
+/* 사이드메뉴 상위 a요소 */
+.smbx>li>a{
+    display: block;
+    padding: 0 13px;
+    line-height: 44px;
+    color: #747474;
+}
+/* 사이드메뉴 상위메뉴 첫번째li 사이구분선 */
+.smbx > li:first-child{
+    border-right: 1px solid #e5e5e5;
+}
 
 /* 1-2.로고박스 */
 .logo{
