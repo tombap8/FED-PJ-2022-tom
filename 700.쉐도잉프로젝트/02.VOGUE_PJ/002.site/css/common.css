@@ -23,6 +23,41 @@
         flex-shrink, flex-grow, flex-basis
     */
 }
+/* 1-1-1.sns박스 */
+.sns a{
+    width: 16px;
+    height: 16px;
+    /* .fi에 inline-block이 셋팅됨 */
+    font-size: 16px;
+    text-align: center;
+    line-height: 16px;
+    vertical-align: top;
+
+    /* 마진으로 사이간격주기 */
+    margin-top: 14px;
+    margin-right: 17px;
+
+    /* 트랜지션: 속시이지 */
+    transition: opacity .2s;
+}
+/* a요소 마우스 오버시 */
+.sns a:hover{
+    opacity: 0.8;
+}
+/* 트위터 크기조정 */
+.sns a.fi-twitter{
+    font-size: 13px;
+}
+/* 유튜브 크기조정 */
+.sns a.fi-youtube-play{
+    font-size: 11px;
+}
+/* 카카오스토리 배경이미지 넣기 */
+.sns a.cas{
+    background: url(../images/sns_kakao.png) no-repeat center/auto 100%;
+}
+
+
 /* 1-2.로고박스 */
 .logo{
     height: 104px;
