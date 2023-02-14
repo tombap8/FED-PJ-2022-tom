@@ -9,9 +9,19 @@
 }
 /* 1-1.상단메뉴 */
 .tmenu{
+    /* 플렉스박스 */
+    display: flex;
     max-width: 970px;
     height: 44px;
     margin: 0 auto;
+}
+/* 상단메뉴 하위 파티션박스 */
+.tmenu>div{
+    /* 플렉스 하위 등분할 */
+    flex: 1;
+    /* 
+        flex-shrink, flex-grow, flex-basis
+    */
 }
 /* 1-2.로고박스 */
 .logo{
