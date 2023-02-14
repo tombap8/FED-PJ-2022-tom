@@ -25,19 +25,19 @@
     
     [ 가로크기 ]
     - clientWidth : 패딩점퍼를 입고 있는 클라이언트님!
-    padding을 포함한 폭
-    - scrollWidth :  스크롤내용이 들어가니까 scroll!
-    padding을 포함한 화면 상에 표시되지 않은 콘텐츠를 포함한 폭
-    - offsetWidth : 보더,패딩,스크롤트랙이 다 들어가니 옵셋!
-    border, padding, 스크롤 바 트랙을 포함한 폭
+        padding을 포함한 폭
+    - scrollWidth :  가로로스크롤내용이 들어가니까 scroll!
+        padding을 포함한 화면 상에 표시되지 않은 콘텐츠를 포함한 폭
+    - offsetWidth : 보더,패딩,세로스크롤바 트랙이 다 들어가니 옵셋!
+        border, padding, 세로스크롤바 트랙을 포함한 폭
     
     [ 세로크기 ]
-    - clientHeight : 
-    padding을 포함한 높이
-    - scrollHeight : 
-    padding을 포함한 화면 상에 표시되지 않은 콘텐츠를 포함한 높이
-    - offsetHeight : 
-    border, padding, 스크롤 바 트랙을 포함한 높이
+    - clientHeight : 패딩점퍼를 입고 있는 클라이언트님!
+        padding을 포함한 높이
+    - scrollHeight :  세로스크롤내용이 들어가니까 scroll!
+        padding을 포함한 화면 상에 표시되지 않은 콘텐츠를 포함한 높이
+    - offsetHeight : 보더,패딩,가로스크롤바 트랙이 다 들어가니 옵셋!
+        border, padding, 가로스크롤바 트랙을 포함한 높이
     _____________________________________________________________
 
     ★[[ 윈도우 사이즈 가져오기 ]]★
