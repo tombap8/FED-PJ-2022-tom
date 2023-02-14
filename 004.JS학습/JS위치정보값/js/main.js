@@ -20,13 +20,16 @@
 
     ★[[ JavaScript에서 요소의 크기 구하기 ]]★
     
+    -> 한눈에 보기:
+    http://jsfiddle.net/y8Y32/25/
+    
     [ 가로크기 ]
     - clientWidth : 패딩점퍼를 입고 있는 클라이언트님!
     padding을 포함한 폭
-    - scrollWidth :  스크롤이 들어가니까 scroll!
+    - scrollWidth :  스크롤내용이 들어가니까 scroll!
     padding을 포함한 화면 상에 표시되지 않은 콘텐츠를 포함한 폭
-    - offsetWidth : 보더,패딩,스크롤 다 들어가니 옵셋!
-    border, padding, 스크롤 바를 포함한 폭
+    - offsetWidth : 보더,패딩,스크롤트랙이 다 들어가니 옵셋!
+    border, padding, 스크롤 바 트랙을 포함한 폭
     
     [ 세로크기 ]
     - clientHeight : 
@@ -34,7 +37,7 @@
     - scrollHeight : 
     padding을 포함한 화면 상에 표시되지 않은 콘텐츠를 포함한 높이
     - offsetHeight : 
-    border, padding, 스크롤 바를 포함한 높이
+    border, padding, 스크롤 바 트랙을 포함한 높이
     _____________________________________________________________
 
     ★[[ 윈도우 사이즈 가져오기 ]]★
