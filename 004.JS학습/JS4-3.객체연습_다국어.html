@@ -36,6 +36,7 @@
         .sel {
             position: absolute;
             right: 0;
+            font-size: 24px;
         }
 
         /*GNB메뉴*/
@@ -159,10 +160,58 @@
            
             ////////////////////////////////////////////////
             // 1. 선택박스 선택변경시 change이벤트에 따라 변경
-            // 이벤트 대상: .sel
+            // 이벤트 대상: .sel -> sel변수
             // 이벤트 종류: change
             // 변경대상: 메뉴, 메인이미지, 하단정보
             /////////////////////////////////////////////////
+            sel.onchange = (e) => {
+            // sel.onchange = function(e) {
+                // this키워드는 익명함수일때 적용됨!
+
+                // 1. 선택값 읽기 //////////////////
+                // 화살표함수에서는 this대신 event.currentTarget
+                let opt = e.currentTarget.value;
+                // let opt = event.currentTarget.value;
+                // let opt = this.value;
+
+                // event는 이벤트 객체(이벤트관련 속성/메서드)
+                // event객체를 전달변수형태로 사용할 수 도 있다!
+                // 요소.on이벤트명 = function(전달변수){}
+                // 여기서 전달변수가 event에서 전달하는 변수임
+                // 변수명을 보통 e / evt 로 많이 씀!
+
+                
+                // 2. 다국어 언어코드에 따른 객체값 셋팅하기
+                let data = lang[opt];
+                
+                console.log("선택값:",opt,data);
+
+                // 3. 메뉴변경하기 ////////////////
+                // 대상: menu변수
+                // forEach메서드 사용
+                menu.forEach((ele,idx)=>{ 
+                    // ele - 각 메뉴a요소 / idx 요소순번
+                    ele.innerText = data["메뉴"][idx];
+
+                });////////// forEach ////////////
+
+                // 4. 메인 이미지 변경하기 /////////
+                // 대상: mimg변수
+                // src속성값 변경하기
+                // 코드명이 이미지명과 같음!
+                // mimg.setAttribute("src",`images/${opt}.jpg`);
+                // setAttribute(속성명,값)
+                mimg.src = `images/${opt}.jpg`;
+                // 요소.속성명 = 값
+
+                // 5. 하단주소 변경하기
+                // 대상 : info변수
+                // innerText로 글자변경
+                info.innerText = data["주소"];
+                // 객체 데이터 중 "주소"속성의 값을 넣는다!
+
+
+            }; /////////////// change /////////////////////
 
 
         }); ////////// 로드구역 ////////////////////////
