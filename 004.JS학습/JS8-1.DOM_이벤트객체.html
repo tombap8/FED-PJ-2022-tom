@@ -62,7 +62,8 @@
                     }; //////////// click //////////////
 
                     // 아들방 ////////////////////
-                    qs("a").onclick = (e) => {
+                    // -> 함수화한다!
+                    const sonFn = (e) => {
                         // currentTarget 이벤트를 받고 있는 요소자신
                         event.currentTarget.style.backgroundColor = "red";
 
@@ -81,7 +82,22 @@
                         showLog("아들방");
                     }; //////////// click //////////////
 
+                    // addEventListener() 로 이벤트 등록하기
+                    qs("a").addEventListener("click",sonFn);
 
+
+                    // 아들방 클릭이벤트 지우기 버튼 클릭시 설정 ///
+                    qs(".clear").onclick = ()=>{
+
+                        // 1. 방법1 : 이벤트 속성값 지우기
+                        // qs("a").onclick = "";
+
+                        // 2. 방법2 : 이벤트 리스너로 등록한 경우!
+                        // -> removeEventListener() 메서드로 삭제한다!
+                        qs("a").removeEventListener("click",sonFn);
+
+
+                    }; ////////// click ///////////////
 
 
 
@@ -224,7 +240,8 @@
         </div>
 
         <!-- 아들방 클릭이벤트 지우기버튼 -->
-        <button class="clear">아들방 이벤트 지워!</button>
+        <button class="clear" style="font-size: 5vw;">
+            아들방 이벤트 지워!</button>
 
     </body>
 </html>
