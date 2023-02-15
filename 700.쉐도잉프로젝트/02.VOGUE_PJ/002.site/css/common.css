@@ -126,6 +126,35 @@ https://www.w3schools.com/cssref/tryit.php?filename=trycss_cursor */
     min-height: 46px;
     padding: 0 30px;
 }
+/* GNB ul박스 */
+.gnb ul{
+    /* 플렉스박스 */
+    display: flex;
+    /* 플렉스진행방향 정렬 */
+    justify-content: center;
+    /* 플렉스 줄바꿈설정 */
+    flex-wrap: wrap;
+}
+/* GNB li 리스트 */
+.gnb li{
+    padding-right: 45px;
+    font-family: 'Roboto Condensed', sans-serif;
+    line-height: 40px;
+}
+
+/* 마지막 li 돋보기 */
+.gnb li:last-child {
+    padding: 0;
+}
+.gnb li:last-child a {
+    font-weight: bold;
+    padding-top: 2px;
+}
+
+/* GNB a요소 */
+.gnb a{
+    
+}
 
 /**************** 2. 메인영역 ****************/
 .cont{
