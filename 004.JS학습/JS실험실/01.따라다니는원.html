@@ -32,7 +32,8 @@
             body {
                 margin: 0;
                 width: 100vw;
-                height: 100vh;
+                height: 300vh;
+                /* 세로 스크롤 생기게함! */
             }
             .mover {
                 position: fixed;
@@ -134,15 +135,33 @@
                     // x좌표 : event.pageX
                     // y좌표 : event.pageY
                     // console.log("x:",event.pageX,"\ny:",event.pageY);
-
+                    console.log("x:",event.clientX,"\ny:",event.clientY);
+                    
                     // 위치값 보정 (gap은 무버크기의 절반)
-                    var posx = event.pageX - gap;
-                    var posy = event.pageY - gap;
+                    var posx = event.clientX - gap;
+                    var posy = event.clientY - gap;
+                    // clientX,clientY는 브라우저 화면에서의
+                    // 위치이므로 .mover가 fixed일때 사용된다!
+
+                    // var posx = event.pageX - gap;
+                    // var posy = event.pageY - gap;
+                    // -> pageX,pageY 는 전체 웹문서에서의
+                    // 위치이므로 .mover가 absolute이면 사용된다!
 
                     // 무버에게 위치값 이동 셋팅하기(무버중앙위치 보정)
                     mover.style.top = posy + "px";
                     mover.style.left = posx + "px";
                 }; //////////// mousemove 이벤트함수 //////
+
+                /// body영역 바깥으로 나가면 사라지고 들어오면 나타남///
+                document.body.onmouseenter = () => {
+                    // 들어오면 나타남
+                    mover.style.display = "block";
+                }; ///////// mouseenter /////////////////
+                document.body.onmouseleave = () => {
+                    // 나가면 사라짐
+                    mover.style.display = "none";
+                }; ///////// mouseleave /////////////////
 
 
                 ////////////////////////////
