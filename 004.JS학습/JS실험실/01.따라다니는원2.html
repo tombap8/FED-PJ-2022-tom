@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>JS실험실 1 : 따라다니는 원2 (개별박스용)</title>
+        <style>
+            /**************************************** 
+            [ CSS에서 변수 사용하기 ]
+
+            1. 변수 셋팅법
+            :root{
+                --변수명1: 값1;
+                --변수명2: 값2;
+                --변수명3: 값3;
+            }
+
+            2. 변수 호출 사용법
+            var(--변수명)
+
+            ->>> 변수는 언제 사용하나?
+            - 같은 값이 여러부분에서 사용될때
+            미디어쿼리 등에서 변경이 필요한 경우
+            변수값만 변경하면 복잡한 값변경이 대체됨!
+
+        ****************************************/
+            /* CSS변수처리 */
+            :root {
+                --msz: 50px;
+            }
+
+            body {
+                margin: 0;
+                width: 100vw;
+                height: 300vh;
+                /* 세로 스크롤 생기게함! */
+            }
+            
+
+            /* 컨텐츠박스 */
+            .cont {
+                position: relative;
+                /* z-index: 99999; 
+                ((중요!!!))
+                -> 무버와 z-index로 위치관계 비교를 내부의 요소와
+                하려면 부모박스에 z-index를 주지 않아야 비교할 수 있다!
+                */
+                display: flex;
+            }
+            .cont > div {
+                position: relative;
+                flex: 1;
+                text-align: center;
+            }
+            .cont > div > img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            /* 컨텐츠 a링크 */
+            .cont > div > a {
+                position: absolute;
+                /* 무버보다 위에 오도록 z-index주기
+                    a요소는 포지션이 없으면 z-index가 적용안됨
+                    만약 포지션이 없다면 relative라도 주도록한다!
+                    무버가 z-index:1 이므로 이것보다 크게함!
+                */
+                z-index: 2;
+
+                bottom: 10%;
+                left: 50%;
+                transform: translateX(-50%);
+                /* 가로중앙이동 */
+
+                color: #fff;
+                text-decoration: none;
+                font-size: 24px;
+                font-weight: bold;
+                text-shadow: 0 0 5px #000;
+                white-space: nowrap;
+            }
+
+            .cont > div > a:hover {
+                color: #f00;
+            }
+
+            /* 중앙추가박스 */
+            .centerbx{
+                position: absolute;
+                top: 150vh;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 40vw;
+                height: 40vw;
+                outline: 4px dashed darkmagenta;
+                background-color: lightskyblue;
+            }
+            
+            /* 두번째 무버는 앱솔루트! */
+            .mover2{
+                position: absolute;
+                z-index: 1;
+                width: var(--msz);
+                height: var(--msz);
+                border-radius: 50%;
+                background-color: aqua;
+                mix-blend-mode: exclusion;
+                transition: 0.4s ease-out;
+            }
+        </style>
+        <!-- JS코드구역 -->
+        <script>
+            // 로딩구역
+            window.addEventListener("load", function () {
+                console.log("로딩완료!");
+
+                // 움직일 대상: 돌아다니는 원 .mover
+                const mover2 = document.querySelector(".mover2");
+
+               
+                // [ 자바스크립트 요소의 크기구하기 (패딩포함) ]
+                // 가로크기 : 요소.clientWidth
+                // 세로크기 : 요소.clientHeight
+
+                
+
+                // 중앙박스 추가코드 /////////////////
+                // 중앙박스
+                const ctbx = document.querySelector(".centerbx");
+                // 갭                
+                let gap2 = mover2.clientWidth / 2;
+
+                // 이벤트 대상 : body
+                // 이벤트 종류 :
+                // mousemove - 마우스가 대상위에서 움직일때 발생
+                ctbx.onmousemove = function () {
+                    event.stopPropagation();
+                    // 마우스 포인터 위치 알아내기
+                    // x좌표 : event.pageX
+                    // y좌표 : event.pageY
+                    // console.log("x:",event.pageX,"\ny:",event.pageY);
+                    console.log("x:", event.clientX, "\ny:", event.clientY);
+
+                    // 위치값 보정 (gap은 무버크기의 절반)
+                    var posx = event.offsetX - gap2;
+                    var posy = event.offsetY - gap2;
+                    // offsetX,offsetY는 부모자격요소에서의
+                    // 위치이므로 .mover가 absolute이며 
+                    // 부모자격요소 안에 있을때 사용된다!
+
+                    // var posx = event.pageX - gap;
+                    // var posy = event.pageY - gap;
+                    // -> pageX,pageY 는 전체 웹문서에서의
+                    // 위치이므로 .mover가 absolute이면 사용된다!
+
+                    // 무버에게 위치값 이동 셋팅하기(무버중앙위치 보정)
+                    mover2.style.top = posy + "px";
+                    mover2.style.left = posx + "px";
+                }; //////////// mousemove 이벤트함수 //////
+
+                /// body영역 바깥으로 나가면 사라지고 들어오면 나타남///
+                ctbx.onmouseenter = () => {
+                    // 들어오면 나타남
+                    mover2.style.display = "block";
+                }; ///////// mouseenter /////////////////
+                ctbx.onmouseleave = () => {
+                    // 나가면 사라짐
+                    mover2.style.display = "none";
+                }; ///////// mouseleave /////////////////
+
+
+
+
+            }); ///////////// 로드구역 ///////////////
+        </script>
+    </head>
+    <body>
+        <!-- 컨텐츠 박스 -->
+        <section class="cont">
+            <div>
+                <img src="../images/dress/1.jpg" alt="dress" />
+                <a href="#" class="pt">This is Ur New Dress!</a>
+            </div>
+            <div>
+                <img src="../images/dress/2.jpg" alt="dress" />
+                <a href="#" class="pt">This is Ur New Dress!</a>
+            </div>
+            <div>
+                <img src="../images/dress/3.jpg" alt="dress" />
+                <a href="#" class="pt">This is Ur New Dress!</a>
+            </div>
+            <div>
+                <img src="../images/dress/4.jpg" alt="dress" />
+                <a href="#" class="pt">This is Ur New Dress!</a>
+            </div>
+        </section>
+
+        <!-- 중앙개별박스 -->
+        <div class="centerbx">
+            <!-- 돌아다니는 원 -->
+            <div class="mover2"></div>
+        </div>
+    </body>
+</html>
