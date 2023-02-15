@@ -185,6 +185,27 @@ body가 기준이 된다!  */
     text-decoration: none;
     font-size: 3.5rem;
 }
+/* 다운로드 */
+.part a.dld{
+    font-weight: normal;
+    font-size: 1vw;
+    margin-left: 20px;
+}
+/* .part a요소 */
+.part h3 {
+    color: #222;
+    text-decoration: none;
+    font-size: 3rem;
+    padding-left: 50px;
+    font-weight: normal;
+}
+.part h3 a {
+    display: inline-block;
+    color: #222;
+    text-decoration: none;
+    font-size: 3rem;
+    margin-left: 20px;
+}
 /* 가상요소로 밑줄 애니만들기
         대상선택:
         1. GNB메뉴의 상위메뉴 a요소
