@@ -35,6 +35,20 @@ body {
     font-size: 0.8vw;
     white-space: nowrap;
 }
+
+/* 벌새 가림막 사용시 
+벌새위의 offset값막기 */
+/* .inbox::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999999999;
+} */
+
+
 .info2 {
     left: auto;
     right: var(--iw);
