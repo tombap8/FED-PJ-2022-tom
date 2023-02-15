@@ -54,11 +54,14 @@
                         event.currentTarget.style.backgroundColor = "yellow";
                         // event.target.style.backgroundColor = "yellow";
 
-                        // 이벤트 버블링 막기
+                        // 이벤트 버블링만 막기
                         // event.stopPropagation();
 
-                        // 같은 이벤트에 기능 설정된 것까지 모두 막기
+                        // 이벤트 버블링과 같은 이벤트에 기능 설정된 것까지 
+                        // 모두 막기 -> stopImmediatePropagation()
                         event.stopImmediatePropagation();
+                        // 이것이 설정된 함수의 기능은 실행되지만
+                        // 다른 곳에 설정된 동일 이벤트기능은 실행을 막아준다!
 
                         // 이벤트속성값 찍기
                         showLog("엄마집");
