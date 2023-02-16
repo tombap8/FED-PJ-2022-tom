@@ -69,6 +69,13 @@
         }
     </style>
     <script>
+        /// 요소선택함수 ///////
+        const qs = x => document.querySelector(x);
+        const qsa = x => document.querySelectorAll(x);
+        /// 콘솔찍기함수 ///////
+        const cg = x => console.log(x);
+
+
         /////////// 로드구역 ///////////////////////////
         window.addEventListener("DOMContentLoaded",()=>{
 
@@ -94,6 +101,68 @@
                 "블루베리":"fruits_20",
                 "레몬":"fruits_04",
             }; ////////// frObj 객체 /////
+
+            // 3. 대상요소 //////////////////
+            // (1) 배열정보출력 : .showit
+            const showit = qs(".showit");
+
+            // (2) 배열로 이미지 출력 : .cont
+            const cont = qs(".cont");
+
+            // (3) 조작버튼 요소들 : .mbtn
+            const mbtn = qsa(".mbtn");
+
+            // (4) 선택박스 : #sel
+            const sel = qs("#sel");
+
+            // 확인
+            // console.log(showit,cont,mbtn,sel);
+
+            // 4. 처음 배열 출력하기 ////////
+            // 배열출력함수만들기 /////
+            const showArr = () => {
+                showit.innerText = fruit.join("*");
+            }; ////////// showArr함수 ////////
+
+            // [ 배열메서드1 : join() ]
+            // join(구분자) -> 배열사이에 구분자를 넣고 문자로 변환한다!
+
+            // 처음 배열정보 호출하여 찍기!
+            showArr();
+
+            // 5. 과일 주세요~! 버튼 클릭시
+            // 배열정보로 과일박스 만들고 이미지 출력하기
+            mbtn[0].onclick = ()=>{
+                // 1. 호출확인
+                cg("과일주세요!");
+
+                // 2. 변경내용 : 배열의 과일만큼 ul>li를
+                // 만들어서 html로 .cont에 출력하기!
+                let hcode = "<ul>";
+
+                    // forEach() 메서드로 배열만큼 돌아서 li만들기
+                    // forEach((값,순번,객체)=>{코드})
+                    // frObj[val] -> 배열값과 같은 이름의 객체값 가져오기
+                    // -> 과일 이미지명 정보!!!
+                    fruit.forEach((val)=>{
+                        hcode += `
+                            <li 
+                                style="
+                                    background:
+                                    url(addimg/${frObj[val]}.png) 
+                                    no-repeat center/cover">
+                                ${val}
+                            </li>
+                        `;
+                    }); /////////// forEach ////////
+
+                    hcode += "</ul>";
+
+                    // 화면출력
+                    cont.innerHTML = hcode;
+
+
+            }; ////////// click함수 ///////////
 
         }); ////////// 로드구역 ////////////////////////
     </script>
