@@ -1,150 +1,149 @@
 <!DOCTYPE html>
 <html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>배열의 메서드 활용</title>
+        <style>
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+            }
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>배열의 메서드 활용</title>
-    <style>
-        html,
-        body {
-            margin: 0;
-            padding: 0;
-        }
+            h1,
+            h2 {
+                text-align: center;
+            }
 
-        h1,
-        h2 {
-            text-align: center;
-        }
+            .controler {
+                padding: 15px;
+                width: 100%;
+                text-align: center;
+            }
 
-        .controler {
-            padding: 15px;
-            width: 100%;
-            text-align: center;
-        }
+            .cont ul {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                overflow: hidden;
+            }
 
-        .cont ul {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin: 0;
-            padding: 0;
-            list-style: none;
-            overflow: hidden;
-        }
+            .cont li {
+                width: 100px;
+                height: 100px;
+                border: 2px solid red;
+                border-radius: 50%;
+                margin: 10px;
+                text-align: center;
+                line-height: 100px;
+                font-size: 25px;
+                white-space: nowrap;
+            }
 
-        .cont li {
-            width: 100px;
-            height: 100px;
-            border: 2px solid red;
-            border-radius: 50%;
-            margin: 10px;
-            text-align: center;
-            line-height: 100px;
-            font-size: 25px;
-            white-space: nowrap;
-        }
+            /* 배열정보 보이기 */
+            .showit {
+                padding: 15px;
+                border: 4px dotted blue;
+                text-align: center;
+                font-size: 20px;
+                font-weight: bold;
+            }
 
-        /* 배열정보 보이기 */
-        .showit {
-            padding: 15px;
-            border: 4px dotted blue;
-            text-align: center;
-            font-size: 20px;
-            font-weight: bold;
-        }
+            /* 버튼 */
+            .mbtn,
+            #sel {
+                font-size: 20px;
+                padding: 10px;
+                border-radius: 10px;
+                margin-bottom: 20px;
+            }
+            /* 입력양식 */
+            label,
+            input,
+            select {
+                font-size: 20px;
+            }
+        </style>
+        <script>
+            /// 요소선택함수 ///////
+            const qs = (x) => document.querySelector(x);
+            const qsa = (x) => document.querySelectorAll(x);
+            /// 콘솔찍기함수 ///////
+            const cg = (x) => console.log(x);
 
-        /* 버튼 */
-        .mbtn,
-        #sel {
-            font-size: 20px;
-            padding: 10px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-        /* 입력양식 */
-        label,input,select {
-            font-size: 20px;
-        }
-    </style>
-    <script>
-        /// 요소선택함수 ///////
-        const qs = x => document.querySelector(x);
-        const qsa = x => document.querySelectorAll(x);
-        /// 콘솔찍기함수 ///////
-        const cg = x => console.log(x);
+            /////////// 로드구역 ///////////////////////////
+            window.addEventListener("DOMContentLoaded", () => {
+                console.log("로딩완료!");
 
+                // 1. 배열변수 선언과 할당
+                const fruit = ["배", "사과", "용과", "딸기"];
 
-        /////////// 로드구역 ///////////////////////////
-        window.addEventListener("DOMContentLoaded",()=>{
+                // 2. 과일명과 배경이미지명을 매칭함 -> 객체
+                const frObj = {
+                    배: "fruits_01",
+                    사과: "fruits_02",
+                    용과: "fruits_14",
+                    딸기: "fruits_09",
+                    두리안: "fruits_17",
+                    바나나: "fruits_15",
+                    수박: "fruits_12",
+                    파인애플: "fruits_13",
+                    망고: "fruits_24",
+                    오렌지: "fruits_03",
+                    체리: "fruits_05",
+                    멜론: "fruits_11",
+                    블루베리: "fruits_20",
+                    레몬: "fruits_04",
+                }; ////////// frObj 객체 /////
 
-            console.log("로딩완료!");
+                // 3. 대상요소 //////////////////
+                // (1) 배열정보출력 : .showit
+                const showit = qs(".showit");
 
-            // 1. 배열변수 선언과 할당
-            const fruit = ["배","사과","용과","딸기"];
+                // (2) 배열로 이미지 출력 : .cont
+                const cont = qs(".cont");
 
-            // 2. 과일명과 배경이미지명을 매칭함 -> 객체
-            const frObj = {
-                "배":"fruits_01",
-                "사과":"fruits_02",
-                "용과":"fruits_14",
-                "딸기":"fruits_09",
-                "두리안":"fruits_17",
-                "바나나":"fruits_15",
-                "수박":"fruits_12",
-                "파인애플":"fruits_13",
-                "망고":"fruits_24",
-                "오렌지":"fruits_03",
-                "체리":"fruits_05",
-                "멜론":"fruits_11",
-                "블루베리":"fruits_20",
-                "레몬":"fruits_04",
-            }; ////////// frObj 객체 /////
+                // (3) 조작버튼 요소들 : .mbtn
+                const mbtn = qsa(".mbtn");
 
-            // 3. 대상요소 //////////////////
-            // (1) 배열정보출력 : .showit
-            const showit = qs(".showit");
+                // (4) 선택박스 : #sel
+                const sel = qs("#sel");
 
-            // (2) 배열로 이미지 출력 : .cont
-            const cont = qs(".cont");
+                // 확인
+                // console.log(showit,cont,mbtn,sel);
 
-            // (3) 조작버튼 요소들 : .mbtn
-            const mbtn = qsa(".mbtn");
+                // 4. 처음 배열 출력하기 ////////
+                // 배열출력함수만들기 /////
+                const showArr = () => {
+                    showit.innerText = fruit.join("*");
+                }; ////////// showArr함수 ////////
 
-            // (4) 선택박스 : #sel
-            const sel = qs("#sel");
+                // [ 배열메서드1 : join() ]
+                // join(구분자) -> 배열사이에 구분자를 넣고 문자로 변환한다!
 
-            // 확인
-            // console.log(showit,cont,mbtn,sel);
+                // 처음 배열정보 호출하여 찍기!
+                showArr();
 
-            // 4. 처음 배열 출력하기 ////////
-            // 배열출력함수만들기 /////
-            const showArr = () => {
-                showit.innerText = fruit.join("*");
-            }; ////////// showArr함수 ////////
+                // 5. 과일 주세요~! 버튼 클릭시
+                // 배열정보로 과일박스 만들고 이미지 출력하기
+                mbtn[0].onclick = () => {
+                    // 1. 호출확인
+                    cg("과일주세요!");
 
-            // [ 배열메서드1 : join() ]
-            // join(구분자) -> 배열사이에 구분자를 넣고 문자로 변환한다!
-
-            // 처음 배열정보 호출하여 찍기!
-            showArr();
-
-            // 5. 과일 주세요~! 버튼 클릭시
-            // 배열정보로 과일박스 만들고 이미지 출력하기
-            mbtn[0].onclick = ()=>{
-                // 1. 호출확인
-                cg("과일주세요!");
-
-                // 2. 변경내용 : 배열의 과일만큼 ul>li를
-                // 만들어서 html로 .cont에 출력하기!
-                let hcode = "<ul>";
+                    // 2. 변경내용 : 배열의 과일만큼 ul>li를
+                    // 만들어서 html로 .cont에 출력하기!
+                    let hcode = "<ul>";
 
                     // forEach() 메서드로 배열만큼 돌아서 li만들기
                     // forEach((값,순번,객체)=>{코드})
                     // frObj[val] -> 배열값과 같은 이름의 객체값 가져오기
                     // -> 과일 이미지명 정보!!!
-                    fruit.forEach((val)=>{
+                    fruit.forEach((val) => {
                         hcode += `
                             <li 
                                 style="
@@ -160,202 +159,221 @@
 
                     // 화면출력
                     cont.innerHTML = hcode;
+                }; ////////// click함수 ///////////
 
+                // 6. 과일 이미지명 셋팅의 객체 속성명으로
+                // 과일 선택박스(#sel) 옵션 셋팅하기!
+                // -> 선택박스이 데이터를 만드는것을 데이터 바인딩이라고 함!
+                // 대상: #sel -> sel변수
+                // 지역변수화를 하여 셋팅하자!
+                // 바로실행하는 함수 만들기!
+                // (함수)() -> 자기자신이 바로 실행됨!
+                (() => {
+                    cg("바로실행됨?");
 
-            }; ////////// click함수 ///////////
+                    // 임시변수(코드담기)
+                    let temp = "";
 
-            // 6. 과일 이미지명 셋팅의 객체 속성명으로
-            // 과일 선택박스(#sel) 옵션 셋팅하기!
-            // -> 선택박스이 데이터를 만드는것을 데이터 바인딩이라고 함!
-            // 대상: #sel -> sel변수
-            // 지역변수화를 하여 셋팅하자!
-            // 바로실행하는 함수 만들기!
-            // (함수)() -> 자기자신이 바로 실행됨!
-            (()=>{
-                cg("바로실행됨?");
+                    // 객체를 위한 for문 -> for in문
+                    // 대상객체 : frObj
+                    // 변수x는 객체속성명이다!
+                    // x는 과일명으로 모두 셋팅되어 있다!
+                    for (let x in frObj) {
+                        temp += `<option>${x}</option>`;
+                    } /////// for in문 /////////
 
-                // 임시변수(코드담기)
-                let temp = "";
+                    // 선택박스에 코드넣기!
+                    sel.innerHTML = temp;
+                })(); /////// 바로실행함수 ////////
 
-                // 객체를 위한 for문 -> for in문
-                // 대상객체 : frObj
-                // 변수x는 객체속성명이다!
-                // x는 과일명으로 모두 셋팅되어 있다!
-                for(let x in frObj){
-                    temp += `<option>${x}</option>`
-                } /////// for in문 /////////
+                // 7. 뒷배열추가요~! 버튼 클릭시
+                // -> 현재 선택된 #sel과일을 맨뒤에 추가함!
+                // 대상: mbtn[1]
+                mbtn[1].onclick = () => {
+                    // 1.호출확인
+                    cg("뒷배열추가요~!");
 
-                // 선택박스에 코드넣기!
-                sel.innerHTML = temp;
+                    // 2. 선택대상의 값을 배열 맨뒤에 추가하기
+                    // 선택대상 : #sel 인 선택박스의 값
+                    // 배열의 맨뒤 값 추가는?
+                    // [ 배열메서드2 : push() ]
+                    // -> 배열의 맨뒤에 값을 추가한다!
+                    fruit.push(sel.value);
+                    // sel.value 은 원래 value속성값을 읽어옴
+                    // 그런데 여기서는 value 속성이 없으므로
+                    // 데이터값을 읽어온다!(태그사이의 값 == 데이터 값)
 
-            })(); /////// 바로실행함수 ////////
+                    // 3. 배열정보 화면에 출력하기
+                    showArr();
 
+                    // 4. 현재배열선택박스 업데이트 함수호출
+                    makeSel();
+                }; ///////////// click 함수 /////////
 
-            // 7. 뒷배열추가요~! 버튼 클릭시
-            // -> 현재 선택된 #sel과일을 맨뒤에 추가함!
-            // 대상: mbtn[1]
-            mbtn[1].onclick = () => {
+                // 8. 앞배열추가요~! 버튼 클릭시
+                // -> 현재 선택된 #sel과일을 배열 맨앞에 추가!
+                // 대상 : mbtn[2]
+                mbtn[2].onclick = () => {
+                    // 1. 호출확인
+                    cg("앞배열추가요!");
 
-                // 1.호출확인
-                cg("뒷배열추가요~!");
+                    // 2. 앞배열추가하기
+                    // [배열메서드3 : unshift()]
+                    fruit.unshift(sel.value);
 
-                // 2. 선택대상의 값을 배열 맨뒤에 추가하기
-                // 선택대상 : #sel 인 선택박스의 값
-                // 배열의 맨뒤 값 추가는?
-                // [ 배열메서드2 : push() ]
-                // -> 배열의 맨뒤에 값을 추가한다!
-                fruit.push(sel.value);
-                // sel.value 은 원래 value속성값을 읽어옴
-                // 그런데 여기서는 value 속성이 없으므로
-                // 데이터값을 읽어온다!(태그사이의 값 == 데이터 값)
+                    // 3. 배열정보 출력하기
+                    showArr();
 
-                // 3. 배열정보 화면에 출력하기
-                showArr();
-                
-                // 4. 현재배열선택박스 업데이트 함수호출
-                makeSel();
+                    // 4. 현재배열선택박스 업데이트 함수호출
+                    makeSel();
+                }; /////////// click 함수 ///////////
 
-            }; ///////////// click 함수 /////////
+                // 9. 뒷배열삭제요~! 버튼 클릭시
+                // -> 맨뒷배열값을 삭제함!
+                // 대상 : mbtn[3]
+                mbtn[3].onclick = () => {
+                    // 1. 호출확인
+                    cg("뒷배열삭제요!");
 
-            // 8. 앞배열추가요~! 버튼 클릭시
-            // -> 현재 선택된 #sel과일을 배열 맨앞에 추가!
-            // 대상 : mbtn[2]
-            mbtn[2].onclick  = () => {
-                // 1. 호출확인
-                cg("앞배열추가요!");
+                    // 2. 뒷배열삭제하기
+                    // [배열메서드4 : pop()]
+                    fruit.pop();
 
-                // 2. 앞배열추가하기
-                // [배열메서드3 : unshift()]
-                fruit.unshift(sel.value);
+                    // 3. 배열정보 출력하기
+                    showArr();
 
-                // 3. 배열정보 출력하기
-                showArr();
-                
-                // 4. 현재배열선택박스 업데이트 함수호출
-                makeSel();
+                    // 4. 현재배열선택박스 업데이트 함수호출
+                    makeSel();
+                }; /////////// click 함수 ///////////
 
+                // 10. 앞배열삭제요~! 버튼 클릭시
+                // -> 맨앞배열값을 삭제함!
+                // 대상 : mbtn[4]
+                mbtn[4].onclick = () => {
+                    // 1. 호출확인
+                    cg("앞배열삭제요!");
 
-            }; /////////// click 함수 ///////////
+                    // 2. 앞배열삭제하기
+                    // [배열메서드5 : shift()]
+                    fruit.shift();
 
-            // 9. 뒷배열삭제요~! 버튼 클릭시
-            // -> 맨뒷배열값을 삭제함!
-            // 대상 : mbtn[3]
-            mbtn[3].onclick  = () => {
-                // 1. 호출확인
-                cg("뒷배열삭제요!");
+                    // 3. 배열정보 출력하기
+                    showArr();
 
-                // 2. 뒷배열삭제하기
-                // [배열메서드4 : pop()]
-                fruit.pop();
+                    // 4. 현재배열선택박스 업데이트 함수호출
+                    makeSel();
+                }; /////////// click 함수 ///////////
 
-                // 3. 배열정보 출력하기
-                showArr();
-                
-                // 4. 현재배열선택박스 업데이트 함수호출
-                makeSel();
-
-
-            }; /////////// click 함수 ///////////
-
-            // 10. 앞배열삭제요~! 버튼 클릭시
-            // -> 맨앞배열값을 삭제함!
-            // 대상 : mbtn[4]
-            mbtn[4].onclick  = () => {
-                // 1. 호출확인
-                cg("앞배열삭제요!");
-
-                // 2. 앞배열삭제하기
-                // [배열메서드5 : shift()]
-                fruit.shift();
-
-                // 3. 배열정보 출력하기
-                showArr();
-                
-                // 4. 현재배열선택박스 업데이트 함수호출
-                makeSel();
-
-
-            }; /////////// click 함수 ///////////
-
-            /**************************************** 
+                /**************************************** 
                 중간배열 지우기 또는 넣기를 위해
                 현재 배열번호 선택박스와 지울개수를
                 요소에 셋팅하기
             ****************************************/
 
-            // 1. 대상선정 
-            // (1) 현재배열 선택박스
-            const anum = qs("#anum");
-            // (2) 지울개수 input박스
-            const delnum = qs("#delnum");
+                // 1. 대상선정
+                // (1) 현재배열 선택박스
+                const anum = qs("#anum");
+                // (2) 지울개수 input박스
+                const delnum = qs("#delnum");
 
-            // cg(delnum);
+                // cg(delnum);
 
-            /*****************************************
+                /*****************************************
                 현재배열을 선택박스에 셋팅하는 함수
             *****************************************/
-           const makeSel = () => {
-                // 1. 호출확인!
-                cg("나나난난");
+                const makeSel = () => {
+                    // 1. 호출확인!
+                    cg("나나난난");
 
-                // 2. 현재배열 선택박스에 업데이트 하기
-                // 변경대상: anum변수
-                // 데이터는 어디서? fruit배열변수
+                    // 2. 현재배열 선택박스에 업데이트 하기
+                    // 변경대상: anum변수
+                    // 데이터는 어디서? fruit배열변수
 
-                // 현재배열선택박스 초기화!
-                anum.innerHTML = "";
+                    // 현재배열선택박스 초기화!
+                    anum.innerHTML = "";
 
-                fruit.forEach((val,idx)=>{
-                    anum.innerHTML += `
+                    fruit.forEach((val, idx) => {
+                        anum.innerHTML += `
                         <option value="${idx}">${val}</option>
                     `;
-                }); ////////// forEach /////////
-                
-           }; /////////// makeSel 함수 ////////////////
+                    }); ////////// forEach /////////
+                }; /////////// makeSel 함수 ////////////////
 
-           // 최초호출하기
-           makeSel();
+                // 최초호출하기
+                makeSel();
 
+                // 11. 중간배열 삭제! 버튼 /////////////
+                // 대상: mbtn[5]
+                mbtn[5].onclick = () => {
+                    // 1. 호출확인
+                    cg("중간이양~!");
 
+                    // 2. 중간배열 삭제하기
+                    // [ 배열메서드6 : splice() ]
+                    // -> 삭제시
+                    // splice(순번) -> 순번부터 뒤 모두지움
+                    // splice(순번,개수) -> 순번부터 몇개 지움
 
+                    // 순번은 현재배열선택박스(#anum)에서
+                    // 선택하여 value에 있는 순번값을 가져온다!
 
+                    // 만약 지울값이 빈값이거나 숫자가 아니면
+                    // 선택순번부터 모두지우기
+                    if(delnum.value == "" || 
+                    isNaN(delnum.value)){
+                        fruit.splice(anum.value);
+                    } /////////// if ////////////
+                    else{ //// delnum이 숫자이면 개수만큼 지우기
+                        fruit.splice(anum.value,delnum.value);
+                    } /////////// else //////////
+                    
+                    // isNaN(값) -> 숫자가 아니면 true
+                    // is Not a Number? 숫자가 아니니?
 
-        }); ////////// 로드구역 ////////////////////////
-    </script>
-</head>
+                    cg("순번:" + anum.value);
+                    cg("개수:" + delnum.value);
 
-<body>
-    <h1>배열의 메서드 활용</h1>
-    <!-- 배열정보보기 -->
-    <h2>배열정보보기</h2>
-    <div class="showit"></div>
-    <!-- 컨트롤 버튼 -->
-    <div class="controler">
-        <!-- 과일기능버튼 -->
-        <button class="mbtn">과일주세요~!</button> <br>
-        <button class="mbtn">뒷배열추가요~!</button>
-        <button class="mbtn">앞배열추가요~!</button>
-        <button class="mbtn">뒷배열삭제요~!</button>
-        <button class="mbtn">앞배열삭제요~!</button> <br>
+                    // 3. 배열정보 출력하기
+                    showArr();
 
-        <button class="mbtn">중간배열삭제</button>
-        <label for="anum">선택과일:</label>
-        <select name="anum" id="anum">
-            <option>0</option>
-        </select>
-        <label for="delnum">지울개수:</label>
-        <input type="text" id="delnum" value="1" maxlength="1">
-        <br>
+                    // 4. 현재배열선택박스 업데이트 함수호출
+                    makeSel();
+                }; ////////// click 함수 ////////////
+            }); ////////// 로드구역 ////////////////////////
+        </script>
+    </head>
 
-        <button class="mbtn">중간배열삽입</button>
-        위의 선택번호사용+과일은 리스트에서 선택!
-        <!-- 과일선택박스 -->
-        <select name="sel" id="sel">
-            <option>과일</option>
-        </select>
-    </div>
-    <!-- 출력박스 -->
-    <div class="cont"></div>
-</body>
+    <body>
+        <h1>배열의 메서드 활용</h1>
+        <!-- 배열정보보기 -->
+        <h2>배열정보보기</h2>
+        <div class="showit"></div>
+        <!-- 컨트롤 버튼 -->
+        <div class="controler">
+            <!-- 과일기능버튼 -->
+            <button class="mbtn">과일주세요~!</button> <br />
+            <button class="mbtn">뒷배열추가요~!</button>
+            <button class="mbtn">앞배열추가요~!</button>
+            <button class="mbtn">뒷배열삭제요~!</button>
+            <button class="mbtn">앞배열삭제요~!</button> <br />
 
+            <button class="mbtn">중간배열삭제</button>
+            <label for="anum">선택과일:</label>
+            <select name="anum" id="anum">
+                <option>0</option>
+            </select>
+            <label for="delnum">지울개수:</label>
+            <input type="text" id="delnum" value="1" maxlength="1" />
+            <br />
+
+            <button class="mbtn">중간배열삽입</button>
+            위의 선택번호사용+과일은 리스트에서 선택!
+            <!-- 과일선택박스 -->
+            <select name="sel" id="sel">
+                <option>과일</option>
+            </select>
+        </div>
+        <!-- 출력박스 -->
+        <div class="cont"></div>
+    </body>
 </html>
