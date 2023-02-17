@@ -31,9 +31,9 @@ font-family: 'Roboto Condensed', sans-serif;
 */
 
 /* 공사중 표시 */
-body * {
+/* body * {
     outline: 1px dashed gray;
-}
+} */
 
 /************* 2. 공통 class *************/
 
@@ -142,6 +142,11 @@ body * {
     width: 0;
     height: 0;
     overflow: hidden;
+}
+
+/* 공통배경색 클래스 */
+.bgc{
+    background-color: #f9f9f9;
 }
 
 

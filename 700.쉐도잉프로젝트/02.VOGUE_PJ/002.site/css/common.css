@@ -3,6 +3,13 @@
 /* 보그 PJ 공통모듈 CSS - common.css */
 
 /**************** 1. 상단영역 ****************/
+/* 겉박스 */
+#top{
+    position: relative;
+    z-index: 1;
+    /* 박스그림자때문에 위에 오도록함! */
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+}
 .top{
     /* 최소높이 */
     min-height: 206px;
@@ -176,4 +183,44 @@ https://www.w3schools.com/cssref/tryit.php?filename=trycss_cursor */
 .info{
     /* 최소높이 */
     min-height: 286px;
+    background-color: #000;
+    padding: 70px;
+    /* 박스크기유지 */
+    box-sizing: border-box;
+    /* 글씨체 공통 */
+    font-family: "Roboto",nbg;
 }
+/* 3-1.하단로고 */
+.blogo{
+    text-align: center;
+}
+/* 3-2.회사주소 */
+.addr{
+    color: #747474;
+    text-align: center;
+    font-size: 11px;
+    /* address 요소 기본 이탤릭해제 */
+    font-style: normal;
+    margin: 20px 0 10px;
+}
+/* 3-3.하단링크 */
+.blink{
+    /* 플렉스박스 */
+    display: flex;
+    /* 진행방향정렬 : 중앙 */
+    justify-content: center;
+    /* 플렉스 랩핑박스 */
+    flex-wrap: wrap;
+    /* 사이간격 gap: 위아래 양쪽 */
+    gap: 0 12px;
+}
+.blink a{
+    color: #747474;
+    font-size: 13px;
+    /* margin: 0 6px; */
+}
+/* 마지막링크 두껍게 */
+.blink li:last-child a{
+    font-weight: bold;
+}
+
