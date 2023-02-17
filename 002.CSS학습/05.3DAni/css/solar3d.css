@@ -140,5 +140,41 @@ body{
     background-size: 100% 100%;
 }
 
+/************** 지구행성 셋팅 **************/
+#earth.orbit{
+    width: 600px;
+    height: 600px;
+}
+/* 지구행성 포지션 - 중앙중심회전 */
+#earth .pos{
+    position: absolute;    
+    /* calc() 계산으로 정중앙이동 */
+    top: calc(50% - var(--esz)/2);
+    left: calc(50% - var(--esz)/2);
+    width: var(--esz);
+    height: var(--esz);
+/* 애니메이션 : 이시이지반방마 */
+animation: earth 20s linear infinite;
+}
 
+/* 지구회전 키프레임 */
+@keyframes earth {
+    from{
+        transform: rotate(0deg) translateX(-300px) rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg) translateX(-300px) rotate(-360deg);
+    }
+} /* 지구회전 키프레임 */
+
+
+/* 지구행성 셋팅 */
+#earth .planet{
+    background-image: url(../images/earth.png);
+}
+
+
+/************** 목성행성 셋팅 **************/
+/************** 토성행성 셋팅 **************/
+/************** 명왕성행성 셋팅 **************/
 
