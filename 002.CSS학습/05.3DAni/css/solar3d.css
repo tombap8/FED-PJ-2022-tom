@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-/* 태양계 2D 애니 - solar2d.css */
+/* 태양계 3D 애니 - solar3d.css */
 
 /************************************************* 
     [ CSS에서 변수사용하기 ]
@@ -62,26 +62,32 @@ body{
     outline: 1px dashed lightblue;
 } */
 
-/* 태양계박스 */
+/* 태양계박스(전체부모) */
+/* 태양계 전체박스를 3D변형으로 기울임! */
 #solar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+
+
+}
+/* 태양박스 */
+#sun{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     /* 박스 정중앙이동 */
-    
-    width: var(--sunsz);
-    height: var(--sunsz);
-}
-/* 태양박스 */
-#sun{
-    position: absolute;
-    top: 0;
-    left: 0;
+
     width: var(--sunsz);
     height: var(--sunsz);
     /* 원형 */
     border-radius: 50%;
+    /* 원형 바깥쪽 글로우효과 */
+    box-shadow: 0 0 60px 10px orange;
 
     /* 커지는 태양이미지 숨기기 */
     overflow: hidden;
@@ -101,6 +107,23 @@ body{
         transform: scale(1.5);
     }
 } /* 키프레임 */
+
+
+/************* 행성공통 클래스 *************/
+/* 궤도 클래스 */
+.orbit{
+    position: absolute;
+    /* 부모는 #solar */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* 박스 정중앙이동 */
+
+    /* 원형궤도 보더주기 */
+    border: 5px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    
+}
 
 
 
