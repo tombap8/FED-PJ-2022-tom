@@ -194,10 +194,10 @@ animation: jupiter 30s linear infinite;
 /* 목성회전 키프레임 */
 @keyframes jupiter {
     from{
-        transform: rotate(0deg) translateX(-500px) rotate(0deg);
+        transform: rotate(0deg) translateY(-500px) rotate(0deg);
     }
     to{
-        transform: rotate(360deg) translateX(-500px) rotate(-360deg);
+        transform: rotate(360deg) translateY(-500px) rotate(-360deg);
     }
 } /* 목성회전 키프레임 */
 
@@ -206,7 +206,76 @@ animation: jupiter 30s linear infinite;
 #jupiter .planet{
     background-image: url(../images/jupiter.png);
 }
+
 /************** 토성행성 셋팅 **************/
+#saturn.orbit{
+    width: 1400px;
+    height: 1400px;
+}
+/* 토성행성 포지션 - 중앙중심회전 */
+#saturn .pos{
+    position: absolute;    
+    /* calc() 계산으로 정중앙이동 */
+    top: calc(50% - var(--ssz)/2);
+    left: calc(50% - var(--ssz)/2);
+    width: var(--ssz);
+    height: var(--ssz);
+/* 애니메이션 : 이시이지반방마 */
+animation: saturn 40s linear infinite;
+}
+
+/* 토성회전 키프레임 */
+@keyframes saturn {
+    from{
+        transform: rotate(0deg) translateX(-700px) rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg) translateX(-700px) rotate(-360deg);
+    }
+} /* 토성회전 키프레임 */
+
+
+/* 토성행성 셋팅 */
+/* 가상요소로 토성이미지 배경으로 넣기 */
+#saturn .planet::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -30%;
+    width: 160%;
+    height: 100%;
+    background: url(../images/saturn.png) no-repeat 0/100% 100%;
+}
 
 /************** 명왕성행성 셋팅 **************/
+#pluto.orbit{
+    width: 1600px;
+    height: 1600px;
+}
+/* 명왕성행성 포지션 - 중앙중심회전 */
+#pluto .pos{
+    position: absolute;    
+    /* calc() 계산으로 정중앙이동 */
+    top: calc(50% - var(--psz)/2);
+    left: calc(50% - var(--psz)/2);
+    width: var(--psz);
+    height: var(--psz);
+/* 애니메이션 : 이시이지반방마 */
+animation: pluto 50s linear infinite;
+}
 
+/* 명왕성회전 키프레임 */
+@keyframes pluto {
+    from{
+        transform: rotate(0deg) translateY(800px) rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg) translateY(800px) rotate(-360deg);
+    }
+} /* 명왕성회전 키프레임 */
+
+
+/* 명왕성행성 셋팅 */
+#pluto .planet{
+    background-image: url(../images/pluto.png);
+}
