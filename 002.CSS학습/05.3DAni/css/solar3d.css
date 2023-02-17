@@ -175,6 +175,38 @@ animation: earth 20s linear infinite;
 
 
 /************** 목성행성 셋팅 **************/
+#jupiter.orbit{
+    width: 1000px;
+    height: 1000px;
+}
+/* 목성행성 포지션 - 중앙중심회전 */
+#jupiter .pos{
+    position: absolute;    
+    /* calc() 계산으로 정중앙이동 */
+    top: calc(50% - var(--jsz)/2);
+    left: calc(50% - var(--jsz)/2);
+    width: var(--jsz);
+    height: var(--jsz);
+/* 애니메이션 : 이시이지반방마 */
+animation: jupiter 30s linear infinite;
+}
+
+/* 목성회전 키프레임 */
+@keyframes jupiter {
+    from{
+        transform: rotate(0deg) translateX(-500px) rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg) translateX(-500px) rotate(-360deg);
+    }
+} /* 목성회전 키프레임 */
+
+
+/* 목성행성 셋팅 */
+#jupiter .planet{
+    background-image: url(../images/jupiter.png);
+}
 /************** 토성행성 셋팅 **************/
+
 /************** 명왕성행성 셋팅 **************/
 
