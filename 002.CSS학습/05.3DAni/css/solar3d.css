@@ -71,6 +71,15 @@ body{
     bottom: 0;
     right: 0;
 
+    /* 3D 변형을 위한 셋팅은 부모박스에서 설정 */
+    transform-style: preserve-3d;
+    /* 기본값은 flat(2D) */
+
+    /* x축 기준으로 기울임 */
+    transform: rotateX(75deg);
+    /* 전체 화면 뒤쪽으로 기울어짐
+    x축 중앙선 기준으로 상단은 화면뒤
+    하단은 화면앞으로 나옴! */
 
 
 }
@@ -79,7 +88,11 @@ body{
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    /* 태양이 태양계박스(#solar)와 함께
+    75도 누워 있으므로 x축으로 75도
+    반대방향으로 세워줘야 태양이 똑바로
+    보인다! 트랜스폼은 한군데 모두 셋팅함! */
+    transform: translate(-50%, -50%) rotateX(-75deg);
     /* 박스 정중앙이동 */
 
     width: var(--sunsz);
@@ -138,6 +151,12 @@ body{
     /* 배경공통 */
     background-repeat: no-repeat;
     background-size: 100% 100%;
+
+    /* 행성의 부모가 기울었으므로 반대로 세워줌! */
+    transform: rotateY(-75deg) scale(3);
+    /* 이미 행성이 회전하고 있는데 2가지 회전으로
+    축반전(x/y축이 뒤바뀐효과)이 생겨서 
+    x축이 아니라 y축을 세워야함! */
 }
 
 /************** 지구행성 셋팅 **************/
