@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Solar System</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            background: url(images/space.jpg) no-repeat 0/cover;
+            overflow: hidden;
+            /*넘치는 자식요소 숨기기*/
+        }
+
+        #galaxy {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        /*궤도*/
+        .orbit {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /*
+            border: 2px solid yellow;
+            border-radius: 50%;
+*/
+        }
+
+        /*지구*/
+        #earth {
+            width: 500px;
+            height: 500px;
+        }
+
+        .pos {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80px;
+            height: 80px;
+        }
+
+        .planet {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 80px;
+            height: 80px;
+            background: url(images/earth.png) no-repeat 0/100% 100%;
+            border-radius: 50%;
+
+            /*내부그림자를 이용한 행성의 그림자 변화를
+            애니메이션으로 만들자!*/
+
+            /* 
+                box-shadow 속성에 inset을 쓰면
+                그림자가 박스 내부에 생긴다!
+
+                box-shadow: inset x축 y축 blur 그림자색;
+             */
+            /* box-shadow: inset 19px 0px 6px rgba(0,0,0,.7); */
+            box-shadow: inset 18px 2px 5px rgba(0, 0, 0, 0.748);
+
+            /* 애니메이션: 이시이지반방마 */
+            animation: shadowAni 10s linear infinite;
+           
+        }
+
+        /* 그림자애니 키프레임 */
+        @keyframes shadowAni {
+            0%{
+                box-shadow: inset 18px 2px 5px rgba(0, 0, 0, 0.748);
+            }
+            25%{
+                box-shadow: inset 3px 19px 5px rgba(0, 0, 0, 0.748);
+            }
+            50%{
+                box-shadow: inset -20px 4px 5px rgba(0, 0, 0, 0.748);
+            }
+            75%{
+                box-shadow: inset -7px -58px 10px rgba(0, 0, 0, 0.748);
+            }
+            100%{
+                box-shadow: inset 18px 2px 5px rgba(0, 0, 0, 0.748);
+            }
+        } /* 키프레임 */
+
+      
+    </style>
+</head>
+
+<body>
+
+
+    <div id="galaxy">
+
+
+        <!--지구-->
+        <div id="earth" class="orbit">
+            <div class="pos">
+                <div class="planet"></div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
+
+</body>
+
+</html>
