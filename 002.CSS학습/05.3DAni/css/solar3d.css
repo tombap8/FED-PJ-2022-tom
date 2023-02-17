@@ -124,4 +124,21 @@ body{
     border-radius: 50%;
     
 }
+/* 행성 클래스 */
+.planet{
+    position: absolute;
+    /* 부모는? .pos */
+    top: 0;
+    left: 0;
+    /* 행성크기에 맞춤! */
+    width: 100%;
+    height: 100%;
+    /* 원 */
+    border-radius: 50%;
+    /* 배경공통 */
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+
 
