@@ -76,9 +76,11 @@ body{
     /* 지구크기 */
     --esz: 80px;
     /* 달크기 */
-    --esz: 40px;
+    --msz: 40px;
     /* 목성크기 */
     --jsz: 150px;
+    /* 토성크기 */
+    --ssz: 160px;
     /* 명왕성크기 */
     --psz: 50px;
 }
@@ -123,14 +125,14 @@ body{
 #moon{
     position: absolute;
     /* calc() 계산으로 정중앙이동 */
-    top: calc(50% - var(--esz)/2);
-    left: calc(50% - var(--esz)/2);
-    width: var(--esz);
-    height: var(--esz);
+    top: calc(50% - var(--msz)/2);
+    left: calc(50% - var(--msz)/2);
+    width: var(--msz);
+    height: var(--msz);
     background: url(../images/moon.png) no-repeat 0/100% 100%;
 
     /* 애니메이션 : 이시이지반방마 */
-    animation: moon 6s linear infinite;
+    animation: moon 4s linear infinite;
 }
 
 /* 달회전 키프레임 */
@@ -166,6 +168,39 @@ body{
         transform: rotate(360deg) translateX(400px) rotate(-360deg);
     }
 } /* 목성회전 키프레임 */
+
+/* 토성 */
+#saturn{
+    position: absolute;
+    /* calc() 계산으로 정중앙이동 */
+    top: calc(50% - var(--ssz)/2);
+    left: calc(50% - var(--ssz)/2);
+    width: var(--ssz);
+    height: var(--ssz);
+
+    /* 애니메이션 : 이시이지반방마 */
+    animation: saturn 45s linear infinite;
+}
+/* 가상요소로 토성이미지 배경으로 넣기 */
+#saturn::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -30%;
+    width: 160%;
+    height: 100%;
+    background: url(../images/saturn.png) no-repeat 0/100% 100%;
+}
+
+/* 토성회전 키프레임 */
+@keyframes saturn {
+    from{
+        transform: rotate(0deg) translateY(-460px) rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg) translateY(-460px) rotate(-360deg);
+    }
+} /* 토성회전 키프레임 */
 
 /* 명왕성 */
 #pluto{
