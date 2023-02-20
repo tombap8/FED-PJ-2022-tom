@@ -1,0 +1,51 @@
+@charset "utf-8";
+/* CGV PJ 미디어쿼리 CSS - media.css */
+
+/************* 1330px 이하 사이즈 시작 *************/
+@media screen and (max-width: 1330px) {
+    /* 1-2.GNB메뉴 */
+    .gnb {
+        right: 69px;
+    }
+}
+/************* 1330px 이하 사이즈 종료 *************/
+
+/************* 1050px 이하 사이즈 시작 *************/
+@media screen and (max-width: 1050px) {
+    /* 1-2.GNB메뉴 */
+    .gnb {
+        bottom: -123px;
+        right: 23px;
+        padding-top: 16px;
+    }
+    /* ul박스 */
+    .gnb ul {
+        flex-direction: column;
+        align-items: flex-end;
+        display: none;/* 처음에 안나옴! */
+    }
+    /* GNB오버시 ul보이기 */
+    .gnb:hover ul{
+        display: flex;
+        /* 보이게할때 원래 셋팅된 display로 돌아감!(중요!) */
+    }
+    /* 영사기박스 */
+    #cam {
+        bottom: 131px;
+        right: -7px;
+        z-index: 0;/* -1을 복귀함! */
+    }
+    /* 서브메뉴 오버시 안나오게함!
+    -> 방법2가지
+    1) hover설정 덮어쓰기
+    2) 원소스에 미디어쿼리로 감싸주기(min-width설정) */
+    .gnb ul>li:hover .smenu {
+        display: none;
+    }
+}
+/************* 1050px 이하 사이즈 종료 *************/
+
+/************* 1330px 이하 사이즈 시작 *************/
+@media screen and (max-width: 1330px) {
+}
+/************* 1330px 이하 사이즈 종료 *************/
