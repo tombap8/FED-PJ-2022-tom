@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CGV에 오신것을 환영합니다!</title>
+        <link rel="shortcut icon" type="image/x-icon" href="./images/logo_cgv.png" />
+        <!-- 폰트어썸 -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+        <!-- 메인페이지 외부CSS -->
+        <link rel="stylesheet" href="./css/main.css" />
+        <!-- 메인 미디어쿼리 CSS : main.css하단위치 중요! -->
+        <link rel="stylesheet" href="./css/media.css">
+
+        <!-- 자바스크립트 코드구역 : 인터널방식 -->
+        <script>
+            // JS 한줄주석
+            /* JS 여러줄주석 */
+
+            // JS코드구역 /////////////////
+
+            // JS는 만나는 즉시 실행함!
+            // alert("나야나!");
+
+            // 바로실행하지 않고 내가 호출하면
+            // 코드를 실행하도록 코드저장구역만들기 -> 함수(function)
+            // 함수작성폼:
+            // function 이름(전달변수){코드}
+            function 멍멍(먹이) {
+                // 전달변수 - 값이 내부로전달!
+                // 변수는 메모리공간의 이름
+
+                // 전달값 확인
+                // alert(먹이);
+
+                // JS는 철저히 대소문자 구분함!!!
+                // 전체문서객체 : document
+                // 가져와요소아이디이름으로() :
+                // -> getElementById(아이디명)
+                // -> src 선택된 요소의 src속성
+                document.getElementById("ifr").src = "https://www.youtube.com/embed/" + 먹이 + "?autoplay=1";
+            } //////// 멍멍함수 ///////////////////
+        </script>
+
+        <!-- 자바스크립트 코드 외부파일 호출 : 익스터널방식 -->
+        <script src="./js/main.js"></script>
+    </head>
+    <body>
+        <!-- 1.상단영역 -->
+        <div id="top">
+            <header class="top ibx">
+                <!-- 1-1.로고 -->
+                <h1 class="tit">CGV 예고편 상영관</h1>
+                <!-- 1-2.GNB메뉴 -->
+                <nav class="gnb">
+                    <ul>
+                        <li>
+                            <a href="#">영화</a>
+                            <!-- 서브메뉴 -->
+                            <div class="smenu">
+                                <ol>
+                                    <li>
+                                        <a href="#">무비차트</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">HD 트레일러</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">무비파인더</a>
+                                    </li>
+                                    <li class="bdt">
+                                        <a href="#">CGV아트하우스</a>
+                                    </li>
+                                </ol>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#">예매</a>
+                            <!-- 서브메뉴 -->
+                            <div class="smenu">
+                                <ol>
+                                    <li>
+                                        <a href="#">빠른예매</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">상영시간표</a>
+                                    </li>
+                                </ol>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#">극장</a>
+                            <!-- 서브메뉴 -->
+                            <div class="smenu">
+                                <ol>
+                                    <li>
+                                        <a href="#">CGV 극장</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">특별관</a>
+                                    </li>
+                                    <li class="bdt">
+                                        <a href="#">CLUB 서비스</a>
+                                    </li>
+                                </ol>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#">이벤트&amp;컬처</a>
+                            <!-- 서브메뉴 -->
+                            <div class="smenu">
+                                <ol>
+                                    <li>
+                                        <a href="#">이벤트</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">기프트샵</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">매거진</a>
+                                    </li>
+                                </ol>
+                            </div>
+                        </li>
+                    </ul>
+                    <!-- 영사기박스 -->
+                    <aside id="cam">
+                        <!-- 영사기이미지 -->
+                        <img src="./images/gnb.png" alt="영사기" />
+                        <!-- 빔박스 -->
+                        <div class="beam"></div>
+                    </aside>
+                </nav>
+                <!-- 1-3.찾아오는길 애니박스 -->
+                <aside class="anibx" title="구글지도보기 클릭!">
+                    <!-- 타이틀(커튼가림막) -->
+                    <span>극장가는 길</span>
+                    <!-- 샐애니박스 -->
+                    <div class="cellAni">
+                        <!-- 3-1.걷는존 -->
+                        <div class="spani1">
+                            <span class="ir">걷는존</span>
+                        </div>
+
+                        <!-- 3-2.꼬마 -->
+                        <div class="spani2">
+                            <span class="ir">손흔드는 꼬마</span>
+                        </div>
+
+                        <!-- 3-3.몬스터 -->
+                        <div class="spani3">
+                            <span class="ir">머리흔드는 몬스터</span>
+                        </div>
+                    </div>
+                    <!-- .screen -->
+                </aside>
+            </header>
+        </div>
+        <!-- 2.메인영역 -->
+        <div id="cont">
+            <main class="cont ibx">
+                <!-- 2-1. 스크린 -->
+                <div class="screen">
+                    <!-- 유튜브 아이프레임 -->
+                    <iframe id="ifr" src="https://www.youtube.com/embed/i1sqO5r3i3w?autoplay=1&mute=1&loop=1&playlist=i1sqO5r3i3w" allow="autoplay"></iframe>
+                    <!-- allow="autoplay"는 유튜브
+                    동영상 요청시 자동재생의 필수다! 
+                    
+                    [ 유튜브 동영상 고유 아이디는? ]
+                    URL주소의 embed/ 뒤의 코드값
+
+                    -> 일반 웹 주소일때
+                    https://www.youtube.com/watch?v=유튜브고유ID
+                -->
+
+                    <!-- 
+                    [iframe 요소 : inline frame]
+                    - 다른 페이지를 삽입하는 요소
+                    - src속성 : 필수속성으로 경로를 지정
+                    - 프레임보더가 있음
+                    (border:none으로 없앰)
+                    - 디자인은 css에서 컨트롤 권고
+
+                    [ 유튜브 동영상 호출시 파라미터사용 ]
+
+                    동영상옵션을 GET방식으로 키=값 넘기기
+                    -> 유튜브 본사에서 지정함!
+
+                    형식: 유튜브url?키=값&키=값&...
+                    -> GET방식 데이터 전송폼
+
+                    중요옵션
+                    1. 자동재생 : autoplay=1
+                    2. 소리없음 : mute=1
+                    -> 자동재생시 소리없음해야 자동재생됨!
+                    (이유: 소리있고 자동재생했던 시절
+                    심장마비로 죽는 사고가 많이 발생!
+                    그래서 법적으로 자동재생은 소리가 
+                    없어야허용-> video태그도 동일!)
+                    3. 반복설정 : loop=1
+                    4. 반복재생리스트 : playlist=동영상ID
+                    -> 반복설정시 반복재생리스트도 같이씀!
+                 -->
+                </div>
+
+                <!-- 2-2.예고편 선택메뉴 -->
+                <nav class="mlist">
+                    <ul>
+                        <li>
+                            <!-- 
+                            [ 이벤트 속성 ]
+                            1. 모든 요소에 이미 이벤트 속성이 있다!
+                            on+이벤트명
+                            ex) click이벤트 -> onclick
+                            2. 이벤트 속성의 값은 JS문법 구역이다!
+                            -> 쌍따옴표 안에 쓰는 값이 JS코드구역임!
+                         -->
+                            <!-- <a href="#" 
+                        onclick="
+                        document.getElementById('ifr').src='https://www.youtube.com/embed/mI9oyFMUlfg?autoplay=1'
+                        "> -->
+
+                            <a href="#" onclick="멍멍('mI9oyFMUlfg')">
+                                <img src="./images/m1.jpg" alt="닥터스트레인져1" />
+                                <!-- 영화정보 -->
+                                <ol class="movtxt">
+                                    <li>닥터스트레인지2</li>
+                                    <li>베네딕트 컴버배치</li>
+                                    <li>액션, 판타지, 모험</li>
+                                </ol>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="멍멍('DSEfRVqjbFA')">
+                                <img src="./images/m2.jpg" alt="쥬라기월드:도미니언" />
+                                <!-- 영화정보 -->
+                                <ol class="movtxt">
+                                    <li>쥬라기월드:도미니언</li>
+                                    <li>크리스 프랫</li>
+                                    <li>액션, 모험</li>
+                                </ol>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="멍멍('DpVAb7Bi5UQ')">
+                                <img src="./images/m3.jpg" alt="브로커" />
+                                <!-- 영화정보 -->
+                                <ol class="movtxt">
+                                    <li>브로커</li>
+                                    <li>송강호, 강동원</li>
+                                    <li>드라마</li>
+                                </ol>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="멍멍('aw9j_23nORs')">
+                                <img src="./images/m4.jpg" alt="범죄도시2" />
+                                <!-- 영화정보 -->
+                                <ol class="movtxt">
+                                    <li>범죄도시2</li>
+                                    <li>마동석, 손석구</li>
+                                    <li>범죄, 액션</li>
+                                </ol>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="멍멍('ELuQ4sMp4yw')">
+                                <img src="./images/m5.jpg" alt="몬스터싱어" />
+                                <!-- 영화정보 -->
+                                <ol class="movtxt">
+                                    <li>몬스터싱어</li>
+                                    <li>바네사 파라디</li>
+                                    <li>애니메이션</li>
+                                </ol>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="멍멍('W7edvITC9g4')">
+                                <img src="./images/m6.jpg" alt="스파이더맨:노웨이홈" />
+                                <!-- 영화정보 -->
+                                <ol class="movtxt">
+                                    <li>스파이더맨:노웨이홈</li>
+                                    <li>톰 홀랜드</li>
+                                    <li>액션,모험</li>
+                                </ol>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </main>
+        </div>
+        <!-- 3.하단영역 -->
+        <div id="info">
+            <footer class="info ibx">
+                <!-- 3-1.로고 -->
+                <div class="logo">
+                    <img src="./images/blogo.png" alt="하단로고" />
+                </div>
+                <!-- 3-2.회사정보 -->
+                <div class="corp">
+                    <address>
+                        (04377)서울특별시 용산구 한강대로 23길 55, 아이파크몰 6층(한강로동) <br />
+                        대표이사 : 최병환사업자등록번호 : 104-81-45690통신판매업신고번호 : 2017-서울용산-0662 <br />
+                        개인정보보호 책임자 : 정종민대표이메일 : cjcgvmaster@cj.netCGV고객센터 : 1544-1122
+                    </address>
+                </div>
+                <!-- 3-3.SNS -->
+                <div class="sns">
+                    <ol>
+                        <li>
+                            <a href="#" class="fa-brands fa-square-facebook">
+                                <span class="ir"> 페이스북 바로가기 </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="fa-brands fa-square-twitter">
+                                <span class="ir"> 트위터 바로가기 </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="fa-brands fa-square-instagram">
+                                <span class="ir"> 인스타그램 바로가기 </span>
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </footer>
+        </div>
+
+
+        <!-- 구글맵 박스 -->
+        <div class="gmap">
+            <!-- 구글맵 아이프레임 -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d12659.130380094013!2d127.02288788033431!3d37.51304544594271!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1zQ0dWIOqwleuCqA!5e0!3m2!1sko!2skr!4v1676261008392!5m2!1sko!2skr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <!-- 닫기버튼 -->
+            <button class="cbtn">×</button>
+        </div>
+
+        <!-- 
+            [ 구글맵 소스 가져오기 ]
+            1. 구글맵 사이트로 이동하여 원하는 위치를
+            검색한다.(https://www.google.com/maps)
+            2. 왼쪽 햄버거 버튼을 클릭하여
+            "지도공유 또는 퍼가기"메뉴를 클릭한다.
+            3. "공유"별창의 "지도퍼가기"탭을 선택후
+            HTML복사 버튼을 클릭하여 소스를 카피한다.
+            4. 자신의 지도넣을 요소의 내부에 붙여넣기한다.
+         -->
+
+
+    </body>
+</html>
