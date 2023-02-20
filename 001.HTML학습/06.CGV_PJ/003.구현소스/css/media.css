@@ -56,7 +56,7 @@
         margin-right: 0;
     }
     /* 3-2.회사정보 */
-    .corp address{
+    .corp address {
         text-align: center;
     }
     /* 3-3.SNS */
@@ -70,7 +70,7 @@
 /************* 800px 이하 사이즈 시작 *************/
 @media screen and (max-width: 800px) {
     /* 메인 타이틀 */
-    .tit{
+    .tit {
         font-size: 8.7vw;
     }
     /* 선택메뉴 ul */
@@ -106,10 +106,17 @@
         width: 70%;
     }
     /* 극장가는길 애니박스 없앰! */
-    .anibx{
+    .anibx {
         display: none;
     }
 
-    /*  */
+    /* 영화정보박스 */
+    .movtxt {
+        font-size: 3vw;
+    }
+    /* 영화정보박스 제목만 변경 */
+    .movtxt li:first-child {
+        font-size: 3.3vw;
+    }
 }
 /************* 800px 이하 사이즈 종료 *************/
