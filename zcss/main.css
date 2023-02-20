@@ -49,6 +49,11 @@ ol {
     color: lightseagreen;
 }
 
+.part small a{
+    color: pink;
+    font-size: 20px;
+}
+
 /************** GNB메뉴 **************/
 /* GNB박스 width 크기를 주고 마영오! */
 .gnb {
