@@ -71,7 +71,7 @@
 @media screen and (max-width: 800px) {
     /* 메인 타이틀 */
     .tit {
-        font-size: 8.7vw;
+        font-size: min(40px,8.7vw);
     }
     /* 선택메뉴 ul */
     .mlist ul {
