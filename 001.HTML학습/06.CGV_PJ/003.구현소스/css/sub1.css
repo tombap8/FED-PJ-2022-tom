@@ -1,0 +1,63 @@
+@charset "utf-8";
+/* 서브페이지 CSS */
+
+
+h1,
+.btns,
+.show {
+    text-align: center;
+}
+button {
+    font-size: 30px;
+}
+
+.minfo {
+    display: flex;
+    /* 자식요소 박스 옆으로 흐르게! */
+    /* outline: 1px solid red; */
+    width: 500px;
+    margin: 0 auto;
+}
+
+.wrap {
+    /* 플렉스박스 */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+.cbx {
+    margin: 10px;
+    padding: 10px;
+    border: 4px double gray;
+    border-radius: 10px;
+}
+
+.photo img {
+    height: 200px;
+    margin-right: 20px;
+}
+
+/* 영화한마디 글자박스 */
+.showtit {
+    /* display: none; */
+    text-align: center;
+}
+
+.show span {
+    display: inline-block;
+    /* 가로,세로 등 디자인 적용+한줄에 나옴 */
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    /* 원 */
+    border: 2px solid #d30000;
+    background-color: #00f;
+    font-size: 20px;
+    color: #fff;
+
+    /* 동그라미 박스 정중앙 */
+    text-align: center;
+    line-height: 30px;
+    text-align: center;
+}
