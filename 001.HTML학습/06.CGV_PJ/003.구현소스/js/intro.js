@@ -27,11 +27,16 @@ function loadFn(){
     myvid.addEventListener("timeupdate",chkVid);
 
     function chkVid(){
-        console.log("재생중?", myvid.paused);
+        console.log("멈춤?", myvid.paused);
         // 비디오가 멈추면 재생끝이므로
         // 비디오 멈춤상태 체크함!
         // paused 속성은 멈추면 true/ 아니면 false리턴
         // 주의: 비디오가 loop면 안된다!
+
+        // 멈춤상태가 true 이면 메인페이지로 이동!
+        if(myvid.paused){
+            location.href = "main.html";
+        } ////////// if ////////////////
 
     } ////// chkVid 함수 ///////////
 
