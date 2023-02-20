@@ -69,6 +69,10 @@
 
 /************* 800px 이하 사이즈 시작 *************/
 @media screen and (max-width: 800px) {
+    /* 메인 타이틀 */
+    .tit{
+        font-size: 8.7vw;
+    }
     /* 선택메뉴 ul */
     .mlist ul {
         flex-wrap: wrap;
@@ -101,5 +105,11 @@
         bottom: 0.4%;
         width: 70%;
     }
+    /* 극장가는길 애니박스 없앰! */
+    .anibx{
+        display: none;
+    }
+
+    /*  */
 }
 /************* 800px 이하 사이즈 종료 *************/
