@@ -1,0 +1,155 @@
+@charset "utf-8";
+/* 쇼핑몰 PJ 메인 CSS - main.css  */
+
+html,
+body {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+img {
+    border: none;
+}
+
+/*링크걸린 이미지 테두리 없앰*/
+
+
+ul,
+ol {
+    /*3무*/
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+
+
+/**************************************/
+
+
+#container {
+    /*최상위부모*/
+    position: relative;
+    width: 1381px;
+    margin: 0px auto;
+}
+
+#container>header {
+    position: relative;
+    width: 100%;
+    height: 222px;
+}
+
+#container>section {
+    /*슬라이드부모*/
+    position: relative;
+    width: 913px;
+    height: 564px;
+    float: left;
+    overflow: hidden;
+    /*넘치는 자식요소 숨기기*/
+    /*    border: 2px solid red;*/
+    box-sizing: border-box;
+}
+
+#slide {
+    display: flex;
+    /* 플렉스박스!!! */
+
+    /*사진을 싸고 있는 슬라이드*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#slide li {
+    flex-shrink: 0;
+    /* 부모박스크기만큼 줄어들지 않음 -> 0 */
+    flex-basis: 100%;
+    /* 가로크기를 부모박스 크기에 맞춤! */
+    /* height 값은 flex박스 자식요소에서
+    등분할시 자동 100%임! */
+}
+
+#slide li img {
+    /*이미지는 박스에 맞춤!*/
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* 이미지 비율유지 채우기! */
+}
+
+/*이동버튼*/
+.abtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    /*Y축 중앙이동*/
+}
+
+/*왼쪽버튼*/
+.ab1 {
+    left: 50px;
+}
+
+/*오른쪽버튼*/
+.ab2 {
+    right: 50px;
+}
+
+/*블릿버튼*/
+.indic {
+    display: flex;
+    /* 플렉스박스 */
+    position: absolute;
+    bottom: 50px;
+    left: 80px;
+}
+
+.indic li {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.indic li img {
+    position: absolute;
+    /*이미지 겹치게*/
+}
+
+.indic li img:last-child {
+    /*회색이미지만 투명하게*/
+    opacity: 0;
+}
+
+/*회색블릿이미지가 보이게하는 class*/
+.indic li.on img:last-child {
+    /*회색이미지만 투명하게*/
+    opacity: 1;
+    /*우선적용!*/
+}
+
+#container>aside {
+    position: relative;
+    width: 467px;
+    height: 564px;
+    float: left;
+}
+
+#container>footer {
+    position: relative;
+    width: 100%;
+    height: 80px;
+    background-color: #ccc;
+    clear: both;
+    /*float해제*/
+    font-size: 9px;
+    color: #fff;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 10px;
+}

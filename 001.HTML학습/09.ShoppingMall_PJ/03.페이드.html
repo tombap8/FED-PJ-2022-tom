@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>03. 페이드효과 배너 슬라이드</title>
+    <link rel="stylesheet" href="css/main.css">
+    <!-- 외부JS삽입 -->
+    <script src="js/main3.js"></script>
+    <style>
+        /* 슬라이드 변경 */
+        #slide{
+            display: block;
+        }
+        #slide li{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            /* 모든 슬라이드 겹치기 */
+
+            /* 모두 투명하게함! */
+            opacity: 0;
+            /* 트랜지션: 속시이지 */
+            transition: opacity .6s ease-in-out;
+        }
+        /* 슬라이드 li에 클래스 on을 줄경우 보임! */
+        #slide li.on{
+            opacity: 1;
+            z-index: 1;
+        }
+
+        /* 양쪽이동버튼+블릿박스 z-index위로! */
+        .abtn,.indic {
+            z-index: 1;
+            /* 나중것이 위에~! */
+        }
+
+    </style>
+</head>
+
+<body>
+    <section id="container">
+        <!--탑영역-->
+        <header><img src="images/index_01.jpg" width="1381" height="222" alt="메뉴"></header>
+        <!--슬라이드 배너 영역-->
+        <section>
+            <!--슬라이드-->
+            <ul id="slide">
+                <li class="on"><img src="images/slide01.jpg" alt="slide"></li>
+                <li><img src="images/slide02.jpg" alt="slide"></li>
+                <li><img src="images/slide03.jpg" alt="slide"></li>
+                <li><img src="images/slide04.jpg" alt="slide"></li>
+                <li><img src="images/slide05.jpg" alt="slide"></li>
+            </ul>
+            <!--이동버튼-->
+            <a href="#" class="abtn ab1"><img src="images/left_btn.png" alt="왼쪽이동버튼"></a>
+            <a href="#" class="abtn ab2"><img src="images/right_btn.png" alt="오른쪽이동버튼"></a>
+
+            <!--블릿버튼-->
+            <ol class="indic">
+                <li class="on">
+                    <img src="images/dot1.png" alt="흰색">
+                    <img src="images/dot2.png" alt="회색">
+                </li>
+                <li>
+                    <img src="images/dot1.png" alt="흰색">
+                    <img src="images/dot2.png" alt="회색">
+                </li>
+                <li>
+                    <img src="images/dot1.png" alt="흰색">
+                    <img src="images/dot2.png" alt="회색">
+                </li>
+                <li>
+                    <img src="images/dot1.png" alt="흰색">
+                    <img src="images/dot2.png" alt="회색">
+                </li>
+                <li>
+                    <img src="images/dot1.png" alt="흰색">
+                    <img src="images/dot2.png" alt="회색">
+                </li>
+            </ol>
+
+
+        </section>
+        <!--사이드 영역-->
+        <aside><img src="images/index_03.jpg" width="467" height="564" alt="03"></aside>
+        <!--하단영역-->
+        <footer>
+            대표이사. So Hee Kim │ Business License. 130-86-24632 │ Mail-order Licenst. 제2014-서울마포-0835호 │ Personal info manager. Mi Ryung Oh [사업자정보확인]<br>
+
+            Company. ㈜bebe │ Tel. 0502-707-8888 │ Fax. 02-335-5274 │ E-mail. nanda@stylenanda.com │ Address. 서울특별시 마포구 잔다리로 32 서문빌딩 2,3,4,6F<br>
+
+            ⓒ 2017 NANDA All rights reserved. │ 개인정보취급방침 │ Terms of use │ Hosting by cafe24
+
+        </footer>
+    </section>
+</body></html>
