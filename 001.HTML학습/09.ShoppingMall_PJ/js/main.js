@@ -39,45 +39,43 @@ window.addEventListener("DOMContentLoaded", loadFn);
 function loadFn() {
     console.log("로딩완료!");
 
-    
     // 슬라이드 li리스트
     let slist = document.querySelectorAll("#slide>li");
 
     // 잘라내기로 li순번이 뒤섞이므로 블릿변경 매칭을 위한
     // 고유순번을 사용자정의 속성(data-)으로 만들어준다!
-    slist.forEach((ele,idx)=>{
+    slist.forEach((ele, idx) => {
         // data-seq 라는 사용자정의 속성 넣기
-        ele.setAttribute("data-seq",idx);
+        ele.setAttribute("data-seq", idx);
     }); ////// forEach /////////////////
 
     // 1. 대상선정
     // 1-1. 이벤트 대상: .abtn
     const abtn = document.querySelectorAll(".abtn");
-    
+
     // 1-2. 변경 대상: #slide
     const slide = document.querySelector("#slide");
-    
+
     // 1-3. 블릿 대상: .indic li
     const indic = document.querySelectorAll(".indic li");
     console.log(indic);
 
     // 광클금지변수 : 0 - 허용, 1 - 불허용
-    let prot = 0; 
+    let prot = 0;
 
     // 2. 슬라이드 변경함수 만들기
     // 호출시 seq에 들어오는 값중 1은 오른쪽, 0은 왼쪽
     const goSlide = (seq) => {
-        console.log("슬고우!",seq);
+        console.log("슬고우!", seq);
 
         console.log("못들어갔어!!!!");
 
         // 광클금지 설정하기 //////
-        if(prot) return;
+        if (prot) return;
         prot = 1; // 잠금!
         setTimeout(() => {
             prot = 0; // 해제!
         }, 400); /// 0.4초후 해제! ///
-
 
         console.log("나,들어왔어!!!");
 
@@ -87,16 +85,16 @@ function loadFn() {
 
         // 1. 방향에 따른 분기
         // 1-1. 오른쪽버튼 클릭시 ////////////////
-        if(seq){            
+        if (seq) {
             console.log("오른!");
             // (1) 오른쪽 버튼 클릭시 다음 슬라이드가
             //     나타나도록 슬라이드 박스의 left값을
             //     -100%로 변경시킨다.
             slide.style.left = "-100%";
             slide.style.transition = "left .4s ease-in-out";
-    
+
             // (2) 슬라이드 이동후!!! (0.4초후)
-            setTimeout(()=>{
+            setTimeout(() => {
                 // (2-1) 바깥에 나가있는 첫번째 슬라이드
                 //       li를 잘라서 맨뒤로 보낸다!
                 slide.appendChild(clist[0]);
@@ -104,22 +102,20 @@ function loadFn() {
                 slide.style.left = "0";
                 // (2-3) 트랜지션 없애기!
                 slide.style.transition = "none";
-            },400); //// 타임아웃 //////
-
+            }, 400); //// 타임아웃 //////
         } //////////// if : 오른쪽클릭시 //////
 
         // 1-2. 왼쪽버튼 클릭시 //////////////
-        else{
+        else {
             console.log("왼쪽!");
-
 
             // (1) 왼쪽버튼 클릭시 이전 슬라이드가
             // 나타나도록 하기위해 우선 맨뒤 li를
             // 맨앞으로 이동한다.
-            // slide.insertBefore(넣을놈,넣을놈전놈) 
-            // slide.insertBefore(맨끝li,맨앞li) 
-            slide.insertBefore(clist[clist.length-1],clist[0]);
-            
+            // slide.insertBefore(넣을놈,넣을놈전놈)
+            // slide.insertBefore(맨끝li,맨앞li)
+            slide.insertBefore(clist[clist.length - 1], clist[0]);
+
             // (2) 동시에 left값을 -100%로 변경한다.
             slide.style.left = "-100%";
             // 이때 트랜지션을 없앤다(한번실행후 부터 생기므로!)
@@ -133,14 +129,7 @@ function loadFn() {
             setTimeout(() => {
                 slide.style.left = "0";
                 slide.style.transition = "left .4s ease-in-out";
-                
             }, 0); ////// 타임아웃 /////////
-
-            /* 
-            
-            */
-
-
         } //////////// else : 왼쪽클릭시 //////
 
         // 2. 현재 슬라이드 순번과 같은 블릿표시하기
@@ -152,16 +141,14 @@ function loadFn() {
         // seq순번과 읽어올 슬라이드 순번이 일치한다!
 
         // 2-2.방향별 읽어올 슬라이드 순번으로 "data-seq"값 읽어오기
-        let cseq = clist[seq].getAttribute("data-seq")
-        console.log("현재순번:",cseq);
+        let cseq = clist[seq].getAttribute("data-seq");
+        console.log("현재순번:", cseq);
 
         // 2-3. 블릿초기화
-        for(let x of indic) x.classList.remove("on");
+        for (let x of indic) x.classList.remove("on");
 
         // 2-4. 읽어온 슬라이드 순번의 블릿에 클래스 "on"넣기
-        indic[cseq].classList.add("on")
-
-
+        indic[cseq].classList.add("on");
     }; ////////// goSlide함수 ///////////
 
     // 3. 대상에 이벤트 설정하기
