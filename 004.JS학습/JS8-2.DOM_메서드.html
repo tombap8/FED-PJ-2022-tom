@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <title>JS8-1. DOM(Document Object Model)</title>
+        <script>
+            //////////// 로드구역 ///////////////////////////
+            window.addEventListener("DOMContentLoaded", function () {
+                // 로드구역 확인
+                console.log("로딩완료!");
+
+                ////////////////////////////////////////////////////////
+                //// #div01의 각 메뉴에 마우스 오버시 하위메뉴 보이기 ////
+                ////////////////////////////////////////////////////////
+
+                /******************************************************** 
+                    [ 선택요소의 현재 크기, 위치값 알아오는 JS속성 ]
+                    1. 선택요소.offsetWidth : 가로값
+                    2. 선택요소.offsetHeight : 높이값
+                    3. 선택요소.offsetTop : top 위치값
+                    4. 선택요소.offsetLeft : left 위치값            
+                ********************************************************/
+
+                /////////////////////////////////////////////////////////
+                // #div01의 서브메뉴 a요소를 클릭하면 해당주소로 새창열기 //
+                /////////////////////////////////////////////////////////
+
+                /************************************************** 
+                
+                    [ 요소의 생성, 삭제, 이동하기 ]
+
+                    1. 맨뒤 생성 혹은 맨뒤 이동
+                    -> 선택요소.appendChild(요소)
+
+                    2. 특정위치에 요소 넣기 혹은 이동
+                    -> 선택요소.insertBefore(넣을놈,넣을놈전놈)
+
+                    3. 요소의 삭제
+                    -> 선택요소.remove()
+
+                    4. 새로운 요소 생성 (메모리상에 생성함)
+                    -> document.createElement(태그명)
+
+                    5. 요소에 새로운 속성넣기 (메모리상에 생성함)
+                    -> document.createAttribute(속성명)
+
+                    6. 생성된 속성에 값넣기
+                    -> 생성된속성.value = 값
+
+                    7. 요소의 새로운 속성 넣기
+                    -> 선택요소.setAttributeNode(새로운속성)
+
+                **************************************************/
+
+                ////////////////////////////////////////////
+                //// DOM 요소 제어 및 조작하기 //////////////
+                ////////////////////////////////////////////
+
+                /////////////////////////////////////////////
+                // 새리스트 생성 버튼 클릭시 리스트 만들기 ////
+                // 이벤트 종류: click
+                // 이벤트 대상: .nbt
+                // 변경 대상: #div02 ul -> ctg 변수에 할당!
+                /////////////////////////////////////////////
+
+                ///////////////////////////////////////////////
+                ///// 최초 리스트의 li를 클릭하면 지우기 셋팅! //
+                ///////////////////////////////////////////////
+
+                // 이벤트: click
+                // 이벤트대상: #div02 ul li
+                // 변경대상: 이벤트대상
+                // 변경내용: 삭제 셋팅하기
+                /////////////////////////////////////////////
+
+                ///// 맨앞요소를 맨뒤로 이동하기 ////////////////////
+                // 이벤트 종류: click
+                // 이벤트 대상: .mvl
+                // 변경 대상1: #div02 ul li
+                //          (매번 새로 갱신해야 함-리스트가 바뀌니까!)
+                // 변경 대상2: #div02 ul -> ctg 변수에 할당!
+                //          (부모ul에서 자식추가해야함!)
+                // 변경 내용: 첫번째 li를 선택하여 맨뒤로 추가함
+                // 사용 메서드: appendChild(요소)
+                // -> 기존요소를 선택하면 이동이 됨!
+                /////////////////////////////////////////////////
+
+                /// 맨뒤요소 맨앞으로 이동하기 ///////////////////////
+                // 이벤트 종류: click
+                // 이벤트 대상: .mvf
+                // 변경대상1: #div02 ul li(마지막요소 선택-매번 갱신)
+                // 변경대상2: #div02 ul -> ctg 변수에 할당!
+                //          (리스트의 부모에서 이동명령!)
+                // 사용 메서드: insertBefore(넣을놈,넣을놈전놈)
+                // 넣을놈 - 마지막 li요소
+                // 넣을놈전놈 - 맨처음 li요소
+                //////////////////////////////////////////////////
+
+                /************************************************* 
+                    ※ appendChild() 와 insertBefore()는 대상을
+                    정하는 것에 따라 중간에 적용할 수 있다!
+                *************************************************/
+            }); ///////// 로드구역 //////////////////////////////////////
+            //////////////////////////////////////////////////////////
+        </script>
+        <style>
+            .wrap{
+                display: flex;
+                width: 600px;
+                height: 600px;
+                margin: 0 auto;
+                padding: 15px;
+                border: 4px dotted lightseagreen;
+            }
+            .wrap > div {
+                outline: 1px solid red;
+                width: 300px;
+                vertical-align: top;
+                /*인라인블록은 인라인성격이 있어서 기본 옆으로 세로정렬은
+            baseline이므로 아래쪽선을 기준한다. 이것을 위줄 기준변경함*/
+            }
+
+
+
+            div img {
+                width: 50px;
+            }
+
+            /*서브메뉴 숨기기*/
+            .smenu > div {
+                height: 0;
+                overflow: hidden;
+            }
+
+            #div02 {
+                width: 600px;
+                padding: 10px;
+            }
+
+            #div02 ul {
+                display: flex;
+                /* 플렉스 박스 */
+                flex-wrap: wrap;
+
+                margin: 0;
+                padding: 10px;
+                list-style: none;
+                text-align: center;
+            }
+
+            #div02 ul li {
+                padding: 10px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="wrap">
+            <div id="div01">
+                마우스오버시 <br />
+                1. 서브메뉴 보이기 <br />
+                2. 링크이동하기
+                <ul>
+                    <li class="smenu">
+                        <a href="#">검색포털사이트</a>
+                        <div>
+                            <ol>
+                                <li><a href="#">Google</a></li>
+                                <li><a href="#">Naver</a></li>
+                                <li><a href="#">Daum</a></li>
+                                <li><a href="#">Nate</a></li>
+                            </ol>
+                        </div>
+                    </li>
+                    <li class="smenu">
+                        <a href="#">통신사사이트</a>
+                        <div>
+                            <ol>
+                                <li><a href="#">SK</a></li>
+                                <li><a href="#">KT</a></li>
+                                <li><a href="#">Uplus</a></li>
+                            </ol>
+                        </div>
+                    </li>
+                    <li class="smenu">
+                        <a href="#">영화관사이트</a>
+                        <div>
+                            <ol>
+                                <li><a href="#">CGV</a></li>
+                                <li><a href="#">MEGABOX</a></li>
+                                <li><a href="#">LOTTE CINEMA</a></li>
+                            </ol>
+                        </div>
+                    </li>
+                    <li class="smenu">
+                        <a href="#">쇼핑몰사이트</a>
+                        <div>
+                            <ol>
+                                <li><a href="#">GMARKET</a></li>
+                                <li><a href="#">11번가</a></li>
+                                <li><a href="#">Auction</a></li>
+                                <li><a href="#">스토어팜</a></li>
+                                <li><a href="#">인터파크</a></li>
+                                <li><a href="#">쿠팡</a></li>
+                            </ol>
+                        </div>
+                    </li>
+                    <li class="smenu">
+                        <a href="#">스마트폰사이트</a>
+                        <div>
+                            <ol>
+                                <li><a href="#">Apple</a></li>
+                                <li><a href="#">Samsung</a></li>
+                            </ol>
+                        </div>
+                    </li>
+                    <li class="smenu">
+                        <a href="#">게임사이트</a>
+                        <div>
+                            <ol>
+                                <li><a href="#">넷마블</a></li>
+                                <li><a href="#">넥슨</a></li>
+                                <li><a href="#">IMC</a></li>
+                            </ol>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div id="div02">
+                <h2>요소의 생성,삭제,이동하기</h2>
+                <button class="nbt">새리스트생성</button> <br /><br />
+                <button class="mvl">맨뒤이동</button> <br /><br />
+                <button class="mvf">맨앞이동</button>
+                <ul>
+                    <li>
+                        <img src="images/ab1.jpg" alt="아이언맨" title="아이언맨" />
+                    </li>
+                    <li>
+                        <img src="images/ab2.jpg" alt="딱딱이" title="딱딱이" />
+                    </li>
+                    <li><img src="images/ab3.jpg" alt="토르" title="토르" /></li>
+                    <li><img src="images/ab4.jpg" alt="닥스" title="닥스" /></li>
+                    <li>
+                        <img src="images/ab5.jpg" alt="스타로드" title="스타로드" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>
