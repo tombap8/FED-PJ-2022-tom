@@ -15,13 +15,36 @@
                 // 1. 대상선정: .smenu
                 const smenu = document.querySelectorAll(".smenu");
 
-                console.log(smenu);
+                // console.log(smenu);
 
-                // 2. 이벤트 설정하기
-                // for(let i=0;i<smenu.length;i++)
+                // 2. 이벤트 설정하기 : mouseover / mouseout
+                // for(let i=0;i<smenu.length;i++){}
                 // for of 문
-                for(let x of smenu){
+                for (let x of smenu) {
+                    // x는 각 요소
 
+                    // 1. 마우스 오버시 /////////////
+                    x.onmouseover = () => {
+                        // 1. 대상: 하위 직계 div요소
+                        let tg = x.querySelector("div");
+
+                        // 2. 대상의 높이값 알아오기
+                        let hv = tg.querySelector("ol").offsetHeight;
+                        // console.log("ol높이값:",hv);
+
+                        // 3. 서브메뉴 열리기 : 높이값+보정값
+                        tg.style.height = hv + 10 + "px";
+                        tg.style.transition = "height .4s ease-out";
+                    }; /////////// mouseover ///////////////
+
+                    // 2. 마우스 아웃시 /////////////
+                    x.onmouseout = () => {
+                        // 1. 대상: 하위 직계 div요소
+                        let tg = x.querySelector("div");
+
+                        // 2. 서브메뉴 닫기
+                        tg.style.height = "0px";
+                    }; /////////// mouseout ///////////////
                 } //////////// for of //////////////
 
                 /******************************************************** 
@@ -35,6 +58,102 @@
                 /////////////////////////////////////////////////////////
                 // #div01의 서브메뉴 a요소를 클릭하면 해당주소로 새창열기 //
                 /////////////////////////////////////////////////////////
+                // 1. 대상선정: .smenu ol a
+                const link = document.querySelectorAll(".smenu ol a");
+                // console.log(link);
+
+                // 2. 이벤트설정하기
+                link.forEach((ele) => {
+                    // 1. 이벤트 셋팅하기
+                    ele.onclick = () => {
+                        // 0. a요소 기본이동막기
+                        event.preventDefault();
+
+                        // 1. 클릭된요소 텍스트 읽어오기
+                        let atxt = ele.innerText;
+                        // console.log(atxt);
+
+                        // 이동할 주소 변수
+                        let url;
+
+                        // 2. 이동주소 할당하기
+                        // switch case문 분기하기
+                        switch (atxt) {
+                            case "Google":
+                                url = "http://www.google.com";
+                                break;
+                            case "Naver":
+                                url = "http://www.naver.com";
+                                break;
+                            case "Daum":
+                                url = "http://www.daum.net";
+                                break;
+                            case "Nate":
+                                url = "http://www.nate.com";
+                                break;
+                            case "SK":
+                                url = "http://www.sktelecom.com";
+                                break;
+                            case "KT":
+                                url = "http://www.kt.com";
+                                break;
+                            case "Uplus":
+                                url = "http://www.uplus.co.kr";
+                                break;
+                            case "CGV":
+                                url = "http://www.cgv.co.kr";
+                                break;
+                            case "MEGABOX":
+                                url = "http://www.megabox.co.kr";
+                                break;
+                            case "LOTTE CINEMA":
+                                url = "https://www.lottecinema.co.kr/NLCHS";
+                                break;
+                            case "GMARKET":
+                                url = "http://www.gmarket.co.kr";
+                                break;
+                            case "11번가":
+                                url = "http://www.11st.co.kr";
+                                break;
+                            case "Auction":
+                                url = "http://www.auction.co.kr";
+                                break;
+                            case "스토어팜":
+                                url = "https://shopping.naver.com/";
+                                break;
+                            case "인터파크":
+                                url = "http://www.interpark.co.kr";
+                                break;
+                            case "쿠팡":
+                                url = "http://www.coopang.co.kr";
+                                break;
+                            case "Apple":
+                                url = "http://www.apple.com";
+                                break;
+                            case "Samsung":
+                                url = "http://www.samsung.com";
+                                break;
+                            case "넷마블":
+                                url = "http://www.netmarble.net";
+                                break;
+                            case "넥슨":
+                                url = "https://www.nexon.com";
+                                break;
+                            case "IMC":
+                                url = "http://www.imc.co.kr";
+                                break;
+                        } /////// switch case //////
+
+                        // console.log("URL:",url);
+
+                        // 3. 페이지 이동하기
+                        // 새창: window.open()
+                        // 페이지이동: location.href = 이동주소
+                        window.open().location.href = url;
+
+
+                    }; ///////// click ////////////
+                }); /////////// forEach //////////////
 
                 /************************************************** 
                 
@@ -115,7 +234,7 @@
             //////////////////////////////////////////////////////////
         </script>
         <style>
-            .wrap{
+            .wrap {
                 display: flex;
                 width: 600px;
                 min-height: 600px;
@@ -127,8 +246,6 @@
                 outline: 1px solid red;
                 width: 300px;
             }
-
-
 
             div img {
                 width: 50px;
