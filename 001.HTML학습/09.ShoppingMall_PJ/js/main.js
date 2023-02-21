@@ -158,9 +158,6 @@ function loadFn() {
         indic[cseq].classList.add("on")
 
 
-
-
-
     }; ////////// goSlide함수 ///////////
 
     // 3. 대상에 이벤트 설정하기
