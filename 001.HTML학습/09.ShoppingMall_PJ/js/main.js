@@ -56,6 +56,10 @@ function loadFn() {
     const goSlide = (seq) => {
         console.log("슬고우!",seq);
 
+        // 0. 현재의 슬라이드 li수집하기
+        let clist = slide.querySelectorAll("li");
+        // clist -> current list 현재 리스트
+
         // 1. 방향에 따른 분기
         // 1-1. 오른쪽버튼 클릭시 ////////////////
         if(seq){            
@@ -70,20 +74,42 @@ function loadFn() {
             setTimeout(()=>{
                 // (2-1) 바깥에 나가있는 첫번째 슬라이드
                 //       li를 잘라서 맨뒤로 보낸다!
-                slide.appendChild(
-                    slide.querySelectorAll("li")[0]
-                );
+                slide.appendChild(clist[0]);
                 // (2-2) 동시에 left값을 0으로 변경한다!
                 slide.style.left = "0";
                 // (2-3) 트랜지션 없애기!
                 slide.style.transition = "none";
             },400); //// 타임아웃 //////
 
-        }
-        // 1-2. 왼쪽버튼 클릭시: seq===0일때
+        } //////////// if : 오른쪽클릭시 //////
+
+        // 1-2. 왼쪽버튼 클릭시 //////////////
         else{
             console.log("왼쪽!");
-        }
+
+
+            // (1) 왼쪽버튼 클릭시 이전 슬라이드가
+            // 나타나도록 하기위해 우선 맨뒤 li를
+            // 맨앞으로 이동한다.
+            // slide.insertBefore(넣을놈,넣을놈전놈) 
+            // slide.insertBefore(맨끝li,맨앞li) 
+            slide.insertBefore(clist[clist.length-1],clist[0]);
+            
+            // (2) 동시에 left값을 -100%로 변경한다.
+            slide.style.left = "-100%";
+
+            // (3) 그 후 left값을 0으로 애니메이션하여
+            // 슬라이드가 왼쪽에서 들어온다.
+            // 동일 속성인 left가 같은 코딩처리 공간에 동시에
+            // 있으므로 이것을 분리해야 효과가 있다!
+            // setTimeout을 사용한다!
+            setTimeout(() => {
+                slide.style.left = "0";
+                slide.style.transition = "left .4s ease-in-out";
+                
+            }, 0); ////// 타임아웃 /////////
+
+        } //////////// else : 왼쪽클릭시 //////
 
 
     }; ////////// goSlide함수 ///////////
