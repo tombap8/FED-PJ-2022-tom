@@ -8,12 +8,12 @@ cs
 높이
 - clientHeight : padding을 포함한 높이
 - scrollHeight : padding을 포함한 화면 상에 표시되지 않은 콘텐츠를 포함한 높이
-- offsetHeight : border, padding, 스크롤 바를 포함한 높이
+- offsetHeight : border, padding, 스크롤 바트랙을 포함한 높이
 
 너비
 - clientWidth : padding을 포함한 폭
 - scrollWidth : padding을 포함한 화면 상에 표시되지 않은 콘텐츠를 포함한 폭
-- offsetWidth : border, padding, 스크롤 바를 포함한 폭
+- offsetWidth : border, padding, 스크롤 바트랙을 포함한 폭
 
 
 윈도우 사이즈

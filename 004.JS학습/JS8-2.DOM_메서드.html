@@ -12,6 +12,17 @@
                 ////////////////////////////////////////////////////////
                 //// #div01의 각 메뉴에 마우스 오버시 하위메뉴 보이기 ////
                 ////////////////////////////////////////////////////////
+                // 1. 대상선정: .smenu
+                const smenu = document.querySelectorAll(".smenu");
+
+                console.log(smenu);
+
+                // 2. 이벤트 설정하기
+                // for(let i=0;i<smenu.length;i++)
+                // for of 문
+                for(let x of smenu){
+
+                } //////////// for of //////////////
 
                 /******************************************************** 
                     [ 선택요소의 현재 크기, 위치값 알아오는 JS속성 ]
@@ -107,7 +118,7 @@
             .wrap{
                 display: flex;
                 width: 600px;
-                height: 600px;
+                min-height: 600px;
                 margin: 0 auto;
                 padding: 15px;
                 border: 4px dotted lightseagreen;
@@ -115,9 +126,6 @@
             .wrap > div {
                 outline: 1px solid red;
                 width: 300px;
-                vertical-align: top;
-                /*인라인블록은 인라인성격이 있어서 기본 옆으로 세로정렬은
-            baseline이므로 아래쪽선을 기준한다. 이것을 위줄 기준변경함*/
             }
 
 
