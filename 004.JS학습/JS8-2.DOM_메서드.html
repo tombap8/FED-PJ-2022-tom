@@ -153,8 +153,6 @@
 
                         window.open(url);
                         // url만 값을 사용하면 새탭 새창열기됨!
-
-
                     }; ///////// click ////////////
                 }); /////////// forEach //////////////
 
@@ -205,7 +203,7 @@
                 let inum = 1;
 
                 // 순번에 따른이름 배열변수
-                const cname = ["아이언맨","딱딱이","토르","닥스","스타로드"];
+                const cname = ["아이언맨", "딱딱이", "토르", "닥스", "스타로드"];
 
                 // 클릭이벤트 설정하기 ///////
                 nbt.onclick = () => {
@@ -217,30 +215,26 @@
                     // createElement() 는 메모리상에 생성
 
                     // 3. 메모리상에 생성된 li에 이미지 넣기
-                    ne.innerHTML = 
-                    `<img src="images/ab${inum}.jpg" alt="${cname[inum-1]}">`;
+                    ne.innerHTML = `<img src="images/ab${inum}.jpg" alt="${cname[inum - 1]}">`;
 
                     // 4. 새로운 li요소에 title속성 셋팅하기
                     ne.querySelector("img").title = 
-                    `${cname[inum-1]+(inum===1?"을":"를")} 
-                    클릭하시면 삭제됩니다!`;
+                    `${cname[inum - 1] + (inum === 1 ? "을" : "를")}  클릭하시면 삭제됩니다!`;
                     // inum이 1이면 "아이언맨" -> 조사가 "을" 나머지는 "를"
 
-
-                    // 다음번호를 업데이트하기 ///
-                    inum++;
-                    if(inum===6) inum=1;//한계수체크
-
-
                     // 5. 새로운 li클릭시 지우기 셋팅
+                    ne.onclick = () => ne.remove();
+                    // remove() -> 선택요소 삭제!
 
                     // 6. 변경대상(ctg변수)에 새로운 li 맨뒤에 추가!
                     // appendChild(요소) -> 맨뒤에 요소추가!
                     ctg.appendChild(ne);
 
+                    // 7. 다음번호를 업데이트하기 ///
+                    inum++;
+                    if (inum === 6) inum = 1; //한계수체크
+
                 }; /////////// click ///////////////
-
-
 
                 ///////////////////////////////////////////////
                 ///// 최초 리스트의 li를 클릭하면 지우기 셋팅! //
@@ -251,6 +245,25 @@
                 // 변경대상: 이벤트대상
                 // 변경내용: 삭제 셋팅하기
                 /////////////////////////////////////////////
+                // 대상선정: #div02 ul li
+                const deltg = document.querySelectorAll("#div02 ul li");
+                console.log(deltg);
+
+                // 대상에 클릭이벤트 설정하기
+                for(let x of deltg){
+                    // 1. 대상 내부의 이미지요소
+                    let ximg = x.querySelector("img");
+
+                    // 2. 내부이미지에 title속성 변경하기
+                    ximg.title = 
+                    `${ximg.alt + 
+                        (ximg.alt === "아이언맨" ? "을" : "를")}  클릭하시면 삭제됩니다!`;
+                    // alt값이 "아이언맨" -> 조사가 "을" 나머지는 "를"
+
+                    // 3. 기존 li에 클릭시 지우기 셋팅
+                    x.onclick = () => x.remove();
+
+                } ////////// for of ///////////
 
                 ///// 맨앞요소를 맨뒤로 이동하기 ////////////////////
                 // 이벤트 종류: click
