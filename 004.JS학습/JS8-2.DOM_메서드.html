@@ -307,7 +307,32 @@
                 //////////////////////////////////////////////////
                 // 대상선정: .mvf
                 const mvf = document.querySelector(".mvf");
-                console.log(mvf);
+                // console.log(mvf);
+
+                // 대상에 이벤트 설정하기 ////////
+                mvf.onclick = () => {
+                    // 1. 호출확인
+                    // console.log("맨앞으로가~!");
+
+                    // 2. 이동대상: 변수 ctg 아래 li요소들
+                    let eles = ctg.querySelectorAll("li");
+
+                    // 3. 맨앞으로 이동하기
+                    // -> insertBefore(넣을놈,넣을놈전놈)
+                    // insertBefore(맨뒤li,맨앞li)
+                    ctg.insertBefore(eles[eles.length-1],eles[0]);
+                    // 맨뒤li -> eles[마지막번호]
+                    // 맨뒤li -> eles[개수-1]
+                    // 맨앞li -> eles[0]
+                    // ※ 배열과 컬렉션의 마지막순번은 항상[개수-1]이다!
+
+                }; //////////// click //////////////
+
+
+
+
+                // 이벤트 메모리에 별도로 등록됨(중복등록가능)
+                // mvf.addEventListener("click",()=>{})
 
                 /************************************************* 
                     ※ appendChild() 와 insertBefore()는 대상을
