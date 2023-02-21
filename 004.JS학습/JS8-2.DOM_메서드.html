@@ -218,8 +218,7 @@
                     ne.innerHTML = `<img src="images/ab${inum}.jpg" alt="${cname[inum - 1]}">`;
 
                     // 4. 새로운 li요소에 title속성 셋팅하기
-                    ne.querySelector("img").title = 
-                    `${cname[inum - 1] + (inum === 1 ? "을" : "를")}  클릭하시면 삭제됩니다!`;
+                    ne.querySelector("img").title = `${cname[inum - 1] + (inum === 1 ? "을" : "를")}  클릭하시면 삭제됩니다!`;
                     // inum이 1이면 "아이언맨" -> 조사가 "을" 나머지는 "를"
 
                     // 5. 새로운 li클릭시 지우기 셋팅
@@ -233,7 +232,6 @@
                     // 7. 다음번호를 업데이트하기 ///
                     inum++;
                     if (inum === 6) inum = 1; //한계수체크
-
                 }; /////////// click ///////////////
 
                 ///////////////////////////////////////////////
@@ -250,19 +248,16 @@
                 // console.log(deltg);
 
                 // 대상에 클릭이벤트 설정하기
-                for(let x of deltg){
+                for (let x of deltg) {
                     // 1. 대상 내부의 이미지요소
                     let ximg = x.querySelector("img");
 
                     // 2. 내부이미지에 title속성 변경하기
-                    ximg.title = 
-                    `${ximg.alt + 
-                        (ximg.alt === "아이언맨" ? "을" : "를")}  클릭하시면 삭제됩니다!`;
+                    ximg.title = `${ximg.alt + (ximg.alt === "아이언맨" ? "을" : "를")}  클릭하시면 삭제됩니다!`;
                     // alt값이 "아이언맨" -> 조사가 "을" 나머지는 "를"
 
                     // 3. 기존 li에 클릭시 지우기 셋팅
                     x.onclick = () => x.remove();
-
                 } ////////// for of ///////////
 
                 ///// 맨앞요소를 맨뒤로 이동하기 ////////////////////
@@ -283,16 +278,15 @@
                 /// 대상에 클릭이벤트 설정하기 ///////
                 mvl.onclick = () => {
                     // 1. 호출확인
-                     console.log("맨뒤로가~!");
+                    console.log("맨뒤로가~!");
 
-                     // 2. 이동할 대상선정: 대상ul 하위의 첫번째 li
-                     let fele = ctg.querySelectorAll("li")[0];
-                     // fele -> first element (첫번째요소)
+                    // 2. 이동할 대상선정: 대상ul 하위의 첫번째 li
+                    let fele = ctg.querySelectorAll("li")[0];
+                    // fele -> first element (첫번째요소)
 
-                     // 3. 맨뒤로 이동 : appendChild(요소)
-                     // 기존요소를 선택하면 맨뒤로 이동됨!
-                     ctg.appendChild(fele);
-
+                    // 3. 맨뒤로 이동 : appendChild(요소)
+                    // 기존요소를 선택하면 맨뒤로 이동됨!
+                    ctg.appendChild(fele);
                 }; ///////////// click /////////////
 
                 /// 맨뒤요소 맨앞으로 이동하기 ///////////////////////
@@ -320,16 +314,12 @@
                     // 3. 맨앞으로 이동하기
                     // -> insertBefore(넣을놈,넣을놈전놈)
                     // insertBefore(맨뒤li,맨앞li)
-                    ctg.insertBefore(eles[eles.length-1],eles[0]);
+                    ctg.insertBefore(eles[eles.length - 1], eles[0]);
                     // 맨뒤li -> eles[마지막번호]
                     // 맨뒤li -> eles[개수-1]
                     // 맨앞li -> eles[0]
                     // ※ 배열과 컬렉션의 마지막순번은 항상[개수-1]이다!
-
                 }; //////////// click //////////////
-
-
-
 
                 // 이벤트 메모리에 별도로 등록됨(중복등록가능)
                 // mvf.addEventListener("click",()=>{})
