@@ -247,7 +247,7 @@
                 /////////////////////////////////////////////
                 // 대상선정: #div02 ul li
                 const deltg = document.querySelectorAll("#div02 ul li");
-                console.log(deltg);
+                // console.log(deltg);
 
                 // 대상에 클릭이벤트 설정하기
                 for(let x of deltg){
@@ -276,6 +276,24 @@
                 // 사용 메서드: appendChild(요소)
                 // -> 기존요소를 선택하면 이동이 됨!
                 /////////////////////////////////////////////////
+                // 대상선정: .mvl
+                const mvl = document.querySelector(".mvl");
+                // console.log(mvl);
+
+                /// 대상에 클릭이벤트 설정하기 ///////
+                mvl.onclick = () => {
+                    // 1. 호출확인
+                     console.log("맨뒤로가~!");
+
+                     // 2. 이동할 대상선정: 대상ul 하위의 첫번째 li
+                     let fele = ctg.querySelectorAll("li")[0];
+                     // fele -> first element (첫번째요소)
+
+                     // 3. 맨뒤로 이동 : appendChild(요소)
+                     // 기존요소를 선택하면 맨뒤로 이동됨!
+                     ctg.appendChild(fele);
+
+                }; ///////////// click /////////////
 
                 /// 맨뒤요소 맨앞으로 이동하기 ///////////////////////
                 // 이벤트 종류: click
