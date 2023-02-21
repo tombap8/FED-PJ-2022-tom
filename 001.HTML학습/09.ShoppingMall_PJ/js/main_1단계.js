@@ -39,7 +39,8 @@ window.addEventListener("DOMContentLoaded", loadFn);
 function loadFn() {
     console.log("로딩완료!");
 
-    
+    // 슬라이드번호 변수
+    let snum = 0;
     // 슬라이드 개수
     let scnt = document.querySelectorAll("#slide>li").length;
     console.log("슬개수:",scnt);
@@ -57,35 +58,30 @@ function loadFn() {
         console.log("슬고우!",seq);
 
         // 1. 방향에 따른 분기
-        // 1-1. 오른쪽버튼 클릭시 ////////////////
-        if(seq){            
-            console.log("오른!");
-            // (1) 오른쪽 버튼 클릭시 다음 슬라이드가
-            //     나타나도록 슬라이드 박스의 left값을
-            //     -100%로 변경시킨다.
-            slide.style.left = "-100%";
-            slide.style.transition = "left .4s ease-in-out";
-    
-            // (2) 슬라이드 이동후!!! (0.4초후)
-            setTimeout(()=>{
-                // (2-1) 바깥에 나가있는 첫번째 슬라이드
-                //       li를 잘라서 맨뒤로 보낸다!
-                slide.appendChild(
-                    slide.querySelectorAll("li")[0]
-                );
-                // (2-2) 동시에 left값을 0으로 변경한다!
-                slide.style.left = "0";
-                // (2-3) 트랜지션 없애기!
-                slide.style.transition = "none";
-            },400); //// 타임아웃 //////
+        // 1-1. 오른쪽버튼 클릭시: seq===1일때
+        if(seq){
+            // 슬라이드번호 증가!
+            snum++;
+            console.log("오른!",snum);
 
         }
         // 1-2. 왼쪽버튼 클릭시: seq===0일때
         else{
-            console.log("왼쪽!");
+            // 슬라이드번호 감소!
+            snum--;
+            console.log("왼쪽!",snum);
         }
 
+        // 2. 한계값 체크 : 
+        // 처음이전->끝
+        if(snum===-1) snum = scnt-1;
+        //끝다음->처음
+        else if(snum === scnt) snum = 0;
 
+        // 3. 이동하기
+        // 이동대상: slide변수
+        slide.style.left = (snum*-100)+"%";
+        slide.style.transition = "left .4s ease-in-out";
     }; ////////// goSlide함수 ///////////
 
     // 3. 대상에 이벤트 설정하기
