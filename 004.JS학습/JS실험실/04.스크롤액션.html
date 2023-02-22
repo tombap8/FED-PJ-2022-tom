@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>JS실험실 : 04.스크롤액션</title>
+        <script>
+            ////// 로드구역 //////////
+            window.addEventListener("DOMContentLoaded", () => {
+
+                // 스크롤 이동시 윈도우에 세로스크롤 위치값 찍기
+                // 대상: window
+                // 이벤트: scroll
+                window.addEventListener("scroll",()=>{
+                    // 스크롤시 스크롤 위치값  찍기
+                    // => window.scrollY
+                    let scTop = window.scrollY;
+                    console.log(scTop);
+                }); /////////// scroll ////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+
+                // 구현내용: 글자를 박스에 넣고 하나씩 날아오면서 등장
+                // 1.대상선정: .stage
+                const stage = document.querySelector(".stage");
+                // console.log(stage);
+
+                // 2.데이터 변수할당
+                const mytxt = "신카이 마코토";
+
+                // 3.데이터글자 한글자씩 태그싸기
+                // for of문사용!
+
+                let hcode = ""; // 코드저장변수
+                let idx = 0; // 순번변수
+
+                for (let x of mytxt) {
+                    // 띄어쓰기일 경우 특수문자처리!
+                    if (x === " ") x = "&nbsp;&nbsp;&nbsp";
+                    // 코드만들어 변수에 대입연산자로 넣기!
+                    hcode += `<span style="transition-delay: ${idx * 0.1}s">
+                    ${x}</span>`;
+
+                    // 순번변수증가
+                    idx++;
+                } //////////// for of ////////////
+
+                // console.log(hcode);
+
+                // 4. 스테이지 박스에 글자넣기
+                stage.innerHTML = hcode;
+
+                // 5. 일정시간후 스테이지박스에 클래스 "on"주고 애니작동!
+                setTimeout(() => {
+                    stage.classList.add("on");                    
+                }, 2000);
+
+
+            }); ////////////// 로드구역 /////////////////////
+        </script>
+        <style>
+            /* 웹폰트 */
+            @import url("https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap");
+            body {
+                height: 350vh;
+                background-image: linear-gradient(to bottom, lightcoral, lightgreen, lightblue);
+            }
+            .tit {
+                position: fixed;
+                top: 0;
+                width: 100%;
+                font-family: "Nanum Brush Script", cursive;
+                margin: 0;
+                padding: 3vh;
+                text-align: center;
+                font-size: 10vh;
+                z-index: 1;
+                text-shadow: 0 0 20px #ff0;
+            }
+            /* 스크롤액션박스 */
+            .scact {
+                position: absolute;
+                top: 80vh;
+                right: 5vw;
+                width: 30vw;
+                height: 49vw;
+                border: 1px solid #000;
+                background-color: lightblue;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+            }
+
+            /* 스크롤등장박스1 */
+            .sa1 {
+                background-image: url(https://file.mk.co.kr/meet/neds/2016/12/image_readtop_2016_867027_14817626712716670.jpg);
+            }
+
+            /* 스크롤등장박스2 */
+            .sa2 {
+                top: 150vh;
+                background-image: url(https://upload.wikimedia.org/wikipedia/ko/thumb/f/f5/%EB%82%A0%EC%94%A8%EC%9D%98_%EC%95%84%EC%9D%B4.tif/lossless-page1-1200px-%EB%82%A0%EC%94%A8%EC%9D%98_%EC%95%84%EC%9D%B4.tif.png);
+                right: auto;
+                left: 5vw;
+            }
+
+            /* 스크롤등장박스3 */
+            .sa3 {
+                top: 220vh;
+                background-image: url(http://www.ccoart.com/news/photo/202301/3855_8223_1250.jpg);
+            }
+
+            /* 스크롤등장 초기화 클래스 */
+            .setit {
+                /* transform: translateY(20%);
+                opacity: 0; */
+                transition: all 1.2s ease-in-out;
+            }
+            /* 스크롤등장 클래스 .setit + .on */
+            .setit.on {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+
+            /* 글자개별박스 셋팅 */
+            .stage span {
+                /* 트랜스폼 적용위해 */
+                display: inline-block;
+                /* 현재위치로 부터 이동 */
+                transform: translate(500%, -300%);
+                /* 투명도 0 */
+                opacity: 0;
+                /* 트랜지션: 속시이지 */
+                transition: 0.3s ease-in;
+            }
+            /* 
+        -> 개별 지연시간을 JS에서 셋업한다!
+        .stage span:nth-child(3){   
+            transition-delay: 2
+ } */
+            /* 스테이지로 들어오기 */
+            .stage.on span {
+                transform: translate(0, 0);
+                opacity: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 class="tit stage"></h1>
+        <div class="scact sa1 setit"></div>
+        <div class="scact sa2 setit"></div>
+        <div class="scact sa3 setit"></div>
+    </body>
+</html>
