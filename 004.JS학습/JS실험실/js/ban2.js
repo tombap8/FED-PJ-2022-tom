@@ -51,17 +51,7 @@ window.addEventListener("DOMContentLoaded", loadFn);
 function loadFn() {
     console.log("로딩완료!");
 
-    // 슬라이드 li리스트
-    let slist = document.querySelectorAll("#slide>li");
-
-    // 잘라내기로 li순번이 뒤섞이므로 블릿변경 매칭을 위한
-    // 고유순번을 사용자정의 속성(data-)으로 만들어준다!
-    slist.forEach((ele, idx) => {
-        // data-seq 라는 사용자정의 속성 넣기
-        ele.setAttribute("data-seq", idx);
-    }); ////// forEach /////////////////
-
-    // 1. 대상선정
+    // 1. 대상선정 //////////////////////////
     // 1-1. 이벤트 대상: .abtn
     const abtn = document.querySelectorAll(".abtn");
 
@@ -71,6 +61,34 @@ function loadFn() {
     // 1-3. 블릿 대상: .indic li
     const indic = document.querySelectorAll(".indic li");
     console.log(indic);
+
+    // 1-4. 슬라이드 li리스트
+    let slist = document.querySelectorAll("#slide>li");
+
+    // [ 초기화1 - 순번붙이기 ] ///////////////////
+    // 잘라내기로 li순번이 뒤섞이므로 블릿변경 매칭을 위한
+    // 고유순번을 사용자정의 속성(data-)으로 만들어준다!
+    slist.forEach((ele, idx) => {
+        // data-seq 라는 사용자정의 속성 넣기
+        ele.setAttribute("data-seq", idx);
+    }); ////// forEach /////////////////
+
+    // [ 초기화2 - 맨뒤요소 맨앞으로 이동 2번하기! ]
+    // 맨뒤 맨앞이동 함수만들기
+    const chgSeq = () => {
+        // 현재 슬라이드 li 새로읽기(2번반복시 li의 순서가 달라지기때문)
+        slist = document.querySelectorAll("#slide>li");
+        // 맨뒤 맨앞이동하기 -> 변경대상: #slide -> slide변수
+        slide.insertBefore(slist[slist.length-1],slist[0]);
+        // slide.insertBefore(넣을놈,넣을놈전놈)
+        // slide.insertBefore(마지막요소,첫요소)
+        // slide.insertBefore(slist[개수-1],slist[0]);        
+    }; ////////// chgSeq함수 ///////////
+
+    // 2번 맨뒤 맨앞이동 함수 호출하기!!!
+    for(let i=0;i<2;i++) chgSeq();
+
+    
 
     // 광클금지변수 : 0 - 허용, 1 - 불허용
     let prot = 0;
@@ -167,6 +185,7 @@ function loadFn() {
         clist = slide.querySelectorAll("li");
         // !!!!! 오른쪽이든 왼쪽이든 먼저 잘라내기 때문에 
         // 순번은 3번째로 일치함!!!!!!
+        // console.log("다시수집:",clist);
 
         // 2-2.방향별 읽어올 슬라이드 순번으로 "data-seq"값 읽어오기
         // 세번째 슬라이드가 주인공이니까 0,1,2 즉 2번을 쓰면됨!!!
