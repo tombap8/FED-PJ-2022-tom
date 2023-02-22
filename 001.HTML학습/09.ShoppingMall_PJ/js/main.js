@@ -66,9 +66,9 @@ function loadFn() {
     // 2. 슬라이드 변경함수 만들기
     // 호출시 seq에 들어오는 값중 1은 오른쪽, 0은 왼쪽
     const goSlide = (seq) => {
-        console.log("슬고우!", seq);
+        //  console.log("슬고우!", seq);
 
-        console.log("못들어갔어!!!!");
+        //  console.log("못들어갔어!!!!");
 
         // 광클금지 설정하기 //////
         if (prot) return;
@@ -77,7 +77,7 @@ function loadFn() {
             prot = 0; // 해제!
         }, 400); /// 0.4초후 해제! ///
 
-        console.log("나,들어왔어!!!");
+        //  console.log("나,들어왔어!!!");
 
         // 0. 현재의 슬라이드 li수집하기
         let clist = slide.querySelectorAll("li");
@@ -86,7 +86,7 @@ function loadFn() {
         // 1. 방향에 따른 분기
         // 1-1. 오른쪽버튼 클릭시 ////////////////
         if (seq) {
-            console.log("오른!");
+            //  console.log("오른!");
             // (1) 오른쪽 버튼 클릭시 다음 슬라이드가
             //     나타나도록 슬라이드 박스의 left값을
             //     -100%로 변경시킨다.
@@ -107,7 +107,7 @@ function loadFn() {
 
         // 1-2. 왼쪽버튼 클릭시 //////////////
         else {
-            console.log("왼쪽!");
+            //  console.log("왼쪽!");
 
             // (1) 왼쪽버튼 클릭시 이전 슬라이드가
             // 나타나도록 하기위해 우선 맨뒤 li를
@@ -142,7 +142,7 @@ function loadFn() {
 
         // 2-2.방향별 읽어올 슬라이드 순번으로 "data-seq"값 읽어오기
         let cseq = clist[seq].getAttribute("data-seq");
-        console.log("현재순번:", cseq);
+        //  console.log("현재순번:", cseq);
 
         // 2-3. 블릿초기화
         for (let x of indic) x.classList.remove("on");
@@ -151,9 +151,12 @@ function loadFn() {
         indic[cseq].classList.add("on");
     }; ////////// goSlide함수 ///////////
 
-    // 3. 대상에 이벤트 설정하기
+    // 3. 이동버튼대상에 이벤트 설정하기
     abtn.forEach((ele, idx) => {
         ele.onclick = () => {
+            // 1. 인터발지우기함수 호출!
+            clearAuto();
+            // 2. 슬라이드 함수 호출!
             goSlide(idx);
         }; ///// click함수 //////
     }); /////// forEach //////////
@@ -184,6 +187,7 @@ function loadFn() {
         기능: 인터발함수로 슬라이드함수 호출
     ************************************/
    function autoSlide(){
+        console.log("인터발시작!");
         // 인터발함수로 슬라이드함수 호출하기
         autoI = setInterval(()=>goSlide(1),3000);
    } ////////////// autoSlide함수 //////////
@@ -196,7 +200,7 @@ function loadFn() {
         기능: 인터발함수를 지우고 다시셋팅
    ************************************/
    function clearAuto(){
-
+    console.log("인터발멈춤!");
     // 1. 인터발 지우기
     clearInterval(autoI);
 
