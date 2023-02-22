@@ -165,10 +165,11 @@ function loadFn() {
         // 대상: .indic li -> indic변수
         // 2-1. 현재 배너리스트 업데이트하기
         clist = slide.querySelectorAll("li");
-        // 오른쪽이든 왼쪽이든 먼저 잘라내기 때문에 
-        // 순번은 3번째로 일치함!
+        // !!!!! 오른쪽이든 왼쪽이든 먼저 잘라내기 때문에 
+        // 순번은 3번째로 일치함!!!!!!
 
         // 2-2.방향별 읽어올 슬라이드 순번으로 "data-seq"값 읽어오기
+        // 세번째 슬라이드가 주인공이니까 0,1,2 즉 2번을 쓰면됨!!!
         let cseq = clist[2].getAttribute("data-seq");
         //  console.log("현재순번:", cseq);
 
