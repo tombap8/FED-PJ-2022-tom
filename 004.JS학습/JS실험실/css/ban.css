@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+/* JS실험실 : 03.배너스타일 CSS - ban.css */
+html,body,h1{
+    margin: 0;
+    padding: 0;
+}
+/* 페이지 클래스 */
+.page{
+    width: 100vw;
+    height: 100vh;
+}
