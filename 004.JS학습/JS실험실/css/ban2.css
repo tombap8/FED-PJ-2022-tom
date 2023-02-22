@@ -101,8 +101,18 @@ ol {
     /* height 값은 flex박스 자식요소에서
     등분할시 자동 100%임! */
     outline: 2px dashed red;
-}
 
+    /* 필터로 밝기조절(어둡게) */
+    filter: brightness(70%);
+    
+    /* 트랜지션 */
+    transition: .4s;
+}
+/* 3번째가 주인공이므로 원래밝기로 조금 크게변경! */
+#slide li:nth-child(3){
+    filter: brightness(100%);
+    transform: scale(1.2);
+}
 #slide li img {
     /*이미지는 박스에 맞춤!*/
     width: 100%;
