@@ -79,16 +79,14 @@ function loadFn() {
         // 현재 슬라이드 li 새로읽기(2번반복시 li의 순서가 달라지기때문)
         slist = document.querySelectorAll("#slide>li");
         // 맨뒤 맨앞이동하기 -> 변경대상: #slide -> slide변수
-        slide.insertBefore(slist[slist.length-1],slist[0]);
+        slide.insertBefore(slist[slist.length - 1], slist[0]);
         // slide.insertBefore(넣을놈,넣을놈전놈)
         // slide.insertBefore(마지막요소,첫요소)
-        // slide.insertBefore(slist[개수-1],slist[0]);        
+        // slide.insertBefore(slist[개수-1],slist[0]);
     }; ////////// chgSeq함수 ///////////
 
     // 2번 맨뒤 맨앞이동 함수 호출하기!!!
-    for(let i=0;i<2;i++) chgSeq();
-
-    
+    for (let i = 0; i < 2; i++) chgSeq();
 
     // 광클금지변수 : 0 - 허용, 1 - 불허용
     let prot = 0;
@@ -116,7 +114,7 @@ function loadFn() {
         // 1. 방향에 따른 분기
         // 1-1. 오른쪽버튼 클릭시 ////////////////
         if (seq) {
-             console.log("오른!");
+            console.log("오른!");
 
             // 1. 슬라이드 이동전 먼저 잘라낸다!
             // 이유: 슬라이드 순서를 왼쪽이동과 동일하게 함!
@@ -130,17 +128,16 @@ function loadFn() {
             // (1-3) 트랜지션 없애기!
             slide.style.transition = "none";
 
-            
             // (2) 오른쪽 버튼 클릭시 다음 슬라이드가
             //     나타나도록 슬라이드 박스의 left값을
             //     -220%로 변경시킨다.
 
             // [코드분리하기!] //////////////////////////
             // -> 같은속성변경을 같은 메모리공간에서 수행하면
-            // 변경효과가 없음!!! 
+            // 변경효과가 없음!!!
             setTimeout(() => {
                 slide.style.left = "-220%";
-                slide.style.transition = "left .4s ease-in-out";                
+                slide.style.transition = "left .4s ease-in-out";
             }, 1); //// 타임아웃 //////
             // 시간에 0을쓰면 인터발호출시 트랜지션이 안먹히는 에러가 있음
             // 1만써도 괜찮음~
@@ -149,13 +146,11 @@ function loadFn() {
             // 대기실행 공간인 큐(Queue)메모리공간에서 실행하므로
             // 코드가 동시에 바뀌는 것을 막아주고 의도한 대로
             // 시차실행을 가능하게 해준다!
-
-
         } //////////// if : 오른쪽클릭시 //////
 
         // 1-2. 왼쪽버튼 클릭시 //////////////
         else {
-             console.log("왼쪽!");
+            console.log("왼쪽!");
 
             // (1) 왼쪽버튼 클릭시 이전 슬라이드가
             // 나타나도록 하기위해 우선 맨뒤 li를
@@ -178,14 +173,13 @@ function loadFn() {
                 slide.style.left = "-220%";
                 slide.style.transition = "left .4s ease-in-out";
             }, 0); ////// 타임아웃 /////////
-
         } //////////// else : 왼쪽클릭시 //////
 
         // 2. 현재 슬라이드 순번과 같은 블릿표시하기
         // 대상: .indic li -> indic변수
         // 2-1. 현재 배너리스트 업데이트하기
         clist = slide.querySelectorAll("li");
-        // !!!!! 오른쪽이든 왼쪽이든 먼저 잘라내기 때문에 
+        // !!!!! 오른쪽이든 왼쪽이든 먼저 잘라내기 때문에
         // 순번은 3번째로 일치함!!!!!!
         // console.log("다시수집:",clist);
 
@@ -213,7 +207,6 @@ function loadFn() {
         }; ///// click함수 //////
     }); /////// forEach //////////
 
-
     ////////////////////////////
     // 자동넘김 설정하기 ////////
 
@@ -240,38 +233,32 @@ function loadFn() {
         함수명: autoSlide
         기능: 인터발함수로 슬라이드함수 호출
     ************************************/
-   function autoSlide(){
+    function autoSlide() {
         console.log("인터발시작!");
         // 인터발함수로 슬라이드함수 호출하기
-        autoI = setInterval(()=>goSlide(1),3000);
-   } ////////////// autoSlide함수 //////////
+        autoI = setInterval(() => goSlide(1), 3000);
+    } ////////////// autoSlide함수 //////////
 
-   // 자동넘김 최초호출!
-   autoSlide();
+    // 자동넘김 최초호출!
+    autoSlide();
 
-   /************************************ 
+    /************************************ 
         함수명: clearAuto
         기능: 인터발함수를 지우고 다시셋팅
    ************************************/
-   function clearAuto(){
-    console.log("인터발멈춤!");
-    // 1. 인터발 지우기
-    clearInterval(autoI);
+    function clearAuto() {
+        console.log("인터발멈춤!");
+        // 1. 인터발 지우기
+        clearInterval(autoI);
 
-    // 2. 타임아웃도 지우지 않으면
-    // 쌓여서 타임아웃 쓰나미실행이 발생한다!
-    clearTimeout(autoT);
+        // 2. 타임아웃도 지우지 않으면
+        // 쌓여서 타임아웃 쓰나미실행이 발생한다!
+        clearTimeout(autoT);
 
-    // 3. 잠시후 다시 작동하도록 타임아웃으로
-    // 인터발함수를 호출한다! 
-    // 5초후(인터발은 3초후, 토탈 8초후 작동시작)
-    autoT = setTimeout(autoSlide,5000);
-
-   } ///////// clearAuto 함수 /////////////
-   
-
-
-
-
+        // 3. 잠시후 다시 작동하도록 타임아웃으로
+        // 인터발함수를 호출한다!
+        // 5초후(인터발은 3초후, 토탈 8초후 작동시작)
+        autoT = setTimeout(autoSlide, 5000);
+    } ///////// clearAuto 함수 /////////////
 } //////////////// loadFn 함수 ///////////////
 /////////////////////////////////////////////
