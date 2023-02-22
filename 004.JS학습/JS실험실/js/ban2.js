@@ -116,7 +116,7 @@ function loadFn() {
         // 1. 방향에 따른 분기
         // 1-1. 오른쪽버튼 클릭시 ////////////////
         if (seq) {
-            //  console.log("오른!");
+             console.log("오른!");
 
             // 1. 슬라이드 이동전 먼저 잘라낸다!
             // 이유: 슬라이드 순서를 왼쪽이동과 동일하게 함!
@@ -141,7 +141,9 @@ function loadFn() {
             setTimeout(() => {
                 slide.style.left = "-220%";
                 slide.style.transition = "left .4s ease-in-out";                
-            }, 0); //// 타임아웃 //////
+            }, 1); //// 타임아웃 //////
+            // 시간에 0을쓰면 인터발호출시 트랜지션이 안먹히는 에러가 있음
+            // 1만써도 괜찮음~
 
             // -> 타이밍함수는 기존 함수인 스택(Stack)메모리 공간이 아닌
             // 대기실행 공간인 큐(Queue)메모리공간에서 실행하므로
@@ -153,7 +155,7 @@ function loadFn() {
 
         // 1-2. 왼쪽버튼 클릭시 //////////////
         else {
-            //  console.log("왼쪽!");
+             console.log("왼쪽!");
 
             // (1) 왼쪽버튼 클릭시 이전 슬라이드가
             // 나타나도록 하기위해 우선 맨뒤 li를
@@ -202,6 +204,8 @@ function loadFn() {
     // 3. 이동버튼대상에 이벤트 설정하기
     abtn.forEach((ele, idx) => {
         ele.onclick = () => {
+            // 0. 기본이동막기
+            event.preventDefault();
             // 1. 인터발지우기함수 호출!
             clearAuto();
             // 2. 슬라이드 함수 호출!

@@ -13,13 +13,22 @@ window.addEventListener("DOMContentLoaded", loadFn);
         (이유: 2장의 슬라이드가 앞에 나가있음. 잘라내는 것이
             숨겨져야하므로 셋팅한것임!)
 
-        (1) 오른쪽 버튼 클릭시 다음 슬라이드가
-            나타나도록 슬라이드 박스의 left값을
-            -330%로 변경시킨다.
-            -> 슬라이드 이동후!!! 
+        (1) 오른쪽 버튼 클릭시
+
+            ※ 변경된부분!!!
+            {   트랜지션 중앙 커지기를 적용한 경우이므로
+                왼쪽버튼과 같이 잘라내기를 먼저하여
+                슬라이드 주인공 순서를 일치 시킨다!!!! }
+
+            -> 슬라이드 이동전!!! 
             바깥에 나가있는 첫번째 슬라이드
             li를 잘라서 맨뒤로 보낸다!
-            동시에 left값을 -220%으로 변경한다!
+            동시에 left값을 -110%으로 변경한다!
+        
+            다음 슬라이드가
+            나타나도록 슬라이드 박스의 left값을
+            -220%로 변경시킨다.
+            
 
         (2) 왼쪽버튼 클릭시 이전 슬라이드가
             나타나도록 하기위해 우선 맨뒤 li를
@@ -42,17 +51,7 @@ window.addEventListener("DOMContentLoaded", loadFn);
 function loadFn() {
     console.log("로딩완료!");
 
-    // 슬라이드 li리스트
-    let slist = document.querySelectorAll("#slide>li");
-
-    // 잘라내기로 li순번이 뒤섞이므로 블릿변경 매칭을 위한
-    // 고유순번을 사용자정의 속성(data-)으로 만들어준다!
-    slist.forEach((ele, idx) => {
-        // data-seq 라는 사용자정의 속성 넣기
-        ele.setAttribute("data-seq", idx);
-    }); ////// forEach /////////////////
-
-    // 1. 대상선정
+    // 1. 대상선정 //////////////////////////
     // 1-1. 이벤트 대상: .abtn
     const abtn = document.querySelectorAll(".abtn");
 
@@ -62,6 +61,34 @@ function loadFn() {
     // 1-3. 블릿 대상: .indic li
     const indic = document.querySelectorAll(".indic li");
     console.log(indic);
+
+    // 1-4. 슬라이드 li리스트
+    let slist = document.querySelectorAll("#slide>li");
+
+    // [ 초기화1 - 순번붙이기 ] ///////////////////
+    // 잘라내기로 li순번이 뒤섞이므로 블릿변경 매칭을 위한
+    // 고유순번을 사용자정의 속성(data-)으로 만들어준다!
+    slist.forEach((ele, idx) => {
+        // data-seq 라는 사용자정의 속성 넣기
+        ele.setAttribute("data-seq", idx);
+    }); ////// forEach /////////////////
+
+    // [ 초기화2 - 맨뒤요소 맨앞으로 이동 2번하기! ]
+    // 맨뒤 맨앞이동 함수만들기
+    const chgSeq = () => {
+        // 현재 슬라이드 li 새로읽기(2번반복시 li의 순서가 달라지기때문)
+        slist = document.querySelectorAll("#slide>li");
+        // 맨뒤 맨앞이동하기 -> 변경대상: #slide -> slide변수
+        slide.insertBefore(slist[slist.length-1],slist[0]);
+        // slide.insertBefore(넣을놈,넣을놈전놈)
+        // slide.insertBefore(마지막요소,첫요소)
+        // slide.insertBefore(slist[개수-1],slist[0]);        
+    }; ////////// chgSeq함수 ///////////
+
+    // 2번 맨뒤 맨앞이동 함수 호출하기!!!
+    for(let i=0;i<2;i++) chgSeq();
+
+    
 
     // 광클금지변수 : 0 - 허용, 1 - 불허용
     let prot = 0;
@@ -89,28 +116,46 @@ function loadFn() {
         // 1. 방향에 따른 분기
         // 1-1. 오른쪽버튼 클릭시 ////////////////
         if (seq) {
-            //  console.log("오른!");
-            // (1) 오른쪽 버튼 클릭시 다음 슬라이드가
-            //     나타나도록 슬라이드 박스의 left값을
-            //     -330%로 변경시킨다.
-            slide.style.left = "-330%";
-            slide.style.transition = "left .4s ease-in-out";
+             console.log("오른!");
 
-            // (2) 슬라이드 이동후!!! (0.4초후)
+            // 1. 슬라이드 이동전 먼저 잘라낸다!
+            // 이유: 슬라이드 순서를 왼쪽이동과 동일하게 함!
+            // 중앙확대 트랜지션 적용시 동작이 달라지므로!
+
+            // (1-1) 바깥에 나가있는 첫번째 슬라이드
+            //       li를 잘라서 맨뒤로 보낸다!
+            slide.appendChild(clist[0]);
+            // (1-2) 동시에 left값을 -110%으로 변경한다!
+            slide.style.left = "-110%";
+            // (1-3) 트랜지션 없애기!
+            slide.style.transition = "none";
+
+            
+            // (2) 오른쪽 버튼 클릭시 다음 슬라이드가
+            //     나타나도록 슬라이드 박스의 left값을
+            //     -220%로 변경시킨다.
+
+            // [코드분리하기!] //////////////////////////
+            // -> 같은속성변경을 같은 메모리공간에서 수행하면
+            // 변경효과가 없음!!! 
             setTimeout(() => {
-                // (2-1) 바깥에 나가있는 첫번째 슬라이드
-                //       li를 잘라서 맨뒤로 보낸다!
-                slide.appendChild(clist[0]);
-                // (2-2) 동시에 left값을 -220%으로 변경한다!
                 slide.style.left = "-220%";
-                // (2-3) 트랜지션 없애기!
-                slide.style.transition = "none";
-            }, 400); //// 타임아웃 //////
+                slide.style.transition = "left .4s ease-in-out";                
+            }, 1); //// 타임아웃 //////
+            // 시간에 0을쓰면 인터발호출시 트랜지션이 안먹히는 에러가 있음
+            // 1만써도 괜찮음~
+
+            // -> 타이밍함수는 기존 함수인 스택(Stack)메모리 공간이 아닌
+            // 대기실행 공간인 큐(Queue)메모리공간에서 실행하므로
+            // 코드가 동시에 바뀌는 것을 막아주고 의도한 대로
+            // 시차실행을 가능하게 해준다!
+
+
         } //////////// if : 오른쪽클릭시 //////
 
         // 1-2. 왼쪽버튼 클릭시 //////////////
         else {
-            //  console.log("왼쪽!");
+             console.log("왼쪽!");
 
             // (1) 왼쪽버튼 클릭시 이전 슬라이드가
             // 나타나도록 하기위해 우선 맨뒤 li를
@@ -133,18 +178,20 @@ function loadFn() {
                 slide.style.left = "-220%";
                 slide.style.transition = "left .4s ease-in-out";
             }, 0); ////// 타임아웃 /////////
+
         } //////////// else : 왼쪽클릭시 //////
 
         // 2. 현재 슬라이드 순번과 같은 블릿표시하기
         // 대상: .indic li -> indic변수
         // 2-1. 현재 배너리스트 업데이트하기
         clist = slide.querySelectorAll("li");
-        // 오른쪽클릭시(seq===1) 두번째슬라이드[1]
-        // 왼쪽클릭시(seq===0) 첫번째 슬라이드[0]
-        // seq순번과 읽어올 슬라이드 순번이 일치한다!
+        // !!!!! 오른쪽이든 왼쪽이든 먼저 잘라내기 때문에 
+        // 순번은 3번째로 일치함!!!!!!
+        // console.log("다시수집:",clist);
 
         // 2-2.방향별 읽어올 슬라이드 순번으로 "data-seq"값 읽어오기
-        let cseq = clist[seq].getAttribute("data-seq");
+        // 세번째 슬라이드가 주인공이니까 0,1,2 즉 2번을 쓰면됨!!!
+        let cseq = clist[2].getAttribute("data-seq");
         //  console.log("현재순번:", cseq);
 
         // 2-3. 블릿초기화
@@ -157,6 +204,9 @@ function loadFn() {
     // 3. 이동버튼대상에 이벤트 설정하기
     abtn.forEach((ele, idx) => {
         ele.onclick = () => {
+            // 0. 기본이동막기
+            event.preventDefault();
+            
             // 1. 인터발지우기함수 호출!
             clearAuto();
             // 2. 슬라이드 함수 호출!
