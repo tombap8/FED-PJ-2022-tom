@@ -179,8 +179,10 @@ function loadFn() {
     // 4. 화살표함수에서 중괄호 생략가능
     // setInterval(()=>goSlide(1),3000);
 
-    // 인터발함수 멈추기위함 변수
+    // 인터발함수 지우기위한 변수
     let autoI;
+    // 타임아웃함수 지우기위한 변수
+    let autoT;
 
     /************************************ 
         함수명: autoSlide
@@ -203,6 +205,15 @@ function loadFn() {
     console.log("인터발멈춤!");
     // 1. 인터발 지우기
     clearInterval(autoI);
+
+    // 2. 타임아웃도 지우지 않으면
+    // 쌓여서 타임아웃 쓰나미실행이 발생한다!
+    clearTimeout(autoT);
+
+    // 3. 잠시후 다시 작동하도록 타임아웃으로
+    // 인터발함수를 호출한다! 
+    // 5초후(인터발은 3초후, 토탈 8초후 작동시작)
+    autoT = setTimeout(autoSlide,5000);
 
    } ///////// clearAuto 함수 /////////////
    
