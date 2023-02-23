@@ -132,6 +132,18 @@ font-family: 'Roboto Condensed', sans-serif;
     color: #fff;
 }
 
+/* 4. 스크롤 등장액션 클래스 */
+.scAct {
+    transform: translateY(20%);
+    opacity: 0;
+    transition: 1.2s cubic-bezier(0.45, 0.05, 0.55, 0.95)
+}
+/* 등장클래스+.on */
+.scAct.on {
+    transform: translateY(0);
+    opacity: 1;
+}
+
 
 
 
