@@ -175,22 +175,31 @@ https://www.w3schools.com/cssref/tryit.php?filename=trycss_cursor */
 }
 
 /********************************************* 
-    .top.on 인 경우 슬림디자인 상단영역적용!
+    #top.on 인 경우 슬림디자인 상단영역적용!
 *********************************************/
+/* 0. 상단영역 최상위박스(#top) fixed고정 */
+#top.on{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    z-index: 999;
+}
 /* 1. 상단영역 최소높이 해제 */
-.top.on{
-    min-height: auto;
+#top.on .top{
+    min-height: 50px;
 }
 /* 2. 상단메뉴 없애기 */
-.top.on .tmenu{
+#top.on .tmenu{
     display: none;
 }
 /* 3. 로고 이미지 */
-.top.on .logo img{
+#top.on .logo img{
     width: 100px;
 }
 /* 4. 로고 박스 */
-.top.on .logo {
+#top.on .logo {
     position: absolute;
     left: 0;
     /* 부모는? #top */
@@ -198,12 +207,20 @@ https://www.w3schools.com/cssref/tryit.php?filename=trycss_cursor */
     height: auto;
     margin-bottom: 0;
 }
-/* 5. GNB메뉴 */
-.top.on .gnb a{
+/* 5. GNB메뉴 a */
+#top.on .gnb a{
     color: #333;
     font-size: 14px;
 }
-.top.on .gnb{
+/* 6. GNB박스 */
+#top.on .gnb{
+    min-height: 45px;
+    padding-top: 5px;
+    /* -> 모바일 미디어쿼리로 처리하자!
+    padding: 5px 30px 0 120px; */
+}
+/* 7. GNB박스 ul */
+#top.on .gnb ul{
     gap: 0 35px;
 }
 .top.on{
