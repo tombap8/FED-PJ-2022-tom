@@ -117,12 +117,26 @@
                     if(scTop >= 300 && scTop < 500) tit.style.top = "45vh";
                     
                     // retVal() 함수를 이용하여 해당요소의 위치를 구함!
-                    // 첫번째 요소위치
+                    // 첫번째 포스터요소 위치
                     let obj1 = retVal(setit[0]);
-                    console.log(obj1,"/",winH/2);
+                    // 두번째 포스터요소 위치
+                    let obj2 = retVal(setit[1]);
+                    console.log(obj1,"/",obj2);
 
-                    if(obj1 < winH/2 && obj1 > 0)
-                        tit.style.left = "5vw";
+                    // 1. 첫번째 포스터구간일때
+                    if(obj1 < winH/2 && obj1 > 0){
+                        tit.style.left = "5%";
+                        tit.style.transform = "translateX(0)";                  
+                    }
+                    // 2. 두번째 포스터구간일때
+                    else if(obj2 < winH/2 && obj2 > 0){
+                        tit.style.left = "45%";
+                        tit.style.transform = "translateX(0)";                  
+                    }
+                    else{ // 원래값으로 돌아감!                      
+                        tit.style.left = "50%";
+                        tit.style.transform = "translateX(-50%)";     
+                    }
 
 
 
