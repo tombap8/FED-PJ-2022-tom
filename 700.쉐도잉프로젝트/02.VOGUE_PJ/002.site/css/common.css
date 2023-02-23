@@ -212,6 +212,10 @@ https://www.w3schools.com/cssref/tryit.php?filename=trycss_cursor */
     color: #333;
     font-size: 14px;
 }
+/* 오버시 우선적용문제로 빨간색글자 재적용하기! */
+#top.on .gnb a:hover{
+    color: red;
+}
 /* 6. GNB박스 */
 #top.on .gnb{
     min-height: 45px;
