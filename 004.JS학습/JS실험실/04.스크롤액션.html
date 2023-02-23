@@ -24,7 +24,10 @@
 
                 // 화면높이값의 2/3구하기
                 const hv = window.innerHeight/3*2;
-                console.log("2/3높이:",hv);
+                // console.log("2/3높이:",hv);
+
+                // 윈도우 높이값
+                const winH = window.innerHeight;
 
                 // 등장액션 대상 위치값 리턴함수/////
                 const retVal = 
@@ -53,20 +56,26 @@
                     // 구간적용여부 검사하기
                     // 0보다 크고 화면의 2/3보다 작은 구간!
                     if(xval < hv && xval > 0){
-                        console.log("작동!~~~~");
+                        // console.log("작동!~~~~");
                         // 해당요소에 클래스 넣기!
                         x.classList.add("on");
                     }
                 }; //////////// showIt //////////
 
+                // 스크롤시 이동할 타이틀 대상 //////
+                // .tit
+                const tit = document.querySelector(".tit");
+                // 트랜지션설정
+                tit.style.transition = ".8s ease-in-out";
 
+                /////////////////////////////////////////////
                 // 스크롤 이동시 윈도우에 세로스크롤 위치값 찍기
                 // 대상: window
                 // 이벤트: scroll
                 window.addEventListener("scroll",()=>{
 
                     // 스크롤 이벤트 확인!
-                    console.log("스크롤중~~!");
+                    // console.log("스크롤중~~!");
 
                     // 스크롤등장 요소 개수만큼 for문으로 돌리기
                     for(let x of setit) showIt(x);
@@ -83,8 +92,44 @@
 
                     // 스크롤시 스크롤 위치값  찍기
                     // => window.scrollY
-                    // let scTop = window.scrollY;
+                    let scTop = window.scrollY;
+
+                    // 다른방법으로 스크롤위치값 구하기
+                    // scTop = document.scrollingElement.scrollTop;
+                    // scTop = document.documentElement.scrollTop;
+                    // scTop = document.querySelector('html').scrollTop;
+
                     // console.log(scTop);
+
+                    /* ★[[ 현재 스크롤바 위치값 가져오기 ]]★
+                    1. window.scrollY (IE6~11지원안함)
+                    2. document.scrollingElement.scrollTop
+                    3. document.documentElement.scrollTop
+                    4. document.querySelector('html').scrollTop */
+
+                    /********************************************* 
+                        스크롤위치에 따른 타이틀 위치이동 애니하기!
+                    *********************************************/
+
+                    // 1. 스크롤바 위치 0이상 300미만일때 원위치
+                    if(scTop < 300) tit.style.top = "0";
+                    // 2. 스크롤바 위치 300이상 500미만일때 첫번째 위치변경
+                    if(scTop >= 300 && scTop < 500) tit.style.top = "45vh";
+                    
+                    // retVal() 함수를 이용하여 해당요소의 위치를 구함!
+                    // 첫번째 요소위치
+                    let obj1 = retVal(setit[0]);
+                    console.log(obj1,"/",winH/2);
+
+                    if(obj1 < winH/2 && obj1 > 0)
+                        tit.style.left = "5vw";
+
+
+
+
+
+
+
 
                     // 현재 첫번째 박스 위치값
                     // let bxpos = retVal(setit[0]);
@@ -179,7 +224,10 @@
             .tit {
                 position: fixed;
                 top: 0;
-                width: 100%;
+                /* width: 100%; */
+                left: 50%;
+                transform: translateX(-50%);
+                /* 중앙이동하기 */
                 font-family: "Nanum Brush Script", cursive;
                 margin: 0;
                 padding: 3vh;
