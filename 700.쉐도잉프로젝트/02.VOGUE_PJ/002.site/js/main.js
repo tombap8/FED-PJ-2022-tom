@@ -26,6 +26,10 @@ window.addEventListener("DOMContentLoaded",()=>{
    // 2. 콘솔출력 함수
    const cg = x => console.log(x);
 
+   // 3. 등장액션 대상 위치값 리턴함수/////
+   const retVal = 
+   ele => ele.getBoundingClientRect().top;
+
    // ***********************************
 
    /********************************** 
@@ -33,6 +37,14 @@ window.addEventListener("DOMContentLoaded",()=>{
    **********************************/
   // 대상: .scAct
   const scAct = q(".scAct");
+
+  // 스크롤 이벤트 셋팅하기 //////////
+  window.addEventListener("scroll",()=>{
+
+        // 값확인하기
+        cg("박스1:"+retVal(scAct[0]));
+
+  }); ////////// scroll ////////////////
 
     
 
