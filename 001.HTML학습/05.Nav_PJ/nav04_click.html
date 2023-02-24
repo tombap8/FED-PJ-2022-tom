@@ -236,6 +236,7 @@
       */
     }
   </style>
+  <script src=""></script>
   <script>
     //// 로드구역 ///////////////
     window.addEventListener("DOMContentLoaded",()=>{
@@ -243,15 +244,40 @@
 
       // 구현내용: 메뉴 li클릭시 하위메뉴(.smenu) 열기/닫기
       // 1. 클릭이벤트 대상선정: .gnb>ul>li
-      const gnb = document.querySelectorAll(".gnb>ul>li");
+      const gnb = document.querySelectorAll(".gnb>ul>li:has(.smenu)");
+      /******************************************** 
+        [css 선택자 중 하위요소를 포함하는 요소 선택하기]
+        ((구문:))
+        선택자:has(하위/형제선택자)
+        예)
+          ul>li:has(.my) 
+            -> 클래스my가 자손으로 있는 li
+          ul>li:has(>.my) 
+            -> 클래스my가 직계자식으로 있는 li
+          h1:has(+div) 
+            -> h1요소 바로 뒤에 div가 있는 h1
+      ********************************************/
       console.log(gnb);
 
       // 2. 이벤트 셋팅하기
       for(let x of gnb){ // x는 li요소
         x.onclick = () => {
-          // 하위 .smenu ol의 높이값
-          let hv = x.querySelector(".smenu ol").clientHeight;
-          console.log("높이값:",hv);
+          // (0) 하위 .smenu
+          let tg = x.querySelector(".smenu");
+          // (1) 하위 .smenu ol의 높이값
+          let hv = tg.querySelector("ol").clientHeight;
+          // clientHeight -> 패딩을 포함한 요소의 높이값
+          console.log("ol높이값:",hv);
+
+          // hv값 전환하기
+          console.log("타겟높이값:",tg.clientHeight);
+
+          // (2)타겟의 높이값이 0이 아니면 0으로 hv값 변경
+          if(tg.clientHeight!=0) hv = 0;
+
+          // (3) 대상에 적용하기 : tg
+          tg.style.height = hv + "px";
+
         }; //////// click ///////
       } /////////// for of ////////////
 
