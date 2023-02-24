@@ -272,7 +272,7 @@
           // (00) 초기화함수 호출
           // idx(순번)을 보내는 이유는?
           // 자신의 순번을 빼고 초기화하기 위하여~!!!
-          initMenu();
+          initMenu(idx);
 
           // (0) 하위 .smenu
           let tg = x.querySelector(".smenu");
@@ -372,13 +372,34 @@
      const gnbBx = document.querySelector(".gnb");
 
      //// gnb 마우스 아웃시 자동초기화 /////
-    //  gnbBx.addEventListener("mouseout",()=>{
-    //    console.log("아웃~!!");
-    //     setTimeout(() => {
-    //       initMenu();
-    //       // 보내는값 없이 호출시 모두 초기화한다!
-    //     }, 2000);
-    //  }); ////////// mouseout ///////////////
+     gnbBx.addEventListener("mouseleave",()=>{
+       console.log("아웃~!!");
+        // setTimeout(() => {
+        //   initMenu();
+        //   // 보내는값 없이 호출시 모두 초기화한다!
+        // }, 2000);
+     }); ////////// mouseout ///////////////
+
+     /************************************** 
+        {mouseover / mouseout} 
+                  VS 
+        {mouseenter / mouseleave}
+
+        -> mouseover, mouseout은 하위 요소에
+        발생한 같은 이벤트가 버블링된다!
+        반면
+        -> mouseenter, mouseleave는 하위 요소에
+        발생한 같은 이벤트가 버블링되지 않는다!
+
+        왜?
+        이벤트가 요소의 경계선을 기준한 것이므로
+        하위 요소의 경계선과 불일치 하므로
+        이벤트 버블링이 겹쳐지지 않는것이다!
+
+        -> 주의사항: 이벤트 버블링이 필요한경우는
+        반드시 mouseover/mouseout을 사용하자!
+        
+     **************************************/
 
 
 
