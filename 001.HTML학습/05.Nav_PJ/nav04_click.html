@@ -105,8 +105,10 @@
       transition: .3s;
     }
 
-    /* 부모li에 마우스 오버시 상위메뉴 a요소 변경 */
-    .gnb>ul>li:hover>a {
+    /* 부모li에 마우스 오버시 상위메뉴 a요소 변경 
+    + 클래스 on일때 */
+    .gnb>ul>li:hover>a,
+    .gnb>ul>li.on>a {
       color: lightskyblue;
       background-color: darkblue;
     }
@@ -133,8 +135,10 @@
       transition: width .2s ease-out;
     }
 
-    /* 상위메뉴 오버시 가상요소 밑줄애니 */
-    .gnb>ul>li:hover>a>span::after {
+    /* 상위메뉴 오버시 가상요소 밑줄애니
+    + 클래스 on일때 */
+    .gnb>ul>li:hover>a>span::after,
+    .gnb>ul>li.on>a>span::after {
       width: 100%;
       /* 오버시에 기다리는 시간 0.4초 */
       transition-delay: .4s;
@@ -274,12 +278,31 @@
 
           // (2)타겟의 높이값이 0이 아니면 0으로 hv값 변경
           if(tg.clientHeight!=0) hv = 0;
+          // 타겟의 처음 높이는 0이다
+          // 클릭시 내부의 ol높이값과 같은 크기로
+          // 타겟의 높이값을 주어 보이게한다!
+          // 만약 높이값이 들어간 경우라면 
+          // 높이값이 0이 아니다!
+          // 그러므로 0이 아니면 0으로 만들어준다!
+          // 그래서 토글기능(2가지를 번갈아적용)이 된다!
 
           // (3) 대상에 적용하기 : tg
           tg.style.height = hv + "px";
 
+          // (4) 상위메뉴에 오버시와 
+          // 같은 디자인적용: 클래스 on넣기/빼기
+          x.classList.toggle("on");
+
         }; //////// click ///////
       } /////////// for of ////////////
+
+      // .smenu 클릭시 상위 li로 이벤트 버블링 막기!
+      const smenu = document.querySelectorAll(".smenu");
+      for(let x of smenu) {
+        x.addEventListener("click",e=>e.stopPropagation());
+        // stopPropagation() 
+        // -> 이벤트 버블링을 막는 event객체의 메서드
+      } ////////// for of /////////////
 
 
 
