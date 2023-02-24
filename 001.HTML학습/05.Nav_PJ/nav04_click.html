@@ -266,8 +266,12 @@
       // 2. 이벤트 셋팅하기
       for(let x of gnb){ // x는 li요소
         x.onclick = () => {
+          // (00) 초기화함수 호출
+          initMenu();
+
           // (0) 하위 .smenu
           let tg = x.querySelector(".smenu");
+
           // (1) 하위 .smenu ol의 높이값
           let hv = tg.querySelector("ol").clientHeight;
           // clientHeight -> 패딩을 포함한 요소의 높이값
@@ -303,6 +307,38 @@
         // stopPropagation() 
         // -> 이벤트 버블링을 막는 event객체의 메서드
       } ////////// for of /////////////
+
+      // a요소 클릭시 기본기능 막기!
+      const atag = document.querySelectorAll("a");
+      for(let x of atag) {
+        x.addEventListener("click",e=>e.preventDefault());
+        // preventDefault() 
+        // -> 요소의 기본 기능을 막는다!
+        // a요소는 링크 이동기능을 막아준다
+      } ////////// for of /////////////
+
+
+      /********************************** 
+        메뉴 초기화 함수 : 처음상태로 돌림
+      **********************************/
+     function initMenu (){
+        // 호출확인!
+        console.log("왕빛나!");
+
+        // 1. 모든 서브메뉴 높이값 0만들기
+        // 대상: .smenu -> smenu변수
+        smenu.forEach((ele)=>{
+          ele.style.height = 0;
+        }); //////// forEach ////////
+
+        // 2. 서브메뉴있는 li의 클래스 "on"지우기
+        // 대상: .gnb>ul>li:has(.smenu) -> gnb변수
+        gnb.forEach((ele)=>{
+          ele.classList.remove("on");
+        }); /////// forEach //////////
+
+
+     } ///////////// initMenu함수 /////////
 
 
 
@@ -349,6 +385,23 @@
                   </li>
                   <li>
                     <a href="#">방명록</a>
+                  </li>
+                </ol>
+              </div>
+          </li>
+          <li>
+            <a href="#"><span>웹튜닝</span></a>
+            <!-- 서브메뉴 -->
+            <div class="smenu">
+                <ol>
+                  <li>
+                    <a href="#">서버튜닝</a>
+                  </li>
+                  <li>
+                    <a href="#">DB튜닝</a>
+                  </li>
+                  <li>
+                    <a href="#">개발환경튜닝</a>
                   </li>
                 </ol>
               </div>
