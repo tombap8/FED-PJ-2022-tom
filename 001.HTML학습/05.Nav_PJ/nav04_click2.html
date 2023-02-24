@@ -253,8 +253,12 @@
       // -> 대상을 li하위 직계 상단메뉴인 a요소로 선정한경우
       // 코드 변경하기(기존기능과 같게한다!)
 
-      // 구현내용중 부모로 올라가는 방법!
+      // [구현내용중 부모로 올라가는 방법!]
       // -> 선택요소.parentElement
+      // [구현내용중 다음형제요소 선택 방법!]
+      // -> 선택요소.nextElementSibling
+      // [구현내용중 이전형제요소 선택 방법!]
+      // -> 선택요소.previousElementSibling
 
 
 
@@ -279,6 +283,8 @@
       // forEach((요소,순번)=>{코드})
       gnb.forEach((x,idx)=>{ // x는 li요소 / idx는 요소순번
         x.onclick = () => {
+          x = x.nextElementSibling;
+          console.log(x);
           // (00) 초기화함수 호출
           // idx(순번)을 보내는 이유는?
           // 자신의 순번을 빼고 초기화하기 위하여~!!!
