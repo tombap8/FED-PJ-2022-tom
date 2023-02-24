@@ -265,16 +265,14 @@
 
       // 2. 이벤트 셋팅하기 //////////////////
 
-      // 요소순번변수
-      let idx = 0; 
       
-      for(let x of gnb){ // x는 li요소
+      // forEach((요소,순번)=>{코드})
+      gnb.forEach((x,idx)=>{ // x는 li요소 / idx는 요소순번
         x.onclick = () => {
           // (00) 초기화함수 호출
           // idx(순번)을 보내는 이유는?
           // 자신의 순번을 빼고 초기화하기 위하여~!!!
-          initMenu(idx);
-          idx++; // 순번1씩증가
+          initMenu();
 
           // (0) 하위 .smenu
           let tg = x.querySelector(".smenu");
@@ -305,7 +303,8 @@
           x.classList.toggle("on");
 
         }; //////// click ///////
-      } /////////// for of ////////////
+
+      }); /////////// forEach ////////////
 
       // .smenu 클릭시 상위 li로 이벤트 버블링 막기!
       const smenu = document.querySelectorAll(".smenu");
@@ -328,23 +327,58 @@
       /********************************** 
         메뉴 초기화 함수 : 처음상태로 돌림
       **********************************/
-     function initMenu (idx){ // idx - 호출한 순번
+     // 참고: function initMenu (seq=1000){}
+     // 파라미터 변수에 어떤값을 할당해 놓으면
+     // 함수호출시 아무값도 입력하지 않을때 이값을
+     // 넣고 함수 내부로 들어간다!
+     function initMenu (seq=1000){ // seq - 호출한 순번
         // 호출확인!
-        console.log("왕빛나!",idx);
+        console.log("왕빛나!",seq);
 
         // 1. 모든 서브메뉴 높이값 0만들기
         // 대상: .smenu -> smenu변수
-        smenu.forEach((ele)=>{
+        smenu.forEach((ele,idx)=>{
+          // 호출한 순번과 같으면 넘어가!
+          if(idx===seq) return;
+          console.log("smenu순번:",idx);
+
+          // 높이값 0만들기
           ele.style.height = 0;
         }); //////// forEach ////////
 
         // 2. 서브메뉴있는 li의 클래스 "on"지우기
         // 대상: .gnb>ul>li:has(.smenu) -> gnb변수
-        gnb.forEach((ele)=>{
+        gnb.forEach((ele,idx)=>{
+          // 호출한 순번과 같으면 넘어가!
+          if(idx===seq) return;
+          console.log("li순번:",idx);
+
+          // 클래스 on 빼기
           ele.classList.remove("on");
         }); /////// forEach //////////
 
+        /************************************ 
+          [ forEach메서드에서 중간뛰어넘기 ]
+          for문과 같은 제어문이 아니므로
+          continue 키워드는 사용할 수 없다!
+          그런데 함수구역이므로 return키워드를
+          사용하면 해당 순번을 빠져나가서
+          제외되고 나머지 순번순회는 계속된다!
+        ************************************/
+
      } ///////////// initMenu함수 /////////
+
+     // gnb 요소
+     const gnbBx = document.querySelector(".gnb");
+
+     //// gnb 마우스 아웃시 자동초기화 /////
+    //  gnbBx.addEventListener("mouseout",()=>{
+    //    console.log("아웃~!!");
+    //     setTimeout(() => {
+    //       initMenu();
+    //       // 보내는값 없이 호출시 모두 초기화한다!
+    //     }, 2000);
+    //  }); ////////// mouseout ///////////////
 
 
 
