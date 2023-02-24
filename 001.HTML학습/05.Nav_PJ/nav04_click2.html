@@ -251,7 +251,8 @@
 
       // ★ 미션 :★★★★★★★★★★★★★★★★
       // -> 대상을 li하위 직계 상단메뉴인 a요소로 선정한경우
-      // 코드 변경하기(기존기능과 같게한다!)
+      // 코드 변경하기(기존기능과 같게한다!) 
+      // -> ★[...] 설명한곳이 변경된곳!!!
 
       // [구현내용중 부모로 올라가는 방법!]
       // -> 선택요소.parentElement
@@ -259,7 +260,6 @@
       // -> 선택요소.nextElementSibling
       // [구현내용중 이전형제요소 선택 방법!]
       // -> 선택요소.previousElementSibling
-
 
 
       const gnb = document.querySelectorAll(".gnb>ul>li:has(.smenu)>a");
@@ -283,15 +283,14 @@
       // forEach((요소,순번)=>{코드})
       gnb.forEach((x,idx)=>{ // x는 li요소 / idx는 요소순번
         x.onclick = () => {
-          x = x.nextElementSibling;
           console.log(x);
           // (00) 초기화함수 호출
           // idx(순번)을 보내는 이유는?
           // 자신의 순번을 빼고 초기화하기 위하여~!!!
           initMenu(idx);
 
-          // (0) 하위 .smenu
-          let tg = x.querySelector(".smenu");
+          // (0) ★[다음요소인 .smenu]
+          let tg = x.nextElementSibling;
 
           // (1) 하위 .smenu ol의 높이값
           let hv = tg.querySelector("ol").clientHeight;
@@ -316,7 +315,8 @@
 
           // (4) 상위메뉴에 오버시와 
           // 같은 디자인적용: 클래스 on넣기/빼기
-          x.classList.toggle("on");
+          // ★[x는 a요소 이므로 부모인 li를 선택함!]
+          x.parentElement.classList.toggle("on");
 
         }; //////// click ///////
 
@@ -363,14 +363,16 @@
         }); //////// forEach ////////
 
         // 2. 서브메뉴있는 li의 클래스 "on"지우기
-        // 대상: .gnb>ul>li:has(.smenu) -> gnb변수
+        // 대상: .gnb>ul>li:has(.smenu) 
+        // ★[-> gnb변수의 부모요소 : ele.parentElement]
         gnb.forEach((ele,idx)=>{
           // 호출한 순번과 같으면 넘어가!
           if(idx===seq) return;
           console.log("li순번:",idx);
 
-          // 클래스 on 빼기
-          ele.classList.remove("on");
+          // 클래스 on 빼기 : 
+          // ★[gnb변수의 부모요소 : ele.parentElement]
+          ele.parentElement.classList.remove("on");
         }); /////// forEach //////////
 
         /************************************ 
@@ -434,7 +436,7 @@
 </head>
 
 <body>
-  <h1>유형4. 세로네비 서브별 드롭다운 세로형 - 클릭이벤트JS</h1>
+  <h1>유형4. 세로네비 서브별 드롭다운 세로형 - 클릭이벤트JS 2</h1>
   <div class="wrap">
       <!-- GNB 네비게이션 -->
       <nav class="gnb">
