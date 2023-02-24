@@ -263,11 +263,18 @@
       ********************************************/
       console.log(gnb);
 
-      // 2. 이벤트 셋팅하기
+      // 2. 이벤트 셋팅하기 //////////////////
+
+      // 요소순번변수
+      let idx = 0; 
+      
       for(let x of gnb){ // x는 li요소
         x.onclick = () => {
           // (00) 초기화함수 호출
-          initMenu();
+          // idx(순번)을 보내는 이유는?
+          // 자신의 순번을 빼고 초기화하기 위하여~!!!
+          initMenu(idx);
+          idx++; // 순번1씩증가
 
           // (0) 하위 .smenu
           let tg = x.querySelector(".smenu");
@@ -321,9 +328,9 @@
       /********************************** 
         메뉴 초기화 함수 : 처음상태로 돌림
       **********************************/
-     function initMenu (){
+     function initMenu (idx){ // idx - 호출한 순번
         // 호출확인!
-        console.log("왕빛나!");
+        console.log("왕빛나!",idx);
 
         // 1. 모든 서브메뉴 높이값 0만들기
         // 대상: .smenu -> smenu변수
@@ -336,7 +343,6 @@
         gnb.forEach((ele)=>{
           ele.classList.remove("on");
         }); /////// forEach //////////
-
 
      } ///////////// initMenu함수 /////////
 
