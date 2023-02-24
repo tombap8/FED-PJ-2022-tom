@@ -1,99 +1,92 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS실험실 02 - 글자등장액션 1편</title>
-    <script>
-        ////// 로드구역 //////////
-        window.addEventListener("DOMContentLoaded",()=>{
-            // 구현내용: 글자를 박스에 넣고 하나씩 날아오면서 등장
-            // 1.대상선정: .stage
-            const stage = document.querySelector(".stage");
-            // console.log(stage);
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>JS실험실 02 - 글자등장액션 1편</title>
+        <script>
+            ////// 로드구역 //////////
+            window.addEventListener("DOMContentLoaded", () => {
+                // 구현내용: 글자를 박스에 넣고 하나씩 날아오면서 등장
+                // 1.대상선정: .stage
+                const stage = document.querySelector(".stage");
+                // console.log(stage);
 
-            // 2.데이터 변수할당
-            const mytxt = "무궁화꽃이 피었습니다";
+                // 2.데이터 변수할당
+                const mytxt = "무궁화꽃이 피었습니다!";
 
-            // 3.데이터글자 한글자씩 태그싸기
-            // for of문사용!
+                // 3.데이터글자 한글자씩 태그싸기
+                // for of문사용!
 
-            let hcode=""; // 코드저장변수
-            let idx = 0; // 순번변수
-           
+                let hcode = ""; // 코드저장변수
+                let idx = 0; // 순번변수
 
-            for(let x of mytxt){
-                // 띄어쓰기일 경우 특수문자처리!
-                if(x===" ") x = "&nbsp;&nbsp;&nbsp";
-                // 코드만들어 변수에 대입연산자로 넣기!
-                hcode += 
-                `<span style="transition-delay: ${idx*0.1}s">
+                for (let x of mytxt) {
+                    // 띄어쓰기일 경우 특수문자처리!
+                    if (x === " ") hcode += "&nbsp";
+                    // 코드만들어 변수에 대입연산자로 넣기!
+                    else
+                        hcode += `<span style="transition-delay: ${idx * 0.2}s">
                     ${x}</span>`;
 
-                // 순번변수증가
-                idx++;
-            } //////////// for of ////////////
+                    // 순번변수증가
+                    idx++;
+                } //////////// for of ////////////
 
-            console.log(hcode);
+                // console.log(hcode);
 
-            // 4. 스테이지 박스에 글자넣기
-            stage.innerHTML = hcode;
+                // 4. 스테이지 박스에 글자넣기
+                stage.innerHTML = hcode;
 
-            // 5. 일정시간후 스테이지박스에 클래스 "on"주고 애니작동!
-            setTimeout(()=>{
-                stage.classList.add("on");
-            },2000);
+                // 5. 일정시간후 스테이지박스에 클래스 "on"주고 애니작동!
+                setTimeout(() => {
+                    stage.classList.add("on");
+                }, 2000);
+            }); ////////////// 로드구역 /////////////////////
+        </script>
+        <style>
+            body {
+                background-color: darkslateblue;
+            }
+            /* 글자스테이지 */
+            .stage {
+                position: fixed;
+                display: flex;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                outline: 2px dashed yellow;
 
+                /* 글자설정 */
+                font-size: 5vw;
+                color: #fff;
+                white-space: nowrap;
+            }
 
-
-
-        }); ////////////// 로드구역 /////////////////////
-
-    </script>
-    <style>
-        body{
-            background-color: darkslateblue;
-        }
-        /* 글자스테이지 */
-        .stage{
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            outline: 2px dashed yellow;
-
-            /* 글자설정 */
-            font-size: 5vw;
-            color: #fff;
-            white-space: nowrap;
-        }
-
-        /* 글자개별박스 셋팅 */
-        .stage span{            
-            /* 트랜스폼 적용위해 */
-            display: inline-block;
-            /* 현재위치로 부터 이동 */
-            transform: translate(500%, -300%);
-            /* 투명도 0 */
-            opacity: 0;
-            /* 트랜지션: 속시이지 */
-            transition: .3s ease-in;
-        }
-        /* 
+            /* 글자개별박스 셋팅 */
+            .stage span {
+                /* 트랜스폼 적용위해 */
+                display: block;
+                /* 현재위치로 부터 이동 */
+                transform: translate(500%, -300%);
+                /* 투명도 0 */
+                opacity: 0;
+                /* 트랜지션: 속시이지 */
+                transition: 0.3s ease-in;
+            }
+            /* 
         -> 개별 지연시간을 JS에서 셋업한다!
         .stage span:nth-child(3){   
             transition-delay: 2s;
         } */
-        /* 스테이지로 들어오기 */
-        .stage.on span{
-            transform: translate(0, 0);
-            opacity: 1;
-        }
-
-    </style>
-</head>
-<body>
-    <div class="stage"></div>
-    
-</body>
+            /* 스테이지로 들어오기 */
+            .stage.on span {
+                transform: translate(0, 0);
+                opacity: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="stage"></div>
+    </body>
 </html>

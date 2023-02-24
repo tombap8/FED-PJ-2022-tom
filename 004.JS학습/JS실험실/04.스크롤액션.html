@@ -253,8 +253,9 @@
 
                 for (let x of mytxt) {
                     // 띄어쓰기일 경우 특수문자처리!
-                    if (x === " ") x = "&nbsp;&nbsp;&nbsp";
+                    if (x === " ") hcode +=  "&nbsp";
                     // 코드만들어 변수에 대입연산자로 넣기!
+                    else
                     hcode += `<span style="transition-delay: ${idx * 0.1}s">
                     ${x}</span>`;
 
@@ -351,11 +352,15 @@
                 opacity: 1;
             }
 
+            .stage{
+                display: flex;
+            }
 
             /* 글자개별박스 셋팅 */
             .stage span {
+                font-size: 10vw;
                 /* 트랜스폼 적용위해 */
-                display: inline-block;
+                display: block;
                 /* 현재위치로 부터 이동 */
                 transform: translate(500%, -300%);
                 /* 투명도 0 */
