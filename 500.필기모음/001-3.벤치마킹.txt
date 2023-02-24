@@ -125,6 +125,7 @@ https://empiempi.me/
 6. 댄스 사이트
 https://thinkdance.ca/
 -> 전체 효과, 디자인 모두 맘에 듬!!!
+1) 스크롤시 중간에 가로방향이동 구현 -> 실험실에서 예약!(3/2일!)
 
 7. Kommigraphics 
 https://kommigraphics.com/
@@ -147,3 +148,8 @@ https://chainzoku.io/
 1) 드래그+버튼클릭 카드 넘기기
 2) 따라다니는 툴팁(메뉴 오픈전 표시"soon")
 3) 이미지 클릭시 작은 이미지 랜덤으로 나타났다 사라짐
+
+10. 블록체인 사이트
+https://www.cmcc.vc/about
+-> about페이지의 스크롤 이동시 
+뒷배경 지도가 가로방향이동 애니가 볼만함!
