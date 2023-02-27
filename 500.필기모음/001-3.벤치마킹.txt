@@ -153,3 +153,8 @@ https://chainzoku.io/
 https://www.cmcc.vc/about
 -> about페이지의 스크롤 이동시 
 뒷배경 지도가 가로방향이동 애니가 볼만함!
+
+11. 패션 사이트
+https://halomedia.com/studio/
+-> 마우스 이동시 이동방향으로 컨텐츠영역 자동이동
+(제이쿼리 연습에 있음 -> JS버전으로 만들어볼까?)
