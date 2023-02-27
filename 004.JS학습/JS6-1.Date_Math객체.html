@@ -41,7 +41,7 @@
             *************************************/
                 function showTime() {
                     // 1. 호출확인
-                    console.log("왕빛나!");
+                    // console.log("왕빛나!");
 
                     // 날짝 객체로 시간찍기
                     // Date객체 : 날짜, 시간을 표현하는 객체
@@ -79,16 +79,13 @@
                     // 7개의 정해진 나라별 이름을 배열로 셋팅함
                     // 0부터 시작하고 일요일이 0번임!
 
-
                     /************************************* 
                         [ 시,분,초 두자릿수 출력함수 ]
                         -> 넘어온 숫자가 10보다 작으면
                         앞에 "0"을 붙이고 아니면 그대로!
                     *************************************/
-                   const addZero = 
-                   num => num < 10 ? "0" + num : num;
-                // (num) => {return num < 10 ? "0" + num : num;}
-
+                    const addZero = (num) => (num < 10 ? "0" + num : num);
+                    // (num) => {return num < 10 ? "0" + num : num;}
 
                     // (5) 오전/오후 : tt[4]
                     let noon = "오전";
@@ -118,7 +115,7 @@
 
                     // 분 테스트 출력 조작
                     // M = 3;
-                    
+
                     tt[6].innerText = addZero(M);
 
                     // (8) 초 출력 : tt[7]
@@ -128,8 +125,6 @@
                     // S = 8;
 
                     tt[7].innerText = addZero(S);
-
-
                 } /////////// showTime 함수 /////////////
 
                 // 임시함수호출
@@ -139,8 +134,7 @@
                 showTime();
 
                 // 타이밍함수 인터발호출!(1초간격)
-                setInterval(showTime,1000);
-
+                setInterval(showTime, 1000);
 
                 /*************************************** 
                     [ Math 객체 ]
@@ -167,13 +161,13 @@
 
                 // 난수 발생시키기
                 let rdm = Math.random();
-                console.log("난수:",rdm);
+                console.log("난수:", rdm);
                 // 1~7까지의 난수만들기
                 // 일단 최대수인 7을 곱한다!
-                rdm = rdm*7;
-                console.log("난수*7:",rdm);
-                console.log("난수*7 내림:",Math.floor(rdm));
-                console.log("난수*7 올림:",Math.ceil(rdm));
+                rdm = rdm * 7;
+                console.log("난수*7:", rdm);
+                console.log("난수*7 내림:", Math.floor(rdm));
+                console.log("난수*7 올림:", Math.ceil(rdm));
 
                 /**************************************** 
                     [ 내가 원하는 난수 만들기 ]
@@ -205,15 +199,73 @@
                     -> 최대수는 6, 시작수 만큼 더할 수는 3
                     Math.ceil(Math.random() * 최대수) + 시작수만큼
                     Math.ceil(Math.random() * 6) + 3
+                    ________________________________
+
+                    [ 중간범위 수 계산 ]
+                    작은수 ~ 큰수
+                    1. 최대수 = 큰수 - 작은수 + 1
+                    2. 시작수차이 = 작은수 - 1;
 
 
                 ****************************************/
 
                 // 예시난수
-                console.log("4~9사이의 난수:",
-                Math.ceil(Math.random() * 6) + 3);
+                console.log("4~9사이의 난수:", Math.ceil(Math.random() * 6) + 3);
 
+                // 랜덤 이미지 웹경로 배열 //
+                const rimg = ["https://img.etnews.com/photonews/2110/1461216_20211007085904_466_0001.jpg", "https://d2qqqnyszmt41w.cloudfront.net/wp-content/uploads/2021/04/23150534/202104231445162082.jpg", "https://img.imbc.com/adams/Program/202111/132804027350463581.jpg", "https://image.ytn.co.kr/general/jpg/2021/0925/202109251350012465_d.jpg"];
 
+                // 배열이 4개니까 0~3까지의 랜덤수 필요!
+
+                // 변경대상 : 랜덤이미지박스 -> .imbx
+                const imbx = document.querySelector(".imbx");
+
+                // 직전랜덤수 담을 변수
+                let bnum = 9999;
+                // 처음에 할당된 수는 랜덤수 범위가 아닌
+                // 아무수나 넣으면 된다!
+
+                /***************************************** 
+                    함수명 : insImg
+                    기능 : 박스에 랜덤 이미지 넣기
+                *****************************************/
+               function insImg(){
+
+                    // 1. 랜덤수 만들기 : 0 ~ 3 사이의 난수
+                    // 먼저 1 ~ 4 의 난수를 생각함! 최대수 4
+                    // Math.floor() 로 내림적용하면 0 ~ 3 난수나옴!
+                    let rnum = Math.floor(Math.random()*4);
+                    console.log("랜덤수:", rnum);
+
+                    // 2. 랜덤수가 바로 직전수와 같으면 다시 난수발생하기
+                    // while(조건){코드}
+                    // 조건: 현재발생난수 === 이전발생난수
+                    // 같으면 다시 난수발생하기!
+                    while(rnum===bnum){
+                        rnum = Math.floor(Math.random()*4);
+                        console.log("다시난수:",rnum);
+                    } ////// while /////////////
+
+                    // 3. 랜덤 이미지 넣기
+                    // 대상: .imbx -> imbx변수
+                    imbx.innerHTML = 
+                    `<img src="${rimg[rnum]}" alt="랜덤이미지">`;
+
+                    // 4. 현재랜덤수 직전랜덤수변수에 저장하기!
+                    // 저장해야 다음번에 while에서 사용한다!!
+                    // while문 아래쪽에서 업데이트 하면 된다!
+                    bnum = rnum;
+
+               } ///////////// insImg함수 ////////////////
+
+               // 랜덤함수 임시호출
+            //    window.onclick = () => insImg();
+
+               // 최초호출
+               insImg();
+
+               // 인터발호출 (2.3초간격)
+               setInterval(insImg,2300);
 
 
             }); /////////// 로딩구역 /////////////////////
