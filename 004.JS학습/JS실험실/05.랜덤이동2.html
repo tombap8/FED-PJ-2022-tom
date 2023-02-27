@@ -28,15 +28,20 @@
                 border-radius: 20%;
                 background: url(https://www.lottehotel.com/content/dam/lotte-hotel/lotte/world/promotion/package/180706-32-2000-off-world-hotel.JPG.thumb.768.768.jpg) no-repeat center/cover;
             }
+            /* 탱공통설정 */
             .ytang {
                 position: absolute;
+
+                /* 선택영역불가 */
+                user-select: none;
+            }
+            /* 첫탱 */
+            .t1{
                 top: calc(50% - 52px);
                 left: calc(50% - 100px);
                 width: 200px;
                 height: 104px;
-
-                /* 선택영역불가 */
-                user-select: none;
+                z-index: 3;
             }
             /* 추가탱 */            
             .t2{
@@ -45,14 +50,16 @@
                 transform: rotateY(180deg) rotate(25deg);
                 width: 150px;
                 filter: hue-rotate(270deg);
+                z-index: 2;
             }
             /* 추가탱 */            
             .t3{
-                top: 20px;
-                left: 20px;
-                transform: rotateY(180deg) rotate(25deg);
-                width: 150px;
-                filter: hue-rotate(270deg);
+                top: 200px;
+                left: 200px;
+                transform: rotate(25deg) rotateY(180deg);
+                width: 120px;
+                filter: hue-rotate(70deg);
+                z-index: 1;
             }
         </style>
         <script>
@@ -64,6 +71,12 @@
                 /************************************ 
                     함수명: moveTang
                     기능: 탱이를 랜덤수로 위치이동함
+                    ______________________________
+                    
+                    -> 공통 기능 함수를 만들때의 핵심은
+                    각각의 요소를 함수에 전달하라!!!
+                    -> 내부코드도 요소별로 적용되도록
+                    구현코드를 구성해 준다!
                 ************************************/
                function moveTang(ele){ // ele - 요소전달
                     // 호출확인
