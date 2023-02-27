@@ -94,12 +94,12 @@
                     let noon = "오전";
                     // 시간에서 오후일 경우 덮어쓰고 아래에서 출력!
 
-                    // (6) 시간출력 : tt[5]
+                    // (6) 시간 출력 : tt[5]
                     let H = today.getHours();
                     // 시간은 24시간제로 표현됨!
 
                     // 시간테스트 조작!
-                    H = 17;
+                    // H = 20;
 
                     // 12보다 크면 12를 빼고 "오후"로 noon값 변경!
                     if (H > 12) {
@@ -110,12 +110,38 @@
 
                     // 오전/오후 출력
                     tt[4].innerText = noon;
-                    // 시간출력
-                    tt[5].innerText = H < 10 ? "0" + H : H;
+                    // 시간 출력
+                    tt[5].innerText = addZero(H);
+
+                    // (7) 분 출력 : tt[6]
+                    let M = today.getMinutes();
+
+                    // 분 테스트 출력 조작
+                    // M = 3;
+                    
+                    tt[6].innerText = addZero(M);
+
+                    // (8) 초 출력 : tt[7]
+                    let S = today.getSeconds();
+
+                    // 초 테스트 출력 조작
+                    // S = 8;
+
+                    tt[7].innerText = addZero(S);
+
+
                 } /////////// showTime 함수 /////////////
 
                 // 임시함수호출
-                window.onclick = () => showTime();
+                // window.onclick = () => showTime();
+
+                // 최초호출
+                showTime();
+
+                // 타이밍함수 인터발호출!(1초간격)
+                setInterval(showTime,1000);
+
+
             }); /////////// 로딩구역 /////////////////////
         </script>
     </head>
