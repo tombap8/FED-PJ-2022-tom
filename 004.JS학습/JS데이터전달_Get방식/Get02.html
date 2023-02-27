@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>JS - Get방식 처리:sub page</title>
+    <style type="text/css">
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #home,
+        #title {
+            padding: 0;
+            width: 800px;
+            height: 100px;
+            margin: 0 auto;
+            font: bold 28px/100px "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif";
+            color: blue;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+
+        #title {
+            color: #fff !important;
+            /*타이틀 글자색 흰색*/
+        }
+
+        #main {
+            width: 800px;
+            height: 500px;
+            margin: 0 auto;
+            background: url(images/shop_red.jpg) no-repeat 0/100% 100%;
+        }
+    </style>
+    <script>
+        // Get방식으로 넘어온 값 받기!
+        // location.href로 받는다!!!
+        // 페이지이동 : location.href = url주소 
+        // url값 읽기 : 변수 = location.href
+        
+
+        // 만약 물음표(?)가 없이 바로 페이지가 열린경우 걸러주기!
+        // 없다면 split에서 에러가 남! 
+        // 에러방지위해 물음표 없으면 첫페이지로 돌려보내기!!!
+        // indexOf(문자열) -> 문자열의 위치를 알려주는 JS내장함수
+        // 만약 문자열이 없으면 -1을 리턴함!
+        
+
+        // url에서 물음표로 값을 잘라오기 중 뒤엣값[1]
+        // split(자를기준문자열) -> 배열에 담긴다!
+        
+        // 이퀄(=)로 잘라서 뒤엣값[1] -> (키=값) 중 (값)만!
+        
+        // encodeURIComponent로 변환해서 보냈으므로 
+        // decodeURIComponent로 재변환!
+        
+
+
+        
+        /// 데이터 셋업하기! //////
+        let sdata = {
+            "레드샵":{
+                "배경색":"red",
+                "이미지":"shop_red.jpg"
+            },
+            "오렌지샵":{
+                "배경색":"orange",
+                "이미지":"shop_orange.jpg"
+            },
+            "블루샵":{
+                "배경색":"blue",
+                "이미지":"shop_blue.jpg"
+            },
+            "블랙샵":{
+                "배경색":"black",
+                "이미지":"shop_black.jpg"
+            },
+            "그린샵":{
+                "배경색":"green",
+                "이미지":"shop_green.jpg"
+            }
+        }; ///////// sdata객체 /////////////
+        
+
+        //////// 로드구역 ////////////////////////
+        // DOMContentLoaded는 html만 모두 그려지면 발생하는 이벤트!
+        window.addEventListener("DOMContentLoaded",function(){
+       
+            // 로딩구역 확인
+            console.log("로딩완료!!!");
+
+           
+            
+
+
+
+        });/////////// 로드구역 //////////////////////////////////
+        /////////////////////////////////////////////////////////
+
+
+
+    </script>
+
+</head>
+
+<body>
+    <h1 id="home">
+        <a href="Get01.html" title="홈으로">GG Market</a>
+    </h1>
+    <h2 id="title"></h2>
+    <section id="main"></section>
+
+
+
+
+
+
+
+</body></html>
