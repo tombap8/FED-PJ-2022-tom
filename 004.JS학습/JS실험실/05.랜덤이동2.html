@@ -46,6 +46,14 @@
                 width: 150px;
                 filter: hue-rotate(270deg);
             }
+            /* 추가탱 */            
+            .t3{
+                top: 20px;
+                left: 20px;
+                transform: rotateY(180deg) rotate(25deg);
+                width: 150px;
+                filter: hue-rotate(270deg);
+            }
         </style>
         <script>
             window.addEventListener("DOMContentLoaded", () => {
@@ -115,6 +123,7 @@
                // 최초호출
                moveTang(qs(".t1"));
                moveTang(qs(".t2"));
+               moveTang(qs(".t3"));
 
                // 임시호출
             //    window.onclick = () => moveTang();
@@ -127,6 +136,7 @@
         <div class="aqua">
             <img src="./images/ytang.png" alt="옐로우탱" class="ytang t1" />
             <img src="./images/ytang.png" alt="옐로우탱" class="ytang t2" />
+            <img src="./images/ytang.png" alt="옐로우탱" class="ytang t3" />
         </div>
     </body>
 </html>
