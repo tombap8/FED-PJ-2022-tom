@@ -40,7 +40,8 @@
         // location.href로 받는다!!!
         // 페이지이동 : location.href = url주소 
         // url값 읽기 : 변수 = location.href
-        
+        let pm = location.href;
+        // console.log(pm);
 
         // 만약 물음표(?)가 없이 바로 페이지가 열린경우 걸러주기!
         // 없다면 split에서 에러가 남! 
@@ -51,12 +52,13 @@
 
         // url에서 물음표로 값을 잘라오기 중 뒤엣값[1]
         // split(자를기준문자열) -> 배열에 담긴다!
-        
+        pm = pm.split("?")[1];
         // 이퀄(=)로 잘라서 뒤엣값[1] -> (키=값) 중 (값)만!
-        
+        pm = pm.split("=")[1];
         // encodeURIComponent로 변환해서 보냈으므로 
         // decodeURIComponent로 재변환!
-        
+        pm = decodeURIComponent(pm);
+        console.log(pm);
 
 
         

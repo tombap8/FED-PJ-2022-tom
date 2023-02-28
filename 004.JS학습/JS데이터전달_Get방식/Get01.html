@@ -97,7 +97,15 @@
 
                     // 2. 전달할 페이지에 Get방식 데이터 전송하기
                     // url?키=값
-                    location.href = "Get02.html?shop="+atxt;
+                    location.href = 
+                    "Get02.html?shop="+encodeURIComponent(atxt);
+                    // 2byte문자인 한글을 보낼때 인코딩함수사용!
+                    // 예) Get02.html?shop=레드샵
+                    //-> 인코딩함수를 안써도 최신브라우저는
+                    // 자동인코딩을 내부적으로 지원한다!
+                    // 하지만 지원을 하지 않는 경우도 있으므로
+                    // 반드시 인코딩함수를 사용하여 보내고 
+                    // 디코딩함수로 풀어주도록 하자!
                 }; /////// click /////
 
 
