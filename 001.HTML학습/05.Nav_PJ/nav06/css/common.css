@@ -59,6 +59,17 @@ body *{
 /* 서브메뉴 타이틀 */
 .smenu h2{
     width: 166px;
+    padding: 20px;
+    font-weight: normal;
+}
+/* 타이틀 */
+.smenu h2 div{
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+/* 전체보기 */
+.smenu h2 a{
+    font-size: 14px;
 }
 
 
@@ -67,4 +78,9 @@ body *{
 .swrap{
     display: flex;
     width: 100%;
+    padding: 20px;
+}
+/*  서브 각 박스 (dl) */
+.swrap dl{
+    width: 200px;
 }
