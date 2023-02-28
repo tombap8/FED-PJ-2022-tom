@@ -39,15 +39,27 @@ function loadFn(){
                         ${tm}
                     </h2>
                     <div class="swrap">
-                        <dl>
-                            <dt>오노마</dt>
-                            <dd>에센스</dd>
-                            <dd>스킨/토너</dd>
-                            <dd>크림</dd>
-                            <dd>선크림</dd>
-                            <dd>세트</dd>
-                        </dl>
-    
+               `;
+
+               // 2. 하위메뉴 반복코드
+               // -> 객체데이터 이므로 for in문 사용!
+               // -> mdata[tm] -> mdata[속성명] -> 속성값!
+               // -> 속성값은 서브메뉴이고 객체로 구성됨!
+               for(let sm in mdata[tm]){ // sm - 속성명(하위메뉴)
+                    hcode += `<dl>
+                        <dt>${sm}</dt>`;
+                    
+                    // 3. 서브메뉴(최하위메뉴) 반복코드
+                    // -> 서브메뉴는 배열이므로 for of사용!
+                    for(let sub of mdata[tm][sm]){
+                        hcode += `<dd>${sub}</dd>`;
+                    } ////////// for of ///////////
+
+                    hcode +=`</dl>`;
+               } //////////// for in문 /////////
+
+               
+               hcode += `
                     </div>
                 </div>
             </li>
@@ -57,7 +69,10 @@ function loadFn(){
 
     hcode += "</ul>";
 
-    
+    // GNB 박스에 출력하기
+    gnb.innerHTML = hcode;
+
+
 
 
 
