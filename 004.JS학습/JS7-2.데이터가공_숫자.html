@@ -14,7 +14,7 @@
        let num2 = "2"; // 문자형 숫자
 
        let res1 = num1 + num2;
-       let res2 = num1 + num2;
+       let res2 = Number(num1) + Number(num2);
 
        console.log("문자형숫자 더하기:\n",res1);
        console.log("문자형숫자 숫자형변환후 더하기:\n",res2);
@@ -55,7 +55,7 @@
 
        // 결과
        let parse1 = pa1 + pa2;
-       let parse2 = pa1 + pa2;
+       let parse2 = parseInt(pa1) + parseInt(pa2);
 
        console.log("단위가 있는 숫자 더하기: \n", parse1);
        console.log("단위가 있는 숫자 변환후 더하기: \n", parse2);
@@ -63,12 +63,12 @@
 
         /************************************************* 
             4. 문자로된 숫자계산식을 실제로 계산하기
-            - 문자식을 **해주면 실제로 계산한다!
-            - ****(문자로된 계산식)
+            - 문자식을 이발해주면 실제로 계산한다!
+            - eval(문자로된 계산식)
         *************************************************/
        let temp = "3*8+35/5";
        console.log("문자계산식: ",temp);
-       console.log("eval계산결과: ",temp);
+       console.log("eval계산결과: ",eval(temp));
        
     </script>
 </head>

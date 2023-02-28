@@ -84,8 +84,14 @@
             -> 문자열을 기준문자로 split하여 자르면 배열이 된다!
         ***********************************************************/
             let sp1 = "동해물^백두산^우리나라^한반도^태극기";
-            // console.log(sp1);
+            console.log(sp1);
 
+            // 특수문자(^)잘라서 변수에 할당!
+            let arr = sp1.split("^");
+            console.log(arr);
+
+            // "한반도"만 출력
+            console.log(arr[3]);
             
 
         /************************************** 
@@ -97,11 +103,11 @@
        // 결과출력
        let res1 = str1 + str2; 
        // 숫자+숫자=숫자
-       // console.log("이번주 복권 당첨번호는? ",res1);
+       console.log("이번주 복권 당첨번호는? ",res1);
 
-       let res2 = str1 + str2; 
+       let res2 = String(str1) + String(str2); 
        // 문자+문자=문자
-       // console.log("이번주 복권 당첨번호는? ",res2);
+       console.log("이번주 복권 당첨번호는? ",res2);
 
         </script>
     </head>
