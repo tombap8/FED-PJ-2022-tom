@@ -1,6 +1,9 @@
 @charset "utf-8";
 
 @import url(./reset.css);
+/* 웹폰트 CDN */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&family=Noto+Sans+KR&display=swap');
+/* font-family: 'Noto Sans KR', sans-serif; */
 
 /* 네비게이션 유형6 : 공통CSS - common.css */
 
@@ -17,6 +20,7 @@ body *{
 
 /* 1. 상단영역 */
 #top{
+    font-family: 'Noto Sans KR', sans-serif;
     background-color: #222;
 }
 .top{
@@ -33,9 +37,34 @@ body *{
 }
 .gnb>ul{
     display: flex;
+    gap: 0 40px;
+}
+.gnb>ul>li>a{
+    color: #ccc;
 }
 
+/* 하위메뉴 */
 .smenu{
+    display: flex;
     position: absolute;
+    background-color: #fff;
+    width: 1300px;
+    display: none;
+}
+/* 임시 첫번째메뉴만 보임 */
+.gnb>ul>li:first-child .smenu{
+    display: flex;
+}
 
+/* 서브메뉴 타이틀 */
+.smenu h2{
+    width: 166px;
+}
+
+
+
+/* 서브메뉴(최하위) */
+.swrap{
+    display: flex;
+    width: 100%;
 }

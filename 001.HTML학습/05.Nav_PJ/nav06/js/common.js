@@ -76,7 +76,7 @@ function loadFn(){
     hcode += "</ul>";
 
     // 4. GNB 박스에 출력하기
-    // gnb.innerHTML = hcode;
+    gnb.innerHTML = hcode;
 
 
 
