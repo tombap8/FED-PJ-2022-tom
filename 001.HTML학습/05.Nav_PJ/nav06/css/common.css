@@ -1,3 +1,41 @@
 @charset "utf-8";
 
+@import url(./reset.css);
+
 /* 네비게이션 유형6 : 공통CSS - common.css */
+
+/* 공사중 */
+body *{
+    outline: 1px dashed red;
+}
+
+/* 중앙속박스 */
+.ibx{
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+/* 1. 상단영역 */
+#top{
+    background-color: #222;
+}
+.top{
+    min-height: 350px;
+}
+/* 1-1.탑메뉴영역 */
+.tmenu{
+    height: 80px;
+}
+/* 1-2.GNB영역 */
+.gnb{
+    max-width: 1300px;
+    margin: 0 auto;
+}
+.gnb>ul{
+    display: flex;
+}
+
+.smenu{
+    position: absolute;
+
+}
