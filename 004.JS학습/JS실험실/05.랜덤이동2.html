@@ -35,31 +35,47 @@
                 /* 선택영역불가 */
                 user-select: none;
             }
+            @keyframes fish1 {
+                to {
+                    transform: rotate(15deg);
+                }
+            }
+            @keyframes fish2 {
+                to {
+                    transform: rotateY(180deg) rotate(0deg);
+                }
+            }
             /* 첫탱 */
-            .t1{
+            .t1 {
                 top: calc(50% - 52px);
                 left: calc(50% - 100px);
                 width: 200px;
                 height: 104px;
                 z-index: 3;
+                /* 애니메이션 */
+                animation: fish1 1s ease-in-out 0.7s infinite alternate;
             }
-            /* 추가탱 */            
-            .t2{
+            /* 추가탱 */
+            .t2 {
                 top: 20px;
                 left: 20px;
                 transform: rotateY(180deg) rotate(25deg);
                 width: 150px;
                 filter: hue-rotate(270deg);
                 z-index: 2;
+                /* 애니메이션 */
+                animation: fish2 1s ease-in-out infinite alternate;
             }
-            /* 추가탱 */            
-            .t3{
+            /* 추가탱 */
+            .t3 {
                 top: 200px;
                 left: 200px;
                 transform: rotate(25deg) rotateY(180deg);
                 width: 120px;
                 filter: hue-rotate(70deg);
                 z-index: 1;
+                /* 애니메이션 */
+                animation: fish2 1s ease-in-out 1.4s infinite alternate;
             }
         </style>
         <script>
@@ -78,15 +94,15 @@
                     -> 내부코드도 요소별로 적용되도록
                     구현코드를 구성해 준다!
                 ************************************/
-               function moveTang(ele){ // ele - 요소전달
+                function moveTang(ele) {
+                    // ele - 요소전달
                     // 호출확인
-                    console.log("고우~!",ele);
+                    console.log("고우~!", ele);
 
                     // 탱의 가로크기
                     let tgW = ele.clientWidth;
                     // 탱의 세로크기
                     let tgH = ele.clientHeight;
-
 
                     // 1. 랜덤수 만들기
                     // top값범위 = 세로크기 - 탱높이
@@ -95,53 +111,42 @@
                     // Math.ceil(Math.random()*최대수)
 
                     // (1) top값 랜덤
-                    let rdTop = 
-                    Math.ceil(Math.random()*(400-tgH));
-                    
+                    let rdTop = Math.ceil(Math.random() * (400 - tgH));
+
                     // left값범위 = 가로크기 - 탱폭
                     // left값범위 = 600 - clientWidth
                     // 난수 1부터 최대값
                     // Math.ceil(Math.random()*최대수)
 
                     // (2) left값 랜덤
-                    let rdLeft = 
-                    Math.ceil(Math.random()*(600-tgW));
+                    let rdLeft = Math.ceil(Math.random() * (600 - tgW));
 
                     // (3) 트랜지션 애니시간 랜덤 : 1초~6초
-                    let rdTime = 
-                    Math.ceil(Math.random()*6);
+                    let rdTime = Math.ceil(Math.random() * 6);
 
-                    console.log(
-                        "top:",rdTop,
-                        "\nleft:",rdLeft,
-                        "\ntime:",rdTime);
-                                        
+                    console.log("top:", rdTop, "\nleft:", rdLeft, "\ntime:", rdTime);
 
                     // 2. 대상위치이동
                     ele.style.top = rdTop + "px";
                     ele.style.left = rdLeft + "px";
-                    ele.style.transition = rdTime+"s ease-in-out";
+                    ele.style.transition = rdTime + "s ease-in-out";
                     // 애니메이션 시간도 랜덤
 
                     // 3. 함수자신을 다시 호출함 -> 재귀호출!
-                    setTimeout(()=>moveTang(ele),rdTime*1000);
+                    setTimeout(() => moveTang(ele), rdTime * 1000);
                     // 재귀호출시간도 랜덤 -> 애니시간과 일치!
+                } ///////// moveTang /////////////////
 
-               } ///////// moveTang /////////////////
+                // 요소선택함수 ///
+                const qs = (x) => document.querySelector(x);
 
-               // 요소선택함수 ///
-               const qs = x => document.querySelector(x);
+                // 최초호출
+                moveTang(qs(".t1"));
+                moveTang(qs(".t2"));
+                moveTang(qs(".t3"));
 
-
-               // 최초호출
-               moveTang(qs(".t1"));
-               moveTang(qs(".t2"));
-               moveTang(qs(".t3"));
-
-               // 임시호출
-            //    window.onclick = () => moveTang();
-
-
+                // 임시호출
+                //    window.onclick = () => moveTang();
             }); ///////////// 로드구역 //////////////////////
         </script>
     </head>
