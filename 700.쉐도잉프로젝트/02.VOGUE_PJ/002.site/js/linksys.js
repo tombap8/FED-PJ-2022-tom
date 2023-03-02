@@ -31,6 +31,7 @@ function linkFn(){
             console.log(atxt);
 
             // (2) 서브 페이지 이동하기
+            if(atxt !== "search") // 검색이 아니면 서브이동!
             location.href = "category.html?cat="
             +encodeURIComponent(atxt);
 
