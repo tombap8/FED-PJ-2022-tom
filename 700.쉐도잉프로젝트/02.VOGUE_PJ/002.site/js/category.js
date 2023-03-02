@@ -47,6 +47,15 @@ function loadFn(){
 
     // (2) LNB 메뉴 넣기
 
+    // (3) 내용 타이틀 넣기 : 대상 - contit변수
+    // -> h2개수만큼 순번대로 mdata["타이틀"][순번]
+    // h2를 돌릴때 for of말고 forEach() 메서드로 사용!
+    // forEach((요소,순번)=>{코드})
+    contit.forEach((ele,idx)=>{
+        ele.innerHTML = mdata["타이틀"][idx];
+    }); /////// forEach //////////////
+
+
     // (3) 컨텐츠 박스에 pm과 같은 이름의 class넣기
     cont.classList.add(pm.replace(" & ","-"));
     // replace(바뀔값,바꿀값)
