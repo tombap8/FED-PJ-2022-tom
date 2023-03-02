@@ -43,14 +43,14 @@
             width: 20%;
             height: 100%;
             opacity: 0;
-            transition: 1s ease-in-out;
+            /* transition: 1s ease-in-out; */
         }
-        body .st2 li:hover .stg{
+        /* body .st2 li:hover .stg{
             left: 0;
             width: 100%;
             opacity: 1;
             z-index: 1;
-        }
+        } */
         
         .st2 li:nth-child(1) .stg{
             left: 0;
@@ -77,11 +77,79 @@
             right: 100%;
             background: url(./lim_imgs/55.jpg) no-repeat fixed center/cover;
         }
+
+
+        .st1 li:nth-child(1) .stg{
+            left: 0;
+        }
+        .st1 li:nth-child(2) .stg{
+            left: 20%;
+            right: 40%;
+        }
+
+        .st1 li:nth-child(3) .stg{
+            left: 40%;
+            right: 60%;
+        }
+        .st1 li:nth-child(4) .stg{
+            left: 60%;
+            right: 80%;
+        }
+        .st1 li:nth-child(5) .stg{
+            left: 80%;
+            right: 100%;
+        }
     </style>
+    <script>
+        window.addEventListener("DOMContentLoaded",()=>{
+            const topArea = document.querySelectorAll(".st1 li");
+            const bottomArea = document.querySelectorAll(".st2 .stg");
+
+            console.log(topArea,bottomArea);
+
+            topArea.forEach((ele,idx)=>{
+                ele.onmouseenter = () => {
+
+                    let tg =
+                    bottomArea[idx];
+
+                    tg.style.left = "0";
+                    tg.style.width = "100%";
+                    tg.style.opacity = "1";
+                    tg.style.transition = "1s ease-in-out,opacity 0s";
+
+                };
+
+                ele.onmouseleave = () => {
+                    let tg =
+                    bottomArea[idx];
+                    tg.style = "";
+                }
+
+            })
+        });////////// load ////////////////////////
+    </script>
 </head>
 <body>
     <div class="wrap">
         <ul class="set st2">
+            <li>
+                <div class="stg"></div>
+            </li>
+            <li>
+                <div class="stg"></div>
+            </li>
+            <li>
+                <div class="stg"></div>
+            </li>
+            <li>
+                <div class="stg"></div>
+            </li>
+            <li>
+                <div class="stg"></div>
+            </li>
+        </ul>
+        <ul class="set st1">
             <li>
                 <div class="stg"></div>
             </li>
