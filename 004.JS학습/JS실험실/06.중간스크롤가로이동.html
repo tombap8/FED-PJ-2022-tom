@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS실험실: 06.중간스크롤가로이동</title>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            overflow-x: hidden;
+        }
+        
+        .pg{
+            height: 100vh;
+            outline: 1px solid blue;
+        }
+        .tpg{
+            height: calc(100vh + 3000px);
+            background-color: orange;
+        }
+        .slidePg{
+            position: sticky;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            
+            background-color: orange;
+        }
+        .slidePg ul{
+            position: relative;
+            left: 0;
+            display: flex;
+            width: calc(100vw + 3000px);
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            transition: .4s ease-out;
+        }
+        .slidePg ul li{
+            flex: 1;
+            text-align: center;
+        }
+
+        .slidePg ul li img{
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50%;
+            border-radius: 20px;
+        }
+        
+
+    </style>
+    <script>
+        // 샘플 페이지: https://thinkdance.ca/
+        
+        window.addEventListener("DOMContentLoaded",()=>{
+            console.log("loaded");
+ }); ////////// load /////////////////
+    </script>
+</head>
+<body>
+    <div class="pg"></div>
+    <div class="pg"></div>
+    <div class="pg tpg">
+        <div class="slidePg">
+
+        </div>
+    </div>
+    <div class="pg"></div>
+    <div class="pg"></div>
+    
+</body>
+</html>
