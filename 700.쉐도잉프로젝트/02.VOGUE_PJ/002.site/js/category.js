@@ -46,6 +46,38 @@ function loadFn(){
     stit.innerText = mdata["제목"];
 
     // (2) LNB 메뉴 넣기
+    // 대상: .lnb -> lnb변수
+    // 코드넣기 : 
+    // <ul><li><a href="#">메뉴</a></li></ul>
+    // mdata["메뉴"] 값이 "없음"이면 lnb를 지우고
+    // 아니면 배열값으로 메뉴가 있으므로 배열만큼
+    // 위의 ul>li>a 코드를 넣어 준다!
+
+    // 메뉴값 담기
+    let mvalue = mdata["메뉴"];
+
+    if(mvalue==="없음"){ 
+        // LNB박스 제거!
+        lnb.remove();
+    } //////// if ////////////////
+    else{ /// 메뉴가 배열에 있음!
+        let temp = "<ul>";//임시변수
+
+        // 메뉴배열만큼 돌아서 코드생성
+        mvalue.forEach((val)=>{ // val 배열값!
+            temp += `
+                <li>
+                    <a href="#">${val}</a>
+                </li>
+            `;
+        }); //// forEach //////
+
+        temp += "</ul>";
+
+        // LNB박스에 html넣기!
+        lnb.innerHTML = temp;
+
+    } ////////// else ///////////
 
     // (3) 내용 타이틀 넣기 : 대상 - contit변수
     // -> h2개수만큼 순번대로 mdata["타이틀"][순번]
