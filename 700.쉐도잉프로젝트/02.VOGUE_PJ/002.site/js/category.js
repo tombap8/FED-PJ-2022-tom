@@ -31,6 +31,22 @@ function loadFn(){
     // (4) title요소(타이틀 내용에 카테고리명 앞에추가)
     const titag = document.querySelector("title");
 
-    console.log(stit,lnb,cont,titag);
+    // console.log(stit,lnb,cont,titag);
+
+    // 2. 메뉴데이타 (sinfo변수) 객체에서 카테고리값 선택하기
+    const mdata = sinfo[pm];
+
+    console.log(mdata);
+
+    // 3. 대상에 변경 적용하기
+    // (1) 카테고리 페이지 타이틀 넣기
+    // 대상: .stit -> stit변수
+    stit.innerText = mdata["제목"];
+
+    // (2) LNB 메뉴 넣기
+
+    // (3) 컨텐츠 박스에 pm과 같은 이름의 class넣기
+    cont.classList.add(pm.replace(" & ","-"));
+    // replace(바뀔값,바꿀값)
 
 } ////////// loadFn함수 //////////////
