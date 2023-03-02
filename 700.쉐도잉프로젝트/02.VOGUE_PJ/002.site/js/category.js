@@ -26,12 +26,14 @@ function loadFn(){
     const stit = document.querySelector(".stit");
     // (2) 서브메뉴
     const lnb = document.querySelector(".lnb");
-    // (3) 컨텐츠 상위박스(카테고리 클래스 넣기)
+    // (3) 내용 타이틀
+    const contit = document.querySelectorAll(".icont h2");
+    // (4) 컨텐츠 상위박스(카테고리 클래스 넣기)
     const cont = document.querySelector(".cont");
-    // (4) title요소(타이틀 내용에 카테고리명 앞에추가)
+    // (5) title요소(타이틀 내용에 카테고리명 앞에추가)
     const titag = document.querySelector("title");
 
-    // console.log(stit,lnb,cont,titag);
+    // console.log(stit,lnb,contit,cont,titag);
 
     // 2. 메뉴데이타 (sinfo변수) 객체에서 카테고리값 선택하기
     const mdata = sinfo[pm];
