@@ -88,8 +88,16 @@ function loadFn(){
     }); /////// forEach //////////////
 
 
-    // (3) 컨텐츠 박스에 pm과 같은 이름의 class넣기
-    cont.classList.add(pm.replace(" & ","-"));
+    // (4) 컨텐츠 박스에 pm과 같은 이름의 class넣기
+    cont.classList.add(mdata["경로"]);
+    // "경로"속성의 값이 실제 클래스명과 일치함!
+
+    // cont.classList.add(pm.replace(" & ","-"));
     // replace(바뀔값,바꿀값)
+
+    // (5) 탭메뉴 출력 title요소 데이터 넣기
+    // 기존값을 앞에 "제목"속성값을 넣어준다!
+    // 대상: title요소 -> titag 변수
+    titag.innerText = mdata["제목"] + titag.innerText;
 
 } ////////// loadFn함수 //////////////
