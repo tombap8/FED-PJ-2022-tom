@@ -174,6 +174,7 @@
                 // 적용구간설정: 0 이하 -3000px 이상
                 if(tgpos <= 0 && tgpos >= -3000)
                     mvbx.style.left = tgpos + "px";
+                // 위쪽(0초과)일때 처음위치 재설정하기
                 else if(tgpos > 0)
                     mvbx.style.left = "0";
 
