@@ -23,19 +23,21 @@
                 transform: translateX(-50%);
                 /* 가로중앙이동 */
                 background-color: #fff;
-                border-radius: 35px;
+                border-radius: 40px;
             }
             /* 가상요소로 움직이는 배경박스 만들기 */
-            .gnb::before {
-                content: "";
+            .mbg {
                 position: absolute;
                 /* 변경내용: left,width
                 -> li의 수치를 기준함! */
                 left: 0;
                 width: 206px;
                 height: 78px;
-                background-color: #ffc75f;
-                border-radius: 35px;
+                background-color: #ffbe46;
+                border-radius: 40px;
+                /* 트랜지션 */
+                transition: .4s ease-in-out;
+                opacity: 0;/* 처음에 투명 */
             }
             .gnb ul {
                 position: relative;
@@ -52,12 +54,12 @@
                 display: block;
                 padding: 23px 35px;
                 /* 트랜지션: 속시이지 */
-                transition: color 0.4s;
+                transition: color 0.2s;
             }
             /* 마우스 오버시 글자색변경 */
             .gnb a:hover {
                 color: #fff;
-                transition-delay: 0.4s;
+                transition-delay: 0.2s;
                 /* 오버시 지연시간 설정 */
             }
 
@@ -145,22 +147,43 @@
                 /********************************* 
                     GNB 메뉴 오버시 움직이는 배경
                 *********************************/
-                // 1. 대상선정: .gnb li
+                // 1. 대상선정: 
+
+                // (1) 이벤트대상 : .gnb li
                 const gnb = document.querySelectorAll(".gnb li");
-                //    console.log(gnb);
+
+                // (2) 변경대상 : .mbg
+                const mbg = document.querySelector(".mbg");
+                //    console.log(mbg);
+
                 // 2. 이벤트 설정하기 : mouseenter 이벤트
                 gnb.forEach(ele=>{
                     ele.onmouseenter = e => {
                         // 1. 요소정보 알아내기
                         // (1) left위치값
-                        let eleft = e.offsetLeft;
+                        let eLeft = ele.offsetLeft;
                         // (2) widht값
-                        let eWidth = e.offsetWidth;
-                        
-                        // 확인
-                        console.log("left:",eleft,"\nwidth:",eWidth);
+                        let eWidth = ele.offsetWidth;
+                        // 대상요소의 위치값은 nav.gnb요소가 기준임!
+                        // relative를 가진 요소를 기준한 offset정보임!
 
-                    }; //// click //////
+                        // 확인
+                        console.log("left:",eLeft,"\nwidth:",eWidth);
+
+                        // 2. 움직이는 배경박스 변경하기
+                        mbg.style.left = eLeft+"px";
+                        mbg.style.width = eWidth+"px";
+                        mbg.style.opacity = 1;
+
+                    }; //// mouseenter //////
+
+                    // 마우스가 나갈때 투명도 0으로 사라짐
+                    ele.onmouseleave = e => {
+                        // 변경대상: .mbg -> mbg변수
+                        // 변경내용: opacity -> 0
+                        mbg.style.opacity = 0;
+                    }; ///////// mouseleave //////
+
                 }); ////// forEach ////////
             }); ////////// load /////////////////
         </script>
@@ -168,6 +191,9 @@
     <body>
         <!-- 네비게이션 -->
         <nav class="gnb">
+            <!-- 움직이는 메뉴배경박스 -->
+            <div class="mbg"></div>
+            <!-- 메뉴리스트 -->
             <ul>
                 <li>
                     <a href="#">Let's explore</a>
