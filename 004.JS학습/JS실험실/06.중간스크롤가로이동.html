@@ -12,6 +12,53 @@
             }
             body {
                 overflow-x: hidden;
+                background-image: linear-gradient(to bottom,orange, lightpink,lightgreen);
+            }
+
+            /* GNB박스 */
+            .gnb{
+                position: fixed;
+                top: 5vh;
+                left: 50%;
+                transform: translateX(-50%);
+                /* 가로중앙이동 */
+                background-color: #fff;
+                border-radius: 35px;
+            }
+            /* 가상요소로 움직이는 배경박스 만들기 */
+            .gnb::before{
+                content: '';
+                position: absolute;
+                /* 변경내용: left,width
+                -> li의 수치를 기준함! */
+                left: 0;
+                width: 206px;
+                height: 78px;
+                background-color: #ffc75f;
+                border-radius: 35px;
+            }
+            .gnb ul{
+                position: relative;
+                /* 가상요소보다 위! */
+                display: flex;
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+            .gnb a{
+                text-decoration: none;
+                color: #000;
+                font-size: 24px;
+                display: block;
+                padding: 23px 35px;
+                /* 트랜지션: 속시이지 */
+                transition: color .4s;
+            }
+            /* 마우스 오버시 글자색변경 */
+            .gnb a:hover{
+                color: #fff;
+                transition-delay: .4s;
+                /* 오버시 지연시간 설정 */
             }
 
             .pg {
@@ -101,6 +148,24 @@
         </script>
     </head>
     <body>
+        <!-- 네비게이션 -->
+        <nav class="gnb">
+            <ul>
+                <li>
+                    <a href="#">Let's explore</a>
+                </li>
+                <li>
+                    <a href="#">Let's meet</a>
+                </li>
+                <li>
+                    <a href="#">Let's attend</a>
+                </li>
+                <li>
+                    <a href="#">Let's dance</a>
+                </li>
+            </ul>
+        </nav>
+
         <div class="pg"></div>
         <div class="pg"></div>
         <!-- 타겟 페이지(스크롤시 가로이동) -->
