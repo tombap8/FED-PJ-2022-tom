@@ -1,0 +1,198 @@
+@charset "utf-8";
+
+/* Racing PJ 메인 CSS - main.css */
+
+
+html,
+body,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow: hidden;
+    /*가로스크롤없앰*/
+}
+body *{
+    user-select: none;
+}
+
+#mtit {
+    position: fixed;
+    width: 600px;
+    z-index: 1;
+    left: calc(50% - 300px);
+    font-family: 'ZCOOL KuaiLe', cursive;
+    font-size: 60px;
+    color: #206bd1;
+    text-align: center;
+    text-shadow: 2px 2px 3px #777;
+    /*애니메이션호출*/
+    animation: mov 1s ease-in-out infinite alternate;
+}
+
+@keyframes mov {
+    from {
+        transform: rotate(-5deg) scale(1);
+    }
+
+    to {
+        transform: rotate(5deg) scale(1.2);
+    }
+}
+
+/*키프레임*/
+
+/*전체부모*/
+#bgi {
+    position: relative;
+    /*부모역할*/
+    width: 100vw;
+    height: 600px;
+    background: url(../images/bg.jpg) repeat-x center top;
+}
+
+/*공통*/
+#bgi>div {
+    position: absolute;
+}
+
+/*출발선*/
+#f1 {
+    top: 243px;
+}
+
+/*도착선*/
+#f2 {
+    position: relative;
+    top: 243px;
+    left: 730px;
+    perspective: 50vw;
+}
+#f2::after{
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 48.6%;
+    transform-origin: top;
+    transform: rotateX(90deg);
+    width: 5px;
+    height: 600%;
+    background: rgb(202, 202, 202);
+}
+
+/*토끼*/
+#r1 {
+    top: 400px;
+    left: 0;
+    /*JS에서 사용할 기준속성*/
+}
+
+/*거북*/
+#t1 {
+    top: 600px;
+    left: 0;
+}
+.racer{
+    transform-origin: right;
+}
+.racer::after{
+    content: '';
+    display: block;
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    top: calc(50% - 2.5px);
+    left: 100%;
+    background-color: red;
+}
+
+/* 레이서 공통 */
+#r1.racer{
+    animation: racer .4s infinite alternate ;
+}
+#t1.racer{
+    animation: racer 1s .2s infinite alternate ;
+}
+@keyframes racer {
+    from{
+        transform: rotate(-10deg);
+    }
+    to{
+        transform: rotate(10deg);
+    }
+}
+
+/*조작버튼*/
+#btns {
+    position: fixed;
+    top: 10%;
+    right: 5%;
+    width: 150px;
+    height: 480px;
+    list-style: none;
+}
+
+#btns li {
+    width: 150px;
+    height: 150px;
+    border: 5px solid #ccc;
+    border-radius: 50%;
+    text-align: center;
+    font: bold 30px/150px "맑은 고딕", Verdana;
+    background-color: #fff;
+    margin-bottom: 20px;
+}
+
+#btns a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: #333;
+}
+
+/*버튼에 마우스 오버시*/
+#btns li:hover {
+    background-color: lime;
+    transform: scale(1.1);
+}
+
+/*버튼 a링크 누르고 있을때(:active)*/
+#btns a:active {
+    color: red;
+}
+
+/*게임레벨*/
+.levbox {
+    position: absolute;
+    top: 3%;
+    right: 5%;
+}
+
+#level {
+    width: 150px;
+    height: 40px;
+    font: 24px "맑은 고딕", "굴림";
+}
+
+/*결과 메시지*/
+#msg {
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    top: 40%;
+    font-size: 52px;
+    text-align: center;
+    color: lime;
+    text-shadow: 
+    0 -2px #000,
+    0 2px #000,
+    -2px 0 #000,
+    2px 0 #000;
+    display: none;
+    /*처음에 안보임*/
+}

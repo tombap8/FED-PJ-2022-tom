@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Racing PJ</title>
+        <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|ZCOOL+KuaiLe&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="./css/main.css" />
+        <script src="./js/main.js"></script>
+    </head>
+
+    <body>
+        <h1 id="mtit">Racing Game</h1>
+        <!--1.메인스테이지-->
+        <div id="bgi">
+            <!--출발선-->
+            <div id="f1">
+                <img src="images/flag_03.png" alt="출발선" />
+            </div>
+            <!--도착선-->
+            <div id="f2">
+                <img src="images/flag_07.png" alt="도착선" />
+            </div>
+            <!--토끼-->
+            <div id="r1" class="racer">
+                <img src="images/racer_03.png" alt="토끼" />
+            </div>
+            <!--거북-->
+            <div id="t1" class="racer">
+                <img src="images/racer_06.png" alt="거북" />
+            </div>
+        </div>
+
+        <!--게임조작버튼-->
+        <ul id="btns">
+            <li><a href="#">토끼출발</a></li>
+            <li><a href="#">거북출발</a></li>
+            <li><a href="#">처음으로</a></li>
+        </ul>
+
+        <!--게임레벨-->
+        <div class="levbox">
+            <select id="level">
+                <option value="10">레벨1</option>
+                <option value="9">레벨2</option>
+                <option value="8">레벨3</option>
+                <option value="7">레벨4</option>
+                <option value="6">레벨5</option>
+                <option value="5">레벨6</option>
+                <option value="4">레벨7</option>
+            </select>
+        </div>
+
+        <!--결과 메시지창-->
+        <h2 id="msg">테스트 테스트 테스트!!! ㅎㅎㅎㅎㅎ</h2>
+    </body>
+</html>
