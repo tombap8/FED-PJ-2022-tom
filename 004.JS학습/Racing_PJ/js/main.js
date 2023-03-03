@@ -151,10 +151,26 @@ window.addEventListener("DOMContentLoaded", ()=>{
         // (2) 거북아 멈춰라! -> 거북멈춤상태값 1로 변경!
         t1Stop = 1;
 
+        // 메지시 랜덤을 위한 랜덤수 만들기
+        // 0~2 사이의 랜덤수
+        // 1~3 를 먼저 만든후 -> Math.random()*3
+        // 내림을 하면 0~2됨! -> Math.floor(Math.random()*3)
+
+        let rnum = Math.floor(Math.random()*3);
+
+        cg("랜덤수:"+rnum);
+
         // (3) 승자판별 후 메시지 보여주기!
-        if(r1pos > t1pos) msg.innerText = "토끼승!"
-        if(r1pos < t1pos) msg.innerText = "거북승!"
-        else msg.innerText = "비김!재승부!"
+        if(r1pos > t1pos) 
+            msg.innerText = msgtxt["토끼"][rnum];
+        else if(r1pos < t1pos) 
+            msg.innerText = msgtxt["거북"][rnum];
+        else 
+            msg.innerText = "비김!재승부!"
+
+
+        // (4) 메시지 박스 보이기
+        msg.style.display = "block"; 
 
 
 
@@ -163,6 +179,21 @@ window.addEventListener("DOMContentLoaded", ()=>{
 
 
   } //////////// whoWinner 함수 /////////////
+
+  //// 메시지 변수 //////////
+  const msgtxt = {
+    "토끼":[
+        "역시, 토끼가 이겼군! 아자!",
+        "넌 안돼!! 오~ 노노노!!! 토끼승!",
+        "토끼는 잠자고 가도 이경~!!!"
+    ],
+    "거북":[
+        "넌 뭐니? 토끼야? 내가 승!",
+        "대대로 거북이 기겼단다!!!",
+        "이제 넌 어쩌니? 토끼퇴출!!!"
+    ]
+
+  }; /////////// 메시지 객체 //////////////
 
 
 
