@@ -12,11 +12,11 @@
             }
             body {
                 overflow-x: hidden;
-                background-image: linear-gradient(to bottom,orange, lightpink,lightgreen);
+                background-image: linear-gradient(to bottom, orange, lightpink, lightgreen);
             }
 
             /* GNB박스 */
-            .gnb{
+            .gnb {
                 position: fixed;
                 top: 5vh;
                 left: 50%;
@@ -26,8 +26,8 @@
                 border-radius: 35px;
             }
             /* 가상요소로 움직이는 배경박스 만들기 */
-            .gnb::before{
-                content: '';
+            .gnb::before {
+                content: "";
                 position: absolute;
                 /* 변경내용: left,width
                 -> li의 수치를 기준함! */
@@ -37,7 +37,7 @@
                 background-color: #ffc75f;
                 border-radius: 35px;
             }
-            .gnb ul{
+            .gnb ul {
                 position: relative;
                 /* 가상요소보다 위! */
                 display: flex;
@@ -45,19 +45,19 @@
                 padding: 0;
                 list-style: none;
             }
-            .gnb a{
+            .gnb a {
                 text-decoration: none;
                 color: #000;
                 font-size: 24px;
                 display: block;
                 padding: 23px 35px;
                 /* 트랜지션: 속시이지 */
-                transition: color .4s;
+                transition: color 0.4s;
             }
             /* 마우스 오버시 글자색변경 */
-            .gnb a:hover{
+            .gnb a:hover {
                 color: #fff;
-                transition-delay: .4s;
+                transition-delay: 0.4s;
                 /* 오버시 지연시간 설정 */
             }
 
@@ -118,7 +118,7 @@
             window.addEventListener("DOMContentLoaded", () => {
                 console.log("로딩완료!");
 
-                // 1. 대상선정: 
+                // 1. 대상선정:
                 // (1) 타겟박스 : .tpg
                 const tpg = document.querySelector(".tpg");
                 // (2) 가로이동박스 : .slidePg
@@ -128,9 +128,9 @@
 
                 // html 코드변수
                 let hcode = "<ul>";
-                    
+
                 // 2. 가로이동박스에 디자인 요소 넣기
-                for(let x = 1; x < 8; x++){
+                for (let x = 1; x < 8; x++) {
                     hcode += `
                         <li>
                             <img src="images/dance/${x}.jpg" alt="댄스">
@@ -142,8 +142,26 @@
                 // 가로이동박스에 코드넣기
                 spg.innerHTML = hcode;
 
+                /********************************* 
+                    GNB 메뉴 오버시 움직이는 배경
+                *********************************/
+                // 1. 대상선정: .gnb li
+                const gnb = document.querySelectorAll(".gnb li");
+                //    console.log(gnb);
+                // 2. 이벤트 설정하기 : mouseenter 이벤트
+                gnb.forEach(ele=>{
+                    ele.onmouseenter = e => {
+                        // 1. 요소정보 알아내기
+                        // (1) left위치값
+                        let eleft = e.offsetLeft;
+                        // (2) widht값
+                        let eWidth = e.offsetWidth;
+                        
+                        // 확인
+                        console.log("left:",eleft,"\nwidth:",eWidth);
 
-
+                    }; //// click //////
+                }); ////// forEach ////////
             }); ////////// load /////////////////
         </script>
     </head>
