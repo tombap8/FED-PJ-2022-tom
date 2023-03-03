@@ -59,13 +59,13 @@ window.addEventListener("DOMContentLoaded", ()=>{
             cg(btxt);
 
             // (2) 버튼별 기능분기
-            // (2-1)토끼이동
+            // (2-1) 토끼이동
             if(btxt==="토끼출발"){
                 // 위치이동하기
                 r1.style.left = (++r1pos) + "px";
 
             } ///////// if문 : 토끼출발 ////////
-            // (2-2)거북이동
+            // (2-2) 거북이동
             else if(btxt==="거북출발"){
                 // 위치이동값 셋팅
                 t1pos += 16;
