@@ -73,7 +73,7 @@ window.addEventListener("DOMContentLoaded", ()=>{
             else if(btxt==="거북출발"){
                 // 거북멈춤 상태값(t1Stop)이 1이면 돌아가!
                 if(t1Stop) return;
-                
+
                 // 위치이동값 셋팅
                 t1pos += 16;
                 // 위치이동하기
@@ -147,8 +147,16 @@ window.addEventListener("DOMContentLoaded", ()=>{
 
         // (1) 토끼야 멈춰라! -> 인터발함수지우기!
         clearInterval(autoI);
+
         // (2) 거북아 멈춰라! -> 거북멈춤상태값 1로 변경!
         t1Stop = 1;
+
+        // (3) 승자판별 후 메시지 보여주기!
+        if(r1pos > t1pos) msg.innerText = "토끼승!"
+        if(r1pos < t1pos) msg.innerText = "거북승!"
+        else msg.innerText = "비김!재승부!"
+
+
 
     } ///////////// if ///////////////
 
