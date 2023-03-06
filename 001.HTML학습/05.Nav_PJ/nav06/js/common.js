@@ -95,9 +95,7 @@ function loadFn() {
     // 이벤트 종류: mouseenter / mouseleave
     // 변경 대상1: .smenu
     // 변경 내용1: height값, opacity값
-    // 변경 대상2: .bgbx
-    const bgbx = document.querySelector(".bgbx");
-    // 변경 내용2: height값, opacity값
+    
 
     // console.log(bgbx);
 
@@ -122,7 +120,6 @@ function loadFn() {
             // (3) 스타일 변경요소 함수호출
             // stFn(요소,높이값,투명도)
             stFn(tg,hv,1);
-            stFn(bgbx,hv,1);
         }; /////// mouseenter ///////////
 
         // (2) 마우스 아웃시 /////////
@@ -133,7 +130,6 @@ function loadFn() {
             // (2) 스타일 변경요소 함수호출
             // stFn(요소,높이값,투명도)
             stFn(tg,"0",0);
-            stFn(bgbx,"0",0);
         }; /////// mouseleave ///////////
         
     } /////////// for of //////////////
