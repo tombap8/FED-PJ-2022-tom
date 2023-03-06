@@ -20,6 +20,7 @@
 
 /* 1. 상단영역 */
 #top{
+    position: relative;
     font-family: 'Noto Sans KR', sans-serif;
     background-color: #222;
 }
@@ -40,7 +41,7 @@
 }
 /* 1-2.GNB영역 */
 .gnb{
-    position: relative;
+    /* position: relative; */
     /* 부모자격 - .smenu */
     max-width: 1300px;
     margin: 0 auto;
@@ -48,9 +49,9 @@
     /* 줄바꿈방지 */
     white-space: nowrap;
     /* GNB배경박스(.bgbx)보다위 */
-    z-index: 1;
 }
 .gnb>ul{
+    /* position: relative; */
     display: flex;
     /* gap: 0 40px; */
 }
@@ -68,8 +69,11 @@
 .smenu{
     position: absolute;
     left: 0;
-    /* background-color: #fff; */
-    width: 1300px;
+    width: 100%;
+    
+    background-color: #fff;
+    /* 박스그림자 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.211);
     /* 숨기기장치: overflow,height,opacity(효과) */
     overflow: hidden;
     /* 넘치는 자식요소 숨기기 */
@@ -86,6 +90,8 @@
 .smbx{
     /* h2,div의 플렉스박스 */
     display: flex;
+    width: 1300px;
+    margin: 0 auto;
 }
 /* 임시 첫번째메뉴만 보임 */
 /* .gnb>ul>li:nth-child(5) .smenu{
