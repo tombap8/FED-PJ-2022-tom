@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title> Filtering </title>
+<!-- jQuery library -->
+<script src="jquery-1.7.2.min.js"></script>
+<script>
+$(document).ready(function(e) {
+	// first() 메서드 : 선택요소가 집합일때 그 중 첫번째 요소
+	// last() 메서드 : 선택요소가 집합일때 그 중 마지막째 요소
+	// eq(n) 메서드 :  선택요소가 집합일때 그 중 n번째 요소(0부터 시작)
+	// filter(선택자) : 선택요소의 내부에서 다시한번 선택함.
+	// has(선택자) : 선택요소 내부에서 특정요소를 포함하는 것을 선택함.
+	
+	// 미션: #main을 클릭할때 각 미션을 수행하라!
+	$("#main").click(function(){
+		// 1. p태그를 찾아 그 중 첫번째 요소의 배경색 red
+		
+		// 2. p태그를 찾아 그 중 마지막 요소의 배경색을 yellow
+		
+		// 3. p태그 중 2번째 요소를 선택하여 margin-top값을 100px로 transition 0.4초로 설정하시오.
+		
+		// 4. div 중 클래스가 middle인 요소를 찾아 margin-top값을 200px, height값을 200px,
+		// 배경색을 lime 색으로 transition 주시오.
+				
+		// 5. div 중에서 p태그를 포함하는 요소를 선택하여 border를 10px ridge blue로 설정하시오.
+		
+		
+		
+	});//////// click /////////////////
+	
+    
+	
+	
+	
+});//jQuery실행구역
+</script>
+
+<style>
+  div, p {float:left;margin:10px; background-color:#FFF;}
+  div#sub { width:80px; height:80px; border:#000 thin solid;}
+  div.middle { width:80px; height:80px; border:#000 thin solid;}
+  p { width:50px; height:50px; border:#000 thin solid;}
+</style>
+</head>
+<body>
+<div id="main">
+    <div class="middle">div</div>
+    <p>p</p>
+    <p>p</p>
+    <p>p</p>
+    <p>p</p>
+    <div id = "sub">
+      <p>div p</p>
+    </div>
+
+</div>
+<!---------- jQuery code Start ---------->
+<script>
+
+</script>
+
+</body>
+</html>

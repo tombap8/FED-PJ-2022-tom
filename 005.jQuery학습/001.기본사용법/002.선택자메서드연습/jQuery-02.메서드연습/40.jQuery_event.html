@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title> jQuery event </title>
+<script src="jquery-1.7.2.min.js"></script>
+	<script>
+		function haha(){
+			alert("날불렀소?");
+		}///// haha ////////
+		
+		
+		
+	$(function(){/////// jQB ////////
+		
+		//제이쿼리는 이벤트와 함수 연결방식이 간결하다.
+		// 내부적으로는 JS의 addEventListener를 사용함!
+		$("div").click(haha);
+		
+		
+	});/// jQB /////////////
+	
+	</script>
+
+
+<style>
+  div{
+  	width:100px;
+  	height:100px;
+	background-color:#FC9;
+  }
+</style>
+
+</head>
+
+<body>
+
+<div>클릭</div>
+<script>
+
+
+	
+   
+</script>
+</body>
+</html>

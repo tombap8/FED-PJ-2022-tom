@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>  javaScript event </title>
+	<script>
+	function nayana(){
+		alert("나야나!!");
+	}///////// nayana /////////////
+		/*
+		위의 함수와 #box 인 요소와 연결하려면
+		태그에 직접 onclick이벤트 설정을 해야한다.
+		그런데 jQuery는 이런설정없이 함수와 연결해서
+		코딩을 할 수 있게하는데 아래와 방법으로
+		이벤트와 함수를 연결한다.
+	*/
+		window.addEventListener("load",function(){
+			// 이벤트를 특정 요소와 연결설정하기
+			var tg=document.getElementById("box");
+			
+			tg.addEventListener("click",nayana);
+			
+			// 이벤트와 함수를 연결시키는 JS내장함수
+			//addEventListener(이벤트명, 함수명)			
+			
+		});////////// load구역 /////////////////////////
+	
+	
+	
+	
+	</script>
+
+
+<style>
+  div{
+  	width:100px;
+  	height:100px;
+	background-color:#FC9;
+  }
+</style>
+
+</head>
+
+<body>
+
+<div id="box">클릭</div>
+
+
+<script>
+
+
+</script>
+</body>
+
+</html>

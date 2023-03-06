@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>위치정보 알아내기</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        /*전체페이지*/
+        .page {
+            position: relative;
+            /*부모*/
+            width: 100%;
+            height: 3000px;
+            background-image: linear-gradient(to bottom, #6af3f8, #eaf755, #a3b5ff, #ffb0fc);
+        }
+
+        /*정보표시박스*/
+        #info {
+            position: fixed;
+            top: 50px;
+            left: 50px;
+            width: 350px;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, .7);
+        }
+
+        /*벌새*/
+        #bird {
+            position: absolute;
+            top: 10%;
+            left: 40%;
+            animation: bird 20s ease-in-out infinite alternate;
+        }
+        
+        /*내부박스*/
+        .inbox{
+            position: relative;/*부모자*/
+            top: 500px;
+            width: 800px;
+            height: 1000px;
+            margin: 0 auto;
+            outline: 2px dotted red;
+        }
+
+        /*벌새위치변경 애니메이션*/
+        @keyframes bird {
+            0% {
+                top: 10%;
+                left: 40%;
+            }
+
+            40% {
+                top: 30%;
+                left: 20%;
+            }
+
+            60% {
+                top: 50%;
+                left: 80%;
+            }
+
+            100% {
+                top: 80%;
+                left: 30%;
+            }
+        }
+
+        /*키프레임*/
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(function() { /// jQB //////////////////////////
+            var offtop, offleft, postop, posleft,js1,js2,js3,js4;
+            setInterval(function() {
+                // offset() 메서드의 top, left
+                // 기준: document 전체
+                // position() 메서드의 top, left
+                // 기준: 부모박스
+                offtop = Math.floor($("#bird").offset().top);
+                offleft = Math.floor($("#bird").offset().left);
+                postop = Math.floor($("#bird").position().top);
+                posleft = Math.floor($("#bird").position().left);
+
+
+                let bird = document.querySelector("#bird");
+
+                js1 = bird.offsetTop;
+                js2 = bird.offsetLeft;
+                js3 = bird.getBoundingClientRect().top;
+                js4 = bird.getBoundingClientRect().left;
+
+                /* 
+                    [제이쿼리:]
+
+                    1) offset() 
+                    -> 보이는 화면 기준 맨위와 왼쪽끝기준 절대값
+                    
+                    2) position() 
+                    -> 부모자격 박스 기준 절대값
+
+                    [자바스크립트:]
+
+                    1) offsetTop, offsetLeft 
+                    -> 제이쿼리 position()과 같음
+
+                    2) getBoundingClientRect() 
+                    -> 스크롤위치를 뺀 화면 기준
+                    -> 제이쿼리의 offset() 과 같은 절대값을 구하려면
+                    스크롤위치값을 본 값에 더해야함!
+                */
+
+
+                /// 화면표시 ////
+                $(".i1").text(offtop);
+                $(".i2").text(offleft);
+                $(".i3").text(postop);
+                $(".i4").text(posleft);
+                $(".i5").text(js1);
+                $(".i6").text(js2);
+                $(".i7").text(js3);
+                $(".i8").text(js4);
+
+            }, 100); ///// setInterval //////
+            
+            $(".page").click(function(e){
+                console.log(e.screenX);
+                console.log(e.clientX);
+                console.log(e.pageX);
+            })
+
+
+
+
+        }); //////// jQB ////////////////////////////////
+        /////////////////////////////////////////////////
+        /////////////////////////////////////////////////
+    </script>
+
+
+</head>
+
+<body>
+    <div class="page">
+
+        <div class="inbox">
+            <!--날아다니는 새-->
+            <img id="bird" src="bird.gif" alt="벌새">
+        </div>
+
+        <!--위치정보표시-->
+        <div id="info">
+            <h2>제이쿼리</h2>
+            <h2>offset().top 값 : <span class="i1"></span>px</h2>
+            <h2>offset().left 값 : <span class="i2"></span>px</h2>
+            <h2>position().top 값 : <span class="i3"></span>px</h2>
+            <h2>position().left 값 : <span class="i4"></span>px</h2>
+            <h2>(JS 비교)</h2>
+            <h2>JS의 offsetTop 값 : <span class="i5"></span>px</h2>
+            <h2>JS의 offsetLeft 값 : <span class="i6"></span>px</h2>
+            <h2>JS의 getBoundingClientRect().top 값 : <span class="i7"></span>px</h2>
+            <h2>JS의 getBoundingClientRect().left 값 : <span class="i8"></span>px</h2>
+        </div>
+
+
+
+    </div>
+
+</body></html>

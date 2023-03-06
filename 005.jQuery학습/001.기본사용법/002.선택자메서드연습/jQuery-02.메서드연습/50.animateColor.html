@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title> animateColor </title>
+<!-- jQuery library -->
+<script src="jquery-1.7.2.min.js"></script>
+<!-- script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script -->
+<script src="jquery-ui-1.8.23.custom.min.js"></script>
+	<script>
+		$(function(){/// jQB ////////////////////////////
+		 /*
+			마우스 이벤트 관련 jQuery 메서드
+			
+			*/
+			////////////////////////////////////////
+			
+			// 기능구현: 마우스 오버시 글자색 흰색, 배경색은 a태그의 data-bg 속성의 값으로 애니메이션 되면서 변경, 아웃시는 원상복귀
+			// 이벤트(hover) 대상: #menu>li>a
+			
+			
+			
+		});////// jQB ////////////////////////////////////
+		
+		
+		
+		
+		
+	</script>
+	
+	
+	
+	
+	
+
+<style>
+li {list-style:none; float:left;width:200px; height:60px;}
+li a{
+    background:#9AB92E;
+	width:200px;
+	height:60px;
+	display:block;
+	text-align:center;
+	color:black;
+	padding:40px 0px 10px;
+	font:bold 25px Verdana, Geneva, sans-serif;
+	text-decoration: none;
+}
+</style>
+</head>
+
+<body>
+	<!--
+		아래 a태그의 data-bg라는 속성은 새로 만들어준 속성임. 이렇게 뭔가 새로운 속성을 만들어서 사용하고 싶으면 규칙이 하나있다.
+	속성명앞에 "data-" 라는 접두어를 붙여야 한다.(반드시 지켜야할 규칙임. 이렇게 만들지 않으면 웹 표준검사시에 에러로 검출된다.)
+
+	결론적으로 "data-내이름" 형식으로 씀.
+
+-->
+<ul id="menu">
+    <li><a href="#" data-bg="#EF4018">Home</a></li>
+    <li><a href="#" data-bg="#00C8C3">About</a></li>
+    <li><a href="#" data-bg="#AA184D">portfolio</a></li>
+    <li><a href="#" data-bg="#05184D">Contact</a></li>
+</ul>
+<!---------- jQuery code Start ---------->
+<script>
+
+
+</script>
+</body>
+</html>
