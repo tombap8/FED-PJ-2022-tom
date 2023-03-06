@@ -5,10 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>One Page Scroll</title>
     <style>
+        html{
+            scroll-behavior: smooth;
+        }
+
         html,
         body{
             margin: 0;
             padding: 0;
+            /* overflow: hidden; */
         }
         /* 공통셋팅 */
         a{
@@ -90,6 +95,10 @@
             top: 40px;
             right: 2%;
         }
+        /* 메뉴 플렉스박스 */
+        .gnb ul{
+            display: flex;
+        }
         .gnb li{
             margin: 0 7px;
         }
@@ -126,7 +135,7 @@
         }
 
     </style>
-    
+    <script src="./js/js-autoScroll.js"></script>
 </head>
 <body>
     <!-- 1. 상단영역 -->
