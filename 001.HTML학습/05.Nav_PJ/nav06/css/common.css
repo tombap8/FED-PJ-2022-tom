@@ -56,6 +56,8 @@ body *{
     background-color: #fff;
     width: 1300px;
     display: none;
+    overflow: hidden;
+    /* 넘치는 자식요소 숨기기 */
 }
 /* 임시 첫번째메뉴만 보임 */
 .gnb>ul>li:nth-child(5) .smenu{
@@ -86,7 +88,7 @@ body *{
     display: flex;
     /* 플렉스 줄바꿈설정 */
     flex-wrap: wrap;
-    
+
     width: 100%;
     padding: 20px;
 }
