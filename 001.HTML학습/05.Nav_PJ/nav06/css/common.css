@@ -47,6 +47,8 @@
 
     /* 줄바꿈방지 */
     white-space: nowrap;
+    /* GNB배경박스(.bgbx)보다위 */
+    z-index: 1;
 }
 .gnb>ul{
     display: flex;
@@ -66,10 +68,8 @@
 .smenu{
     position: absolute;
     left: 0;
-    background-color: #fff;
+    /* background-color: #fff; */
     width: 1300px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.211);
-
     /* 숨기기장치: overflow,height,opacity(효과) */
     overflow: hidden;
     /* 넘치는 자식요소 숨기기 */
@@ -174,4 +174,22 @@
 /* dd a오버시 글자 */
 .swrap dd a:hover{
     color: #000;
+}
+
+/* 서브메뉴 배경박스 */
+.bgbx{
+    position: absolute;
+    top: 140px;
+    width: 100%;
+
+    /* 변경요소: height, opacity */
+    height: 0;
+    opacity: 0;
+
+    background-color: #fff;
+    /* 박스그림자 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.211);
+    
+    /* 트랜지션: 속시이지 -> .smenu와 동일! */
+    transition: .4s ease-in-out;
 }
