@@ -50,9 +50,14 @@
 }
 .gnb>ul{
     display: flex;
-    gap: 0 40px;
+    /* gap: 0 40px; */
 }
+/* 상위메뉴 a요소 */
 .gnb>ul>li>a{
+    /* a요소 확장! */
+    display: block;    
+    padding: 0 20px;
+
     line-height: 60px;
     color: #ccc;
 }
