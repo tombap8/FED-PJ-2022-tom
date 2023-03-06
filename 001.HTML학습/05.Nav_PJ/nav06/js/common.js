@@ -78,7 +78,6 @@ function loadFn() {
     // 4. GNB 박스에 출력하기
     gnb.innerHTML = hcode;
 
-
     /****************************************** 
         GNB 메뉴 오버시 서브메뉴 보이기
         _____________________________
@@ -91,16 +90,16 @@ function loadFn() {
     ******************************************/
 
     // 1. 대상선정
-   // 이벤트 대상: .gnb>ul>li
-   const list = document.querySelectorAll(".gnb>ul>li");
-   // 이벤트 종류: mouseenter / mouseleave
-   // 변경 대상: .smenu
-   // 변경 내용: height값, opacity값 
+    // 이벤트 대상: .gnb>ul>li
+    const list = document.querySelectorAll(".gnb>ul>li");
+    // 이벤트 종류: mouseenter / mouseleave
+    // 변경 대상: .smenu
+    // 변경 내용: height값, opacity값
 
-//    console.log(list);
+    //    console.log(list);
 
     // 2. 상위메뉴 li에 이벤트 설정하기
-    for(let x of list){
+    for (let x of list) {
         // (1) 마우스 오버시 /////////
         x.onmouseenter = () => {
             // (1) 하위메뉴 박스 .smenu 선택하기
@@ -108,12 +107,11 @@ function loadFn() {
 
             // (2) 하위메뉴 박스 내부박스 높이값 구하기
             let hv = tg.querySelector(".smbx").clientHeight;
-            console.log("내부높이:",hv);
+            // console.log("내부높이:",hv);
 
             // (3) 하위메뉴 style변경하기
-            tg.style.height = hv+"px";
+            tg.style.height = hv + "px";
             tg.style.opacity = 1;
-
         }; /////// mouseenter ///////////
 
         // (2) 마우스 아웃시 /////////
@@ -124,11 +122,6 @@ function loadFn() {
             // (2) 하위메뉴 style변경하기
             tg.style.height = "0";
             tg.style.opacity = 0;
-
         }; /////// mouseleave ///////////
-
-
     } /////////// for of //////////////
-
-
 } ///////////// loadFn 함수 ////////////////
