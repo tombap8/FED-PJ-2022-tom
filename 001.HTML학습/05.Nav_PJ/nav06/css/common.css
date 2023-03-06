@@ -32,8 +32,13 @@ body *{
 }
 /* 1-2.GNB영역 */
 .gnb{
+    position: relative;
+    /* 부모자격 - .smenu */
     max-width: 1300px;
     margin: 0 auto;
+
+    /* 줄바꿈방지 */
+    white-space: nowrap;
 }
 .gnb>ul{
     display: flex;
@@ -45,14 +50,15 @@ body *{
 
 /* 하위메뉴 */
 .smenu{
-    display: flex;
+    /* display: flex; */
     position: absolute;
+    left: 0;
     background-color: #fff;
     width: 1300px;
     display: none;
 }
 /* 임시 첫번째메뉴만 보임 */
-.gnb>ul>li:first-child .smenu{
+.gnb>ul>li:nth-child(5) .smenu{
     display: flex;
 }
 
@@ -76,7 +82,11 @@ body *{
 
 /* 서브메뉴(최하위) */
 .swrap{
+    /* 플렉스박스 */
     display: flex;
+    /* 플렉스 줄바꿈설정 */
+    flex-wrap: wrap;
+    
     width: 100%;
     padding: 20px;
 }
