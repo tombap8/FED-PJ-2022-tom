@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Page Scroll</title>
+    <style>
+        html,
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        /* 공통셋팅 */
+        a{
+            text-decoration: none;
+            color: #fff;
+            text-shadow: 0 0 2px #777;
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        img{
+            border: none;
+            /* 이미지 링크시 테두리없앰 */
+        }
+        h1,
+        h2,
+        h3{
+            margin: 0;
+            padding: 0;
+            font-size: 100%;
+        }
+
+        /* 공통 class */
+
+        /* 페이지 공통 class */
+        .page{/* 한페이지 보이는 화면 채우기 */
+            height: 100vh;
+        }
+
+        /* IR(배경이미지 설명 숨기기) class */
+        .ir{
+            display: block;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+        }
+
+        /* 중앙 속박스 */
+        .ibx{
+            width: 1920px;
+            max-width: 100%;
+            /* 1920px보다 작을땐 100%를 유지함! */
+            margin: 0 auto;/* 마영오 - 중앙정렬 */
+        }
+
+        /* 1. 상단영역 */
+        #top{
+            position: fixed;
+            /* 상단고정-보이는화면기준 */
+            width: 100%;
+            z-index: 9999;/* 맨위! */
+            background-color: rgba(0,0,0,.7);
+        }
+        /* 상단영역 속박스 */
+        .top{
+            position: relative;
+            /* 부모자격 */
+            height: 80px;
+        }
+
+        /* 1-1.로고 */
+        #logo{
+            width: 250px;
+            height: 100%;
+            text-align: center;
+            overflow: hidden;
+        }
+        #logo img{
+            width: 100%;
+            margin-top: -24px;
+        }
+
+        /* 1-2. GNB 메뉴 */
+        .gnb{
+            position: absolute;
+            /* 부모는? .top */
+            top: 40px;
+            right: 2%;
+        }
+        .gnb li{
+            margin: 0 7px;
+        }
+        /* 메뉴에 마우스 오버시 */
+        .gnb a:hover{
+            display: inline-block;/* 트랜스폼적용위해 */
+            color: lime;
+            text-decoration: overline;/* 윗줄 */
+            transform: scale(1.1);
+        }
+
+        /* 2. 페이지영역 */
+        /* 개별 페이지 셋팅 */
+        #pg1{
+            background: url(images/pic1.png) no-repeat top/cover;
+        }
+        #pg2{
+            background: url(images/pic2.png) no-repeat top/cover;
+        }
+        #pg3{
+            background: url(images/pic3.png) no-repeat top/cover;
+        }
+        #pg4{
+            background: url(images/pic4.png) no-repeat top/cover;
+        }
+        #pg5{
+            background: url(images/pic5.png) no-repeat top/cover;
+        }
+        #pg6{
+            background: url(images/pic6.png) no-repeat top/cover;
+        }
+        #pg7{
+            background: url(images/pic7.png) no-repeat top/cover;
+        }
+
+    </style>
+    
+</head>
+<body>
+    <!-- 1. 상단영역 -->
+    <div id="top">
+        <header class="top ibx">
+            <!-- 1-1.로고 -->
+            <h1 id="logo">
+                <a href="#">
+                    <img src="images/logo.png" alt="메가박스로고">
+                </a>
+            </h1>
+            <!-- 1-2.GNB메뉴 -->
+            <nav class="gnb">
+                <ul>
+                    <li>
+                        <a href="#pg1">아수라</a>
+                    </li>
+                    <li>
+                        <a href="#pg2">고산자</a>
+                    </li>
+                    <li>
+                        <a href="#pg3">인천상륙작전</a>
+                    </li>
+                    <li>
+                        <a href="#pg4">봉이김선달</a>
+                    </li>
+                    <li>
+                        <a href="#pg5">비밀은없다</a>
+                    </li>
+                    <li>
+                        <a href="#pg6">아가씨</a>
+                    </li>
+                    <li>
+                        <a href="#pg7">탐정홍길동</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+
+    <!-- 2. 페이지영역 -->
+    <div class="pgwrap">
+        <section id="pg1" class="page"></section>
+        <section id="pg2" class="page"></section>
+        <section id="pg3" class="page"></section>
+        <section id="pg4" class="page"></section>
+        <section id="pg5" class="page"></section>
+        <section id="pg6" class="page"></section>
+        <section id="pg7" class="page"></section>
+
+    </div>
+
+    
+</body>
+</html>
