@@ -8,9 +8,9 @@
 /* 네비게이션 유형6 : 공통CSS - common.css */
 
 /* 공사중 */
-body *{
+/* body *{
     outline: 1px dashed red;
-}
+} */
 
 /* 중앙속박스 */
 .ibx{
@@ -29,6 +29,14 @@ body *{
 /* 1-1.탑메뉴영역 */
 .tmenu{
     height: 80px;
+    overflow: hidden;
+}
+/* 로고 */
+#logo{
+    display: block;
+    width: 125px;
+    margin: 0 auto;
+    margin-top: 30px;
 }
 /* 1-2.GNB영역 */
 .gnb{
@@ -45,6 +53,7 @@ body *{
     gap: 0 40px;
 }
 .gnb>ul>li>a{
+    line-height: 60px;
     color: #ccc;
 }
 
@@ -58,6 +67,7 @@ body *{
     display: none;
     overflow: hidden;
     /* 넘치는 자식요소 숨기기 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.211);
 }
 /* 임시 첫번째메뉴만 보임 */
 .gnb>ul>li:nth-child(5) .smenu{
@@ -69,6 +79,7 @@ body *{
     width: 166px;
     padding: 20px;
     font-weight: normal;
+    border-right: 1px solid #e3e3e3;
 }
 /* 타이틀 */
 .smenu h2 div{
@@ -77,7 +88,7 @@ body *{
 }
 /* 전체보기 */
 .smenu h2 a{
-    font-size: 14px;
+    font-size: 13px;
 }
 
 
@@ -90,9 +101,56 @@ body *{
     flex-wrap: wrap;
 
     width: 100%;
-    padding: 20px;
+    padding: 5px 60px;
 }
 /*  서브 각 박스 (dl) */
 .swrap dl{
     width: 200px;
+}
+/* 하위메뉴(dt) */
+.swrap dt{
+    position: relative;
+    width: 120px;
+    font-size: 16px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    /* 하단보더 */
+    border-bottom: 1px solid #e3e3e3;
+}
+/* dt,dd 하단선 */
+.swrap dt::after{
+    content: '';
+    display: block;
+    width: 0;
+    height: 1px;
+    transform: translateY(7px);
+    background-color: #555;
+    transition: width .2s;
+}
+.swrap dd a{
+    display: inline-block;
+    color: #777;
+}
+.swrap dd a::after{
+    content: '';
+    display: block;
+    width: 0;
+    height: 1px;
+    transform: translateY(-10px);
+    background-color: #555;
+    transition: width .2s;
+}
+/* dt오버시 하단선 */
+.swrap dt:hover::after,
+.swrap dd a:hover::after{
+    width: 100%;
+}
+/* 서브메뉴(dd) */
+.swrap dd{
+    font-size: 13px;
+    line-height: 2.5;
+}
+/* dd a오버시 글자 */
+.swrap dd a:hover{
+    color: #000;
 }
