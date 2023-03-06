@@ -110,6 +110,7 @@
 /* 하위메뉴(dt) */
 .swrap dt{
     position: relative;
+    /* 가로크기 일정함! */
     width: 120px;
     font-size: 16px;
     padding-bottom: 5px;
@@ -117,26 +118,28 @@
     /* 하단보더 */
     border-bottom: 1px solid #e3e3e3;
 }
-/* dt,dd 하단선 */
+/* dt 하단선 가상요소 */
 .swrap dt::after{
     content: '';
     display: block;
     width: 0;
     height: 1px;
-    transform: translateY(7px);
+    transform: translateY(6px);
     background-color: #555;
     transition: width .2s;
 }
 .swrap dd a{
+    /* a요소 글자있는 부분까지만 선이 생기게함! */
     display: inline-block;
     color: #777;
 }
+/* dd 하단선 가상요소 */
 .swrap dd a::after{
     content: '';
     display: block;
     width: 0;
     height: 1px;
-    transform: translateY(-10px);
+    transform: translateY(-9px);
     background-color: #555;
     transition: width .2s;
 }
