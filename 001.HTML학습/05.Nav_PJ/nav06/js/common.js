@@ -89,11 +89,42 @@ function loadFn() {
         opcity 투명도가 1로 변경되는 트랜지션수행
         아웃시 원상복귀함!
     ******************************************/
+
+    // 1. 대상선정
    // 이벤트 대상: .gnb>ul>li
+   const list = document.querySelectorAll(".gnb>ul>li");
    // 이벤트 종류: mouseenter / mouseleave
    // 변경 대상: .smenu
    // 변경 내용: height값, opacity값 
 
-   const list = document.querySelectorAll(".gnb>ul>li");
-   console.log(list);
+//    console.log(list);
+
+    // 2. 상위메뉴 li에 이벤트 설정하기
+    for(let x of list){
+        // (1) 마우스 오버시 /////////
+        x.onmouseenter = () => {
+            // (1) 하위메뉴 박스 .smenu 선택하기
+            let tg = x.querySelector(".smenu");
+
+            // (2) 하위메뉴 style변경하기
+            tg.style.height = "200px";
+            tg.style.opacity = 1;
+
+        }; /////// mouseenter ///////////
+
+        // (2) 마우스 아웃시 /////////
+        x.onmouseleave = () => {
+            // (1) 하위메뉴 박스 .smenu 선택하기
+            let tg = x.querySelector(".smenu");
+
+            // (2) 하위메뉴 style변경하기
+            tg.style.height = "0";
+            tg.style.opacity = 0;
+
+        }; /////// mouseleave ///////////
+
+
+    } /////////// for of //////////////
+
+
 } ///////////// loadFn 함수 ////////////////
