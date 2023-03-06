@@ -106,8 +106,12 @@ function loadFn() {
             // (1) 하위메뉴 박스 .smenu 선택하기
             let tg = x.querySelector(".smenu");
 
-            // (2) 하위메뉴 style변경하기
-            tg.style.height = "200px";
+            // (2) 하위메뉴 박스 내부박스 높이값 구하기
+            let hv = tg.querySelector(".smbx").clientHeight;
+            console.log("내부높이:",hv);
+
+            // (3) 하위메뉴 style변경하기
+            tg.style.height = hv+"px";
             tg.style.opacity = 1;
 
         }; /////// mouseenter ///////////
