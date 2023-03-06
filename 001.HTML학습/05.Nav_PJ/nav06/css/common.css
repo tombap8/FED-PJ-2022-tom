@@ -59,20 +59,33 @@
 
 /* 하위메뉴 */
 .smenu{
-    /* display: flex; */
     position: absolute;
     left: 0;
     background-color: #fff;
     width: 1300px;
-    display: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.211);
+
+    /* 숨기기장치: overflow,height,opacity(효과) */
     overflow: hidden;
     /* 넘치는 자식요소 숨기기 */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.211);
+    height: 0;
+    /* 높이값 : 0 -> 각각의 서브높이만큼 오버시 변경! */
+    opacity: 0;
+    /* 투명도 : 0 -> 오버시 1로 보이게함 */
+
+    /* 트랜지션: 속시이지 */
+    transition: .4s ease-in-out;
+
 }
-/* 임시 첫번째메뉴만 보임 */
-.gnb>ul>li:nth-child(5) .smenu{
+/* 하위메뉴 구조랩핑박스 .smbx */
+.smbx{
+    /* h2,div의 플렉스박스 */
     display: flex;
 }
+/* 임시 첫번째메뉴만 보임 */
+/* .gnb>ul>li:nth-child(5) .smenu{
+    display: block;
+} */
 
 /* 서브메뉴 타이틀 */
 .smenu h2{

@@ -36,11 +36,13 @@ function loadFn(){
             <li>
                 <a href="#">${tm}</a>
                 <div class="smenu">
-                    <h2>
-                        <div class="stit">${tm}</div>
-                        <a href="#">전체보기 ＞</a>
-                    </h2>
-                    <div class="swrap">
+                    <!-- 하위메뉴 구조랩핑박스 .smbx -->
+                    <aside class="smbx">
+                        <h2>
+                            <div class="stit">${tm}</div>
+                            <a href="#">전체보기 ＞</a>
+                        </h2>
+                        <div class="swrap">
                `;
 
                // 2. 하위메뉴 반복코드
@@ -67,7 +69,8 @@ function loadFn(){
 
                
                hcode += `
-                    </div>
+                        </div>
+                    </aside>
                 </div>
             </li>
         `;
