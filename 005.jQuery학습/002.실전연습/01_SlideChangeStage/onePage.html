@@ -1,266 +1,136 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>One Page Scroll</title>
-    <style>
-        html{
-            /* 부드러운 스크롤 적용!(스크롤애니메이션)
-            -> 스크롤이동시간, 이징가속도는 조절할 수 없다!
-            제이쿼리 코딩으로 이것을 조절할 예정임! */
-            scroll-behavior: smooth;
-        }
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>One Page Scroll</title>
+        <link rel="stylesheet" href="./css/onepage.css">
+        <script src="./js/js-autoScroll.js"></script>
+    </head>
+    <body>
+        <!-- 1. 상단영역 -->
+        <div id="top">
+            <header class="top ibx">
+                <!-- 1-1.로고 -->
+                <h1 id="logo">
+                    <a href="#">
+                        <img src="images/logo.png" alt="메가박스로고" />
+                    </a>
+                </h1>
+                <!-- 1-2.GNB메뉴 -->
+                <nav class="gnb">
+                    <ul>
+                        <li class="on">
+                            <a href="#pg1">아수라</a>
+                        </li>
+                        <li>
+                            <a href="#pg2">고산자</a>
+                        </li>
+                        <li>
+                            <a href="#pg3">인천상륙작전</a>
+                        </li>
+                        <li>
+                            <a href="#pg4">봉이김선달</a>
+                        </li>
+                        <li>
+                            <a href="#pg5">비밀은없다</a>
+                        </li>
+                        <li>
+                            <a href="#pg6">아가씨</a>
+                        </li>
+                        <li>
+                            <a href="#pg7">탐정홍길동</a>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
 
-        html,
-        body{
-            margin: 0;
-            padding: 0;
-            /* overflow: hidden; */
-        }
-        /* 공통셋팅 */
-        a{
-            text-decoration: none;
-            color: #fff;
-            text-shadow: 0 0 2px #777;
-        }
-        ul{
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-        img{
-            border: none;
-            /* 이미지 링크시 테두리없앰 */
-        }
-        h1,
-        h2,
-        h3{
-            margin: 0;
-            padding: 0;
-            font-size: 100%;
-        }
+        <!-- 2. 페이지영역 -->
+        <div class="pgwrap">
+            <section id="pg1" class="page">
+                <article class="minfo">
+                    <h1>아수라(<span>阿修羅</span>)</h1>
+                    <h3>감독:김성수</h3>
+                    <h3>배우:정우성, 황정민</h3>
+                    <h3>개봉일: 2016년 9월 28일</h3>
+                </article>
+            </section>
+            <section id="pg2" class="page">
+                <article class="minfo">
+                    <h1>고산자, 대동여지도</h1>
+                    <h3>감독:강우석</h3>
+                    <h3>배우:차승원, 유준상</h3>
+                    <h3>개봉일: 2016년 9월 7일</h3>
+                </article>
+            </section>
+            <section id="pg3" class="page">
+                <article class="minfo">
+                    <h1>인천상륙작전</h1>
+                    <h3>감독:이재한</h3>
+                    <h3>배우:이정재, 이범수, 리암니슨</h3>
+                    <h3>개봉일: 2016년 7월 27일</h3>
+                </article>
+            </section>
+            <section id="pg4" class="page">
+                <article class="minfo">
+                    <h1>봉이 김선달</h1>
+                    <h3>감독:박대민</h3>
+                    <h3>배우:유승호</h3>
+                    <h3>개봉일: 2016년 7월 6일</h3>
+                </article>
+            </section>
+            <section id="pg5" class="page">
+                <article class="minfo">
+                    <h1>비밀은 없다</h1>
+                    <h3>감독:이경미</h3>
+                    <h3>배우:손예진, 김주혁</h3>
+                    <h3>개봉일: 2016년 6월 23일</h3>
+                </article>
+            </section>
+            <section id="pg6" class="page">
+                <article class="minfo">
+                    <h1>아가씨</h1>
+                    <h3>감독:박찬욱</h3>
+                    <h3>배우:김민희, 하정우</h3>
+                    <h3>개봉일: 2016년 6월 1일</h3>
+                </article>
+            </section>
+            <section id="pg7" class="page">
+                <article class="minfo">
+                    <h1>홍길동</h1>
+                    <h3>감독:조성희</h3>
+                    <h3>배우:이제훈, 김성균</h3>
+                    <h3>개봉일: 2016년 5월 4일</h3>
+                </article>
+            </section>
+        </div>
 
-        /* 공통 class */
-
-        /* 페이지 공통 class */
-        .page{/* 한페이지 보이는 화면 채우기 */
-            height: 100vh;
-        }
-
-        /* IR(배경이미지 설명 숨기기) class */
-        .ir{
-            display: block;
-            width: 0;
-            height: 0;
-            overflow: hidden;
-        }
-
-        /* 중앙 속박스 */
-        .ibx{
-            width: 1920px;
-            max-width: 100%;
-            /* 1920px보다 작을땐 100%를 유지함! */
-            margin: 0 auto;/* 마영오 - 중앙정렬 */
-        }
-
-        /* 1. 상단영역 */
-        #top{
-            position: fixed;
-            /* 상단고정-보이는화면기준 */
-            width: 100%;
-            z-index: 9999;/* 맨위! */
-            background-color: rgba(0,0,0,.7);
-        }
-        /* 상단영역 속박스 */
-        .top{
-            position: relative;
-            /* 부모자격 */
-            height: 80px;
-        }
-
-        /* 1-1.로고 */
-        #logo{
-            width: 250px;
-            height: 100%;
-            text-align: center;
-            overflow: hidden;
-        }
-        #logo img{
-            width: 100%;
-            margin-top: -24px;
-        }
-
-        /* 1-2. GNB 메뉴 */
-        .gnb{
-            position: absolute;
-            /* 부모는? .top */
-            top: 40px;
-            right: 2%;
-        }
-        /* 메뉴 플렉스박스 */
-        .gnb ul{
-            display: flex;
-        }
-        .gnb li{
-            margin: 0 7px;
-        }
-        /* 메뉴에 마우스 오버시 + li.on 인경우 */
-        .gnb a:hover,
-        .gnb li.on a{
-            display: inline-block;/* 트랜스폼적용위해 */
-            color: lime;
-            text-decoration: overline;/* 윗줄 */
-            transform: scale(1.1);
-        }
-
-        /* 2. 페이지영역 */
-        /* 개별 페이지 셋팅 */
-        #pg1{
-            background: url(images/pic1.png) no-repeat top/cover;
-        }
-        #pg2{
-            background: url(images/pic2.png) no-repeat top/cover;
-        }
-        #pg3{
-            background: url(images/pic3.png) no-repeat top/cover;
-        }
-        #pg4{
-            background: url(images/pic4.png) no-repeat top/cover;
-        }
-        #pg5{
-            background: url(images/pic5.png) no-repeat top/cover;
-        }
-        #pg6{
-            background: url(images/pic6.png) no-repeat top/cover;
-        }
-        #pg7{
-            background: url(images/pic7.png) no-repeat top/cover;
-        }
-
-        /* 인디케이터 */
-        .indic {
-            position: fixed;
-            top: 50%;
-            transform: translateY(-50%);
-            /* 세로중앙이동 */
-            left: 5%;
-            width: 20px;
-            /* outline: 3px dotted blue; */
-        }
-
-        .indic li {
-            width: 100%;
-            height: 10px;
-            margin: 3px 0;
-            cursor: pointer;/* 손가락모양 */
-        }
-
-        /* a요소 */
-        .indic a {
-            display: block;
-            width: 100%;
-            height: 2px;
-            margin-top: 4px;
-            background-color: #ccc;
-            box-shadow: 1px 1px 1px #777;
-            transition: width .4s;
-        }
-
-        /* 마우스 오버시 + 클래스 "on" */
-        .indic li:hover a,
-        .indic li.on a {
-            width: 150%;
-            background-color: #fff;
-        }
-
-
-        /* 설명글자숨기기 */
-        .indic span {
-            display: none;
-        }
-
-    </style>
-    <script src="./js/js-autoScroll.js"></script>
-</head>
-<body>
-    <!-- 1. 상단영역 -->
-    <div id="top">
-        <header class="top ibx">
-            <!-- 1-1.로고 -->
-            <h1 id="logo">
-                <a href="#">
-                    <img src="images/logo.png" alt="메가박스로고">
-                </a>
-            </h1>
-            <!-- 1-2.GNB메뉴 -->
-            <nav class="gnb">
-                <ul>
-                    <li class="on">
-                        <a href="#pg1">아수라</a>
-                    </li>
-                    <li>
-                        <a href="#pg2">고산자</a>
-                    </li>
-                    <li>
-                        <a href="#pg3">인천상륙작전</a>
-                    </li>
-                    <li>
-                        <a href="#pg4">봉이김선달</a>
-                    </li>
-                    <li>
-                        <a href="#pg5">비밀은없다</a>
-                    </li>
-                    <li>
-                        <a href="#pg6">아가씨</a>
-                    </li>
-                    <li>
-                        <a href="#pg7">탐정홍길동</a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-    </div>
-
-    <!-- 2. 페이지영역 -->
-    <div class="pgwrap">
-        <section id="pg1" class="page"></section>
-        <section id="pg2" class="page"></section>
-        <section id="pg3" class="page"></section>
-        <section id="pg4" class="page"></section>
-        <section id="pg5" class="page"></section>
-        <section id="pg6" class="page"></section>
-        <section id="pg7" class="page"></section>
-
-    </div>
-
-    <!-- 3. 인디케이터(위치표시자) -->
-    <nav class="indic">
-        <ul>
-            <li class="on">
-                <a href="#pg1"><span>아수라</span></a>
-            </li>
-            <li>
-                <a href="#pg2"><span>고산자</span></a>
-            </li>
-            <li>
-                <a href="#pg3"><span>인천상륙작전</span></a>
-            </li>
-            <li>
-                <a href="#pg4"><span>봉이김선달</span></a>
-            </li>
-            <li>
-                <a href="#pg5"><span>비밀은없다</span></a>
-            </li>
-            <li>
-                <a href="#pg6"><span>아가씨</span></a>
-            </li>
-            <li>
-                <a href="#pg7"><span>탐정홍길동</span></a>
-            </li>
-        </ul>
-    </nav>
-
-    
-</body>
+        <!-- 3. 인디케이터(위치표시자) -->
+        <nav class="indic">
+            <ul>
+                <li class="on">
+                    <a href="#pg1"><span>아수라</span></a>
+                </li>
+                <li>
+                    <a href="#pg2"><span>고산자</span></a>
+                </li>
+                <li>
+                    <a href="#pg3"><span>인천상륙작전</span></a>
+                </li>
+                <li>
+                    <a href="#pg4"><span>봉이김선달</span></a>
+                </li>
+                <li>
+                    <a href="#pg5"><span>비밀은없다</span></a>
+                </li>
+                <li>
+                    <a href="#pg6"><span>아가씨</span></a>
+                </li>
+                <li>
+                    <a href="#pg7"><span>탐정홍길동</span></a>
+                </li>
+            </ul>
+        </nav>
+    </body>
 </html>

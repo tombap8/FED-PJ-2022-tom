@@ -157,7 +157,7 @@ function loadFn() {
             // 한계수 : 페이지 첫번호 -> 0
             if (pgnum < 0) pgnum = 0;
         } //////// else /////////
-
+        
         console.log("페이지번호:", pgnum);
 
         // (4) 페이지 이동하기 + 메뉴변경 -> updatePg함수호출!
