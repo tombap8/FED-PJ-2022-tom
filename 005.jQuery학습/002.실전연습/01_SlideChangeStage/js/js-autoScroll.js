@@ -176,6 +176,12 @@ function loadFn() {
         // 4. 페이지 이동하기
         window.scrollTo(0, window.innerHeight * pgnum);
 
+        // 5. 메뉴 초기화하기(클래스 on 제거하기)
+        for(let x of gnb) x.parentElement.classList.remove("on");
+
+        // 6. 해당메뉴에 클래스 넣기
+        gnb[seq].parentElement.classList.add("on");
+
 
    } ///////////// movePg 함수 //////////////
 

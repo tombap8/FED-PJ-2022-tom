@@ -105,8 +105,9 @@
         .gnb li{
             margin: 0 7px;
         }
-        /* 메뉴에 마우스 오버시 */
-        .gnb a:hover{
+        /* 메뉴에 마우스 오버시 + li.on 인경우 */
+        .gnb a:hover,
+        .gnb li.on a{
             display: inline-block;/* 트랜스폼적용위해 */
             color: lime;
             text-decoration: overline;/* 윗줄 */
@@ -153,7 +154,7 @@
             <!-- 1-2.GNB메뉴 -->
             <nav class="gnb">
                 <ul>
-                    <li>
+                    <li class="on">
                         <a href="#pg1">아수라</a>
                     </li>
                     <li>
