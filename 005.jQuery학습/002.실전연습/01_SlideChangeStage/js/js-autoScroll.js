@@ -165,12 +165,12 @@ function loadFn() {
         함수명: movePg
         기능: 메뉴 클릭시 해당위치로 이동하기
     ***************************************/
-   function movePg (seq){ // seq - 순번
+   function movePg (seq,obj){ // seq - 순번, obj - 요소전체객체
         // 1.기본기능막기
         event.preventDefault();
 
         // 2.호출확인
-        console.log("이동!",seq);
+        console.log("이동!",seq,obj);
 
         // 3. 페이지번호(pgnum)업데이트 하기!
         pgnum = seq;
@@ -180,10 +180,10 @@ function loadFn() {
         window.scrollTo(0, window.innerHeight * pgnum);
 
         // 5. 메뉴 초기화하기(클래스 on 제거하기)
-        for(let x of gnb) x.parentElement.classList.remove("on");
+        for(let x of obj) x.parentElement.classList.remove("on");
 
         // 6. 해당메뉴에 클래스 넣기
-        gnb[seq].parentElement.classList.add("on");
+        obj[seq].parentElement.classList.add("on");
 
 
    } ///////////// movePg 함수 //////////////
