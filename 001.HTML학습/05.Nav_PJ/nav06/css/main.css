@@ -7,3 +7,90 @@
 @import url(./common.css);
 
 
+/* 배너전체박스 */
+.banbx{
+    position: relative;
+    /* 부모자격 */
+    height: 100vh;
+}
+
+/* 배너컨텐츠박스 */
+.bancont {
+    /*슬라이드부모*/
+    position: absolute;
+    /* 부모는? .page */
+    top: 50%;
+    transform: translateY(-50%);
+    /* 세로중앙! */
+    left: 25vw;
+    width: 50vw;
+    aspect-ratio: 1/0.55;
+    /* border: 2px solid red; */
+    box-sizing: border-box;
+    
+    outline: 5px dotted blue;
+}
+
+.slide {
+    display: flex;
+    /* 플렉스박스!!! */
+    gap: 0 5vw;
+    /* 양쪽간격 5vw */
+
+    /*사진을 싸고 있는 슬라이드*/
+    position: absolute;
+    top: 0;
+    left: -220%;
+    /* 2장의 앞쪽에 나가있음!
+    원래는 -200%지만 가로폭 5%가 
+    양쪽 셋팅되어서 10%를 두번 더해서
+    220%임 -> 하나당 110%  */
+    width: 100%;
+    height: 100%;
+}
+
+.slide li {
+    flex-shrink: 0;
+    /* 부모박스크기만큼 줄어들지 않음 -> 0 */
+    flex-basis: 100%;
+    /* 가로크기를 부모박스 크기에 맞춤! */
+    /* height 값은 flex박스 자식요소에서
+    등분할시 자동 100%임! */
+    outline: 2px dashed red;
+
+    /* 필터로 밝기조절(어둡게) */
+    filter: brightness(70%);
+    
+    /* 트랜지션 */
+    transition: .4s;
+}
+/* 3번째가 주인공이므로 원래밝기로 조금 크게변경! */
+.slide li:nth-child(3){
+    filter: brightness(100%);
+    transform: scale(1.2);
+}
+.slide li img {
+    /*이미지는 박스에 맞춤!*/
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* 이미지 비율유지 채우기! */
+}
+
+/*이동버튼*/
+.abtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    /*Y축 중앙이동*/
+}
+
+/*왼쪽버튼*/
+.ab1 {
+    left: 50px;
+}
+
+/*오른쪽버튼*/
+.ab2 {
+    right: 50px;
+}
