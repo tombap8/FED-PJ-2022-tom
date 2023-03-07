@@ -3,14 +3,13 @@
 // 새로고침할때 스크롤위치 캐싱 무시하고 맨위로 이동!
 // scrollTo(가로,세로) -> 위치이동 메서드
 setTimeout(() => {
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
 }, 100);
 
 // 로딩함수 호출 /////////
-window.addEventListener("DOMContentLoaded",loadFn);
+window.addEventListener("DOMContentLoaded", loadFn);
 
-function loadFn(){
-
+function loadFn() {
     // 호출확인
     console.log("로딩완료!");
 
@@ -81,51 +80,56 @@ function loadFn(){
     *************************************************/
 
     // 0. 변수 설정하기
-    // 전페 페이지변수
+    // (1) 전체 페이지변수
     let pgnum = 0; // 현재 페이지번호(첫페이지 0)
+    // (2) 전체 페이지수
+    const pgcnt = document.querySelectorAll(".page").length;
+    console.log("전체페이지수:", pgcnt);
+    // (3) 광스크롤 금지변수(0-허용,1-불허용)
+    let prot_sc = 0;
 
     // 1. 전체 휠 이벤트 설정하기 ////////
-    window.addEventListener("wheel",wheelFn,{passive:false});
+    window.addEventListener("wheel", wheelFn, { passive: false });
 
     // 2. 휠 이벤트 함수 만들기 ///////////
-    function wheelFn(e){ // e - 이벤트 전달변수
+    function wheelFn(e) {
+        // e - 이벤트 전달변수
         // (0) 기본기능 멈추기
         // addEventListener 옵션 passive:false 필수!
         e.preventDefault();
 
         // (1) 호출확인
         // console.log("휠~~~~");
-        
+
         // (2) 휠 방향 알아내기
         // 이벤트객체.wheelDelta
         let dir = e.wheelDelta;
-        
-        console.log("방향:",dir);
+
+        console.log("방향:", dir);
         // 휠내리면 마이너스(올리면 플러스)
-        
+
         // (3) 방향에 따른 페이지번호 증감
         // 스크롤 아랫방향 : 페이지번호 증가
-        if(dir<0){
+        if (dir < 0) {
+            // 페이지번호 1씩증가
             pgnum++;
-             if(pgnum>6) pgnum = 6;
-        }
+            // 한계수 : 페이지 끝번호(페이지수-1)
+            if (pgnum > pgcnt - 1) pgnum = pgcnt - 1;
+        } /////// if ////////
+
         // 스크롤 윗방향 : 페이지번호 감소
-        else{
-             pgnum--;
-            if(pgnum<0) pgnum = 0;
-        }
-        
-        console.log("페이지번호:",pgnum);
+        else {
+            // 페이지번호 1씩감소
+            pgnum--;
+            // 한계수 : 페이지 첫번호 -> 0
+            if (pgnum < 0) pgnum = 0;
+        } //////// else /////////
+
+        console.log("페이지번호:", pgnum);
 
         // (4) 페이지 이동하기
         // scrollTo(가로,세로)
-        window.scrollTo(0,window.innerHeight*pgnum);
+        window.scrollTo(0, window.innerHeight * pgnum);
         // 세로 이동위치: 윈도우높이값*페이지번호
-
-
-
-
-
     } ////////////// wheelFn 함수 //////////
-
 } ////////////// loadFn 함수 ///////////////////
