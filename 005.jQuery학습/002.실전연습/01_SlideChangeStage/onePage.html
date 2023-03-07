@@ -138,6 +138,48 @@
             background: url(images/pic7.png) no-repeat top/cover;
         }
 
+        /* 인디케이터 */
+        .indic {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            /* 세로중앙이동 */
+            left: 5%;
+            width: 20px;
+            /* outline: 3px dotted blue; */
+        }
+
+        .indic li {
+            width: 100%;
+            height: 10px;
+            margin: 3px 0;
+            cursor: pointer;/* 손가락모양 */
+        }
+
+        /* a요소 */
+        .indic a {
+            display: block;
+            width: 100%;
+            height: 2px;
+            margin-top: 4px;
+            background-color: #ccc;
+            box-shadow: 1px 1px 1px #777;
+            transition: width .4s;
+        }
+
+        /* 마우스 오버시 + 클래스 "on" */
+        .indic li:hover a,
+        .indic li.on a {
+            width: 150%;
+            background-color: #fff;
+        }
+
+
+        /* 설명글자숨기기 */
+        .indic span {
+            display: none;
+        }
+
     </style>
     <script src="./js/js-autoScroll.js"></script>
 </head>
