@@ -25,8 +25,11 @@ function loadFn() {
 
     // 이벤트 연결 함수등록하기 /////
     // GNB메뉴 이벤트연결
-    gnb.forEach((ele,idx)=>{ // ele-요소, idx-순번
-        ele.addEventListener("click",()=>movePg(idx));
+    gnb.forEach((ele,idx,obj)=>{ // ele-요소, idx-순번, obj - 전체객체
+        ele.addEventListener("click",()=>movePg(idx,obj));
+        // 전체 객체(obj)를 함수에 전달하는 이유는?
+        // -> 인디케이터도 GNB과 같은 기능을 수행하기때문에
+        // 호출시 자기자신 전체를 보내야 각각에 맞게 기능을 수행할 수 있음
 
     }); /////// forEach /////////////////
     
