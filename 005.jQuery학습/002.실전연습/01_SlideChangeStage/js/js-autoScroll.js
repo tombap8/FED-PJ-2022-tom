@@ -257,7 +257,10 @@ function loadFn() {
         // 2. 변경대상 스타일 속성선택
         let sty = minfo[seq].style;
 
-        // 2. 해당 페이지 액션주기
+        // 3. 전체초기화!
+        minfo.forEach((ele,idx)=>{initCSS(ele,idx)});
+        
+        // 4. 해당 페이지 액션주기
         if(seq===0){ // 1번페이지
 
         } ///// if /////////////
