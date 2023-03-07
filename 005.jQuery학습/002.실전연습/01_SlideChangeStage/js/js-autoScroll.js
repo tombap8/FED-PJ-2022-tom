@@ -9,9 +9,27 @@ setTimeout(() => {
 // 로딩함수 호출 /////////
 window.addEventListener("DOMContentLoaded", loadFn);
 
+
+/************************************ 
+    함수명: loadFn
+    기능: 페이지 로딩시 기능수행
+************************************/
 function loadFn() {
     // 호출확인
     console.log("로딩완료!");
+
+    // 이벤트 연결 대상선정하기 /////
+    // GNB메뉴
+    const gnb = document.querySelectorAll(".gnb a");
+    console.log(gnb);
+
+    // 이벤트 연결 함수등록하기 /////
+    // GNB메뉴 이벤트연결
+    gnb.forEach((ele,idx)=>{ // ele-요소, idx-순번
+        ele.addEventListener("click",()=>movePg(idx));
+
+    }); /////// forEach /////////////////
+    
 
     /************************************************* 
         [ 휠 이벤트를 이용한 페이지 이동 컨트롤하기! ]
@@ -98,6 +116,12 @@ function loadFn() {
         // addEventListener 옵션 passive:false 필수!
         e.preventDefault();
 
+        // 광스크롤막기! ///////
+        if(prot_sc) return; 
+        prot_sc = 1; // 신호1개만 허용!
+        setTimeout(()=>prot_sc=0,800);
+        // 0.8초의 시간후 다시 허용상태전환 //
+
         // (1) 호출확인
         // console.log("휠~~~~");
 
@@ -132,4 +156,23 @@ function loadFn() {
         window.scrollTo(0, window.innerHeight * pgnum);
         // 세로 이동위치: 윈도우높이값*페이지번호
     } ////////////// wheelFn 함수 //////////
+
+
+    /*************************************** 
+        함수명: movePg
+        기능: 메뉴 클릭시 해당위치로 이동하기
+    ***************************************/
+   function movePg (seq){ // seq - 순번
+        // 기본기능막기
+        event.preventDefault();
+        // 호출확인
+        console.log("이동!",seq);
+
+   } ///////////// movePg 함수 //////////////
+
+
+
+
+
+
 } ////////////// loadFn 함수 ///////////////////
