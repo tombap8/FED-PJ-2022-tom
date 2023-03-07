@@ -16,7 +16,7 @@ html,
 body {
     margin: 0;
     padding: 0;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 /* 공통셋팅 */
 a {
