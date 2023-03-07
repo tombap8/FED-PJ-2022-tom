@@ -209,5 +209,67 @@ function loadFn() {
 
         // 4. 해당메뉴에 클래스 넣기
         obj[pgnum].parentElement.classList.add("on");
+
+        // 5. 페이지 이동후 해당 페이지 액션주기
+        // pageAction함수 호출!!! (페이지이동 시차를 1초설정!)
+        setTimeout(()=>pageAction(pgnum),1000);
+
     } ///////////// updatePg 함수 //////////////
+
+
+
+    /***************************************** 
+        함수명 : initCSS
+        기능 : 등장할 요소들의 초기값 셋팅
+    *****************************************/
+   // 1.대상선정: .minfo
+   const minfo = document.querySelectorAll(".minfo");
+   console.log(minfo);
+   // 2.이벤트설정
+   minfo.forEach((ele,idx)=>{initCSS(ele,idx)});
+   // 3. 함수만들기
+   function initCSS(ele,seq){ // ele - 요소, seq - 순번
+        // 1.함수호출확인
+        console.log("초기화!",seq);
+
+        // 2.해당요소 스타일속성 선택
+        let sty = ele.style;
+
+        // 3.각 요소별 초기화하기
+        if(seq===0){ // 1번페이지
+
+        } ///// if /////////////
+        else if(seq===1){ // 2번페이지
+            // 투명하게!
+            sty.opacity = 0;
+        } ///// else if //////////
+
+   } ///////////// initCSS 함수 ////////
+
+   /**************************************** 
+        함수명: pageAction
+        기능: 페이지별 액션주기
+   ****************************************/
+   function pageAction(seq){ // seq - 변경순번
+        // 1. 호출확인
+        console.log("액숀~!!!",seq);
+
+        // 2. 변경대상 스타일 속성선택
+        let sty = minfo[seq].style;
+
+        // 2. 해당 페이지 액션주기
+        if(seq===0){ // 1번페이지
+
+        } ///// if /////////////
+        else if(seq===1){ // 2번페이지
+            // 투명도 복원하기!
+            sty.opacity = 1;
+            // 트랜지션주기
+            sty.transition = "1.5s ease-in";
+        } ///// else if //////////
+
+   } /////////// pageAction 함수 /////////////
+
+
+
 } ////////////// loadFn 함수 ///////////////////
