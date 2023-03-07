@@ -2,6 +2,9 @@
 
 /* onePage 스타일시트 - onepage.css */
 
+/* 큐트폰트 CDN */
+@import url(https://fonts.googleapis.com/css2?family=Cute+Font&display=swap);
+
 html {
     /* 부드러운 스크롤 적용!(스크롤애니메이션)
 -> 스크롤이동시간, 이징가속도는 조절할 수 없다!
