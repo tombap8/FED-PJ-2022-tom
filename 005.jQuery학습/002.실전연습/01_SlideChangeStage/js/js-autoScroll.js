@@ -183,7 +183,11 @@ function loadFn() {
         console.log("메뉴클릭 페이지번호:", pgnum);
 
         // 4. 업데이트 페이지호출 -> 페이지이동, 메뉴변경
-        updatePg(obj);
+        // 개별객체를 업데이트 할때는 obj가 필요했으나
+        // GNB메뉴와 인디케이터가 모두 업데이트 돼야하므로
+        // 개별 obj가 필요없게됨!
+        updatePg(gnb);
+        updatePg(indic);
 
     } ///////////// movePg 함수 //////////////
 
