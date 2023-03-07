@@ -1,0 +1,17 @@
+[ 팀프로젝트 모델 선정하기 ]
+
+1. Cars : 카 애니메이션 사이트
+-> 컨텐츠 사이트 : 픽사 공식 사이트
+https://www.pixar.com/feature-films/cars
+
+2. Solar System : 행성소개 사이트
+-> 컨텐츠 사이트 : 나사 사이트
+https://solarsystem.nasa.gov/solar-system/our-solar-system/overview/
+
+3. Peripera Cosmetic: 화장품 사이트
+-> 컨텐츠 사이트 : 페리페라 원본사이트
+http://www.periperacosmetic.com/ko/index.asp
+
+4. Star Wars : 영화 스타워즈 소개 사이트
+-> 컨텐츠 사이트 : 스타워즈 소개 원본사이트
+https://www.starwars.com/
