@@ -163,10 +163,19 @@ function loadFn() {
         기능: 메뉴 클릭시 해당위치로 이동하기
     ***************************************/
    function movePg (seq){ // seq - 순번
-        // 기본기능막기
+        // 1.기본기능막기
         event.preventDefault();
-        // 호출확인
+
+        // 2.호출확인
         console.log("이동!",seq);
+
+        // 3. 페이지번호(pgnum)업데이트 하기!
+        pgnum = seq;
+        console.log("메뉴클릭 페이지번호:",pgnum);
+
+        // 4. 페이지 이동하기
+        window.scrollTo(0, window.innerHeight * pgnum);
+
 
    } ///////////// movePg 함수 //////////////
 
