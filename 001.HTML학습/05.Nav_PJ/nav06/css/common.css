@@ -24,9 +24,10 @@
     font-family: 'Noto Sans KR', sans-serif;
     background-color: #222;
 }
-.top{
+/* .top{
     min-height: 350px;
-}
+} */
+
 /* 1-1.탑메뉴영역 */
 .tmenu{
     height: 80px;

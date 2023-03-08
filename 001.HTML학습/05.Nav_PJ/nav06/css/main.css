@@ -19,9 +19,9 @@
     /*슬라이드부모*/
     position: absolute;
     /* 부모는? .page */
-    top: 50%;
-    transform: translateY(-50%);
-    /* 세로중앙! */
+    top: 10%;
+    /* transform: translateY(-50%); */
+    /* 세로중앙! 안씀 */
     left: 25vw;
     width: 50vw;
     aspect-ratio: 1/0.55;
@@ -80,17 +80,35 @@
 /*이동버튼*/
 .abtn {
     position: absolute;
+    width: 24px;
+    height: 51px;
     top: 50%;
     transform: translateY(-50%);
     /*Y축 중앙이동*/
+
+    background-color: #000;
+    background-image: url(../img_nav06/main.png);
+    background-size: 190px 175px;
+    background-repeat: no-repeat;
+    outline: 1px solid red;
 }
 
 /*왼쪽버튼*/
 .ab1 {
-    left: 50px;
+    left: 17vw;
+    background-position: -26px -124px;
 }
 
 /*오른쪽버튼*/
 .ab2 {
-    right: 50px;
+    right: 15vw;    
+    background-position: -166px -53px;
+}
+
+/* IR */
+.ir{
+    display: block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
 }
