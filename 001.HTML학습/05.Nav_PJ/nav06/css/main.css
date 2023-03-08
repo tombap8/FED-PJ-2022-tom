@@ -132,12 +132,14 @@
 /* 2번배너 셋팅 */
 .ban2{
     width: 50%;
+    margin: 100px auto;
+    padding: 0;
     overflow: hidden;
 }
 .ban2 .bancont{
     width: 100%;
     aspect-ratio: 1/1;
-    transform: translateX(-50%);
+    transform: translateX(-52%);
 }
 /* 버튼위치 */
 .ban2 .ab1{
