@@ -31,10 +31,14 @@ $(document).ready(function(e) {
     $("h2").click(()=>{
       // 1. 아이디가 sub인 요소의 글자를 "이승기" 라고 쓰고 배경색은 노란색, 글자색은 파란색, 테두리는 1px 녹색 , 글자크기 42px로 변경하시오.
       $("#sub").text("이승기")
+      /* animate를 위한 보더 초기값셋팅필요! */
+      .css({border:"1px dotted #000"})
       .animate({
-        background:"yellow",
+        backgroundColor:"yellow",
         color:"blue",
-        border:"1px solid green",
+        borderWidth:"10px",
+        borderColor:"green",
+        // border:"1px solid green",
         fontSize:"42px"
       },800); ///// animate ////////////
 
@@ -48,11 +52,14 @@ $(document).ready(function(e) {
 
       // 2. 아이디가 main인 요소의 글자를 "공유"라고 쓰고 배경색은 파란색, 글자색은 흰색, 테두리는 3px 노란색, 글자크기는 52px로 변경하시오.
       $("#main").text("공유")
+      .css({border:"1px dashed #000"})
       .delay(1000) // 지연시간(애니메이션함수 앞에서!)
       .animate({
-        background:"blue",
+        backgroundColor:"blue",
         color:"white",
-        border:"3px solid yellow",
+        borderWidth:"20px",
+        borderColor:"yellow",
+        // border:"3px solid yellow",
         fontSize:"52px"
       },800); ///// animate ////////////
 
@@ -66,11 +73,14 @@ $(document).ready(function(e) {
 
       // 3. 아이디가 total인 요소의 글자를 "싸랑해요~!"라고 쓰고 배경색은 검은색, 글자색은 빨간색, 테두리는 2px 보라색, 글자크기는 152px로 변경하시오.
       $("#total").text("싸랑해요~!")
+      .css({border:"1px dotted #000"})
       .delay(2000)
       .animate({
-        background:"black",
+        backgroundColor:"black",
         color:"red",
-        border:"2px solid purple",
+        borderWidth:"30px",
+        borderColor:"purple",
+        // border:"2px solid purple",
         fontSize:"152px"
       },800); ///// animate ////////////
 
