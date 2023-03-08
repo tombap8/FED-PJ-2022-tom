@@ -14,14 +14,14 @@
 			// 그리고 개별적으로 적용되게할것!(this사용)
 			$(".group li").click(
 				// function(){
-				()=>{
+				(e)=>{ // e는 이벤트전달변수!
 				// 클릭된 li자신 -> this!
 				// 화살표함수 this는 event.currentTarget사용!
 				console.log(this);
-				console.log(event.currentTarget);
+				console.log(e.currentTarget);
 
 				// $(this).css({
-				$(event.currentTarget).css({
+				$(e.currentTarget).css({
 					background:"lime",
 					"font-size":"52px",
 					transition:"all .6s"
