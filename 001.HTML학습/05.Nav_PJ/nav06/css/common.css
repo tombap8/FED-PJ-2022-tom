@@ -23,6 +23,7 @@
     /* 부모자격 - .smenu */
     font-family: 'Noto Sans KR', sans-serif;
     background-color: #222;
+    z-index: 999;
 }
 /* .top{
     min-height: 350px;
