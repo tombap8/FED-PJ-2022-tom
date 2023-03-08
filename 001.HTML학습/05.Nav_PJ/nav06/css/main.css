@@ -13,7 +13,7 @@
     /* 부모자격 */
     /* height: 100vh; */
     /* aspect-ratio: 1 / 0.4; */
-    background: red;
+    /* background: red; */
     padding: 80px 0;
 }
 /* 가상요소로 배경색 넣기 */
@@ -40,7 +40,7 @@
     /* border: 2px solid red; */
     box-sizing: border-box;
     
-    outline: 5px dotted blue;
+    /* outline: 5px dotted blue; */
 }
 
 .slide {
@@ -68,10 +68,13 @@
     /* 가로크기를 부모박스 크기에 맞춤! */
     /* height 값은 flex박스 자식요소에서
     등분할시 자동 100%임! */
-    outline: 2px dashed red;
+    /* outline: 2px dashed red; */
 
     /* 필터로 밝기조절(어둡게) */
-    filter: brightness(70%);
+    /* filter: brightness(70%); */
+
+    /* 박스 그림자 */
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
     
     /* 트랜지션 */
     transition: .4s;
