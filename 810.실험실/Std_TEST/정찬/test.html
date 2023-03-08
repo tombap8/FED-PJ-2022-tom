@@ -4,10 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" href="https://solarsystem.nasa.gov/gltf_embed/2372" as="document" crossorigin="crossorigin"> 
+    <!-- <link rel="preconnect" href="https://solarsystem.nasa.gov/gltf_embed/2372"> -->
+    <!-- 
+        <link> 태그 규칙
+        rel="preload" // 고정
+        href="" // 로딩하려는 url
+        as="" // 파일 형식(audio,document,embed,fetch,font,image,object,script,style,track,worker,video)
+        crossorigin="crossorigin" // 외부에서 로딩시 필수
+
+
+     -->
     <title>Document</title>
 </head>
 <body>
-    <iframe class="imodel" src="https://solarsystem.nasa.gov/gltf_embed/2372" frameborder="0" autoplay muted></iframe>
+    <iframe class="imodel" src="https://solarsystem.nasa.gov/gltf_embed/2372" frameborder="0" loading="eager"></iframe>
     
 </body>
 </html>
