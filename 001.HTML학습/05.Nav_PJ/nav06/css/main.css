@@ -17,7 +17,7 @@
     padding: 80px 0;
 }
 /* 가상요소로 배경색 넣기 */
-.banbx::before{
+.banbx.ban1::before{
     content: '';
     position: absolute;
     top: 0;
@@ -79,8 +79,8 @@
     /* 트랜지션 */
     transition: .4s;
 }
-/* 3번째가 주인공이므로 원래밝기로 조금 크게변경! */
-.slide li:nth-child(3){
+/* 1번배너만 3번째가 주인공이므로 원래밝기로 조금 크게변경! */
+.ban1 .slide li:nth-child(3){
     filter: brightness(100%);
     transform: scale(1.2);
 }
@@ -126,4 +126,23 @@
     width: 0;
     height: 0;
     overflow: hidden;
+}
+
+
+/* 2번배너 셋팅 */
+.ban2{
+    width: 50%;
+    overflow: hidden;
+}
+.ban2 .bancont{
+    width: 100%;
+    aspect-ratio: 1/1;
+    transform: translateX(-50%);
+}
+/* 버튼위치 */
+.ban2 .ab1{
+    left: 20px;
+}
+.ban2 .ab2{
+    right: 20px;
 }
