@@ -148,8 +148,8 @@ function setBan(){
             // (1-1) 바깥에 나가있는 첫번째 슬라이드
             //       li를 잘라서 맨뒤로 보낸다!
             slide.appendChild(clist[0]);
-            // (1-2) 동시에 left값을 -110%으로 변경한다!
-            slide.style.left = "-110%";
+            // (1-2) 동시에 left값을 -120%으로 변경한다!
+            slide.style.left = "-120%";
             // (1-3) 트랜지션 없애기!
             slide.style.transition = "none";
 
