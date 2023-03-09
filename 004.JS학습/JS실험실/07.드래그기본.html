@@ -19,6 +19,60 @@
             background: url(https://img3.daumcdn.net/thumb/R658x0.q70/?fname=https://t1.daumcdn.net/news/202107/08/JTBC/20210708153002482ktbd.jpg) no-repeat center top/cover;
         }
     </style>
+    <script>
+        // 로드구역 ///////////////////
+        window.addEventListener("DOMContentLoaded",()=>{
+            // 대상선정
+            const tg = document.querySelector(".tg");
+            // console.log(tg);
+
+            /*************************************** 
+                [ 드래그 기능 구현을 위한 이벤트 ]
+                1. 딸 -> 마우스 포인터 누름 -> mousedown
+
+                2. 각 -> 마우스 포인터 올라옴 -> mouseup
+
+                3. 질질 -> 마우스 움직일때 -> mousemove
+                -> 드래그 상태는 "딸"상태에서 "질질"하는것!
+                
+                mousedown 할때 드래그 상태변수값을 1로 변경
+                mouseup 할때 드래그 상태변수값을 0으로 변경
+
+            ***************************************/
+
+            // 변수만들기 /////////////
+            // (1) 드래그 상태변수
+            let drag = false; 
+            // true-드래그중, false-드래그아님
+
+            // 함수만들기 //////////////
+            // (1) 드래그상태 true
+            const dTrue = () => drag = true;
+
+            // (2) 드래그상태 false
+            const dFalse = () => drag = false;
+
+            // (3) 드래그 움질일때 작동함수
+            const dMove = () => {
+                console.log("드래그상태:",drag);
+
+            }; ///////// dMove //////////////
+
+
+            // 이벤트 등록하기 ////////////
+            // (1) 마우스 내려갈때
+            tg.addEventListener("mousedown",dTrue);
+            // (2) 마우스 올라올때
+            tg.addEventListener("mouseup",dFalse);
+            // (3) 마우스 움직일때
+            tg.addEventListener("mousemove",dMove);
+            // (4) 마우스 벗어날때
+            tg.addEventListener("mouseleave",dFalse);
+
+
+
+        }); /////////////// 로드구역 ///////////////////
+    </script>
 </head>
 <body>
     <div class="tg"></div>
