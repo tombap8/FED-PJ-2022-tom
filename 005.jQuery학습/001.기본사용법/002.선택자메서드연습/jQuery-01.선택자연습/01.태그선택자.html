@@ -50,6 +50,15 @@
       (2) 제이쿼리 UI 가져오기(라이브러리 아래!)
       (3) 제이쿼리 사용코드 작성(제이쿼리 로딩구역에 작성!)
 
+      7. 주의사항 :제이쿼리문법과 JS문법은 같은 명령문에서 
+                  혼용할 수 없다!
+                  
+      예) $(".my").classList.add("on") -> X
+          document.querySelector(".my").classList.add("on") -> O
+
+          document.querySelector(".my").click() -> X
+          $(".my").click() -> O
+
 
 
     
