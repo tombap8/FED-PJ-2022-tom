@@ -46,7 +46,7 @@
             // (2) 첫번째 위치포인트 first x, first y
             let fx,fy;
             // (3) 마지막 위치포인트 last x, last y
-            let lx,ly;
+            let lx=0,ly=0; // 마지막위치는 처음에 0할당!
             // (4) 움직일때 위치포인트 move x, move y
             let mvx, mvy;
             // (5) 위치이동 차이 결과변수 result x, result y
@@ -65,12 +65,27 @@
 
                 // 드래그 상태일때만 실행
                 if(drag){
-                    // 드래그 상태에서 움직일때 위치값 : mvx,mvy
+
+                    // 1. 드래그 상태에서 움직일때 위치값 : mvx,mvy
                     mvx = event.pageX;
                     mvy = event.pageY;
 
-                    console.log(`fx:${fx}/fy:${fy}`);
-                    console.log(`mvx:${mvx}/mvy:${mvy}`);
+                    // 2. 움직일때 위치값 - 처음 위치값 : rx, ry
+                    // x축값은 left값, y축값은 top값 이동이다!
+                    rx = mvx - fx;
+                    ry = mvy -fy;
+
+                    // 3. x,y 움직인 위치값을 타겟요소에 적용!
+                    tg.style.left = (rx+lx)+"px";
+                    tg.style.top = (ry+ly)+"px";
+                    // 한번드래그 후 다시 드래그시 움직인위치값이 필요함!
+                    // -> 마지막 위치값 저장필요 -> lx,ly
+                    // -> 항상 최종위치에서 움직인 위치를 더한다!
+
+                    console.log(`fx:${fx} | fy:${fy}`);
+                    console.log(`mvx:${mvx} | mvy:${mvy}`);
+                    console.log(`rx:${rx} | ry:${ry}`);
+                    console.log(`lx:${lx} | ly:${ly}`);
                 } /////////// if : 드래그일때 ///////
 
 
@@ -79,12 +94,16 @@
             // (4) 첫번째 위치포인트 셋팅함수
             const firstPoint = () => {fx=event.pageX; fy=event.pageY};
 
+            // (5) 마지막 위치포인트 셋팅함수
+            const lastPoint = () => {lx+=rx; ly+=ry};
+            // 최종 이동결과 값인 rx,ry를 항상 대입연산하여 값을 업데이트한다!
+
 
             // 이벤트 등록하기 ////////////
-            // (1) 마우스 내려갈때 : 드래그true + 첫번째 위치값
+            // (1) 마우스 내려갈때 : 드래그true + 첫번째 위치값 업데이트
             tg.addEventListener("mousedown",()=>{dTrue();firstPoint();});
-            // (2) 마우스 올라올때
-            tg.addEventListener("mouseup",dFalse);
+            // (2) 마우스 올라올때 : 드래그false + 마지막 위치값 업데이트
+            tg.addEventListener("mouseup",()=>{dFalse();lastPoint();});
             // (3) 마우스 움직일때
             tg.addEventListener("mousemove",dMove);
             // (4) 마우스 벗어날때
