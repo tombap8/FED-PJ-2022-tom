@@ -41,9 +41,16 @@
             ***************************************/
 
             // 변수만들기 /////////////
-            // (1) 드래그 상태변수
+            // (1) 드래그 상태변수 : true-드래그중, false-드래그아님
             let drag = false; 
-            // true-드래그중, false-드래그아님
+            // (2) 첫번째 위치포인트 first x, first y
+            let fx,fy;
+            // (3) 마지막 위치포인트 last x, last y
+            let lx,ly;
+            // (4) 움직일때 위치포인트 move x, move y
+            let mvx, mvy;
+            // (5) 위치이동 차이 결과변수 result x, result y
+            let rx, ry;
 
             // 함수만들기 //////////////
             // (1) 드래그상태 true
@@ -54,14 +61,28 @@
 
             // (3) 드래그 움질일때 작동함수
             const dMove = () => {
-                console.log("드래그상태:",drag);
+                // console.log("드래그상태:",drag);
+
+                // 드래그 상태일때만 실행
+                if(drag){
+                    // 드래그 상태에서 움직일때 위치값 : mvx,mvy
+                    mvx = event.pageX;
+                    mvy = event.pageY;
+
+                    console.log(`fx:${fx}/fy:${fy}`);
+                    console.log(`mvx:${mvx}/mvy:${mvy}`);
+                } /////////// if : 드래그일때 ///////
+
 
             }; ///////// dMove //////////////
 
+            // (4) 첫번째 위치포인트 셋팅함수
+            const firstPoint = () => {fx=event.pageX; fy=event.pageY};
+
 
             // 이벤트 등록하기 ////////////
-            // (1) 마우스 내려갈때
-            tg.addEventListener("mousedown",dTrue);
+            // (1) 마우스 내려갈때 : 드래그true + 첫번째 위치값
+            tg.addEventListener("mousedown",()=>{dTrue();firstPoint();});
             // (2) 마우스 올라올때
             tg.addEventListener("mouseup",dFalse);
             // (3) 마우스 움직일때
