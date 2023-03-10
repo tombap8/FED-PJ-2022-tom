@@ -4,14 +4,32 @@
 <meta charset="utf-8">
 <title> child(&gt;)선택자  </title>
 <!-- jQuery library -->
-<script src="jquery-1.7.2.min.js"></script>
+<script src="../jquery-3.6.3.min.js"></script>
 <script>
-$(document).ready(function(e) {
-    // 미션: #container 를 클릭하면 이것의 직계자식인 p태그의 배경색을 노란색, 글자색은 녹색, 글가크기는 42px, 테두리는 5px 점선 빨간색으로 설정하시오!
+$(() => {
+    // 미션: #container 를 클릭하면 이것의 직계자식인 p태그의 배경색을 노란색, 글자색은 녹색, 글지크기는 42px, 테두리는 5px 점선 빨간색으로 설정하시오!
 		
-		
-	});//////// click //////////////////
-	
+		$("#container").click(function(){
+      // $("#container>p")
+
+      $(">p",this)
+      // $(선택자,this)
+      // this 키워드를 사용한 직계선택법
+      // 선택자에 (>)를 사용함!
+
+      // $(this).children("p")
+      // children() 직계자식선택 트래버싱 메서드
+
+      // $(this).find("p")
+      // find() 자손요소선택 트래버싱 메서드
+
+      .css({
+        backgroundColor:"yellow",
+        color:"green",
+        fontSize:"42px",
+        border:"5px dotted red"
+      }); ////////// css //////
+    }); /////// click /////////
 	
 	
 });//jQuery실행구역
