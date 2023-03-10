@@ -37,21 +37,28 @@
 
 		// 자동버튼클릭시
 		$("#auto").click(()=>{
-			autoI = setInterval(()=>{
-				// 1~5사이의 랜덤수 만들기
-				let rdm = Math.ceil(Math.random()*5);
-				console.log("랜덤수:",rdm);
 
-				// 새로운 이미지 추가
-				tg.append(`
-					<img src="th_pic${rdm}.jpg" alt="이미지">
-				`); ///// append ///////
+			// 인터발 중복실행방지
+			if(autoI) return;
+			// autoI가 할당되면 true로 처리
+			// 할당전에는 undefined 이므로 false처리
+
+			autoI = setInterval(()=>{
+				$("#append").trigger("click");
+				// trigger(이벤트명) 메서드
+				// -> 선택요소에 이벤트를 강제발생 시키는
+				// 메서드임!
 			},200);
 		}); ////////// click ////////////
 
 		// 멈춤버튼클릭시
 		$("#stop").click(()=>{
+			
+			// 인터발멈추기
 			clearInterval(autoI);
+
+			// 다시 인터발 처리하도록 autoI값 설정
+			autoI = false;
 		}); ////////// click ////////////
 
 	
