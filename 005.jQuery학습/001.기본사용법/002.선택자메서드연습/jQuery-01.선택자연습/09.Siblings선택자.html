@@ -4,10 +4,33 @@
 <meta charset="utf-8">
 <title> Siblings(~) 틸드 선택자 </title>
 <!-- jQuery library -->
-<script src="jquery-1.7.2.min.js"></script>
+<script src="../jquery-3.6.3.min.js"></script>
 <script>
 $(document).ready(function(e) {
+	// 크기설정 트랜지션 적용하려면
+	// 초기값이 필요함!(기본값은 auto)
+	$("li").css({
+		width:"100px",
+		height:"50px"
+	}); ///// css ///////
+
+
     //미션: li중 하나를 클릭하면  그 뒤의 형제요소의 li들이 모두 width: 500px, height: 300px로 변경되고 배경이미지를 넣으시오.(배경이미지는 웹경로로 넣고 트랜지션 설정도 하시오.)
+	$("li").click(function(){
+
+		$("~li",this)
+		// 틸드(~) 다음형제들 선택자
+
+		// $(this).nextAll()
+		// nextAll() - 다음형제들 선택 트래버싱 메서드
+
+		.css({
+			width:"500px",
+			height:"300px",
+			background:"url(https://i5.walmartimages.com/asr/8dd82ca6-adb0-4827-a6c4-c88aec06940d_1.ff23051db200c4ccd38a5e028ba659f6.jpeg) no-repeat center/cover",
+			transition:"2s"
+		}); ////////// css ////////
+	}); /////////// click ///////////
 	
 	
 	
