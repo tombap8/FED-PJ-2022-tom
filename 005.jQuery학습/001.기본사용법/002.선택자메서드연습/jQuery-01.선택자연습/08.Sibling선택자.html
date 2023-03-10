@@ -8,7 +8,10 @@
 <script>
 $(document).ready(function(e) {
     // 미션: .first를 클릭하면 다음에 있는 형제요소인 li의 글자가 42px로 커지면서 margin-left값이 50px로 글자색은 red로 변경되게 하시오. 트랜지션 설정도 하시오.
-    $(".first").on("click",function(){
+
+
+    $(".first").click(function(){
+   //  $(".first").on("click",function(){
 
       $("+li",this)
       // 클릭된 요소 -> this
@@ -20,6 +23,7 @@ $(document).ready(function(e) {
 
       .css({
          fontSize:"42px",
+         marginLeft:"50px",
          color:"red",
          transition:`
             font-size .5s,
