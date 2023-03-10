@@ -23,6 +23,13 @@
 
 		// 추가미션: #btngo버튼 클릭시 #container의 첫번째 p요소를
 		// 맨뒤로 이동하시오! -> 첫번째 p요소 -> p:first
+		$("#btngo").click(function(){
+			// 첫번째요소
+			let fele = $("#container p:first");
+			// 첫번째 요소를 맨뒤로 이동!
+			$("#container").append(fele);
+
+		}); ////////// click ////////////
 
 	
 	});//// jQB ///////////////////////////////////
