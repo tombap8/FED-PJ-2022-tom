@@ -64,10 +64,67 @@
         }
 
         /* 1. 아이언맨 */
-        
+        .svg1 {
+            background: url(./images/man.jpg) no-repeat top/cover;
+            /* 원형박스 */
+            border-radius: 50%;
+        }
+        .svg1>svg{            
+            /* 트랜지션 회전 (-90도) */
+            transform: rotate(-90deg);
+            /* svg내부요소에 트랜지션은 
+            적용되지 않는다!(별도의 속성이 따로있다!)
+            svg요소까지는 일반html요소 속성이 적용된다! */
+        }
 
         /* circle 설정 */
+        .c1{
+            /* 채우기색 - 기본색 검정 
+                투명(transparent)
+                없음(none) - 뚫린상태
+            */
+            fill: none;
+            /* 선색 - 기본은 안나옴 */
+            stroke: red;
+
+            /* 선두께 - 기본은 1px 
+            단위안쓰면 기본적으로 px
+            선두께는 선중앙으로부터 생김*/
+            stroke-width: 20;
+
+            /* 선끝처리 : stroke-linecap 
+                1) butt : 끝에 중심선이 보임(기본값)
+                2) square : 끝에 사각형으로 덮음
+                3) round : 끝에 둥근모양으로 덮음
+            */
+            stroke-linecap: round;
+
+
+            /* [데쉬선 속성 : stroke-dasharray ]
+            - 선,공백 순으로 데쉬선 셋팅함
+            -> 50%를 써본다!
+            -> 6조각 이니까 6배한다!
+            50% * 6 = 300%
+            
+            */
+            stroke-dasharray: 300%;
+
+            /* [데쉬어레이 시작위치밀기 : stroke-dashoffset ]
+            stroke-dashoffset값을
+            stroke-dasharray값과 같은
+            값을 주면 공백부터 시작함!
+             */
+            stroke-dashoffset: 300%;
+
+            /* 트랜지션:속시이지 */
+            transition: stroke-dashoffset .8s ease-in-out;
+
+        }
         /* 컨텐츠 박스에 마우스 오버시 라인애니 */
+        .svg1:hover .c1{
+            stroke-dashoffset: 0;
+        }
+
         
 
         /* 2. 블랙위도우 */
@@ -99,7 +156,11 @@
         <!-- 1.아이언맨 : 원 -->
         <section>
             <div class="cbx svg1">
-                
+                <svg>
+                    <circle class="c1" cx="150" cy="150" r="140" transform=""></circle>
+
+                    <!-- <circle class="c1" cx="150" cy="150" r="140" transform="rotate(-90,150,150)"></circle> -->
+                </svg>
             </div>
         </section>
         <!-- 2. 블랙위도우 : 사각형 -->
