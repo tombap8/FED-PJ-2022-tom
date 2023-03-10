@@ -9,12 +9,50 @@
 	$(function(){// jQB //////////////////////////
 		// 미션: 추가버튼을 클릭하면 이미지가 랜덤하게 #container에 추가되게하시오.
 		// 추가버튼 - #append
+
+		// 변경대상 - #container
+		const tg = $("#container");
+
 		$("#append").click(()=>{
-			$("#container").append(`
-				<img src="th_pic1.jpg" alt="이미지">
+
+			// 1~5사이의 랜덤수 만들기
+			let rdm = Math.ceil(Math.random()*5);
+			console.log("랜덤수:",rdm);
+
+			// 새로운 이미지 추가
+			tg.append(`
+				<img src="th_pic${rdm}.jpg" alt="이미지">
 			`); ///// append ///////
 
 		}); ///////// click ///////////
+
+		// 추가미션: 자동버튼(#auto)클릭시 인터발함수로
+		// 랜덤수 이미지 계속 추가하기 기능만들기 + 멈춤버튼(#stop)
+		// 클릭시 인터발함수 멈추기!
+
+		// 인터발용변수
+		let autoI;
+		// 인터발관련 JS내장함수 : 
+		// setInterval(함수,시간) / clearInterval(변수)
+
+		// 자동버튼클릭시
+		$("#auto").click(()=>{
+			autoI = setInterval(()=>{
+				// 1~5사이의 랜덤수 만들기
+				let rdm = Math.ceil(Math.random()*5);
+				console.log("랜덤수:",rdm);
+
+				// 새로운 이미지 추가
+				tg.append(`
+					<img src="th_pic${rdm}.jpg" alt="이미지">
+				`); ///// append ///////
+			},200);
+		}); ////////// click ////////////
+
+		// 멈춤버튼클릭시
+		$("#stop").click(()=>{
+			clearInterval(autoI);
+		}); ////////// click ////////////
 
 	
 		
