@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG 기본원리 및 애니메이션</title>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        body{
+            background-image: linear-gradient(to bottom,lightgreen,lightpink,lightblue);
+        }
+        /* 로고 */
+        .mvlogo{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* 정중앙이동 */
+            z-index: 999;
+            /* 크기지정하기 */
+            width: 400px;
+        }
+        .mvlogo>svg{
+            width: 100%;
+            /* 부모박스의 크기를 따라감 */
+        }
+
+        .wrap{
+            /* 플렉스박스 */
+            display: flex;
+            /* 플렉스 랩핑박스 */
+            flex-wrap: wrap;
+            width: 100vw;
+            height: 100vh;
+        }
+        .wrap>section {
+            /* 렐러티브 부모자격 */
+            position: relative;
+            /* 가로, 세로 등분할 채우기 */
+            flex: 1;
+            /* 한줄에 2개씩 */
+            flex-basis: 50%;
+        }
+        /* 컨텐츠 박스 */
+        .cbx{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* 정중앙이동 */
+            width: 300px;
+            height: 300px;
+            /* outline: 2px dotted blue; */
+        }
+
+        /* svg요소 공통 */
+        .cbx svg{
+            width: 100%;
+            height: 100%;
+        }
+
+        /* 1. 아이언맨 */
+        
+
+        /* circle 설정 */
+        /* 컨텐츠 박스에 마우스 오버시 라인애니 */
+        
+
+        /* 2. 블랙위도우 */
+        
+
+        /* 3. 닥스박스 : 다각형(6각형) */
+        
+
+        /* 다각형 */
+        
+
+        /* 4. 완다 : path */
+        
+
+        /* 미디어쿼리 */
+        @media screen and (max-width:1000px) {
+            
+
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 0. 로고 -->
+    <div class="mvlogo">
+        
+    </div>
+    <div class="wrap">
+        <!-- 1.아이언맨 : 원 -->
+        <section>
+            <div class="cbx svg1">
+                
+            </div>
+        </section>
+        <!-- 2. 블랙위도우 : 사각형 -->
+        <section>
+            <div class="cbx svg2">
+                
+            </div>
+        </section>
+        <!-- 3.닥스박스 : 다각형(6각형) -->
+        <section>
+            <div class="cbx svg3">
+                
+            </div>
+        </section>
+        <section>
+            <div class="cbx svg4">
+                
+            </div>
+        </section>
+    </div>
+
+
+
+<!-- 클리핑용 svg -->
+
+
+
+
+    <!-- 
+        [ SVG란? ]
+        SVG - Scalable Vector Graphic
+        -> 이미지를 확대해도 깨지지 않는 백처방식의 그래픽요소
+        -> 이미지가 코드로 되어있음
+        -> 백터 그래픽: 일러스트레이터 같은 툴에서 제작함
+        -> https://www.w3schools.com/graphics/svg_intro.asp
+
+        비교) 포토샵에서 픽셀로 만드는 이미지는? -> 비트맵 이미지!
+        -> canvas요소 : 비트맵 이미지 그래픽요소
+        : canvas는 JS로 코딩함!
+        -> http://www.effectgames.com/demos/canvascycle/
+
+        [ svg 요소 표현법 ]
+        - svg요소 내부에 자식요소로 각 도형요소를 넣고 코딩함
+        (유의사항: svg는 처음에 px단위의 특정크기로 만들어야
+        한다. 그래야 기본형으로 정하고 유동적인 크기는 
+        viewBox설정으로 얼마든지 변경이 가능하다!!!)
+
+        [ circle 요소 : 원 ]
+        - cx : 중심원 x좌표 (center x), 단위없는 숫자는 px
+        - cy : 중심원 y좌표 (center y), 단위없는 숫자는 px
+        - r : 반지름(radius)
+        - transform 속성 : svg 요소를 변형하기 위한 속성
+            rotate(각도,x위치,y위치)
+            -> 회전속성으로 각도를 단위없이 사용, 마이너스는 반시계
+            -> 이 속성을 쓰는 이유는 circle에는 일반 transform이 
+            적용되지 않기 때문임!
+            (svg요소 transform이 적용됨!)
+
+        [ rect 요소 : 사각형 ]
+        - rectangle(사각형) 이라는 말에서 나온 요소명
+        - width : 가로크기
+        - height : 세로크기
+        - x, y : x축, y축
+
+        [ polygon 요소 : 다각형 ]
+        - points 속성
+        - 표현법: <polygon points="x1,y1 x2,y2 ...">
+            -> x,y 좌표를 콤마로 구분하고
+            다른 좌표는 띄어쓰기로 구분함
+
+        [ path 요소 : 자유로운 선 ]
+
+        <path> 요소는 경로를 정의하는 데 사용됩니다.
+        표현법: <path d="패스명령어">
+        경로 데이터에 대해 다음 명령을 사용할 수 있습니다.
+
+        M = 이동(시작점)
+        L = 직선
+        H = 수평선
+        V = 수직선
+        C = 곡선
+        S = 부드러운 곡선
+        Q = 2차 베지어 곡선
+        T = 부드러운 2차 베지어 곡선
+        A = 타원형 호
+        Z = 마지막점
+        참고: 위의 모든 명령은 소문자로도 표현할 수 있습니다. 대문자는 절대 위치를 의미하고 소문자는 상대적 위치를 의미합니다.
+
+        ________________________________________
+
+        [ svg  축소확대용 속성 ]
+
+        viewBox 속성: 
+        (주의! 속성명 B대문자 필수! 대소문자구분!
+        -> 최신브라우저에서 자동으로 대문자 전환해줌!)
+        - 형식 : viewBox="x축위치 y축위치 width크기 height크기"
+        - 위의 형식의 값은 4가지이고 각 값은 띄어쓰기로 구분한다!
+        - 각 속성값의 특성
+        1) x축위치, y축위치는 양수값은 스테이지 바깥쪽방향이동
+          음수값은 스테이지 안쪽방향이동
+        -> 스테이지 보다 큰 svg 이미지가 있다면 위치를 이동해서
+        특정 이미지만 보이게 하는데 사용한다!!!
+
+        2) width크기, height크기는 svg원본 크기를 지정하는 부분이다.(현재 보이는 영역의 스테이지 크기설정)
+        -> 이 값의 width크기를 실제크기와 다르게 조정할 경우
+        값이 원본보다 커지면 보이는 벡터이미지는 작게 표현된다!
+        (값이 작아지면 크게표현됨)
+        -> height 크기는 벡터 그래픽의 세로영역을 확장하는데 사용
+
+        [ viewBox의 가장 일반적인 셋팅은? ]
+
+        viewBox="0 0 원래가로크기 원래세로크기"
+        -> 이 셋팅을 하면 스테이지가 크기 변경을 할때 svg의
+        크기를 비율을 유지하여 축소확대를 하게된다!
+
+
+
+     -->
+</body>
+</html>
