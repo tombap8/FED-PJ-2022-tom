@@ -5,6 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>JS4-1. 배열변수와 객체</title>
         <style>
+            body::before {
+                content: "";
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background-color: rgba(0, 0, 0, 0.592);
+            }
+            body.on::before {
+                display: block;
+            }
             h1 {
                 text-align: center;
             }
@@ -27,7 +40,6 @@
         <script>
             // 로드구역
             window.addEventListener("DOMContentLoaded", function () {
-
                 console.log("로딩완료!");
 
                 // 1. 출력대상 : .cont
@@ -61,14 +73,7 @@
                 ***********************************************/
 
                 // 배열의 선언과 할당
-                var arr1 = new Array(
-                    "1993년 10월 12일",
-                    "183cm",
-                    "65kg",
-                    "너도인간이니?, 치인트",
-                    4567,
-                    "서강준"
-                ); ///// arr1 /////
+                var arr1 = new Array("1993년 10월 12일", "183cm", "65kg", "너도인간이니?, 치인트", 4567, "서강준"); ///// arr1 /////
 
                 // 원래 배열형을 만들때는 대괄호를 사용하는 것이 일반적
                 // 변수 = []
@@ -95,16 +100,16 @@
                     "삼일절",
                     "태극기",
                     1919,
-                    function(){
+                    function () {
                         alert("대한독립만세!!!");
-                    }
+                    },
                 ]; //// arr2 ///
 
                 // function(){} 익명함수 - 이름없고 코드만 저장함
                 // -> 배열값으로 문자,숫자,배열,객체,함수 등 할당가능!
 
                 // 배열확인
-                console.log("arr2배열:",arr2);
+                console.log("arr2배열:", arr2);
 
                 // 출력대상: tg[1]
                 // 출력할 문자: 삼일절은 1919년에 일제에 항거하여 태극기를 들고 일어난 민중봉기를 기념하는 날이다
@@ -132,7 +137,7 @@
                 arr3.length = 8;
                 // 배열개수를 셋팅했어도 더 추가가 얼마든지 가능함!
                 // 실제로 중요하지는 않다!
-                console.log("arr3배열변수:",arr3);
+                console.log("arr3배열변수:", arr3);
 
                 // 각 배열주소에 값을 할당함!
                 arr3[0] = "산";
@@ -146,13 +151,12 @@
 
                 // 배열값 전체값 찍기 : valueOf()
                 // -> 배열값 전체를 콤마로 구분하여 출력함
-                console.log("arr3 배열전체값:",arr3.valueOf());
+                console.log("arr3 배열전체값:", arr3.valueOf());
                 // 참고로 변수만 찍어도 브라우저가 valueOf()를 찍어줌!
 
                 // 변수 전체 찍기에서 사이에 구분자 변경하기
                 // join(구분자) -> 구분자는 특수문자 등 구분하는 문자
-                console.log("arr3 배열 구분자로 문자찍기:",
-                arr3.join("^"));
+                console.log("arr3 배열 구분자로 문자찍기:", arr3.join("^"));
                 // -> DB에 구분자로 구분하여 하나의 데이터로 만든후
                 // 입력할 경우에 많이 사용되는 메서드임! join()!
 
@@ -212,46 +216,45 @@
 
             ********************************************/
 
-            // 객체를 선언하여 생성해 보자!
-            // 기본객체 셋팅 추천방식은 중괄호만 사용하는 것!
+                // 객체를 선언하여 생성해 보자!
+                // 기본객체 셋팅 추천방식은 중괄호만 사용하는 것!
 
-            var SSG = new Object({
-                "너의 이름은?":"손석구",
-                "생일":"1983년 2월 7일",
-                "키":"178cm",
-                "몸무게":"80kg",
-                "혈액형":"C형",
-                "성별":"남성",
-                "대표작":"나의 해방일지, 범죄도시2",
-                "소속사":"셋별당엔터",
-                "비밀번호":7777,
-                "팬레터": function(){
-                    // 1. 메시지 띄우기
-                    alert("상남자 오빠! 지금뭐해?");
+                var SSG = new Object({
+                    "너의 이름은?": "손석구",
+                    생일: "1983년 2월 7일",
+                    키: "178cm",
+                    몸무게: "80kg",
+                    혈액형: "C형",
+                    성별: "남성",
+                    대표작: "나의 해방일지, 범죄도시2",
+                    소속사: "셋별당엔터",
+                    비밀번호: 7777,
+                    팬레터: function () {
+                        // 1. 메시지 띄우기
+                        alert("상남자 오빠! 지금뭐해?");
 
-                    // 스타일 선택변수
-                    var sty = tg[3].style
+                        // 스타일 선택변수
+                        var sty = tg[3].style;
 
-                    // 2. 배경이미지 넣기
-                    sty.background = 
-                    "url(https://file.mk.co.kr/meet/neds/2022/05/image_readtop_2022_456627_16533579475052374.jpeg) repeat-x top/auto 100%";
-                    // 3. 글자색
-                    sty.color = "#fff";
-                    // 4. 글자그림자
-                    sty.textShadow = "0 0 5px #000";
-                    // 5. 글자내용변경
-                    tg[3].innerText = "손석구 최고 멋쨍이! 승승장구! 화이팅!!!";
-                    // 6. 줄간격
-                    sty.lineHeight = "84px";
-                    // 7. 박스크게하기
-                    sty.transform = "scale(1.2)";
-                    // 8. 트랜지션
-                    sty.transition = "1s ease-out 1s";
-                } // 팬레터 메서드 ////
-            }); /// SSG 객체 /////////////////////
+                        // 2. 배경이미지 넣기
+                        sty.background = "url(https://file.mk.co.kr/meet/neds/2022/05/image_readtop_2022_456627_16533579475052374.jpeg) repeat-x top/auto 100%";
+                        // 3. 글자색
+                        sty.color = "#fff";
+                        // 4. 글자그림자
+                        sty.textShadow = "0 0 5px #000";
+                        // 5. 글자내용변경
+                        tg[3].innerText = "손석구 최고 멋쨍이! 승승장구! 화이팅!!!";
+                        // 6. 줄간격
+                        sty.lineHeight = "84px";
+                        // 7. 박스크게하기
+                        sty.transform = "scale(1.2)";
+                        // 8. 트랜지션
+                        sty.transition = "1s ease-out 1s";
+                    }, // 팬레터 메서드 ////
+                }); /// SSG 객체 /////////////////////
 
-            // 객체 출력대상: tg[3]
-            tg[3].innerHTML = `
+                // 객체 출력대상: tg[3]
+                tg[3].innerHTML = `
                 당신이 좋아하는 남자배우는? 
                 ${SSG["너의 이름은?"]}
                  / 몸무게를 아세요?
@@ -261,22 +264,22 @@
                   / 대표작은? ${SSG["대표작"]}
             `;
 
-            // 2줄이니까 줄간격 조정
-            tg[3].style.lineHeight = "40px";
+                // 2줄이니까 줄간격 조정
+                tg[3].style.lineHeight = "40px";
 
-            // 객체에 셋팅된 함수를 보통 "메서드"라고 부른다!
-            // 이 메서드를 호출해 보자!
-            tg[3].onclick = SSG["팬레터"];
+                // 객체에 셋팅된 함수를 보통 "메서드"라고 부른다!
+                // 이 메서드를 호출해 보자!
+                tg[3].onclick = SSG["팬레터"];
 
-            // title속성 넣기
-            tg[3].title = `
+                // title속성 넣기
+                tg[3].title = `
                 여기를 클릭하여 ${SSG["너의 이름은?"]}팬레터를 확인하세요!
             `;
 
-            // 손가락 표시
-            tg[3].style.cursor = "pointer";
+                // 손가락 표시
+                tg[3].style.cursor = "pointer";
 
-            /*************************************** 
+                /*************************************** 
                 [ new 키워드 없이 바로 객체 생성하기 ] -> 추천방식!
 
                 - 방법: 변수 선언 후 이퀄 뒤에 바로 중괄호 사용!
@@ -312,57 +315,55 @@
 
             ***************************************/
 
-            // 객체 생성하기
-            var GU = {
-                name:"공유",
-                tall:"184cm",
-                weight:"74kg",
-                com:"매니지먼트숲",
-                work:"도깨비,부산행",
-                msg: function(txt){ // txt 전달변수
-                    // 1.메시지 띄우기
-                    alert("팬레터:"+txt);
+                // 객체 생성하기
+                var GU = {
+                    name: "공유",
+                    tall: "184cm",
+                    weight: "74kg",
+                    com: "매니지먼트숲",
+                    work: "도깨비,부산행",
+                    msg: function (txt) {
+                        // txt 전달변수
+                        // 1.메시지 띄우기
+                        alert("팬레터:" + txt);
 
-                    // 스타일 할당변수
-                    var sty = tg[4].style;
+                        // 스타일 할당변수
+                        var sty = tg[4].style;
 
-                    // 2. 배경이미지
-                    sty.background = "url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Gong_Yoo_%28Sep_2016%29.png/250px-Gong_Yoo_%28Sep_2016%29.png) repeat-x top/auto 100%";
+                        // 2. 배경이미지
+                        sty.background = "url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Gong_Yoo_%28Sep_2016%29.png/250px-Gong_Yoo_%28Sep_2016%29.png) repeat-x top/auto 100%";
 
-                    // 3. 글자색
-                    sty.color = "#fff";
+                        // 3. 글자색
+                        sty.color = "#fff";
 
-                    // 4. 글자그림자
-                    sty.textShadow = "0 0 5px #000";
+                        // 4. 글자그림자
+                        sty.textShadow = "0 0 5px #000";
 
-                    // 5. 줄간격
-                    sty.lineHeight = "30px";
+                        // 5. 줄간격
+                        sty.lineHeight = "30px";
 
-                    // 6. 높이값 변경
-                    sty.height = "100px";
-                    
-                    // 7. 상단패딩 변경
-                    sty.paddingTop = "100px";
-                    
-                    // 8. 트랜지션
-                    sty.transition = "2s ease-in-out .5s";
+                        // 6. 높이값 변경
+                        sty.height = "100px";
 
+                        // 7. 상단패딩 변경
+                        sty.paddingTop = "100px";
 
+                        // 8. 트랜지션
+                        sty.transition = "2s ease-in-out .5s";
+                    }, //// msg메서드 /////
+                }; //// GU 객체 /////////////////
 
-                } //// msg메서드 /////
-            }; //// GU 객체 /////////////////
+                // GU객체 찍어보기
+                console.log("GU객체:", GU);
 
-            // GU객체 찍어보기
-            console.log("GU객체:",GU);
+                // GU객체 출력하기 ////////
+                // 출력대상: tg[4]
 
-            // GU객체 출력하기 ////////
-            // 출력대상: tg[4]
+                // 줄간격 조정
+                tg[4].style.lineHeight = "24px";
 
-            // 줄간격 조정
-            tg[4].style.lineHeight = "24px";
-
-            // 내용출력
-            tg[4].innerHTML = `
+                // 내용출력
+                tg[4].innerHTML = `
                 저는 ${GU.name}입니다.
                 몸무게는 비밀인데요 그래도 말씀드리자면
                 ${GU.weight}입니다. ㅎㅎㅎ <br>
@@ -371,149 +372,168 @@
                 ${GU.com}입니다. 빠이빠이~!
             `;
 
-            // 툴팁 띄우기
-            // setAttribute(속성명,값)
-            tg[4].setAttribute("title",
-            GU.name+"의 팬레터를 확인하세요! 바로클릭!");
+                // 툴팁 띄우기
+                // setAttribute(속성명,값)
+                tg[4].setAttribute("title", GU.name + "의 팬레터를 확인하세요! 바로클릭!");
 
-            // 손가락모양
-            tg[4].style.cursor = "pointer";
+                // 손가락모양
+                tg[4].style.cursor = "pointer";
 
-            // 공유박스 클릭시 GU객체 메서드 호출하기
-            tg[4].onclick = function(){
-                GU.msg("\n공유오빠, 오징어게임 싸다구 멋쪘어요!\n차기작도 기대해요!화이팅!!!");
-                // \n은 alert창에서 줄바꿈해줌
-            }; ////////// click 이벤트함수 /////
+                // 공유박스 클릭시 GU객체 메서드 호출하기
+                tg[4].onclick = function () {
+                    GU.msg("\n공유오빠, 오징어게임 싸다구 멋쪘어요!\n차기작도 기대해요!화이팅!!!");
+                    // \n은 alert창에서 줄바꿈해줌
+                }; ////////// click 이벤트함수 /////
 
-
-            /********************************************** 
+                /********************************************** 
                 [ 미션: 내가 만든 객체 ]
                 1. 주제: 영화정보
                 2. 조건: 객체변수명만 자신이 지은이름사용
                 3. 객체를 쌤께 전송!
             **********************************************/
 
-            var tomObj = {
-                // 1. 영화제목
-                제목: "탑건-매버릭",
-                // 2. 감독
-                감독: "조셉 코신스키",
-                // 3. 배우
-                배우: "톰 크루즈, 마일즈 텔러",
-                // 4. 장르
-                장르: "액션",
-                // 5. 관람가
-                관람가: "12세 관람가",
-                // 6. 예고편
-                예고편: function(){
-                    // 1. 호출확인
-                    // alert("예고편");
+                var tomObj = {
+                    // 1. 영화제목
+                    제목: "탑건-매버릭",
+                    // 2. 감독
+                    감독: "조셉 코신스키",
+                    // 3. 배우
+                    배우: "톰 크루즈, 마일즈 텔러",
+                    // 4. 장르
+                    장르: "액션",
+                    // 5. 관람가
+                    관람가: "12세 관람가",
+                    // 6. 예고편
+                    예고편: function () {
+                        // 1. 호출확인
+                        // alert("예고편");
 
-                    // 플레이함수 호출
-                    playMv("Mrj9XACVJ8U");
+                        // 플레이함수 호출
+                        playMv("Mrj9XACVJ8U");
+                    }, ///// 예고편 메서드 ////
+                }; ///////////// tomObj 객체 //////////////
 
-                } ///// 예고편 메서드 ////
-            }; ///////////// tomObj 객체 //////////////
+                // 출력대상 : tg[6]
 
+                // 줄간격 조정
+                tg[5].style.lineHeight = "34px";
+                // 손가락 모양
+                tg[5].style.cursor = "pointer";
+                tg[5].style.fontSize = "14px";
 
-            // 출력대상 : tg[6]
-
-            // 줄간격 조정
-            tg[5].style.lineHeight = "34px";
-            // 손가락 모양
-            tg[5].style.cursor = "pointer";
-            tg[5].style.fontSize = "14px";
-
-            /////////////////////////////
-            // 내용 출력하기 함수로 변경!!!
-            /////////////////////////////
-            var expFn = function(){
-                
-                tg[5].innerHTML = `
+                /////////////////////////////
+                // 내용 출력하기 함수로 변경!!!
+                /////////////////////////////
+                var expFn = function () {
+                    tg[5].innerHTML = `
                 ♣ 영화명 : ${tomObj["제목"]}
                 ♣ 감독 : ${tomObj.감독} <br>
                 ♣ 배우 : ${tomObj.배우}
                 ♣ 장르 : ${tomObj.장르}
                 ♣ 등급 : ${tomObj.관람가}
                 `;
-                // 툴팁 보이기
-                tg[5].title =
-                `클릭하시면 ${tomObj.제목} 예고편을 보실 수 있습니다!`;
-                
-                // 예고편  메서드 호출
-                tg[5].onclick = tomObj.예고편;
-                
-            }; ///////// expFn 함수 ////////
-            
-            // 할당된 expFn함수를 처음 실행호출!
-            expFn();
-            
-            
-            
-            // 버튼출력대상 : tg[7]
+                    // 툴팁 보이기
+                    tg[5].title = `클릭하시면 ${tomObj.제목} 예고편을 보실 수 있습니다!`;
 
-            // 줄간격 조정
-            tg[6].style.lineHeight = "20px";
-            
+                    // 예고편  메서드 호출
+                    tg[5].onclick = tomObj.예고편;
+                }; ///////// expFn 함수 ////////
 
+                // 할당된 expFn함수를 처음 실행호출!
+                expFn();
 
-           //////////////////////////////////////////
-           // 영화초이스 버튼 클릭시
-           // 영화정보와 동영상을 변경한다!
-           /////////////////////////////////////////
-           // 대상: .choice button
-           var cho = document.querySelectorAll(".choice button");
-           console.log(cho);
+                // 버튼출력대상 : tg[7]
 
-           // for문으로 버튼들을 click이벤트 설정한다!
-           for(var i=0;i<cho.length;i++){
+                // 줄간격 조정
+                tg[6].style.lineHeight = "20px";
 
-               cho[i].onclick = function(){
-                    // 1. 버튼텍스트
-                    var btxt = this.innerText;
-                    console.log(btxt);
-                    
-                    // 할당전 이전 영화객체
-                    console.log(tomObj);
+                //////////////////////////////////////////
+                // 영화초이스 버튼 클릭시
+                // 영화정보와 동영상을 변경한다!
+                /////////////////////////////////////////
+                // 대상: .choice button
+                var cho = document.querySelectorAll(".choice button");
+                console.log(cho);
 
-                    // 2. 버튼텍스트에 해당하는 객체를 기존 변수에 할당하기
-                    // switch()문사용
-                    // 새로운객체를 기존객체에 할당하기(변경하기)
-                    switch(btxt){
-                        case "성우초이스": tomObj = SW_obj; break;
-                        case "찬초이스": tomObj = jcObj; break;
-                        case "수희초이스": tomObj = SuheeObj; break;
-                        case "유정초이스": tomObj = aladdin; break;
-                        case "성해초이스": tomObj = shObj; break;
-                        case "소미초이스": tomObj = somObj; break;
-                        case "수진초이스": tomObj = SJObj; break;
-                        case "요한초이스": tomObj = yhObj; break;
-                        case "다미초이스": tomObj = mov; break;
-                        case "민경초이스": tomObj = mkObj; break;
-                        case "다인초이스": tomObj = leaveObj; break;
-                        case "새미초이스": tomObj = SMObj; break;
-                        case "명진초이스": tomObj = mjObj; break;
-                        case "동호초이스": tomObj = GSObj; break;
-                        case "지은초이스": tomObj = jenObj; break;
-                        case "동한초이스": tomObj = myV; break;
-                        case "승준초이스": tomObj = motoraObj; break;
-                        case "해원초이스": tomObj = seoObj; break;
-                    } ///////// switch case문 ////////
+                // for문으로 버튼들을 click이벤트 설정한다!
+                for (var i = 0; i < cho.length; i++) {
+                    cho[i].onclick = function () {
+                        // 1. 버튼텍스트
+                        var btxt = this.innerText;
+                        console.log(btxt);
 
-                    // 기존 영화객체변수값이 변경되었는지 확인!
-                    console.log(tomObj);
+                        // 할당전 이전 영화객체
+                        console.log(tomObj);
 
-                    // 3. 실제 적용 요소에 객체데이터 넣기
-                    // 위에서 함수로 생성한 expFn함수를 호출!
-                    expFn();
-    
-               }; //////////////// click 이벤트함수 ///////////
+                        // 2. 버튼텍스트에 해당하는 객체를 기존 변수에 할당하기
+                        // switch()문사용
+                        // 새로운객체를 기존객체에 할당하기(변경하기)
+                        switch (btxt) {
+                            case "성우초이스":
+                                tomObj = SW_obj;
+                                break;
+                            case "찬초이스":
+                                tomObj = jcObj;
+                                break;
+                            case "수희초이스":
+                                tomObj = SuheeObj;
+                                break;
+                            case "유정초이스":
+                                tomObj = aladdin;
+                                break;
+                            case "성해초이스":
+                                tomObj = shObj;
+                                break;
+                            case "소미초이스":
+                                tomObj = somObj;
+                                break;
+                            case "수진초이스":
+                                tomObj = SJObj;
+                                break;
+                            case "요한초이스":
+                                tomObj = yhObj;
+                                break;
+                            case "다미초이스":
+                                tomObj = mov;
+                                break;
+                            case "민경초이스":
+                                tomObj = mkObj;
+                                break;
+                            case "다인초이스":
+                                tomObj = leaveObj;
+                                break;
+                            case "새미초이스":
+                                tomObj = SMObj;
+                                break;
+                            case "명진초이스":
+                                tomObj = mjObj;
+                                break;
+                            case "동호초이스":
+                                tomObj = GSObj;
+                                break;
+                            case "지은초이스":
+                                tomObj = jenObj;
+                                break;
+                            case "동한초이스":
+                                tomObj = myV;
+                                break;
+                            case "승준초이스":
+                                tomObj = motoraObj;
+                                break;
+                            case "해원초이스":
+                                tomObj = seoObj;
+                                break;
+                        } ///////// switch case문 ////////
 
-           } //////////// for문 ////////////
+                        // 기존 영화객체변수값이 변경되었는지 확인!
+                        console.log(tomObj);
 
+                        // 3. 실제 적용 요소에 객체데이터 넣기
+                        // 위에서 함수로 생성한 expFn함수를 호출!
+                        expFn();
+                    }; //////////////// click 이벤트함수 ///////////
+                } //////////// for문 ////////////
             }); ////////////// 로드구역 ////////////////////////
-
-
 
             // -> 다른 영화객체에서 호출하고 있으므로
             // 로드 구역 바깥으로 옮겨서 전역함수로 변경함!
@@ -521,14 +541,15 @@
              함수명: playMv
              기능: 영화예고편 화면에 띄우기
              *******************************************/
-             var playMv = function(mvcode){ // mvcode 예고편아이디
-                
+            var playMv = function (mvcode) {
+                // mvcode 예고편아이디
+
                 // 예고편 동영상용 박스
                 var mvbx = document.querySelector("#mvbx");
                 // console.log(mvbx);
-                
+
                 // 1. 함수호출확인
-                console.log("플레이어!",mvcode);
+                console.log("플레이어!", mvcode);
 
                 // 2. 영화박스에 아이프레임 넣기
                 // 대상: #mvbx -> mvbx
@@ -573,12 +594,18 @@
                 csy.cursor = "pointer";
                 csy.lineHeight = "50px";
 
-                // 닫기버튼 클릭시 #mv 제거하기
-                cbtn.onclick = function(){mv.remove();};
-                // remove() 메서드 -> DOM에서 요소를 삭제함
+                // body 가상요소로 배경반투명 암전보이기/숨기기
+                const bdcont = document.body;
+                bdcont.classList.add("on");
 
-           }; /////////////// playMv 함수 ///////////////
-           //////////////////////////////////////////////
+                // 닫기버튼 클릭시 #mv 제거하기
+                cbtn.onclick = function () {
+                    mv.remove();
+                    bdcont.classList.remove("on");
+                };
+                // remove() 메서드 -> DOM에서 요소를 삭제함
+            }; /////////////// playMv 함수 ///////////////
+            //////////////////////////////////////////////
 
             /********************************************** 
             ※ 정리 :
@@ -622,12 +649,6 @@
                   let obj = new Object();
 
         **********************************************/
-
-
-
-
-
-
         </script>
     </head>
 
@@ -647,13 +668,13 @@
             <button>수희초이스</button>
             <button>유정초이스</button>
             <button>성해초이스</button>
-            <button>소미초이스</button> <br>
+            <button>소미초이스</button> <br />
             <button>수진초이스</button>
             <button>요한초이스</button>
             <button>다미초이스</button>
             <button>민경초이스</button>
             <button>다인초이스</button>
-            <button>새미초이스</button> <br>
+            <button>새미초이스</button> <br />
             <button>명진초이스</button>
             <button>동호초이스</button>
             <button>지은초이스</button>
