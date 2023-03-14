@@ -1,0 +1,193 @@
+@charset "utf-8";
+/* 옷소매 갤러리 CSS - main.css */
+html,body,h1{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    overflow: hidden;
+    background: url(../images/bg-main.jpg) no-repeat fixed center/cover;
+}
+
+ /* IR 클래스 */
+.ir{
+    display: block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+/* 1.메인타이틀 */
+.mtit{
+    width: 20%;
+    max-width: 300px;
+    /* 최대크기지정 */
+    margin: 0 auto; 
+    margin-top: 2%;   
+    box-shadow: -15px 0 30px #000 inset;
+    border-radius: 50%;
+    background: url(../images/logo.png) no-repeat center/cover;
+}
+/* 비율유지박스 */
+.mtit::before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+    /* 정사각형 1:1비율 */
+}
+
+/* 2. 갤러리박스 */
+#gbx{
+    position: relative;
+    /* 부모자격: 버튼의 부모 */
+    padding: 2% 0;
+}
+.gbx{
+    position: relative;
+    /* 부모자격 */
+    width: 20%;
+    max-width: 300px;
+    /* 최대크기지정 */
+    margin: 0 auto;
+    /* outline: 4px dashed blue; */
+}
+.gbx::before{
+    content: '';
+    display: block;
+    padding-top: 100%;
+}
+
+/* 갤러리 이미지 박스 */
+.gbx>div{
+    position: absolute;
+    /* 부모는? .gbx */
+    top: 0;
+    width: 100%;
+    box-shadow: 6px 6px 5px #333;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: #fff;
+    /* 트랜지션 */
+    transition: all .4s ease-in-out;
+}
+/* 갤러리 이미지 */
+.gbx img{
+    width: 100%;
+}
+
+/* 개별이미지 설정 */
+
+/* 왼쪽 끝 */
+.gbx>div:nth-child(1){
+    top: -40%;
+    left: -210%;
+    transform: scale(.7);
+    opacity: 0;/* 안보임 */
+}
+/* 왼쪽 바로옆 */
+.gbx>div:nth-child(2){
+    top: -20%;
+    left: -110%;
+    transform: scale(.9);
+    filter: grayscale(50%);
+}
+/* 
+    css 필터 속성: 이미지에 변형효과를 준다
+    filter: 여러가지 필터(그레이스케일, 블러, 세피아, 콘트라스트 등)
+    참조) https://www.w3schools.com/cssref/playit.asp?filename=playcss_filter&preval=none
+
+*/
+/* 중앙이미지 */
+.gbx>div:nth-child(3) {
+    top: 0;
+    left: 0;
+    transform: scale(1);
+}
+/* 오른쪽 바로옆 */
+.gbx>div:nth-child(4){
+    top: -20%;
+    left: 110%;
+    transform: scale(.9);
+    filter: grayscale(50%);
+}
+/* 오른쪽 끝 */
+.gbx>div:nth-child(5){
+    top: -40%;
+    left: 210%;
+    transform: scale(.7);
+    opacity: 0;/* 안보임 */
+}
+
+/* 캐릭터 타이틀 */
+.gbx>div>h2{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    color: lightgreen;
+    text-shadow: 2px 2px 2px #666;
+    opacity: 0;
+    /* 트랜지션 */
+    transition: all 1s ease-out;
+}
+.gbx>div>h3{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    color: lightpink;
+    text-shadow: 2px 2px 2px #666;
+    opacity: 0;
+    /* 트랜지션 */
+    transition: all 1s ease-out .5s;
+}
+
+.gbx>div:nth-child(3)>h2{
+    bottom: 10%;
+    opacity: 1;
+}
+.gbx>div:nth-child(3)>h3{
+    bottom: 3%;
+    opacity: 1;
+}
+
+/* 이동버튼 공통 */
+.abtn{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4%;
+    max-width: 55px;
+    /* 최대크기지정 */
+}
+.abtn img{
+    width: 100%;
+    /* 높이값은 자동조절 */
+}
+/* 오른쪽버튼 */
+.rb{
+    right: 10%;
+}
+/* 왼쪽버튼 */
+.lb{
+    left: 10%;
+}
+
+/* 3. 하단부분 */
+#info{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0,0,0,.2);
+}
+#info address{
+    margin: 0;
+    padding: 10px;
+    font: 12px/20px "맑은 고딕";
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+}
