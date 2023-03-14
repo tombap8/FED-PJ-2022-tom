@@ -23,19 +23,14 @@ body{
     width: 20%;
     max-width: 300px;
     /* 최대크기지정 */
+    aspect-ratio: 1/1;
     margin: 0 auto; 
     margin-top: 2%;   
     box-shadow: -15px 0 30px #000 inset;
     border-radius: 50%;
     background: url(../images/logo.png) no-repeat center/cover;
 }
-/* 비율유지박스 */
-.mtit::before {
-    content: '';
-    display: block;
-    padding-top: 100%;
-    /* 정사각형 1:1비율 */
-}
+
 
 /* 2. 갤러리박스 */
 #gbx{
@@ -49,13 +44,9 @@ body{
     width: 20%;
     max-width: 300px;
     /* 최대크기지정 */
+    aspect-ratio: 1/1;
     margin: 0 auto;
-    /* outline: 4px dashed blue; */
-}
-.gbx::before{
-    content: '';
-    display: block;
-    padding-top: 100%;
+    outline: 10px dashed blue;
 }
 
 /* 갤러리 이미지 박스 */
