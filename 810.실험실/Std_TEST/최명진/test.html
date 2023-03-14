@@ -1,12 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            html,
+            body,
+            h1,
+            h2 {
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                background-image: linear-gradient(to bottom, lightgreen, lightblue, lightcoral);
+            }
+            .tit {
+                position: fixed;
+                top: 0;
+                width: 100%;
+                text-align: center;
+                padding: 20px;
+            }
+            .page {
+                height: 100vh;
+                outline: 2px dashed gray;
+            }
+
+            .pg3 {
+                height: 300vh;
+                background-image: url(https://st2.depositphotos.com/1002075/7347/v/600/depositphotos_73474679-stock-illustration-musical-seamless-pattern-with-music.jpg);
+            }
+            .indic {
+                position: sticky;
+                top: 0;
+                width: 20vw;
+                font-size: 20vh;
+                line-height: 25vh;
+                font-weight: bold;
+                text-align: center;
+                padding-top: 10vh;
+                color: #ffe5b6;
+            }
+
+            .txt b {
+                display: inline-block;
+                font-size: 30vh;
+                font-weight: normal;
+                line-height: 30vh;
+                
+            }
+            .txt .bg {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 0;
+                background-color: orangered;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                padding-top: 10vh;
+            }
+        </style>
+        <script>
+            window.addEventListener("DOMContentLoaded",()=>{
+                const qs = x => document.querySelector(x);
+                const qsa = x => document.querySelectorAll(x);
     
-</body>
+                const retVal = x => x.getBoundingClientRect().top;
+
+                //대상: .pg3
+                const pg3 = qs(".pg3");
+                //대상스크롤길이 : 박스높이값 - 윈도우높이
+                const pg3H = pg3.clientHeight - window.innerHeight;
+                // console.log("대상길이:",pg3H);
+                //진행색칠하기 요소 : .bg
+                const bg = qs(".bg");
+    
+                window.addEventListener("scroll",()=>{
+                    // let scTop = this.scrollY;
+                    // console.log(scTop);
+
+                    // 대상 바운딩위치
+                    let tgpos = retVal(pg3);
+                    // 진행율 : 바운딩위치값 / 대상스크롤길이 * 100
+                    let perTg = tgpos / pg3H *100;
+                    console.log(tgpos,perTg);
+
+                    // tgpos가 음수면 통과시임!
+                    if(tgpos < 0 && tgpos > -pg3H){
+                        bg.style.height = -perTg + "%";
+                    } //////////// if ///////////////
+
+
+    
+                }); //////////// scroll /////////////////
+
+            }); ////////// load ///////////////////////////
+        </script>
+    </head>
+    <body>
+        <div class="page">
+            <h1 class="tit">스크롤하세요~!</h1>
+        </div>
+        <div class="page"></div>
+        <!-- 타겟박스 -->
+        <div class="page pg3">
+            <!-- 인디케이터 -->
+            <div class="indic">
+                <span class="txt">
+                    A<br /><b>|</b><br />Z
+                    <span class="bg">
+                        A<br /><b>|</b><br />Z
+                    </span>
+                </span>
+            </div>
+        </div>
+        <div class="page"></div>
+        <div class="page"></div>
+    </body>
 </html>
