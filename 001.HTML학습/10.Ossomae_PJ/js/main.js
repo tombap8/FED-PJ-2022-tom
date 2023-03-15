@@ -48,21 +48,34 @@ window.addEventListener("DOMContentLoaded", () => {
         } //////////// else : 왼쪽 ///////
     }; /////////////// goSlide함수 ////////////////
 
+    // 버튼요소: .abtn ///////////
+    const abtn = document.querySelectorAll(".abtn");
+
+    // 버튼 클릭이벤트 설정하기 /////
+    abtn.forEach((ele, idx) => {
+        ele.onclick = () => {
+            // 1. 슬라이드함수 호출
+            goSlide(idx);
+            // 2. 자동호출 지우기
+            clearAuto();
+        }; ///////// click //////////
+    }); /////////// forEach //////////////////
+
     // 오른쪽버튼 클릭시 /////////////
-    document.querySelector(".rb").onclick = () => {
-        // 1. 슬라이드함수 호출
-        goSlide(1);
-        // 2. 자동호출 지우기
-        clearAuto();
-    }; //////////// click ////////////////
+    // document.querySelector(".rb").onclick = () => {
+    //     // 1. 슬라이드함수 호출
+    //     goSlide(1);
+    //     // 2. 자동호출 지우기
+    //     clearAuto();
+    // }; //////////// click ////////////////
 
     // 왼쪽버튼 클릭시 /////////////
-    document.querySelector(".lb").onclick = () => {
-        // 1. 슬라이드함수 호출
-        goSlide(0);
-        // 2. 자동호출 지우기
-        clearAuto();
-    }; //////////// click ////////////////
+    // document.querySelector(".lb").onclick = () => {
+    //     // 1. 슬라이드함수 호출
+    //     goSlide(0);
+    //     // 2. 자동호출 지우기
+    //     clearAuto();
+    // }; //////////// click ////////////////
 
     // 인터발함수 지우기위한 변수
     let autoI;

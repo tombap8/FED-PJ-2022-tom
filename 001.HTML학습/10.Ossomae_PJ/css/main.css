@@ -46,7 +46,7 @@ body{
     /* 최대크기지정 */
     aspect-ratio: 1/1;
     margin: 0 auto;
-    outline: 10px dashed blue;
+    /* outline: 10px dashed blue; */
 }
 
 /* 갤러리 이미지 박스 */
