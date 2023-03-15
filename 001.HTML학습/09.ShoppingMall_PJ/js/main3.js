@@ -83,16 +83,12 @@ function loadFn() {
         // 3. 이동하기 : 해당순번 슬라이드 li에 클래스"on"넣기
         // 변경대상: slide변수(#slide li)
         // 전체초기화!
-        slide.forEach((ele) => ele.classList.remove("on"));
-        // 해당순번li에 클래스넣기
-        slide[snum].classList.add("on");
+        chgSlide(slide);
 
         // 4. 블릿변경 : 해당순번 블릿 li에 클래스"on"넣기
         // 변경대상: indic변수(.indic li)
         // 전체초기화!
-        indic.forEach((ele) => ele.classList.remove("on"));
-        // 해당순번li에 클래스넣기
-        indic[snum].classList.add("on");
+        chgSlide(indic);
     }; ////////// goSlide함수 ///////////
 
     // 3. 대상에 이벤트 설정하기
@@ -157,18 +153,11 @@ function loadFn() {
         // 왜? 블릿순번===슬라이드순번 이므로!
         snum = idx;
 
-        // 2. 전체블릿초기화
-        indic.forEach(ele=>ele.classList.remove("on"));
+        // 2. 블릿변경
+        chgSlide(indic);
 
-        // 3. 해당순번에 클래스 "on"넣기
-        indic[snum].classList.add("on");
-
-        // 4. 이동하기 : 해당순번 슬라이드 li에 클래스"on"넣기
-        // 변경대상: slide변수(#slide li)
-        // 전체초기화!
-        slide.forEach((ele) => ele.classList.remove("on"));
-        // 해당순번li에 클래스넣기
-        slide[snum].classList.add("on");
+        // 4. 슬라이드변경
+        chgSlide(slide);
 
         // 5. 자동넘김멈춤 함수호출!
         clearAuto();
