@@ -41,47 +41,56 @@ function loadFn() {
     const slide = document.querySelectorAll("#slide>li");
     // 슬라이드 개수
     let scnt = slide.length;
-    console.log("슬개수:",scnt);
-    
+    console.log("슬개수:", scnt);
+
     // 1-3. 블릿 대상: .indic li
     const indic = document.querySelectorAll(".indic li");
 
+    // 광클금지변수 : 0 - 허용, 1 - 불허용
+    let prot = 0;
+
     // 2. 슬라이드 변경함수 만들기
     const goSlide = (seq) => {
-        console.log("슬고우!",seq);
+        console.log("슬고우!", seq);
+
+        // 광클금지 설정하기 //////
+        if (prot) return;
+        prot = 1; // 잠금!
+        setTimeout(() => {
+            prot = 0; // 해제!
+        }, 400); /// 0.4초후 해제! ///
 
         // 1. 방향에 따른 분기
         // 1-1. 오른쪽버튼 클릭시: seq===1일때
-        if(seq){
+        if (seq) {
             // 슬라이드번호 증가!
             snum++;
-            console.log("오른!",snum);
-
+            console.log("오른!", snum);
         }
         // 1-2. 왼쪽버튼 클릭시: seq===0일때
-        else{
+        else {
             // 슬라이드번호 감소!
             snum--;
-            console.log("왼쪽!",snum);
+            console.log("왼쪽!", snum);
         }
 
-        // 2. 한계값 체크 : 
+        // 2. 한계값 체크 :
         // 처음이전->끝
-        if(snum===-1) snum = scnt-1;
+        if (snum === -1) snum = scnt - 1;
         //끝다음->처음
-        else if(snum === scnt) snum = 0;
+        else if (snum === scnt) snum = 0;
 
         // 3. 이동하기 : 해당순번 슬라이드 li에 클래스"on"넣기
         // 변경대상: slide변수(#slide li)
         // 전체초기화!
-        slide.forEach(ele=>ele.classList.remove("on"));
+        slide.forEach((ele) => ele.classList.remove("on"));
         // 해당순번li에 클래스넣기
         slide[snum].classList.add("on");
 
         // 4. 블릿변경 : 해당순번 블릿 li에 클래스"on"넣기
         // 변경대상: indic변수(.indic li)
         // 전체초기화!
-        indic.forEach(ele=>ele.classList.remove("on"));
+        indic.forEach((ele) => ele.classList.remove("on"));
         // 해당순번li에 클래스넣기
         indic[snum].classList.add("on");
     }; ////////// goSlide함수 ///////////
@@ -93,4 +102,4 @@ function loadFn() {
         }; ///// click함수 //////
     }); /////// forEach //////////
 }
- /////////////// loadFn 함수 //////////////
+/////////////// loadFn 함수 //////////////
