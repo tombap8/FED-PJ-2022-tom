@@ -172,7 +172,7 @@ function loadFn() {
     슬라이드 / 블릿 변경기능 공통함수
     함수명: chgSlide
   ***********************************/
- function chgSlide(obj){
+ function chgSlide(obj){ // obj - 변경대상 노드리스트
     console.log("공통함수!");
     // 전체리스트 초기화
     obj.forEach((ele) => ele.classList.remove("on"));
