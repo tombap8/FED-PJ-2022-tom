@@ -33,6 +33,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
         // 3. 분기하기
         // 3-1. 오른쪽버튼 클릭시
+        // if (dir===1) {
         if (dir) {
             // 첫번째 자식요소 div 맨뒤로이동
             // appendChild(첫번째요소)
