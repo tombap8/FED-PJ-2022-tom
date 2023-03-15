@@ -5,11 +5,33 @@ window.addEventListener("DOMContentLoaded",()=>{
 
     console.log("로딩완료!");
 
+    // 광클금지변수 : 0 - 허용, 1 - 불허용
+    let prot = 0;
+
+// 광클금지 설정하기 //////
+        if (prot) return;
+        prot = 1; // 잠금!
+        setTimeout(() => {
+            prot = 0; // 해제!
+        }, 400); /// 0.4초후 해제! ///
+
     // 대상: .gbx
     const gbx = document.querySelector(".gbx");
 
+    /******************************************* 
+        함수명: goSlide
+        기능: 이동방향에 따른 요소 이동하기
+    *******************************************/
+   const goSlide = (dir) => { // dir - 버튼구분(1-오른쪽,0-왼쪽)
+        // 1.호출확인
+        console.log("나야나!",dir);
+
+   }; /////////////// goSlide함수 ////////////////
+
+   // 오른쪽버튼 클릭시 /////////////
     document.querySelector(".rb")
     .onclick = () => {
+        goSlide(1);
 
         console.log("오른쪽!");
         // 이동대상: .gbx>div
@@ -24,6 +46,7 @@ window.addEventListener("DOMContentLoaded",()=>{
     // 왼쪽버튼
     document.querySelector(".lb")
     .onclick = () => {
+        goSlide(0);
 
         console.log("왼쪽!");
         // 이동대상: .gbx>div
