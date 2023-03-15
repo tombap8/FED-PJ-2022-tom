@@ -77,6 +77,13 @@ function loadFn() {
         slide.forEach(ele=>ele.classList.remove("on"));
         // 해당순번li에 클래스넣기
         slide[snum].classList.add("on");
+
+        // 4. 블릿변경 : 해당순번 블릿 li에 클래스"on"넣기
+        // 변경대상: indic변수(.indic li)
+        // 전체초기화!
+        indic.forEach(ele=>ele.classList.remove("on"));
+        // 해당순번li에 클래스넣기
+        indic[snum].classList.add("on");
     }; ////////// goSlide함수 ///////////
 
     // 3. 대상에 이벤트 설정하기
