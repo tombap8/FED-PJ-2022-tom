@@ -264,7 +264,7 @@ function loadFn() {
                 // (1) 오른쪽 버튼 클릭시 다음 슬라이드가
                 //     나타나도록 슬라이드 박스의 left값을
                 //     (-100% * 순수차) 로 변경시킨다.
-                slide.style.left = (-100*pure) + "%";
+                slide.style.left = -100 * pure + "%";
                 slide.style.transition = "left .4s ease-in-out";
 
                 // (2) 슬라이드 이동후!!! (0.4초후)
@@ -274,8 +274,7 @@ function loadFn() {
                     // 계산되는 차이수(1씩감소하여 left값에 계산시킴!)
                     let temp = pure;
 
-                    for(let i = 0; i < pure; i++){
-
+                    for (let i = 0; i < pure; i++) {
                         // temp 1씩감소하기!
                         temp--;
 
@@ -283,18 +282,49 @@ function loadFn() {
                         //       li를 잘라서 맨뒤로 보낸다!
                         // 슬라이드li가 잘라내면 매번변경되므로
                         // 새로읽어서 맨뒤로 이동한다!
-                        slide.appendChild(
-                            slide.querySelectorAll("li")[0]);
+                        slide.appendChild(slide.querySelectorAll("li")[0]);
                         // (2-2) 동시에 left값을 0으로 변경한다!
-                        slide.style.left = (-100*temp)+"%";
+                        slide.style.left = -100 * temp + "%";
                         // (2-3) 트랜지션 없애기!
                         slide.style.transition = "none";
-
                     } /////////// for /////////////////////
                 }, 400); //// 타임아웃 //////
             } ////////// if ///////////
             // 4-2. 음수면 왼쪽 /////////
             else if (diff < 0) {
+                //  console.log("왼쪽!");
+
+                
+                // (1) 왼쪽버튼 클릭시 이전 슬라이드가
+                // 나타나도록 하기위해 우선 맨뒤 li를
+                // 맨앞으로 이동한다. -> 개수만큼 처리한다!(pure 순수차이값)
+                // slide.insertBefore(넣을놈,넣을놈전놈)
+                // slide.insertBefore(맨끝li,맨앞li)
+
+
+                for(let i = 0; i < pure; i++){
+
+                    // 이동할 리스트
+                    let clist = slide.querySelectorAll("li");
+
+                    slide.insertBefore(clist[clist.length - 1], clist[0]);
+    
+                    // (2) 동시에 left값을 -100% 단위로 변경한다.
+                    // i값이 0부터 반복회수만큼 증가하므로 이것을 이용함!
+                    slide.style.left = ((i+1)*-100) + "%";
+                    // 이때 트랜지션을 없앤다(한번실행후 부터 생기므로!)
+                    slide.style.transition = "none";
+                } ////////// for /////////////////////
+
+                // (3) 그 후 left값을 0으로 애니메이션하여
+                // 슬라이드가 왼쪽에서 들어온다.
+                // 동일 속성인 left가 같은 코딩처리 공간에 동시에
+                // 있으므로 이것을 분리해야 효과가 있다!
+                // setTimeout을 사용한다!
+                setTimeout(() => {
+                    slide.style.left = "0";
+                    slide.style.transition = "left .4s ease-in-out";
+                }, 0); ////// 타임아웃 /////////
             } ////////// else if /////////
             // 4-3. 0이면 나가! //////////
             else {
