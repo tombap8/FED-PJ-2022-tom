@@ -93,6 +93,14 @@ ol {
     height: 100%;
 }
 
+/* 슬라이드 드래그 기능을 위해 
+선택/드래그 금지셋팅 */
+#slide * {
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+
 #slide li {
     flex-shrink: 0;
     /* 부모박스크기만큼 줄어들지 않음 -> 0 */
