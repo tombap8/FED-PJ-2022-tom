@@ -143,7 +143,7 @@ function loadFn() {
             // 변경효과가 없음!!!
             setTimeout(() => {
                 slide.style.left = "-220%";
-                slide.style.transition = "left .4s ease-in-out";
+                slide.style.transition = "left .4s ease-out";
             }, 1); //// 타임아웃 //////
             // 시간에 0을쓰면 인터발호출시 트랜지션이 안먹히는 에러가 있음
             // 1만써도 괜찮음~
@@ -177,7 +177,7 @@ function loadFn() {
             // setTimeout을 사용한다!
             setTimeout(() => {
                 slide.style.left = "-220%";
-                slide.style.transition = "left .4s ease-in-out";
+                slide.style.transition = "left .4s ease-out";
             }, 0); ////// 타임아웃 /////////
         } //////////// else : 왼쪽클릭시 //////
 
@@ -266,6 +266,8 @@ function loadFn() {
         // 5초후(인터발은 3초후, 토탈 8초후 작동시작)
         autoT = setTimeout(autoSlide, 5000);
     } ///////// clearAuto 함수 /////////////
+
+
 } //////////////// loadFn 함수 ///////////////
 /////////////////////////////////////////////
 
@@ -290,6 +292,16 @@ function loadFn() {
     5. 드래그시 이동할때 적용된 트랜지션을 지워준다!
     -> transition: none
     -> 드래그 함수내 mousemove 이벤트함수구역에 설정!
+
+    6. 드래그 마지막(mouseup)처리시 마지막위치
+        업데이트는 할 필요가 없다!
+    -> lastPoint() 함수호출 주석처리!
+
+    7. 슬라이드 이동시 트랜지션에 이징설정이
+    ease-in... 이 들어가면 드래그 끝나고
+    이동시 느리게 시작하므로 어색함!
+    따라서 이징은 ease-out으로 주는 것이
+    좀 더 자연스럽다!
 
 **********************************************/
 
@@ -325,9 +337,12 @@ function goDrag(obj) {
     // (3) 드래그 움질일때 작동함수
     const dMove = () => {
         // console.log("드래그상태:",drag);
-
         // 드래그 상태일때만 실행
         if (drag) {
+
+            // 트랜지션 없애기
+            obj.style.transition = "none";
+
             // 1. 드래그 상태에서 움직일때 위치값 : mvx,mvy
             mvx = event.pageX;
             mvy = event.pageY;
@@ -374,7 +389,9 @@ function goDrag(obj) {
     // (2) 마우스 올라올때 : 드래그false + 마지막 위치값 업데이트
     obj.addEventListener("mouseup", () => {
         dFalse();
-        lastPoint();
+        // lastPoint(); 
+        //-> 슬라이드 드래그는 마지막위치 업데이트 불필요!
+        // 왜? 슬라이드 마지막위치는 항상 일정하니까!
 
         // 이동판별함수 호출!
         goWhere(obj);
@@ -383,6 +400,28 @@ function goDrag(obj) {
     obj.addEventListener("mousemove", dMove);
     // (4) 마우스 벗어날때
     obj.addEventListener("mouseleave", dFalse);
+
+
+
+    
+
+    //// 화면크기를 변경할 경우 발생하는 이벤트 -> resize
+    // 이 이벤트를 이용하여 필요한 경우 코드를 실행한다!
+    // 대상: window
+    window.addEventListener("resize",()=>{
+        // 화면 크기변경시 lx값 업데이트 하기!
+        lx = -obj.parentElement.clientWidth*2.2;
+        // 마지막 위치값이 슬라이드 부모박스이 -220%
+        // 이므로 이것을 업데이트 해준다!
+        // 이때 앞에 마이너스(-)중요!!!
+        console.log("업데이트lx:",lx);
+
+    }); /////////// resize /////////////////
+
+
+
+
+
 } //////////// goDrag함수 ///////////////////////
 
 /************************************************* 
