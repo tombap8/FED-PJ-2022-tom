@@ -266,8 +266,6 @@ function loadFn() {
         // 5초후(인터발은 3초후, 토탈 8초후 작동시작)
         autoT = setTimeout(autoSlide, 5000);
     } ///////// clearAuto 함수 /////////////
-
-
 } //////////////// loadFn 함수 ///////////////
 /////////////////////////////////////////////
 
@@ -321,7 +319,7 @@ function goDrag(obj) {
     // (3) 마지막 위치포인트 last x, last y
     let lx = obj.offsetLeft, // -> 슬라이드 처음 left값 셋팅!
         ly = 0; // 마지막위치는 처음에 0할당!
-        console.log("lx:",lx);
+    console.log("lx:", lx);
     // (4) 움직일때 위치포인트 move x, move y
     let mvx, mvy;
     // (5) 위치이동 차이 결과변수 result x, result y
@@ -339,7 +337,6 @@ function goDrag(obj) {
         // console.log("드래그상태:",drag);
         // 드래그 상태일때만 실행
         if (drag) {
-
             // 트랜지션 없애기
             obj.style.transition = "none";
 
@@ -389,7 +386,7 @@ function goDrag(obj) {
     // (2) 마우스 올라올때 : 드래그false + 마지막 위치값 업데이트
     obj.addEventListener("mouseup", () => {
         dFalse();
-        // lastPoint(); 
+        // lastPoint();
         //-> 슬라이드 드래그는 마지막위치 업데이트 불필요!
         // 왜? 슬라이드 마지막위치는 항상 일정하니까!
 
@@ -401,27 +398,17 @@ function goDrag(obj) {
     // (4) 마우스 벗어날때
     obj.addEventListener("mouseleave", dFalse);
 
-
-
-    
-
     //// 화면크기를 변경할 경우 발생하는 이벤트 -> resize
     // 이 이벤트를 이용하여 필요한 경우 코드를 실행한다!
     // 대상: window
-    window.addEventListener("resize",()=>{
+    window.addEventListener("resize", () => {
         // 화면 크기변경시 lx값 업데이트 하기!
-        lx = -obj.parentElement.clientWidth*2.2;
+        lx = -obj.parentElement.clientWidth * 2.2;
         // 마지막 위치값이 슬라이드 부모박스이 -220%
         // 이므로 이것을 업데이트 해준다!
         // 이때 앞에 마이너스(-)중요!!!
-        console.log("업데이트lx:",lx);
-
+        console.log("업데이트lx:", lx);
     }); /////////// resize /////////////////
-
-
-
-
-
 } //////////// goDrag함수 ///////////////////////
 
 /************************************************* 
@@ -429,36 +416,34 @@ function goDrag(obj) {
     기능 : 드래그시 왼쪽/오른쪽 이동 판별
     호출 : 드래그시 mouseup 이벤트 함수에서 호출
 *************************************************/
-function goWhere(obj){ // obj - 드래그대상(슬라이드요소)
+function goWhere(obj) {
+    // obj - 드래그대상(슬라이드요소)
     // 1. 현재 드래그 대상 left위치값
     let tgLeft = obj.offsetLeft;
 
     // 2. 부모박스를 기준한 -220% left 위치값 구하기
-    let tgPoint = obj.parentElement.clientWidth*2.2;
+    let tgPoint = obj.parentElement.clientWidth * 2.2;
 
-    console.log("현재left:",tgLeft);
-    console.log("기준left:",-tgPoint);
+    console.log("현재left:", tgLeft);
+    console.log("기준left:", -tgPoint);
 
     // 3. 방향 판별하기 : 기준값에 특정값을 더하고 뺌
     // 3-1. 왼쪽방향이동(오른쪽버튼 클릭과 동일)
-    if(tgLeft < -tgPoint-50){
+    if (tgLeft < -tgPoint - 50) {
         console.log("왼쪽으로!");
         // 이동함수 호출!(전달값1)
         goSlide(1);
     }
     // 3-2. 오른쪽방향이동(왼쪽버튼 클릭과 동일)
-    else if(tgLeft > -tgPoint+50){
+    else if (tgLeft > -tgPoint + 50) {
         console.log("오른쪽으로!");
         // 이동함수 호출!(전달값0)
         goSlide(0);
     }
     // 3-3. 제자리로 돌아옴
-    else{
+    else {
         console.log("제자리!");
         // 기준값 left로 다시 보냄!
         obj.style.left = -tgPoint + "px";
     }
-
-
-
 } ///////////////// goWhere 함수 //////////////////
