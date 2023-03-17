@@ -1,0 +1,158 @@
+@charset "utf-8";
+/* My Item 프로필페이지 CSS - profile.css */
+
+/*import로 공통css 통합하기*/
+@import url(core.css);
+@import url(reset.css);
+@import url(common.css);
+
+/* 프로필페이지 CSS 셋팅 */
+
+/*아이폰 부모박스*/
+#iphone{
+    position: relative;
+    top: 100px;
+    width: 200px;
+    height: 400px;
+    margin: 0 auto;/*마영오*/
+    transform-style: preserve-3d;/*입체설정*/
+    transform: rotateY(30deg) rotateX(10deg);
+    /*outline: 2px solid red;*/
+    
+    /*애니메이션 호출*/
+    animation: rollingY 1.5s ease-in-out 1s,
+        rollingY2 1.5s ease-in-out 2.5s;
+}
+/*iphone 자식 li공통*/
+#iphone>li{
+    position: absolute;
+    /*부모?#iphone*/
+    width: 200px;
+    height: 400px;
+}
+/*앞면*/
+#iphone>li:nth-child(1){
+    background: #fff url(../images/ip01.png) no-repeat 0/100% 100%;
+    transform: translateZ(10px);/*화면앞으로 이동*/
+}
+/*왼쪽(소리스위치)*/
+#iphone>li:nth-child(2){
+    left: -10px;
+    width: 20px;
+    transform: rotateY(-90deg);
+    background: url(../images/ip04.png) no-repeat 0/100% 100%;
+}
+/*오른쪽(전원스위치)*/
+#iphone>li:nth-child(3){
+    right: -10px;
+    width: 20px;
+    transform: rotateY(90deg);
+    background: url(../images/ip03.png) no-repeat 0/100% 100%;
+}
+/*위쪽*/
+#iphone>li:nth-child(4){
+    top: -10px;
+    height: 20px;
+    transform: rotateX(90deg);
+    background: url(../images/ip06.png) no-repeat 0/100% 100%;
+}
+/*아래쪽*/
+#iphone>li:nth-child(5){
+    bottom: -10px;
+    height: 20px;
+    transform: rotateX(90deg);
+    background: url(../images/ip05.png) no-repeat 0/100% 100%;
+}
+/*뒷면*/
+#iphone>li:nth-child(6){
+    background: #fff url(../images/ip02.png) no-repeat 0/100% 100%;
+    transform: translateZ(-10px) rotateY(180deg);
+    /*화면뒤로 이동*/
+}
+
+/*앞면 얼굴이미지*/
+.newFace{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 150px;
+    height: 250px;
+    background: url(../images/prof01.png) no-repeat center/100%;
+    /*애니메이션 호출*/
+    animation: newFace 1.2s linear 4s forwards;
+}
+
+/*소개글 이미지 박스공통*/
+.showtxt{
+    position: absolute;
+    /*부모? #cont*/
+    top: 50%;
+    transform: translateY(-50%);
+    /*세로방향 중앙이동*/
+    width: 300px;
+    height: 0;/*200px;*/
+    
+    /*애니메이션 호출*/
+    animation: showtxt .48s linear 4.72s forwards;
+}
+/*디자이너 글박스*/
+.dtxt{
+    left: 10px;
+    background: url(../images/prof01_txt.png) no-repeat;
+}
+/*코더 글박스*/
+.ctxt{
+    right: 10px;
+    background: url(../images/prof02_txt.png) no-repeat;
+}
+
+
+
+
+/*키프레임*/
+/*1.폰회전1*/
+@keyframes rollingY{
+    to{
+        transform: rotateY(-330deg) rotateX(10deg);
+    }
+}/*키프레임*/
+
+/*2.폰회전2-반대방향*/
+@keyframes rollingY2{
+    to{
+        transform: rotateY(390deg) rotateX(10deg);
+    }
+}/*키프레임*/
+
+/*3.얼굴이미지 바꿔서 보이기*/
+@keyframes newFace{
+    0%{
+        height: 250px;
+        background-image: url(../images/prof01.png);
+    }
+    40%{
+        height: 0px;/*높이값 0*/
+        background-image: url(../images/prof01.png);
+    }
+    60%{
+        height: 0px;/*높이값 0 유지 상태에서 배경변경*/
+        background-image: url(../images/prof02.png);
+    }
+    100%{
+        height: 250px;/*높이값 복원*/
+        background-image: url(../images/prof02.png);
+    }
+}/*키프레임*/
+
+/*4. 프로필 자기소개 보이기*/
+@keyframes showtxt{
+    to{height: 200px;}
+}/*키프레임*/
+
+
+
+
+
+
+

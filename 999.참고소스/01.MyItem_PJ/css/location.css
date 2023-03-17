@@ -1,0 +1,76 @@
+@charset "utf-8";
+/* My Item 오시는길 CSS - location.css */
+
+/*import로 공통css 통합하기*/
+@import url(core.css);
+@import url(reset.css);
+@import url(common.css);
+
+/* 오시는길 전용 CSS 셋팅 */
+
+/*타이틀*/
+.tit{
+    width: 700px;
+    height: 45px;
+    margin: 0 auto;
+    margin-top: 80px;
+    font-size: 20px;
+    line-height: 45px;
+    color: #777;
+    text-shadow: 1px 1px 1px #999;
+    /*outline: 1px solid red;*/
+}
+/*가상요소로 아이콘 넣기*/
+.tit::before{
+    content: url(../images/loca_icon.png);
+    vertical-align: -12px;
+    margin-left: 5px;
+    margin-right: 13px;
+}
+
+/*지도메뉴*/
+.menu{
+    width: 700px;
+    margin: 5px auto;
+}
+.menu a{
+    margin: 0 9px;
+}
+/*선택메뉴 class*/
+.menu a.on{
+    font-size: 18px;
+    color: #079c2a;
+}
+/*맵박스*/
+#map{
+    width: 700px;
+    height: 400px;
+    margin: 0 auto;
+    margin-top: 10px;
+    outline: 3px solid #ccc;
+}
+/*구글맵*/
+.gmap{
+    width: 100%;
+    height: 100%;
+    border: none;
+/*    display: none;*/
+}
+/*네이버맵*/
+.nmap{
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+/*다음맵*/
+.dmap{
+    display: none;
+}
+
+
+
+
+
+
+
+

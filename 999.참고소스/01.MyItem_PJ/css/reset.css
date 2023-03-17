@@ -1,0 +1,53 @@
+@charset "utf-8";
+/* reset.css - 요소의 셋팅 초기화 */
+
+/*태그 초기화 설정*/
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,
+blockquote,pre,abbr,address,cite,code,del,dfn,em,img,
+ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,
+fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,
+article,aside,canvas,details,figcaption,figure,footer,header,hgroup,
+menu,nav,section,summary,time,mark,audio,video,button{margin:0; padding:0;}
+
+/*html5 새로운 태그들 이전 브라우저에서 block으로 해석되게셋팅*/
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {  display: block; }
+
+/*이미지에 링크를 걸때 생기는 보더 없앰*/
+img{
+    border: none;
+}
+/*a태그 리셋*/
+a{
+    color: #222;
+    text-decoration: none;
+}
+/*리스트초기화*/
+ul,ol {
+    list-style: none;
+}
+ul::after, ol::after{
+    content: "";
+    display: block;
+    clear: both;/*foat해*/
+}
+li{
+    float: left;/*옆으로흐르게*/
+}
+/*헤딩태그리셋*/
+h1,h2,h3,h4,h5,h6{
+    font-size: 100%;/*기본글자크기 16px로 리셋*/
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

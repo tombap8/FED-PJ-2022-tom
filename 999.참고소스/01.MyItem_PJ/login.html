@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Item - 로그인 페이지</title>
+    <link rel="stylesheet" href="css/login.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/linksys.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/login.js"></script>
+</head>
+
+<body>
+    <div class="wrap">
+        <!--상단영역-->
+        <header id="top">
+            <!--로고-->
+            <h1 id="logo">
+              <!--로고글자-->
+               <img id="ltit" src="images/mlogo_7.png" alt="로고글자">
+               <!--빨간공-->
+               <img id="rball" src="images/mlogo_6.png" alt="빨간공">
+               <!--카멜레온-->
+                <div id="cam">
+                    <span id="tt"></span>
+                    <img id="mel" src="images/mlogo_05.png" alt="카멜레온">
+                </div>
+               
+                <a href="index.html" title="마이 아이템에 오신것을 환영합니다!">
+                    <i class="bld">
+                        로고링크이동
+                    </i>
+                </a>
+            </h1>
+            <!--sns박스-->
+            <ul class="sns">
+                <li>
+                    <a href="#">
+                        <span class="bld">
+                            트위터 이동하기
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="bld">
+                            인스타그램 이동하기
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="bld">
+                            페이스북 이동하기
+                        </span>
+                    </a>
+                </li>
+            </ul>
+            <!--로그인메뉴그룹-->
+            <ul class="tmenu">
+                <li>
+                    <a href="#">회원가입</a>
+                </li>
+                <li>
+                    <a href="#">로그인</a>
+                </li>
+                <li>
+                    <a href="#">게시판</a>
+                </li>
+                <li>
+                    <a href="#">오시는길</a>
+                </li>
+            </ul>
+
+            <!--GNB(전역네비게이션)-->
+            <nav id="gnb">
+                <ul>
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">디바이스</a>
+                        <!--서브메뉴-->
+                        <ol class="smenu">
+                            <li>
+                                <a href="#">스마트폰</a>
+                            </li>
+                            <li>
+                                <a href="#">태블릿PC</a>
+                            </li>
+                            <li>
+                                <a href="#">노트북</a>
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        <a href="#">패션</a>
+                        <!--서브메뉴-->
+                        <ol class="smenu">
+                            <li>
+                                <a href="#">가방</a>
+                            </li>
+                            <li>
+                                <a href="#">시계</a>
+                            </li>
+                            <li>
+                                <a href="#">구두</a>
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        <a href="#">프로필</a>
+                    </li>
+                </ul>
+
+            </nav>
+        </header>
+        <!--컨텐츠영역-->
+        <main id="cont">
+            <!--로그인 타이틀-->
+            <h2 class="tit">로그인</h2>
+            <!--로그인 박스-->
+            <section id="login">
+                <form id="logF" method="post" action="process.php">
+                    <!--아이디박스-->
+                    <div class="minput">
+                        <label for="mid">아이디</label>
+                        <input type="text" id="mid" maxlength="40" placeholder="아이디를 입력하세요">
+                    </div>
+                    <!--비밀번호박스-->
+                    <div class="minput">
+                        <label for="mpw">비밀번호</label>
+                        <input type="password" id="mpw" maxlength="20" placeholder="비밀번호를 입력하세요">
+                    </div>
+                    <!--버튼영역-->
+                    <div class="btnBox">
+                        <input type="button" id="sbtn" value="LOGIN">
+                    </div>
+                    <!--기타체크링크-->
+                    <div class="addBox disableselect">
+                        <span>
+                            <input type="checkbox" id="chkbox"><label for="chkbox">아이디저장</label>
+                        </span>
+                        <a href="#">아이디찾기</a> | 
+                        <a href="#">비밀번호찾기</a> | 
+                        <a href="#">회원가입</a>
+                    </div>
+                    
+                </form>
+                <!--
+                    [ form요소 ]: 입력된 데이터를 묶어서 전송하는 역할
+                    - method : 데이터 전송방식(get/post)
+                    - action : 전송할 페이지주소
+                    
+                    [ label 요소 ]
+                    - input 요소의 설명을 표시하는 요소
+                    - 이 요소는 웹접근성에서 필수로 다룸!
+                    - for 속성은 연관된 input요소의 id명을 씀
+                    (클릭시 연결된 input요소로 포커스가 간다!)
+                    
+                    [ input 태그 ]
+                    - 사용자가 입력할 수 있도록 입력양식을 제공하는 요소
+                    - 여러가지 입력 타입이 있음 type="여러가지"
+                    1) text - 글자입력
+                    2) password - 비밀번호입력(글자표시 점으로됨)
+                    3) radio - 라디오버튼(보통 단일선택시 사용)
+                    4) checkbox - 체크박스버튼(보통 다중선택시 사용)
+                    5) button - 버튼 형식의 입력폼
+                    6) submit - form요소의 입력값을 전송하는 버튼기능
+                        (action에 지정된 페이지로 데이터를 보냄)
+                    7) 기타 html5에서 새롭게 등장한 요소들...
+                    - search, tel, email, range, image .....
+                    - 기존에 text로 처리하던 입력방식을 다양하게 제공함
+                    - 이유는? 입력형식이 맞는지 속검사하는 기능이 내장되어 있어서 쉽게 데이터유효성 검사를 하기위해 만들어졌다!
+                    
+                    [ 기타 공통 속성들 ]
+                    - maxlength : 최대입력 글자수 지정속성
+                    - placeholder : 입력창에 미리 안내문구를 출력하는 속성(입력시 사라짐!)
+                        이것의 단점은 일반 디자인 별도 적용안되어 css적용이 어려움~
+                    - value : 입력창에 출력될 글자 셋팅속성
+                    
+                
+                -->
+            </section>
+        </main>
+        <!--하단영역-->
+        <footer id="info">
+            <!--하단로고-->
+            <img src="images/b_logo.png" alt="하단로고">
+            <!--주소-->
+            <address>
+                서울시 강남구 논현동 32-45 대량빌딩 1455호, 대표:김랑랑
+            </address>
+        </footer>
+    </div>
+    <!--
+   html5에서 등장한 레이아웃 시멘틱태그
+   1. header : 내용의 머릿부분을 표시
+   2. footer : 내용의 하단부분을 표시
+   3. main : 핵심내용을 표시(한페이지에 한번사용)
+   4. section : 상세내용을 구분하여 표시(독립된내용)
+   5. article : 상세내용을 구분하여 표시(주로 글내용을 다룸)
+   6. nav : 네비게이션을 구분하여 표시
+   7. aside : 중요도가 낮은 내용을 한쪽에 표시
+   8. hgroup : 헤드라인 태그를 묶어서 표시(h1~h6)
+   -->
+
+
+
+
+
+
+
+
+
+</body></html>

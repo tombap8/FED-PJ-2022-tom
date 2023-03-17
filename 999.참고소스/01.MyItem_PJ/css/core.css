@@ -1,0 +1,37 @@
+@charset "utf-8";
+/*전체사이트 핵심공통*/
+/*웹폰트*/
+@font-face{
+    font-family: Nanum;
+    src: url(../fonts/NanumGothic.eot) format("eot"),
+        url(../fonts/NanumGothic.woff) format("woff"),
+        url(../fonts/NanumGothic.ttf) format("ttf");
+}
+/*사이트 전체설정*/
+body{
+    background-image: url(../images/bg.png);/*전체반복*/
+    font-family: Nanum,"맑은 고딕";
+    font-size: 15px;/*글자기본크기 16px을 변경함*/
+    letter-spacing: -1px;/*글자간격(기본값은 0)*/
+}
+/*IR(Image Replacement)-이미지설명요소 등 안보이게 처리*/
+.bld{
+    display: block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,450 @@
+@charset "utf-8";
+/*인코딩형식*/
+/* My Item 공통 CSS - common.css */
+
+/*********전체부모**************/
+.wrap {
+    width: 1000px;
+    margin: 0 auto;
+    /*중앙정렬*/
+    background-color: #fff;
+    box-shadow: 0px 0px 5px #ccc;
+    /*박스그림자:x축 y축 blur spread 색*/
+}
+
+/************상단부분***************/
+#top {
+    position: relative;
+    /*부모자격*/
+    height: 130px;
+    /*    outline: 1px solid red;*/
+    z-index: 999;
+    /*
+        z-index 란?
+        보통 포지션이 static하지 않은 경우
+        즉, relative, absolute, fixed 로써
+        요소가 겹칠 수 있는 경우에 한하여
+        요소를 위 아래로 순서관계를 정할 수 있다.
+        z-index의 숫자로 비교하여 숫자가 크면
+        앞쪽으로 display하여 보여준다.
+        -,+값이 모두 가능함
+    */
+}
+
+/*로고*/
+#logo {
+    position: absolute;
+    /*나의부모?#top*/
+    top: 10px;
+    left: 5px;
+    /*absolute의 또 다른 특성중 하나는
+    block요소의 width가 auto로 한줄을 모두 차지하던 것을 내부의 컨텐츠 크기에 맞춰서 변경된다!*/
+    width: 150px;
+    height: 64px;
+}
+/*로고a링크*/
+#logo a{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+/*로고타이틀*/
+#ltit {
+    position: absolute;
+    bottom: 0;
+}
+
+/*빨간공*/
+#rball {
+    position: absolute;
+    top: 15px;
+    left: 55px;
+}
+/*빨간공애니class*/
+.rball{
+    animation: rball .8s ease-in-out;
+}
+
+/*카멜레온박스*/
+#cam {
+    position: absolute;
+    top: 5px;
+    left: 76px;
+    width: 54px;
+    height: 37px;
+    /*    outline: 1px solid red;*/
+}
+/*카멜레온박스 애니class*/
+.cam{
+    animation: cam 1.5s ease-in-out 1.3s,
+        camRotate .5s ease-in-out 2.8s;
+}
+
+/*카멜레온 몸통*/
+#mel {
+    position: absolute;
+}
+
+/*카멜레온 혀*/
+#tt {
+    position: absolute;
+    top: 5px;
+    left: -20px;
+    width: 48px;
+    height: 8px;
+    background: url(../images/mlogo_01.png) no-repeat;
+}
+/*카멜레온 혀 애니class*/
+.tt{
+    animation: tt .5s linear .8s;   
+}
+
+/**** 로고 애니메이션 키프레임 ****/
+/*1.빨간공 위아래*/
+@keyframes rball {
+    0% {
+        top: 15px;
+    }
+
+    49% {
+        top: 0px;
+    }
+
+    51% {
+        top: 0px;
+    }
+
+    100% {
+        top: 15px;
+    }
+}
+
+/*키프레임*/
+
+/*2.혀 날름*/
+@keyframes tt {
+    0% {
+        left: -20px;
+        background-image: url(../images/mlogo_01.png);
+    }
+    10% {
+        left: -25px;
+        background-image: url(../images/mlogo_02.png);
+    }
+    20% {
+        left: -30px;
+        background-image: url(../images/mlogo_03.png);
+    }
+    30% {
+        left: -35px;
+        background-image: url(../images/mlogo_04.png);
+    }
+
+
+    50% {
+        left: -40px;
+        background-image: url(../images/mlogo_04.png);
+    }
+    60% {
+        left: -35px;
+        background-image: url(../images/mlogo_03.png);
+    }
+
+    70% {
+        left: -30px;
+        background-image: url(../images/mlogo_02.png);
+    }
+    80% {
+        left: -25px;
+        background-image: url(../images/mlogo_01.png);
+    }
+
+    100% {
+        left: -20px;
+        background-image: url(../images/mlogo_01.png);
+    }
+}
+
+/*키프레임*/
+
+/*3. 카멜레온 앞으로 뒤로*/
+@keyframes cam{
+    0%{left: 76px;}
+    50%{left: 3px;}
+    51%{left: 3px;}
+    100%{left: 76px;}
+}/*키프레임*/
+
+/*4. 카멜레온 돌리기*/
+@keyframes camRotate{
+    from{transform: rotate(0deg);}
+    to{transform: rotate(-360deg);}
+}/*키프레임*/
+
+
+
+
+/*******************************/
+
+/*SNS박스*/
+.sns {
+    position: absolute;
+    top: 40px;
+    right: 10px;
+}
+
+.sns li {
+    width: 30px;
+    height: 30px;
+    background: url(../images/icons.png) no-repeat;
+}
+
+/*트위터*/
+.sns li:first-child {
+    background-position: 0px 0px;
+}
+
+.sns li:first-child:hover {
+    /*오버시*/
+    background-position: 0px -30px;
+}
+
+/*인스타*/
+.sns li:nth-child(2) {
+    background-position: -30px 0px;
+}
+
+.sns li:nth-child(2):hover {
+    /*오버시*/
+    background-position: -30px -30px;
+}
+
+/*페북*/
+.sns li:last-child {
+    background-position: -60px 0px;
+}
+
+.sns li:last-child:hover {
+    /*오버시*/
+    background-position: -60px -30px;
+}
+
+/*a태그확장*/
+.sns a {
+    display: block;
+    /*디자인적용위해*/
+    width: 100%;
+    height: 100%;
+}
+
+/*로그인 메뉴 그룹*/
+.tmenu {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+}
+
+.tmenu li {
+    padding: 0px 3px;
+    /*위아래0, 우좌3px*/
+    line-height: 40px;
+    font-size: 12px;
+}
+
+/*가상요소로 사이점 넣기*/
+.tmenu li + li::before {
+    /*앞에 li가 있는 형제요소만*/
+    content: "·";
+    margin-right: 3px;
+}
+
+
+/*GNB 디자인*/
+/*body의 가상요소를 이용하여 네비게이션 100%바 만들기*/
+body::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 90px;
+    left: 0px;
+    width: 100%;
+    height: 40px;
+    background-image: linear-gradient(to bottom, #cecece 0%, #bababa 20%, #8a8a8a 80%, #5c5c5c 100%);
+}
+
+/*네비게이션 부모박스*/
+#gnb {
+    position: absolute;
+    /*나의부모?#gnb*/
+    bottom: 0px;
+    width: 100%;
+    /*            height: 50px;*/
+    /*background-color: #048BE1;*/
+    background-image: linear-gradient(to bottom, #cecece 0%, #bababa 20%, #8a8a8a 80%, #5c5c5c 100%);
+    /*변경5*/
+}
+
+/*네비게이션 ul*/
+#gnb > ul {
+    width: 600px;
+    /*변경1*/
+    height: 40px;
+    /*변경2*/
+    margin: 0 auto;
+    /*가로중앙*/
+    /*            outline: 1px solid red;*/
+    /*            overflow: hidden;*/
+}
+
+/*네비게이션 상위메뉴 li*/
+#gnb > ul > li {
+    float: left;
+    /*block요소 옆으로 흐르게*/
+    width: 150px;
+    /*변경3*/
+    height: 40px;
+    /*변경4*/
+    text-align: center;
+}
+
+/*
+        자식요소에 float을 적용한 경우
+        부모박스는 자식요소의 높이값을 모르게된다.
+        이유는 자식요소를 별도로 display를 처리했기때문
+        부모요소에 높이값을 가지게 하는 방법은?
+        1) 부모박스에 height 값을 준다.
+        2) 부모박스에 overflow:hidden 처리를 한다.
+           - 단점: 자식요소가 부모박스 바깥으로 나와할 경우 사용할 수 없다!
+        3) float을 해제하는 속성을 사용한다.
+           - clear:both(left,right)
+           - float된 다음 요소에 준다!
+           - 가상요소중 ::after에 주는게 일반적임
+        */
+#gnb > ul::after {
+    content: "";
+    display: block;
+    clear: both;
+    /*float해제*/
+}
+
+/*네비게이션 a링크*/
+#gnb > ul > li a {
+    display: block;
+    /*디자인적용위해*/
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    /*글자색흰색-링크에서설정*/
+    text-decoration: none;
+    /*밑줄없앰*/
+    font: bold 14px/40px Nanum, "맑은 고딕", Verdana;
+    /*변경8*/
+    /*트랜지션 애니메이션*/
+    transition: all .4s;
+}
+
+/*상위메뉴 li태그에 마우스 오버시*/
+#gnb > ul > li:hover > a {
+    color: #777;
+    /*변경7*/
+    text-shadow: 0px 1px 0px #fff;
+    /*변경9*/
+    /*background-color: #B3EFF4;*/
+    background-image: linear-gradient(to top, #cecece 0%, #bababa 20%, #8a8a8a 80%, #5c5c5c 100%);
+    /*변경6*/
+}
+
+/*서브메뉴*/
+.smenu {
+    height: 0px;
+    background-color: #cecece;
+    /*변경10*/
+    text-shadow: 1px 1px 0px #777;
+    /*변경11*/
+    border-radius: 0px 0px 4px 4px;
+    /*변경12*/
+    overflow: hidden;
+    /*높이값이 0일때 자식요소 숨기기*/
+    /*트랜지션(속시이지)*/
+    transition: height .4s ease-out;
+}
+
+.smenu li {
+    width: 150px;
+    /*float되기에 크기를 줌!*/
+}
+
+/*상위메뉴에 마우스 오버시 하위메뉴 나오기*/
+#gnb > ul > li:hover .smenu {
+    height: 120px;
+    /*변경13*/
+}
+
+/*#gnb > ul > li:nth-child(3):hover .smenu {
+    height: 100px;
+}*/
+
+/*하위메뉴 마우스오버시 배경색,글자색 변경*/
+#gnb .smenu > li:hover > a {
+    color: #777;
+    /*변경14*/
+    /*!important를 안주고 적용하는 방법은? 할아버지를 불러온다!*/
+    background-color: #bababa;
+    /*변경15*/
+    text-shadow: 0px 1px 0px #fff;
+    /*변경16*/
+}
+
+
+
+
+
+
+
+
+/**************컨텐츠부분*************/
+#cont {
+    position: relative;
+    /*부모자격*/
+    height: 590px;
+    /*    outline: 1px solid red;*/
+    /*    background-color: red;*/
+    overflow: hidden;
+    /*자식요소의 마진top을 포함함*/
+}
+
+/**********하단부분***************/
+#info {
+    position: relative;
+    /*부모자격*/
+    height: 90px;
+    /*    outline: 1px solid red;*/
+    border-top: 1px solid #ccc;
+    /*윗선*/
+}
+
+/*하단로고*/
+#info img {
+    margin: 5px 0px 0px 5px;
+}
+
+/*주소박스*/
+#info address {
+    position: absolute;
+    /*나의부모? #info*/
+    top: 0px;
+    /*안주면 젠틀하다*/
+    width: 100%;
+    height: 100%;
+    /*퍼센트로 크기를 지정할 경우 absolute인 것은 부모의 크기를 기준한다! 나머지 경우는 일반적으로 싸고 있는 요소가 부모가 된다*/
+    text-align: center;
+    font-style: normal;
+    /*address기본변경*/
+    font-size: 14px;
+    line-height: 90px;
+    /*글자세로중앙*/
+    color: #555;
+}

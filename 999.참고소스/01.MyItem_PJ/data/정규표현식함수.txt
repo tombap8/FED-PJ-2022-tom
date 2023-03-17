@@ -1,0 +1,14 @@
+//이메일 형식 검사함수
+function validEml(str){
+	"use strict";
+	var regex=/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;   
+	return regex.test(str);//정규식에 맞는지를 테스트하여 true/false를 리턴함
+	//정규표현식을 변수에 담고 특정값을 조사해보고 싶을때
+	// 정규식담은변수.test(조사할값) --> true / false 값이 리턴됨
+}
+//공백제거 함수
+function groSpace(str)//공백을 제거
+{
+	"use strict";
+	return str.replace(/(^\s*)|(\s*$)/gi,"");
+}

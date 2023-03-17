@@ -1,0 +1,111 @@
+@charset "utf-8";
+/*My Item 아이템페이지 CSS - item.css*/
+
+/*공통파일 불러오기*/
+@import url(reset.css);
+@import url(core.css);
+@import url(common.css);
+
+/*아이템 페이지 컨텐츠 영역 박스 높이조정*/
+#cont{
+    height: 500px;
+}
+
+/*아이템 타이틀*/
+.tit{
+    width: 700px;
+    height: 45px;
+    margin: 0 auto;
+    margin-top: 80px;
+    font-size: 17px;
+    line-height: 45px;
+    color: #777;
+/*    outline: 1px solid red;*/
+}
+/*가상요소로 아이콘 넣기*/
+.tit::before{
+    vertical-align: -17px;/*인라인요소간 세로정렬*/
+    margin-right: 10px;
+}
+/*아이콘 class */
+.ico1::before{
+    content: url(../images/myitems_icon_01.png);
+}
+.ico2::before{
+    content: url(../images/myitems_icon_02.png);
+}
+.ico3::before{
+    content: url(../images/myitems_icon_03.png);
+}
+.ico4::before{
+    content: url(../images/myitems_icon_04.png);
+}
+.ico5::before{
+    content: url(../images/myitems_icon_05.png);
+}
+.ico6::before{
+    content: url(../images/myitems_icon_06.png);
+}
+
+/*아이템 컨텐츠 박스*/
+.ibox{
+    position: relative;/*부모자격*/
+    width: 700px;
+    height: 300px;
+    margin: 0 auto;/*가로중앙*/
+/*    outline: 1px dotted blue;*/
+}
+/*아이템 이미지박스*/
+.timg{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);/*가로중앙이동*/
+    width: 50%;
+    height: 100%;
+    opacity: 0;/*처음에 안보이게*/
+    transition: all .4s ease-out .3s;/*트랜지션*/
+}
+.timg img{/*아이템 이미지*/
+    width: 90%;
+    margin: 18px 0 0 5px;
+}
+
+/*아이템 글자박스*/
+.tcont{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);/*가로중앙이동*/
+    width: 50%;
+    height: 100%;
+    box-sizing: border-box;/*패딩,보더 포함*/
+    padding: 20px;
+    font-size: 13px;
+    color: #777;
+    line-height: 30px;
+    opacity: 0;/*처음에 안보이게*/
+    transition: all .4s ease-out .3s;/*트랜지션*/
+}
+
+/*아이템 컨텐츠박스의 중앙분리선 가상요소로 넣기*/
+.ibox::after{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    width: 1px;
+    height: 80%;
+    background-color: #ccc;
+}
+
+
+
+
+
+
+
+
+
+

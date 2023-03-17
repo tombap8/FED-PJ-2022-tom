@@ -1,0 +1,171 @@
+@charset "utf-8";
+/*My Item 회원가입 CSS - member.css*/
+
+/*공통파일 불러오기*/
+@import url(reset.css);
+@import url(core.css);
+@import url(common.css);
+
+/*전체 컨텐츠 박스 높이조정*/
+#cont{
+    height: 800px;
+}
+
+/*로그인 타이틀*/
+.tit{
+    width: 700px;
+    height: 45px;
+    margin: 0 auto;
+    margin-top: 80px;
+    font-size: 20px;
+    text-shadow: 1px 1px 1px #999;
+    line-height: 45px;
+    color: #666;
+/*    outline: 1px solid red;*/
+}
+/*가상요소로 아이콘 넣기*/
+.tit::before{
+    content: url(../images/mem_icon.png);
+    margin-left: 5px;
+    margin-right: 18px;
+    vertical-align: -10px;/*인라인요소간 세로정렬*/
+}
+
+/*메시지박스*/
+.msg{
+    display: block;
+    width: 100px;
+    height: 15px;
+    line-height: 15px;
+    font-size: 9px;
+    margin-top: -12px;
+    color: #f00;
+    white-space: nowrap;/*줄바꿈방지*/
+/*    outline: 1px solid red;*/
+}
+
+/*회원가입 박스*/
+#meminfo{
+    width: 700px;
+    height: 464px;
+    border: 2px solid #737373;
+    margin: 0 auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    padding: 30px 51px;
+    box-sizing: border-box;
+}
+/*리스트 ul*/
+#meminfo ul{
+    width: 100%;
+    height: 100%;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #373737;
+}
+/*리스트 li*/
+#meminfo li{
+    position: relative;
+    /*부모자격*/
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+}
+
+/*라벨공통*/
+#meminfo label{
+    display: inline-block;
+    width: 200px;
+}
+/*입력박스공통*/
+#meminfo input[type=text],
+#meminfo input[type=password]{
+    width: 340px;
+    height: 36px;
+    font-size: 1.2rem;
+    /*
+        18px/15px = 1.2rem
+    */
+    border: 1px solid #737373;
+    border-radius: 5px;
+    padding-left: 5px;
+}
+/*라디오버튼*/
+#meminfo input[type=radio]{
+    width: 20px;
+    height: 20px;
+    vertical-align: -4px;
+}
+
+/*이메일 앞주소*/
+/*우선순위를 덮어쓰려면 같은 부모밑의 셋팅으로!*/
+#meminfo #email1{
+    width: 170px;
+}
+/*이메일 직접입력창*/
+#meminfo #email2{
+    width: 139px;
+    margin-left: 201px;
+    display: none;
+}
+
+/*이메일 선택박스*/
+#seleml{
+    width: 146px;
+    height: 40px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    font-size: 1.2rem;
+}
+
+/*가입하기버튼*/
+#btnj{
+    position: absolute;
+    bottom: 0;
+    right: 45px;
+    width: 113px;
+    height: 40px;
+    border: 1px solid #737373;
+    border-radius: 5px;
+    color: #fff;
+    background-image: linear-gradient(to bottom, #ddd, #555);
+}
+
+/*약관동의박스*/
+#conf{
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 600px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+/*동의,비동의 버튼박스*/
+.YNbox{
+    text-align: center;
+}
+/*버튼공통*/
+.YNbox>button{
+    width: 113px;
+    height: 40px;
+    border: 1px solid #737373;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1em;
+    font-weight: bold;
+    background-image: linear-gradient(to bottom, #ddd, #555);
+    margin: 0 20px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+

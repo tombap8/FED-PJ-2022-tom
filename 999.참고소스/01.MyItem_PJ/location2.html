@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>My Item PJ - 오시는길(구글맵API)</title>
+    <link rel="stylesheet" href="css/location.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/linksys.js"></script>
+    <script src="js/common.js"></script>
+    <script>
+        $(function(){ /// jQB /////////////////////
+            
+            // 메뉴클릭시 href의 정보를 가져와서 구글맵함수 호출하기
+            $(".menu a").click(function(e){ // e-이벤트관련 전달변수
+                //기본이동막기
+                e.preventDefault();
+                
+               var pos = $(this).attr("href");
+                pos = pos.split(",");//위도경도값 분리
+                console.log("위도:"+pos[0]);
+                console.log("경도:"+pos[1]);
+                // 구글맵 함수 호출
+                myMap(pos[0],pos[1]);
+                
+            });//////////// click ////////////
+            
+            
+            
+            
+        });//////////// jQB //////////////////////
+        //////////////////////////////////////////
+        
+        
+        
+        /*///////////////////////////////////////////
+            함수명: myMap
+            기능: 구글맵 위치셋팅
+        */ ////////////////////////////////////////////
+        function myMap(v1, v2) {
+            // 지도를 넣을 대상
+            var mapCanvas = document.querySelector(".gmap");
+            // 지도 위도,경도값 셋팅
+            var myCenter = new google.maps.LatLng(v1, v2);
+            // 지도 확대,축소옵션
+            var mapOptions = {
+                center: myCenter,
+                zoom: 16 // 클수록 확대
+            };
+            // 위의 변수값으로 구글맵 호출생성!
+            var map = new google.maps.Map(mapCanvas, mapOptions);
+            // 지도의 위치표시자 셋팅
+            var marker = new google.maps.Marker({
+                position: myCenter,
+                // 서버에 있는 이미지를 불러올 수 있다!
+                icon: "https://kr.seaicons.com/wp-content/uploads/2016/03/Map-Marker-Marker-Outside-Chartreuse-icon.png",
+                // 지도표시자를 위아래로 애니메이션 하는 옵션
+                // BOUNCE 는 위아래움직임, DROP 은 한번에 내려옴
+                animation: google.maps.Animation.BOUNCE,
+                // title은 마우스 오버시 툴
+                title: "여기는 내일 투어할 수족관입니다!"
+
+            });
+            marker.setMap(map);
+        } ////// myMap함수 ////////////////////////////////////
+    </script>
+</head>
+
+<body>
+    <div class="wrap">
+        <!--1.상단영역-->
+        <header id="top">
+            <!--로고-->
+            <h1 id="logo">
+              <!--로고글자-->
+               <img id="ltit" src="images/mlogo_7.png" alt="로고글자">
+               <!--빨간공-->
+               <img id="rball" src="images/mlogo_6.png" alt="빨간공">
+               <!--카멜레온-->
+                <span id="cam">
+                    <span id="tt"></span>
+                    <img id="mel" src="images/mlogo_05.png" alt="카멜레온">
+                </span>
+               
+                <a href="index.html" title="마이 아이템에 오신것을 환영합니다!">
+                    <i class="bld">
+                        로고링크이동
+                    </i>
+                </a>
+            </h1>
+            <!--sns박스-->
+            <ul class="sns">
+                <li>
+                    <a href="#">
+                        <span class="bld">
+                            트위터 이동하기
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="bld">
+                            인스타그램 이동하기
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="bld">
+                            페이스북 이동하기
+                        </span>
+                    </a>
+                </li>
+            </ul>
+            <!--로그인메뉴그룹-->
+            <ul class="tmenu">
+                <li>
+                    <a href="#">회원가입</a>
+                </li>
+                <li>
+                    <a href="#">로그인</a>
+                </li>
+                <li>
+                    <a href="#">게시판</a>
+                </li>
+                <li>
+                    <a href="#">오시는길</a>
+                </li>
+            </ul>
+
+            <!--GNB(전역네비게이션)-->
+            <nav id="gnb">
+                <ul>
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">디바이스</a>
+                        <!--서브메뉴-->
+                        <ol class="smenu">
+                            <li>
+                                <a href="#">스마트폰</a>
+                            </li>
+                            <li>
+                                <a href="#">태블릿PC</a>
+                            </li>
+                            <li>
+                                <a href="#">노트북</a>
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        <a href="#">패션</a>
+                        <!--서브메뉴-->
+                        <ol class="smenu">
+                            <li>
+                                <a href="#">가방</a>
+                            </li>
+                            <li>
+                                <a href="#">시계</a>
+                            </li>
+                            <li>
+                                <a href="#">구두</a>
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        <a href="#">프로필</a>
+                    </li>
+                </ul>
+
+            </nav>
+        </header>
+        <!--2.컨텐츠영역-->
+        <main id="cont">
+            <!--타이틀-->
+            <h2 class="tit">오시는길</h2>
+            <!--지도메뉴선택-->
+            <h4 class="menu">
+                <a href="-28.016073,153.429612" class="on">골드코스트리조트</a> |
+                <a href="48.860425,2.326583">오르세미술관</a> |
+                <a href="40.414225,-3.692951">프라도미술관</a>
+            </h4>
+            <!--맵박스-->
+            <div id="map">
+                <!--구글맵-->
+                <div class="gmap map"></div>
+            </div>
+
+        </main>
+        <!--3.하단영역-->
+        <footer id="info">
+            <!--3-1.하단로고-->
+            <img src="images/b_logo.png" alt="하단로고">
+            <!--3-2.회사주소-->
+            <address>
+                서울시 강남구 논현동 32-45 대량빌딩 1455호, 대표:김랑랑
+            </address>
+        </footer>
+    </div>
+
+
+    <!--구글맵호출-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvpFtfhEfPLtRfYVkxwa-BfpAdKB9nSK4&callback=myMap"></script>
+    <!--
+    구글의 무료 지도이용 정책변경에 따라
+    구글지도 API키를 발급받아서 위의 key="발급된키값"을 
+    유효한 값으로 넣어야 구글지도를 이용할 수 있다!
+-->
+
+
+
+</body></html>

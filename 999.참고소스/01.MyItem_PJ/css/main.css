@@ -1,0 +1,48 @@
+@charset "utf-8";
+/*My Item 메인페이지 CSS - main.css*/
+
+/*공통파일 불러오기*/
+@import url(reset.css);
+@import url(core.css);
+@import url(common.css);
+
+/*공통사용 CSS를 html에 link방식이 아닌 css내부에 import방식으로 불러오는 것이 더 좋은 이유는?
+- html페이지 상단에 link로 파일을 불러오면 http request가 증가함(페이지 요청이 많아짐) 따라서 
+html페이지 퍼포먼스(디스플레이) 속도가 느려진다. 그래서 import로 한번에 css를 합쳐서 가져가는 것이 효율적이다!
+*/
+
+/*메인 이미지*/
+#mimg{
+    display: block;/*inline출신요소 변경*/
+    margin: 100px auto;/*block용 중앙정렬*/
+    width: 340px;/*가로크기만변경(비율유지!)*/
+}
+
+/*썸네일 이미지 박스*/
+.thumbs{
+    position: absolute;/*나의 부모는?#cont*/
+    bottom: 20px;
+    padding-left: 220px;
+}
+.thumbs img{
+    height: 100px;/*초기값높이설정*/
+    transition: all .4s;/*트랜지션*/
+}
+
+/*썸네일에 마우스 오버시 이미지 높이값 변경하기*/
+.thumbs img:hover{
+    height: 150px;
+    margin-top: -50px;
+    /*늘어난 높이값만큼 마진탑을 마이너스로 설정*/
+}
+
+
+
+
+
+
+
+
+
+
+

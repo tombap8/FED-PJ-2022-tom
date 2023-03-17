@@ -1,0 +1,46 @@
+@charset "utf-8";
+/*  게시판 페이지 CSS */
+
+/*공통파일 불러오기*/
+@import url(reset.css);
+@import url(core.css);
+@import url(common.css);
+
+#tit{
+	width: 200px;
+	height: 60px;
+	box-sizing: border-box;/*크기유지*/
+	border: 1px solid #ccc;
+	border-radius: 20px;
+	margin: 20px auto;
+	font: bold 24px/60px Nanum;
+	text-align: center;
+	box-shadow: 1px 1px 1px #999;
+	background: url(../images/myitems_icon_01.png) no-repeat left center,
+		url(../images/myitems_icon_03.png) no-repeat right center;
+}
+
+/*게시판박스*/
+#bbox{
+	width: 700px;
+/*	height: 300px;*/
+    /*아이프레임의 높이값 크기를 맞추기위해 height값은 auto!*/
+	margin: 0 auto;
+	outline: 1px solid red;	
+}
+#bbox>iframe{
+	width: 100%;
+/*	height: 100%;*/
+    /*아이프레임의 높이값도 auto로!*/
+	border: none;
+}
+
+
+
+
+
+
+
+
+
+
