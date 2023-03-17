@@ -2,3 +2,9 @@
 
 1. myitem PJ
 -> https://tombap8.github.io/FSD202/001.HTML%ED%95%99%EC%8A%B5/09.MyItem_PJ/02.Asset/index.html
+
+-> 구글맵 API 사용하기 예
+https://tombap8.github.io/FSD202/001.HTML%ED%95%99%EC%8A%B5/09.MyItem_PJ/02.Asset/location2.html
+
+-> 구글맵 API W3 Schools 자료링크
+https://www.w3schools.com/graphics/google_maps_intro.asp
