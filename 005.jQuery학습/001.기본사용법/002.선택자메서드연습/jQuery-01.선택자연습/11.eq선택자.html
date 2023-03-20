@@ -12,18 +12,98 @@
 		height: 100%;
 	}
 </style>
-<script src="jquery-1.7.2.min.js"></script>
+<script src="../jquery-3.6.3.min.js"></script>
 <script>
-$(document).ready(function(e) {
-	
-	// 1차 미션: .nav1 아래 li를 클릭시 클릭된 li의 글자크기를 5px씩 커지게 하시오. 동시에 글자색을 무지개색 순서로 차례로 변경되게 하시오.
-	
-	
-	//// 2차미션 : 선택박스의 선택을 변경하는 순간 선택된 이름의 배경색을 무지개색 순번으로 변경하시오. 동시에 배경이미지를 body에 해당이름과 매칭하여 넣으시오.
-	
-	
-	
-});//jQuery실행구역
+	$(() => {
+		//////// jQB /////////////////
+
+		// 글자변경
+		$(".nav1 li,#selnum").css({
+			fontSize: "42px",
+			textShadow: "0 0 10px #333",
+			cursor: "pointer",
+			width: "400px",
+			whiteSpace: "nowrap",
+		});
+
+		// 1차 미션: .nav1 아래 li를 클릭시 클릭된 li의
+		// 글자크기를 5px씩 커지게 하시오. 동시에 글자색을
+		// 무지개색 순서로 차례로 변경되게 하시오.
+
+		// 무지개색 배열
+		const rcolor = [
+			"red",
+			"orange",
+			"yellow",
+			"green",
+			"blue",
+			"navy",
+			"purple",
+			"pink",
+			"skyblue",
+		];
+		// 배열순번변수
+		let cseq = 0;
+
+		$(".nav1 li").click((e) => {
+			// e-이벤트전달값
+			// 클릭된 자신은 this지만
+			// 화살표함수는 e.currentTarget
+			$(e.currentTarget).css({
+				fontSize: "+=5px", // += 기존크기에 더함
+				color: rcolor[cseq],
+			}); ///////// css /////////
+			// 무지개 색 순번증가
+			cseq++;
+			if (cseq === 7) cseq = 0; // 한계수
+		}); //////// click ////////////////
+
+		//// 2차미션 : 선택박스의 선택을 변경하는 순간
+		//선택된 이름의 배경색을 무지개색 순번으로 변경하시오.
+		//동시에 배경이미지를 body에 해당이름과 매칭하여 넣으시오.
+
+		// 이벤트 대상: #selnum
+		$("#selnum").change(function () {
+			// 선택값읽어오기
+			let opt = $(this).val();
+			// val() 선택요소의 값을 읽어오는 메서드
+			// JS에서는 this.value 임!
+			console.log(opt);
+
+			// 첫번째 option값인 "tt"이면 나가라!
+			if (opt === "tt") {
+				alert("값을 선택하세요!");
+				return;
+			}
+			// return은 중간에 코드를 중지하거나
+			// 어떤 값을 함수호출한 곳으로 가져갈때 사용!
+
+			// 초기화!(모두 투명)
+			$(".nav1 li").css({ backgroundColor: "transparent" });
+
+			// 순번을 사용하여 .nav1 li의 같은
+			// 순번배경색 변경
+
+			// :eq(순번) -> 제이쿼리 전용!
+			// sequnce에서 나온말! (순번)
+			// 순번은 0부터 시작!
+			// $(`.nav1 li:eq(${opt})`)
+
+			// eq(n) -> 제이쿼리 트래버싱 메서드가
+			// 더 많이 쓰임!
+			$(`.nav1 li`).eq(opt)
+
+			.css({
+				backgroundColor: rcolor[opt],
+			});
+
+			// 배경이미지 넣기
+			$("body").css({
+				background: `
+			url(img/${opt}.jpg) no-repeat center/cover`,
+			}); ///// css ///////
+		}); /////////// change /////////////
+	}); /////////// jQB /////////////////
 </script>
 
 </head>
@@ -34,7 +114,6 @@ $(document).ready(function(e) {
 		 <option value="tt">이름을 선택하세요</option>
 		 <option value="0">김수현</option>
 		 <option value="1">정우성</option>
-		 <option value="2">유아인</option>
 		 <option value="3">아이유</option>
 		 <option value="4">박보검</option>
 		 <option value="5">송중기</option>
@@ -46,7 +125,7 @@ $(document).ready(function(e) {
    <ul class="nav1">
      <li>김수현</li>
      <li>정우성</li>
-     <li>유아인</li>
+	 <li></li>
      <li>아이유</li>
      <li>박보검</li>
      <li>송중기</li>
