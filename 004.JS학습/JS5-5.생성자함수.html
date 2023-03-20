@@ -60,6 +60,25 @@
             }
         
         */
+
+       // 생성자 함수 만들기 ///////////////////
+       // 함수명: MovieInfo
+       // 전달변수 : tit,sum,dir,act,des
+       function MovieInfo(tit,sum,dir,act,des){
+            // 속성 5가지 셋팅
+            this.제목 = tit;
+            this.개요 = sum;
+            this.감독 = dir;
+            this.출연 = act;
+            this.문구 = des;
+
+            // 메서드 1가지 셋팅
+            this.함수 = () => {
+                return
+                `영화 ${this.제목}의 감독님 이름은 ${this.감독}입니다!`;
+            };
+
+       } ////////// MovieInfo 생성자함수 /////////
 </script>
 </head>
 <body>
