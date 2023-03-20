@@ -101,21 +101,15 @@
        let hcode = "";
 
        for(let x of mi){
-        // console.log(x);
+        console.log(x);
         // 객체는 for in문
         hcode += "<ul>";
-        for(let y in x){ // y는 속성명, x는 객체
-            // console.log(y);
-            if(y==="제목")
+        
             hcode += `
-            <li><h2>제목: ${x[y]}</h2></li>`;
-
-            else if(y==="포스터")
-            hcode += `
-            <li><img src="${x[y]}" 
-                alt="포스터"></li>
+                <li><h2>제목: ${x.제목}</h2></li>
+                <li><img src="${x.포스터}" 
+                    alt="${x.제목}의 포스터"></li>
             `;
-        } /////// for in문 ////////////////
         
         hcode += "</ul>";
 
@@ -124,6 +118,8 @@
         console.log(hcode);
 
        document.write(hcode);
+
+       
 </script>
 </head>
 <body>

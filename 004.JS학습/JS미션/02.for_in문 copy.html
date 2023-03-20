@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>객체를 위한 for in문</title>
+        <style>
+            h1,
+            .btns,
+            .show {
+                text-align: center;
+            }
+            button {
+                font-size: 30px;
+            }
+
+            .minfo {
+                display: flex;
+                /* 자식요소 박스 옆으로 흐르게! */
+                /* outline: 1px solid red; */
+                width: 500px;
+                margin: 0 auto;
+            }
+
+            .wrap {
+                /* 플렉스박스 */
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 20px;
+            }
+            .cbx {
+                margin: 10px;
+                padding: 10px;
+                border: 4px double gray;
+                border-radius: 10px;
+            }
+
+            .photo img {
+                height: 200px;
+                margin-right: 20px;
+            }
+
+            /* 영화한마디 글자박스 */
+            .showtit {
+                /* display: none; */
+                text-align: center;
+            }
+
+            .show span {
+                display: inline-block;
+                /* 가로,세로 등 디자인 적용+한줄에 나옴 */
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                /* 원 */
+                border: 2px solid #d30000;
+                background-color: #00f;
+                font-size: 20px;
+                color: #fff;
+
+                /* 동그라미 박스 정중앙 */
+                text-align: center;
+                line-height: 30px;
+                text-align: center;
+            }
+        </style>
+        <script>
+            /*************************************************** 
+            [미션:]
+            영화정보를 모두 html형식에 맞도록 .wrap요소에
+            모두 출력하시오!(for in문을 사용하여 출력)
+        ***************************************************/
+
+            /// 영화정보 객체 ////
+            const mvi = {
+                조제: {
+                    포스터: "https://movie-phinf.pstatic.net/20201116_276/1605491658399poUOC_JPEG/movie_image.jpg?type=m99_141_2",
+                    제목: "조제",
+                    개요: "멜로/로맨스, 드라마",
+                    감독: "김종관",
+                    출연: "한지민, 남주혁",
+                    문구: "조제 보러 오세요",
+                },
+                이웃사촌: {
+                    포스터: "https://movie-phinf.pstatic.net/20201111_193/1605056611896fc6Ef_JPEG/movie_image.jpg?type=m99_141_2",
+                    제목: "이웃사촌",
+                    개요: "드라마, 코미디",
+                    감독: "이환경",
+                    출연: "정우, 김희원",
+                    문구: "이웃을 사랑합시다",
+                },
+                도굴: {
+                    포스터: "https://movie-phinf.pstatic.net/20201104_45/160445535053439akc_JPEG/movie_image.jpg?type=m99_141_2",
+                    제목: "도굴",
+                    개요: "범죄",
+                    감독: "박정배",
+                    출연: "이제훈, 조우진, 신혜선, 임원희",
+                    문구: "도굴은 범죄예요",
+                },
+                "앤트맨과 와스프: 퀀텀매니아": {
+                    포스터: "https://movie-phinf.pstatic.net/20230216_8/16765083584990ol68_JPEG/movie_image.jpg?type=m203_290_2",
+                    제목: "앤트맨과 와스프: 퀀텀매니아",
+                    개요: "액션",
+                    감독: "페이튼 리드",
+                    출연: "폴 러드(스캇), 에반젤린 릴리(호프)",
+                    문구: "사랑해 땅콩",
+                },
+                "아바타: 물의 길": {
+                    포스터: "https://movie-phinf.pstatic.net/20221215_185/1671091761840XXpCR_JPEG/movie_image.jpg?type=m203_290_2",
+                    제목: "아바타: 물의 길",
+                    개요: "액션, 모험, SF, 스릴러",
+                    감독: "제임스 카메론",
+                    출연: "조 샐다나(네이티리), 샘 워싱턴(제이크 설리),",
+                    문구: "아들엔 아들이야",
+                },
+                바빌론: {
+                    포스터: "https://movie-phinf.pstatic.net/20230201_261/1675215429987qQVon_JPEG/movie_image.jpg?type=m203_290_2",
+                    제목: "바빌론",
+                    개요: "드라마",
+                    감독: "데이미언 셔젤",
+                    출연: "브래드 피트, 마고 로비",
+                    문구: "당신 시대가 끝난거예요",
+                },
+                영웅: {
+                    포스터: "https://movie-phinf.pstatic.net/20221213_158/1670910727328mpqYu_JPEG/movie_image.jpg?type=m203_290_2",
+                    제목: "영웅",
+                    개요: "드라마, 뮤지컬",
+                    감독: "윤제균",
+                    출연: "정성화, 김고은",
+                    문구: "누가 죄인인가",
+                },
+                교섭: {
+                    포스터: "https://movie-phinf.pstatic.net/20221227_112/16721270739480lDiS_JPEG/movie_image.jpg?type=m203_290_2",
+                    제목: "교섭",
+                    개요: "드라마",
+                    감독: "임순례",
+                    출연: "황정민(정재호), 현빈(박대식)",
+                    문구: "아쌀라말라이쿰",
+                },
+                "다음 소희": {
+                    포스터: "https://movie-phinf.pstatic.net/20230112_63/1673489515726qkQ2t_JPEG/movie_image.jpg?type=m203_290_2",
+                    제목: "다음 소희",
+                    개요: "드라마",
+                    감독: "정주리",
+                    출연: "배두나, 김시은",
+                    문구: "그런 일이나 한다고 더 무시해",
+                },
+                타이타닉: {
+                    포스터: "https://movie-phinf.pstatic.net/20230209_198/1675907886242jMQ8S_JPEG/movie_image.jpg?type=m203_290_2",
+                    제목: "타이타닉",
+                    개요: "멜로/로맨스, 드라마",
+                    감독: "제임스 카메론",
+                    출연: "레오나르도 디카프리오, 케이트 윈슬렛",
+                    문구: "그는 내 기억속에만 존재해요",
+                },
+                상견니: {
+                    포스터: "https://movie-phinf.pstatic.net/20230120_87/1674192544285inSFU_JPEG/movie_image.jpg?type=m203_290_2",
+                    제목: "상견니",
+                    개요: "드라마, 판타지, 멜로/로맨스",
+                    감독: "황천인",
+                    출연: "가가연, 허광한, 시백우",
+                    문구: "회전목타는 탈 수 있어",
+                },
+                유령: {
+                    포스터: "https://movie-phinf.pstatic.net/20221221_213/1671610586374HUJ35_JPEG/movie_image.jpg?type=m203_290_2",
+                    제목: "유령",
+                    개요: "액션",
+                    감독: "이해영",
+                    출연: "설경구, 이하늬",
+                    문구: "나라 되찾으면 담배 끊을까?",
+                },
+            }; ///////////////// mvi 객체 //////////////////////
+
+            //////////////////// 로드구역 ///////////////////////
+            window.addEventListener("DOMContentLoaded", () => {
+                console.log("로딩완료");
+
+                /* DOM선택 함수 */
+                const qs = (x) => document.querySelector(x);
+                const qsa = (x) => document.querySelectorAll(x);
+                // 화살표함수 원형 : () => {}
+                /* 
+                선언적 함수로 만들면?
+                function qs(x) {
+                    return document.querySelector(x)
+                }
+            */
+
+                /******************************************************** 
+                [ 구현내용 ]
+                - 해당 영화의 정보를 화면에 보여준다!
+                - 변경대상: .tit, .sum, .dir, .act
+                - 변경내용: 
+                    for in문으로 해당 클래스에 대응하는 데이터를 넣는다!
+            ********************************************************/
+
+                // 1. 대상변수 할당하기
+                const wrap = qs(".wrap");
+
+                // 2. for in문으로 객체만큼 돌아서 데이터 셋팅하기
+
+                // 최종 태그 담는 변수
+                let hcode = "";
+
+                for (let x in mvi) {
+                    // x는 mvi객체의 속성
+
+                    console.log("속성명:", x, "/값:", mvi[x]);
+
+                    // 해당 데이터 값 변수에 할당하기
+                    let data = mvi[x];
+
+                    // 영화 한마디 넣기 /////
+                    // for of문으로 문자데이터 잘라넣기!
+                    // 한글자씩 span태그로 싸서 해당요소에 넣음!
+                    // 1. 데이터 담기
+                    let txt = data["문구"];
+                    //     console.log("문구데이터:", txt);
+                    // 태그로 싼 새로운 데이터 넣을 변수
+                    let newtxt = "";
+
+                    // 문구 데이터를 for of문으로 하나씩 넣기
+                    for (let m of txt) {
+                        // m은 한글자씩!
+                        console.log("한글자씩:", m);
+                        // 스페이스 문자일 경우 띄어쓰기기호로!
+                        if (m === " ") {
+                            newtxt += "&nbsp;&nbsp;&nbsp;";
+                        } //// if /////
+                        else {
+                            // 그밖에 문자일 경우
+                            newtxt += `<span>${m}</span>`;
+                        } //// else /////
+                    } /////// for of ////////
+
+                    // 출력할 태그변수에 대입연산자로 계속넣기
+                    hcode += `
+                        <section class="cbx">
+                            <div class="minfo">
+                                <!-- 1. 포스터 -->
+                                <div class="photo">
+                                    <img src="${data["포스터"]}" alt="${x}의 포스터">  
+                                </div>
+                                <div class="cont">
+                                    <!-- 2. 제목 -->
+                                    <h2 class="tit">
+                                        ${data["제목"]}</h2>
+                                    <!-- 3. 개요 -->
+                                    <h3 class="sum">
+                                        ★장르 : ${data["개요"]}</h3>
+                                    <!-- 4. 감독 -->
+                                    <h3 class="dir">
+                                        ★감독 : ${data["감독"]}</h3>
+                                    <!-- 5. 출연 -->
+                                    <h3 class="act">
+                                        ★출연 : ${data["출연"]}</h3>
+                                </div>
+                            </div>
+                
+                            <!-- 영화 한마디 -->
+                            <h2 class="showtit">♥ 영화한마디!</h2>
+                            <!-- 6. 문구 -->
+                            <div class="show">${newtxt}</div>
+                        </section>
+                        
+                        `; /////// hcode변수 //////////
+
+                    
+                } ////////// for in 문 ///////////////
+
+                // 3. 대상에 출력하기
+                wrap.innerHTML = hcode;
+
+                /************************************************* 
+                [ 객체를 위한 for in 문 ]
+
+                - 구문: 
+                for(변수 in 객체){코드}
+
+                - 작동원리:
+                객체의 개수만큼 순서대로 속성명과 속성값을 가져옴
+
+                - 변수는 객체의 속성명이다!
+
+                - 객체의 값을 사용하려면 for in 문 안에
+                    객체[변수] 로 쓰면됨!
+
+            *************************************************/
+            }); //////////////// 로드구역 ///////////////////////
+            /////////////////////////////////////////////////////
+        </script>
+    </head>
+
+    <body>
+        <h1>영화정보 모두보기</h1>
+        <!-- <div class="btns">
+        <button>조제</button>
+        <button>이웃사촌</button>
+        <button>도굴</button>
+    </div> -->
+
+        <hr />
+
+        <!-- 영화정보박스 -->
+        <div class="wrap"></div>
+    </body>
+</html>
