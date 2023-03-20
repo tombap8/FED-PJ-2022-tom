@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <title>JS5-4.this 키워드1</title>
+        <style>
+            .pic {
+                position: relative;
+                width: 400px;
+                height: 600px;
+                border: 10px ridge goldenrod;
+                margin: 0 auto;
+                background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT30TCdesyQRqVZ9wRz3ULYWUO5EI3QChYX4w&usqp=CAU) no-repeat center/cover;
+                text-align: center;
+                font-size: 30px;
+                color: #fff;
+                text-shadow: 0 0 10px #000;
+            }
+            .pic h2 {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+            }
+            .pic b {
+                line-height: 600px;
+            }
+            #exp {
+                color: lime;
+                font-weight: bold;
+            }
+            .hh {
+                position: absolute;
+                top: 5px;
+                left: 5px;
+            }
+            .kk {
+                position: absolute;
+                top: 5px;
+                right: 5px;
+            }
+        </style>
+        <script>
+            /******************************************** 
+            [ this 키워드란 무엇인가? ]
+
+            JavaScript에서 this키워드는 객체 를 나타낸다
+            어떤this 객체가 호출 되는지에 따라 달라진다
+            this키워드는 사용 방법에 따라 다른 객체를 참조한다
+            ___________________________________________
+
+            1. 객체 메서드에서 객체자신을 의미
+                - 단, 화살표함수는 전역객체(window)를 의미
+            2. 단독으로 전역객체(window)를 의미
+            3. 함수에서 전역객체(window)를 의미
+            4. 함수에서 엄격모드(use strict)일 경우 undefined
+            5. 이벤트에서 이벤트를 수신한 요소자신을 의미
+            6. 이벤트에서 화살표함수는 상위 이벤트요소를 의미
+                (단, 상위 이벤트요소의 함수는 화살표함수가 아님!)
+
+        ********************************************/
+
+            // 엄격모드 : 선언없이 쓰는 변수를 막는 등 엄격한
+            // JS문법을 적용하도록 제한한다!(프로젝트에서 선호됨!)
+            // "use strict";
+            // (참고) https://www.w3schools.com/js/js_strict.asp
+
+            const qs = (x) => document.querySelector(x);
+            const qsa = (x) => document.querySelectorAll(x);
+
+            // 1. 객체 메서드에서 객체자신을 의미 확인!
+            obj = {
+                // 객체 속성
+                name: "김종서",
+                // 객체 메서드
+                // 익명함수 메서드
+                fn1: function () {
+                    // this는 객체 자신!
+                    console.log("1.객체안 익명메서드:", this);
+                    // this로 내부 속성불러오기!
+                    console.log("2.객체안 익명메서드에서 객체속성읽기:", this.name);
+                },
+                // 화살표함수 메서드
+                fn2: () => {
+                    // this는 window객체!
+                    console.log("3.객체안 화살표함수:", this);
+                    // this로 내부 속성불러오기! -> 접근불가!
+                    console.log("4.객체안 화살표함수에서 객체속성읽기:", this.name);
+                    // 이미 obj라는 객체가 전역등록되;어 객체명으로
+                    // 속성에 접근할 수 있다!
+                    console.log("5.객체안 화살표함수에서 객체속성읽기:", obj.name);
+                },
+
+                //// 객체obj 안에 다른 객체를 가지는 속성만들기
+                newOne: {
+                    name: "공유",
+                    // 익명함수 메서드
+                    fn3: function () {
+                        // this는 객체 자신!
+                        console.log("6.객체안 객체의 익명메서드:", this);
+                        // this로 내부 속성불러오기!
+                        console.log("7.객체안 객체의 익명메서드에서 객체속성읽기:", this.name);
+                    },
+                    // 화살표함수 메서드
+                    fn4: () => {
+                        // this는 window객체!
+                        console.log("8.객체안 객체의 화살표함수:", this);
+                        // this로 내부 속성불러오기! -> 접근불가!
+                        console.log("9.객체안 객체의 화살표함수에서 객체속성읽기:", this.name);
+                        // 이미 obj.newOne라는 객체가 전역등록되어 객체명으로
+                        // 속성에 접근할 수 있다!
+                        console.log("10.객체안 객체의 화살표함수에서 객체속성읽기:", obj.newOne.name);
+                    },
+                },
+            }; //////////////// obj 객체 ///////////////
+
+            // 객체 메서드 호출
+            obj.fn1();
+            obj.fn2();
+            obj.newOne.fn3();
+            obj.newOne.fn4();
+
+            // 2. 단독으로 전역객체(window)를 의미 확인!
+            console.log("11.단독으로:", this);
+
+            // 3. 함수에서 전역객체(window)를 의미 확인!
+            // (함수)() -> 함수자신을 바로 실행!
+            // 익명함수
+            (function () {
+                console.log("12.익명함수 바로실행:", this);
+                // 엄격모드에서 this는 undefined임! window객체가 아님!
+            })();
+
+            // 화살표함수
+            (() => {
+                console.log("13.화살표함수 바로실행:", this);
+                // 엄격모드에서도 화살표함수는 this가 window객체를 가리킴!
+            })();
+
+            // 이벤트 함수 내부에서의 this키워드 의미!!!
+
+            window.addEventListener("DOMContentLoaded", () => {
+                // .pic박스에 마우스 오버시
+                // mouseover는 이벤트 버블링이 발생함(자식요소 오버시)
+                // 만약 이를 원하지 않는 경우 mouseenter를 사용함!
+                // 경계선 기준의 mouseenter/mouseleave는 이벤트버블링
+                // 발생이 없다!
+                qs(".pic").onmouseenter = function () {
+                    console.log("마우스오버!");
+                    // 하위 요소의 클릭 이벤트 설정하기
+                    // ㅎㅎ 버튼 : 일반익명함수로 생성
+                    qs(".hh").onclick = function(){
+                        console.log("익명",this);
+                        // 나는 누구인가 찍기
+                        qs("#exp").innerText =
+                        this.getAttribute("data-nm");
+                        // this가 자기자신이므로 자신의 값이 찍힘
+                    }; ///////// .hh의 click ///////
+
+                    // ㅋㅋ 버튼 : 화살표함수로 생성
+                    qs(".kk").onclick = () => {
+                        console.log("화살",this);
+                        // 나는 누구인가 찍기
+                        qs("#exp").innerText =
+                        this.getAttribute("data-nm");
+                        // this가 이벤트를 설정한 상위요소 이므로
+                        // 위의 요소의 값이 찍힘
+                        // -> 화살표함수는 무조건 window가 아님!
+                        // 이벤트함수로 설정할때는 싸고 있는
+                        // 상위이벤트 요소가 익명함수로 설정된 경우
+                        // 상위요소를 가리킨다!
+                    }; ///////// .kk의 click ///////
+                }; ////////// .pic의 mouseover ////////////
+            }); //////////////// load ////////////////////
+        </script>
+    </head>
+
+    <body>
+        <div class="pic" data-nm="차무식이야!">
+            <h2>내가 누구지?</h2>
+            <b>this is <span id="exp"></span></b>
+            <button class="hh" data-nm="양정팔이야!">ㅎㅎ</button>
+            <button class="kk" data-nm="오승훈이야!">ㅋㅋ</button>
+        </div>
+    </body>
+</html>
