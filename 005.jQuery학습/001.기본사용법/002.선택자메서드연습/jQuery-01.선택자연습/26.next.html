@@ -1,42 +1,76 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<title> Traversal- next </title>
-<!-- jQuery library -->
-<script src="jquery-1.7.2.min.js"></script>
-<script>
-$(document).ready(function(e) {
-	
-	// 미션: #part1 을 클릭하면 다음형제요소의 크기를 width: 200px, height: 200px로 애니메이션 하시오.
-	// animate({CSS설정},시간,이징,함수)
-	
-	
-	
-});//jQuery실행구역
-</script>
+    <head>
+        <meta charset="utf-8" />
+        <title>Traversal- next</title>
+        <!-- jQuery library -->
+        <script src="../jquery-3.6.3.min.js"></script>
+        <!-- 컬러애니메이션은 반드시 제이쿼리UI 필요함! -->
+        <script src="../jquery-ui.min.js"></script>
+        <script>
+            $(document).ready(function (e) {
+                // [5. next() - 선택요소의 다음 형제요소를 선택함]
+                // [6. nextAll() - 선택요소의 다음 형제요소를 전부선택함]
 
-<style>
- div, p {float:left;margin:10px; background-color:#FFF;}
-  div#sub { width:80px; height:80px; border:#000 thin solid;}
-  p { width:50px; height:50px; border:#000 thin solid;}
-</style>
-</head>
-<body>
-<div id="container">
+                /// 미션: #part1 을 클릭하면 다음형제요소의
+                // 크기를 width: 200px, height: 200px로 애니메이션 하시오.
+                // 내부의 글자를 "안녕하세요~!"라고 변경하시오.
+                // text(내용) - 글자변경 메서드
+                $("#part1").click(function () {
+                    $(this)
+                        .next() // 다음의 p요소
+                        .animate(
+                            {
+                                width: "200px",
+                                height: "200px",
+                            },
+                            700
+                        )
+                        .text("안녕하세요~!");
+                }); ///////// click /////////////
 
-    <div id = "sub">
-      <p>div p</p>
-    </div>
-    <p id="part1">p:날클릭!</p>
-    <p>p</p>
-    <p>p</p>
+                // 추가미션: #sub를 클릭하면
+                // 다음의 형제 요소모두를
+                // 빨간배경색변경 애니메이션 하시오!
+                $("#sub").click(function(){
+                    $(this).nextAll()
+                    .animate({
+                      backgroundColor: "red"
+                    },600);//// animate ///
+                });////// click /////
+                // animate({CSS설정},시간,이징,함수)
+            }); //jQuery실행구역
+        </script>
 
-</div>
-<!---------- jQuery code Start ---------->
-<script>
-
-</script>
-
-</body>
+        <style>
+            div,
+            p {
+                float: left;
+                margin: 10px;
+                background-color: #fff;
+            }
+            div#sub {
+                width: 80px;
+                height: 80px;
+                border: #000 thin solid;
+            }
+            p {
+                width: 50px;
+                height: 50px;
+                border: #000 thin solid;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <div id="sub">
+                <p>div p:요기도클릭!</p>
+            </div>
+            <p id="part1">p:날클릭!</p>
+            <p>p</p>
+            <p>p</p>
+        </div>
+        <!---------- jQuery code Start ---------->
+        <script></script>
+    </body>
 </html>
