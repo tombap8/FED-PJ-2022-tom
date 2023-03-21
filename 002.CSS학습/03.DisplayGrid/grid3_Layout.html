@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid Display 3 - Layout 세로영역설정</title>
+    <style>
+        /**************************************** 
+            [ CSS에서 변수 사용하기 ]
+
+            1. 변수 셋팅법
+            :root{
+                --변수명1: 값1;
+                --변수명2: 값2;
+                --변수명3: 값3;
+            }
+
+            2. 변수 호출 사용법
+            var(--변수명)
+
+            ->>> 변수는 언제 사용하나?
+            - 같은 값이 여러부분에서 사용될때
+            미디어쿼리 등에서 변경이 필요한 경우
+            변수값만 변경하면 복잡한 값변경이 대체됨!
+
+        ****************************************/
+
+        /* 변수셋팅 */
+        :root {
+            /* 영역별 높이값 */
+            --ht1: 200px;
+            --ht2: 400px;
+            --ht3: 300px;
+            /* 영역별 배경색 */
+            --bc1: lightgreen;
+            --bc2: lightsalmon;
+            --bc3: lightskyblue;
+        }
+
+        /* 제목 */
+        .tit {
+            text-align: center;
+            font-size: 3vw;
+        }
+
+        /* 그리드 박스 */
+        .grid {
+            display: grid;
+            /* 가로방향 12그리드 셋팅 */
+            grid-template-columns: repeat(12, 1fr);
+            /* 세로방향 높이값 셋팅 */
+            grid-template-rows: var(--ht1) var(--ht2) var(--ht3);
+            /* 상하갭 */
+            grid-row-gap: 10px;
+            /* 좌우갭 */
+            grid-column-gap: 5px;
+
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-bottom: 200px;
+        }
+
+        /* 컨텐츠 영역박스 공통 */
+        .grid>div {
+            border: 2px solid #ccc;
+            font-size: 40px;
+            text-align: center;
+            color: #888;
+        }
+
+        /* 첫째줄 */
+        .rw1 {
+            line-height: var(--ht1);
+            background-color: var(--bc1);
+        }
+
+        /* 둘째줄 */
+        .rw2 {
+            line-height: var(--ht2);
+            background-color: var(--bc2);
+        }
+
+        /* 셋째줄 */
+        .rw3 {
+            line-height: var(--ht3);
+            background-color: var(--bc3);
+        }
+
+        /* 각 컨텐츠 박스의 그리드 위치영역 설정하기 */
+
+        /* 각 그리드 영역 표시는
+        grid-column 속성을 사용하여 표시함
+        값 -> 시작라인번호 / 끝라인번호 */
+        /* 1.로고 - 2개영역 */
+        .logo {
+            grid-column: 1/3;
+        }
+
+        /* 2. GNB - 7개영역 */
+        .gnb {
+            grid-column: 3/10;
+        }
+
+        /* 3. 상단 사이드 - 3개영역 */
+        .side {
+            grid-column: 10/13;
+            /* 세로영역을 아랫쪽으로 설정 */
+            grid-row: 1/3;
+            line-height: 610px;
+        }
+
+        /* 4. 배너 -10개영역 */
+        .ban {
+            grid-column: 1/10;
+        }
+
+        /* 5. 배너 사이드 - 2개영역 */
+        .bnside {}
+
+        /* 6. 하단좌측 - 3개영역 */
+        .bleft {}
+
+        /* 7. 하단정보 - 6개영역 */
+        .binfo {}
+
+        /* 8. 하단우측 - 3개영역 */
+        .bright {}
+
+        /************************************* 
+        
+            [ 그리드 위치 영역 속성 ]
+
+            1. 가로방향 위치속성
+                grid-column : 시작위치번호 / 끝위치번호;
+
+            2. 세로방향 위치속성
+                grid-row : 시작위치번호 / 끝위치번호;
+
+            -> 각 위치값은 그리드 기준선 번호를 참고함
+            (브라우저에서 그리드 소스 버튼을 클릭하여
+            볼 수 있음!)
+
+            >>>>> 셋팅시 유의사항 <<<<<<<
+            - grid-column 을 설정할때 만약 그리드범위에
+            넘치면 자동으로 아랫줄로 떨어진다!
+            그러므로 grid-row를 따로 잡아줄 필요가 없다!
+            단, 별도의 위치를 세로방향으로 변경해야할 경우
+            grid-row를 설정해야 한다!
+        
+        *************************************/
+
+
+    </style>
+</head>
+
+<body>
+    <h1 class="tit">그리드3 - 사이트 레이아웃 (세로영역)</h1>
+
+    <!-- 그리드 적용박스 -->
+    <div class="grid">
+        <!-- 상단부분 -->
+        <div class="logo rw1">Logo</div>
+        <div class="gnb rw1">GNB</div>
+        <div class="side rw1">Side</div>
+        <!-- 중앙부분 -->
+        <div class="ban rw2">Banner</div>
+        <div class="bnside rw2">BnSide</div>
+        <!-- 하단부분 -->
+        <div class="bleft rw3">Bleft</div>
+        <div class="binfo rw3">Binfo</div>
+        <div class="bright rw3">Bright</div>
+    </div>
+</body>
+
+</html>
