@@ -19,12 +19,7 @@
             body {
                 font-family: "Six Caps", sans-serif;
                 height: 3000px;
-                background-image: linear-gradient(
-                    to bottom,
-                    lightblue,
-                    lightgreen,
-                    lightpink
-                );
+                background-image: linear-gradient(to bottom, lightblue, lightgreen, lightpink);
             }
 
             h1 {
@@ -185,7 +180,17 @@
         <script>
             // 로드구역
             window.addEventListener("DOMContentLoaded", () => {
-                
+                // 1.대상선정: .ham(이벤트/변경), .gnb(변경)
+                const ham = document.querySelector(".ham");
+                const gnb = document.querySelector(".gnb");
+
+                // 2.이벤트설정
+                ham.onclick = () => {
+                    // 햄버거버튼 on넣기/빼기
+                    ham.classList.toggle("on");
+                    // GNB on넣기/빼기
+                    gnb.classList.toggle("on");
+                }; /////////// click /////////////
             }); //////////// 로드구역 ///////////////
         </script>
     </head>
