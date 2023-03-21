@@ -4,11 +4,66 @@
 <meta charset="utf-8">
 <title> Traversal- siblings </title>
 <!-- jQuery library -->
-<script src="jquery-1.7.2.min.js"></script>
+<script src="../jquery-3.6.3.min.js"></script>
+<script src="../jquery-ui.min.js"></script>
 <script>
 $(document).ready(function(e) {
+
+  /* 
+    [7. siblings() 메서드]
+    - 선택요소를 제외한 나머지 형제요소를 선택함!
+    
+    ->>> siblings(필터) 메서드
+    - 필터에 특정요소나 요소명을 쓰면
+    다른 형제요소들 중 특정요소만 선택함!
+    */
+   
+   // 미션: 미니언즈 이미지 300개를 셋팅하고 미니언즈 중 하나를 클릭하면 클릭된 이미지만 width를 200px로 변경, 나머지는 모두 50px로 변경되도록 애니메이션 하시오.
+
+
+  // 전체박스
+  let tg = $("#container");
+
+  // 미니언즈 300개 셋팅하기
+  for(let i =0; i<30;i++){
+    // 기존요소에 계속 더하기! -> append()
+    tg.append(`<img src="mini.jpg" alt="미니언즈">`);
+
+  } ////////// for문 ///////////////
+
+  // 미니언즈 크기 변경
+  tg.find("img") // 모든 미니언즈 이미지 선택
+  .css({
+    width:"100px"
+  }) // css -> 세미콜론 없이 다음 click설정함!
+  .click(function(){
+    // 클릭된 미니언즈만 width: 200px
+    $(this).animate({width:"200px"},800)
+    .siblings() // 다른미니언즈 모두 선택
+    .delay(800) // 0.8초 기다려!
+    .animate({width:"50px"},500);
+    
+      // 추가미션:
+      // siblings(필터) 를 활용한 테두리주기!
+      // 클릭된 미니언즈 이외의 다른 미니언즈 중
+      // class가 "my"인 형제요소를
+      // 선택하여 테두리주기!
+      $(this).css({
+        border:"none"
+      }) //// css /////
+      .siblings(".my") // -> 형제들 중 ".my"인 요소들
+      .css({
+        border:"5px dotted orange"
+      }); ///// css ///////
+
+  }); ////////// click /////////////////
+
+  // 미니언즈 중 7n+1번째 이미지에 클래스 my넣기
+  // class넣는 메서드는? addClass(클래스명)
+  tg.find("img:nth-child(7n+1)").addClass("my");
+
+
 	
-	// 미션: 미니언즈 이미지 300개를 셋팅하고 미니언즈 중 하나를 클릭하면 클릭된 이미지만 width를 200px로 변경, 나머지는 모두 50px로 변경되도록 애니메이션 하시오.
 
 	
 	
@@ -19,6 +74,14 @@ $(document).ready(function(e) {
   div, p {float:left;margin:10px; background-color:#FFF;}
   div#sub { width:80px; height:80px; border:#000 thin solid;}
   p { width:50px; height:50px; border:#000 thin solid;}
+  .my{
+      border-radius: 50%;
+      animation: rot 2s linear infinite;
+    }
+    @keyframes rot {
+      to{transform: rotate(360deg);}
+    }
+
 </style>
 </head>
 <body>
