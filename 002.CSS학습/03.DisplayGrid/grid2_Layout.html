@@ -135,16 +135,74 @@
             grid-row를 설정해야 한다!
         
         *************************************/
-            /* 미디어쿼리 1024px이하 시작 */
-            @media screen and (max-width: 1024px) {
+             /* 미디어쿼리 1024px이하 시작 */
+        @media screen and (max-width: 1024px) {
+            :root {
+                /* 영역별 높이값 */
+                --ht1: 100px;
+                --ht2: 300px;
+                --ht3: 200px;
+                /* 영역별 배경색 */
+                --bc1: rgb(240, 255, 73);
+                --bc2: rgb(255, 149, 237);
+                --bc3: rgb(181, 255, 141);
             }
 
-            /* 미디어쿼리 1024px이하 끝 */
-            /* 미디어쿼리 700px이하 시작 */
-            @media screen and (max-width: 700px) {
+            /* 없어질요소: .side, .bnside, .bleft */
+            .side,
+            .bnside,
+            .bleft {
+                display: none;
             }
 
-            /* 미디어쿼리 700px이하 끝 */
+            /* 1.로고 - 4개영역 */
+            .logo {
+                grid-column: 1 / 5;
+            }
+
+            /* 2. GNB - 8개영역 */
+            .gnb {
+                grid-column: 5 / 13;
+            }
+
+            /* 4. 배너 -12개영역 */
+            .ban {
+                grid-column: 1 / 13;
+            }
+
+            /* 7. 하단정보 - 8개영역 */
+            .binfo {
+                grid-column: 1 / 9;
+            }
+
+            /* 8. 하단우측 - 4개영역 */
+            .bright {
+                grid-column: 9 / 13;
+            }
+
+        }
+
+        /* 미디어쿼리 1024px이하 끝 */
+
+
+
+        /* 미디어쿼리 700px이하 시작 */
+        @media screen and (max-width: 700px) {
+
+            /* 모든 그리드 컬럼 영역 한줄에 하나씩! */
+            .grid>div:nth-child(2)~div{
+                grid-column: 1 / 13;
+                line-height: 400px;
+            }
+
+            .grid{
+                /* 세로방향 그리드 셋팅 해제 */
+                grid-template-rows: auto;
+            }
+
+        }
+
+        /* 미디어쿼리 700px이하 끝 */
         </style>
     </head>
 
