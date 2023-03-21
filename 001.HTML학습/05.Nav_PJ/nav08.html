@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>유형8. 숨긴네비 고정전체창형</title>
+        <style>
+            /* 웹폰트 CDN */
+            @import url("https://fonts.googleapis.com/css2?family=Six+Caps&display=swap");
+
+            html,
+            body,
+            h1,
+            h2,
+            ul {
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                font-family: "Six Caps", sans-serif;
+                height: 3000px;
+                background-image: linear-gradient(
+                    to bottom,
+                    lightblue,
+                    lightgreen,
+                    lightpink
+                );
+            }
+
+            h1 {
+                text-align: center;
+            }
+            .tit {
+                position: fixed;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+                width: 100%;
+                font-size: 15vw;
+                text-align: center;
+            }
+
+            /* 햄버거버튼 */
+            .ham {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                width: 80px;
+                height: 50px;
+                z-index: 99999;
+                /* GNB박스 보다위 */
+                /* outline: 2px solid red; */
+            }
+            /* 햄버거 버튼바 */
+            .ham span {
+                position: absolute;
+                width: 100%;
+                height: 10px;
+                background-color: #000;
+                /* 트랜지션 */
+                transition: 0.3s;
+            }
+            /* 햄버거on일때 */
+            .ham.on span {
+                background-color: #fff;
+            }
+
+            /* 햄버거 span바 초기셋팅 */
+            .ham span:nth-child(1) {
+                top: 0px;
+            }
+            .ham span:nth-child(2) {
+                top: 20px;
+                left: -50%;
+            }
+            .ham span:nth-child(3) {
+                top: 40px;
+            }
+            /* 햄버거 마우스 오버시 중앙바변경 */
+            .ham:hover span:nth-child(2) {
+                left: 0;
+            }
+
+            /* 클릭이벤트JS처리시 클래스on셋팅 */
+            .ham.on span:nth-child(1) {
+                transform: rotate(45deg);
+                top: 20px;
+            }
+            .ham.on span:nth-child(2) {
+                width: 0;
+                left: 50%;
+            }
+            .ham.on span:nth-child(3) {
+                transform: rotate(-45deg);
+                top: 20px;
+            }
+
+            /* 전체메뉴박스 */
+            .gnb {
+                position: fixed;
+                top: -100%;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background-color: #000;
+                z-index: 9999;
+                /* 트랜지션 */
+                transition: top 0.5s ease-out;
+            }
+            /* 햄버거버튼 클릭시 JS로 처리할 클래스on구현 */
+            /* 전체메뉴 위에서 내려오기 */
+            .gnb.on {
+                top: 0;
+            }
+            /* gnb ul */
+            .gnb ul {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+
+                /* 블릿없앰 */
+                list-style: none;
+            }
+            /* gnb li */
+            .gnb li {
+                /* 나가있는 글자 숨기기 */
+                overflow: hidden;
+                /* outline: 2px dashed yellow; */
+            }
+            /* 2번째 li부터 끝까지 */
+            .gnb li + li {
+                margin-top: 3vh;
+            }
+            /* gnb 메뉴 */
+            .gnb a {
+                display: block;
+                /* 트랜스폼은 인라인요소 적용안됨! */
+                transform: translateY(100%);
+                /* 자신의 세로크기만큼 아래쪽이동 */
+                font-size: 20vh;
+                /* 영문자 대소문자설정
+                [ text-transform ]
+                uppercase - 대문자
+                lowercase - 소문자 */
+                text-transform: uppercase;
+                line-height: 1;
+                color: #fff;
+                text-decoration: none;
+                /* 트랜지션 */
+                transition: transform 0.6s ease-out;
+            }
+            /* 글자의 등장은 .gnb.on일때 적용! */
+            .gnb.on a {
+                transform: translateY(0);
+            }
+            /* .gnb li 트랜지션 지연시간셋팅 */
+            .gnb.on li:nth-child(1) a {
+                transition-delay: 0.5s;
+            }
+            .gnb.on li:nth-child(2) a {
+                transition-delay: 0.7s;
+            }
+            .gnb.on li:nth-child(3) a {
+                transition-delay: 0.9s;
+            }
+            .gnb.on li:nth-child(4) a {
+                transition-delay: 1.1s;
+            }
+
+            /* 메뉴 마우스 오버시 */
+            .gnb li:nth-child(1) a:hover {
+                color: lightgreen;
+            }
+            .gnb li:nth-child(2) a:hover {
+                color: lightcoral;
+            }
+            .gnb li:nth-child(3) a:hover {
+                color: lightskyblue;
+            }
+            .gnb li:nth-child(4) a:hover {
+                color: lightpink;
+            }
+        </style>
+        <script>
+            // 로드구역
+            window.addEventListener("DOMContentLoaded", () => {
+                
+            }); //////////// 로드구역 ///////////////
+        </script>
+    </head>
+    <body>
+        <h1>유형8. 숨긴네비 고정전체창형</h1>
+
+        <h2 class="tit">SHOW ME THE MENU!!!</h2>
+
+        <!-- 햄버거버튼 -->
+        <div class="ham">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- 전체메뉴박스 -->
+        <nav class="gnb">
+            <ul>
+                <li>
+                    <a href="#">Identity</a>
+                </li>
+                <li>
+                    <a href="#">Experience</a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="#">Let's talk</a>
+                </li>
+            </ul>
+        </nav>
+    </body>
+</html>
