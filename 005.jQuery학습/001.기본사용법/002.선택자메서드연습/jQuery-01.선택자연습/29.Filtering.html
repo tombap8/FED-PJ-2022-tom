@@ -16,19 +16,51 @@ $(document).ready(function(e) {
 	// 미션: #main을 클릭할때 각 미션을 수행하라!
 	$("#main").click(function(){
 		// 1. p태그를 찾아 그 중 첫번째 요소의 배경색 red
-		
+		$("p").first().css({backgroundColor:"red"});
+
 		// 2. p태그를 찾아 그 중 마지막 요소의 배경색을 yellow
-		
+		$("p").last().css({backgroundColor:"yellow"});
+
 		// 3. p태그 중 2번째 요소를 선택하여 margin-top값을 100px로 transition 0.4초로 설정하시오.
+		$("p").eq(1).css({
+			marginTop:"100px",
+			transition:".4s"
+		}); ///////// css ///////
 		
 		// 4. div 중 클래스가 middle인 요소를 찾아 margin-top값을 200px, height값을 200px,
 		// 배경색을 lime 색으로 transition 주시오.
+		$("div").filter(".middle") // 선택된 div중 .middle
+		.css({
+			transition: ".8s ease-out", // 현재버전에서 트랜지션 맨위
+			marginTop:"200px",
+			height:"200px",
+			backgroundColor:"lime"
+		}); //////////// css ///////////
 				
 		// 5. div 중에서 p태그를 포함하는 요소를 선택하여 border를 10px ridge blue로 설정하시오.
-		
-		
+		$("div").has("p").css({border:"10px ridge blue"});		
 		
 	});//////// click /////////////////
+
+	// 6. is() 메서드
+	// -> 선택요소의 클래스/아이디/요소 여부를 판단함!
+	// 예) 
+	// $("p").click(function(){$(this).is(".my")}) 
+	// -> 선택된 p요소의 클래스가 "my"인가?
+	// -> 맞으면 true/ 아니면 false
+
+	// 추가미션: p태그를 클릭했을때 클래스가 "my"인 경우
+	// 텍스트를 "나야나!"로 변경하시오
+	// 아닌경우 "아님"이라고 출력하시오!
+	$("p").click(function(){
+		// 클릭된 p요소가 .my인지 판별!
+		let isP = $(this).is(".my");
+		console.log("is판별:",isP);
+
+		if(isP) $(this).text("나야나!");
+		else $(this).text("아님");
+
+	}); ////////// click //////////////
 	
     
 	
@@ -49,7 +81,7 @@ $(document).ready(function(e) {
     <div class="middle">div</div>
     <p>p</p>
     <p>p</p>
-    <p>p</p>
+    <p class="my">p</p>
     <p>p</p>
     <div id = "sub">
       <p>div p</p>
