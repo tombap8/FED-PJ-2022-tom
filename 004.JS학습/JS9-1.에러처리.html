@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>JS9-1. 에러처리</title>
+        <style>
+            /* 칭찬스티커 */
+            #jshow {
+                position: absolute;
+                top: -19px;
+                left: 133px;
+                width: 322px;
+                height: 322px;
+                background: url(./images/ifshow.jpg) no-repeat;
+                /* 배경포지션으로 처음에 안보이게함! */
+                background-position: 322px 0;
+                /* 크기줄이기 - 30%크기 */
+                transform: scale(0.3);
+                /* 트랜지션: 속시이지 */
+                transition: all 0.4s ease-out;
+            }
+
+            /* IR(배경이미지 설명 숨기기) */
+            .ir {
+                display: block;
+                width: 0;
+                height: 0;
+                overflow: hidden;
+            }
+        </style>
+        <script>
+            /********************************************* 
+                [ 에러처리 기본구문 ]
+
+                try{} 실행코드블록
+                catch(err){} 오류처리를 위한 코드블록
+                finally{} 무조건 실행 코드블록
+                _______________________________
+
+                -> 에러 처리를 위한 구문구성
+                try{
+                    if문사용 -> throw 키워드로 에러처리!
+                }
+                catch(err){
+                    throw로 들어온 메시지로 에러처리!
+                }
+
+                -> throw 문:
+                사용자지정 오류를 기술적으로 예외처리방법
+                예외처리형태 : 문자형, 숫자형, 불린형, 객체
+            
+            *********************************************/
+
+        /****************************************** 
+            함수명: jumsu
+            기능: 점수에 따른 평가출력하기
+                1. 점수에 따른 메시지 출력
+                2. 점수에 따른 메시지 글자색 변경
+                3. 점수에 따른 칭찬스티커 보이기
+        ******************************************/
+            function jumsu() {
+                // 함수는 코드를 저장하는 공간임!
+                // 어떤값을 가져오거나 가지고 나갈 수 있음!
+
+                // 1. 함수를 만들고 처음할일은? 호출확인!
+                // console.log("점수요~~~!");
+
+                // 2. 대상선정 /////////////////
+                // 2-1. 점수입력요소 : input#jumsu
+                var jumsu = document.getElementById("jumsu");
+                // getElementById(아이디명)
+
+                // 2-2. 출력요소 : #jexp
+                var jexp = document.querySelector("#jexp");
+                // querySelector(CSS선택자)
+
+                // 2-3. 칭찬스티커 : #jshow
+                var jshow = document.querySelector("#jshow");
+
+                // 3. 입력값 읽어오기 //////////////
+                var score = jumsu.value;
+                // value 속성 - 입력된값을 읽기/쓰기
+                console.log("입력된값:", score);
+
+                // console.log("데이터형:", typeof score);
+                // typeof(변수) -> 데이터형을 리턴함!
+                // 숫자든 문자든 입력데이터는 string형 즉 문자형 데이터임!
+                // 아래 if문에서 숫자와 비교할때 데이터형은 문자형이어도
+                // 내용이 숫자이면 브라우저에서 자동변환하여 처리함!
+                // 예전엔 Number(문자형숫자) 로 변환했었음!
+
+                /****************************************** 
+                    함수명: initFn
+                    기능: 초기화 및 메시지 출력
+                ******************************************/
+                var initFn = function (txt) {
+                    // txt는 메시지를 전달받는 파라미터변수임!
+
+                    // 0. 함수호출확인
+                    console.log("초기화해야징~!!!");
+
+                    // 1. 평가출력에 내용 출력하기
+                    jexp.innerText = txt;
+
+                    // 2. 글자색 초기화 : jexp
+                    jexp.style.color = "#000";
+
+                    // 3. 칭찬스티커 초기화 : jshow
+                    jshow.style.backgroundPosition = "322px 0";
+
+                    // 4. 입력창 내용지우기 : jumsu
+                    jumsu.value = "";
+                    // value속성에 빈문자값을 넣으면 기존내용 지워짐
+
+                    // 5. 입력창에 포커스주기 : jumsu
+                    jumsu.focus();
+                    // focus() 내장함수는 입력창에 포커스를 준다!
+                }; ///////// initFn함수 /////////////////
+
+                // 변수에 이름없는함수(익명함수)를 담으면
+                // 그 변수는 함수가 된다!!!
+                // 함수의 사용목적은 명령어코드를 바로 실행안하고
+                // 저장해 놓아서 어떤 시점에 실행하기 위함이다!
+
+                // 익명함수는 이름이 없는 폼이다! function(){코드}
+
+                /************************************** 
+                    [ 빈값/숫자여부/숫자범위 판별 ]
+                    -> is Not a Number? -> isNaN()
+                    -> 숫자가 아니니? 판별 내장함수는?
+                    isNaN(변수)
+                    -> 숫자가 아니면 true, 숫자면 false
+                    -> 데이터형이 String(문자)여도
+                    내용이 숫자이면 숫자로 판별한다!
+                **************************************/
+
+                // 입력된 값(score) 숫자여부판별
+                console.log("숫자가 아니니? ", isNaN(score));
+
+
+                // [ 에러처리구간 : try문 ] /////////////
+                try{
+                    //////////// [ 빈값 체크 if문 ] //////////
+                    if (score == "") {
+                        throw "내용을 입력해주세요!";
+                    } ///// if /////
+    
+                    ////////// [ 숫자여부판별 else if문 ] /////
+                    else if (isNaN(score)) {
+                        throw "숫자만 입력해주세요!";
+                    } ///// else if /////
+    
+                    /////// [ 숫자범위 판별 else if문 ] /////////
+                    //// 숫자 범위가 0미만 100초과일 경우 메시지
+                    else if (score < 0 || score > 100) {
+                        throw "0이상 100이하의 숫자만 입력하세요!";
+                    } ////// else if /////
+
+                } ///////////// try /////////////////
+                // [ 에러처리: catch문 ] /////////////////
+                catch(err){ // err 전달변수에 throw로 던진값 들어옴!
+
+                        // 초기화함수 호출!
+                        initFn(err);
+    
+                        // 함수빠져나가기!
+                        return;
+
+                } //////////// catch /////////////////////
+
+
+
+
+                /////////////////////////////////////////////
+
+                //////// 변수만들기 ////////
+
+                // 메시지변수
+                var msg;
+                // 글자색변수
+                var fc;
+                // 배경위치변수
+                var bgp;
+
+                //////////////////////////////
+
+                // 4. 메시지 만들기 ////////////////
+                // 점수에 따른 메시지를 if문으로 작성한다!
+                // if(true(1)/false(0)){코드}
+                // if문의 소괄호안이 true일때만 코드실행됨!
+
+                // msg = "ㅋㅋ";
+
+                // else if를 사용하면 범위지정이 필요없음!
+                if (score >= 90) {
+                    msg = "매우잘함";
+                    fc = "blue";
+                    bgp = "0 0";
+                } else if (score >= 80) {
+                    msg = "잘함";
+                    fc = "green";
+                    bgp = "-322px 0";
+                } else if (score >= 70) {
+                    msg = "보통";
+                    fc = "purple";
+                    bgp = "-322px -322px";
+                } else if (score >= 60) {
+                    msg = "노력요함";
+                    fc = "orange";
+                    bgp = "0 -644px";
+                } else {
+                    msg = "재시험";
+                    fc = "red";
+                    bgp = "-644px -644px";
+                }
+
+                // console.log("글자색:", fc,"\n배경위치:",bgp);
+                // \n -> 역슬래쉬n 은 엔터기호임!
+
+                // else문을 끝에 사용할 경우 위의
+                // 조건에 모두 맞지 않으면 처리하게 됨
+                // else문 때문에 msg는 반드시 할당값을 가지게됨!
+
+                // if문을 else if없이 따로 쓰면
+                // 반드시 범위를 지정해야 함!
+                // 왜? 모든 if문을 검사하므로!!!
+                /* 
+            
+            if(score >= 90){
+                msg = "매우잘함";
+            }
+
+            if(score >= 80 && score < 90){
+                msg = "잘함";
+            }
+
+            if(score >= 70 && score < 80){
+                msg = "보통";
+            } 
+            */
+
+                // if문 조건문에 undefined는 false처리됨
+                // if문 조건문에 일반적으로 선언후 할당된 변수는
+                // true처리됨
+                // 숫자나 일반값을 쓰면 true처리됨
+                // 동등비교연산자를 할당연산자로 쓰면 true처리됨
+                // if(aa=1)
+
+                // msg에 할당하지 않고 선언만 한경우
+                // 값을 출력시 undefined (정의되지않은값)
+                // 이 나오는데 이것도 기본값 중 하나임!
+
+                // 5. 화면출력 : #jexp -> jexp변수
+                jexp.innerText = "평가결과는 " + msg;
+
+                // 6. 글자색변경 : #jexp의 style 중 color 를 변경
+                jexp.style.color = fc;
+                // fc는 점수대별 글자색을 할당한 변수
+
+                // 7. 칭찬스티커 배경위치변경 : #jshow -> jshow변수
+                jshow.style.backgroundPosition = bgp;
+                // bgp는 배경이미지 위치값을 할당한 변수
+            } /////////////// jumsu 함수 ////////////////
+            /////////////////////////////////////////////
+        </script>
+    </head>
+    <body>
+        <h1>JS 에러처리</h1>
+        <hr />
+        <!-- if문 연습 -->
+        <h2>if문 연습</h2>
+        <h3 id="jexp">평가출력</h3>
+        <label for="jumsu">점수입력:</label>
+        <input type="text" id="jumsu" placeholder="점수를 입력하세요!" maxlength="3" onkeypress="if(event.keyCode===13)jumsu()" />
+        <button class="sbtn" onclick="jumsu()">평가하기</button>
+        <!-- 칭찬스티커 -->
+        <div id="jshow">
+            <span class="ir">칭찬스티커</span>
+        </div>
+    </body>
+</html>
