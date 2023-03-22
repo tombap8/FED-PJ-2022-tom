@@ -27,8 +27,11 @@ $(document).ready(function(e) {
 	// parents(요소명) -> 부모들 중 특정 부모를 선택함!
 	// 미션: a를 클릭하면 부모들 중 p태그는 배경색을 노란색, 
   // div#sub 태그는 배경색을 녹색으로 지정하시오.
-  $("a").click(function(){
-    
+  $("a").click(function(e){
+    // 이벤트가 부모p요소로 전달되는 것을 막아야
+    // click이벤트가 중복 실행되지 않는다!
+    e.stopPropagation();
+
     $(this) // a요소
     .parents("p") // 부모들 중 p요소
     .animate({backgroundColor:"yellow"},500);
