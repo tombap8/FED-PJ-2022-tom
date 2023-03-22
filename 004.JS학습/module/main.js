@@ -9,6 +9,9 @@
 // 별칭사용하기
 import { mTitle as mTit, sTitle as sTit, personInfo as pInfo} from "./textData.js";
 
+// 메시지내용 구성함수 import
+import {message as msg} from "./msgFormat.js";
+
 /*************************************************** 
     
     [ import 형식 ]
@@ -50,4 +53,12 @@ tpart.innerHTML = `
 `;
 
 // 4. 내용넣기
-pInfo.forEach(val=>demo.innerHTML += val);
+
+demo.innerHTML = msg("공유",43);
+demo.innerHTML += msg("톰행크스",55);
+demo.innerHTML += msg("졸리",48);
+
+pInfo.forEach(val=>{
+    // val[0] - 이름, val[1] - 나이
+    demo.innerHTML += msg(val[0],val[1]);
+});
