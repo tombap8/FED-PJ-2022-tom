@@ -4,7 +4,7 @@
 const mTitle = "모듈을 이용한 구현";
 
 // 2. 소제목 데이터
-const sTitle = "이것을 리액트의 기초입니다!";
+const sTitle = "이것은 리액트의 기초입니다!";
 
 // 3. 사람 데이터 : [이름,나이]
 const personInfo = [
