@@ -75,12 +75,20 @@
             this.문구 = des;
 
             // 메서드 1가지 셋팅
-            this.함수 = () => {
-                return
-                `영화 ${this.제목}의 감독님 이름은 ${this.감독}입니다!`;
-            };
+            this.함수 = () => 
+            `영화 ${this.제목}의 감독님 이름은 ${this.감독}입니다!`;
+
+            // this.함수 = () => {
+            //     return `영화 ${this.제목}의 감독님 이름은 ${this.감독}입니다!`;
+            // }
+          
 
        } ////////// MovieInfo 생성자함수 /////////
+
+       // 생성자함수의 데이터형은 뭐지?
+       // typeof 변수 -> 변수(객체, 클래스)의 데이터형을 리턴함
+       console.log("생성자함수의 데이터형은?",typeof MovieInfo);
+       
 
        document.write("<h1>JS5-5.생성자함수</h1>");
 
@@ -111,12 +119,16 @@
                     alt="${x.제목}의 포스터"></li>
             </ul>`;
 
-       } //////////// for of문 /////////////
+            // 함수찍어보기 ///
+            console.log(x.함수());
+            
+        } //////////// for of문 /////////////
+        
+       
        
         console.log(hcode);
 
        document.write(hcode);
-
        
 </script>
 </head>
