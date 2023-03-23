@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>JS9-3. 제이슨 연습</title>
+        <!-- 제이슨 불러오기! -->
+        <script src="./JS9-3.Data.json"></script>
+        <script>
+            /**************************************************
+         *  
+            [ 제이슨(JSON) 이란? ]
+            객체형식의 데이터 저장파일
+            객체는 Object 즉, {속성:값} 형식 데이터포멧
+
+            - 이전에는 xml이 많이 쓰였으나
+            지금은 제이슨이 대세임!
+            - 이유는? 읽고 쓰기가 편리함. 가독성 좋음
+            - xml과 json의 공통점:
+            모두 DB에 넣고 빼는 text기반 데이터형식!
+
+            -> 참고
+            https://www.w3schools.com/js/js_json_intro.asp
+
+
+            ________________________________
+
+            [ JS에서 JSON사용하기 ]
+
+            1. 먼저 제이슨 파일을 불러온다
+            (단, 제이슨 파일안에 전체객체를 변수에 담아야한다! 
+            -> JS에서 제이슨 사용시 필요!)
+            -> 실습에서 사용하는 제이슨파일은
+            jsonData라는 변수에 담았다!
+
+            2. 변수에 제이슨 파일을 파싱하여 할당한다!
+            let 변수명 = JSON.parse(JSON.stringify(제이슨할당변수))
+
+            * 파싱이란? 문자열 데이터를 분석하고 분해하여
+            목적한 패턴에 맞게 문자열구조를 결정하는것!
+            -> JS의 제이슨 데이터 파싱 메서드 : JSON.parse()
+            -> JS의 제이슨 형식 데이터를 문자열로 변환하는 메서드
+                : JSON.stringify()
+            
+            3. 원하는 대로 객체호출 형식으로 사용한다!
+            예) 객체변수명[속성명]
+
+        *****************************************************/
+
+            // 변수에 제이슨 파싱후 할당!
+            let myjson = JSON.parse(JSON.stringify(jsonData));
+
+            // 제이슨 파싱 확인
+            console.log(myjson);
+            // shopping -> 메뉴 찍기
+            console.log(myjson.shopping.메뉴);
+
+            // "living" 속성의 데이터를 for in문으로 돌아 찍기!
+            let mydata = myjson["living"];
+            for (let x in mydata) {
+                // x는 속성명
+                document.write(`<h2>${x} : ${mydata[x]}</h2>`);
+            } /////////// for in ///////////////
+
+            document.write("<hr>"); // 구분선
+
+            // "fashion" 속성의 데이터를 for in문으로 돌아 찍기!
+            let mydata2 = myjson["fashion"];
+            for (let x in mydata2) {
+                // x는 속성명
+                document.write(`<h2>${x} : ${mydata2[x]}</h2>`);
+            } /////////// for in ///////////////
+        </script>
+    </head>
+    <body></body>
+</html>
