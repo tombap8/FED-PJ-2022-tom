@@ -4,17 +4,38 @@
 <meta charset="utf-8">
 <title> Child Filters </title>
 <!-- jQuery library -->
-<script src="jquery-1.7.2.min.js"></script>
+<script src="../jquery-3.6.3.min.js"></script>
 <script>
 $(document).ready(function(e) {
+	/* 
+        first-child, last-child, nth-child(n)
+        // 그룹별 자식요소 선택하기
+    */
 	
 	// 미션: #container를 클릭하면
-	// 짝수번째에 글자를 "우리나라" 라고 쓰고
-	// 2n+1 이라는 수식을 넣어서 배경색을 빨간색으로 적용하시오.
-	// (참고로 n은 0부터 대입된다)
+    $("#container").click(function(){
+        // 짝수번째에 글자를 "우리나라" 라고 쓰고
+        $("li:nth-child(even)").text("우리나라");
+        // 2n+1 이라는 수식을 넣어서 배경색을 빨간색으로 적용하시오.
+        // (참고로 n은 0부터 대입된다)
+        // 실제로 쓸때 n을 사용한 수식을씀!
+        // 2n+1 -> 1,3,5,7,...
+        $("li:nth-child(2n+1)")
+        .css({
+            background: "red"
+        });///////// css ///////////
+
+    });///////// click ///////////////
+
+    /* 
+        :nth-child(2n+1)
+        위와 같은 수식표현법은 CSS 기본문법에서 지원한다!!!
+        -> 제이쿼리 전용아님!!!
+        -> 공식문법확인:
+        https://www.w3schools.com/cssref/sel_nth-of-type.asp
+    */
 	
     
-	
 	
 	
 });//jQuery실행구역

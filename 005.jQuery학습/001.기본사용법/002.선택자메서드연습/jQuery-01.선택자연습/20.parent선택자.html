@@ -4,10 +4,21 @@
 <meta charset="utf-8">
 <title> parent 선택자</title>
 <!-- jQuery library -->
-<script src="jquery-1.7.2.min.js"></script>
+<script src="../jquery-3.6.3.min.js"></script>
 <script>
 $(document).ready(function(e) {
-	
+	 /* 
+        :parent 선택자 (부모의 의미)
+        -> :empty 선택자의 반대임! 
+          무언가 내부에 data를 가지고 있으면 부모라고 함!
+      */
+
+      // 미션: parent선택자로 li를 선택하여 보더를 주시오!
+      $("li:parent")
+        .css({
+          border: "5px dotted blue"
+        }); //////// css ////////////
+
 	
 });//jQuery실행구역
 </script>
