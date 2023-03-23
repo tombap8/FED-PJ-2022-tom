@@ -3,11 +3,57 @@
 <head>
 <meta charset="utf-8">
 <title> html() / html(String)  </title>
-<script src="jquery-1.7.2.min.js"></script>
+<script src="../jquery-3.6.3.min.js"></script>
 	<script>
 	$(document).ready(function(){
+
+		/* 
+			html() 메서드
+			- html 선택요소 내부에 자손요소를 삽입하거나
+			읽어올때 사용함
+			-> $(선택자).html(요소) : 요소삽입
+			-> 변수 = $(선택자).html() : 태그읽어옴
+			-> JS의 innerHTML과 유사함
+		*/
 		
-		//미션: #main 을 클릭하면 두번째 p태그 내부에 img태그를 5개 만들고 css설정을 absolute로 하여 차례대로 left이동 애니메이션을 하시오.
+		//미션: #main>p중 첫번째p를 클릭하면 두번째 p태그 내부에 img태그를 5개 만들고 css설정을 absolute로 하여 차례대로 left이동 애니메이션을 하시오.
+		$("#main").find("p").first() // 첫번째 p요소
+		.click(function(){
+			// 호출확인
+			console.log("나야나!");
+
+			// this는 첫번째 p요소
+			$(this) // 출발!
+			.next() // 두번째 p요소
+			.html(`
+				<img src="pic1.jpg" alt="이미지">
+				<img src="pic2.jpg" alt="이미지">
+				<img src="pic3.jpg" alt="이미지">
+				<img src="pic4.jpg" alt="이미지">
+				<img src="pic5.jpg" alt="이미지">
+			`)
+			.find("img") // 5개의 이미지로 주인공 변경!
+			.css({
+				position:"absolute",
+				left:"0"
+			})
+			.first() // 이미지 중 첫번째 이미지 선택!
+			.css({width:"300px"})
+			.next() // 두번째 이미지
+			.css({width:"250px"})
+			.next() // 세번째 이미지
+			.css({width:"200px"})
+			.next() // 네번째 이미지
+			.css({width:"150px"})
+			.next() // 다섯번째 이미지
+			.css({width:"100px"})
+			/////// 애니메이션 주기 //////
+			/// 마지막 이미지에서 부모로 이동!
+			.parent() // 부모인 두번째 p요소로 이동!
+
+
+
+		}); //////////// click /////////////
 		
 	
 		
