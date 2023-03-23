@@ -1,67 +1,95 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<title> not 선택자 </title>
-<!-- jQuery library -->
-<script src="jquery-1.7.2.min.js"></script>
-<script>
-$(document).ready(function(e) {
-	// 미션: li클릭하면 클릭된 것은 "왕" 이라고 글자를 변경하고 글자크기를 72px로 , 글자색은 빨간색으로 변경과 동시에 나머지 li는 사라지게 하시오.
-	
-});//jQuery실행구역
-</script>
+    <head>
+        <meta charset="utf-8" />
+        <title>not 선택자</title>
+        <!-- jQuery library -->
+        <script src="../jquery-3.6.3.min.js"></script>
+        <script>
+            $(() => {
+                //////////// jQB ////////////////////
+                /* 
+					:not 선택자 - 선택한 요소만 빼고 나머지 선택자
+					-> 제이쿼리전용!
+				*/
+                // 미션: li클릭하면 클릭된 것은 "왕" 이라고 글자를
+                // 변경하고 글자크기를 72px로 , 글자색은 빨간색으로
+                // 변경과 동시에 나머지 li는 사라지게 하시오.
 
-</head>
-<body>
+                $("li").click(function () {
+                    // text(글자)
+                    // this는 클릭된 li
+                    $(this).text("왕").css({
+                        fontSize: "72px",
+                        color: "red",
+                        transition: "2s",
+                    });
 
-<div id="container">
+                    // 선택된 li 이외의 나머지는?
+                    // 선택된 순번이 아닌 것으로 구한다!
+                    // :not(:eq(n))
 
-   <ul class="nav1">
-	   <li>사람</li>
-	   <li>사람</li>
-	   <li>사람</li>
-	   <li>사람</li>
-	   <li>사람</li>
-	   <li>사람</li>
-	   <li>사람</li>
-	   <li>사람</li>
-	   <li>사람</li>
-	   <li>사람</li>
-	   <li>사람</li>
-	   <li>사람</li>
-	   <li>사람</li>
-	   <li>사람</li>
-	   <li>사람</li>
-	   <li>사람</li>
-	   <li>사람</li>
-	   <li>사람</li>
-	   <li>사람</li>
-	   <li>사람</li>
-	   <li>사람</li>
-	   <li>사람</li>
-	   <li>사람</li>
-	   <li>사람</li>
-	   <li>사람</li>
-	   <li>사람</li>
-	   <li>사람</li>
-	   <li>사람</li>
-	   <li>사람</li>
-	   <li>사람</li>
-	   <li>사람</li>
-	   <li>사람</li>
-	   <li>사람</li>
-	   <li>사람</li>
-	   <li>사람</li>
-   </ul>
-   
-</div>
+                    // 클릭된 li순번
+                    let idx = $(this).index();
+                    // index() 메서드
+                    // - 선택요소의 형제 중 순번을 리턴함!
+                    console.log("클릭된 li의 순번:", idx);
 
-<!---------- jQuery code Start ---------->
-<script>
+                    // 숨기는 애니메이션 메서드는?
+                    // hide(시간) 메서드
+                    // -> 시간을 주면 애니메이션 되면서 사라짐!
+                    // 시간은 1/1000초
 
- 
-  
-</script>
-</body>
+                    // 해당순번이 아닌요소 모두!
+                    // -> li:not(:eq(순번))
+                    $(`li:not(:eq(${idx}))`).delay(2000).hide(2000);
+                    // 2초후 2초간 사라짐!
+                }); ////// click /////////
+            }); //////////////// jQB ////////////////////
+        </script>
+    </head>
+    <body>
+        <div id="container">
+            <ul class="nav1">
+                <li>사람</li>
+                <li>사람</li>
+                <li>사람</li>
+                <li>사람</li>
+                <li>사람</li>
+                <li>사람</li>
+                <li>사람</li>
+                <li>사람</li>
+                <li>사람</li>
+                <li>사람</li>
+                <li>사람</li>
+                <li>사람</li>
+                <li>사람</li>
+                <li>사람</li>
+                <li>사람</li>
+                <li>사람</li>
+                <li>사람</li>
+                <li>사람</li>
+                <li>사람</li>
+                <li>사람</li>
+                <li>사람</li>
+                <li>사람</li>
+                <li>사람</li>
+                <li>사람</li>
+                <li>사람</li>
+                <li>사람</li>
+                <li>사람</li>
+                <li>사람</li>
+                <li>사람</li>
+                <li>사람</li>
+                <li>사람</li>
+                <li>사람</li>
+                <li>사람</li>
+                <li>사람</li>
+                <li>사람</li>
+            </ul>
+        </div>
+
+        <!---------- jQuery code Start ---------->
+        <script></script>
+    </body>
 </html>
