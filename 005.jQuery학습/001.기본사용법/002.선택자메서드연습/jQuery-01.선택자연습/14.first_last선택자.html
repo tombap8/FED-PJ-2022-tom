@@ -1,48 +1,49 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<title> first_last 선택자 </title>
-<!-- jQuery library -->
-<script src="jquery-1.7.2.min.js"></script>
-<script>
-$(document).ready(function(e) {
-	
-	// 미션: 전체 li에서 첫번째 li는 빨간 배경색
-	//        전체 li에서 마지막 li는 파란 배경색
-	//	그룹별 첫번째 li는 노란색 글자
-	//	그룹별 마지막 li는 빨간색 글자로 변경하시오.
-	
-	
-});//jQuery실행구역
-</script>
+    <head>
+        <meta charset="utf-8" />
+        <title>first_last 선택자</title>
+        <!-- jQuery library -->
+        <script src="../jquery-3.6.3.min.js"></script>
+        <script>
+            $(() => {
+                ////////////// jQB ////////////////////
+                // :first 전체에서 첫번째 요소(제이쿼리전용)
+                // :last 전체에서 마지막째 요소(제이쿼리전용)
+                // 비교) :first-child, :last-child
+                // ------> 각 그룹에서 첫번째, 마지막째임!
 
-</head>
-<body>
+                // 미션: 전체 li에서 첫번째 li는 빨간 배경색
+                $("li:first").css({ backgroundColor: "red" });
+                // 전체 li에서 마지막 li는 파란 배경색
+                $("li:last").css({ backgroundColor: "blue" });
+                //	그룹별 첫번째 li는 노란색 글자
+                $("li:first-child").css({ color: "yellow" });
+                //	그룹별 마지막 li는 빨간색 글자로 변경하시오.
+                $("li:last-child").css({ color: "red" });
+            }); ///////////////// jQB ////////////////////
+        </script>
+    </head>
+    <body>
+        <div id="container">
+            <ul class="nav1">
+                <li>0</li>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
 
-<div id="container">
+            <ul class="nav2">
+                <li>0</li>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+            </ul>
+        </div>
 
-   <ul class="nav1">
-     <li> 0 </li>
-     <li> 1 </li>
-     <li> 2 </li>
-     <li> 3 </li>
-   </ul>
-   
-   <ul class="nav2">
-     <li> 0 </li>
-     <li> 1 </li>
-     <li> 2 </li>
-     <li> 3 </li>
-     <li> 4 </li>
-   </ul>
+        <!---------- jQuery code Start ---------->
 
-</div>
-
-<!---------- jQuery code Start ---------->
-
-<script>
-
-</script>
-</body>
+        <script></script>
+    </body>
 </html>
