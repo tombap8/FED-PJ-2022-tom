@@ -1,51 +1,67 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<title>  even, odd 선택자 </title>
-<!-- jQuery library -->
-<script src="../jquery-3.6.3.min.js"></script>
-<script>
-$(document).ready(function(e) {
-	
-	// 미션: #container를 클릭하면
-	//			li의 짝수번째에 sample1.jpg를 배경으로
-	//			li의 홀수번째에 sample2.jpg를 배경으로
-	// 			넣으시오. 동시에 height값이 200px로 
-	//			애니메이션 시키시오.
-	//			(초기높이값을 40px로 설정)
-	
-	
-});//jQuery실행구역
-</script>
+    <head>
+        <meta charset="utf-8" />
+        <title>even, odd 선택자</title>
+        <!-- jQuery library -->
+        <script src="../jquery-3.6.3.min.js"></script>
+        <script>
+            $(() => {
+                //////// jQB /////////////////////////////
+                /* 
+                  :even 짝수
+                  :odd 홀수
+                  짝수, 홀수는 우리가 아는 순서와 다름!
+                  왜? 0부터 시작하니까! 
+                  우리가 아는 짝수 홀수를 맞추려면?
+                  :nth-child(even|odd)
+                  자식요소를 1부터 세기때문에 짝수,홀수가 맞다!
+                */
+                // 초기 높이값 설정
+                $("li").css({ height: "40px" });
 
-</head>
-<body>
+                // 미션: #container를 클릭하면
+                // li의 짝수번째에 sample1.jpg를 배경으로
+                // li의 홀수번째에 sample2.jpg를 배경으로
+                // 넣으시오. 동시에 height값이 200px로
+                // 애니메이션 시키시오.
+                // (초기높이값을 40px로 설정)
+                $("#container").click(() => {
+                    $("li:nth-child(even)").css({
+                    // $("li:even").css({
+                        backgroundImage: "url(./sample1.jpg)",
+                        height: "200px",
+                        transition: ".8s",
+                    }); ///////// css ////////
+                    $("li:nth-child(odd)").css({
+                    // $("li:odd").css({
+                        backgroundImage: "url(./sample2.jpg)",
+                        height: "200px",
+                        transition: ".8s 1s", // 지연시간 1초줌!
+                    }); ///////// css ////////
+                }); /////////// click ////////////
+            }); /////////// jQB /////////////////////////////
+        </script>
+    </head>
+    <body>
+        <div id="container">
+            <ul class="nav1">
+                <li>0</li>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
 
-<div id="container">
+            <ul class="nav2">
+                <li>0</li>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+            </ul>
+        </div>
 
-   <ul class="nav1">
-     <li> 0 </li>
-     <li> 1 </li>
-     <li> 2 </li>
-     <li> 3 </li>
-   </ul>
-   
-   <ul class="nav2">
-     <li> 0 </li>
-     <li> 1 </li>
-     <li> 2 </li>
-     <li> 3 </li>
-     <li> 4 </li>
-   </ul>
-
-</div>
-
-<!--------- jQuery code Start--------------->
-<script>
-
-
-  
-</script>
-</body>
+        <!--------- jQuery code Start--------------->
+        <script></script>
+    </body>
 </html>
