@@ -63,7 +63,10 @@ function MakeDallyeok(){
                 // cg(i);
                 // 반복횟수 만큼 배열 앞쪽에 추가한다!
                 // 전달 마지막 날짜부터! -> prevLast.getDate()
-                dset.unshift(prevLast.getDate()-i);
+                dset.unshift(`
+                <span style="color:#ccc" class="bdt">
+                    ${prevLast.getDate()-i}
+                </span>`);
                 // 마지막날짜 - i증가변수 = 1씩작아지는 숫자추가됨
                 // unshift() 배열 앞에 값을 추가하는 메서드
             } ///////// for /////////////
@@ -79,7 +82,8 @@ function MakeDallyeok(){
         // 3. 다음달 나머지 칸 삽입하기
         // 반복구성: 1부터 2주분량정도 넣는다!
         for(let i = 1; i < 14; i++){
-            dset.push(i);
+            dset.push(`
+            <span style="color:#ccc" class="bdt">${i}</span>`);
         } /////////// for /////////////////
 
         // cg(dset);
@@ -90,8 +94,12 @@ function MakeDallyeok(){
         // 4. 날짜만큼 배열정보로 셋팅하기 //////
         // 7일 * 6주 = 42개
         for (let i = 0; i < 42; i++){
-            
+            hcode += `<div class="date">${dset[i]}</div>`;
         }
+
+        // 5. 코드 화면에 넣기 //////
+        // 대상: .dates -> dates변수
+        dates.innerHTML = hcode;
 
 
 
