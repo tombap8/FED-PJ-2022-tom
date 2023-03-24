@@ -21,6 +21,7 @@ function MakeDallyeok(){
     // (5) 날짜요소 : .dates
     const dates = qs(".dates");
 
+    cg(dates+monthTit)
 
 
 
