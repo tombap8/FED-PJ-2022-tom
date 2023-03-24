@@ -1,6 +1,9 @@
 @charset "utf-8";
 
+/* 웹폰트 */
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+
+/* CSS변수설정 */
 :root {
     --bg-color: #faf8f8;/*배경색*/
     --line-color: #aaaaaa;/*상단과 하단구분선 색*/
