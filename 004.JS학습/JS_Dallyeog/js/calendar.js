@@ -27,7 +27,7 @@ function MakeDallyeok(){
     cg(dates);
 
     // 2. 함수 만들기 /////////////////
-    // (1) 달력 초기화구성 함수
+    // (1) 달력 초기화구성 함수 ////////
     const initDallyeok = () => {
         // getMonth() 정보는 항상 현재달 숫자보다 1작음(배열순번임!)
 
@@ -48,8 +48,8 @@ function MakeDallyeok(){
         // 4. 년도표시하기
         yearTit.innerHTML = curr_date.getFullYear();
 
-        // 5. 월표시하기
-        monthTit.innerHTML = curr_date.getMonth();
+        // 5. 월표시하기 : 현재달 숫자는 getMonth()+1
+        monthTit.innerHTML = curr_date.getMonth()+1;
 
         // 6. 날짜넣을 배열변수 만들기
         const dset = [];
@@ -94,18 +94,64 @@ function MakeDallyeok(){
         // 4. 날짜만큼 배열정보로 셋팅하기 //////
         // 7일 * 6주 = 42개
         for (let i = 0; i < 42; i++){
-            hcode += `<div class="date">${dset[i]}</div>`;
-        }
+            // 오늘날짜 표시
+            if( // 년,월,일이 모두 일치하는 오늘만 표시(클래스 today)
+                today.getDate()==dset[i] && 
+                today.getMonth()==curr_date.getMonth() &&
+                today.getFullYear()==curr_date.getFullYear()){
+                hcode += `<div class="date today">${dset[i]}</div>`;
+            }
+            else{
+                hcode += `<div class="date">${dset[i]}</div>`;
+            }
+        } ////////// for /////////////////
 
         // 5. 코드 화면에 넣기 //////
         // 대상: .dates -> dates변수
         dates.innerHTML = hcode;
 
+        
+        // 각 날짜 .date 요소에 링크설정하기
+        qsa(".date").forEach(
+            ele=>ele.onclick=()=>{
+                // 년
+                let cyear = yearTit.innerText;
+                // 월
+                let cmonth = monthTit.innerText;
+                // 일
+                let cdate = ele.innerText;
+
+                // 최종날짜 데이터
+                let comp = cyear + "-" + cmonth + "-" + cdate;
+                cg(comp);
+            });
+
+
 
 
     }; ///////// initDallyeok 함수 //////
 
-    initDallyeok();
+    initDallyeok(); /// 최초호출!
+
+    // (2) 이전달력 출력하기 함수 //////////////
+    const prevCal = () => {
+        // 이전월로 변경하여 initDallyeok()함수호출
+        // getMonth() 월가져오기 / setMonth() 월 셋팅하기!
+        curr_date.setMonth(curr_date.getMonth()-1);
+        initDallyeok();
+    }; ////////////// prevCal함수 //////////////
+
+    // (3) 다음달력 출력하기 함수 //////////////
+    const nextCal = () => {
+        // 다음월로 변경하여 initDallyeok()함수호출
+        // getMonth() 월가져오기 / setMonth() 월 셋팅하기!
+        curr_date.setMonth(curr_date.getMonth()+1);
+        initDallyeok();
+    }; ////////////// prevCal함수 //////////////
+
+    // 버튼에 클릭설정하기 ///
+    qs(".btnL").onclick = prevCal;
+    qs(".btnR").onclick = nextCal;
 
 
 
