@@ -1,5 +1,8 @@
 // 달력 생성자함수 /////
 
+// 호출
+MakeDallyeok();
+
 function MakeDallyeok(){
 
     // 선택함수 //////
@@ -21,7 +24,19 @@ function MakeDallyeok(){
     // (5) 날짜요소 : .dates
     const dates = qs(".dates");
 
-    cg(dates+monthTit)
+    cg(dates);
+
+    // 2. 함수 만들기 /////////////////
+    // (1) 달력 초기화구성 함수
+    const initDallyeok = () => {
+        // getMonth() 정보는 항상 현재달 숫자보다 1작음(배열순번임!)
+        // 1. 전달 마지막 날짜(옵션:0) -> 달력 전달끝쪽 날짜표시
+        const prevLast = new Date(curr_date.getFullYear(),curr_date.getMonth(),0);
+        cg(prevLast);
+
+    }; ///////// initDallyeok 함수 //////
+
+    initDallyeok();
 
 
 
