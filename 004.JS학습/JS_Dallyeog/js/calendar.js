@@ -33,6 +33,11 @@ function MakeDallyeok(){
         // 1. 전달 마지막 날짜(옵션:0) -> 달력 전달끝쪽 날짜표시
         const prevLast = new Date(curr_date.getFullYear(),curr_date.getMonth(),0);
         cg(prevLast);
+        // 2. 현재달 첫째날짜(옵션:1-> 전달로 셋팅) 
+        // -> 달력 전달셋팅을 위한 요일 구하기 위해!
+        const thisFirst = new Date(curr_date.getFullYear(),curr_date.getMonth(),1);
+        cg(thisFirst);
+
 
     }; ///////// initDallyeok 함수 //////
 
