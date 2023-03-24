@@ -82,7 +82,17 @@ function MakeDallyeok(){
             dset.push(i);
         } /////////// for /////////////////
 
-        cg(dset);
+        // cg(dset);
+
+        // 화면에 뿌릴 html변수
+        let hcode = "";
+
+        // 4. 날짜만큼 배열정보로 셋팅하기 //////
+        // 7일 * 6주 = 42개
+        for (let i = 0; i < 42; i++){
+            
+        }
+
 
 
     }; ///////// initDallyeok 함수 //////
