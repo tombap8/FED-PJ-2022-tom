@@ -3,11 +3,47 @@
 <head>
 <meta charset="utf-8">
 <title> remove  </title>
-<script src="jquery-1.7.2.min.js"></script>
+<script src="../jquery-3.6.3.min.js"></script>
 	<script>
 	$(document).ready(function(){
+		/* 
+			remove() 메서드
+			- 선택요소를 제거함
+
+			[ 제이쿼리 메서드 소개 ]
+			attr(속성명, 속성값) - 선택요소의 속성값을 변경함
+			- JS의 setAttribute(속성명,속성값) 과 유사함
+			- 참고로 JS에서는 속성값을 읽어오려면
+				getAttribute(속성명)를 사용해야했음!
+			★제이쿼리는 attr(속성명) 으로 읽어온다!!!
+
+				(이와 같이 같은 함수명에 파라미터 개수만 다르게 하면
+				기능이 달라지는 함수를 오버라이딩 함수라고 한다!)
+		*/
 		
-		// 미션: 풍선 이미지를 클릭하면 이미지가 터지는 이미지로 변경 후 이미지 태그를 제거하시오.
+		// 미션: 풍선 이미지를 클릭하면 이미지가 터지는 
+		// 이미지로 변경 후 이미지 태그를 제거하시오.
+
+		$(".container img")
+		.css({
+			width:"200px",
+			height:"260px"
+		})
+		.click(function(){
+			// 1. 터지는 이미지로 변경하기
+			$(this) // 클릭된 img
+			.attr("src","balloon-burst.jpg")
+			// 2. 변경된 이미지가 커지는 애니
+			.animate({
+				width:"300px",
+				height:"360px"
+			},100,function(){ // 애니후 콜백함수
+				// 3. 풍선이 사라짐
+				$(this).remove();
+				
+			}); //////// animate /////
+		}); /////////// click ////////////
+		// animate({CSS설정},시간,이징,함수)
 				
 		
 		
