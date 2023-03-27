@@ -44,13 +44,49 @@
 	
 	
 <style>
- 
-  img{ padding:5px; background:#666;}
-  img.type1 { padding:5px; background:#EF4018;}
-  img.type2 { padding:5px; background:#9AB92E;}
-  img.type3 { padding:5px; background:#05184D;}
-  img.type4 { padding:5px; background:#FF184D;}
-  img.type5 { padding:5px; background:#0518FF;}
+ img {
+      padding: 15px;
+      background: #666;
+      transition: .8s ease-in-out;
+    }
+
+    img.type1 {
+      background-image:
+        linear-gradient(45deg, red, green);
+    }
+
+    img.type2 {
+      background-image:
+        linear-gradient(45deg, lime, purple);
+    }
+
+    img.type3 {
+      background-image:
+        linear-gradient(45deg, orange, blue);
+    }
+
+    img.type4 {
+      background-image:
+        linear-gradient(45deg, navy, pink);
+    }
+
+    img.type5 {
+      background-image:
+        linear-gradient(45deg, lightgreen, hotpink);
+    }
+
+    /* 토글적용박스 */
+    .my {
+      position: absolute;
+      top: 30%;
+      left: 0;
+      transition: left 2s ease-in-out;
+    }
+
+    /* 위치이동 클래스 */
+    .pos {
+      left: 70%;
+    }
 
 </style>
 </head>
