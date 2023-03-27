@@ -25,3 +25,12 @@ calbx2.initDallyeok();
 
 
 /// 제이쿼리 라이브러리를 html페이지 상단에 호출후 사용!
+$(".myipt").click(function(){
+    console.log(this);
+    // 해당박스 달력보이기
+    $(this).next().find(".calender").show();
+}); /////// click /////////////
+
+$(".calender").click(function(){
+    $(this).hide();
+});
