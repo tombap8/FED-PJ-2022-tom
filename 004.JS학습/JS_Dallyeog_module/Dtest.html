@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>달력 테스트</title>
+    <script>
+        const cg = x=>console.log(x);
+
+        // 달력객체 생성(인스턴스 생성!)
+
+        // 최종변경 날짜객체
+        let myd = new Date();
+        // 변경할 날짜객체
+        let newd = new Date();
+
+        cg("1.기본출력:"+myd);
+        // 세계공통포멧 출력 : toISOString()
+        cg("2.출력포멧변경:"+myd.toISOString());
+
+        // 전달 끝날짜
+        // new Date(년도,월,0-끝날짜/1-첫날짜);
+        myd = new Date(2023,2,0);
+        cg("3.2월 끝날짜:"+myd)
+
+        myd = new Date(newd.getFullYear(),newd.getMonth(),0);
+        cg("4.전달 끝날짜:"+myd)
+        // 전달정보를 넣을때 getMonth() 정보를 조회하면
+        // 현재달 숫자보다 1작은 수가 나옴!
+        // 숫자로된 현재달은 getMonth()+1 -> 이렇게 사용예정
+
+        // 전달끝날짜 요일
+        myd = myd.getDay();// -> 요일정보
+        cg("5.전달끝날짜 요일:"+myd);
+
+        // 현재달 첫날짜
+        // 마지막 옵션이 1일경우 날짜정보 숫자는 전달로 해야 다음달
+        // 첫날짜가 나온다!
+        myd = new Date(newd.getFullYear(),newd.getMonth(),1);
+        cg("6.현재달 첫날짜:"+myd);
+
+        // 현재달 끝날짜
+        // 마지막 옵션이 0일 경우 현재달은 getMonth()+1 으로 사용!
+        myd = new Date(newd.getFullYear(),newd.getMonth()+1,0);
+        cg("7.현재달 끝날짜:"+myd);
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
