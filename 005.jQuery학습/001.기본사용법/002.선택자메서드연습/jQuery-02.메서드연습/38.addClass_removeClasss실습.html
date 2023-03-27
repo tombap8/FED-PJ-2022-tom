@@ -135,12 +135,12 @@
             // 한번은 넣고 한번은 제거하는 토글 기능을
             // 완성하시오!
             $(".ham").click(function(){
-                $(this).toggleClass("on");
-                $(".gbx").toggleClass("on");
+                // $(this).toggleClass("on");
+                // $(".gbx").toggleClass("on");
 
                 // 다른방법:
-                // $(this).toggleClass("on")
-                // .parent().next().toggleClass("on");
+                $(this).toggleClass("on")
+                .parent().next().toggleClass("on");
             }); //////// click ///////////
 
         }); /////////////// jQB ////////////////////
