@@ -137,6 +137,10 @@
             $(".ham").click(function(){
                 $(this).toggleClass("on");
                 $(".gbx").toggleClass("on");
+
+                // 다른방법:
+                // $(this).toggleClass("on")
+                // .parent().next().toggleClass("on");
             }); //////// click ///////////
 
         }); /////////////// jQB ////////////////////
