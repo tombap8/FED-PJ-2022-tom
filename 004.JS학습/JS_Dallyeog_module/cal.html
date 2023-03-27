@@ -4,11 +4,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+  <!-- 캘린더용 CSS -->
+  <link rel="stylesheet" href="./css/cal.css">
+  <!-- 페이페이지 CSS -->
   <link rel="stylesheet" href="./css/main.css">
-  <script src="./js/calendar.js" defer></script>
+
+  <!-- 제이쿼리 라이브러리 CDN
+  -> 모듈의 import로 불러올 수 없다(서버측 파일합치기
+   대상아님 -> node.js를 사용하는 리액트에서는 가능함) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <!-- 메인페이지 JS -->
+  <script src="./js/main.js" type="module"></script>
   <title>우리달력2023</title>
 </head>
 <body>
+
+  <h1 class="mtit">[달력 날짜 넣기]</h1>
+    <div class="wrap">
+      <div class="mybx">
+        <label for="myinput">시작일:</label>
+        <input type="text" id="myinput" class="myipt">
+        <!-- 달력넣을박스1 -->
+        <div class="calbx"></div>
+      </div>
+      <div class="mybx">
+        <label for="myinput2">종료일</label>
+        <input type="text" id="myinput2" class="myipt">
+        <!-- 달력넣을박스2 -->
+        <div class="calbx2"></div>
+      </div>
+    </div>
   
 </body>
 </html>

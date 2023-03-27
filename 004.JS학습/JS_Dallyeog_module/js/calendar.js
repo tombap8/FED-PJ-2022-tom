@@ -1,8 +1,5 @@
 // 달력 생성자함수 /////
 
-// 호출
-// MakeDallyeok();
-
 function MakeDallyeok(sel) { // sel - 달력넣을 요소 선택자
     // 선택함수 //////
     const qs = (x) => document.querySelector(x);
@@ -180,10 +177,10 @@ function MakeDallyeok(sel) { // sel - 달력넣을 요소 선택자
     const addZero = (x) => (x < 10 ? "0" + x : x);
     // 보낸숫자가 10보다 작으면 앞에 "0"을 더해서 리턴함!
 
-    this.initDallyeok(); /// 최초호출!
+    // this.initDallyeok(); /// 최초호출!
 
     // (2) 이전달력 출력하기 함수 //////////////
-    const prevCal = () => {
+    this.prevCal = () => {
         // 이전월로 변경하여 initDallyeok()함수호출
         // getMonth() 월가져오기 / setMonth() 월 셋팅하기!
         this.curr_date.setMonth(this.curr_date.getMonth() - 1);
@@ -191,12 +188,12 @@ function MakeDallyeok(sel) { // sel - 달력넣을 요소 선택자
     }; ////////////// prevCal함수 //////////////
 
     // (3) 다음달력 출력하기 함수 //////////////
-    const nextCal = () => {
+    this.nextCal = () => {
         // 다음월로 변경하여 initDallyeok()함수호출
         // getMonth() 월가져오기 / setMonth() 월 셋팅하기!
         this.curr_date.setMonth(this.curr_date.getMonth() + 1);
         this.initDallyeok();
-    }; ////////////// prevCal함수 //////////////
+    }; ////////////// nextCal함수 //////////////
 
     // (4) 달력 HTML 코드 넣기 함수 /////////
     // 위쪽에서 최초호출하므로 선언적함수로 만든다!
@@ -240,6 +237,10 @@ function MakeDallyeok(sel) { // sel - 달력넣을 요소 선택자
 
 
     // 버튼에 클릭설정하기 ///
-    qs(".btnL").onclick = prevCal;
-    qs(".btnR").onclick = nextCal;
+    qs(sel+" .btnL").onclick = this.prevCal;
+    qs(sel+" .btnR").onclick = this.nextCal;
 } //////////// MakeDallyeok //////////////
+
+// 달력 생성자함수 내보내기 //////
+export default MakeDallyeok;
+// default 는 이름변경없는 단 하나의 모듈을 내보낼때 사용함
