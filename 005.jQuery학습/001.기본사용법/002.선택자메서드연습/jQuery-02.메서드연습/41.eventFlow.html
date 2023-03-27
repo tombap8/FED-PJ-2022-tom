@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title> Event Flow</title>
 <!-- jQuery library -->
-<script src="jquery-1.7.2.min.js"></script>
+<script src="../jquery-3.6.3.min.js"></script>
 
 	<script>
 	
@@ -12,25 +12,62 @@
 		
 		//대한민국전체
 		$("body").click(function(){ 
-			
+			$(this).css({backgroundColor:"blue"});
 		});///// click ////////////
 		
 		//친척네집
 		$("div").click(function(e){
-			
+			e.stopPropagation();
+			$(this).css({backgroundColor:"green"});
 		});///// click ////////////
 		
 		//엄마집
 		$("p").click(function(e){
-			
+			e.stopPropagation();
+			$(this).css({backgroundColor:"yellow"});
 		});///// click ////////////
 		
 		//아들방
 		$("a").click(function(e){
-			
+			$(this).css({backgroundColor:"red"});
+			return false;
 		});///// click ////////////
 		
 		/*
+			[ 이벤트 흐름 ]
+
+			1. 캡쳐단계 : 최상위 부모요소로부터 말단요소까지 내려감
+
+			2. target 단계 : 현재 이벤트가 발생하는 요소
+
+			3. bubling 단계 : target 에서 부터 최상위 부모까지 이벤트가
+				전달되는 현상(주의사항: 같은 종류의 이벤트가 전달된다!)
+
+			4. 이벤트 버블링 차단:
+
+				(1) JS + jQuery 기법:
+				- e.stopPropagation() 메서드 사용
+				- 코드 위치는 어디나 사용가능
+				- 주의: 익명함수의 파라미터 전달변수 e를 반드시 사용해야
+				본 메서드가 작동한다!
+
+				[ 전달변수 e는 무엇인가? ]
+				- e는 제이쿼리 내부 익명함수에서 사용하는 전달변수로
+				발생하는 이벤트의 정보 및 관련메서드를 사용할 수 있도록
+				전달하는 변수의 역할을 한다!
+				- 변수명은 e 또는 evt 를 많이쓰며 다른이름 사용도 가능함!
+
+
+				(2) JS 기법:
+				- return false 를 코드 최하단에 사용함!
+				- return 키워드는 코드실행을 끝내고 빠져나감을 의미
+					false값은 리턴시 아무것도 하지 않도록 막는 역할을
+					하는 값이다!  (true 빛의 신호가 있는 1과 같고
+					false는 빛의 신호가 없는 0과 같다!)
+
+				※ 개발현장에서 "이벤트 버블링" 또는 "버블링" 이라고
+				말할때 잘 알고 있어야한다!!!
+
 		
 		*/
 		
