@@ -128,9 +128,21 @@ function MakeDallyeok() {
                     cg(isSpan);
                     // 없을 경우 null값이 나옴 -> if문에서 false처리됨!
                     if(isSpan){ // null이 아닐때만 true처리되어 들어감!
-                        // 
+                        // span요소의 클래스가 "bm"이면 true
                         let cls = isSpan.classList.contains("bm");
                         cg(cls);
+                        if(cls){ //////// 이전달일 경우 /////
+                            // 월에서 1을 뺀다!
+                            cmonth = cmonth - 1;
+                            cg(cmonth);
+
+                        } ///////////// if /////////////
+                        else{ ///// 다음달일 경우 ///////
+                            // 월에서 1을 더한다!
+                            cmonth = cmonth + 1;
+                            cg(cmonth);
+
+                        } /////////// else ////////////
 
                     } /////////// if //////////////
 
