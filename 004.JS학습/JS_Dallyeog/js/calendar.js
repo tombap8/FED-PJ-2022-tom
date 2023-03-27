@@ -133,14 +133,33 @@ function MakeDallyeok() {
                         cg(cls);
                         if(cls){ //////// 이전달일 경우 /////
                             // 월에서 1을 뺀다!
-                            cmonth = cmonth - 1;
-                            cg(cmonth);
+                            // Number(문자형숫자) -> 숫자형변환
+                            // -,*,/ 연산은 브라우저가 자동변환해준다
+                            // 그러나 +연산은 문자 더하기 가능하므로
+                            // 이것을 강제 형변환해야 안전하다!
+                            cmonth = Number(cmonth) - 1;
+                            cg("이전달:"+cmonth);
+
+                            // 만약 1월이면 이전달은 0이 아니므로 12로처리
+                            if(cmonth===0){ 
+                                cmonth = 12;
+                                // 년도도 전년도로 1뺌
+                                cyear = Number(cyear) - 1;
+                            } ///////// if //////////
 
                         } ///////////// if /////////////
                         else{ ///// 다음달일 경우 ///////
                             // 월에서 1을 더한다!
-                            cmonth = cmonth + 1;
-                            cg(cmonth);
+                            cmonth = Number(cmonth) + 1;
+                            cg("다음달:"+cmonth);
+
+                            // 만약 12월이면 다음달은 13이 아니므로 1로처리
+                            if(cmonth===13){ 
+                                cmonth = 1;
+                                // 년도도 다음년도로 1더함
+                                cyear = Number(cyear) + 1;
+                            } ///////// if //////////
+
 
                         } /////////// else ////////////
 
