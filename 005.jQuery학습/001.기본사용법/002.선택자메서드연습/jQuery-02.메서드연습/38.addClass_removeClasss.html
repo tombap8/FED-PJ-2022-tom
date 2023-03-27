@@ -1,12 +1,13 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<title> addClass_removeClasss </title>
-<script src="../jquery-3.6.3.min.js"></script>
-	<script>
-		$(function(){/// jQB ///
-      /*********************************************** 
+    <head>
+        <meta charset="utf-8" />
+        <title>addClass_removeClasss</title>
+        <script src="../jquery-3.6.3.min.js"></script>
+        <script>
+            $(function () {
+                /// jQB ///
+                /*********************************************** 
         [ 제이쿼리 class 컨트롤 메서드 ]
 
         1. addClass(클래스명)
@@ -32,84 +33,77 @@
 
 
       ***********************************************/
-			
-		
-		// 미션: img태그를 클릭하면 img의 class를 랜덤으로 변경하시오.(type1~type5 의 class중 하나)
-		
-		
-			
-		});/////// jQB ////////////////////////////
-		
-	</script>
-	
-	
-<style>
- img {
-      padding: 15px;
-      background: #666;
-      transition: .8s ease-in-out;
-    }
 
-    img.type1 {
-      background-image:
-        linear-gradient(45deg, red, green);
-    }
+                // 미션: img태그를 클릭하면 img의 class를 랜덤으로 변경하시오.(type1~type5 의 class중 하나)
 
-    img.type2 {
-      background-image:
-        linear-gradient(45deg, lime, purple);
-    }
+                $("img").click(function () {
+                    // 랜덤수 1~5 만들기
+                    let rdm = Math.ceil(Math.random() * 5);
+                    console.log(rdm);
 
-    img.type3 {
-      background-image:
-        linear-gradient(45deg, orange, blue);
-    }
+                    // 클릭된 img 태그에 클래스  type1~type5 넣기
+                    // 하나의 클래스만 남기기위해 먼저 removeClass() 해준다!
+                    $(this)
+                        .removeClass()
+                        .addClass("type" + rdm);
 
-    img.type4 {
-      background-image:
-        linear-gradient(45deg, navy, pink);
-    }
+                    // 만약 클래스가 "type1"이면 top값을 200px로 설정하시오
+                    // 클릭된 요소의 클래스여부는 hasClass(클래스명) 사용!
+                    console.log($(this).hasClass("type1"));
+                }); /////////// click /////////////
+            }); /////// jQB ////////////////////////////
+        </script>
 
-    img.type5 {
-      background-image:
-        linear-gradient(45deg, lightgreen, hotpink);
-    }
+        <style>
+            img {
+                position: relative;
+                padding: 15px;
+                background-color: #666;
+                transition: 0.8s ease-in-out;
+            }
 
-    /* 토글적용박스 */
-    .my {
-      position: absolute;
-      top: 30%;
-      left: 0;
-      transition: left 2s ease-in-out;
-    }
+            img.type1 {
+                background-image: linear-gradient(45deg, red, green);
+            }
 
-    /* 위치이동 클래스 */
-    .pos {
-      left: 70%;
-    }
+            img.type2 {
+                background-image: linear-gradient(45deg, lime, purple);
+            }
 
-</style>
-</head>
+            img.type3 {
+                background-image: linear-gradient(45deg, orange, blue);
+            }
 
-<body>
-<img src="th1.jpg" alt="" >
-<img src="th2.jpg" alt="" >
-<img src="th3.jpg" alt="" >
+            img.type4 {
+                background-image: linear-gradient(45deg, navy, pink);
+            }
 
-<!---------- jQuery code Start ---------->
+            img.type5 {
+                background-image: linear-gradient(45deg, lightgreen, hotpink);
+            }
 
-<script>
+            /* 토글적용박스 */
+            .my {
+                position: absolute;
+                top: 30%;
+                left: 0;
+                transition: left 2s ease-in-out;
+            }
 
+            /* 위치이동 클래스 */
+            .pos {
+                left: 70%;
+            }
+        </style>
+    </head>
 
+    <body>
+        <img src="th1.jpg" alt="이미지" />
+        <img src="th2.jpg" alt="이미지" />
+        <img src="th3.jpg" alt="이미지" />
 
-</script>
+        <!---------- jQuery code Start ---------->
 
-</body>
+        <script></script>
+    </body>
 </html>
-
-
-
-
-
-
-
