@@ -50,7 +50,22 @@
                     // 만약 클래스가 "type1"이면 top값을 200px로 설정하시오
                     // 클릭된 요소의 클래스여부는 hasClass(클래스명) 사용!
                     console.log($(this).hasClass("type1"));
+
+                    if($(this).hasClass("type1")){
+                      $(this).animate({top:"200px"});
+                      // animate에 시간안쓰면 기본값 400
+                    }
+                    else{
+                      $(this).animate({top:"0"});
+                    }
                 }); /////////// click /////////////
+
+                // 추가미션: .my를 클릭하면 한번은 .pos를 넣고
+                // 다시한번은 .pos빼는 토글 기능을 구현하시오!
+                $(".my").click(function(){
+                  $(this).toggleClass("pos");
+                }); /////// click ///////
+
             }); /////// jQB ////////////////////////////
         </script>
 
@@ -87,6 +102,7 @@
                 position: absolute;
                 top: 30%;
                 left: 0;
+                border: 2px dotted orange;
                 transition: left 2s ease-in-out;
             }
 
@@ -101,6 +117,10 @@
         <img src="th1.jpg" alt="이미지" />
         <img src="th2.jpg" alt="이미지" />
         <img src="th3.jpg" alt="이미지" />
+
+        <div class="my">
+          <img src="th1.jpg" alt="이미지">
+        </div>
 
         <!---------- jQuery code Start ---------->
 
