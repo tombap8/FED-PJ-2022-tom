@@ -31,10 +31,32 @@ $(".myipt").click(function(){
     $(this).next().find(".calender").show();
 }); /////// click /////////////
 
-$(".calender").click(function(){
-    let val = $(this).find(".dinfo").val();
-    // val() 메서드 - input의 value값을 읽어옴
-    $(this).parent().prev().val(val);
-    // val(값) -> input에 내용넣기
-    // $(this).hide();
+// on(이벤트명,함수) -> 이벤트명을 띄어쓰기로 여러개 셋팅가능!
+// -> addEventListener에서는 원래 하나씩 셋팅해야하는데 제이쿼리가 해줌!
+$(".calender").on("mouseenter click",function(){
+    console.log("이벤트!!!");
+    // 하위 날짜박스인 .date를 클릭이벤트 설정한다!
+    // this -> .calender
+    $(this).find(".date").click(()=>{
+        // 일반익명함수일때 this -> .date
+        // 이벤트를 싸고 있는 이벤트 대상을 this로 만들고 싶을때
+        // -> 화살표함수를 사용한다! -> 싸고 있는 .calender가 this임!
+        console.log(this);
+        // this -> .calender!!!
+        let val = $(this).find(".dinfo").val();
+        // val() 메서드 - input의 value값을 읽어옴
+        $(this).parent().prev().val(val);
+        // val(값) -> input에 내용넣기
+        $(this).hide();
+
+
+        // 두번째 캘린더에서 날짜를 선택하면 
+        // 첫번째와 두번째 선택날짜 차이를 계산하여 .res에 표시한다!
+        // 두번째 캘린더인지 구분하기
+        
+
+        
+    }); ////////// click ///////////////
+    
+
 });
