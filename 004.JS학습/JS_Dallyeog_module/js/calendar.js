@@ -244,6 +244,8 @@ function MakeDallyeok(sel) { // sel - 달력넣을 요소 선택자
         const date1 = new Date(dt1);
         const date2 = new Date(dt2);
         
+        // getTime() - UTC 시간을 millisecond로 리턴
+        // Universal Time Coordinated (UTC) - 세계협정시
         const diffDate = date1.getTime() - date2.getTime();
         return Math.abs(diffDate / (1000 * 60 * 60 * 24)); 
         // 밀리세컨 * 초 * 분 * 시 = 일
