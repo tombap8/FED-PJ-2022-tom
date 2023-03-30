@@ -7,8 +7,43 @@
 <script src="jquery-1.7.2.min.js"></script>
 	<script>
 		$(function(){/// jQB ////////
+			/* 
+				fadeIn(시간,이징,함수) 메서드
+				-> display를 보이게 한 후 opacity를 0에서 1로
+					변경 애니메이션을 함
+					(보이게 할때 원래 가지고 있던 display나 설정된
+					display를 그대로 복원해 준다!)
+				
+				fadeOut(시간,이징,함수) 메서드
+				-> opacity를 1에서 0으로 변경 애니메이션 후
+				display:none으로 변경함!
+
+				fadeToggle(시간,이징,함수) 메서드
+				-> display:none 상태를 판단하여 
+					fadeIn()/fadeOut() 상태를 전환함
+
+				참고) fadeIn()/fadeOut()/fadeToggle()에 시간을
+				안쓰면 기본시간 400이 들어간다!
+			*/
+
+			// 미션: 각 버튼을 클릭하면 이름에 맞게 
+			//		fadeIn, fadeOut을 1초간 애니메이션하시오.
+
+			// fadeOut
+			$("#fadeOut").click(function(){
+				$("img").fadeOut(1000);
+			});/////////// click ////////////////
+
+			// fadeIn
+			$("#fadeIn").click(function(){
+				$("img").fadeIn(1000);
+			});/////////// click ////////////////
+
+			// fadeToggle
+			$("#fadeToggle").click(function(){
+				$("img").fadeToggle(1000);
+			});/////////// click ////////////////
 			
-			// 미션: 각 버튼을 클릭하면 이름에 맞게 fadeIn, fadeOut을 1초간 애니메이션하시오.
 			
 			
 		});///// jQB ////////////////////////////

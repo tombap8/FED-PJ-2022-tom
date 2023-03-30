@@ -7,9 +7,66 @@
 <script src="jquery-1.7.2.min.js"></script>
 	<script>
 	$(function(){/// jQB ///
+
+		/* 
+				show(시간,이징,함수)
+				-> display를 보이게하는 메서드
+
+				hide(시간,이징,함수)
+				-> display:none 으로 변경하는 메서드
+
+				toggle(시간,이징,함수)
+				-> display:none 인 여부에 따라
+				show()/hide() 전환해 주는 메서드
+
+				1) 시간을 쓰면 애니메이션이 됨
+				2) show(), hide() 괄호안에 아무것도 안쓰면 일반적으로
+					display:none 하거나 보이게 할때 많이 사용함
+
+
+				[ 대부분의 애니메이션 기능을 가진 메서드의 3가지 전달값 ]
+				1. 시간: 1/1000초 단위로 애니메이션 시간을 설정함(단위안씀)
+				2. 이징: easing 은 애니메이션 동작시 가속도 설정
+					- 매우 다양하며 jQuery UI 를 사용해야 작동함!
+				3. 함수: 콜백함수로 애니메이션 실행 후 실행할 코드를 설정해
+						주는 함수다.
+			*/
 		//미션: #hide 버튼을 클릭하면 이미지가 1초동안 사라지고 사라진 후 이미지를 변경한다.
 		//#show버튼을 누르면 이미지가 1초동안  나타난다.
-		
+
+		// 이미지번호
+		let inum = 1;
+
+		// 이미지변경함수 //////
+		function chgImg(){
+			inum++; // 1씩증가
+			if(inum===4)inum=1; // 한계값
+
+			$(".myimg").attr("src",`sample${inum}.jpg`)
+		} ////////// chgImg 함수 ////////
+
+		$("#hide").on("click",function(){
+			// 이미지 hide하기
+			$(".myimg").hide(1000,chgImg);
+			// 콜백함수로 외부함수를 호출!
+		}); /////////// click ////////////
+
+		$("#show").on("click",function(){
+			// 이미지 hide하기
+			$(".myimg").show(1000)
+		}); //////////// click /////////
+
+		$("#toggle").on("click",function(){
+			// 이미지 hide하기
+			$(".myimg").toggle(1000,function(){
+				// 이미지의 display상태값
+				let isD = $(this).css("display");
+				// css(속성명) -> 해당속성값을 가져옴!
+				console.log(isD);
+				// display:none 상태이면 이미지변경하기
+				if(isD==="none") chgImg();
+			}); ///////////// toggle ///////
+		}); //////////// click //////////
 		
 		
 		
@@ -26,7 +83,7 @@
 <body>
 
 
-<img src="sample1.jpg" alt="" width="300" height="307"/><br/>
+<img class="myimg" src="sample1.jpg" alt="" width="300" height="307"><br/>
 <button id ="hide">hide()</button>
 <button id ="show">show()</button>
 <button id ="toggle">toggle()</button>
