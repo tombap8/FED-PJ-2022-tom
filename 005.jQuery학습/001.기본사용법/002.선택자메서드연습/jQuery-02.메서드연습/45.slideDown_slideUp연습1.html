@@ -1,0 +1,185 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title> slideDown() slideUp() 연습1 </title>
+	<style>
+		/* ul,ol 초기화셋팅 */
+		ul,
+		ol {
+			/* 3無 */
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		/* 가상요소로 float해제하기 */
+		ol::after,
+		ul::after {
+			content: '';
+			display: block;
+			clear: both;
+		}
+
+		li {
+			float: left;
+		}
+
+		/* GNB메뉴 */
+		.gnb {
+			background-color: #3974e5;
+		}
+
+		.gnb>ul {
+			width: 800px;
+			margin: 0 auto;
+			/* 블록가로중앙정렬 - 마영오! */
+			outline: 2px solid lime;
+		}
+
+		.gnb>ul>li {
+			width: 200px;
+			text-align: center;
+		}
+
+		/* a요소 - 글자색, 밑줄처리 */
+		/* 유의사항: li와 a요소 사이의 띄어쓰기는
+아래의 모든 자손 a를 선택한 것임! */
+		.gnb>ul>li a {
+			display: block;
+			width: 200px;
+			height: 50px;
+			color: #fff;
+			text-decoration: none;
+			font: bold 14px/50px "맑은 고딕", Verdana;
+			/* font: 스 두 크/줄 체 */
+
+			/* 트랜지션: 속시이지 */
+			transition: all .4s;
+		}
+
+		/* 마우스오버시 글자색, 배경색변경 */
+		.gnb>ul>li:hover>a {
+			color: #001795;
+			background-color: #bdd1ff;
+		}
+
+		/* 서브메뉴 */
+		.smenu {
+			position: absolute;
+			/* 젠틀앱솔루트! - 위치값을 안썼을때
+	스테틱한 a요소를 존중하여 아래쪽에
+	나오며 li박스를 존중하여 그 안에 위치함 */
+			width: 200px;
+			background-color: #219be6;
+
+			/* 서브메뉴를 숨기기위해 높이값0, 
+	넘치는 자식요소 숨기기 */
+			/* height: 0;
+			overflow: hidden; */
+
+			/* 트랜지션: 속시이지 */
+			/* transition: height .4s ease-out; */
+		}
+
+		/* 서브메뉴에 마우스 오버시 글자색, 배경색변경 */
+		.smenu li:hover a {
+			color: #001aac;
+			background-color: #97e7ff;
+		}
+
+		/* 상위메뉴 li에 오버시 서브메뉴 높이값 변경 */
+		/* 2번째메뉴 - 메뉴가 4개 */
+		/* .gnb>ul>li:nth-child(2):hover .smenu {
+			height: 200px;
+		} */
+
+		/* 3번째메뉴 - 메뉴가 2개 */
+		/* .gnb>ul>li:nth-child(3):hover .smenu {
+			height: 100px;
+		} */
+	</style>
+	<!-- jQuery library -->
+	<script src="../jquery-3.6.3.min.js"></script>
+	<script>
+		$(function () { /// jQB ////////////
+
+			// 1. 서브메뉴 숨기기
+			$(".smenu").hide();
+
+			// 2. slide설정
+			// 이벤트 대상: .gnb>ul>li
+			// 변경 대상: .smenu
+			$(".gnb>ul>li").hover(
+				function(){ // over시
+					$(".smenu",this).stop().slideDown(400);
+				},
+				function(){ // out시
+					$(".smenu",this).stop().slideUp(400);
+				}); ///////////// hover ///////////
+
+
+
+			/// stop() 메서드
+			// 애니메이션이 큐에 등록되어 실행되는데 
+			// 이것을 지워주는 기능을함
+			// 여기서는 마우스 아웃시에만 지워줌!
+
+			// hover() 메서드 ////////////////////////
+			// 형식: $(선택자).hover(함수1,함수2)
+			// - 마우스 오버시 함수1실행, 아웃시 함수2실행
+
+
+		}); /// jQB /////////////////////////////////	
+	</script>
+
+
+</head>
+
+<body>
+	<h1>유형1 : 가로네비 서브별 드롭다운 세로형</h1>
+	
+	<nav class="gnb">
+		<ul>
+			<li>
+				<a href="#">Home</a>
+			</li>
+			<li>
+				<a href="#">웹개발</a>
+				<!-- 서브메뉴 -->
+				<ol class="smenu">
+					<li>
+						<a href="#">웹디자인</a>
+					</li>
+					<li>
+						<a href="#">HTML5+CSS3</a>
+					</li>
+					<li>
+						<a href="#">jQuery</a>
+					</li>
+					<li>
+						<a href="#">웹+모바일</a>
+					</li>
+				</ol>
+			</li>
+			<li>
+				<a href="#">게시판</a>
+				<!-- 서브메뉴 -->
+				<ol class="smenu">
+					<li>
+						<a href="#">Q&amp;A</a>
+					</li>
+					<li>
+						<a href="#">방명록</a>
+					</li>
+				</ol>
+			</li>
+			<li>
+				<a href="#">프로필</a>
+			</li>
+		</ul>
+	</nav>
+</body>
+
+</html>
