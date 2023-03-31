@@ -4,7 +4,7 @@
 오류를 고칠 수 있도록 제공하는 서비스
 
 1. 웹표준검사 사이트
-https://validator.kldp.org/
+http://validator.kldp.org/
 
 2. CSS 유효성 검사 사이트
 https://css-validator.kldp.org/
