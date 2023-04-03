@@ -1,0 +1,131 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <title>jQuery MultiZoom</title>
+    <link rel="stylesheet" href="multizoom.css" type="text/css" />
+    <script src="jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="multizoom.js">
+        // Featured Image Zoomer (w/ optional multizoom and adjustable power)- By Dynamic Drive DHTML code library (www.dynamicdrive.com)
+        // Multi-Zoom code (c)2012 John Davenport Scheuer
+        // as first seen in http://www.dynamicdrive.com/forums/
+        // username: jscheuer1 - This Notice Must Remain for Legal Use
+        // Visit Dynamic Drive at http://www.dynamicdrive.com/ for this script and 100s more
+    </script>
+
+    <script type="text/javascript">
+        /*
+        주의사항~!!!!
+        본 plug-in을 사용하려면 기본 jQuery 코드블록에
+        $(function(){})을 사용해서는 안된다~!!!
+        $를 본 plug-in에서 다른의미로 사용하기 때문이다.
+        따라서 아래와 같이 기본형으로  jQuery코드블록을 써야한다.
+        jQuery(document).ready(function(e) {구현코드});
+        그리고 한가지 더 유의사항!!!
+        function($){}라고 써야한다.
+        이 $가 바로 본 plug-in에서 사용하는 의미의 $다!
+        */
+        jQuery(document).ready(function($) {
+            //Demo1
+            $("#image1")
+                /* .css({
+                    marginLeft: "350px"
+                }) */
+                .addimagezoom({
+                    zoomrange: [3, 8], //확대범위[최소비율, 최대비율]
+                    largeimage: "images/hayden.jpg", //확대로볼이미지
+                    magnifiersize: [300, 335], //확대화면 크기[가로,세로]
+                    magnifierpos: "right", //확대화면 위치(공간확보 필수)
+                    cursorshade: true, //사진위확대범위 표시자(true보임)
+                    cursorshadecolor: "#fff", //확대범위표시 색상
+                    cursorshadeopacity: 0.4 //확대범위 투명도
+                }); //demo1 셋팅
+
+            //Demo2
+            $("#image2").addimagezoom(); //기본형
+
+            //Demo3(쇼핑몰 상세페이지 갤러리형)
+            $("#multizoom1").addimagezoom({
+                zoomrange: [3, 10], //확대범위[최소비율, 최대비율]
+                largeimage: "images/hayden.jpg", //확대로볼이미지
+                magnifiersize: [300, 335], //확대화면 크기[가로,세로]
+                magnifierpos: "right", //확대화면 위치(공간확보 필수)
+                cursorshade: true, //사진위확대범위 표시자(true보임)
+                cursorshadecolor: "#000", //확대범위표시 색상
+                cursorshadeopacity: 0.4, //확대범위 투명도
+
+                //갤러리관련 설정
+                //갤러리 설정시 id명과 같은 이름의 class를 썸네일 박스에 주고 thumbs라는 클래스명도 주면 하나의 갤러리 셋이 완성된다.
+                descArea: "#description", //사진설명글 박스 div아이디
+                speed: 500, //썸네일 클릭시 큰이미지 나타나는 속도
+                descpos: true, //설명위치를 사진 바로 아래로 이동여부
+                imagevertcenter: true, //큰이미지의 세로 정렬 중앙
+                magvertcenter: true //확대화면 세로 중앙정렬
+
+            }); ///Demo3
+
+            //Demo4(마우스 휠 금지)
+            $("#multizoom2").addimagezoom({
+                descArea: "#description2",
+                descpos: true,
+                disablewheel: true //큰 이미지 위에서 마우스휠금지
+            });
+
+
+        }); ///jQB/////////////////////////////////////
+    </script>
+</head>
+
+<body>
+    <h3>Demo 1:</h3>
+
+    <img id="image1" border="0" src="images/haydensmall.jpg" style="width:250px;height:338px">
+
+
+
+
+    <h3>Demo 2:</h3>
+
+    <img id="image2" border="0" src="images/listenmusic.jpg" style="width:200px;height:150px">
+
+
+
+
+    <h3>Demo 3:</h3>
+
+    <div class="targetarea" style="border:1px solid #eee"><img id="multizoom1" alt="zoomable" title="" src="images/millasmall.jpg" /></div>
+    <div id="description">Milla Jojovitch</div>
+    <div class="multizoom1 thumbs">
+        <!--링크옵션
+	href : 스테이지에 보여줄 이미지경로
+	data-large : 큰이미지경로
+    data-lens : true or false 확대영역범위 보이기
+    data-magsize : 확대영역 크기설정
+-->
+        <a href="images/millasmall.jpg" data-large="images/milla.jpg" data-title="Milla Jojovitch"><img src="images/milla_tmb.jpg" alt="Milla" title="" /></a>
+        <a href="images/saleensmall.jpg" data-lens="false" data-magsize="150,150" data-large="images/saleen.jpg" data-title="Saleen S7 Twin Turbo"><img src="images/saleen_tmb.jpg" alt="Saleen" title="" /></a>
+        <a href="images/haydensmall.jpg" data-large="images/hayden.jpg" data-title="Hayden Panettiere"><img src="images/hayden_tmb.jpg" alt="Hayden" title="" /></a>
+        <a href="images/jaguarsmall.jpg" data-large="images/jaguar.jpg" data-title="Jaguar Type E"><img src="images/jaguar_tmb.jpg" alt="Jaguar" title="" /></a>
+    </div>
+
+
+
+
+    <h3>Demo 4:</h3>
+
+    <div class="targetarea diffheight"><img id="multizoom2" alt="zoomable" title="" src="images/angelinasmall.jpg" /></div>
+    <div id="description2">Angelina Jolie</div>
+    <div class="multizoom2 thumbs">
+        <a href="images/angelinasmall.jpg" data-large="images/angelina.jpg" data-title="Angelina Jolie"><img src="images/angelina_tmb.jpg" alt="Angelina" title="" /></a>
+        <a href="images/saleensmall.jpg" data-large="images/saleen.jpg" data-title="Saleen S7 Twin Turbo"><img src="images/saleen_tmb.jpg" alt="Saleen" title="" /></a>
+        <a href="images/jaguarsmall.jpg" data-large="images/jaguar.jpg" data-title="Jaguar Type E"><img src="images/jaguar_tmb.jpg" alt="Jaguar" title="" /></a>
+        <a href="images/listenmusic.jpg" data-title="Relaxing Music" data-dims="300, 225"><img src="images/listen_tmb.jpg" alt="Relaxing Music" title="" /></a>
+    </div>
+
+
+</body></html>
+

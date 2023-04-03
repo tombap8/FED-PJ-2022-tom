@@ -1,0 +1,185 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+
+  <head>
+    <title> jQuery </title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
+    <!-- 라잇박스 CSS넣기 -->
+    <link rel="stylesheet" href="css/jquery.lightbox-0.5.css">
+    <script src="js/jquery-1.7.2.js"></script>
+    <!-- 라잇박스 JS넣기 -->
+    <script src="js/jquery.lightbox-0.5.js"></script>
+    <!-- 백스트레치 JS넣기 -->
+    <script src="js/jquery.backstretch.min.js"></script>
+    <script>
+      $(function () { // jQB //////////////////////
+        /* 
+          [ 라잇박스 플러그인 ]
+          - 기능: 썸네일 이미지를 클릭하면 전체화면에 큰 이미지보기
+          기능으로 갤러리를 구성해주는 플러그인
+          - 구현방법: 상단에 라잇박스 CSS, JS를 불러온 후 코딩한다.
+          - 플러그인 호출함수: lightBox() 메서드
+          - 사용할 썸네일에 a요소로 기본 셋팅이 필요함(하단에 기술함)
+        */
+        // 라잇박스 플러그인 호출하기!
+        // 대상: .view
+        // 옵션변경하려면 기본 메서드 호출시 파라미터 객체를 셋팅한다!
+        // lightBox({객체셋팅})
+        $(".view").lightBox({
+          overlayBgColor: "purple", // 배경색 변경
+          overlayOpacity: 0.9, // 배경색 투명도
+          containerResizeSpeed: 400
+          // 이미지 리사이즈 속도(1/1000초)
+        }); ///// lightBox /////////
+
+        /// 옵션에서 변경되지 않는 변경사항은 
+        /// 원본 CSS파일 또는 JS파일에서 변경한다!
+        /// (주로 디자인에 관련된 부분)
+
+        /* 
+           [ 백스트레치 플러그인 ]
+           - 배경이미지를 비율 유지하여 선택요소 전체에 깔아주는 플러그인
+           - 추가기능: 여러장의 배경이미지를 일정시간 간격으로 페이드효과로 넘겨준다!
+
+           - 사용법: 
+           1) body전체에 배경적용
+               $.backstretch(이미지경로)
+           
+           2) 특정요소에 배경적용
+               $(선택자).backstretch(이미지경로)
+
+           3) 여러이미지 전환
+             $(선택자).backstretch(
+               [배열로 이미지 경로를 여러개 셋팅],
+               {
+                 duration : 시간설정,
+                 fade: 시간설정
+               }
+             )
+             -> 옵션: duration - 이미지 전환시간 설정(1/1000초)
+                     fade - 이미지 fade 전환시간 설정(1/1000초)
+
+           - 코드예:
+           $(".foo").backstretch([
+             "path/to/image.jpg",
+             "path/to/image2.jpg",
+             "path/to/image3.jpg"    
+           ], {duration: 4000});
+        */
+        // 전체 (body)에 적용시 $만 사용함!
+        $.backstretch(
+          [ // 넘길 이미지 리스트
+            "images/mainbg.png",
+            "images/about.png",
+            "images/worksbg.jpg"
+          ],
+          { // 옵션셋팅
+            duration: 4000,
+            fade: 2000
+          }
+        ); ///// backstretch ////////////
+
+
+      }); /////////// jQB ///////////////////////
+    </script>
+  </head>
+
+<body>
+
+  <div id="container">
+
+    <div id="head">
+
+      <h1><a href="#">jQuery</a></h1>
+
+    </div>
+    <div id="navigation">
+      <ul>
+        <li id="lhome"><a href="#00">Home</a></li>
+        <li id="labout"><a href="#03">About Us</a></li>
+        <li id="lmission"><a href="#04">Mission</a></li>
+        <li id="lsupport"><a href="#05">Support</a></li>
+        <li id="lcontact"><a href="#06">Contact Us</a></li>
+      </ul>
+    </div>
+
+
+
+    <div id="main">
+
+      <div id="content_left">
+        <div class="article">
+          <h3>Welcome Lorem ipsum dolor</h3>
+          <!-- 
+            [ 라잇박스 플러그인 셋팅법 ]
+            - 썸네일 이미지를 a태그로 감싼다
+            - href 속성값에 큰 이미지 경로를 써준다
+            - title 속성값에 이미지 설명을 써준다
+            - a태그에 적당한 클래스를 주고 이것으로 플러그인 적용함
+           -->
+          <p> <a href="images/robot.jpg" title="멋진 로봇이야~!!!" class="view"><img src="images/img1.jpg" width="110"
+                height="74" border="0" alt="" class="pic_right" /></a> "Lorem ipsum
+            dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+            est laborum."</p>
+        </div>
+
+        <div class="article">
+          <h3>Lorem ipsum dolor</h3>
+          <a href="images/seashore.jpg" title="아~! 바다에 가고 싶다~!" class="view"><img src="images/img2.jpg" width="110"
+              height="74" border="0" alt="" class="pic_left" /></a>
+          <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat."</p>
+        </div>
+
+      </div>
+
+
+      <div id="content_right">
+        <h4>Lorem ipsum dolor</h4>
+        <div class="item">
+          <p><a href="images/nature.jpg" title="자연은 정말 좋은거야~!" class="view"><img class="th_thum" src="images/th1.jpg"
+                width="50" height="50" border="0" alt="" /></a>There are many
+            variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by
+            injected humour, or randomised words which don't look even slightly believable. <a href="#">view</a><br
+              style="clear:both" /></p>
+        </div>
+
+        <div class="item">
+          <p><a href="images/street.jpg" title="도시의 거리풍경" class="view"><img class="th_thum" src="images/th2.jpg"
+                width="50" height="50" border="0" alt="" /></a>The standard chunk of
+            Lorem Ipsum used since the 1500s is reproduced below for those interested <a href="#">view</a><br
+              style="clear:both" /></p>
+
+        </div>
+        <div class="item">
+          <p><a href="images/lamp.jpg" title="옛날 램프의 운치" class="view"><img class="th_thum" src="images/th3.jpg"
+                width="50" height="50" border="0" alt="" /></a>quis nostrud
+            exercitation ullamco laboris <a href="#">view</a><br style="clear:both" /> </p>
+
+        </div>
+
+
+      </div>
+      <div id="footer">
+        <p>(c) 2012 All Rights Reserved</p>
+      </div>
+
+    </div>
+
+
+    <!-- jQuery , javaScript Code ----->
+    <script>
+
+
+    </script>
+
+</body>
+
+</html>

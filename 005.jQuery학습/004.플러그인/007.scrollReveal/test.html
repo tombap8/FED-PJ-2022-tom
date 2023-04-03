@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스크롤리빌 테스트</title>
+    <style>
+        body {
+            /* height: 3000px; */
+            background-image:
+                linear-gradient(to bottom, rgb(255, 211, 211), rgb(87, 160, 255));
+        }
+        h1{
+            text-align: center;
+            margin-bottom: 1200px;
+        }
+
+        img {
+            display: block;
+            margin: 100px auto;
+        }
+
+        /* 스크롤리빌용 CSS */
+        .js-reveal {
+            opacity: 1;
+            transform: translateY(0px);
+            transition: opacity 2s ease-in,
+                transform 2s ease-out;
+        }
+
+        .js-reveal--hidden {
+            opacity: 0;
+            transform: translateY(100px);
+        }
+    </style>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.scroll-reveal.js"></script>
+    <script>
+        $(function () { /// jQB //////////////////        
+
+            $.fn.scrollReveal();
+
+        }); ////////// jQB //////////////////////
+    </script>
+</head>
+
+<body>
+    <h1>스크롤 리빌 테스트!!!</h1>
+    <img src="images/lamp.jpg" alt="램프" class="js-reveal">
+    <img src="images/nature.jpg" alt="자연" class="js-reveal">
+    <img src="images/robot.jpg" alt="로봇" class="js-reveal">
+    <img src="images/seashore.jpg" alt="해안" class="js-reveal">
+    <img src="images/street.jpg" alt="거리" class="js-reveal">
+
+</body>
+
+</html>

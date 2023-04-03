@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title> Skitter plugIn 갤러리 </title>
+<link href="css/skitter.styles.css" type="text/css" media="all" rel="stylesheet" />
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/jquery.animate-colors-min.js"></script>
+<script src="js/jquery.skitter.min.js"></script>
+<script>
+    $(function(){ // jQB ///////////////////////////
+        /* 
+            [ 스키터 플러그인 ]
+            - 이미지 갤러리 전환효과 기능의 플러그인
+            - 적용법: 
+                (1) 상단에 제이쿼리 라이브러리 아래에 스키터 JS불러옴
+                (2) 하단에 스키터 메서드를 호출함: skitter()
+                (3) html 태그를 프리셋팅하여 최상위박스 클래스에적용
+                -> html 태그 프리셋팅은 스키터 홈페이지에서 참조
+                -> https://skitter-slider.net/install.html
+                (4) 옵션은 skitter메서드에 중괄호 객체로 표현함
+                -> https://skitter-slider.net/options.html
+         */
+         $('.box_skitter').skitter({
+            dots: true, // 메뉴블릿(false가 기본값)
+            preview: true, // 블릿에 마우스 오버시 미리보기
+            label: false, // 글설명 숨기기(true는 보임-기본값)
+            // controls: true, // 진행,멈춤버튼 보이기(false기본값)
+            interval: 1000, // 자동넘김 시간간격(1/1000초)
+            // animation: "upBars" // 특정넘김효과 한가지만 줄경우 셋팅!
+         });
+
+          /*
+            스키터 애니메이션 효과명:			
+			cube 
+            cubeRandom block cubeStop 
+            cubeStopRandom cubeHide cubeSize 
+            horizontal showBars showBarsRandom 
+            tube fade fadeFour paralell blind 
+            blindHeight blindWidth directionTop 
+            directionBottom directionRight 
+            directionLeft cubeSpread glassCube 
+            glassBlock circles circlesInside 
+            circlesRotate cubeShow upBars 
+            downBars hideBars swapBars 
+            swapBarsBack swapBlocks cut            
+            */
+        
+        
+
+    });//////////// jQB ////////////////////////////
+</script>
+<style> 
+* {  padding:0;  }
+
+body {
+	margin: 20px auto;
+	padding: 0;	
+	width: 620px;
+	background:#192839;
+}
+
+
+   
+</style>
+</head>
+
+
+
+<body>
+<div class="box_skitter box_skitter_large">
+
+    <ul>
+        <li>
+           <a href="http://thiagosf.net"><img src="img/pic1.jpg" class="random" /></a>
+
+            <div class="label_text">
+                <p> 설명 </p>
+            </div>
+        </li>
+        <li>
+           <a href="http://thiagosf.net"><img src="img/pic2.jpg" class="random" /></a>
+
+            <div class="label_text">
+                <p> 설명 </p>
+            </div>
+        </li>
+        <li>
+           <a href="http://thiagosf.net"><img src="img/pic3.jpg" class="random" /></a>
+
+            <div class="label_text">
+                <p> 설명 </p>
+            </div>
+        </li>
+        <li>
+           <a href="http://thiagosf.net"><img src="img/pic4.jpg" class="random" /></a>
+
+            <div class="label_text">
+                <p> 설명 </p>
+            </div>
+        </li>
+        <li>
+           <a href="http://thiagosf.net"><img src="img/pic5.jpg" class="random" /></a>
+
+            <div class="label_text">
+                <p> 설명 </p>
+            </div>
+		</li>
+        <li>
+           <a href="http://thiagosf.net"><img src="img/pic6.jpg" class="random" /></a>
+
+            <div class="label_text">
+                <p> 설명 </p>
+            </div>
+        </li>
+    </ul>
+
+</div>
+</body>
+</html>

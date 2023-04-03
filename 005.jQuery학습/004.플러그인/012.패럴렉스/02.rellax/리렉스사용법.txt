@@ -1,0 +1,21 @@
+[ 패럴렉스 플러그인 - 리렉스 사용법 ]
+
+///////////////////////////////////////////////
+//////////// 패럴렉스 적용하기 ///////////////////
+///// Vanilla JS - rellax.js 순수 JS개발코딩 ////
+// 깃허브 - https://github.com/dixonandmoe/rellax
+// 데모 - https://dixonandmoe.com/rellax/
+////////////////////////////////////////////////
+// 배너버튼    
+var rellax = new Rellax('.rellax', {
+    speed: -2
+}); /////// rellax /////////////
+
+// 상품박스 양쪽
+var rellax2 = new Rellax('.rellax2', {
+    speed: 5
+});
+// 상품박스 중앙
+var rellax3 = new Rellax('.rellax3', {
+    speed: -2
+});

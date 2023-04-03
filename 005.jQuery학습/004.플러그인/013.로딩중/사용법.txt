@@ -1,0 +1,17 @@
+
+[로딩 오버레이 플러그인 사용법]
+
+1. 제이쿼리 라이브러리 아래 css와 js를 상단에 불러온다
+2. 스크립트 구역에 아래처럼 코딩한다.
+
+$.LoadingOverlay("show", {
+	background       : "rgba(0, 0, 0, 0.5)",
+	image            : "",
+	maxSize          : 60,
+	fontawesome      : "fa fa-spinner fa-pulse fa-fw",
+	fontawesomeColor : "#FFFFFF",
+});
+
+// ajax로 숨김처리코드
+$.LoadingOverlay("hide");
+

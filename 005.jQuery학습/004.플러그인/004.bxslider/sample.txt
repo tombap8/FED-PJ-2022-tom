@@ -1,0 +1,6 @@
+<ul class="bxslider">
+              <li><img src="umf/1.JPG"></li>
+              <li><img src="umf/2.JPG"></li>
+              <li><img src="umf/3.JPG"></li>
+              <li><img src="umf/4.JPG"></li>
+            </ul>

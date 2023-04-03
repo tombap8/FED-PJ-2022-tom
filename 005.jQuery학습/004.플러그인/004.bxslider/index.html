@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>bxslider</title>
+<link rel="stylesheet" type="text/css" href="jquery.bxslider.css">
+<script src="jquery-1.7.2.js"></script>
+<script src="jquery-ui-1.10.4.min.js"></script>
+<script src="jquery.bxslider.min.js"></script>
+<script type="text/javascript">
+$(function(){
+    
+    // bxSlider 적용하기
+    $(".bxslider").bxSlider({
+        auto: true, // 자동넘기기설정(true/false)
+        pause: 2000, // 슬라이드 넘기기 사이간격(초)
+        speed: 600, //슬라이드 넘어가는 속도(초)
+        mode: 'horizontal' //넘기기 방식옵션
+        //'horizontal', 'vertical', 'fade'
+    });
+    
+});//jQb
+</script>
+</head>
+
+<body style="background-color:#000">
+<ul class="bxslider">
+	<li><img src="ph1.jpg" alt=""></li>
+	<li><img src="ph2.jpg" alt=""></li>
+	<li><img src="ph3.jpg" alt=""></li>
+	<li><img src="ph4.jpg" alt=""></li>
+	<li><img src="ph5.jpg" alt=""></li>
+	<li><img src="ph6.jpg" alt=""></li>
+</ul>
+
+
+</body>
+</html>

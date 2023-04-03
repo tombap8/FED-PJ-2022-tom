@@ -1,0 +1,69 @@
+[ 스크롤시 요소 등장 플러그인 ]
+스크롤리빌!!! (scroll reveal)
+
+- 기능: 스크롤이 도착하여 하단에 보일때 해당 요소가 위로 올라오며
+등장하는 플러그인
+_______________________________________________
+
+(((((((( 코딩법 ))))))))))
+
+1. JS파트
+
+제이쿼리 라이브러리 아래서 
+제이쿼리 코드블록 안에
+$.fn.scrollReveal();  로 호출함
+
+2. CSS 파트
+
+클래스 .js-reveal 과 .js-reveal--hidden를 셋팅함
+
+3. HTML 파트
+
+등장액션을 주고자하는 요소에 클래스를 셋팅함
+ class="js-reveal"
+
+
+(((( 실제코딩예 ))))))))
+
+_____________ JS ______________________________
+
+<script src="js/jquery-3.4.1.min.js"></script>
+script src="js/jquery.scroll-reveal.js"></script>
+<script>
+    $(function(){ /// jQB //////////////////        
+        
+        $.fn.scrollReveal();  
+        
+    });////////// jQB //////////////////////
+
+</script>
+__________ CSS ______________________________
+
+
+<style>
+    
+.js-reveal {
+  opacity: 1;
+  transition: opacity .7s ease-in, margin-top .7s ease-out;
+}
+
+.js-reveal--hidden {
+  opacity: 0;
+  margin-top: 3em;
+}
+    
+    </style>
+
+_______________ html ________________________
+<ul class="pgc">
+            <li class="txtc">
+                <h3>
+                    <a href="#" class="js-reveal">
+                        MEN'S<br>BEACH STYLE
+                    </a>
+                </h3>
+            </li>
+            <li class="imgc">
+                <img src="images/men01.png" alt="남자해변패션" class="js-reveal">
+            </li>
+        </ul>

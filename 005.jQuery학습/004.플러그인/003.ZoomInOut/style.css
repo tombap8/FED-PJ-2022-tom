@@ -1,0 +1,156 @@
+body {
+	background-color:  #BDA66C;
+	margin: 0px;
+	padding: 20px 0px;
+	font: 11px Verdana, Geneva, sans-serif;
+	color: #282828;	
+}
+
+/********************** LayOut **********************/
+
+#container
+{
+	width: 750px;
+	margin: 0 auto;
+	padding: 0px;	
+}
+
+#main {	
+	background-color: #F8FCFF;
+	width: 750px;
+	height: auto; 
+}
+#main #content_left {
+float:left;
+padding:0 30px 30px 30px;
+width: 425px;
+height:auto;
+}
+#main #content_right{
+float:left;
+padding:5px;
+width: 220px;
+height:auto;
+}
+
+#footer {
+	clear: both;
+	width: 750px;
+	margin: 20px auto;
+	padding: 10px 0;
+	background-color: #99633F;
+}
+
+#footer p {
+	margin: 0;
+	padding: 0;
+	text-transform: lowercase;
+	text-align: center;
+	color:#FFFFFF;
+	
+}
+
+
+.item {
+
+    border-bottom:1px #999999 dashed;
+}
+
+
+/********************** navi**********************/
+#navigation ul
+{
+	padding: 0px;
+
+
+	width: 750px;
+	float: left;
+	margin: 0 0 10px;
+	list-style-type: none;
+	background-color: #90BA2C;
+}
+
+#navigation li { float: left; }
+
+#navigation a:link,
+#navigation a:visited
+{
+	float: left;
+	display: block;
+	color: #ffffff;
+	padding: 5px 10px;
+	border-bottom-width: 0;
+	text-decoration:none;
+}
+
+#navigation a:hover,
+#navigation a:active
+{
+	color: #ffffff;
+	background-color: #485573;
+}
+
+/**********************content**********************/
+#head {
+width: 750px;
+margin : 0;
+padding : 0;
+height : 120px;
+background : url(images/header.jpg) ;
+border-bottom : 2px solid #fff;
+}
+#head h1 {
+font-family:Tahoma; font-size:36px;  font-weight:bold; line-height:50px; margin:0px; padding:0px;
+}
+#head h1 a {
+	color:#FFFFFF;
+	display:block;
+	text-decoration:none;
+	padding:30px 0 0 30px;
+}
+#content_left p{
+font-size:11px;
+text-indent:1em;
+text-align:justify;
+line-height:18px;
+}
+
+img.pic_left{
+float:left;
+padding:5px;
+margin:0 15px 8px 8px;
+border:1px  #CCCCCC solid;
+}
+
+img.pic_right{
+float:right;
+padding:5px;
+margin:0 8px 8px 15px;
+border:1px  #CCCCCC solid;
+}
+.th_thum{
+	float:right;
+	padding:5px;
+	margin:0 8px 8px 8px;
+	border:1px  #CCCCCC solid;
+}
+
+h3{
+font-size:14px;
+color: #003366;
+}
+h4{
+font-size:13px;
+padding:12px;
+margin:0px;
+color: #003366;
+border-bottom:1px #999999 dashed;
+}
+
+.article { margin-bottom:20px;}
+
+
+#rot {  
+    -webkit-transform: rotate(10deg)  translateX(10px); ;
+    -moz-transform:rotate(10deg) translateX(10px);
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<script src="jquery-1.7.2.js"></script>
+<script src="jquery.bxslider.min.js"></script>
+<link rel="stylesheet" type="text/css" href="jquery.bxslider.css">
+<script>
+$(document).ready(function(e) {
+    var slider = $(".bxslider").bxSlider();
+	// 자동넘김 셋팅법2
+    slider.startAuto();
+});
+
+</script>
+</head>
+
+<body>
+<ul class="bxslider">
+  <li><img src="ph1.jpg" width="320" height="240"></li>
+  <li><img src="ph2.jpg" width="320" height="240"></li>
+  <li><img src="ph3.jpg" width="320" height="240"></li>
+  <li><img src="ph4.jpg" width="320" height="240"></li>
+  <li><img src="ph5.jpg" width="320" height="240"></li>
+  <li><img src="ph6.jpg" width="320" height="240"></li>
+</ul>
+</body>
+</html>

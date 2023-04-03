@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Photo Box</title>
+	<link rel="stylesheet" type="text/css" href="photobox/photobox.css">
+	<link rel="stylesheet" type="text/css" href="photobox/photobox.ie.css">
+	<script src="photobox/jquery-1.7.2.js"></script>
+	<script src="photobox/jquery.photobox.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			$("#gallery").photobox();
+		}); //jQb
+	</script>
+	<style type="text/css">
+		html,
+		body {
+			margin: 0px;
+			padding: 0px;
+			width: 100%;
+			height: 100%;
+			background-color: #000;
+		}
+
+		#wrap {
+			position: relative;
+			width: 100%;
+			height: 100%;
+			text-align: center;
+		}
+
+		.tit1 {
+			color: #fff;
+			font: 55px "Times New Roman", Times, serif;
+		}
+
+		#gallery {
+			margin-top: 10%;
+		}
+
+		#gallery img {
+			height: 100px;
+			border: 1px solid #fff;
+		}
+	</style>
+
+
+</head>
+
+<body>
+	<div id="wrap">
+		<h1 class="tit1">Live Gallery</h1>
+		<div id="gallery">
+			<a href="images/pic1.jpg"><img src="images/pic1.jpg" alt="1" title="1번이미지입니다."></a>
+			<a href="images/pic2.jpg"><img src="images/pic2.jpg" alt="1" title="2번이미지입니다."></a>
+			<a href="images/pic3.jpg"><img src="images/pic3.jpg" alt="1" title="3번이미지입니다."></a>
+			<a href="images/pic4.jpg"><img src="images/pic4.jpg" alt="1" title="4번이미지입니다."></a>
+			<a href="images/pic5.jpg"><img src="images/pic5.jpg" alt="1" title="5번이미지입니다."></a>
+			<a href="images/pic6.jpg"><img src="images/pic6.jpg" alt="1" title="6번이미지입니다."></a>
+			<!--
+    	동영상인 경우 a링크의 속성중 rel="video"를 반드시 써주어야 함.
+    -->
+			<a href="http://www.youtube.com/embed/5O5PVvHTWRo?autoplay=1" rel="video"><img
+					src="https://i.ytimg.com/vi/5O5PVvHTWRo/hqdefault.jpg?sqp=-oaymwEXCPYBEIoBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAq2ifnvl5wFLqbXoOJ7J6wOh8zHg"
+					alt="1" title="신과함께 예고편"></a>
+
+			<a href="http://www.youtube.com/embed/xUDhdCsLkjU?autoplay=1" rel="video">
+				<img src="https://i.ytimg.com/vi/xUDhdCsLkjU/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLCgWryKipMVGks07qxJ1r0OmMwL-g"
+					alt="poster" title="어벤저스4:인피니티">
+			</a>
+
+		</div>
+	</div>
+
+
+
+
+</body>
+
+</html>
