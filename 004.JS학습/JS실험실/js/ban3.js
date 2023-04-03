@@ -505,3 +505,6 @@ function goWhere(obj) {
         obj.style.transition = "left .2s ease-in-out";
     }
 } ///////////////// goWhere 함수 //////////////////
+
+// 리사이즈시 리로드!
+window.addEventListener("resize",()=>location.reload());
