@@ -132,19 +132,19 @@ ol {
 /*이동버튼*/
 .abtn {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 90%;
+    transform: translateY(-50%) scale(.4);
     /*Y축 중앙이동*/
 }
 
 /*왼쪽버튼*/
 .ab1 {
-    left: 50px;
+    right: 15%;
 }
 
 /*오른쪽버튼*/
 .ab2 {
-    right: 50px;
+    right: 5%;
 }
 
 /*블릿버튼*/
@@ -152,8 +152,9 @@ ol {
     display: flex;
     /* 플렉스박스 */
     position: absolute;
-    bottom: 50px;
-    left: 80px;
+    bottom: 5px;
+    left: 5px;
+    transform: scale(.7);
 }
 
 .indic li {
