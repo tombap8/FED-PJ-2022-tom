@@ -5,13 +5,8 @@
 /* 큐트폰트 CDN */
 @import url(https://fonts.googleapis.com/css2?family=Cute+Font&display=swap);
 
-html {
-    /* 부드러운 스크롤 적용!(스크롤애니메이션)
--> 스크롤이동시간, 이징가속도는 조절할 수 없다!
-제이쿼리 코딩으로 이것을 조절할 예정임! */
-    scroll-behavior: smooth;
-    
-}
+/* 제이쿼리 스크롤 이동애니시 
+scroll-behavior:smooth 를 적용하지 않는다! */
 
 html,
 body {
