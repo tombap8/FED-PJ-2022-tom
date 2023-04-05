@@ -53,7 +53,11 @@
 
 						 })
 						 // 6. 2초후에 0.5초간 slideUp하여 사라짐.
-						 .delay(2000).slideUp(500)
+						 .delay(2000).slideUp(500,
+						 function(){ // 콜백함수
+							// slideUp이 끝난후 style속성을 지워서 초기화!
+							$(this).attr("style","");
+						 })
                 }); //////// click ////////////////
 
                 // 이벤트(click) 대상선정 : .run
