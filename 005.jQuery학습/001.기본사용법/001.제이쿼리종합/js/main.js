@@ -95,7 +95,7 @@ $(() => {
         // 2. 메시지 없애기 : .msg -> msg변수
         msg.fadeOut(300);
 
-        // 3. 이동하기
+        // 3. 위치값 알아내기
         // 위치: li 8번방 -> bd변수에 있는 모든 li 중 8번
         let room = bd.eq(8);
         // 위치값 배열변수
@@ -103,13 +103,22 @@ $(() => {
 
         // top위치값
         pos[0] = room.offset().top;
-        // left위치값
-        pos[1] = room.offset().left;
+        // left위치값 : 방에서 중앙이동(+li가로크기절반-미니언즈가로크기절반)
+        pos[1] = room.offset().left + room.width()/2 - mi.width()/2;
 
         // 제이쿼리 위치값 정보 메서드 : offset() -> 하위속성:top,left
-
+        // 제이쿼리 가로,세로 크기정보 메서드 : width(), height()
 
         console.log(room,pos);
+
+        // 4. 미니언즈 이동하기
+        // 대상: .mi -> mi변수
+        mi.animate({
+            top: pos[0]+"px",
+            left:pos[1]+"px"
+        },800,"easeOutElastic")
+
+
 
     })
 
