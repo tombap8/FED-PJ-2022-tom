@@ -116,7 +116,18 @@ $(() => {
         mi.animate({
             top: pos[0]+"px",
             left:pos[1]+"px"
-        },800,"easeOutElastic")
+        },800,"easeOutElastic",
+        ()=>{ // 콜백함수
+            // 메시지 넣고 나타나기
+            msg.html("와~!아늑하다!<br>옆방으로 가보자!")
+            .fadeIn(300);
+
+            // 다음버튼 보이기
+            $(this).next().delay(500).slideDown(300);
+            // this키워드 -> 화살표함수를 사용하여 싸고있는
+            // 요소인 클릭된 버튼을 가리킴!
+            console.log(this);
+        }); ////// animate /////
 
 
 
