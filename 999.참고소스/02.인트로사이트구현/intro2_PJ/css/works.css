@@ -1,0 +1,133 @@
+@charset "utf-8";
+/* 작품 갤러리*/
+ /*갤러리 타이틀*/
+	   .tit1{
+		   width: 400px;
+		   font: bold 3.2em Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+		   text-align: center;
+		   color: #fff;
+		   margin: 0 auto;
+	   }
+	   #gallery{/*갤러리 부모박스*/
+		    width: 900px;
+		   margin: 0 auto;
+		   margin-top: 50px;
+		   outline: 1px solid lime;
+	   }
+	   #gallery::after{/*float해제*/
+		   content: "";
+		   display: block;
+		   clear: both;
+	   }
+	   .photobox{/*개별 이미지박스*/
+		   position: relative;/*부모자격*/
+		   width: 180px;
+		   height: 250px;
+		   cursor: pointer;
+		   overflow: hidden;
+		   float: left;
+	   }
+	   .photobox img{/*갤러리이미지*/
+		   position: absolute;
+		   top: 0;
+		   left: 0;
+		   width: 100%;
+		   height: 100%;
+	   }
+	   .cover{/*이미지 반투명 덮개*/
+		   position: absolute;
+		   width: 100%;
+		   height: 100%;
+		   background-color: #fff;
+		   /*
+		   	흰색반투명 : transparent 효과
+		   	검은색반투명 : overlay 효과
+		   */
+		   opacity: 0.5;
+	   }
+	   .txtbg{/*글자배경*/
+		   position: absolute;
+		   width: 100%;
+		   height: 40%;
+		   top: 100%;
+		   background-color: #000;
+		   opacity: 0.5;
+	   }
+	   .txt{/*글자박스*/
+		   position: absolute;
+		   width: 100%;
+		   height: 30%;
+		   top: 100%;
+		   color: #fff;
+		   font: 0.625em "맑은 고딕", "굴림";
+		   text-align: center;
+	   }
+	   
+	   /*큰이미지 보기 배경박스*/
+	   #dpbg{/*배경박스 부모*/
+		   position: absolute;
+		   top: 0 ;
+		   left: 0;
+		   width: 100%;
+		   height: 100%;
+		   display: none;
+		   z-index: 999;
+	   }
+	   #dpbg::before{/*배경박스 부모 반투명 배경*/
+		   content: "";
+		   display: block;
+		   position: absolute;
+		   top: 0 ;
+		   left: 0;
+		   width: 100%;
+		   height: 100%;
+		   background-color: #fff;
+		   opacity: 0.7;
+	   }
+	   
+	   /*닫기버튼*/
+	   .cbtn{
+		   position: absolute;
+		   width: 120px;
+		   height: 120px;
+		   top: 50px ;
+		   right: 50px;
+		   text-align: center;
+		   font: 4.5em/109px "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif";
+		   color: #666;
+		   cursor: pointer;
+	   }
+	   /*이동버튼 공통*/
+	   .abtn{
+		   position: absolute;
+		   width: 120px;
+		   height: 70px;
+		   top: 50%;
+		   transform: translateY(-50%);
+		   text-align: center;
+		   font: 4.5em/70px "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif";
+		   color: #666;
+		   cursor: pointer;
+	   }
+		.btnL{/*왼쪽 이동버튼*/
+			left: 50px;
+		}
+	   .btnR{
+		   right: 50px;/*오른쪽 이동버튼*/
+	   }
+	   /*이미지 박스*/
+	   #dpbox{
+		   position: absolute;
+		   height: 70%;
+		   top: 50%;
+		   left: 50%;
+		   transform: translate(-50%,-50%);
+		   display: none;
+		   z-index: 999;
+	   }
+	   #dpbox img{
+		   height: 100%;
+	   }
+	   
+	   
+	   

@@ -1,0 +1,374 @@
+@charset "utf-8";
+/* CSS Document */
+@import 'https://fonts.googleapis.com/css?family=Ubuntu|Jaldi';
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+/**************************공통 디자인****************************/
+html, body{
+	padding:0;
+	margin:0;
+	width:100%;
+	height:100%;
+	
+}
+img{
+	border:none;/*이미지에 링크시 보더없앰*/
+}
+a{
+	display:block;/*a태그는 기본 inline이지만 block요소를 포함하기 위해 block으로 변경함.*/
+	text-decoration:none;
+	width:100%;
+	height:100%;
+	color:#000;
+}
+ul{
+	margin:0;
+	padding:0;
+	list-style:none;	
+}
+
+
+
+
+/**********헤더 네비게이션**************/
+#header{
+	position:fixed;/*무조건 화면 기준*/
+	top:0;
+	width:1024px;
+	height:140px;
+	left:50%;
+	transform:translateX(-50%);
+	z-index:999;/*메뉴이므로 맨위*/
+}
+#menu{
+	position:absolute;
+	top:20px;
+	right:0;
+}
+#menu ul li a{
+	width:100%;
+	height:100%;
+	text-align:right;
+	text-decoration:none;
+	font:15pt/25pt 'Ubuntu', sans-serif;
+	color:#fff;
+}
+#menu ul li ul li a{
+	font:10pt/15pt 'Ubuntu', sans-serif;
+}
+#logo{
+	position:fixed;
+	width:100vw;
+	margin-top:3vh;
+	height:7vh;
+	font:20pt/25pt 'Ubuntu', sans-serif;
+	color:#fff;
+	text-align:center;
+	display:none;
+	vertical-align:central;
+}
+#btnx{
+	position:absolute;
+	width:5vw;
+	height:5vh;
+	bottom:0;
+	right:10vw;
+	font:bold 15pt/25pt 'Ubuntu', sans-serif;
+	color:grey;
+	display:none;
+}
+
+/*********** top 버튼 *****************/
+#gobx{
+	position:fixed;
+	width:1024px;
+	height:50px;
+	bottom:5vh;
+	left:50%;
+	transform:translateX(-50%);
+}
+#gobx>a{
+	position:absolute;
+	width:50px;
+	font:10pt/20pt 'Ubuntu', sans-serif;
+	color:grey;
+	margin:auto;
+	z-index:99999;
+	right:0;
+}
+
+/*******************페이지 디자인*******************/
+.section{
+	background-size:cover;/*배경 비율유지 전체 덮기*/
+	background-attachment: fixed;
+	position:relative;
+	width:100%;
+	height:100%;
+}
+
+/****************section0 메인페이지****************/
+
+/****메인페이지 돌아가는 얼굴*************/
+
+#container div {
+    position:absolute;
+    top: 250px;
+    width: 250px;
+    height: 250px;
+	left:50%;
+	transform:translateX(-50%);
+}
+
+    .front { background: url(../images/front.png); }
+    .top { background: url(../images/up.png); }
+    .bottom { background: url(../images/down.png); }
+    .left { background: url(../images/left.png); }
+    .right { background: url(../images/right.png); }
+    .top-left { background: url(../images/upleft.png); }
+    .top-right { background: url(../images/upright.png); }
+    .bottom-left { background: url(../images/downleft.png); }
+    .bottom-right { background: url(../images/downright.png); }
+
+#section0 article{ /*메인 텍스트 공통 셋팅*/
+	position:absolute;
+	top:550px;
+	left:50%;
+	transform:translateX(-50%);
+	width:220px;
+	height:220px;
+	text-align:center;
+	color:#5b7e92;
+}
+
+.name{
+	position:relative;
+	top:10px;
+	font:20px/30px 'Ubuntu', sans-serif;
+}
+.exp{
+	position:relative;
+	top:10px;
+	font:12px/22px 'Ubuntu', sans-serif;
+}
+
+#section0 article:last-child{
+	display:none;
+}
+/***************************section1. 포폴 갤러리 셋팅*************/
+.Gallery{
+	position:relative;
+	width:100%;
+	height:100%;
+}
+
+.gpic{
+	position:relative;
+	width:23%;
+	height:48%;
+	background-color:#fff;
+	border:5px solid #68c5b4;
+	float:left;
+	overflow:hidden;
+}
+.Gallery::after{
+	content:"";
+	display:block;
+	clear:both;
+}
+
+/****************section1-10 컨텐츠 공통 셋팅****************/
+
+#conBx{
+	position:relative;
+	width:840px;
+	height:500px;
+	vertical-align:central;
+	margin:0 auto;
+}
+.contP{
+	position:absolute;
+	width:85%;
+	height:100%;
+	left:0;	
+	overflow:hidden;
+}
+.contT{
+	position:absolute;
+	width:35%;
+	height:65%;
+	background-color:white;
+	right:0;
+	top:15%;
+	border:10px solid;
+}
+
+.contN{
+	position:relative;
+	width:90%;
+	font:15pt/23pt  'Ubuntu', '나눔고딕', 'Nanum Gothic', sans-serif;
+	top:0;
+	left:5%;
+}
+
+.contE{
+	position:relative;
+	width:90%;
+	font:10pt/15pt 'Jaldi', '나눔고딕', 'Nanum Gothic', sans-serif;
+	top:10px;
+	left:5%;
+}
+/******************section 10 컨텍트**********************/
+#section10 article{ /*메인 텍스트 공통 셋팅*/
+	position:absolute;
+	top:550px;
+	left:50%;
+	transform:translateX(-50%);
+	width:220px;
+	height:220px;
+	text-align:center;
+	color:#5b7e92;
+}
+
+.social{
+	position:absolute;
+	top:170px;
+	width:200px;
+	left:50%;
+	transform:translateX(-50%);
+}
+.social img{
+	float:left;
+	margin:5px;
+}
+
+.social::after{
+	content:"";
+	display:block;
+	clear:both;
+}
+/***********************slide 셋팅***************************/
+.slidebx{
+	position:relative;
+	width:1024px;
+	height:70vh;
+	margin:0 auto;
+	overflow:hidden;
+}
+
+/**************컨텐츠 백그라운드. 보더, 컨텐츠 네임 컬러 셋팅**************/
+
+
+
+
+
+
+@media only screen and (max-width:1080px){
+	/************헤더부분***********/
+	#header{
+		width:100vw;
+		height:10vh;
+		left:0;
+		transform:none;	
+	}
+	#menu{
+		position:fixed;
+		width:100vw;
+		height:auto;
+		top:-60vh; /*원래값top:10vh;*/ 
+	}
+	#menu ul{
+		position:relative;
+		left:10vw !important;
+	}
+	#menu ul li a{
+		width:80vw;
+		text-align:left;
+		text-decoration:none;
+	}
+	#logo{
+		display:block;/*보이게ㄴ*/
+		z-index:999999;
+	}
+	#btnx{
+		display:block;
+	}
+	/*******************TOP 버튼*****************/
+	
+	#gobx{
+		width:100vw;
+		height:3vh;
+		bottom:2vh;
+		z-index:999999;
+	}
+	#gobx>a{
+		width:10vw;
+		z-index:999999999;
+		right:3vw;
+		background-color:grey;
+		color:#fff;
+	}
+	/************메인페이지*******************/
+	#container div {
+    top: 150px;
+	}
+
+	
+	#section0 article{ /*메인 텍스트 공통 셋팅*/
+	top:400px;
+	}
+	
+	/****************section1-10 컨텐츠 공통 셋팅****************/
+	
+	#conBx{
+		height:90vh;
+		margin-top:10vh;
+		width:100vw;
+	}
+	.contP{
+		position:absolute;
+		width:100vw;
+		height:70vh;
+	}
+	.contT{
+		position:absolute;
+		width:94vw;
+		height:30vh;
+		background-color:white;
+		bottom:0;
+		left:0;
+		top:auto;
+		border:3vw solid;
+	}
+	
+	/***************************section1. 포폴 갤러리 셋팅*************/
+		.Gallery{
+			position:relative;
+			width:100vw;
+			height:100%;
+			top:0;
+		}
+		
+		.gpic{
+			width:50%;
+			height:25%;
+			float:left;
+			border:none;
+		}
+	/*******************section10 컨텍트***************************/
+	#section10 article{ /*메인 텍스트 공통 셋팅*/
+	top:400px;
+	}
+	/***********************slide 셋팅***************************/
+	.slidebx{
+		position:relative;
+		width:100vw;
+		height:60vh;
+		top:10vh;
+	}
+	.slidebx img{
+		width:100vw;
+	}
+	
+}
+
+
