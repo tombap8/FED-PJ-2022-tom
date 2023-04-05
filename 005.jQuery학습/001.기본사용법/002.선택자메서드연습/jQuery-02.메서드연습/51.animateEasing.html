@@ -4,19 +4,42 @@
 <meta charset="utf-8">
 <title> easing 처리 </title>
 <!-- jQuery library -->
-<script src="jquery-1.7.2.min.js"></script>
-<!-- script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script -->
-<script src="jquery-ui-1.8.23.custom.min.js"></script>
+<script src="../jquery-3.6.3.min.js"></script>
+<script src="../jquery-ui.min.js"></script>
 	<script>
 	$(function(){/// jQB ///
 		/*
 		이징(easing) 효과란?
+
+		- 애니메이션 시작과 끝에 가속도를 변경해주는 옵션
+		- 이징을 주려면 반드시 제이쿼리 UI를 상단에 라이브러리 아래
+		넣어주어야 한다!
+		- 이징효과는 그 효과명을 정확하게 표기해야 적용된다
+		- CSS이징과는 별도로 개발된 부분임
+		- 이징을 적절히 애니메이션에 적용하면 역동적인 효과를
+		극대화할 수 있다!
+		- 이징을 쉽게 보는 참조사이트: (easing을 검색)
+		https://easings.net/ko
+		- 제이쿼리 UI 공식 이징 API 소개 페이지:
+		https://api.jqueryui.com/easings/
 		
 		*/
 		
 		//기능구현: 버튼을 클릭할때 버튼의 text의 이징명으로 slideUp, slideDown 애니메이션을 지정하시오.
 		
 		//이벤트(click)  대상선정: button
+		$("button").click(function(){
+			// 1. 이징명 가져오기
+			let easing = $(this).text();
+			console.log("이징명:",easing);
+
+			//2. 대상박스 닫았다 열기(이징적용!)
+			$("#box")
+			.slideUp(800,easing)
+			.slideDown(800,easing);
+
+
+		}); ////////// click ///////////
 	
 		
 		
@@ -55,7 +78,14 @@
 <button>easeInOutExpo</button>
 <button>easeInOutSine</button>
 <button>easeOutCubic</button>
-<button>easeOutCirc</button>
+<button>easeOutCirc</button><br>
+
+<button>easeOutQuad</button>
+<button>easeInOutSine</button>
+<button>easeOutCubic</button>
+<button>easeOutCirc</button><br>
+
+
 <!---------- jQuery code Start ---------->
 <script>
 

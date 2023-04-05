@@ -1,0 +1,194 @@
+@charset "utf-8";
+/* 제이쿼리 기본 CSS - main.css */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background: url(../images/bg2.jpg) no-repeat center/cover;
+}
+
+/* 타이틀 */
+.tit {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 50%;
+    white-space: nowrap;
+    padding: 5px 30px;
+    margin: 0;
+    font-size: 5vh;
+    color: rgb(251, 255, 0);
+    text-align: center;
+    border: 5px solid red;
+    border-radius: 50px;
+    background-color: pink;
+    box-shadow: 3px 3px 3px #000;
+    text-shadow: 2px 2px 2px #000;
+
+    z-index: 999999;
+
+    /* 트랜지션: 속시이지 
+    -> 트랜스폼,top,left만 적용! */
+    transition: 
+    top 3s ease-in,
+    left 3s ease-in,
+    transform 3s ease-in;
+}
+/* .tit에 .on을 주면 값 변경하기 */
+.tit.on{
+    top: 50%;
+    transform: translateX(-50%) rotate(45deg);
+}
+/* 두번째 변경 */
+.tit.on2{
+    top: 95%;
+    transform: translateX(-50%) rotate(6deg);
+}
+
+.building {
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    display: flex;
+    flex-wrap: wrap;
+    width: 40%;
+    height: 90%;
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background: url(../images/bg.jpg) no-repeat 0/100% 100%;
+}
+/* 빌딩무너지기 클래스 */
+.building.on{
+    animation: shake 0.01s linear infinite alternate,
+            breakDown 3s ease-in 5s forwards;
+}
+/* 빌딩무너지기 키프레임 */
+@keyframes breakDown {
+    to{
+        top: 110%;
+        transform: rotate(-20deg);
+    }
+} /* 키프레임 */
+/* 빌딩흔들리기 키프레임 */
+@keyframes shake {
+    to{
+        left: 30.3%;
+    }
+} /* 키프레임 */
+
+
+.building li {
+    position: relative;
+    width: 50%;
+    height: 20%;
+    box-sizing: border-box;
+    border: 5px solid #cc2900;
+    text-align: center;
+    line-height: 16vh;
+    font-size: 7vh;
+    color: #ff0;
+    text-shadow: 2px 2px 2px #000;
+}
+
+/* 미니언즈 주인공! */
+.mi {
+    position: absolute;
+    top: 75%;
+    left: 5%;
+    height: 20%;
+    z-index: 999;
+}
+
+.mi img {
+    height: 100%;
+    animation: runMi .3s linear infinite alternate;
+}
+
+.msg {
+    position: absolute;
+    top: 0;
+    left: 90%;
+    min-width: 120px;
+    padding: 5px;
+    border: 2px solid #00f;
+    background-color: #fff;
+    font-size: 15px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 20px;
+    white-space: nowrap;
+    /* 줄바꿈방지 */
+}
+
+@keyframes runMi {
+    from {
+        transform: rotate(-10deg);
+    }
+
+    to {
+        transform: rotate(10deg);
+    }
+}
+
+.mz {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    animation: runMi .1s infinite alternate;
+}
+
+.inj{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+}
+
+
+.btns {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10%;
+    text-align: center;
+    padding: 20px;
+}
+
+.btns>button {
+    padding: 20px;
+    background-color: rgb(255, 182, 239);
+    font-size: 3vh;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.btns>button:hover {
+    animation: ovBtn .3s ease-in-out infinite alternate;
+}
+
+@keyframes ovBtn {
+    to {
+        transform: scale(1.2);
+    }
+}
+
+/* 키프레임 */
+
+.heli{
+    position: absolute;
+    top: 0;
+    left: -50%;
+    z-index: 9999999;
+    width: 30%;
+
+}
