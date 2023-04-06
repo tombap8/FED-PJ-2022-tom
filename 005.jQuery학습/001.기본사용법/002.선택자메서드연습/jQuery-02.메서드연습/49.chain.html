@@ -5,32 +5,39 @@
 <title> Chain </title>
 
 <!-- jQuery library -->
-<script src="jquery-1.7.2.min.js"></script>
+<script src="../jquery-3.6.3.min.js"></script>
 <script>
 	$(function(){/// jQB ////////////////
 		/*
 		메서드 체인 이란?
 		- 선택자 뒤에 jQuery 메서드를 이어서 사용하는 방법
 		*/
-		//$("#box")
+		$("#box")
 		//2초후
+		.delay(2000)
 		// 1초동안 top값을 200px만큼 애니
-		
+		.animate({
+			top:"200px"
+		},1000)
 		// 1초동안 left값을 200px만큼 애니
-		
+		.animate({
+			left:"200px"
+		},1000)
 		// 1초동안 서서히 사라짐
-		
+		.fadeOut(1000,function(){
 			/// 글자바꾸기
-			
+			$(this).find("p")
+			.text("오늘밤 주인공은 나야나!!!")
 			// 글자의 css변경
-		
-			// 사라진 박스가 다시 fadeIn하기
-		//부모로 올라감!!!!(div박스)
-		// 다시 div박스 나타남!
+			.css({
+				fontSize:"30px",
+				color:"red",
+				whiteSpace:"nowrap" //줄바꿈방지
+			})
+		}) ////// fadeOut //////
+		// 사라진 박스가 다시 fadeIn하기
+		.fadeIn(1000);
 			
-			
-			
-		});/// fadeOut //////////
 		
 		
 		
@@ -46,7 +53,7 @@
 <style>
  div{
 	 position: absolute; 
-	 overflow:hidden; 
+	 /* overflow:hidden;  */
 	 width:300px;
 }
 </style>
