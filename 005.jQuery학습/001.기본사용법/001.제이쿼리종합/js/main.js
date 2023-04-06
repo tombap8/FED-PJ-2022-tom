@@ -201,8 +201,17 @@ $(() => {
         .click(function () {
             let fn = () => {
                 // 콜백함수
-                // 다음버튼 보이기
-                $(this).next().delay(500).slideDown(300);
+
+                // 첫번째 메시지
+                msg.html(`여긴없겠지?`)
+                .fadeIn(200)
+                .delay(1000) // 1초지연(애니앞에만 적용됨)
+                .fadeIn(200,()=>{
+                    // 두번째 메시지
+                    msg.html(`그래도 무서우니<br>윗층으로 가자!`);
+                    // 다음버튼 보이기
+                    $(this).next().delay(500).slideDown(300);
+                }); ///// fadeIn /////
             }; ///////////// fn함수 /////////
 
             // 공통함수 호출! : 6번방으로!
@@ -213,6 +222,29 @@ $(() => {
         .click(function () {
             let fn = () => {
                 // 콜백함수
+
+                // 무.서.워...  메시지
+                msg.html(`무`)
+                .fadeIn(200)
+                .delay(500)
+                .fadeIn(200,()=>msg.html(`무.`))
+                .delay(500)
+                .fadeIn(200,()=>msg.html(`무.서`))
+                .delay(500)
+                .fadeIn(200,()=>msg.html(`무.서.`))
+                .delay(500)
+                .fadeIn(200,()=>msg.html(`무.서.워`))
+                .delay(500)
+                .fadeIn(200,()=>msg.html(`무.서.워.`))
+                .delay(500)
+                .fadeIn(200,()=>msg.html(`무.서.워..`))
+                .delay(500)
+                .fadeIn(200,()=>msg.html(`무.서.워...`))
+                .delay(500)
+                .fadeIn(200,()=>{
+                    // 7번방 좀비가 올라와서
+                    // 달겨든다!
+                })
                 // 다음버튼 보이기
                 $(this).next().delay(500).slideDown(300);
             }; ///////////// fn함수 /////////
