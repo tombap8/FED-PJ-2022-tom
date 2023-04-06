@@ -283,8 +283,32 @@ $(() => {
         .click(function () {
             let fn = () => {
                 // 콜백함수
-                // 다음버튼 보이기
-                $(this).next().delay(500).slideDown(300);
+                
+                // 주사기돌기(animate는 트랜스폼 적용안됨!)
+                $(".inj").css({
+                    transform:"rotate(-150deg)",//반시계방향회전
+                    transition:".5s .5s", // 0.5초후 0.5초간 애니
+                    zIndex:"9999", // 미니언즈 보다 위
+                }); //////// css //////
+
+                // 미니언즈 다시 태어나다!(1초후)
+                setTimeout(() => {
+                    // 이미지변경
+                    mi.find("img")
+                    .attr("src","image/m2.png")
+                    .css({filter:"grayscale(0)"}); // 다시컬러!
+
+                    // 대사
+                    msg.html(`이제 조금만 더<br>가면 탈출이닷!`)
+                    .fadeIn(200);
+
+                    // 주사기 없애기
+                    $(".inj").hide();
+                    
+                    // 다음버튼 보이기
+                    $(this).next().delay(500).slideDown(300);
+                }, 1000);
+
             }; ///////////// fn함수 /////////
 
             // 공통함수 호출! : 2번방으로!
