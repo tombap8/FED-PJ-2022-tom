@@ -16,11 +16,11 @@ class AutoScroll {
         this.pgcnt = this.pg.length;
         // console.log("페이지개수:", pgcnt, pg);
         // 광실행금지변수
-        this.prot = [];
+        this.prot = [0,0];
         // 광스크롤금지
-        this.prot[0] = 0;
+        // this.prot[0] = 0;
         // 광클 초기값
-        this.prot[1] = 0;
+        // this.prot[1] = 0;
         // GNB 메뉴 li
         this.gnb = $(".gnb li");
         // indic 메뉴 li
@@ -67,7 +67,7 @@ class AutoScroll {
         ****************************************/
         wheelFn () {
             // 광휠금지
-            if (this.prot[0])
+            if (prot[0]===1)
                 return;
             this.chkCrazy(0);
 
@@ -129,8 +129,8 @@ class AutoScroll {
         ********************************************/
         chkCrazy (seq) {
             // seq 관리변수 순번
-            prot[seq] = 1;
-            setTimeout(() => (prot[seq] = 0), this.sc_speed);
+            this.prot[seq] = 1;
+            setTimeout(() => (this.prot[seq] = 0), this.sc_speed);
         } //////// chkCrazy메서드 //////////////
 
 
