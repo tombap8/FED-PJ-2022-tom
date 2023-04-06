@@ -295,7 +295,7 @@ $(() => {
                 setTimeout(() => {
                     // 이미지변경
                     mi.find("img")
-                    .attr("src","image/m2.png")
+                    .attr("src","images/m2.png")
                     .css({filter:"grayscale(0)"}); // 다시컬러!
 
                     // 대사
