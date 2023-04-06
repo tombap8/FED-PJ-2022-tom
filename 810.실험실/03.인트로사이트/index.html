@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>One Page Scroll</title>
+        <link rel="stylesheet" href="./css/main.css">
+        <!-- 제이쿼리 라이브러리+UI -->
+        <script src="./js/jquery-3.6.0.min.js"></script>
+        <script src="./js/jquery-ui.min.js"></script>
+        <!-- 제이쿼리를 사용한 자동스크롤 JS -->
+        <script src="./js/main.js" type="module"></script>
+        <!-- 
+            type="module"로 호출시 defer 가 자동으로 설정되어
+            로딩구역이 따로 필요없음!
+         -->
+    </head>
+    <body>
+        <!-- 1. 상단영역 -->
+        <div id="top">
+            <header class="top ibx">
+                <!-- 1-1.로고 -->
+                <h1 id="logo">
+                    <a href="#">
+                        <img src="images/logo.png" alt="나의 로고" />
+                    </a>
+                </h1>
+                <!-- 1-2.GNB메뉴 -->
+                <nav class="gnb">
+                    <ul>
+                        <li class="on">
+                            <a href="#pg1">Home</a>
+                        </li>
+                        <li>
+                            <a href="#pg2">About</a>
+                        </li>
+                        <li>
+                            <a href="#pg3">Skill</a>
+                        </li>
+                        <li>
+                            <a href="#pg4">Portfolio</a>
+                        </li>
+                        <li>
+                            <a href="#pg5">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+
+        <!-- 2. 페이지영역 -->
+        <div class="pgwrap">
+            <section id="pg1" class="page">
+                
+            </section>
+            <section id="pg2" class="page">
+                
+            </section>
+            <section id="pg3" class="page">
+                
+            </section>
+            <section id="pg4" class="page">
+                
+            </section>
+            <section id="pg5" class="page">
+                
+            </section>
+        </div>
+
+        <!-- 3. 인디케이터(위치표시자) -->
+        <nav class="indic">
+            <ul>
+                <li class="on">
+                    <a href="#pg1"><span>Home</span></a>
+                </li>
+                <li>
+                    <a href="#pg2"><span>About</span></a>
+                </li>
+                <li>
+                    <a href="#pg3"><span>Skill</span></a>
+                </li>
+                <li>
+                    <a href="#pg4"><span>Portfolio</span></a>
+                </li>
+                <li>
+                    <a href="#pg5"><span>Contact</span></a>
+                </li>
+            </ul>
+        </nav>
+    </body>
+</html>
