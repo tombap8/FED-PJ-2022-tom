@@ -74,7 +74,6 @@ $(() => {
                 break;
         } ////// switch case //////
     }); /////////// each ///////////
-
     // 좀비는 모두 숨기기
     $(".mz").hide();
     // 시간없는 hide()는 display:none처리함!
@@ -88,7 +87,7 @@ $(() => {
     // (1) ele - 클릭된 버튼요소
     // (2) seq - 이동할 li방순번
     // (3) fn - 이동후 실행할 코드(콜백함수)
-    const actMini = (ele,seq,fn) => {
+    const actMini = (ele, seq, fn) => {
         // 1. 클릭된 버튼 사라지기
         $(ele).slideUp(300);
 
@@ -104,76 +103,153 @@ $(() => {
         // top위치값
         pos[0] = room.offset().top;
         // left위치값 : 방에서 중앙이동(+li가로크기절반-미니언즈가로크기절반)
-        pos[1] = room.offset().left + room.width()/2 - mi.width()/2;
+        pos[1] = room.offset().left + room.width() / 2 - mi.width() / 2;
 
         // 제이쿼리 위치값 정보 메서드 : offset() -> 하위속성:top,left
         // 제이쿼리 가로,세로 크기정보 메서드 : width(), height()
 
-        console.log(room,pos);
+        console.log(room, pos);
 
         // 4. 미니언즈 이동하기
         // 대상: .mi -> mi변수
-        mi.animate({
-            top: pos[0]+"px",
-            left:pos[1]+"px"
-        },800,"easeOutElastic",
-        fn // -> 전달된 콜백함수
+        mi.animate(
+            {
+                top: pos[0] + "px",
+                left: pos[1] + "px",
+            },
+            800,
+            "easeOutElastic",
+            fn // -> 전달된 콜백함수
         ); ////// animate /////
-
     }; ////////// actMini함수 //////////
 
     // 4. "들어가기" 버튼 클릭시
     btns.first()
-    .click(function(){
-        // 이동후 콜백함수 //////
-        let fn = () => { // 콜백함수
-            // 메시지 넣고 나타나기
-            msg.html("와~!아늑하다!<br>옆방으로 가보자!")
-            .fadeIn(300);
-
-            // 다음버튼 보이기
-            $(this).next().delay(500).slideDown(300);
-            // this키워드 -> 화살표함수를 사용하여 싸고있는
-            // 요소인 클릭된 버튼을 가리킴!
-            console.log(this);
-        }; ///////////// fn함수 /////////
-
-        // 공통함수 호출! : this는 클릭된 버튼
-        actMini(this,8,fn);
-
-    }) ///// "들어가기" 버튼끝 ////
-    /// 5. "옆방으로" 버튼 클릭시 ///
-    .next()
-    .click(function(){
-        let fn = () => {// 콜백함수
-
-            // 좀비 나타나기(2초후)
-            bd.eq(9).find(".mz")
-            .delay(2000)
-            .fadeIn(400,()=>{ // 콜백함수
-
+        .click(function () {
+            // 이동후 콜백함수 //////
+            let fn = () => {
+                // 콜백함수
                 // 메시지 넣고 나타나기
-                msg.html("악!;;;좀비!<br>어서피하자!")
-                .css({left:"-144%"})
-                .fadeIn(300);
-    
+                msg.html("와~!아늑하다!<br>옆방으로 가보자!").fadeIn(300);
+
                 // 다음버튼 보이기
                 $(this).next().delay(500).slideDown(300);
                 // this키워드 -> 화살표함수를 사용하여 싸고있는
                 // 요소인 클릭된 버튼을 가리킴!
+                console.log(this);
+            }; ///////////// fn함수 /////////
 
-            }); ///// fadeIn ////////////
+            // 공통함수 호출! : this는 클릭된 버튼
+            actMini(this, 8, fn);
+        }) ///// "들어가기" 버튼끝 ////
+        /// 5. "옆방으로" 버튼 클릭시 ///
+        .next()
+        .click(function () {
+            let fn = () => {
+                // 콜백함수
 
+                // 좀비 나타나기(2초후)
+                bd.eq(9)
+                    .find(".mz")
+                    .delay(2000)
+                    .fadeIn(400, () => {
+                        // 콜백함수
 
+                        // 메시지 넣고 나타나기
+                        msg.html("악!;;;좀비!<br>어서피하자!").css({ left: "-144%" }).fadeIn(300);
 
+                        // 다음버튼 보이기
+                        $(this).next().delay(500).slideDown(300);
+                        // this키워드 -> 화살표함수를 사용하여 싸고있는
+                        // 요소인 클릭된 버튼을 가리킴!
+                    }); ///// fadeIn ////////////
+            }; ///////////// fn함수 /////////
 
-        }; ///////////// fn함수 /////////
+            // 공통함수 호출! : this는 클릭된 버튼
+            actMini(this, 9, fn);
+        }) ///// "옆방으로" 버튼끝 ///////
+        /// 6. "윗층으로 도망가!" 버튼 클릭시 ///
+        .next()
+        .click(function () {
+            let fn = () => {
+                // 콜백함수
+                // 다음버튼 보이기
+                $(this).next().delay(500).slideDown(300);
+            }; ///////////// fn함수 /////////
 
+            // 공통함수 호출! : 7번방으로!
+            actMini(this, 7, fn);
+        }) ///// "윗층으로 도망가!" 버튼끝 ///////
+        /// 7. "다시옆방으로!" 버튼 클릭시 ///
+        .next()
+        .click(function () {
+            let fn = () => {
+                // 콜백함수
+                // 다음버튼 보이기
+                $(this).next().delay(500).slideDown(300);
+            }; ///////////// fn함수 /////////
 
-        // 공통함수 호출! : this는 클릭된 버튼
-        actMini(this,9,fn);
+            // 공통함수 호출! : 6번방으로!
+            actMini(this, 6, fn);
+        }) ///// "다시옆방으로!" 버튼끝 ///////
+        /// 8. "무서우니 윗층으로!" 버튼 클릭시 ///
+        .next()
+        .click(function () {
+            let fn = () => {
+                // 콜백함수
+                // 다음버튼 보이기
+                $(this).next().delay(500).slideDown(300);
+            }; ///////////// fn함수 /////////
 
-    }) ///// "옆방으로" 버튼끝 ///////
+            // 공통함수 호출! : 4번방으로!
+            actMini(this, 4, fn);
+        }) ///// "무서우니 윗층으로!" 버튼끝 ///////
+        /// 9. "치료주사방으로!" 버튼 클릭시 ///
+        .next()
+        .click(function () {
+            let fn = () => {
+                // 콜백함수
+                // 다음버튼 보이기
+                $(this).next().delay(500).slideDown(300);
+            }; ///////////// fn함수 /////////
 
+            // 공통함수 호출! : 2번방으로!
+            actMini(this, 2, fn);
+        }) ///// "치료주사방으로!" 버튼끝 ///////
+        /// 10. "3번방으로!" 버튼 클릭시 ///
+        .next()
+        .click(function () {
+            let fn = () => {
+                // 콜백함수
+                // 다음버튼 보이기
+                $(this).next().delay(500).slideDown(300);
+            }; ///////////// fn함수 /////////
 
+            // 공통함수 호출! : 3번방으로!
+            actMini(this, 3, fn);
+        }) ///// "3번방으로!" 버튼끝 ///////
+        /// 11. "1번방으로!" 버튼 클릭시 ///
+        .next()
+        .click(function () {
+            let fn = () => {
+                // 콜백함수
+                // 다음버튼 보이기
+                $(this).next().delay(500).slideDown(300);
+            }; ///////////// fn함수 /////////
+
+            // 공통함수 호출! : 1번방으로!
+            actMini(this, 1, fn);
+        }) ///// "1번방으로!" 버튼끝 ///////
+        /// 12. "헬기를 호출!" 버튼 클릭시 ///
+        .next()
+        .click(function () {
+            let fn = () => {
+                // 콜백함수
+                // 다음버튼 보이기
+                $(this).next().delay(500).slideDown(300);
+            }; ///////////// fn함수 /////////
+
+            // 공통함수 호출! : 0번방으로!
+            actMini(this, 0, fn);
+        }) ///// "헬기를 호출!" 버튼끝 ///////
 }); /////////////// jQB ////////////////////
