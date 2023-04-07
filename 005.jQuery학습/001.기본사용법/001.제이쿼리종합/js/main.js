@@ -418,13 +418,13 @@ $(() => {
                     setTimeout(() => {
                         // 건물을 다시 기울기 원복!
                         bd.parent()
-                        .css({transform:"rotate(0deg) !important"});
+                        .attr("style","transform:rotate(0deg) !important");
                         // 애니메이션 각도보다 우선순위 강제로 올림!
 
                         // 9번방 좀비 선택
                         bd.eq(9).find(".mz")
                         .animate({
-                            bottom:"586%" // 지표로 올라오기
+                            bottom:"594%" // 지표로 올라오기
                         },5000)
                         .delay(3000) // 기다리기
                         .animate({
