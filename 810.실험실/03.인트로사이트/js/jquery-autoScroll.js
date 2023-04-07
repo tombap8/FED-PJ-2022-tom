@@ -50,6 +50,14 @@ const indic = $(".indic li");
 // 각 페이지별 등장요소
 const minfo = $(".minfo");
 
+// 인스턴스 생성시 접근하여 
+// 변경가능한 속성 2가지 선정함!
+
+// (1) 이동시간
+this.sc_speed = 700;
+// (2) 이징값
+this.easing = "easeInOutQuint";
+
 
 
 /**************************************** 
@@ -98,9 +106,11 @@ this.chgMenu = () => {
     this.chkCrazy(1);
 
     // 1. 클릭된 a요소의 부모 li 순번을 구함 === pno
-    let idx = $(this).parent().index();
+    let idx = $(event.currentTarget).parent().index();
+    // this키워드는 생성자함수의 객체를 가리킴
+    // 따라서 이벤트 발생자신은 event.currentTarget!
 
-    console.log("나,클릭?", this, idx);
+    console.log("나,클릭?", this,event.currentTarget, idx);
 
     // 2. 전역페이지번호에 순번 업데이트
     pno = idx;
@@ -116,7 +126,8 @@ this.chgMenu = () => {
 this.chkCrazy = (seq) => {
     // seq 관리변수 순번
     prot[seq] = 1;
-    setTimeout(() => (prot[seq] = 0), 800);
+    setTimeout(() => (prot[seq] = 0), this.sc_speed);
+    // 생성시 셋팅가능한 이동시간(이동시간동안 막기)
 } //////// chkCrazy함수 //////////////
 
 /******************************************** 
@@ -129,8 +140,8 @@ this.movePg = () => {
         {
             scrollTop: $(window).height() * pno + "px",
         },
-        700,
-        "easeInOutQuint",
+        this.sc_speed, // 생성시 셋팅가능한 이동시간
+        this.easing, // 생성시 셋팅가능한 이징값
         // showEle // 이동후 콜백함수호출!
     );
 
