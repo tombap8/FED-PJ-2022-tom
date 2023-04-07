@@ -26,15 +26,29 @@ $(()=>{
    // .on("blur",function(){
    .blur(function(){
 
+    // 0. 공백제거처리함수
+    // get rid of space -> 공백을 제거하라!
+    const groSpace = cv => cv.replace(/\s/g,"");
+    // 원형 : (cv) => {return cv.replace(/\s/g,"")}
+    // 정규식 : 슬래쉬(/) 사이에 표현, \s 스페이스문자
+    // 정규식 참고 -> https://www.w3schools.com/jsref/jsref_obj_regexp.asp
+    // 해석: 공백문자를 모두(g:global-전역) 찾아서 없애시오!
+    // (빈공백으로변경!)
+
+
     // 1. 방금 블러가 발생한 요소의 id는?
     let cid = $(this).attr("id");
     // cid는 current id 즉, 현재 아이디라는 뜻!
 
     // 2. 블러가 발생한 요소의 입력값은?
-    let cv = $(this).val().trim();
+    let cv = cid==="mnm" ? 
+    $(this).val().trim() : groSpace($(this).val());
+    // 삼항연산자 (cid가 mnm이냐? 응 : 아니)
+    // let cv = $(this).val().trim();
     // cv는 current value 즉, 현재값의 뜻
     // val() 메서드 - input요소의 값(value)를 읽기/쓰기용
     // trim() 메서드 - 앞뒤공백제거(공백만 있으면 공백제거)
+    // groSpace() 는 전체공백제거함수(내가만든것!)
 
     // 서비스 차원으로 공백제거된 데이터를 다시 입력창에 넣어줌!
     $(this).val(cv); // val(값)
