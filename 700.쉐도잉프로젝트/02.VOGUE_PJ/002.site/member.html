@@ -4,28 +4,27 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content="컬렉션부터 스타일, 쇼핑, 뷰티, 라이프스타일, 셀러브리티까지 지금 가장 핫한 트렌드 소개" />
-        <title>2023 보그 코리아 (Vogue Korea)</title>
+        <title>Member | 2023 보그 코리아 (Vogue Korea)</title>
         <!-- 파비콘 넣기 -->
         <link rel="shortcut icon" href="./images/icon.jpg" type="image/x-icon" />
         <!-- 아이콘CDN -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fontisto@v3.0.4/css/fontisto/fontisto.min.css" />
         <!-- 외부CSS넣기 -->
-        <link rel="stylesheet" href="./css/main.css" />
+        <link rel="stylesheet" href="./css/member.css" />
 
         <!-- 제이쿼리 라이브러리+UI -->
         <script src="./js/jquery-3.6.1.min.js"></script>
         <script src="./js/jquery-ui.min.js"></script>
 
-
         <!-- 부드러운 스크롤 JS -->
         <script src="./js/smoothScroll20.js"></script>
         <!-- 공통 JS -->
         <script src="./js/common.js"></script>
-        
+
         <!-- 링크시스템 JS -->
         <script src="./js/linksys.js"></script>
         <!-- 외부JS넣기 -->
-        <script src="./js/main.js"></script>
+        <script src="./js/member.js"></script>
     </head>
     <body>
         <!-- 1.상단영역 -->
@@ -122,64 +121,79 @@
         <!-- 2.메인영역 -->
         <div id="cont" class="bgc">
             <main class="ibx cont">
-                <section class="pt1">
-                    <div class="cbx bgi bg1">
-                        <h2>복싱과 맺은 모델 수주의 이야기</h2>
-                    </div>
-                </section>
-                <section class="pt2 scAct">
-                    <div class="cbx bgi bg2">
-                        <h2>안현모,홍지민,강주은 써마지 더 리얼 인터뷰</h2>
-                    </div>
-                    <div class="cbx bgi bg3">
-                        <h2>손 번쩍! 잘 때 ‘만세 자세’가 해로운 이유</h2>
-                    </div>
-                    <div class="cbx bgi bg4">
-                        <h2>아미(Ami)와 장폴구드(Jean-Paul Goude)의 컬래버레이션</h2>
-                    </div>
-                </section>
-                <section class="pt1 scAct">
-                    <div class="cbx bgi bg5">
-                        <h2>&lt;퀸스 갬빗&gt; 이후 엄청난 신작을 준비 중인 안야 테일러 조이</h2>
-                    </div>
-                </section>
-                <section class="pt2 scAct">
-                    <div class="cbx bgi bg6">
-                        <h2>마리아 그라치아 치우리의 디올 크루즈 2022 컬렉션 쇼</h2>
-                    </div>
-                    <div class="cbx bgi bg7">
-                        <h2>약, 그렇게 버리면 되돌아옵니다</h2>
-                    </div>
-                    <div class="cbx bgi bg8">
-                        <h2>셀럽들이 하는 여름 주얼리</h2>
-                    </div>
-                </section>
-                <section class="pt1 scAct">
-                    <div class="cbx bgi bg9">
-                        <h2>김여진이 감행하는 변화에 대하여</h2>
-                    </div>
-                </section>
-                <section class="pt2 scAct">
-                    <div class="cbx bgi bg10">
-                        <h2>모델 아이린이 선택한 여름 원피스 Best</h2>
-                    </div>
-                    <div class="cbx bgi bg11">
-                        <h2>김여진이 감행하는 변화에 대하여</h2>
-                    </div>
-                    <div class="cbx bgi bg12">
-                        <h2>샛노란 ‘자무 주스’가 뜬다!</h2>
-                    </div>
-                </section>
-                <section class="pt2 scAct">
-                    <div class="cbx bgi bg13">
-                        <h2>체커보드의 색다른 매력</h2>
-                    </div>
-                    <div class="cbx bgi bg14">
-                        <h2>‘손꾸’의 끝, 핑거 타투와 네일의 조합</h2>
-                    </div>
-                    <div class="cbx bgi bg15">
-                        <h2>지속 가능한 변화를 이끄는 백 브랜드 6</h2>
-                    </div>
+                <!-- 2-1. 카테고리 페이지 탑영역 -->
+                <header class="ctop">
+                    <!-- 2-1-1. 서브타이틀 -->
+                    <h2 class="stit">Member</h2>
+                </header>
+                <!-- 2-2. 갤러리 페이지 컨텐츠 박스 -->
+                <section class="scont">
+                    <form action="process.php" method="post" class="logF">
+                        <ul>
+                            <!-- 아이디 -->
+                            <li>
+                                <label for="mid" class="itit">아이디</label>
+                                <input type="text" name="mid" id="mid" maxlength="20" placeholder="영문자로 시작하는 6~20글자 영문자/숫자" />
+                                <span class="msg"></span>
+                            </li>
+                            <!-- 비밀번호 -->
+                            <li>
+                                <label for="mpw" class="itit">비밀번호</label>
+                                <input type="password" name="mpw" id="mpw" maxlength="20" placeholder="특수문자,문자,숫자포함 형태의 5~15자리" />
+                                <span class="msg"></span>
+                            </li>
+                            <!-- 비밀번호확인 -->
+                            <li>
+                                <label for="mpw2" class="itit">비밀번호확인</label>
+                                <input type="password" name="mpw2" id="mpw2" maxlength="20" placeholder="비밀번호확인을 입력해 주세요!" />
+                                <span class="msg"></span>
+                            </li>
+                            <!-- 이름 -->
+                            <li>
+                                <label for="mnm" class="itit">이름</label>
+                                <input type="text" name="mnm" id="mnm" maxlength="20" placeholder="이름을 입력해 주세요!" />
+                                <span class="msg"></span>
+                            </li>
+                            <!-- 성별 -->
+                            <li>
+                                <span class="itit">성별</span>
+                                <label for="gen1">남성</label>
+                                <input type="radio" name="gen" id="gen1" />
+                                <label for="gen2">여성</label>
+                                <input type="radio" name="gen" id="gen2" checked />
+                                <!-- 라디오버튼의 name 속성을
+                            같은 이름으로 쓰면 그룹핑되어
+                            하나만 선택된다! 
+
+                            checked 속성 - 기본체크설정 -->
+                            </li>
+                            <!-- 이메일 -->
+                            <li>
+                                <label for="email1" class="itit">이메일</label>
+                                <input type="text" id="email1" name="email1" placeholder="이메일앞주소" />
+                                <span class="gol">@</span>
+                                <select name="seleml" id="seleml">
+                                    <option value="init">선택해주세요</option>
+                                    <option value="naver.com">naver.com</option>
+                                    <option value="daum.net">daum.net</option>
+                                    <option value="hotmail.com">hotmail.com</option>
+                                    <option value="hanmail.net">hanmail.net</option>
+                                    <option value="gmail.com">gmail.com</option>
+                                    <option value="free">직접입력</option>
+                                </select>
+                                <span class="msg"></span>
+                            </li>
+                            <!-- 이메일 뒷주소 직접입력 -->
+                            <li>
+                                <label for="email2"></label>
+                                <input type="text" name="email2" id="email2" placeholder="이메일뒷주소" />
+                            </li>
+                            <!-- 서브밋버튼 -->
+                            <li>
+                                <input type="submit" value="가입하기" id="btnj" />
+                            </li>
+                        </ul>
+                    </form>
                 </section>
             </main>
         </div>
@@ -188,14 +202,10 @@
             <footer class="ibx info">
                 <!-- 3-1.하단로고 -->
                 <div class="blogo">
-                    <img src="./images/footer_logo.png" alt="하단로고">
+                    <img src="./images/footer_logo.png" alt="하단로고" />
                 </div>
                 <!-- 3-2.회사주소 -->
-                <address class="addr">
-                    WWW.VOGUE.COM Ⓒ CONDÉNAST ASIA PACIFIC. INC. 
-                    ALL RIGHTS RESERVED. VOGUE.COM KOREA IS OPERATED 
-                    BY DOOSAN MAGAZINE.
-                </address>
+                <address class="addr">WWW.VOGUE.COM Ⓒ CONDÉNAST ASIA PACIFIC. INC. ALL RIGHTS RESERVED. VOGUE.COM KOREA IS OPERATED BY DOOSAN MAGAZINE.</address>
                 <!-- 3-3.하단링크 -->
                 <ul class="blink">
                     <li>
@@ -213,8 +223,6 @@
                 </ul>
             </footer>
         </div>
-
-
 
         <!-- 위로가기버튼 -->
         <a href="#" class="tbtn fi fi-angle-up">
