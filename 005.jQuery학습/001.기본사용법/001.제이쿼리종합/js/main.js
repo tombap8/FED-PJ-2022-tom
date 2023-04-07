@@ -395,15 +395,44 @@ $(() => {
                 },10000,"linear",
                 ()=>{ // 헬기나간후
                     // 간판떨어뜨리기
+                    // 1단계 : 중간까지 떨어짐
+                    // -> 간판에 class "on"주기
+                    let tit = $(".tit");
+                    tit.addClass("on");
+                    // 2단계 : 맨 아래까지 떨어짐
+                    // -> 3초후 간판에 class "on2"추가
+                    setTimeout(() => {
+                        tit.addClass("on2");
+                    }, 3000);
 
                     // 건물 무너뜨리기
+                    // 간판 떨어진 후 실행(6초후)
+                    setTimeout(() => {
+                        bd.parent().addClass("on");
+                        // parent() -> 부모요소인 .building
+                    }, 6000);
 
-                })
-
-                
+                }); ///////// animate //////
             }; ///////////// fn함수 /////////
 
             // 공통함수 호출! : 0번방으로!
             actMini(this, 0, fn);
-        }) ///// "헬기를 호출!" 버튼끝 ///////
+        }); ///// "헬기를 호출!" 버튼끝 - 모든버튼마무리 ///////
+
+        // 간판에 마우스 오버시/아웃시 색상변경하기
+        // hover(함수1,함수2)
+        $(".tit").hover(
+            function(){ // over
+                $(this).css({
+                    backgroundColor:"blue",
+                    color:"cyan"
+                }); ///// css /////
+            },
+            function(){ // out
+                $(this).css({
+                    backgroundColor:"pink",
+                    color:"yellow"
+                }); ///// css /////
+            }); /////////// hover ///////////
+
 }); /////////////// jQB ////////////////////
