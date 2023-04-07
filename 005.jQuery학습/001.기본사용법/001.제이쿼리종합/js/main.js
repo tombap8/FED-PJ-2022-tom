@@ -80,8 +80,8 @@ $(() => {
 
     // 2. 버튼셋팅하기 ////////////////
     // 대상: .btns buttons -> btns변수
-    // btns.hide().first().show();
-    btns.hide().eq(5).show();
+    btns.hide().first().show();
+    // btns.hide().eq(5).show();
 
     // 3. 공통함수 : actMini() /////////
     // 전달변수 3개
@@ -411,6 +411,27 @@ $(() => {
                         bd.parent().addClass("on");
                         // parent() -> 부모요소인 .building
                     }, 6000);
+
+
+                    // 추가구현 : 
+                    // 건물 무너진후 좀비 하나 올라와 오른쪽으로 사라지기
+                    setTimeout(() => {
+                        // 건물을 다시 기울기 원복!
+                        bd.parent()
+                        .css({transform:"rotate(0deg) !important"});
+                        // 애니메이션 각도보다 우선순위 강제로 올림!
+
+                        // 7번방 좀비 선택
+                        bd.eq(7).find(".mz")
+                        .animate({
+                            bottom:"586%" // 지표로 올라오기
+                        },5000)
+                        .delay(3000) // 기다리기
+                        .animate({
+                            right:"-244%" // 오른쪽으로 나가기
+                        },5000)
+
+                    }, 10000); // 10초후 타임아웃 ///
 
                 }); ///////// animate //////
             }; ///////////// fn함수 /////////
