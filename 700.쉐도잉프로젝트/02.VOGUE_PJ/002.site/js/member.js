@@ -316,7 +316,11 @@ $(() => {
             // 로그인 페이지로 넘겨준다!
             alert("회원가입을 축하드립니다! 짝짝짝!!!");
             // 로그인페이지로 리디렉션!
-            location.href = "login.html";
+            // location.href = "login.html";
+
+            // 브라우저 캐싱 히스토리를 지우려면
+            // location.replace(url)을 사용한다! 
+            location.replace("login.html");
 
         } /////////// if : 통과시 /////////
         else{
