@@ -161,6 +161,7 @@ $(()=>{
         // 1. 메시지출력
         eml1.siblings(".msg")
         .text("이메일 옵션 선택필수!")
+        .removeClass("on");//빨간색글자
 
         // 2. 직접 입력창 숨기기
         eml2.fadeOut(300);
@@ -201,7 +202,18 @@ $(()=>{
     console.log("이메일주소:",comp);
     console.log("검사결과:",vReg(comp,"eml"));
 
-    // 이메일 정규식검사
+    // 이메일 정규식검사에 따른 메시지 보이기
+    if(vReg(comp,"eml")){
+        eml1.siblings(".msg")
+        .text("적합한 이메일 형식입니다!")
+        .addClass("on");
+    } //////// if : 통과시 ///////
+    else{
+        eml1.siblings(".msg")
+        .text("맞지않는 이메일 형식입니다!")
+        .removeClass("on");
+    } /////// else : 불통과시 //////
+
 
  }; /////////// resEml 함수 ///////////////
 
