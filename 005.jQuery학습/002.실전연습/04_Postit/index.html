@@ -13,6 +13,11 @@
                 background: url(post.png) no-repeat;
                 font-size: 14px;
             }
+            /* 일반 선택/드래그막기 */
+            .draggable *{
+                user-select: none;
+                -webkit-user-drag: none;
+            }
 
             div.draggable img {
                 width: 130px;
@@ -54,7 +59,28 @@
         <!-- 
 		미리보기:
 		https://tombap8.github.io/FED211/004.jQuery학습/jQuery-02.실전연습/04.jQuery_utility/01_Postit/ready.html
+
+        드래그 기능 공식설명서:
+        https://api.jqueryui.com/draggable/
 	 -->
+     <script>
+        // 제이쿼리 구역 /////
+        $(()=>{
+            // 1. 드래그대상
+            const dg = $(".draggable");
+
+            // 2. 드래그설정
+            // draggable() 메서드 호출만으로 드래그이동이 가능함!
+            // {}객체값으로 드래그 옵션 셋팅!
+            dg.draggable({
+                cursor: "move", // 커서모양 "이동중"표시
+                stack:".draggable", // 드래그대상 상위처리
+                opacity: 0.7, // 이동중 투명도
+            });
+
+
+        }); //////////// jQB ///////////////////////////
+     </script>
         
     </head>
 
