@@ -1,7 +1,8 @@
 // 메인 페이지 JS
 
 // 자동스크롤 불러오기
-import AutoScroll from "./jquery-autoScroll.js";
+import AutoScroll from "./jquery-autoScroll-class.js";
+// import AutoScroll from "./jquery-autoScroll.js";
 
 // 자동스크롤 인스턴스 생성
 const autoSc = new AutoScroll();
