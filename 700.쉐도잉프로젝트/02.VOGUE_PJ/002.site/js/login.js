@@ -18,7 +18,7 @@ $(()=>{ ///////// jQB /////////////////
         e.preventDefault();
 
         // 공백데이터 처리함수 //
-        const groSpace = val => val.replace(/\s/g,"");
+        const groSpace = val => val.replace("/\s/g","");
 
         // 유효성 검사하기
         // 아이디 비번 중 하나라도 비어 있으면 불통과!
