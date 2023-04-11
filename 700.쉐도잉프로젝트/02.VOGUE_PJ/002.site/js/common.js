@@ -1,5 +1,24 @@
 // 보그 PJ - 공통 JS : common.js
 
+// 모바일 구분코드(1-모바일,0-DT)
+let mobsts = 0;
+
+// 화면크기에 따른 모바일 코드 변경함수
+const chkW = () =>{
+    if($(window).width()<=500) mobsts = 1;
+    else mobsts = 0;
+
+    console.log("모바일여부:",mobsts);
+
+}; ///////// chkW 함수 ////////////
+
+// 화면체크함수 처음호출
+chkW();
+
+// 화면리사이즈시 화면체크함수 호출
+$(window).resize(chkW);
+// "resize" 화면크기변경시 발생 이벤트
+
 // 로드구역 //////////
 window.addEventListener("DOMContentLoaded",()=>{
     console.log("공통JS 로딩완료!");
