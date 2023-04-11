@@ -12,7 +12,8 @@ $(()=>{
    // 제이쿼리 메서드 : 
    // before(요소) -> 선택요소 앞에 형제요소 추가!
    // after(요소) -> 선택요소 뒤에 형제요소 추가!
-   $(".sns a:last").before(`
+   // 모바일 sns도 추가! .mosns a:last
+   $(".sns a:last,.mosns a:last").before(`
         <a href="#" class="fi fi-laptop">
             <span class="ir"> 로그인 </span>
         </a>
@@ -23,6 +24,10 @@ $(()=>{
             <span class="ir"> 갤러리 </span>
         </a>
    `); ///////////// before //////////
+
+   // 모바일 sns 4번째 a요소 뒤에(after()메서드)
+   // <br> 요소 넣기
+   $(".mosns a").eq(3).after("<br>");
 
    /// sns 파트 a 요소들에 툴팁넣기 /////
    // each((idx,ele)=>{코드})
