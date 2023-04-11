@@ -16,6 +16,10 @@ window.addEventListener("DOMContentLoaded",()=>{
     }); //////////// mouseup //////////////
 
 
+    /// 모바일 메뉴 초기셋팅하기 /////
+    // 대상: .top / #top
+    $(".top").append(mobcode.mobtn);
+    $("#top").append(mobcode.mobx);
 
 
 
@@ -25,7 +29,7 @@ window.addEventListener("DOMContentLoaded",()=>{
 
 /////// 모바일 관련 html코드 객체 /////
 const mobcode = {
-    // 모바일버튼코드
+    // 모바일버튼코드 : header.top 안에 넣기
     mobtn:`
         <!-- 모바일용 햄버거버튼 -->
         <a href="#" class="mobtn hbtn fi fi-nav-icon">
@@ -36,7 +40,7 @@ const mobcode = {
             <span class="ir">search</span>
         </a>
     `,
-    // 모바일메뉴박스코드
+    // 모바일메뉴박스코드 : header.top 바깥에 넣기(#top안에)
     mobx:`
         <!-- 1.4.모바일 검색박스 -->
         <div class="mos">
