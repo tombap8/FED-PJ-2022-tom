@@ -11,6 +11,8 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fontisto@v3.0.4/css/fontisto/fontisto.min.css" />
         <!-- 외부CSS넣기 -->
         <link rel="stylesheet" href="./css/temp.css" />
+        <!-- 미디어쿼리CSS넣기 -->
+        <link rel="stylesheet" href="./css/media.css" />
 
         <!-- 제이쿼리 라이브러리+UI -->
         <script src="./js/jquery-3.6.1.min.js"></script>
