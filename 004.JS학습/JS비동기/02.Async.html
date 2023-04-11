@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>JS비동기 : 2. 비동기호출</title>
+        <script>
+        /******************************************************************* 
+              비동기 호출이란?  "나중에 끝낼께!"
+
+            다른 함수와 병렬 로 실행되는 함수를 비동기 라고 한다.
+            좋은 예는 자바스크립트 내장함수인 setTimeout() / setInterval()이다.
+            _______________________________________________________________
+
+            [ 콜백 대안 ]
+            비동기 프로그래밍을 통해 JavaScript 프로그램은 장기 실행 작업을 시작하고 
+            병렬로 다른 작업을 계속 실행할 수 있다.
+
+            그러나 비동기 프로그램은 작성하기 어렵고 디버깅하기 어렵다!!!
+
+            이 때문에 대부분의 최신 비동기 JavaScript 메서드는 콜백을 사용하지 않음! 
+            대신 JavaScript에서 비동기 프로그래밍은 Promise를 대신 사용하여 해결됨!
+         *******************************************************************/
+            
+        </script>
+        <style>
+            @import url("https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap");
+            body {
+                background-image: linear-gradient(to bottom, #494949, gray);
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                text-align: center;
+            }
+            #show {
+                font-family: "Nanum Brush Script", cursive;
+                font-size: 5vw;
+                background-image: linear-gradient(to bottom, red, orange, pink, aqua);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-repeat: no-repeat;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="show"></div>
+    </body>
+</html>
