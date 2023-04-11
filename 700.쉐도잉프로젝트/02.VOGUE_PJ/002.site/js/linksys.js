@@ -1,5 +1,49 @@
 // 보그 PJ 링크시스템 JS - linksys.js
 
+// 제이쿼리 로드구역 /////////
+$(()=>{
+
+    /****************************************** 
+        로그인, 회원가입, 갤러리 아이콘 넣기
+    ******************************************/
+   // 대상: .sns a:last (마지막 카카오스토리 a요소)
+   // 대상추가 : .mosns a:last (모바일 카카오스토리 a요소)
+   // 변경내용: 대상요소 앞에 형제요소로 a요소 삽입
+   // 제이쿼리 메서드 : 
+   // before(요소) -> 선택요소 앞에 형제요소 추가!
+   // after(요소) -> 선택요소 뒤에 형제요소 추가!
+   $(".sns a:last").before(`
+        <a href="#" class="fi fi-laptop">
+            <span class="ir"> 로그인 </span>
+        </a>
+        <a href="#" class="fi fi-user-secret">
+            <span class="ir"> 회원가입 </span>
+        </a>
+        <a href="#" class="fi fi-camera">
+            <span class="ir"> 갤러리 </span>
+        </a>
+   `); ///////////// before //////////
+
+   /// sns 파트 a 요소들에 툴팁넣기 /////
+   // each((idx,ele)=>{코드})
+   $(".sns a").each((idx,ele)=>{
+        // attr(속성명,값)
+        // -> 값으로 자식요소인 .ir의 텍스트를 읽어감!
+        let irTxt = $(ele).find(".ir").text().trim();
+        // 툴팁넣기
+        $(ele).attr("title",irTxt);
+
+   }); /////// each ////////////////////
+   
+
+
+}); ////////////// jQB /////////////////////////
+
+
+
+
+
+
 //////// 로딩구역 ///////////////////
 window.addEventListener("DOMContentLoaded",linkFn);
 
