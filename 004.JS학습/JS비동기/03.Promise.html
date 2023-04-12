@@ -155,7 +155,7 @@
 
                     // (3) 결과를 리턴받는 onload이벤트 함수구역만들기
                     ajax.onload = function(){
-                        console.log(ajax.status);
+                        console.log(ajax.status,this);
                         if(ajax.status==200){
                             성공함수(ajax.responseURL);
                             // 성공시 전송받은 파일 URL을 받는다!
