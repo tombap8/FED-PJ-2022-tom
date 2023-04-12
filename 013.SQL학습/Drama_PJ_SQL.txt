@@ -1,0 +1,38 @@
+CREATE TABLE `drama_info`(
+    `idx` int(6) unsigned AUTO_INCREMENT,
+    `dname` varchar(100) not null,
+    `actors` varchar(100) not null,
+    `broad` varchar(50) not null,
+    `gubun` varchar(10) not null,
+    `stime` varchar(50) not null,
+    `total` varchar(20) not null,
+    `idate` timestamp,
+    PRIMARY KEY (`idx`)
+);
+
+INSERT INTO `drama_info`
+(`dname`, `actors`, `broad`, `gubun`, `stime`, `total`) 
+VALUES 
+("타인은 지옥이다","임시완,이동욱","OCN","토,일","10:30","10부작");
+
+
+INSERT INTO `drama_info`
+(`dname`, `actors`, `broad`, `gubun`, `stime`, `total`) 
+VALUES 
+("열여덟의 순간","옹성우,김향기","JTBC","월,화","09:30","16부작");
+
+INSERT INTO `drama_info`
+(`dname`, `actors`, `broad`, `gubun`, `stime`, `total`) 
+VALUES 
+("펜트하우스2","유진,김소연","SBS","금,토","10:00","20부작");
+
+
+INSERT INTO `drama_info`
+(`dname`, `actors`, `broad`, `gubun`, `stime`, `total`) 
+VALUES 
+("선배, 그 립스틱 바르지 마요","로운,원진아","JTBC","월,화","09:00","16부작");
+
+INSERT INTO `drama_info`
+(`dname`, `actors`, `broad`, `gubun`, `stime`, `total`) 
+VALUES 
+("시지프스 : the myth","조승우,박신혜","JTBC","수,목","09:00","20부작");

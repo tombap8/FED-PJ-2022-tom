@@ -1,0 +1,19 @@
+
+CREATE TABLE dramainfo (
+idx INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+dname VARCHAR(100) NOT NULL,
+actors VARCHAR(100) NOT NULL,
+broad VARCHAR(50) NOT NULL,
+gubun VARCHAR(10) NOT NULL,
+stime VARCHAR(50) NOT NULL,
+total VARCHAR(20) NOT NULL,
+idate TIMESTAMP
+);
+
+
+
+
+INSERT INTO `dramainfo`(`dname`, `actors`, `broad`, `gubun`, `stime`, `total`) VALUES ("타인은 지옥이다","임시완,이동욱","OCN","토,일","10:30","10부작")
+
+
+INSERT INTO `dramainfo`(`dname`, `actors`, `broad`, `gubun`, `stime`, `total`) VALUES ("열여덟의 순간","옹성우,김향기","JTBC","월,화","09:30","16부작")

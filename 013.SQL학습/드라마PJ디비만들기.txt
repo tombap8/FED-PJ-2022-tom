@@ -1,0 +1,26 @@
+[ 드라마 PJ - DB부터 만들기 ]
+
+--최상위 DB에서
+--먼저 DB를 만든다!
+
+CREATE DATABASE `mydb` 
+DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+--mydb에서 
+--드라마 테이블을 만든다!
+
+CREATE TABLE drama_info (
+idx INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+dname VARCHAR(100) NOT NULL,
+actors VARCHAR(100) NOT NULL,
+broad VARCHAR(50) NOT NULL,
+gubun VARCHAR(10) NOT NULL,
+stime VARCHAR(50) NOT NULL,
+total VARCHAR(20) NOT NULL,
+idate TIMESTAMP
+);
+
+
+
+
+

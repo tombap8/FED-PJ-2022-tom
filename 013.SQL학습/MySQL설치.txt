@@ -1,0 +1,9 @@
+[ XAMPP 서버 설치 후 tomcat 서버 조치하기 ]
+
+1. 서버설치후 패널에서 tomcat 시작시 에러가 남
+메시지: Tomcat Started/Stopped with errors, return code: 1
+Make sure you have Java JDK or JRE installed and the required ports are free
+
+2. 조치한다
+(1) JDK 난 JRE를 다운받아 설치한다.
+http://www.oracle.com/technetwork/java/javase/downloads/index.html

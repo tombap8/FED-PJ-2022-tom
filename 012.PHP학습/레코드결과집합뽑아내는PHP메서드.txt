@@ -1,0 +1,43 @@
+
+[ 레코드 결과 집합을 뽑아내는 메서드 소개 ]
+		
+	1.  fetch_array : 데이터를 뺏지 어레이!(이름,순번 다 사용!)
+	- 이 함수는 결과를 배열로 뽑아내는데  번호로 된 배열과 필드명으로 
+	된 배열 두가지가 동시에 생성된다.
+		예)
+		Array(
+			[0] =>  "John"
+			[firstname] => "John"
+			[1] =>  "Kate"
+			[lastname] => "Kate"
+		)
+	2. fetch_assoc : 데이터를 뺏지 어서!(이름으로만)
+    assoc는 associative에서 나온말("연상에 도움이 되는 것")
+		- 이 함수는 필드명으로 된 배열로만 저장한다.
+		예)
+		Array(
+			[firstname] => "John"
+			[lastname] => "Kate"
+		)
+		
+	3. fetch_row : 데이터를 뺏지 (번호)로!
+		- 이 함수는 숫자로 된 배영로 저장한다.
+	예)
+		Array(
+			[0] => "John"
+			[1] => "Kate"
+		)
+        
+        
+        
+        
+	4. fetch_object : 데이터를 뺏지 옵쩩!
+		- 이 함수는 배열이 아닌 객체로 결과값을 받아온다.
+	예)
+		stdClass Object(		
+			[firstname] => "John"
+			[lastname] => "Kate"
+		)
+	
+
+	

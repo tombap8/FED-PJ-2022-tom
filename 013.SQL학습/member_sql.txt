@@ -1,0 +1,13 @@
+'회원테이블 만들기
+CREATE TABLE member(
+idx int not null primary key auto_increment,
+mid varchar(20) not null,
+mpw varchar(100) not null,
+name varchar(20) not null,
+gen char(1) not null,
+email1 varchar(20) not null,
+email2 varchar(20) not null,
+regdate timestamp not null,
+data1 varchar(200),
+data2 varchar(200)
+);
