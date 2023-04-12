@@ -69,10 +69,17 @@
                     -> 결과처리 상태값은  : 
                         인스턴스변수.status 값으로 한다!
 
-                        [ status 결과값종류 ]
+                        [ status 결과상태종류 ]
                             1) 200 : "OK" - 처리완료됨
                             2) 403 : "Forbidden" - 파일접근거부
                             3) 404 : "Not Found" - 파일없음
+                            -> statusText 로 받으면 위의 문자형으로 리턴한다!
+
+                        [ response 결과내용 종류 ]
+                            1) responseText : 데이터를 문자형식 받기
+                            2) responseXML : 데이터를 XML형식 받기
+                            3) responseURL : 데이터 전송 URL 받기
+
                     (4) 오픈 셋팅된 요청객체를 전송한다!
                         인스턴스변수.send()
                         -> open() -> onload -> send() 순으로 코딩
@@ -136,7 +143,42 @@
             }); ////////// then메서드 /////////////
 
             // 3. 파일을 전송 받은 후 실행하는 약속객체 생성하기
+            let 파일약속 = new Promise(
+                function(성공함수,실패함수){
+                    // 아작스(비동기통신) 서버파일요청하기
+                    
+                    // (1) XMLHttpRequest 객체 인스턴스 만들기
+                    let ajax = new XMLHttpRequest();
 
+                    // (2) 비동기 파일요청 열기(전송기능메모리생성)
+                    ajax.open("GET","https://tombap8.github.io/FED-PJ-2022-tom/001.HTML%ED%95%99%EC%8A%B5/06.CGV_PJ/001.%EB%B6%84%EC%84%9D%EC%84%A4%EA%B3%84/CGV_Mockup.pdf");
+
+                    // (3) 결과를 리턴받는 onload이벤트 함수구역만들기
+                    ajax.onload = function(){
+                        console.log(ajax.status);
+                        if(ajax.status==200){
+                            성공함수(ajax.responseURL);
+                            // 성공시 전송받은 파일 URL을 받는다!
+                        }
+                        else{
+                            실패함수(ajax.statusText);
+                            // 실패 결과를 문자형으로 상태값 보내주기
+                        }
+                    }; //////// onload //////////////
+
+                    // (4) 비동기 요청보내기 : send()
+                    ajax.send();                   
+                }); ///////// 파일약속 Promise /////////
+
+                파일약속.then(
+                    function(성공메시지){ 
+                        화면뿌려("파일로딩완료!",성공메시지);
+                        document.getElementById("doc").innerHTML=
+                        `<iframe src="${성공메시지}" style="width:100%;height:100%"></iframe>`;
+                    },
+                    function(실패메시지){
+                        화면뿌려(실패메시지);
+                    }); ///////// 파일약속 then /////////
 
 
 
