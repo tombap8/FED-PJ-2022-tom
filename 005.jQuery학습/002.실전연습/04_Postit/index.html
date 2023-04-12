@@ -131,9 +131,37 @@
                     // 5. 드롭영역에 글자넣기
                     $(this).text(dtxt+" 당첨~!!!");
 
+                    // 6. 유튜브 동영상 박스 넣기
+                    $("body").append(`
+                        <div id="mbox">
+                            <a href="#">×</a>
+                        </div>
+                    `);
 
-                }
-            });
+                    // 동영상 박스요소를 변수에 할당!
+                    let mbox = $("#mbox");
+
+                    // 7. 동영상 박스 CSS 셋팅하기
+                    mbox.css({
+                        position:"fixed",
+                        top:"0",
+                        left:"0",
+                        width:"100%",
+                        height:"100%",
+                        zIndex:"999",
+                        backgroundColor:"#000"
+                    }); /////// css /////////
+
+                    // 8. 동영상 박스에 유튜브 iframe 넣기
+
+                    mbox.append(`
+                        <iframe src="https://www.youtube.com/embed/miSL86dtqis" style="width:100%;height:100%;border:none"></iframe>
+                    `);
+
+
+
+                } /////// drop 이벤트 처리 함수 /////
+            }); ///////////// droppable //////////////
 
 
 
