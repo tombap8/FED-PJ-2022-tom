@@ -107,17 +107,30 @@
             $(".dropshow").droppable({
                 drop:function(evt,ele){
                     // evt-이벤트전달변수,ele-드롭관련객체
-                    console.log("나,빠졌다~~!");
+                    // console.log("나,빠졌다~~!");
 
-                    // 1. 드롭영역의 배경이미지 변경하기
+                    // 1. 드롭된 요소의 이미지 src속성을 읽어옴
                     // 드롭된 요소 -> ele.draggable
                     let isrc = ele.draggable.find("img").attr("src");
-                    console.log(isrc);
+                    // console.log(isrc);
 
+                    // 2. 드롭영역의 배경이미지 변경하기
                     // this - 드롭박스
                     $(this).css({
                         backgroundImage:`url(${isrc})`
-                    })
+                    }); ////// css ////////
+
+                    // 3. 드롭된 요소 사라지기
+                    // ele.draggable -> 드롭된요소($()사용하지않음!)
+                    ele.draggable.hide();
+
+                    // 4. 드롭된 요소의 자식 p태그의 글자 읽어오기
+                    let dtxt = ele.draggable.find("p").text();
+                    // console.log(dtxt);
+
+                    // 5. 드롭영역에 글자넣기
+                    $(this).text(dtxt+" 당첨~!!!");
+
 
                 }
             });
