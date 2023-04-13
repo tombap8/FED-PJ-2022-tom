@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>360 Drag view</title>
+        <style>
+            /* 자동차박스 */
+            .cbx {
+                position: relative;
+                /* 가상요소의 부모자격 */
+                width: 1200px;
+                height: 720px;
+                margin: 0 auto;
+                border: 2px solid #ccc;
+
+                user-select: none;
+                /* 선택안되게함 */
+                -webkit-user-drag: none;
+                /* 드래그안되게함 */
+
+                cursor: grab;
+                /* 손바닥 */
+            }
+
+            /* 이미지와 분리커버 가상요소로 만들기! */
+            .cbx::after {
+                content: "";
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+            }
+
+            .cbx img {
+                position: absolute;
+                /* 앱솔은 모두 block으로 변환됨! */
+            }
+        </style>
+        <script src="jquery-3.6.0.min.js"></script>
+        <script src="jquery-ui.min.js"></script>
+        <script>
+            // 미리보기 //
+            // https://tombap8.github.io/KITA-FED212/004.jQuery%ED%95%99%EC%8A%B5/002.%EC%8B%A4%EC%A0%84%EC%97%B0%EC%8A%B5/05_DragGallery/car.html
+
+            $(() => {
+                /////////// jQB ////////////////////////
+
+               
+            }); ///////////////// jQB ////////////////////
+        </script>
+    </head>
+
+    <body>
+        <div class="cbx"></div>
+    </body>
+</html>

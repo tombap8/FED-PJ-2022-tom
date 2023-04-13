@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!--뷰포트필수-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>drag and drop 응용</title>
+    <style>
+        html,
+        body {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            overflow: hidden;
+        }
+
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        /* 드래그 선택 안되게 하는 CSS */
+        .dselect {
+            user-select: none;
+            /* 선택안되게함 */
+            -webkit-user-drag: none;
+            /* 드래그안되게함 */
+        }
+
+
+
+
+        /*움직일 갤러리 화면크기의 부모박스*/
+        #handle {
+            position: relative;
+            height: 70%;
+            width: 100%;
+            overflow: hidden;
+
+        }
+
+        /*갤러리 내용만큼 가로로큰 내부박스-움직일박스*/
+        #move {
+            position: absolute;
+            /*            width: 7200px;*/
+            height: 100%;
+        }
+
+        #move img {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        /*플렉스박스!*/
+        #move>ul {
+            display: flex;
+        }
+
+        #move>ul li {
+            position: relative;
+            width: 300px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+
+    <script src="jquery-3.6.0.min.js"></script>
+    <script src="jquery-ui.min.js"></script>
+    <script src="jquery-touch-punch.min.js"></script>
+    <!-- 모바일에서 드래그가 터치이벤트로 변환되게 하는 플러그인 필요! jquery-touch-punch -->
+
+    <!-- 
+        미리보기:
+        https://tombap8.github.io/FED211/004.jQuery학습/jQuery-02.실전연습/04.jQuery_utility/05_DragGallery/ready.html
+     -->
+     <script>
+        /// jQB //////////////////////////
+        $(() => {
+
+         
+        }); //////// jQB /////////////////////
+    </script>
+    
+</head>
+
+<body>
+
+    <h1 class="dselect">ICE CREAM GALLERY</h1>
+    <div id="handle">
+        <div id="move">
+            <ul class="dselect">
+                <li><img src="images/1.jpg" alt="items"></li>
+                <li><img src="images/2.jpg" alt="items"></li>
+                <li><img src="images/3.jpg" alt="items"></li>
+                <li><img src="images/4.jpg" alt="items"></li>
+                <li><img src="images/5.jpg" alt="items"></li>
+                <li><img src="images/6.jpg" alt="items"></li>
+                <li><img src="images/7.jpg" alt="items"></li>
+                <li><img src="images/8.jpg" alt="items"></li>
+                <li><img src="images/9.jpg" alt="items"></li>
+                <li><img src="images/10.jpg" alt="items"></li>
+                <li><img src="images/11.jpg" alt="items"></li>
+                <li><img src="images/12.jpg" alt="items"></li>
+                <li><img src="images/13.jpg" alt="items"></li>
+                <li><img src="images/14.jpg" alt="items"></li>
+                <li><img src="images/15.png" alt="items"></li>
+                <li><img src="images/16.png" alt="items"></li>
+                <li><img src="images/17.png" alt="items"></li>
+                <li><img src="images/18.jpg" alt="items"></li>
+                <li><img src="images/19.jpg" alt="items"></li>
+                <li><img src="images/20.png" alt="items"></li>
+                <li><img src="images/21.png" alt="items"></li>
+                <li><img src="images/22.png" alt="items"></li>
+                <li><img src="images/23.jpg" alt="items"></li>
+                <li><img src="images/24.jpg" alt="items"></li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+</html>
