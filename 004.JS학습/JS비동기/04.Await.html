@@ -129,33 +129,19 @@
 
                     // await 사용하여 실행하기
                     const 문서보여줘 = (txt) => {
-                        
+                        console.log("문서보여줘 함수:",txt);
+                        document.getElementById("doc").innerHTML=
+                            `<iframe src="${txt}" style="width:100%;height:100%"></iframe>`;
                     }; ////////// 문서보여줘 함수 ///////
 
 
                     // 실행함수 호출!
                     문서보여줘(await 파일약속);
+        } ////////////// async 파일받아 함수 /////////////  
+        
+        // async 파일받아 함수 최초호출
+        파일받아();
 
-    
-                    파일약속.then(
-                        function(성공메시지){ 
-                            console.log("요기!",성공메시지);
-                            화면뿌려("파일로딩완료!");
-                            document.getElementById("doc").innerHTML=
-                            `<iframe src="${성공메시지}" style="width:100%;height:100%"></iframe>`;
-                        },
-                        function(실패메시지){
-                            화면뿌려(실패메시지);
-                        }); ///////// 파일약속 then /////////
-
-
-        } ////////////// async 파일받아 함수 /////////////    
-
-
-
-
-
-            
         </script>
         <style>
             @import url("https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap");
