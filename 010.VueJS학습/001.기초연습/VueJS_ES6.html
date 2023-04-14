@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>뷰JS를 위한 ES6 자바스크립트 체크</title>
+    <script>
+        // 아래 8가지 ES6버전의 문법이 뷰JS에서 
+        // 주요하게 사용된다!
+
+        // 1. 클래스 : JS5-6
+
+        // 2. 화살표함수 : JS5-2
+
+        // 3. 새로운 변수선언 : JS2-2
+
+        // 4. 배열 메서드 : map()
+        // -> 배열을 자동으로 돌면서 목록을 만든다!
+        const arr1 = ["수박","사과","단감"];
+        console.log(arr1);
+
+        // 배열변수.map(변수=>{코드})
+        const list = arr1.map(val=>`<div>${val}</div>`);
+        console.log(list);
+        // 언제 주로 사용하나?
+        // -> 배열데이터과 특정코드를 결합하여 다시 배열에 담을때
+        // 많이 사용한다!
+
+        // 5. JS 구조화
+        // -> 배열을 쪼개서 변수에 배열값을 하나씩 담는 쉬운방법
+        // 위의 배열을 사용하여... 배열값을 각각 변수에 담기!
+
+        // 기존방법:
+        let fruit1 = list[0];
+        let fruit2 = list[1];
+        let fruit3 = list[2];
+        console.log("각각의 변수에 배열값을 담고 출력:",
+        fruit1,fruit2,fruit3);
+
+        // 배열 구조화 방식사용:
+        let [myFirst,mySecond,myThird] = list;
+        
+        console.log("구조화 방식으로 배열값을 담고 출력:",
+        myFirst,mySecond,myThird);
+
+        // 6. 모듈 문법 : JS9-2
+
+        // 7. 삼항연산자 : JS2-1
+
+        // 8. 스프레드 연산자 : 
+        // ... (점3개로 표시 -> 배열/객체값 순서표시)
+
+        // 8-1. 배열에서 사용
+        const arr2 = [30,40,50,60];
+        const arr3 = [300,400,500,600];
+        const addAll = [...arr2,...arr3];
+        console.log("스프레드연산자로 배열합침:",addAll);
+
+        // 8-2. 객체에서 사용
+        const cars = {
+            brand: "현대",
+            model: "그랜다이져",
+            color: "검정색"
+        };
+        // 2023년 추가정보 객체
+        const newCars = {
+            type: "썬루프",
+            year: "2023",
+            color: "흰색" // 나중것이 같은 속성값을 덮어씀!
+        };
+
+        // 객체합치기! 배열은 대괄호[], 객체는 중괄호{}
+        const myNewInfo = {...cars,...newCars};
+        console.log("새로운자동차정보:",myNewInfo);
+        // 결과는? 합쳐졌고 같은속성은 나중값으로 대체됨!
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
