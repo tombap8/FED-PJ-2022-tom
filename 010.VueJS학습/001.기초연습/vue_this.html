@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vue JS의 this키워드와 Arrow Function</title>
+    <script>
+        ///////// 로딩구역 /////////////////////
+        window.addEventListener("load", () => {
+
+            console.log("로딩완료!");
+
+          
+            /****************************************************** 
+
+            원래 Vue Instance내에서 this는 Vue Instance를 가리키고 
+            있습니다. 하지만 함수가 선언이 될때, 어떤 방식으로 함수를 
+            선언해주느냐에 따라 함수의 현 위치(?)가 바뀌게 되는 것입니다.
+            
+            기존 함수 선언 방법인 function()은 this가 새로 선언된 함수
+             내부를 가리키게 됩니다. 반면에 arrow function은 함수가 
+             선언되든 말든 원래의 위치를 유지하게 만들어서 this 가 
+             Vue Instance를 가리킵니다.
+            즉, ‘원래 함수가 선언될 때 this의 위치가 바뀌어야 하는데 
+            arrow function은 현 위치를 유지하게 만든다.’ 
+            이것이 arrow function이 갖는 매우 중요한 차별점입니다.
+
+            ____________________________________
+
+            ((주의사항))
+            하지만 VueJS의 모든 함수를 arrow function으로 사용해야만 하는
+            것은 아닙니다. 아래와 같이 뷰 인스턴스의 속성들을 정의할 때는
+            arrow function을 사용하면 기능이 동작하지 않으니 주의해주세요.
+            ____________________________________
+            methods : {
+                arrowFunction: () => {
+                    setTimeout(() => { // arrow Function
+                        console.log('arrow timeout')
+                        this.arrowNumber = 3
+                    }, 3000)
+                }
+            }
+
+            ******************************************************/
+
+        }); ///////////// 로딩구역 ///////////////////
+        //////////////////////////////////////////////
+    </script>
+</head>
+
+<body>
+    <div id="app">
+        <p>originalNumber: {{ originalNumber }}</p>
+        <p>arrowNumber: {{ arrowNumber }}</p>
+        <button @click="originalFunction()">기존 방식</button>
+        <button @click="arrowFunction()">arrow function</button>
+    </div>
+
+</body>
+
+</html>
