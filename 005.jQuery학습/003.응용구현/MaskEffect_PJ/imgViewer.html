@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>큰 이미지 마우스무브 이동뷰어</title>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        /*부모박스*/
+        #wrap{
+            position: relative;
+            /*부모자격*/
+            width: 100%;
+            height: 100%;
+        }
+        
+        /*이미지박스*/
+        #imgbox{
+            position: absolute;
+            width: 3000px;
+            height: 1999px;
+            background: url(images/city.jpg) no-repeat;
+            /*트랜지션*/
+            transition: all 2s ease-out;
+        }
+        
+        /*마우스무브 처리용 커버박스*/
+        #cover{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+    </style>
+    <script src="js/jquery-1.8.1.min.js"></script>
+    <script src="js/jquery-ui-1.10.4.min.js"></script>
+    
+</head>
+<body>
+   <!--전체부모박스-->
+    <div id="wrap">
+        <div id="imgbox"></div>
+        <div id="cover"></div>
+    </div>
+    
+</body>
+</html>

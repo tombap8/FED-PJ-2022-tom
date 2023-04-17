@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mask Effect</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* 전체부모박스 */
+        .wrap {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 1007px;
+            height: 455px;
+            outline: 1px solid red;
+        }
+
+        /* 1. 배경고정이미지박스 */
+        #bg {
+            position: absolute;
+            width: 1007px;
+            height: 455px;
+            background: url(./images/main2.jpg) no-repeat fixed;
+        }
+
+        /* 2. 마스크효과이동박스 */
+        #mask {
+            position: absolute;
+            left: -546px;
+            /* 얼굴중앙위치조정 */
+            width: 1007px;
+            height: 455px;
+            background: url(./images/main1.jpg) no-repeat fixed;
+
+            /* 트랜지션 */
+            transition: left .4s ease-out;
+        }
+
+        /* 3. 이벤트대상박스 */
+        #cover {
+            position: absolute;
+            width: 1007px;
+            height: 455px;
+        }
+    </style>
+    <script src="js/jquery-1.8.1.min.js"></script>
+    <script src="js/jquery-ui-1.10.4.min.js"></script>
+    
+</head>
+
+<body>
+    <!-- 마스크 효과박스 -->
+    <div class="wrap">
+        <!-- 1. 배경고정이미지박스 -->
+        <div id="bg"></div>
+        <!-- 2. 마스크효과이동박스 -->
+        <div id="mask"></div>
+        <!-- 3. 이벤트대상박스 -->
+        <div id="cover"></div>
+    </div>
+
+</body>
+
+</html>
