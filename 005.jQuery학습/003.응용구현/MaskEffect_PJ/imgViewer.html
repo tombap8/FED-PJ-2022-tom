@@ -84,15 +84,29 @@
             // 5. 위의 비례식에 맞게 실제 이동값으로 적용하기
             // 이벤트 대상: #cover -> cover변수
             cover.mousemove(function(e){
-                // 마우스 위치값 구하기
+                // 1. 마우스 위치값 구하기
                 mPosX = e.pageX;
                 mPosY = e.pageY;
 
                 console.log(`x:${mPosX}\ny:${mPosY}`);
 
-                
+                // 2. 비례식 계산적용하기
+                // 이이 = 마이 * 이최 / 마최
+                // 마이 -> mPosX, mPosY
+                // 마최 -> mTopMax, mLeftMax
+                // 이최 -> iTopMax, iLeftMax
 
+                // 이미지 y축이동값 : 마이 * 이최 / 마최
+                let iPosY = mPosY * iTopMax / mTopMax;
 
+                // 이미지 x축이동값 : 마이 * 이최 / 마최
+                let iPosX = mPosX * iLeftMax / mLeftMax;
+
+                // 3. 실제 이미지 위치이동 적용하기
+                imbx.css({
+                    top: iPosY + "px",
+                    left: iPosX + "px"
+                }); /////////// css /////////////
 
             }); /////////// mousemove //////////////////
 
