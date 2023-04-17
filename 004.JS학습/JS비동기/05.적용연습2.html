@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Promise 적용연습1</title>
+        <title>Promise 적용연습2 - async, await</title>
         <script>
 
          function 화면뿌려(이거) {
@@ -35,6 +35,11 @@
                 4. 제이슨 맨 마지막 항목 뒤에 콤마를 남길 수 없다!(에러!)
                 -> 자바스크립트에서는 마지막콤마 허용함!
             ***************************************************************/
+
+
+            // 어씽크/어웨이트 를 위한 어씽크 함수만들기
+            async function myAFn(){
+
 
             // 1. 변수 = new Promise((성공함수)=>{코드})
             // 프라미스 코드에 XMLHttpRequest() 객체로 제이슨 로딩함!
@@ -72,34 +77,42 @@
                 ajax.send();
             }); /////////// myProm 인스턴스 ////////
 
-            // 2. 프라미스변수.then((성공전달변수)=>{코드})
-            // 성공한 제이슨 로딩파일을 전달받아 활용한다!
-            myProm.then(success=>{ // success 성공시 전달변수
-                console.log("전달파일찍기:",success);
 
-                // html코드만들기
+            // html코드생성 함수
+            const makeHtml = obj => { // obj 제이슨객체
                 let hcode = `
                     <h1>우리집멍뭉이 정보:</h1>
                     <ol>
-                        <li>이름 : ${success[0]["멍뭉이이름"]}</li>
-                        <li>사는곳 : ${success[0]["멍뭉이사는곳"]}</li>
-                        <li>태생지 : ${success[0]["멍뭉이출신지"]}</li>
-                        <li>락식 : ${success[0]["멍뭉이간식"]}</li>
+                        <li>이름 : ${obj[0]["멍뭉이이름"]}</li>
+                        <li>사는곳 : ${obj[0]["멍뭉이사는곳"]}</li>
+                        <li>태생지 : ${obj[0]["멍뭉이출신지"]}</li>
+                        <li>락식 : ${obj[0]["멍뭉이간식"]}</li>
                     </ol>
                     <h1>우리집야웅이 정보:</h1>
                     <ol>
-                        <li>이름 : ${success[1]["야웅이름"]}</li>
-                        <li>사는곳 : ${success[1]["야웅사는곳"]}</li>
-                        <li>태생지 : ${success[1]["야웅출신지"]}</li>
-                        <li>락식 : ${success[1]["야웅간식"]}</li>
+                        <li>이름 : ${obj[1]["야웅이름"]}</li>
+                        <li>사는곳 : ${obj[1]["야웅사는곳"]}</li>
+                        <li>태생지 : ${obj[1]["야웅출신지"]}</li>
+                        <li>락식 : ${obj[1]["야웅간식"]}</li>
                     </ol>
                 `;
 
+                return hcode;
+            } ///////////////// makeHtml함수 //////////
+
+
+                
                 // 화면출력하기!!!!
-                화면뿌려(hcode);
+                화면뿌려(await makeHtml(myProm));
                 
 
-            }); ////////// 프라미스 then /////////////
+            
+        } ////////////// myAFn 어씽크 함수 /////////////
+
+
+        // 필수 최초호출 어씽크함수 !!!!!!!!
+        myAFn();
+
             
 
 

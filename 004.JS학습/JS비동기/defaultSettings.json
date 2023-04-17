@@ -1,5 +1,5 @@
-{
-	'MYMYMY': false,
+[{
+	"scm.alwaysShowActions": false,
 
 	"scm.alwaysShowRepositories": false,
 
@@ -2878,8 +2878,17 @@
 		"php"
 	],
 
-	"html-to-css-autocompletion.includePattern": "",
+	"멍뭉이이름": "코리올라누스",
+	"멍뭉이사는곳":"제주도",
+	"멍뭉이출신지":"이탈리아",
+	"멍뭉이간식":"사시미",
 
 	"html-to-css-autocompletion.triggerCharacters": false
 
-}
+},
+{
+	"야웅이름": "먼치킨",
+	"야웅사는곳":"평택항",
+	"야웅출신지":"뉴올리언즈",
+	"야웅간식":"참치"
+}]
