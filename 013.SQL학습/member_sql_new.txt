@@ -1,4 +1,4 @@
--- È¸¿øÅ×ÀÌºí ¸¸µé±â
+-- íšŒì›ê°€ì… í…Œì´ë¸”
 CREATE TABLE `member`(
 `idx` int not null primary key auto_increment,
 `mid` varchar(20) not null,
@@ -7,6 +7,6 @@ CREATE TABLE `member`(
 `gen` char(1) not null,
 `email1` varchar(20) not null,
 `email2` varchar(20) not null,
-`regdate` timestamp not null,
+`regdate` timestamp not null DEFAULT CURRENT_TIMESTAMP,
 `auth` char(1) default "M"
 );
