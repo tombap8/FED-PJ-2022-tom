@@ -1,0 +1,55 @@
+@charset "utf-8";
+/*기본CSS - base.css*/
+
+a {
+    text-decoration: none;
+    color: #999;
+}
+
+a:hover {
+    color: #666;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+}
+
+address,
+strong {
+    font-style: normal;
+    font-weight: normal;
+}
+
+
+@font-face {
+    font-family: 'NGothic';
+    src: url('../fonts/NanumGothic.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('../fonts/UbuntuCondensed-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'NGothicEB';
+    src: url('../fonts/NanumGothicExtraBold.woff') format('woff');
+}
+
+html,
+body {
+    width: 100vw;
+    height: 100vh;
+    font: 10px "NGothicEB", Gulim;
+    /* 10px로 한 이유는 
+    em,rem,% 글자 상대단위 계산을 편하게 하기위함*/
+}
+
+body {
+    overflow: hidden;
+}
