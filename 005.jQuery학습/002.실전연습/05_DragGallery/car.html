@@ -89,6 +89,11 @@
                 // (1) 드래그중 이벤트함수
                 // - 이벤트종류: mousemove
                 cbx.on("mousemove", (e) => {
+                    // 0. 이벤트 발생횟수 조절하기
+                    if(prot) return;//돌아가
+                    prot = 1;//막기
+                    setTimeout(()=>prot=0,30);
+                    // -> 광클금지원리와 동일함!
 
                     // 1. x축위치값
                     let pos = e.pageX;
@@ -102,6 +107,10 @@
                         let dir = point - pos < 0 ? 0 : 1;
 
                         console.log("현재방향은?",dir);
+                        // 오른쪽 0, 왼쪽 1
+
+                        // 이미지변경함수 호출!
+                        rotCar(dir);
                     } ///////// if /////////
 
                 }); ////////// mousemove //////////
@@ -130,8 +139,34 @@
                     }); ///// css //////
                 }); //////// mouseup ///////////
 
+                // 이미지순번변수
+                let fnum = 0;
+
                 // (4) 이미지순번 변경함수
-                const rotCar = () => {};
+                const rotCar = (dir) => {
+                    // dir - 방향(0-오른쪽,1-왼쪽)
+
+                    // 1. 왼쪽방향처리 : dir===1
+                    if(dir){
+                        fnum++;
+                        if(fnum===50) fnum = 0;
+                    } //////// if ////////////
+                    // 2. 오른쪽방향처리 : dir===0
+                    else{
+                        fnum--;
+                        if(fnum===-1) fnum = 49;
+                    } /////// else ////////////
+
+                    console.log("순번:",fnum);
+
+                    // 3. 이미지를 순서대로 보이기
+                    cbx.find("img:visible").hide();
+                    // 보이는 이미지는 숨기고
+                    cbx.find("img").eq(fnum).show();
+                    // 해당순번 이미지는 보이고
+
+                }; /////// rotCar 함수 //////
+
             }); ///////////////// jQB ////////////////////
         </script>
     </head>
