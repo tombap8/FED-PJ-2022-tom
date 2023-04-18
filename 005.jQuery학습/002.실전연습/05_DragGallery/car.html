@@ -9,8 +9,9 @@
             .cbx {
                 position: relative;
                 /* 가상요소의 부모자격 */
-                width: 1200px;
-                height: 720px;
+                max-width: 1200px;
+                /* height: 720px; */
+                aspect-ratio: 1200/720;
                 margin: 0 auto;
                 border: 2px solid #ccc;
 
@@ -37,6 +38,7 @@
             .cbx img {
                 position: absolute;
                 /* 앱솔은 모두 block으로 변환됨! */
+                width: 100%;
             }
         </style>
         <script src="jquery-3.6.0.min.js"></script>
@@ -87,8 +89,8 @@
                 // 2. 드래그 이벤트 함수 설정하기 ////
 
                 // (1) 드래그중 이벤트함수
-                // - 이벤트종류: mousemove
-                cbx.on("mousemove", (e) => {
+                // - 이벤트종류: mousemove, touchmove
+                cbx.on("mousemove touchmove", (e) => {
                     // 0. 이벤트 발생횟수 조절하기
                     if(prot) return;//돌아가
                     prot = 1;//막기
@@ -96,7 +98,7 @@
                     // -> 광클금지원리와 동일함!
 
                     // 1. x축위치값
-                    let pos = e.pageX;
+                    let pos = e.pageX || e.changedTouches[0].pageX;
 
                     // 2. 방향알아내기
                     // 처음클릭시위치값 - 현재위치값
@@ -116,12 +118,12 @@
                 }); ////////// mousemove //////////
 
                 // (2) 드래그상태 시작 이벤트함수
-                // - 이벤트종류: mousedown
-                cbx.on("mousedown", (e) => {
+                // - 이벤트종류: mousedown, touchstart
+                cbx.on("mousedown touchstart", (e) => {
                     // 드래그상태값 변경
                     drag = 1;
                     // x축 처음위치값 업데이트
-                    point = e.pageX;
+                    point = e.pageX || e.changedTouches[0].pageX;
                     // 커서 움켜쥔모양
                     cbx.css({
                         cursor: "grabbing",
@@ -129,8 +131,8 @@
                 }); ///////// mousedown ////////
 
                 // (3) 드래그상태 해제함수
-                // - 이벤트종류: mouseup, mouseout
-                cbx.on("mouseup mouseout", () => {
+                // - 이벤트종류: mouseup, mouseout, touchend
+                cbx.on("mouseup mouseout touchend", () => {
                     // 드래그상태값 변경
                     drag = 0;
                     // 커서 손편모양
