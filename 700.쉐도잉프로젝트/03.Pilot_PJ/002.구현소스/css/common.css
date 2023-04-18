@@ -1,0 +1,277 @@
+@charset "utf-8";
+/* 파일럿 PJ 공통 모듈 CSS - common.css */
+
+/* 1. 상단영역 */
+#top {
+    position: fixed;
+    /* 상단고정-보이는화면기준 */
+    width: 100%;
+    z-index: 9999;
+    /* 맨위! */
+    background-color: rgba(0, 0, 0, .1);
+    font-family: UB;/* Ubuntu체 */
+}
+
+/* 상단영역 속박스 */
+.top {
+    position: relative;
+    /* 부모자격 */
+}
+
+/* 1-1.로고 */
+#logo {
+    width: 15%;
+    /* 높이값은 자동 */
+    padding: 3% 0 1% 3%;
+    /* 마진을 줄 경우 부모박스가 마진위,아래 값을 포함하지 않음! */
+}
+
+#logo img {
+    width: 100%;
+}
+
+/* 1-2. GNB 메뉴 */
+.gnb {
+    position: absolute;
+    /* 부모는? .top */
+    top: 50%;
+    transform: translateY(-50%);
+    /* 세로방향중앙이동 */
+    right: 10%;
+}
+
+.gnb ul{
+    display: flex;
+    /* 플랙스 디스플레이! */
+}
+
+.gnb li {
+    margin: 0 7px;
+}
+.gnb a{
+    color: #fff;
+    font-size: 2rem;/* html글자크기 * 2 */
+    text-shadow: 0 0 4px #777;
+}
+
+/* 메뉴에 마우스 오버시 + li에 on클래스 있는 경우 */
+.gnb a:hover,
+.gnb li.on a {
+    color: aqua;
+}
+
+/* 햄버거버튼 */
+.ham {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 3%;
+    /* 부모는? .top */
+    width: 40px;
+    height: 25px;
+    /* outline: 1px solid red; */
+    cursor: pointer;
+    /* 손가락모양 */
+    z-index: 99999;/* .gbx보다위! */
+}
+
+/* 햄버거 막대 span공통 */
+.ham span {
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 4px #777;/* 박스그림자 */
+    /* 트랜지션 */
+    transition: all .4s ease-out;
+}
+
+/* 햄버거 막대 개별위치이동 */
+/* 1번막대 */
+.ham span:nth-child(1) {
+    top: 0;
+}
+
+/* 2번막대 */
+.ham span:nth-child(2) {
+    top: 10px;
+    left: -50%;
+    /* 트랜지션 때문에 초기값필요!(기본값이 auto라서!) */
+}
+/* 오버시 2번막대 이동! */
+.ham:hover span:nth-child(2) {    
+    left: 0;
+}
+
+
+/* 3번막대 */
+.ham span:nth-child(3) {
+    top: 20px;
+}
+
+/* .ham에 class="on"을 주면 span막대 변경하기 */
+
+/* 1번막대 : 중앙이동+시계방향45도회전 */
+.ham.on span:nth-child(1) {
+    top: 10px;
+    transform: rotate(45deg);
+    box-shadow: none;
+}
+
+/* 2번막대 : left위치 중앙이동+width는0 */
+.ham.on span:nth-child(2) {
+    width: 0;
+    left: 50%;
+}
+
+/* 3번막대 : 중앙이동+반시계방향45도회전 */
+.ham.on span:nth-child(3) {
+    top: 10px;
+    transform: rotate(-45deg);
+    box-shadow: none;
+}
+
+/*********** 전체메뉴 ************/
+.mbox{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: none;/* 처음에 안보임 */
+}
+/* 가상요소로 반투명배경 */
+.mbox::after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.3;
+}
+
+/* 메뉴중앙박스 */
+.mlist{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;/* 플렉스박스 */
+    font-family: UB;
+    z-index: 1;/* 반투명배경보다 위 */
+}
+/* 메뉴별박스 */
+.mlist dl{
+    width: 300px;
+}
+/* 상위메뉴 */
+.mlist dt{
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 10px;
+}
+/* 하위메뉴 */
+.mlist dd{
+    font-size: 2.1rem;
+    padding-bottom: 5px;
+}
+
+/* 링크공통 */
+.mlist a{
+    color: #fff;
+}
+/* 오버시 글자색 */
+.mlist a:hover{
+    color: aqua;
+}
+
+/* 동영상 박스 */
+.bgm{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/********** 3.하단영역 ***********/
+#info {
+    position: relative;
+    /* 부모자격 */
+    height: 50%;/* 회사정보 박스만 높이값 절반! */
+    background-color: #101629;
+}
+
+/* 주소박스 */
+#info address{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 710px;
+    max-width: 90%;
+    border: 4px double #fffefe;
+    margin: 0 auto;
+    color: #fff;
+    font: 14px/20px NG; 
+    padding: 15px;
+}
+#info address a{
+    color: #fff;
+}
+
+
+/* 인디케이터 */
+.indic {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    /* 세로중앙이동 */
+    left: 5%;
+    width: 30px;
+    /* outline: 3px dotted blue; */
+    z-index: 100;
+}
+
+.indic li {
+    width: 100%;
+    height: 10px;
+    margin: 10px 0;
+    cursor: pointer;
+    /* 손가락모양 */
+}
+
+/* a요소 */
+.indic a {
+    display: block;
+    width: 100%;
+    height: 1px;
+    margin-top: 4px;
+    background-color: #777;
+    box-shadow: 1px 1px 1px #fff;
+    transition: width .4s;
+}
+
+/* 마우스 오버시 */
+.indic li:hover a {
+    width: 150%;
+    background-color: #000;
+}
+
+/* 클래스 "on" */
+/* 모바일에서 hover시 해제한 설정보다 우선순위 높임! */
+.indic li.on a {
+    width: 150% !important;
+    background-color: #000 !important;
+}
+
+
+/* 설명글자숨기기 */
+.indic span {
+    display: none;
+}

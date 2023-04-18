@@ -1,0 +1,187 @@
+@charset "utf-8";
+/* 파일럿 PJ 메인 페이지 미디어쿼리 - media.css */
+
+@media only screen and (max-width:800px) {
+
+    /* 1. 스크롤 생김 */
+    html,
+    body {
+        height: auto;
+        overflow: visible;
+        font-size: 8px;
+        /* rem단위 글자는 html의 글자크기로 계산됨! */
+    }
+
+    /* 1.5. 상단부분 */
+    #top {
+        background-color: rgba(0, 0, 0, .5);
+    }
+
+    #logo {
+        width: 45%;
+        margin: 0 auto;
+        padding: 3% 0;
+    }
+
+    .gnb {
+        display: none;
+    }
+
+    /* 전체메뉴 비디오태그 없애기 */
+    .bgm {
+        display: none;
+    }
+
+    .mbox {
+        background: url(../images/mobile/ban04.jpg) no-repeat center/cover;
+    }
+
+    /* 전체메뉴 방향변경 */
+    .mlist {
+        flex-direction: column;
+    }
+
+    /* 배너이미지 모바일용으로 변경하기! */
+    /* 각 슬라이드 셋팅 */
+    .slide li.ban1 {
+        background: url(../images/mobile/ban01.jpg) no-repeat center/cover;
+    }
+
+    .slide li.ban2 {
+        background: url(../images/mobile/ban02.jpg) no-repeat center/cover;
+    }
+
+    .slide li.ban3 {
+        background: url(../images/mobile/ban03.jpg) no-repeat center/cover;
+    }
+
+    .slide li.ban4 {
+        background: url(../images/mobile/ban04.jpg) no-repeat center/cover;
+    }
+
+    .slide li.ban5 {
+        background: url(../images/mobile/ban05.jpg) no-repeat center/cover;
+    }
+
+    .slide li.ban6 {
+        background: url(../images/mobile/ban06.jpg) no-repeat center/cover;
+    }
+
+    /* 2. 배너 양쪽 따라다니는 버튼없애기 */
+    .btna {
+        display: none;
+    }
+
+    /* 배너 블릿 위치이동 */
+    .bindic {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+
+    /* 3. page의 높이값을 없앰! */
+    .page {
+        position: relative;
+        /* 각 페이지 .pgc의 부모자격 */
+        height: auto;
+    }
+
+    /* 가상요소 비율밀기 */
+    .page::before {
+        content: '';
+        display: block;
+        padding-top: 80%;
+    }
+
+    /* 스타일페이지 비율만 다르게 2배로! */
+    #style.page::before {
+        padding-top: 160%;
+    }
+
+    /* 4. 각 페이지 .pgc를 앱솔루트로 비율유지부모 박스에 맞춤!*/
+    .pgc {
+        position: absolute;
+        top: 0;
+        height: 100%;
+    }
+
+    /* 5. 내부 구성요소를 서로 겹치고 부모를 꽉채우게함 */
+    .pgc>li {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    /* 6. 글자가 위로 올라옴 + 흰색글자 */
+    .pgc>li.txtc {
+        z-index: 1;
+    }
+
+    .txtc a {
+        color: #fff;
+        text-shadow: 2px 2px 2px #000;
+    }
+
+    /* 7. 이미지 조정 공통 */
+    .pgc img {
+        height: auto;
+        object-fit: fill;
+    }
+
+    /* 8. 스타일 영역 2배수 조정하기 */
+    #style .pgc>li {
+        height: 50%;
+    }
+
+    /* 여자 스타일 이미지박스만 50%아래로 이동 */
+    #style .pgc>li:first-child {
+        top: 50%;
+    }
+
+    #style .pgc>li:nth-child(2) {
+        height: 100%;
+    }
+
+    #style img {
+        right: 0;
+    }
+
+    /* 스타일 글자 가로 중앙오기 */
+    .txtc .tm,
+    .txtc .tw {
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+    }
+
+    /* 9. 여자패션 페이지 이미지박스 변경 */
+    #women .pgc img {
+        height: 100%;
+        width: auto;
+        right: -30%;
+    }
+
+    /* 10. 회사정보 */
+    #info {
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    #info.page::before {
+        display: none;
+    }
+
+    #info address {
+        transform: none;
+    }
+
+
+
+
+
+
+
+
+}
+
+/* 미디어쿼리 800px이하  */
