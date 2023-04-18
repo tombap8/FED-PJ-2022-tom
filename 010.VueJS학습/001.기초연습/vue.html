@@ -75,8 +75,40 @@
                     // 클릭시 호출함수
                     myClick: function(e){
                         // 버튼자신은 어떻게쓰나?
-                        console.log("버튼자신:",e.target);
-                    }
+                        // console.log("버튼자신:",e.target);
+                        // console.log("버튼자신:",e.currentTarget);
+                        // 이벤트가 발생한 근본요소 : e.target
+                        // 현재 이벤트가 발생한 요소 : e.currentTarget
+
+                        // 1. 버튼 글자바꾸기
+                        e.target.innerText = "놀랐지?";
+
+                        // 2. 잠시후 해당요소(Root)아래에 새로운 html넣기
+                        setTimeout(() => {
+                            // 현재 인스턴스 대상요소 : this.$el
+                            // this는 현재 인스턴스
+                            // $el 선택된 요소
+                            this.$el.innerHTML += "<div>하하하</div>";
+                            // 왜 document.getElementById("#app3")
+                            // 이렇게 선택하지 못하는가?
+                            // 이유: 가상돔에 셋팅된 뷰인스턴스 요소이기때문이다!!!!!!!!
+                        }, 2000);
+
+                    }, // myClick
+                    myOver: function(){
+                        // 현재이벤트 대상
+                        let cevt = event.target;
+                        // 오버된 버튼 글자바꾸기
+                        cevt.innerText = "오버하지마~!";
+                        // 2초후 버튼글자 또 바꾸기
+                        setTimeout(() => {
+                            cevt.innerText = "클릭해봐!";
+                        }, 2000);
+                    }, ///////// myOver /////////
+                    myClick2: function(txt){// txt 전달변수
+                        // 기존 인스턴스 루트요소에 html넣기!
+                        this.$el.innerHTML += `<h1>내가 ${txt}야!</h1>`;
+                    } ///////// myClick2 ///////////
                 }
 
             }); //////////// #app3 Vue //////////////////
@@ -172,7 +204,14 @@
 
     <h2>3. 이벤트 사용하기</h2>
     <div id="app3">
-        <button v-on:click="myClick">클릭해봐!!!</button>
+        <!-- <button v-on:click="myClick">클릭해봐!!!</button> -->
+        <button @click="myClick">클릭해봐!!!</button>
+        <!-- 
+            v-on:이벤트명="값"
+            축약형
+            @이벤트명="값"
+         -->
+         <button @mouseover="myOver" @click="myClick2('후계자')">오버해봐!</button>
     </div>
 
     <hr>
