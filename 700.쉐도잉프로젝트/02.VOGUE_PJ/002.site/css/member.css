@@ -32,6 +32,9 @@ html,body{
 
 /* 2-2. 서브 컨텐츠 박스 */
 .scont{
+    /* 처음에 회원가입 박스안보임 
+    -> 대신 동의박스가 보임 */
+    display: none;
     max-width: 700px;
     min-height: 275px;
     margin: 0 auto;
@@ -173,17 +176,14 @@ select:focus {
 
 /* 약관동의박스 */
 #conf {
-    position: absolute;
-    /* 부모는? #cont */
-    top: 342px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 700px;
-    height: 600px;
+    max-width: 700px;
+    min-height: 600px;
     border: 2px solid #ccc;
     border-radius: 10px;
     box-sizing: border-box;
     background-color: #fff;
+    padding: 15px;
+    margin: 0 auto;
 }
 
 /* 동의/비동의 버튼박스 */
@@ -197,7 +197,7 @@ select:focus {
     border: 1px solid #737373;
     border-radius: 5px;
     color: #fff;
-    font-size: 1em;
+    font-size: 1.2em;
     font-weight: bold;
     background-image: linear-gradient(to bottom, #ddd, #555);
     margin: 0 20px;
