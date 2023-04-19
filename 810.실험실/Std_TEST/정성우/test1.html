@@ -37,37 +37,52 @@
             ];
 
 
-            const makeHtml = (obj) => {
-                let hcode = "";
-                for (let i = 0; i < obj.length; i++) {
-                    hcode += `<ul>`;
-                    for (let x in obj[i]) {
-                        hcode += `
-                            <ul>
-                                <h3>${x}</h3>
-                        `;
-                        for (let y in obj[i][x]) {
-                            hcode += `
-                                <h4>${y}</h4>
-                                <ul>
-                            `;
-                            for (let z of obj[i][x][y]) {
-                                hcode += `
-                                    <li><a href="#">${z}</a></li>
-                                `;
-                            }
-                            hcode += `</ul>`;
-                        }
-                        hcode += `</ul>`;
-                    }
-                    hcode += `</ul>`;
+            // li를 만드는 객체용함수 /////
+            const retObj = obj => {
+                let temp="";
+                for(let x in obj){
+                    temp +=`
+                        <li>
+                            ${x}
+                            <ul>${retArray(obj[x])}</ul>
+                        </li>
+                    `;
                 }
-                console.log(hcode);
+                return temp;
+            }; ///////////// retObj /////////
+
+            // li를 만드는 배열용함수 ///////
+            const retArray = arr => {
+                let temp="";
+                for(let x of arr){
+                    temp +=`
+                        <li>${x}</li>
+                    `;
+                }
+                return temp;
+            }; /////////// retArray /////////
+
+            // 여기서 모두 출발함! /////////
+            const makeHtml = obj => {
+                let hcode = "";
+
+                for(let x of obj){
+                    for(let y in x){
+                        hcode += `
+                        <div>
+                            <h3>${y}</h3>
+                            <ul>${retObj(x[y])}</ul>
+                        </div>`;
+                    }
+                }
                 return hcode;
-            };
+            }; ////////// 최종리턴함수 /////////
+
+
 
             window.addEventListener("load", () => {
-                document.querySelector(".exp").innerHTML = makeHtml(tdata);
+                document.querySelector(".exp").innerHTML =
+                 makeHtml(tdata);
             });
         </script>
     </head>
