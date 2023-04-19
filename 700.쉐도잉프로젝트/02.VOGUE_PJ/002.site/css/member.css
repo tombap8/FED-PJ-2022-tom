@@ -7,9 +7,15 @@
 @import url(./core.css);
 @import url(./common.css);
 
+/* 가로스크롤 설정변경 
+- 부드러운스크롤시 문제발생했음 */
+html,body{
+    overflow-x: visible;
+}
+
 /* 컨텐츠 영역 속박스 */
 .cont{
-    min-height: 600px;
+    min-height: 700px;
     padding: 15px;    
     padding-bottom: 100px;
 }
