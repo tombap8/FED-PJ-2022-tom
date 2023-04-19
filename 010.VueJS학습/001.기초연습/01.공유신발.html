@@ -155,9 +155,11 @@
             <!-- 3.상품리스트 -->
             <div class="gwrap">
                 <ol class="glist" v-for="(item,idx) in sh_data">
+                    <!-- sh_data는 배열 -->
                     <!-- {{item+"/"+idx}} -->
 
                     <!-- 상품이미지출력 -->
+                    <!-- item에 담긴것은 상품별 객체임! -->
                     <li v-for="(a,b) in item" v-if="b==='img'" v-html="makeImg(a)" ></li>
 
                     <!-- 상품명출력 -->
