@@ -25,7 +25,15 @@
                     // 클래스나 일반요소로 쓰면 만나는 첫번째 대상만 적용함!
                     // 2. 데이터 설정
                     data:{
-                        bigtit : "공유가 신고 다닌다는!"
+                        // 1.제목데이터
+                        bigtit : "공유가 신고 다닌다는!",
+                        // 2.내용데이터
+                        contxt:`
+                            나의 느낌! 니가 아니까!
+                            <h2>오늘도 공유는 멋집니다~!</h2>
+                            <img src="https://mblogthumb-phinf.pstatic.net/MjAyMDA0MjVfMTAx/MDAxNTg3ODE5MDEzNTA5.p3hCGnZHNY3jPLMhrHy1aXH9t20SLMsdfbnQMAbzY-wg.xfA_E3X5uMPOq3zabKoaITYGZXKkgw5TxEtMjPUmCsAg.PNG.thirdsky30/CropArea0002.png?type=w800" alt="공유">
+                        `
+
                     },
                     // 3. 메서드 설정
                     methods:{
@@ -34,6 +42,13 @@
                         // myFn(){}, -> 메서드형(화살표함수형을 축약!)
                     },
                     // 4. 제이쿼리는 어디에 쓰나?
+                    // 뷰JS 인스턴스 생성 라이프사이클에서
+                    // 가상돔과 실제돔이 연결생성된 시점에서
+                    // 실제돔을 컨트롤하는 제이쿼리를 사용한다!
+                    // -> mounted:function(){코드구역}
+                    mounted:function(){ // mounted 시 자동실행구역
+
+                    } //////////// mounted ///////////
 
                 }); //////////////// Vue ////////////////
 
@@ -56,9 +71,20 @@
         <!-- 뷰JS 대상요소 -->
         <div id="vapp">
             <!-- 1.제목 -->
-            <h1 class="tit"></h1>
+            <h1 class="tit" v-text="bigtit"></h1>
+            <!-- 
+                [ v-text 디렉티브 ]
+                -> 해당요소의 데이터를 텍스트로 넣는 디렉티브속성
+                -> 머스테쉬 출력은 v-text출력과 같다!
+
+                [ v-html 디렉티브 ]
+                -> 해당요소의 데이터를 태그로 넣는 디렉티브속성
+             -->
+            <!-- <h1 class="tit">{{bigtit}}</h1> -->
+
             <!-- 2.내용 -->
-            <p></p>
+            <p v-html="contxt"></p>
+
             <!-- 3.상품리스트 -->
             <div class="gwrap">
                 <ol>
