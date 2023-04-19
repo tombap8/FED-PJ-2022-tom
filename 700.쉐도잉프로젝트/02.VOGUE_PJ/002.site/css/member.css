@@ -165,6 +165,40 @@ select:focus {
 }
 
 
+/* 약관동의박스 */
+#conf {
+    position: absolute;
+    /* 부모는? #cont */
+    top: 342px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 600px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+/* 동의/비동의 버튼박스 */
+.YNbox {
+    text-align: center;
+}
+/* 버튼공통 */
+.YNbox button {
+    width: 113px;
+    height: 40px;
+    border: 1px solid #737373;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1em;
+    font-weight: bold;
+    background-image: linear-gradient(to bottom, #ddd, #555);
+    margin: 0 20px;
+    cursor: pointer;
+}
+
+
 
 
 /* 미디어쿼리 690px 이하 시작 */
