@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script>
+            const tdata = [
+                {
+                    남성: {
+                        "추천 컬렉션": ["신상품", "지구의 달 컬렉션", "폴로 에센셜", "폴로 스포츠", "폴로 컨트리 샵", "액티브 아웃도어 샵", "헤리티지 아이콘 샵", "세련된 포멀웨어", "스니커즈 샵", "폴로 베어 샵", "패밀리 리조트 샵", "Spring Forward 캡"],
+                        브랜드: ["Purple Label", "Polo Ralph Lauren", "Double RL", "RLX", "Golf"],
+                        의류: ["폴로 셔츠", "셔츠", "티셔츠", "후디 & 스웨트셔츠", "스웨터 & 가디건", "아우터웨어", "블레이저", "팬츠", "반바지 & 수영복", "데님", "RRL 데님"],
+                        신발: ["스니커즈", "캐주얼 슈즈", "포멀 슈즈", "부츠", "슬리퍼"],
+                        액세서리: ["시계", "가방", "지갑 & 액세서리", "벨트", "모자, 스카프 & 장갑", "타이", "선글라스", "양말", "언더웨어 & 라운지웨어"],
+                    },
+                },
+                {
+                    여성: {
+                        "추천 컬렉션": ["신상품", "이보영과 로렌의 봄", "폴로 에센셜", "폴로 셔츠 샵", "폴로 베어 샵", "지구의 달 컬렉션", "특별한 날", "Polo ID", "웰링턴 컬렉션"],
+                        브랜드: ["Collection", "Polo Ralph Lauren", "Lauren", "Double RL", "RLX", "Golf"],
+                        의류: ["폴로 셔츠", "셔츠 & 블라우스", "티셔츠 & 탑", "후디 & 스웨트셔츠", "스웨터 & 가디건", "아우터웨어", "드레스", "스커트", "팬츠", "데님", "슬립웨어"],
+                        핸드백: [],
+                        신발: ["스니커즈", "샌들", "플랫 & 로퍼", "힐", "부츠"],
+                        액세서리: ["시계 & 주얼리", "지갑", "벨트", "모자, 스카프 & 장갑", "선글라스"],
+                    },
+                },
+                {
+                    "키즈 & 베이비": {
+                        "추천 컬렉션": ["신상품", "신우, 이준의 컬러풀 플레이 타임", "롱우드 컬렉션", "폴로 에센셜", "폴로 베어 샵", "P-LAYER", "패밀리 리조트샵", "출산 선물", "돌 선물", "특별한 날"],
+                        남아: ["2-7세", "8-18세", "폴로 셔츠", "셔츠", "티셔츠", "후디 & 스웨트셔츠", "스웨터", "아우터웨어", "팬츠 & 쇼츠", "신발 & 액세서리", "수영복"],
+                        여아: ["2-6세", "7-16세", "폴로 셔츠", "탑 & 셔츠", "스웨터", "아우터웨어", "드레스", "스커트 & 팬츠", "신발 & 액세서리"],
+                        베이비: ["남아", "여아", "신발 & 액세서리"],
+                    },
+                },
+            ];
+
+
+            const makeHtml = (obj) => {
+                let hcode = "";
+                for (let i = 0; i < obj.length; i++) {
+                    hcode += `<ul>`;
+                    for (let x in obj[i]) {
+                        hcode += `
+                            <ul>
+                                <h3>${x}</h3>
+                        `;
+                        for (let y in obj[i][x]) {
+                            hcode += `
+                                <h4>${y}</h4>
+                                <ul>
+                            `;
+                            for (let z of obj[i][x][y]) {
+                                hcode += `
+                                    <li><a href="#">${z}</a></li>
+                                `;
+                            }
+                            hcode += `</ul>`;
+                        }
+                        hcode += `</ul>`;
+                    }
+                    hcode += `</ul>`;
+                }
+                console.log(hcode);
+                return hcode;
+            };
+
+            window.addEventListener("load", () => {
+                document.querySelector(".exp").innerHTML = makeHtml(tdata);
+            });
+        </script>
+    </head>
+    <body>
+        <div class="exp"></div>
+    </body>
+</html>
