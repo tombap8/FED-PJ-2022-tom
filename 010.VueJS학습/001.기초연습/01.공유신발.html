@@ -47,7 +47,10 @@
                     // 실제돔을 컨트롤하는 제이쿼리를 사용한다!
                     // -> mounted:function(){코드구역}
                     mounted:function(){ // mounted 시 자동실행구역
-
+                        // 1.제목이 숨겼다 나옴!
+                        $(".tit").hide()
+                        .delay(1000).slideDown(300);
+                        
                     } //////////// mounted ///////////
 
                 }); //////////////// Vue ////////////////
@@ -64,6 +67,19 @@
                 border: 1px dashed darkblue;
                 border-radius: 20px;
                 margin: 0 auto;
+                text-align: center;
+            }
+            /* 제목 */
+            .tit{
+                color: orangered;
+            }
+            /* 내용박스 */
+            #vapp p{
+                border: 4px double gray;
+            }
+            /* 내용박스 이미지 */
+            #vapp p img{
+                border-radius: 20px;
             }
         </style>
     </head>
