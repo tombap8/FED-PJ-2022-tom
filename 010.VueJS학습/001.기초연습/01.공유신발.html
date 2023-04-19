@@ -50,6 +50,11 @@
                     },
                     // 3. 메서드 설정
                     methods:{
+                        makeImg(val){
+                            return`
+                                <img src="./images/${val}" alt="신발">
+                            `;
+                        }
                         // myFn:function(){}, -> 일반형
                         // myFn:()=>{}, -> 화살표함수형
                         // myFn(){}, -> 메서드형(화살표함수형을 축약!)
@@ -117,8 +122,11 @@
 
             <!-- 3.상품리스트 -->
             <div class="gwrap">
-                <ol>
-                    <li></li>
+                <ol class="glist" v-for="(item,idx) in sh_data">
+                    <!-- {{item+"/"+idx}} -->
+
+                    <li v-for="(a,b) in item" v-if="b==='img'" v-html="makeImg(a)" ></li>
+
                 </ol>
             </div>
         </div>
