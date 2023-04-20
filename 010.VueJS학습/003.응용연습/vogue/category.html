@@ -128,11 +128,16 @@
         </div>
         <!-- 2.메인영역 -->
         <div id="cont" class="bgc">
-            <main class="ibx cont">
+            <main class="ibx cont" v-for="(v,i) in items.data" v-if="v.경로===catName" v-bind:class="catName">
+                <!-- 
+                    
+                 -->
                 <!-- 2-1. 카테고리 페이지 상단영역 -->
                 <header class="ctop">
                     <!-- 2-1-1.서브타이틀 -->
-                    <h2 class="stit"></h2>
+                    <h2 class="stit">
+                        {{v.제목}}
+                    </h2>
                     <!-- 2-1-2.서브메뉴(LNB:Local Navigation Bar) -->
                     <nav class="lnb"></nav>
                 </header>
