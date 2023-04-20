@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content="컬렉션부터 스타일, 쇼핑, 뷰티, 라이프스타일, 셀러브리티까지 지금 가장 핫한 트렌드 소개" />
-        <title> | 2023 보그 코리아 (Vogue Korea)</title>
+        <title>| 2023 보그 코리아 (Vogue Korea)</title>
         <!-- 파비콘 넣기 -->
         <link rel="shortcut icon" href="./images/icon.jpg" type="image/x-icon" />
         <!-- 아이콘CDN -->
@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="./css/category.css" />
         <!-- 미디어쿼리CSS넣기 -->
         <link rel="stylesheet" href="./css/media.css" />
-        
+
         <!-- 제이쿼리 라이브러리+UI -->
         <script src="./js/jquery-3.6.1.min.js"></script>
         <script src="./js/jquery-ui.min.js"></script>
@@ -25,8 +25,12 @@
 
         <!-- 링크시스템 JS -->
         <script src="./js/linksys.js"></script>
-        <!-- 메뉴data JS -->
-        <script src="./js/mdata.js"></script>
+
+        <!-- 뷰JS 프레임워크 스텐드얼론 버전 가져오기 -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+        <!-- 엑시오스 라이브러리 스텐드얼론 버전 가져오기(제이슨불러오기) -->
+        <script src="https://cdn.jsdelivr.net/npm/axios@0.17.1/dist/axios.min.js"></script>
+
         <!-- 외부JS넣기 -->
         <script src="./js/category.js"></script>
     </head>
@@ -164,14 +168,10 @@
             <footer class="ibx info">
                 <!-- 3-1.하단로고 -->
                 <div class="blogo">
-                    <img src="./images/footer_logo.png" alt="하단로고">
+                    <img src="./images/footer_logo.png" alt="하단로고" />
                 </div>
                 <!-- 3-2.회사주소 -->
-                <address class="addr">
-                    WWW.VOGUE.COM Ⓒ CONDÉNAST ASIA PACIFIC. INC. 
-                    ALL RIGHTS RESERVED. VOGUE.COM KOREA IS OPERATED 
-                    BY DOOSAN MAGAZINE.
-                </address>
+                <address class="addr">WWW.VOGUE.COM Ⓒ CONDÉNAST ASIA PACIFIC. INC. ALL RIGHTS RESERVED. VOGUE.COM KOREA IS OPERATED BY DOOSAN MAGAZINE.</address>
                 <!-- 3-3.하단링크 -->
                 <ul class="blink">
                     <li>
@@ -189,8 +189,6 @@
                 </ul>
             </footer>
         </div>
-
-
 
         <!-- 위로가기버튼 -->
         <a href="#" class="tbtn fi fi-angle-up">
