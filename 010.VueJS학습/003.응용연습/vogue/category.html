@@ -142,7 +142,15 @@
                         {{v.제목}}
                     </h2>
                     <!-- 2-1-2.서브메뉴(LNB:Local Navigation Bar) -->
-                    <nav class="lnb"></nav>
+                    <nav class="lnb" v-if="v.메뉴!=='없음'">
+                        <ul>
+                            <li v-for="(m,i) in v.메뉴">
+                                <a href="#">
+                                    {{m}}
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
                 </header>
                 <!-- 2-2. 카테고리 페이지 컨텐츠영역 -->
                 <div class="icont">
