@@ -1,0 +1,176 @@
+@charset "utf-8";
+
+/* 보그 PJ 로그인 페이지 CSS - login.css */
+
+/* 외부CSS파일 합치기 */
+@import url(./reset.css);
+@import url(./core.css);
+@import url(./common.css);
+
+/* 컨텐츠 영역 속박스 */
+.cont{
+    min-height: 600px;
+    padding: 15px;
+}
+
+
+/* 2-1-1. 서브타이틀 */
+.stit {
+    font-family: pist;
+    font-weight: normal;
+    font-size: 50px;
+    text-align: center;
+    padding: 40px 0 20px;    
+}
+
+/* 2-2. 서브 컨텐츠 박스 */
+.scont{
+    position: relative;
+    /* 부모자격 - .btnbx */
+    max-width: 700px;
+    min-height: 275px;
+    margin: 0 auto;
+    border: 2px solid #737373;
+    border-radius: 10px;
+    /* 크기유지 */
+    box-sizing: border-box;
+    padding: 60px 15px;
+    background-color: #fff;
+}
+
+/* 입력창 공통라벨 */
+.minput label {
+    display: inline-block;
+    width: 150px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #555;
+    text-align: center;
+    line-height: 36px;
+    /* outline: 2px solid red; */
+}
+
+/* 입력양식공통 */
+.minput input {
+    width: 320px;
+    height: 36px;
+    border: 1px solid #777;
+    border-radius: 5px;
+    font-size: 18px;
+    padding-left: 5px;
+    /* 크기유지 */
+    box-sizing: border-box;
+    color: #666;
+}
+
+/* 비밀번호박스 */
+.scont div:nth-child(2) {
+    margin-top: 20px;
+}
+
+/* 포커스 아웃라인 제거
+모든 브라우저에 기본 포커스 아웃라인 셋팅됨! */
+input:focus {
+    outline: none;
+}
+
+/* 버튼영역 */
+.btnbx {
+    position: absolute;
+    top: 60px;
+    right: 60px;
+    /* 부모는? .scont */
+}
+
+/* 서브밋 버튼 */
+#sbtn {
+    width: 113px;
+    height: 92px;
+    border: 1px solid #888;
+    border-radius: 5px;
+    /* 그라데이션
+    배경이미지에서 셋팅
+    linear-gradient(방향,색1,색2,...) */
+    background-image: linear-gradient(to bottom, #ddd, #555);
+    color: #fff;
+    text-shadow: 1px 1px #555;
+    font-size: 15px;
+}
+
+/* 기타체크링크 박스 */
+.addbx {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 16px;
+}
+
+/* 체크박스 영역 */
+.addbx span {
+    margin: 0 15px;
+    color: #555;
+}
+
+/* 체크박스 라벨과 세로정렬 */
+.addbx input {
+    vertical-align: -2px;
+}
+
+/* 기타링크 */
+.addbx a {
+    margin: 0 15px;
+    color: #222;
+    text-decoration: none;
+}
+
+/* 추가링크 영역바 */
+.bar{
+    font-weight: normal;
+    /* b요소 기본 두껍게 해제 */
+}
+/* 모바일용 바(.bar1), 줄바꿈(.brk)숨기기 */
+.bar1,.brk{
+    display: none;
+}
+
+/* 미디어쿼리 690px 이하 시작 */
+@media screen and (max-width:690px) {
+
+    /* 입력창 공통라벨 */
+    .minput label {
+        display: block;
+        width: auto;
+    }
+
+    /* 입력양식공통 */
+    .minput input {
+        width: 100%;
+    }
+
+    /* 버튼영역 */
+    .btnbx {
+        position: static;
+    }
+
+    /* 서브밋 버튼 */
+    #sbtn {
+        width: 100%;
+        height: 50px;
+        margin-top: 50px;
+    }
+
+    /* 추가링크박스 */
+    .addbx{
+        line-height: 2.5;
+    }
+
+    /* 추가링크 바숨기기 */
+    .bar2{
+        display: none;
+    }
+    /* 추가링크 바,줄바꿈 보이기 */
+    .bar1,.brk{
+        display: inline;
+    }
+}
+
+/* 미디어쿼리 690px 이하 끝 */
