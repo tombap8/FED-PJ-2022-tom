@@ -1,0 +1,136 @@
+@charset "utf-8";
+/* 프로그레스 페이지 CSS - progress.css */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-image: linear-gradient(
+        to bottom,
+        rgb(223, 219, 255),
+        rgb(255, 204, 247),
+        skyblue
+    );
+}
+
+/* 파티션 박스 */
+.pbx {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    padding-top: 20vh;
+}
+
+/* 원을 담는 박스 */
+.btns {
+    position: relative;
+    width: 20vw;
+    background: url(../images/pang.jpg) no-repeat top/cover;
+    border-radius: 50%;
+}
+
+/* 비율밀기 */
+.btns::before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+
+/* svg셋팅 */
+.btns svg {
+    position: absolute;
+    top: 0;
+    /* 부모박스가 패딩탑으로 비율밀기하므로
+앱솔로 부모박스 맨위로 위치고정! 
+svg 자체는 viewBox설정 때문에 채우기 비율유지함!*/
+}
+
+/* circle 설정 */
+.c1 {
+    fill: none;
+    /* 채우기-기본색은 검정색(transparent-투명,none-없음) */
+    stroke: rgb(255, 0, 242);
+    /* 선색(안쓰면 안나옴) */
+    stroke-width: 10;
+    /* 선두께는 안쓰면 1px, 단위없으면 px */
+    stroke-linecap: round;
+    /* 선끝둥글게 */
+
+    stroke-dasharray: 300%;
+    /* 데쉬어레이를 50%로 놓고 선,공백이 몇조각나는지 본다!
+50% * 6조각 = 300% 즉, 선으로만 채우는 크기임! */
+
+    stroke-dashoffset: 300%;
+    /* 데쉬어레이와 같은 크기를 데쉬옵셋에 주면 시작점이
+밀려서 공백부터 시작함-> 선이 숨겨지는 효과가 생김! */
+
+    /* 트랜지션: 퍼센트 증가에 따른 애니메이션 */
+    transition: 0.1s linear;
+}
+
+/* 퍼센트 글자박스 */
+.txt {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 5vw;
+    text-shadow: 2px 2px 2px #000;
+    color: #fff;
+}
+
+/* 액션버튼박스 */
+.act {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.act button {
+    font-size: 50px;
+}
+
+/* 선형 퍼센트바 */
+.lineper {
+    position: relative;
+    width: 60%;
+    height: 100px;
+    margin: 0 auto;
+    margin-top: 50px;
+    border: 5px solid blue;
+    background-color: #ccc;
+}
+
+/* 선형 퍼센트 숫자박스 */
+.ltxt {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 5vw;
+    color: #fff;
+    text-shadow: 3px 3px 3px #000;
+    z-index: 1;
+}
+
+/* 선형 퍼센트바 */
+.lbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: url(../images/pang.jpg) repeat-x 0 / auto 100%;
+
+    /* 트랜지션: 퍼센트 증가에 따른 애니메이션 */
+    transition: 0.2s linear;
+}

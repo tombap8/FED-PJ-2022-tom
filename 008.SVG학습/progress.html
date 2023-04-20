@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>퍼센트 애니메이션</title>
+        <link rel="stylesheet" href="./css/progress.css">
+        <!-- 제이쿼리 라이브러리 CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+        <!-- 제이쿼리 UI CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+
+        <!-- 메인 JS -->
+        <script src="./js/progress.js"></script>
+    </head>
+
+    <body>
+        <ul class="pbx">
+            <li>
+                <div class="btns">
+                    <!-- 숫자퍼센트박스 -->
+                    <span class="txt"><b class="ptxt">0</b>%</span>
+                    <!-- svg박스 -->
+                    <svg viewBox="0 0 200 200">
+                        <circle
+                            class="c1"
+                            cx="100"
+                            cy="100"
+                            r="95"
+                            transform="rotate(-90,100,100)"
+                        ></circle>
+                    </svg>
+                </div>
+            </li>
+            <li>
+                <div class="btns">
+                    <!-- 숫자퍼센트박스 -->
+                    <span class="txt"><b class="ptxt">0</b>%</span>
+                    <!-- svg박스 -->
+                    <svg viewBox="0 0 200 200">
+                        <circle
+                            class="c1"
+                            cx="100"
+                            cy="100"
+                            r="95"
+                            transform="rotate(-90,100,100)"
+                        ></circle>
+                    </svg>
+                </div>
+            </li>
+            <li>
+                <div class="btns">
+                    <!-- 숫자퍼센트박스 -->
+                    <span class="txt"><b class="ptxt">0</b>%</span>
+                    <!-- svg박스 -->
+                    <svg viewBox="0 0 200 200">
+                        <circle
+                            class="c1"
+                            cx="100"
+                            cy="100"
+                            r="95"
+                            transform="rotate(-90,100,100)"
+                        ></circle>
+                    </svg>
+                </div>
+            </li>
+            <li>
+                <div class="btns">
+                    <!-- 숫자퍼센트박스 -->
+                    <span class="txt"><b class="ptxt">0</b>%</span>
+                    <!-- svg박스 -->
+                    <svg viewBox="0 0 200 200">
+                        <circle
+                            class="c1"
+                            cx="100"
+                            cy="100"
+                            r="95"
+                            transform="rotate(-90,100,100)"
+                        ></circle>
+                    </svg>
+                </div>
+            </li>
+        </ul>
+
+        <!-- 선형 퍼센트바 -->
+        <div class="lineper">
+            <span class="ltxt"><b>0</b>%</span>
+            <span class="lbar"></span>
+        </div>
+
+        <div class="act">
+            <button>팽수1</button>
+            <button>팽수2</button>
+        </div>
+
+        <!-- 오디오 넣기! -->
+        <!-- 
+            audio 태그: 비디오와 매우 유사함! src에 경로 넣음 
+            controls 속성을 안쓰면 오디오가 안보임!
+            다른 버튼에 컨크롤을 기능구현하여 사용할 수 있음!
+            자동재생은 불가!(비디오와 이유가 같다!심장마비!!!)
+        -->
+        <audio id="myaud" src="./images/congretulations.mp3"></audio>
+    </body>
+</html>
