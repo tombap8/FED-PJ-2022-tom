@@ -93,28 +93,51 @@
                 <nav class="gnb" id="gnb">
                     <ul>
                         <li>
-                            <a href="#" @click="chgMenu">FASHION</a>
+                            <a href="#" @click.prevent="chgMenu">FASHION</a>
+                            <!-- 
+                                [ v-on 이벤트 디렉티브 ]
+
+                                1. 기본형 
+                                    v-on:이벤트명=값
+
+                                2. 축약형
+                                    @이벤트명=값
+
+                                3. 추가옵션(장식자)
+
+                                    (1) @이벤트명.prevent=값
+                                    -> event.preventDefault() 설정
+                                    -> 기본기능막기
+
+                                    (2) @이벤트명.stop=값
+                                    -> event.stopPropergation() 설정
+                                    -> 이벤트버블링막기
+
+                                    (3) @이벤트명.once=값
+                                    -> 이벤트가 한번만 적용되게함
+
+                             -->
                         </li>
                         <li>
-                            <a href="#">BEAUTY</a>
+                            <a href="#" @click.prevent="chgMenu">BEAUTY</a>
                         </li>
                         <li>
-                            <a href="#">LIVING</a>
+                            <a href="#" @click.prevent="chgMenu">LIVING</a>
                         </li>
                         <li>
-                            <a href="#">PEOPLE</a>
+                            <a href="#" @click.prevent="chgMenu">PEOPLE</a>
                         </li>
                         <li>
-                            <a href="#">VIDEO</a>
+                            <a href="#" @click.prevent="chgMenu">VIDEO</a>
                         </li>
                         <li>
-                            <a href="#">RUNWAY</a>
+                            <a href="#" @click.prevent="chgMenu">RUNWAY</a>
                         </li>
                         <li>
-                            <a href="#">TIME &amp; GEM</a>
+                            <a href="#" @click.prevent="chgMenu">TIME &amp; GEM</a>
                         </li>
                         <li>
-                            <a href="#">SHOPPING</a>
+                            <a href="#" @click.prevent="chgMenu">SHOPPING</a>
                         </li>
                         <li>
                             <!-- 돋보기 검색버튼 -->
