@@ -39,6 +39,16 @@ $(()=>{
             // 엑시오스로 제이슨 연결하여 데이터 가져오기
             axios.get("./js/mdata.json")
             .then(x=>this.items=x);
+
+            // 탭메뉴 타이틀 변경하기
+            $("title").prepend(pm+" ");
+        },
+        // 메서드 구역
+        methods:{
+            
+            chgTit(){
+
+            } /////// chgTit메서드 /////
         }
     });
 

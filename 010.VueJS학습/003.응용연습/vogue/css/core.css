@@ -131,6 +131,9 @@ font-family: 'Roboto Condensed', sans-serif;
     text-align: center;
     color: #fff;
 }
+.cbx h2 small {
+    font-size: 14px;
+}
 
 /* 4. 스크롤 등장액션 클래스 */
 .scAct {
