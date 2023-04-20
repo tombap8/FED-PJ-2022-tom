@@ -74,8 +74,8 @@ $(()=>{
                 // 뷰 데이터에 반영하기 -> 가상돔의 변경 -> 실제돔반영!
                 vmCont.catName = txt;
 
-                // 탭메뉴 타이틀 변경하기
-                $("title").text(vmCont.catName+
+                // 탭메뉴 타이틀 변경하기 (메뉴 텍스트와 같은 것으로!)
+                $("title").text(e.target.innerText+
                     " | 2023 보그 코리아 (Vogue Korea)");
                 
             }
