@@ -72,7 +72,19 @@ function loadFn() {
             moveEl(retVal(ele),ele,setH1));
 
         // moveEl(위치값,요소,정한범위)
+
     }); /////////// scroll /////////////////
+
+    // 스크롤바를 직접 잡고 움직일시 부드러운 스크롤 위치값 업데이트
+    window.addEventListener("mouseup", () => {
+        // 이것 안하면 다시 스크롤시 튐!
+        pos = window.scrollY;
+    }); /////////// mouseup /////////////////
+    // 키보드로 이동시 부드러운 스크롤 위치값 업데이트
+    window.addEventListener("keyup", () => {
+        // 이것 안하면 다시 스크롤시 튐!
+        pos = window.scrollY;
+    }); /////////// mouseup /////////////////
 
     // 로딩시 맨위로 이동하기
     setTimeout(() => {
