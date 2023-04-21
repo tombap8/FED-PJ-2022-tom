@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Parallax PJ - test</title>
+        <link rel="stylesheet" href="./css/main.css" />
+        <script src="./js/smoothScroll20.js"></script>
+
+        <!-- 제이쿼리 라이브러리 CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+        <!-- 제이쿼리 UI CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+
+        <script>
+            startSS();
+
+            $(() => {
+                /////////// jQB ////////////////
+
+                const qsa = (x) => document.querySelectorAll(x);
+                const retVal = (x) => x.getBoundingClientRect().top;
+                const tg2 = qsa(".icon");
+
+
+                // 대상위치값 : offset().top
+                const jqtg = $(".icon").eq(2).offset().top;
+                console.log("jQ대상위치:",jqtg);
+
+
+                ///// 제이쿼리 스크롤 이벤트 구역 /////
+                $(window).scroll(()=>{
+                    // 제이쿼리 스크롤 위치값 : 현재스크롤위치
+                    let scTop = $(window).scrollTop();
+                    // console.log("scroll:",scTop);
+
+                    // 제이쿼리에서 getBoundingClientRect().top
+                    // 구하기 -> 요소위치값 - 현재스크롤위치값
+                    let jQRect = jqtg - scTop;
+
+                    console.log("JS:",retVal(tg2[2]));
+                    console.log("jQ:",jQRect);
+
+                }); /////////// scroll /////////////
+
+
+
+            }); ///////////// jQB //////////////////
+        </script>
+    </head>
+    <body>
+        <div class="page">
+            <div class="imbx">
+                <img src="images/1.jpg" alt="photo" class="mimg" />
+                <img src="images/11.png" alt="icon" class="icon" />
+                <span class="txt">The Wild North of South Africa</span>
+            </div>
+        </div>
+        <div class="page">
+            <div class="imbx">
+                <img src="images/2.jpg" alt="photo" class="mimg" />
+                <img src="images/22.png" alt="icon" class="icon" />
+                <span class="txt">Captivating Cape Town</span>
+            </div>
+        </div>
+        <div class="page">
+            <div class="imbx">
+                <img src="images/3.jpg" alt="photo" class="mimg" />
+                <img src="images/33.png" alt="icon" class="icon" />
+                <span class="txt">Picture Perfect Portugal</span>
+            </div>
+        </div>
+        <div class="page">
+            <div class="imbx">
+                <img src="images/4.jpg" alt="photo" class="mimg" />
+                <img src="images/44.png" alt="icon" class="icon" />
+                <span class="txt">The Sultry South of Sri Lanka</span>
+            </div>
+        </div>
+        <div class="page">
+            <div class="imbx">
+                <img src="images/5.jpg" alt="photo" class="mimg" />
+                <img src="images/55.png" alt="icon" class="icon" />
+                <span class="txt">Mungo & Menindee</span>
+            </div>
+        </div>
+        <div class="page">
+            <div class="imbx">
+                <img src="images/6.jpg" alt="photo" class="mimg" />
+                <img src="images/66.png" alt="icon" class="icon" />
+                <span class="txt">India 2020</span>
+            </div>
+        </div>
+        <div class="page">
+            <div class="imbx">
+                <img src="images/7.jpg" alt="photo" class="mimg" />
+                <img src="images/77.png" alt="icon" class="icon" />
+                <span class="txt">China 2018</span>
+            </div>
+        </div>
+        <div class="page">
+            <div class="imbx">
+                <img src="images/8.jpg" alt="photo" class="mimg" />
+                <img src="images/88.png" alt="icon" class="icon" />
+                <span class="txt">South East Asia 2016</span>
+            </div>
+        </div>
+    </body>
+</html>
