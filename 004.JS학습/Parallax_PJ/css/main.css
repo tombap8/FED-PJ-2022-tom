@@ -15,19 +15,23 @@ body{
     position: relative;
     height: 100vh;
 }
+/* 이미지박스 */
 .imbx{
     position: absolute;
     width: 45vw;
 }
+/* 아이콘박스 */
 .icon{
     position: absolute;
     width: 150px;
     bottom: -50px;
 }
+/* 글자박스 */
 .txt{
     position: absolute;
     font-family: 'Poppins', sans-serif;
-    font-size: 5vh;
+    font-size: 4vw;
+    white-space: nowrap;
     color: #fff;
     text-shadow: 0 0 5px #000;
 }
