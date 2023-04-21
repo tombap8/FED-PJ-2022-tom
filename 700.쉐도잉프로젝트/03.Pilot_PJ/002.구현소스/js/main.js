@@ -79,8 +79,17 @@ slide.draggable({
     axis:"x" // x축고정
 }); ////// 드래그설정 ////
 
+// 윈도크기리턴함수
+const reWin = () => $(window).width();
 
 // 3. 기준위치 체크후 이동애니메이션
 // 윈도우 가로크기
-const winW = $(window).width();
+
+let winW = reWin();
 console.log("winW:",winW);
+
+// 리사이즈 업데이트
+$(window).resize(()=>{
+    winW = reWin();
+    console.log("winW:",winW);
+});
