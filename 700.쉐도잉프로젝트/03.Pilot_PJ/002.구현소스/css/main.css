@@ -101,6 +101,7 @@
     position: absolute;
     width: 20%;
     height: 100%;
+    display: none;/* 임시 */
 }
 /* 왼쪽영역 */
 .ar1 {

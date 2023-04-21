@@ -81,15 +81,25 @@ slide.draggable({
 
 // 윈도크기리턴함수
 const reWin = () => $(window).width();
-
-// 3. 기준위치 체크후 이동애니메이션
-// 윈도우 가로크기
-
-let winW = reWin();
-console.log("winW:",winW);
-
 // 리사이즈 업데이트
 $(window).resize(()=>{
     winW = reWin();
     console.log("winW:",winW);
 });
+
+// 3. 드래그가 끝난후 -> dragstop 이벤트 발생후!
+// 기준위치 체크후 이동애니메이션
+
+// 윈도우 가로크기 : left 기준위치 px변환!
+let winW = reWin();
+console.log("winW*0.9:",winW*0.9);
+console.log("winW:",winW);
+console.log("winW*1.1:",winW*1.1);
+
+// 드래그끝난후 이벤트 함수 만들기
+slide.on("dragstop",function(){
+    // 슬라이드 left위치값
+    let sleft = $(this).offset().left;
+    console.log("허허",sleft);
+}); //////////// slide ///////////
+
