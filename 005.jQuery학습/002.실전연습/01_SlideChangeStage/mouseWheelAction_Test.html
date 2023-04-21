@@ -170,8 +170,13 @@
                     else if(pno===10){
                         my.attr("src","https://img.postshare.co.kr/images/2021/09/29112128/maxresdefault-1024x576.jpg");
                         
-                        my.css({                         
+                        my.css({ 
+                            width:"100vw",
+                            borderRadius:"0",                        
                             transform: "translate(-50%,-50%) rotateY(0deg)",
+                            transition:`
+                            .4s,border-radius .8s .4s,
+                            width 5s 1.2s`
 
                         })
                     }
