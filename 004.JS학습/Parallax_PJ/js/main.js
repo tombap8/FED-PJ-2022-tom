@@ -38,8 +38,8 @@ function loadFn() {
 
         // 패럴렉스 범위 : 윈도우높이값 ~ 0까지!
         // 화면에서 완전히 사라질때 범위는 0이 아니고
-        // 요소의 -높이값만큼 이다!
-        if (elpos < winH && elpos > 0) {
+        // 요소의 -높이값만큼 이다! -> 적당히 -수치로 해결!
+        if (elpos < winH && elpos > -200) {
             // 1. 위치이동값 계산
             let x = setH - (elpos * setH) / winH;
             console.log("x:", -x);
@@ -63,8 +63,23 @@ function loadFn() {
 
     // 8. 스크롤 이벤트함수 만들기
     window.addEventListener("scroll", () => {
-        let elpos = retVal(tg1[2]);
-        // 테스트 - 3번째 텍스트 위치값
-        console.log(elpos);
+        // 대상1 : 글자박스 패럴렉스호출!
+        tg1.forEach(ele=>
+            moveEl(retVal(ele),ele,setH2));
+
+        // 대상2 : 아이콘 패럴렉스호출!
+        tg2.forEach(ele=>
+            moveEl(retVal(ele),ele,setH1));
+
+        // moveEl(위치값,요소,정한범위)
     }); /////////// scroll /////////////////
+
+    // 로딩시 맨위로 이동하기
+    setTimeout(() => {
+        // 맨위로 이동
+        window.scrollTo(0,0);
+        // 부드러운 스크롤 위치값 반영!
+        pos = 0; // 안하면 튄다!
+    }, 400);
+
 } ////////////// loadFn ///////////////////////////
