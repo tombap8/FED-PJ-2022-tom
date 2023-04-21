@@ -33,6 +33,25 @@ $(".gnb a").click(chgMenu);
 // 인디케이터 클릭시 : 대상 - .indic a
 $(".indic a").click(chgMenu);
 
+// 키보드 이벤트발생시 업데이트
+// 1. Page Up(33) / Up Arrow (38) 
+// 2. Page Down(34) / Down Arrow (40) 
+$(document).keydown((e)=>{
+    // 이전페이지이동
+    if(e.keyCode===33 || e.keyCode===38){
+        pno--;
+        if (pno === -1) pno = 0;
+        movePg();
+    }
+    // 다음페이지이동
+    else if(e.keyCode===34 || e.keyCode===40){
+        pno++;
+        if (pno === pgcnt) pno = pgcnt - 1;
+        movePg();
+    }
+}); ///////////// keydown ////////////////
+
+
 // 새로고침시 스크롤위치 캐싱 변경하기(맨위로!)
 $("html,body").animate({ scrollTop: "0px" });
 
