@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>마우스 휠 액션</title>
+    <link href="https://fonts.googleapis.com/css?family=Hanalei&display=swap" rel="stylesheet">
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            transition: all .2s;
+        }
+
+        ul#letterBox {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 1440px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #letterBox li {
+            float: left;
+            width: 80px;
+            height: 80px;
+/*            outline: 1px solid red;*/
+        }
+
+        #letterBox span {
+            display: block;
+            width: 100%;
+            height: 100%;
+            font: bold 70px/80px 'Hanalei', cursive;
+            text-align: center;
+            /*변형*/
+            transform: translateY(-100%) scale(.5);
+            opacity: 0;
+            /*트랜지션*/
+            transition: all .2s ease-out;
+        }
+
+        /*등장class*/
+        #letterBox li.on span {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+        
+        .mr{/*마진오른쪽*/
+            margin-right: 80px;
+        }
+    </style>
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script>
+        /////// 전역변수 구역 ////////////////
+        var pno = 0; /// 현재 페이지번호 전역변수
+        const totnum = 16; /// 전체 페이지수 -> const 는 상수(변경불가)
+        var psts = 0; /// 광스크롤막기(0-허용,1-막기)  
+        var colors = ["Chartreuse","Chocolate","Cyan","DarkOrange","Fuchsia","GreenYellow","HotPink","MediumOrchid","OrangeRed","PaleGreen","Plum","SpringGreen","Yellow","Violet","SkyBlue"];
+
+        ////////// jQB ///////////////////////////////////
+        $(function() {
+            /////// 마우스휠 이벤트 ////////////////////// 
+            $(document).on("mousewheel DOMMouseScroll",
+                function(e) {
+                    /////// 광스크롤 막기 //////////////////
+                    if (psts === 1) return true; //돌아가!
+                    psts = 1; //잠금!
+                    setTimeout(function() {
+                        psts = 0; //해제
+                    }, 200); //0.8초후 해제///////////
+                    /////////////////////////////////////
+
+                    let delta = event.wheelDelta;
+
+
+                    // 상태값을 만들어서 글자class 넣기/빼기
+                    var letter = 0; //0-넣기, 1-빼기
+
+                    //// 3. 마우스 휠 방향에 따라 페이지번호 증감! /////
+                    if (delta > 0) { //윗방향(양수)
+                        pno--;
+                        if (pno === -1) pno = 0; //한계수
+                        letter = 1; //빼기상태
+                    } //////// if문 ///////////////////
+                    else { // 아랫방향(음수)
+                        pno++;
+                        if (pno === totnum) pno = totnum - 1; // 한계수
+                        letter = 0; //넣기상태
+                    } ////////// else문 //////////////
+
+                    console.log("순번: " + pno);
+
+                    //// 4. 해당순번 li에 class넣기/빼기
+                    if (letter === 0) {
+                        $("#letterBox li").eq(pno - 1).addClass("on");
+                    } //// if //////////////////
+                    else if (letter === 1) {
+                        $("#letterBox li").eq(pno).removeClass("on");
+                    } //// else if ////////////////////
+                
+                    // 배경색 변경하기
+                    $("body").css({backgroundColor:colors[pno-1]});
+
+
+                }); /////////// on 이벤트 함수 ///////////
+            ///////////////////////////////////////////////////
+            ///////////////////////////////////////////////////
+
+
+
+
+
+        }); ////////////// jQB ///////////////////////////
+        /////////////////////////////////////////////////
+    </script>
+</head>
+
+<body>
+    <ul id="letterBox">
+        <li><span>S</span></li>
+        <li><span>H</span></li>
+        <li><span>O</span></li>
+        <li class="mr"><span>W</span></li>
+<!--        <li><span></span></li>-->
+        <li><span>M</span></li>
+        <li class="mr"><span>E</span></li>
+<!--        <li><span></span></li>-->
+        <li><span>T</span></li>
+        <li><span>H</span></li>
+        <li class="mr"><span>E</span></li>
+<!--        <li><span></span></li>-->
+        <li><span>M</span></li>
+        <li><span>O</span></li>
+        <li><span>N</span></li>
+        <li><span>E</span></li>
+        <li><span>Y</span></li>
+        <li><span>!</span></li>
+    </ul>
+
+
+
+
+</body></html>
