@@ -22,6 +22,7 @@
                 position: absolute;
                 top: 40%;
                 left: 100%;
+                width: 40vw;
                 border-radius: 50%;
                 transition: .4s;
             }
@@ -124,6 +125,54 @@
                     else if(pno===3){
                         my.css({
                             transform: "rotate(180deg)"
+                        })
+                    }
+                    else if(pno===4){
+                        my.css({
+                            top:"100%"
+                        })
+                    }
+                    else if(pno===5){
+                        my.attr("src","https://cdn.ggilbo.com/news/photo/202007/783102_616528_5337.jpg");
+                        my.css({
+                            top:"50%",                            
+                            transform: "rotate(0deg)"
+                        })
+                    }
+                    else if(pno===6){
+                        my.attr("src","https://cdn.ggilbo.com/news/photo/202007/783102_616528_5337.jpg");
+                        my.css({
+                            left:"50%",                            
+                            transform: "translate(-50%,-50%)",
+
+                        })
+                    }
+                    else if(pno===7){
+                        my.css({
+                            left:"50%",                            
+                            transform: "translate(-50%,-50%) rotateY(90deg)",
+
+                        })
+                    }
+                    else if(pno===8){
+                        my.attr("src","https://img4.yna.co.kr/etc/inner/KR/2017/01/20/AKR20170120166300033_09_i_P2.jpg");
+                        
+                        my.css({                         
+                            transform: "translate(-50%,-50%) rotateY(0deg)",
+
+                        })
+                    }
+                    else if(pno===9){
+                        my.css({                         
+                            transform: "translate(-50%,-50%) rotateY(90deg)",
+                        })
+                    }
+                    else if(pno===10){
+                        my.attr("src","https://img.postshare.co.kr/images/2021/09/29112128/maxresdefault-1024x576.jpg");
+                        
+                        my.css({                         
+                            transform: "translate(-50%,-50%) rotateY(0deg)",
+
                         })
                     }
                 }); /////////// on 이벤트 함수 ///////////
