@@ -96,8 +96,15 @@ console.log("winW*0.9:",winW*0.9);
 console.log("winW:",winW);
 console.log("winW*1.1:",winW*1.1);
 
+// 광드래그 방지위해 커버셋팅(show()/hide())
+const cover = $(".cover");
+
 // 드래그끝난후 이벤트 함수 만들기
 slide.on("dragstop",function(){
+
+    // 광드래그 방지위해 커버 보이기
+    cover.show();
+
     // 슬라이드 left위치값
     let sleft = $(this).offset().left;
     console.log("허허",sleft);
@@ -106,14 +113,36 @@ slide.on("dragstop",function(){
     if(sleft < -winW*1.1){
         slide.animate({
             left: -winW*2 + "px"
-        },600,"easeInOutQuint");
+        },600,"easeOutQuint",()=>{
+            // 이동후 맨앞li 맨뒤이동
+            slide.append(slide.find("li").first())
+            .css({left:"-100%"});
+            // 커버제거하기
+            cover.hide();
+        });
     } ///// if : 왼쪽이동 /////////
 
     // 2. 오른쪽으로 이동 : -90% 초과일때
     else if(sleft > -winW*0.9){
         slide.animate({
             left: "0px"
-        },600,"easeInOutQuint");
+        },600,"easeOutQuint",()=>{
+            // 이동후 맨뒤li 맨앞으로 이동하기
+            slide.prepend(slide.find("li").last())
+            .css({left:"-100%"});
+            // 커버제거하기
+            cover.hide();
+        });
+    } ///// else if : 오른쪽이동 /////////
+
+    // 3. 제자리로 이동 : -110% ~ -90%
+    else{
+        slide.animate({
+            left: -winW + "px"
+        },200,"easeOutQuint",()=>{            
+            // 커버제거하기
+            cover.hide();
+        });
     } ///// else if : 오른쪽이동 /////////
 
 }); //////////// slide ///////////
