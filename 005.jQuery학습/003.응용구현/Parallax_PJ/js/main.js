@@ -25,7 +25,7 @@ function loadFn() {
     // (2) 아이콘
     const tg2 = $(".icon");
 
-    // 7. 패럴렉스 이동함수 ///
+    // 5. 패럴렉스 이동함수 ///
     const moveEl = (elpos,ele,setH) => {
         // 전달값: elpos - 위치값 / ele - 요소 / setH - 정한범위수
 
@@ -57,7 +57,7 @@ function loadFn() {
     // 요소위치값 - 현재스크롤위치값
     const retVal = (elpos,scTop) => elpos-scTop;
 
-    // 8. 스크롤 이벤트함수 만들기
+    // 6. 스크롤 이벤트함수 만들기
     $(window).on("scroll", () => {
 
         // 현재스크롤위치값
@@ -88,6 +88,7 @@ function loadFn() {
     }); /////////// mouseup + keyup /////////////////
 
     // 로딩시 맨위로 이동하기
+    // 전체스크롤 이동대상은 html,body 최상위부모 2개다 잡아라!
     $("html,body").animate({
         scrollTop:"0"},200,
     ()=>{
