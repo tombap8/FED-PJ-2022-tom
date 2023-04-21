@@ -12,7 +12,7 @@ function loadFn() {
     startSS();
 
     // 2. 화면높이값읽기 : 등장요소의 시작값이 이것임!
-    const winH = $("window").height();
+    const winH = $(window).height();
     console.log("winH:", winH);
 
     // 3. 패럴렉스 수치범위 : 움직일값 설정
