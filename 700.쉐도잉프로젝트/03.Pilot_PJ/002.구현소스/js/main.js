@@ -101,5 +101,20 @@ slide.on("dragstop",function(){
     // 슬라이드 left위치값
     let sleft = $(this).offset().left;
     console.log("허허",sleft);
+
+    // 1. 왼쪽으로 이동 : -110% 미만일때
+    if(sleft < -winW*1.1){
+        slide.animate({
+            left: -winW*2 + "px"
+        },600,"easeInOutQuint");
+    } ///// if : 왼쪽이동 /////////
+
+    // 2. 오른쪽으로 이동 : -90% 초과일때
+    else if(sleft > -winW*0.9){
+        slide.animate({
+            left: "0px"
+        },600,"easeInOutQuint");
+    } ///// else if : 오른쪽이동 /////////
+
 }); //////////// slide ///////////
 
