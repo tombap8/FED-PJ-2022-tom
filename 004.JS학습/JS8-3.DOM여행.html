@@ -72,17 +72,16 @@
                                         // 요소.isSameNode(비교요소)
                                         // 특정요소가 비교요소와 같으면 true
                                         // 같지 않으면 false
-                                        isNow = ele.isSameNode(tgs.item(tgs.length - 1))
+                                        isNow = ele.isSameNode(tgs.item(12))
                                         console.log(isNow);
                                         if (isNow) return;
                                         // -> 마지막노드와 같으면 return 
                                         cele = ele;
                                         ele.classList.remove("on");
-                                        setTimeout(()=>ele.nextElementSibling.classList.add("on"),1)
-                                        // ;
                                     }
                                 }); //// forEach //////
-                            if (!isNow)
+                                if (!isNow)
+                                    cele.nextElementSibling.classList.add("on");
                                 // nextElementSibling 선택요소의 다음요소
                             break;
                         case "앞으로":
