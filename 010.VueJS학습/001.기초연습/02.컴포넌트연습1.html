@@ -181,9 +181,15 @@
 
                     4. 전역 컴포넌트 등록하기
                     ->>> Vue.component()  메서드 사용!!!
+                    ((형식)): 
+                    Vue.component(
+                        사용자정의태그명,
+                        {template : html구성요소})
+
                     (1) 사용자 정의 태그로 html 요소로 삽입한다!
                     -> 새로운 태그명을 지어서 컴포넌트가 들어갈
                     자리를 표시한다!
+
                     예) 
                     <div id="vapp">
                         <hi-ok></hi-ok>    
@@ -192,18 +198,66 @@
                     -> 사용자 정의 태그이름의 형식은 캐밥케이스로
                     만든다!(규칙이다!) : 단어중간에 데쉬를 사용한 이름!
 
+                    (2) 컴포넌트 구성 요소는 반드시 Root가 하나여야함!
+                    -> 하나의 태그로 쌀것!
+                    예)
+                        <div>
+                            <h1>제목</h1>
+                            <p>내용</p>
+                        </div>
 
+                    (3) 컴포넌트는 Vue객체 생성전 코딩해야 적용된다!
 
+                    
 
-
-                <div>
-                    <img src="img_gallery/1.jpg" alt="dress" />
-                    <aside>
-                        <h2>상품명1</h2>
-                        <h3>상품가격1</h3>
-                    </aside>
-                </div>
+                
                 ***************************************/
+
+                // 뷰JS 인스턴스 생성용 함수!
+                const makeVue = x => new Vue({el:x});
+
+
+                // 1. 제목에 넣을 전역컴포넌트 만들기
+
+                Vue.component("tit-comp",{
+                    template: `
+                        <strong>
+                            <span>😋Vue JS🤑 컴포넌트 : </span>
+                            쇼핑모~~~올 갤러리 리스트
+                        </strong>
+                    `
+                }); ///// 전역 컴포넌트 1 ///////
+
+
+                // 뷰인스턴스 생성하기 : 반드시 컴포넌트 아래에서 함!
+                makeVue(".tit");
+                makeVue(".tit2");
+
+                // new Vue({
+                //     el:".tit"
+                // })
+                // new Vue({
+                //     el:".tit2"
+                // })
+
+                // 2. 갤러리 리스트에 넣을 전역컴포넌트 만들기
+                Vue.component("list-comp",{
+                    template:`
+                    <div>
+                        <img src="img_gallery/50.jpg" alt="dress" />
+                        <aside>
+                            <h2>상품명1</h2>
+                            <h3>상품가격1</h3>
+                        </aside>
+                    </div>
+                    `
+                }); ///////////// 뷰JS 컴포넌트 ////////
+
+                // 리스트 뷰 인스턴스 생성하기
+                makeVue(".grid");
+
+
+
 
 
             });///////////////// jQB /////////////////
@@ -214,9 +268,16 @@
 
     <body>
         <!-- 타이틀 -->
-        <h1 class="tit">그리드1 - 이미지 갤러리</h1>
+        <h1 class="tit">
+            <tit-comp></tit-comp>
+        </h1>
         <!-- 그리드 레이아웃 박스 -->
-        <div class="grid"></div>
+        <div class="grid">
+            <list-comp v-for=""></list-comp>
+        </div>
     
+        <h2 class="tit2">
+            <tit-comp></tit-comp>
+        </h2>
     </body>
 </html>
