@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS8-3. DOM여행</title>
+    <style>
+        .stage {
+            border: 3px dotted blue;
+            padding: 20px;
+        }
+
+        .stage ul {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .stage ul.on {
+            background-color: pink;
+        }
+
+        .stage li {
+            width: 50px;
+            height: 50px;
+            border: 5px dashed red;
+            border-radius: 50%;
+            margin: 0 10px;
+        }
+
+        .stage li.on {
+            background: lime url(images/num/num_05.png) no-repeat center/cover;
+        }
+    </style>
+    <script>
+        window.addEventListener("load", () => {
+            let stage = document.querySelector(".stage");
+            let tgs = stage.querySelectorAll("li");
+            let btns = document.querySelectorAll(".btns button");
+            btns.forEach((ele) => {
+                ele.onclick = () => {
+                    console.log(ele.innerText);
+                    let txt = ele.innerText;
+                    let cele;
+                    let isNow;
+
+                    if(stage.querySelector("ul").classList.contains("on") && txt!=="부모로"){
+                        stage.querySelector("ul").classList.remove("on");
+                        tgs[0].classList.add("on");
+                    }
+
+
+                    switch (txt) {
+                        case "맨앞으로":
+                            tgs.forEach(
+                                (ele) => {
+                                    if (ele.classList.contains("on")) {
+                                        ele.classList.remove("on");
+                                    }
+                                }); //// forEach //////
+                                tgs.item(0).classList.add("on");
+                            break;
+                        case "뒤로":
+                            tgs.forEach(
+                                (ele) => {
+                                    if (ele.classList.contains("on")) {
+                                        isNow = ele.isSameNode(tgs.item(tgs.length - 1))
+                                        console.log(isNow);
+                                        if (isNow) return;
+                                        cele = ele;
+                                        ele.classList.remove("on");
+                                    }
+                                }); //// forEach //////
+                            if (!isNow)
+                                cele.nextElementSibling.classList.add("on");
+                            break;
+                        case "앞으로":
+                            tgs.forEach(
+                                (ele) => {
+                                    if (ele.classList.contains("on")) {
+                                        isNow = ele.isSameNode(tgs.item(0));
+                                        console.log(isNow);
+                                        if (isNow) return;
+                                        cele = ele;
+                                        ele.classList.remove("on");
+                                        ele.previousElementSibling.classList.add("on");
+                                    }
+                                }); //// forEach //////
+                            break;                            
+                        case "맨뒤로":
+                            tgs.forEach(
+                                (ele) => {
+                                    if (ele.classList.contains("on")) {
+                                        ele.classList.remove("on");
+                                    }
+                                }); //// forEach //////
+                                tgs.item(tgs.length - 1).classList.add("on");
+                            break;
+                        case "부모로":
+                            tgs.forEach(
+                                (ele) => {
+                                    if (ele.classList.contains("on")) {
+                                        ele.classList.remove("on");
+                                        ele.parentElement.classList.add("on");
+                                    }
+                                }); //// forEach //////
+                            break;
+                    } ////// switch ////
+                }; //////// click /////
+            }); ///// forEach //////////
+        }); /////////// load ///////////////////
+    </script>
+</head>
+
+<body>
+    <div class="stage">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li class="on"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+    </div>
+    <div class="btns">
+        <button>맨앞으로</button>
+        <button>앞으로</button>
+        <button>뒤로</button>
+        <button>맨뒤로</button>
+        <button>부모로</button>
+    </div>
+
+
+</body>
+
+</html>
