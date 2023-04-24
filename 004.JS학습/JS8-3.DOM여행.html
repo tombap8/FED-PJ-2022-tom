@@ -72,12 +72,14 @@
                                         // 요소.isSameNode(비교요소)
                                         // 특정요소가 비교요소와 같으면 true
                                         // 같지 않으면 false
-                                        isNow = ele.isSameNode(tgs.item(12))
+                                        isNow = ele.isSameNode(tgs.item(tgs.length-1))
                                         console.log(isNow);
                                         if (isNow) return;
                                         // -> 마지막노드와 같으면 return 
                                         // cele = ele;
                                         ele.classList.remove("on");
+                                        // ele.nextElementSibling.classList.add("on")
+                                        
                                         // 바로 다음것을 on변경하면 forEach문에서
                                         // 다음요소를 돌때 다시 on이 걸리게되고
                                         // if문에 들어오게 된다! 그래서 계속걸림!
