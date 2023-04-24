@@ -208,6 +208,18 @@
 
                     (3) 컴포넌트는 Vue객체 생성전 코딩해야 적용된다!
 
+                    (4) 전역 컴포넌트 셋팅 메서드에서
+                        템플릿 코드에 전달할 데이터는
+                        반드시 리턴되는 익명함수형태로 사용한다!
+                        -> 이렇게 써야하는 이유는
+                        템플릿 데이터를 처음에 실행해줄때
+                        함수의 리턴값으로 템플릿 코드로 변수를
+                        전달해야만 사용할 수 있는 뷰JS
+                        내부 구현구조를 가지고 있기때문이다!
+                    ((형식))
+                    data:function(){
+                        return{변수:값,변수:값,...}
+                    }
                     
 
                 
@@ -240,21 +252,63 @@
                 //     el:".tit2"
                 // })
 
+                // 숫자증감 변수
+                let num = 0;
+
+
+
                 // 2. 갤러리 리스트에 넣을 전역컴포넌트 만들기
                 Vue.component("list-comp",{
                     template:`
                     <div>
-                        <img src="img_gallery/50.jpg" alt="dress" />
+                        <img v-bind:src="gsrc" alt="dress" />
                         <aside>
-                            <h2>상품명1</h2>
-                            <h3>상품가격1</h3>
+                            <h2>{{gname}}</h2>
+                            <h3>{{gprice}}</h3>
                         </aside>
                     </div>
-                    `
+                    `,
+                    // 컴포넌트 내부 변수셋팅
+                    data:function(){
+
+                        
+                        return{
+                            gsrc:`img_gallery/${this.setNum()}.jpg`,
+                            gname:`상품명1`,
+                            gprice:`상품가격1`
+                        }
+                    },
+                    // 컴포넌트 내부 메서드셋팅
+                    methods:{
+                        setNum(){
+                            num+=1;
+                            console.log("num:",num);
+                            return num;
+                        }
+                    }
                 }); ///////////// 뷰JS 컴포넌트 ////////
 
                 // 리스트 뷰 인스턴스 생성하기
                 makeVue(".grid");
+
+
+                 /* 
+            [ 뷰JS 출력 ]
+            mustache : 
+            {{ expression }}문법을 사용해서 특정 변수를 그대로 렌더링한다.
+
+            v-text : 
+            특정 태그내에서 사용할 수 있으며 v-text속성을 사용해서 "텍스트"로 렌더링한다. 
+            이 때 렌더링된 텍스트는 해당 태그의 자식 노드로 들어간다.
+
+            v-html : 
+            특정 태그내에서 사용할 수 있으며 v-html속성을 사용해서 "html"로 렌더링한다. 
+            이 때 렌더링된 텍스트는 해당 태그의 자식 노드로 들어간다.
+
+            v-bind : 
+            특정 태그내에서 사용할 수 있으며 v-bind문법을 사용해서 vue내부의 값
+            (data, props, computed, methods)들의 값을 해당 속성의 값으로 렌더링한다.
+            */
 
 
 
@@ -273,7 +327,11 @@
         </h1>
         <!-- 그리드 레이아웃 박스 -->
         <div class="grid">
-            <list-comp v-for=""></list-comp>
+            <list-comp v-for="n in 50" v-bind:data-num="n"></list-comp>
+            <!-- 
+                v-for디렉티브의 in뒤에 숫자를 쓰면 개수만큼 돈다!
+                개별숫자 데이터는 1부터 개수만큼 하나씩 할당된다!
+            -->
         </div>
     
         <h2 class="tit2">
