@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <title>JS5-4.this 키워드2</title>
+        
+        <script>
+            /* 
+                [ 타이밍 함수 내부의 this 키워드 의미! ]
+            */
+
+            // 객체생성하기1
+            const codingObj1 = {
+                name: "말코랑",
+                codeLine: 300,
+                showMsg: function(){
+                    console.log(this.name+"님, 오늘은 "+this.codeLine + "줄 코딩하셨네요!");
+                    // 타이밍함수에 출력
+                    setTimeout(function() {
+                        console.log(this.name+"님, 추가코딩으로 "+this.codeLine + "줄 코딩하셨네요!",this);
+                    }, 500);
+                    // 타이밍함수 내부의 익명함수안의 this는
+                    // 실행구역이 분리되어 본래의 this키워드 의미가
+                    // 달라져서 window를 가리키게 됨!
+                    // 그래서 this가 본 객체를 읽어올 수 없다!
+                }
+
+            }; ////////// codingObj1 ///////////////////
+
+            // 객체 메서드 호출
+            codingObj1.showMsg();
+
+
+
+            // 객체생성하기2
+            const codingObj2 = {
+                name: "호랑말코",
+                codeLine: 500,
+                showMsg: function(){
+                    console.log(this.name+"님, 오늘은 "+this.codeLine + "줄 코딩하셨네요!");
+                    // 타이밍함수에 출력
+                    setTimeout(function() {
+                        console.log(this.name+"님, 추가코딩으로 "+this.codeLine + "줄 코딩하셨네요!",this);
+                    }.bind(this), 500);
+                    // bind(this) 는 타이밍함수의 실행
+                    // 메모리 구역이 달라짐으로 인해
+                    // this가 달라지지 않도록
+                    // 기존의 this의미를 묶어서
+                    // 타이밍함수 내부로 전달한다!
+                }
+
+            }; ////////// codingObj1 ///////////////////
+
+            // 객체 메서드 호출
+            codingObj2.showMsg();
+
+
+
+            // 객체생성하기3
+            const codingObj3 = {
+                name: "쇼호랑",
+                codeLine: 1000,
+                showMsg: function(){
+                    console.log(this.name+"님, 오늘은 "+this.codeLine + "줄 코딩하셨네요!");
+
+                    // 타이밍함수에 출력
+                    setTimeout(()=>{
+                        console.log(this.name+"님, 추가코딩으로 "+this.codeLine + "줄 코딩하셨네요!",this);
+                    }, 500);
+                    // 화살표함수를 타이밍함수 안에 사용하면
+                    // bind(this)를 사용하지 않아도
+                    // 기존 싸고 있는 객체를 가리키는 this
+                    // 키워드로써 작동한다!
+                    // -> 화살표함수는 자신을 싸고 있는
+                    // 객체를 가리킨다!
+                    
+                }
+
+            }; ////////// codingObj1 ///////////////////
+
+            // 객체 메서드 호출
+            codingObj3.showMsg();
+
+        </script>
+    </head>
+
+    <body>
+        
+    </body>
+</html>
