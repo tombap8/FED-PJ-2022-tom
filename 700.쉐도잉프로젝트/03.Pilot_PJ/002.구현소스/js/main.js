@@ -289,8 +289,6 @@ setTimeout(showTit,1000);
 // 타임아웃변수
 let banAgain;
 
-// 배너이동시 자동넘김 지우기 셋팅 /////
-slide.on("mousemove dragstart dragstop",clearAuto);
 
 // 자동넘김 지우기 함수
 const clearAuto = () => {
@@ -299,6 +297,10 @@ const clearAuto = () => {
     banAgain = setTimeout(banAutoSlide,5000);
 
 }; /////////// clearAuto 함수 //////////
+
+// 배너이동시 자동넘김 지우기 셋팅 /////
+slide.on("mousemove dragstart dragstop",clearAuto);
+
 
 // 자동넘김 인터발 셋팅하기 /////////
 // 변수에 담아 정지하기 ////
@@ -331,3 +333,5 @@ const banAutoSlide = () => {
 
 }; /////////// banAutoSlide 함수 ///////    
 
+// 자동넘김 최초호출!
+banAutoSlide();
