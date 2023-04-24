@@ -295,11 +295,11 @@ const clearAuto = () => {
     clearInterval(banAuto);
     clearTimeout(banAgain);
     banAgain = setTimeout(banAutoSlide,5000);
-
+    console.log("클리어!!!")
 }; /////////// clearAuto 함수 //////////
 
 // 배너이동시 자동넘김 지우기 셋팅 /////
-slide.on("mousemove dragstart dragstop",clearAuto);
+slide.on("drag dragstart dragstop",clearAuto);
 
 
 // 자동넘김 인터발 셋팅하기 /////////
