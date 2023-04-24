@@ -257,21 +257,28 @@ function showTit(){
     // 3. 타이틀을 넣을 요소를 배너에 추가한다!
     mainban.append(`<h2 class="btit"></h2>`);
 
+    // 타이틀 left위치 변수처리
+    // ban2, ban3만 오른쪽위치
+    let lval = "30%";
+    if(clsnm==="ban2"||clsnm==="ban3") lval="70%";
 
     // 4. 해당배너 h2태그에 배너 타이틀 넣기
     mainban.find(".btit").html(bantit)
     .css({
         position:"absolute",
-        top:"50%",
-        left:"50%",
+        top:"55%", // 약간아래
+        left: lval,
         transform:"translate(-50%,-50%)",
         font:"bold 4.5vmax Verdana",
         color:"#fff",
         textShadow:"1px 1px 3px #777",
         whiteSpace:"nowrap",
+        opacity: 0 // 처음에 투명        
+    })//////////// css /////////////////
+    .animate({ // 등장애니메이션~!!!
+        top:"50%",
         opacity: 1
-        
-    });//////////// css /////////////////
+    },1000,"easeInOutQuart");
 
 
 } /////////////// showTit 함수 /////////////////
