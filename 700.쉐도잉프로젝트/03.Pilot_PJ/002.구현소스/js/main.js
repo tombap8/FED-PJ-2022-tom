@@ -283,6 +283,51 @@ function showTit(){
 
 } /////////////// showTit 함수 /////////////////
 
+// 첫번째 배너를 위한 타이틀 함수 최초호출!
+setTimeout(showTit,1000);
 
+// 타임아웃변수
+let banAgain;
 
+// 배너이동시 자동넘김 지우기 셋팅 /////
+slide.on("mousemove dragstart dragstop",clearAuto);
+
+// 자동넘김 지우기 함수
+const clearAuto = () => {
+    clearInterval(banAuto);
+    clearTimeout(banAgain);
+    banAgain = setTimeout(banAutoSlide,5000);
+
+}; /////////// clearAuto 함수 //////////
+
+// 자동넘김 인터발 셋팅하기 /////////
+// 변수에 담아 정지하기 ////
+let banAuto;
+
+const banAutoSlide = () => {
+
+    banAuto = setInterval(()=>{
+        slide.animate({
+            left: -winW*2 + "px"
+        },600,"easeOutQuint",()=>{
+            // 이동후 맨앞li 맨뒤이동
+            slide.append(slide.find("li").first())
+            .css({left:"-100%"});
+    
+            // 커버제거하기
+            cover.hide(); 
+            
+            // 배너타이틀함수
+            showTit();
+            
+        }); ////////// animate ///////////
+    
+        // 블릿변경함수호출!
+        addOn(2);
+        // 왼쪽이동이므로 2번째 슬라이드
+    },3000);
+    
+    
+
+}; /////////// banAutoSlide 함수 ///////    
 
