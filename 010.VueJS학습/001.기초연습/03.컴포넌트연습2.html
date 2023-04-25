@@ -236,9 +236,9 @@
                     `,
                     // 부모에서 v-bind:속성명=값 으로 전달한 속성변수를
                     // props:[]/{} 로 받음!
-                    props:["haha"],
-                    // props:{"haha":Number}, -> 데이터형 일치함!
-                    // props:{"haha":String}, -> 데이터형 오류메시지나옴!
+                    // props:["haha"],
+                    props:{"haha":Number}, //-> 데이터형 일치함!
+                    // props:{"haha":String}, //-> 데이터형 오류메시지나옴!
                     // 컴포넌트 내부 변수셋팅
                     data:function(){
                         return{
