@@ -35,7 +35,7 @@ $(".ham").click(function(){
 
     // 햄버거 버튼에 클래스 on이 있으면 재생/ 없으면 정지
     let isOn = $(this).is(".on");
-    // console.log(isOn);
+    // // console.log(isOn);
 
     // 배경동영상 재생/멈춤
     if(isOn) $(".bgm").get(0).play();
@@ -84,7 +84,7 @@ const reWin = () => $(window).width();
 // 리사이즈 업데이트
 $(window).resize(()=>{
     winW = reWin();
-    // console.log("winW:",winW);
+    // // console.log("winW:",winW);
 });
 
 // 3. 드래그가 끝난후 -> dragstop 이벤트 발생후!
@@ -92,9 +92,9 @@ $(window).resize(()=>{
 
 // 윈도우 가로크기 : left 기준위치 px변환!
 let winW = reWin();
-// console.log("winW*0.9:",winW*0.9);
-// console.log("winW:",winW);
-// console.log("winW*1.1:",winW*1.1);
+// // console.log("winW*0.9:",winW*0.9);
+// // console.log("winW:",winW);
+// // console.log("winW*1.1:",winW*1.1);
 
 // 광드래그 방지위해 커버셋팅(show()/hide())
 const cover = $(".cover");
@@ -107,7 +107,7 @@ slide.on("dragstop",function(){
 
     // 슬라이드 left위치값
     let sleft = $(this).offset().left;
-    // console.log("허허",sleft);
+    // // console.log("허허",sleft);
 
     // 1. 왼쪽으로 이동 : -110% 미만일때
     if(sleft < -winW*1.1){
@@ -181,7 +181,7 @@ const blist = slide.find("li");
 const bcnt = blist.length;
 
 blist.each((idx,ele)=>{
-    // console.log(idx,bcnt);
+    // // console.log(idx,bcnt);
     // 처음것을 마지막 순번으로 넣기
     if(idx===0)
         $(ele).attr("data-seq",bcnt-1);
@@ -207,7 +207,7 @@ function addOn(seq){ // seq - 읽을 슬라이드 순번
 
     // 1.해당슬라이드 data-seq읽어오기
     let dseq = slide.find("li").eq(seq).attr("data-seq");
-    // console.log(dseq);
+    // // console.log(dseq);
 
     // 2. 해당슬라이드와 동일한 순번블릿에 on넣기
     bindic.eq(dseq).addClass("on")
@@ -249,7 +249,7 @@ function showTit(){
     let bantit = bantxt[clsnm];
 
     // 호출확인
-    console.log("배너타이틀!",clsnm,bantit);
+    // console.log("배너타이틀!",clsnm,bantit);
 
     // 모든 추가 타이틀 지우기
     $(".btit").remove();
@@ -295,7 +295,7 @@ const clearAuto = () => {
     clearInterval(banAuto);
     clearTimeout(banAgain);
     banAgain = setTimeout(banAutoSlide,5000);
-    console.log("클리어!!!")
+    // console.log("클리어!!!")
 }; /////////// clearAuto 함수 //////////
 
 // 배너이동시 자동넘김 지우기 셋팅 /////
