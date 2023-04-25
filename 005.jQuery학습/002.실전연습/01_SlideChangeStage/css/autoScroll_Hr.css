@@ -1,0 +1,225 @@
+@charset "utf-8";
+
+/* 가로방향 자동스크롤 CSS - autoScroll_Hr.css */
+
+/* 큐트폰트 CDN */
+@import url(https://fonts.googleapis.com/css2?family=Cute+Font&display=swap);
+
+/* 제이쿼리 스크롤 이동애니시 
+scroll-behavior:smooth 를 적용하지 않는다! */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+/* 공통셋팅 */
+a {
+    text-decoration: none;
+    color: #fff;
+    text-shadow: 0 0 2px #777;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+img {
+    border: none;
+    /* 이미지 링크시 테두리없앰 */
+}
+h1,
+h2,
+h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+}
+
+/* 공통 class */
+
+/* 전체 페이지 최상위부모박스 */
+.pgwrap{
+    display: flex;
+    /* 자식요소 옆으로 흐름 */
+}
+
+/* 페이지 공통 class */
+.page {
+    position: relative;
+    /* 부모자격 */
+    overflow: hidden;
+    /* 자식요소 숨기기 */
+
+    /* 플렉스 자식요소 이므로 가로크기 설정함!
+    기본은 내용만큼만 커짐 */
+    width: 100vw;
+    /* 기본 flex-shrink:1 이므로 부모크기에 
+    강제맞춤하므로 0으로 변경해야함! */
+    flex-shrink: 0;
+    /* 한페이지 보이는 화면 채우기 */
+    height: 100vh;
+}
+
+/* IR(배경이미지 설명 숨기기) class */
+.ir {
+    display: block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+/* 중앙 속박스 */
+.ibx {
+    width: 1920px;
+    max-width: 100%;
+    /* 1920px보다 작을땐 100%를 유지함! */
+    margin: 0 auto; /* 마영오 - 중앙정렬 */
+}
+
+/* 1. 상단영역 */
+#top {
+    position: fixed;
+    /* 상단고정-보이는화면기준 */
+    width: 100%;
+    z-index: 9999; /* 맨위! */
+    background-color: rgba(0, 0, 0, 0.7);
+}
+/* 상단영역 속박스 */
+.top {
+    position: relative;
+    /* 부모자격 */
+    height: 80px;
+}
+
+/* 1-1.로고 */
+#logo {
+    width: 250px;
+    height: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+#logo img {
+    width: 100%;
+    margin-top: -24px;
+}
+
+/* 1-2. GNB 메뉴 */
+.gnb {
+    position: absolute;
+    /* 부모는? .top */
+    top: 40px;
+    right: 2%;
+}
+/* 메뉴 플렉스박스 */
+.gnb ul {
+    display: flex;
+}
+.gnb li {
+    margin: 0 7px;
+}
+/* 메뉴에 마우스 오버시 + li.on 인경우 */
+.gnb a:hover,
+.gnb li.on a {
+    display: inline-block; /* 트랜스폼적용위해 */
+    color: lime;
+    text-decoration: overline; /* 윗줄 */
+    transform: scale(1.1);
+}
+
+/* 2. 페이지영역 */
+/* 개별 페이지 셋팅 */
+#pg1 {
+    background: url(../images/pic1.png) no-repeat top/cover;
+}
+#pg2 {
+    background: url(../images/pic2.png) no-repeat top/cover;
+}
+#pg3 {
+    background: url(../images/pic3.png) no-repeat top/cover;
+}
+#pg4 {
+    background: url(../images/pic4.png) no-repeat top/cover;
+}
+#pg5 {
+    background: url(../images/pic5.png) no-repeat top/cover;
+}
+#pg6 {
+    background: url(../images/pic6.png) no-repeat top/cover;
+}
+#pg7 {
+    background: url(../images/pic7.png) no-repeat top/cover;
+}
+
+/* 인디케이터 */
+.indic {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    /* 세로중앙이동 */
+    left: 5%;
+    width: 20px;
+    /* outline: 3px dotted blue; */
+}
+
+.indic li {
+    width: 100%;
+    height: 10px;
+    margin: 3px 0;
+    cursor: pointer; /* 손가락모양 */
+}
+
+/* a요소 */
+.indic a {
+    display: block;
+    width: 100%;
+    height: 2px;
+    margin-top: 4px;
+    background-color: #ccc;
+    box-shadow: 1px 1px 1px #777;
+    transition: width 0.4s;
+}
+
+/* 마우스 오버시 + 클래스 "on" */
+.indic li:hover a,
+.indic li.on a {
+    width: 150%;
+    background-color: #fff;
+}
+
+/* 설명글자숨기기 */
+.indic span {
+    display: none;
+}
+
+/* 영화소개 박스 */
+.minfo {
+    position: absolute;
+    /* 부모? .page */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* 정중앙이동 */
+    width: 380px;
+    color: #fff;
+    padding: 15px;
+    white-space: nowrap; /* 줄바꿈방지 */
+    background-color: rgba(0, 0, 0, 0.7);
+    font-family: "Cute Font"; /* 웹폰트 */
+}
+/* 영화제목 */
+.minfo > h1 {
+    font-size: 44px;
+    padding: 5px;
+    text-align: center;
+}
+/* 아수라 한자처리 */
+.minfo > h1 > span {
+    font-size: 28px;
+}
+/* 영화정보 */
+.minfo > h3 {
+    font-size: 28px;
+    padding: 3px;
+}
