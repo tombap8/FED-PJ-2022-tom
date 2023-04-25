@@ -187,6 +187,21 @@
                         -> 주의: 부모로부터 받은 데이터변수는 값을 
                                 새로 할당하여 변경할 수 없다!
 
+                3. 자식 컴포넌트에서 부모의 이벤트 호출하기
+                    1) $emit 으로 전달하고 (1~3)
+                        on이벤트설정으로 받음 (4,5)
+                    2) 구현방법:
+                        (1) 자식 컴포넌트 템플릿에서 
+                            v-on:이벤트명=자식메서드 형태로 쓴후
+                        (2) 자식 컴포넌트 메서드구역(methods)에
+                            이벤트에 쓴 자식메서드를 만들고
+                        (3) this.$emit(부모가만든이벤트명) 으로 전달!
+
+                        (4) 부모 태그에서 
+                            v-on:부모가만든이벤트명=부모메서드
+                            형태로 쓴후
+                        (5) 부모의 뷰인스턴스 메서드구역(methods)에
+                            같은 이름의 메서드를 만들고 기능을 구현함!
             
             ******************************************************/
 
@@ -225,9 +240,10 @@
                 // 2. 갤러리 리스트에 넣을 전역컴포넌트 만들기
                 // 여기가 자식입니다!!!
                 Vue.component("list-comp",{
+                    //  v-on:click="goPapa" 로 부모이벤트 접근시작!
                     template:`
                     <div>
-                        <img v-bind:src="gsrc" alt="dress" />
+                        <img v-bind:src="gsrc" v-on:click="goPapa" alt="dress" />
                         <aside>
                             <h2>{{gname}}</h2>
                             <h3>{{gprice}}</h3>
@@ -249,6 +265,12 @@
                     },
                     // 컴포넌트 내부 메서드셋팅
                     methods:{
+                        // 부모이벤트호출 전달하기 : $emit() 메서드사용
+                        goPapa(){
+                            // $emit(부모가만든이벤트명)
+                            this.$emit("");
+                        },
+
                         //정규식함수(숫자 세자리마다 콤마해주는 기능)
                         insComma(x) {
                             return x.toString()
@@ -302,7 +324,14 @@
         <!-- 그리드 레이아웃 박스 -->
         <div class="grid">
             <!-- 여기가 부모입니다!!! -->
-            <list-comp v-for="(n,i) in 50" v-bind:key="n" v-bind:haha="n" v-bind:myseq="i" v-bind:endlet="'WD'"></list-comp>
+            <list-comp v-for="(n,i) in 50" v-bind:key="n" v-bind:haha="n" v-bind:myseq="i" v-bind:endlet="'WD'" v-on:hull="goMsg"></list-comp>
+
+            <!-- 
+                v-on:hull="goMsg"
+                해석) 세상에 없는 이벤트인 hull 이벤트에
+                자기자신의 메서드인 goMsg를 호출함!
+                -> 자식컴포넌트의 $emit(hull) 로 연결됨!!!
+             -->
 
             <!-- 
                 v-bind:haha="n"
