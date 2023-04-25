@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>One Page Scroll Horizontal</title>
+        <link rel="stylesheet" href="./css/autoScroll_Hr.css">
+        <!-- 제이쿼리 라이브러리+UI -->
+        <script src="./js/jquery-3.6.0.min.js"></script>
+        <script src="./js/jquery-ui.min.js"></script>
+        <!-- 제이쿼리를 사용한 자동스크롤 JS -->
+        <script src="./js/jquery-HrScroll.js" type="module"></script>
+        <!-- 
+            type="module"로 호출시 defer 가 자동으로 설정되어
+            로딩구역이 따로 필요없음!
+         -->
+    </head>
+    <body>
+        <!-- 1. 상단영역 -->
+        <div id="top">
+            <header class="top ibx">
+                <!-- 1-1.로고 -->
+                <h1 id="logo">
+                    <a href="#">
+                        <img src="images/logo.png" alt="메가박스로고" />
+                    </a>
+                </h1>
+                <!-- 1-2.GNB메뉴 -->
+                <nav class="gnb">
+                    <ul>
+                        <li class="on">
+                            <a href="#pg1">아수라</a>
+                        </li>
+                        <li>
+                            <a href="#pg2">고산자</a>
+                        </li>
+                        <li>
+                            <a href="#pg3">인천상륙작전</a>
+                        </li>
+                        <li>
+                            <a href="#pg4">봉이김선달</a>
+                        </li>
+                        <li>
+                            <a href="#pg5">비밀은없다</a>
+                        </li>
+                        <li>
+                            <a href="#pg6">아가씨</a>
+                        </li>
+                        <li>
+                            <a href="#pg7">탐정홍길동</a>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+
+        <!-- 2. 페이지영역 -->
+        <div class="pgwrap">
+            <section id="pg1" class="page">
+                <article class="minfo">
+                    <h1>아수라(<span>阿修羅</span>)</h1>
+                    <h3>감독:김성수</h3>
+                    <h3>배우:정우성, 황정민</h3>
+                    <h3>개봉일: 2016년 9월 28일</h3>
+                </article>
+            </section>
+            <section id="pg2" class="page">
+                <article class="minfo">
+                    <h1>고산자, 대동여지도</h1>
+                    <h3>감독:강우석</h3>
+                    <h3>배우:차승원, 유준상</h3>
+                    <h3>개봉일: 2016년 9월 7일</h3>
+                </article>
+            </section>
+            <section id="pg3" class="page">
+                <article class="minfo">
+                    <h1>인천상륙작전</h1>
+                    <h3>감독:이재한</h3>
+                    <h3>배우:이정재, 이범수, 리암니슨</h3>
+                    <h3>개봉일: 2016년 7월 27일</h3>
+                </article>
+            </section>
+            <section id="pg4" class="page">
+                <article class="minfo">
+                    <h1>봉이 김선달</h1>
+                    <h3>감독:박대민</h3>
+                    <h3>배우:유승호</h3>
+                    <h3>개봉일: 2016년 7월 6일</h3>
+                </article>
+            </section>
+            <section id="pg5" class="page">
+                <article class="minfo">
+                    <h1>비밀은 없다</h1>
+                    <h3>감독:이경미</h3>
+                    <h3>배우:손예진, 김주혁</h3>
+                    <h3>개봉일: 2016년 6월 23일</h3>
+                </article>
+            </section>
+            <section id="pg6" class="page">
+                <article class="minfo">
+                    <h1>아가씨</h1>
+                    <h3>감독:박찬욱</h3>
+                    <h3>배우:김민희, 하정우</h3>
+                    <h3>개봉일: 2016년 6월 1일</h3>
+                </article>
+            </section>
+            <section id="pg7" class="page">
+                <article class="minfo">
+                    <h1>홍길동</h1>
+                    <h3>감독:조성희</h3>
+                    <h3>배우:이제훈, 김성균</h3>
+                    <h3>개봉일: 2016년 5월 4일</h3>
+                </article>
+            </section>
+        </div>
+
+        <!-- 3. 인디케이터(위치표시자) -->
+        <nav class="indic">
+            <ul>
+                <li class="on">
+                    <a href="#pg1"><span>아수라</span></a>
+                </li>
+                <li>
+                    <a href="#pg2"><span>고산자</span></a>
+                </li>
+                <li>
+                    <a href="#pg3"><span>인천상륙작전</span></a>
+                </li>
+                <li>
+                    <a href="#pg4"><span>봉이김선달</span></a>
+                </li>
+                <li>
+                    <a href="#pg5"><span>비밀은없다</span></a>
+                </li>
+                <li>
+                    <a href="#pg6"><span>아가씨</span></a>
+                </li>
+                <li>
+                    <a href="#pg7"><span>탐정홍길동</span></a>
+                </li>
+            </ul>
+        </nav>
+    </body>
+</html>
