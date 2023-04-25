@@ -244,16 +244,17 @@
                         return{
                             gsrc:`img_gallery/${this.haha}.jpg`,
                             gname:`Sofia23`+this.haha+this.endlet,
-                            gprice: (123000*this.haha/2)+`원`
+                            gprice: this.insComma(123000*this.haha/2)+`원`
                         }
                     },
                     // 컴포넌트 내부 메서드셋팅
                     methods:{
-                        setNum(){
-                            num+=1;
-                            console.log("num:",num);
-                            return num;
+                        //정규식함수(숫자 세자리마다 콤마해주는 기능)
+                        insComma(x) {
+                            return x.toString()
+                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                         }
+
                     }
                 }); ///////////// 뷰JS 컴포넌트 ////////
 
