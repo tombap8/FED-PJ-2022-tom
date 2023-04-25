@@ -150,7 +150,7 @@ function autoScroll() {
         transform: "rotate(45deg)",
         transformOrigin: "left top",
         opacity: "0",
-        transition: "1s",
+        transition: "1s ease-in-out",
     }); /////////// css ///////////
 
     // 대상: .txtc a
@@ -158,14 +158,14 @@ function autoScroll() {
         transform: "rotate(45deg)",
         transformOrigin: "left top",
         opacity: "0",
-        transition: "1s .5s",
+        transition: "1s ease-in-out .5s",
         display: "inline-block",
     }); /////////// css ///////////
 
     /**************************************** 
-    함수명: actPage
-    기능 : 페이지 도착후 등장애니메이션
-****************************************/
+        함수명: actPage
+        기능 : 페이지 도착후 등장애니메이션
+    ****************************************/
     function actPage() {
         // 이동후 확인
         console.log("액숀~!!", pno);
