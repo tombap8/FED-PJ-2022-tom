@@ -122,42 +122,13 @@ function movePg() {
         },
         700,
         "easeInOutQuint",
-        showEle // 이동후 콜백함수호출!
+        actPage // 이동후 콜백함수호출!
     );
 
     // 대상: GNB메뉴 , 인디케이터 메뉴
     gnb.eq(pno).addClass("on").siblings().removeClass("on");
     indic.eq(pno).addClass("on").siblings().removeClass("on");
 } ///////////////// movePg ////////////////
-
-// 등장할 요소 초기화 /////
-minfo.css({
-    opacity: 0,
-    transform: "translate(-50%,50%)",
-    transition: ".3s ease-out",
-}); ///////// css //////
-
-/******************************************** 
-    함수명: showEle
-    기능: 페이지이동후 요소 등장하기
-********************************************/
-function showEle() {
-    // .minfo 페이지별 등장하기!
-    pg.eq(pno).find(".minfo").css({
-        opacity: 1,
-        transform: "translate(-50%,-50%)",
-    }) ///////// css //////
-    // 다른페이지 초기화
-    .parents(".page").siblings().find(".minfo")
-    .css({
-        opacity: 0,
-        transform: "translate(-50%,50%)",
-        transition: ".3s ease-out",
-    }); ///////// css //////
-} /////////// showEle 함수 ///////////////////
-
-// 등장액션함수 최초호출 ///
-setTimeout(showEle, 1000);
 
 
 
