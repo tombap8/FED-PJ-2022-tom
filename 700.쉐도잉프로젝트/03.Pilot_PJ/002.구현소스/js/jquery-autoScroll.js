@@ -159,6 +159,60 @@ function showEle() {
 // 등장액션함수 최초호출 ///
 setTimeout(showEle, 1000);
 
+
+
+/******************************************** 
+    [ 페이지 등장액션 요소 적용하기 ]
+    1. 이벤트 적용시점 : 페이지도착후(애니후콜백) 
+    2. 이벤트 대상 : 각 페이지 동일
+        (1) .page .imgc - 이미지파트
+        (2) .page .txtc h2 a - 타이틀파트
+    3. 변경내용 :
+        [스타일시트 아래 항목 변경]
+        ((변경값))
+        transform: rotate(45deg);
+        opacity: 0;
+        transition: 1s 1s; -> 타이틀만 지연시간
+        ((고정값))
+        transform-origin: left top;
+        display: inline-block; -> a요소만
+********************************************/
+
+// 1. 초기화하기 /////////// 
+// 대상: .imgc
+$(".imgc").css({
+    transform: "rotate(45deg)",
+    transformOrigin: "left top",
+    opacity: "0",
+    transition: "1s",
+}); /////////// css ///////////
+
+// 대상: .txtc a
+$(".txtc a").css({
+    transform: "rotate(45deg)",
+    transformOrigin: "left top",
+    opacity: "0",
+    transition: "1s .5s",
+    display: "inline-block"
+}); /////////// css ///////////
+
+/**************************************** 
+    함수명: actPage
+    기능 : 페이지 도착후 등장애니메이션
+****************************************/
+function actPage(){ 
+    // 이동후 확인
+    console.log("액숀~!!",pno);
+
+} ///////////// actPage 함수 ////////////
+
+
+
+
+
+
+
+
 } //////////// autoScroll /////////////////
 
 // 전체함수 내보내기 ///////
