@@ -131,7 +131,7 @@ new Vue({
 
         // 1. 갤러리 리스트 클릭시 큰이미지박스 보이기
         $(".grid>div").click(function(e){
-            
+            console.log(this);
             // 1. 클릭된 이미지 경로 읽어오기
             let isrc = $(this).find("img").attr("src");
             
@@ -175,6 +175,8 @@ new Vue({
             // 4. 큰 이미지 변경하기
             $("#imbx img")
             .attr("src",`img_gallery/${nowNum}.jpg`);
+
+            console.log($(`.grid>div[]`));
 
         }); ////////// click ////////////
 
