@@ -51,6 +51,7 @@
     animation: magAni 10s linear infinite alternate;
 }
 
+
 /* 계속 확대/축소 애니 키프레임 */
 @keyframes magAni {
     to {
@@ -81,6 +82,105 @@
     margin: min(0.8vw, 10px) 0;
     /* 마진: 위아래 양쪽 */
 }
+
+/* IR 클래스 */
+.ir {
+    display: block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+/* 큰 이미지 배경박스 */
+#bgbx {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: none;
+    /* 처음에 안보임 */
+}
+
+/* 이동버튼 공통 */
+.abtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    /* 세로중앙이동 */
+    width: 56px;
+    height: 111px;
+    background: url(../img_gallery/mv_btns.png) no-repeat;
+}
+
+/* 오른쪽버튼 */
+.rb {
+    right: 5%;
+    background-position: 0 -100px;
+}
+
+.rb:hover {
+    background-position: -167px 0;
+}
+
+/* 왼쪽버튼 */
+.lb {
+    left: 5%;
+    background-position: -232px 0;
+}
+
+.lb:hover {
+    background-position: 0 -221px;
+}
+
+/* 닫기버튼 */
+.cbtn {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    width: 40px;
+    height: 39px;
+    background: url(../img_gallery/mv_btns.png) no-repeat;
+    background-position: -129px -342px;
+
+    /* 트랜지션 */
+    transition: transform 0.3s;
+}
+
+/* 닫기버튼 오버시 */
+.cbtn:hover {
+    transform: rotate(-90deg);
+}
+
+/* 큰 이미지박스 */
+#imbx {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* 정중앙이동 */
+
+    height: 60vmin;
+    /* vmin은 보이는 화면에서 가로/세로중 작은쪽기준! */
+    display: none;
+    /* 처음에 안보임 */
+}
+
+/* 큰 이미지 */
+#imbx img {
+    height: 100%;
+}
+
+.del {
+    text-decoration: line-through;
+    color: green;
+}
+
+
+
+
+
 
 /* 1100px이하 미디어쿼리 시작 */
 @media screen and (max-width: 1100px) {
