@@ -175,9 +175,7 @@ new Vue({
             // 4. 큰 이미지 변경하기
             $("#imbx img")
             .attr("src",`img_gallery/${nowNum}.jpg`);
-
-            console.log($(`.grid>div[]`));
-
+            
         }); ////////// click ////////////
 
     } //////// mounted 함수구역 /////
