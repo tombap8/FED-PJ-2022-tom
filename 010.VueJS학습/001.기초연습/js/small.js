@@ -81,10 +81,10 @@ new Vue({
     methods: {
         // 자식이벤트 전달후 실행메서드!
         goMsg() {
-            alert("자식이 부모에게 이벤트전달 성공!");
+            // alert("자식이 부모에게 이벤트전달 성공!");
         },
         ovMsg() {
-            console.log("오버!오케이!");
+            // console.log("오버!오케이!");
         },
     },
 }); //////////// Vue 인스턴스 //////////
@@ -122,5 +122,63 @@ Vue.component("win-comp",{
 ////////// win-comp 뷰JS 인스턴스 생성하기 //////
 new Vue({
     el:"#pbg",
+    // DOM이 모두 로딩된 후 실행구역!
+    mounted:function(){
+        // [ 제이쿼리 기능구현 ]
+
+        // 공유번호변수
+        let nowNum = 1;
+
+        // 1. 갤러리 리스트 클릭시 큰이미지박스 보이기
+        $(".grid>div").click(function(e){
+            
+            // 1. 클릭된 이미지 경로 읽어오기
+            let isrc = $(this).find("img").attr("src");
+            
+            // 2. 클릭된 이미지 경로를 큰 이미지에 src로 넣기
+            $("#imbx img").attr("src",isrc);
+            
+            // 3. 큰이미지박스 보이기
+            $("#bgbx").show();
+            
+            // 4. 다음/이전 이미지 변경을 위한 data-num속성읽기
+            nowNum = $(this).attr("data-num");
+            console.log("현재이미지번호:",nowNum);
+        });/////////// click ////////
+        
+        // 2. 닫기버튼 클릭시 큰이미지박스 숨기기
+        $(".cbtn").click(function(e){
+            e.preventDefault();
+            // 큰이미지박스 숨기기
+            $("#bgbx").hide();
+        }); /////////// click /////////
+        
+        // 3. 이전/다음버튼 클릭시 이미지변경하기
+        $(".abtn").click(function(e){
+            // 1. 기본이동막기
+            e.preventDefault();
+            // 2. 오른쪽버튼 여부
+            let isB = $(this).is(".rb");
+
+            // 3. 분기하기
+            if(isB){ // 오른쪽버튼
+                nowNum++;
+                if(nowNum===51) nowNum=1;
+            }
+            else{ // 왼쪽버튼
+                nowNum--;
+                if(nowNum===0) nowNum=50;
+            }
+
+            console.log("변경된nowNum:",nowNum);
+
+            // 4. 큰 이미지 변경하기
+            $("#imbx img")
+            .attr("src",`img_gallery/${nowNum}.jpg`);
+
+        }); ////////// click ////////////
+
+    } //////// mounted 함수구역 /////
+
 }); ///////////// 뷰JS 인스턴스 //////////////////
 
