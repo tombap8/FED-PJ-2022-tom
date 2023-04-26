@@ -2,6 +2,7 @@
 
 function mySlider(ele) {
     // ele - 대상요소
+    // console.log(ele);
 
     // 호출확인
     console.log("로딩완료!");
