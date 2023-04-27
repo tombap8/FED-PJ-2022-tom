@@ -38,9 +38,17 @@ Vue.component("list-comp", {
     // 컴포넌트 내부 변수셋팅
     data: function () {
         return {
+            // 1. 상품이미지 경로
             gsrc: `img_gallery/${this.haha}.jpg`,
+            // 2. 상품명
             gname: `Sofia23` + this.haha + this.endlet + (this.myseq % 2 ? "😘" : "👍"),
-            gprice: this.insComma((123000 * this.haha) / 2) + `원`,
+            // 3. 단위가격(원가격)
+            gprice: 
+            this.insComma((123000 * this.haha) / 2) + `원`,
+            // 4. 할인가격 : 30% 할인된 가격(원가격*0.7) 
+            // - 반올림 Math.round()
+            sale: 
+            this.insComma(Math.round((123000 * this.haha) / 2 * 0.7)) + `원`,
         };
     },
     // 컴포넌트 내부 메서드셋팅
@@ -160,7 +168,7 @@ new Vue({
 
             // 5. 값 셋팅하기
             setVal();
-            
+
         }); ////////// click ////////////
     }, //////// mounted 함수구역 /////
 }); ///////////// 뷰JS 인스턴스 //////////////////

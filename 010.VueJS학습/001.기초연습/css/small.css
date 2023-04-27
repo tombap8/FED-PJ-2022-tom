@@ -192,9 +192,10 @@ body{
     object-fit: cover;
 }
 
+/* 할인인 경우 원래가격 지움표시 클래스 */
 .del {
     text-decoration: line-through;
-    color: green;
+    color: orange;
 }
 
 
