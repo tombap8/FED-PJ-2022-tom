@@ -15,10 +15,10 @@ const hcode = {
             <aside>
                 <h2>{{gname}}</h2>
                 <h3>
-                    <span v-bind:class="{del:haha==3||haha==50}">
+                    <span v-bind:class="{del:condiRet()}">
                         {{gprice}}
                     </span>
-                    <span v-if="haha==3||haha==50">
+                    <span class="sale" v-if="condiRet()">
                         {{sale}}
                     </span>
                 </h3>
@@ -39,6 +39,17 @@ const hcode = {
         예) <span v-bind:class="{del:haha==3}"></span>
         - 클래스의 값으로 객체를 설정하고 객체속성명에 클래스명을
          객체값에 조건식을 쓰면 해당조건에서만 클래스가 적용된다!
+
+        참고) 조건이 많을 경우 또는 여러군데 사용될 경우
+        조건식의 결과를 리턴하는 메서드를 만들어 사용한다!
+        예) <span v-bind:class="{del:constiRet()}"></span>
+
+        ->>> 해당 컴포넌트 methods:{} 처리구역에 리턴메서드 생성
+        methods:{
+            condiRet(){
+                return this.haha==3 || this.haha==5 || this.haha==20;
+            }
+        }
 
     */
 

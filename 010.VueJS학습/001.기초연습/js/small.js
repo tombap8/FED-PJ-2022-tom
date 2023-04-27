@@ -43,12 +43,10 @@ Vue.component("list-comp", {
             // 2. 상품명
             gname: `Sofia23` + this.haha + this.endlet + (this.myseq % 2 ? "😘" : "👍"),
             // 3. 단위가격(원가격)
-            gprice: 
-            this.insComma((123000 * this.haha) / 2) + `원`,
-            // 4. 할인가격 : 30% 할인된 가격(원가격*0.7) 
+            gprice: this.insComma((123000 * this.haha) / 2) + `원`,
+            // 4. 할인가격 : 30% 할인된 가격(원가격*0.7)
             // - 반올림 Math.round()
-            sale: 
-            this.insComma(Math.round((123000 * this.haha) / 2 * 0.7)) + `원`,
+            sale: this.insComma(Math.round(((123000 * this.haha) / 2) * 0.7)) + `원`,
         };
     },
     // 컴포넌트 내부 메서드셋팅
@@ -67,6 +65,20 @@ Vue.component("list-comp", {
         //정규식함수(숫자 세자리마다 콤마해주는 기능)
         insComma(x) {
             return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        },
+
+        //세일표시 여부 리턴 메서드
+        condiRet() {
+            return (
+                this.haha == 3 ||
+                this.haha == 5 ||
+                this.haha == 14 ||
+                this.haha == 22 ||
+                this.haha == 26 ||
+                this.haha == 38 ||
+                this.haha == 45 ||
+                this.haha == 50
+            );
         },
     },
 }); ///////////// 뷰JS 컴포넌트 ////////
@@ -120,19 +132,30 @@ new Vue({
 
             // 5. 값 셋팅하기
             setVal();
-            
         }); /////////// click ////////
-        
+
         // 상품명/ 가격 등 데이터 셋업 함수
-        function setVal(){
+        function setVal() {
             // nowNum값에 의한 대상선정!
             const tg = $(`.grid>div[data-num=${nowNum}]`);
             // console.log(tg.find("h2").text());
             // console.log(tg.find("h3").text());
-    
-            // 상품명/가격 큰박스에 넣기
+
+            // 상품명 큰박스에 넣기
             $("#gtit,#gcode").text(tg.find("h2").text());
-            $("#gprice,#total").text(tg.find("h3").text());
+            // 상품가격 큰박스에 넣기
+            // 세일일 경우와 아닌경우 나누기!
+            if(tg.find("h3 span").first().is(".del")){ // 세일일때
+                $("#gprice,#total").html(
+                    "<small>30% 세일가</small> "+tg.find("h3 span").last().text());
+            } //// if ////
+            else{ // 세일아닐때
+                $("#gprice,#total").text(
+                    tg.find("h3 span").first().text());
+            } ///// else /////
+
+
+
             
         } ////////// setVal함수 //////////////////
 
@@ -168,7 +191,6 @@ new Vue({
 
             // 5. 값 셋팅하기
             setVal();
-
         }); ////////// click ////////////
     }, //////// mounted 함수구역 /////
 }); ///////////// 뷰JS 인스턴스 //////////////////

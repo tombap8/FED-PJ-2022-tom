@@ -41,6 +41,7 @@ body{
 
     /* 이미지 확대시 넘치는 이미지 숨기기 */
     overflow: hidden;
+    cursor: pointer;
 }
 
 /* 그리드 갤러리 이미지 */
@@ -197,7 +198,16 @@ body{
     text-decoration: line-through;
     color: orange;
 }
-
+/* 세일상품 표시 가상요소 */
+.sale::after{
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 60px;
+    margin-top: -57px;
+    margin-left: -31px;
+    background: url(../img_gallery/sale.png) no-repeat 0/100% 100%;
+}
 
 /*신상품 상세정보 영역*/
 .gdesc {
