@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>04.쇼핑몰 갤러리</title>
-        <link rel="stylesheet" href="./css/small.css">
+        <link rel="stylesheet" href="./css/small.css" />
 
         <!-- 뷰JS 스탠드얼론 버전 가져오기! -->
         <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
@@ -25,9 +25,17 @@
         <!-- 그리드 레이아웃 박스 -->
         <div class="grid">
             <!-- 여기가 부모입니다!!! -->
-            <list-comp v-for="(n,i) in 50" v-bind:key="n" v-bind:haha="n" v-bind:myseq="i" v-bind:endlet="'WD'" v-on:hull="goMsg" v-on:gotkimchi="ovMsg" v-bind:data-num="n"></list-comp>           
+            <list-comp
+                v-for="(n,i) in 50"
+                v-bind:key="n"
+                v-bind:haha="n"
+                v-bind:myseq="i"
+                v-bind:endlet="'WD'"
+                v-on:hull="goMsg"
+                v-on:gotkimchi="ovMsg"
+                v-bind:data-num="n"></list-comp>
         </div>
-    
+
         <!-- 큰이미지보기 박스 -->
         <div id="pbg">
             <win-comp></win-comp>
