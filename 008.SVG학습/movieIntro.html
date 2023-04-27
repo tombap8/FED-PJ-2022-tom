@@ -108,6 +108,39 @@
                 /* 삼각형 클리핑 */
                 clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
             }
+
+            /* 삼각형과 이미지박스 */
+            #mtit {
+                position: absolute;
+                width: 60%;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: rgb(0, 0, 0, 0);
+                /* 애니메이션으로 배경색 투명도를 변경함 */
+            }
+            /* 로고이미지 */
+            #mtit img {
+                position: absolute;
+                left: 10%;
+                width: 80%;
+                /* opacity: 0; */
+                padding: 40px 0;
+            }
+            /* 삼각형 */
+            .tribox {
+                position: relative;
+                display: block; /* 박스중앙 먹히게 */
+                margin: 0 auto;
+                width: 25%;
+            }
+            .tribox polygon {
+                fill: none;
+                stroke: #fff;
+                stroke-width: 5;
+                /* stroke-dasharray: 330%;
+                stroke-dashoffset: 330%; */
+            }
         </style>
 
         <!-- 제이쿼리 라이브러리 CDN -->
@@ -116,7 +149,8 @@
         <!-- 제이쿼리 UI CDN -->
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
         <script>
-            $(()=>{ /////////////// jQB /////////////////////
+            $(() => {
+                /////////////// jQB /////////////////////
 
                 // 0. 대상선정
                 // 스틸컷
@@ -124,30 +158,44 @@
 
                 // 1. 스틸컷 박스 투명도1, 원위치 애니!
                 // (1) 첫번째 박스
-                stc.eq(0).delay(7000)
-                .animate({
-                    top: "0",
-                    opacity: 1
-                },5500,"easeInOutCubic")
-                // (2) 첫번째 박스
-                stc.eq(1).delay(7500)
-                .animate({
-                    right: "0",
-                    opacity: 1
-                },6000,"easeInOutCubic")
-                // (3) 첫번째 박스
-                stc.eq(2).delay(8000)
-                .animate({
-                    bottom: "0",
-                    opacity: 1
-                },6500,"easeInOutCubic")
-                // (4) 첫번째 박스
-                stc.eq(3).delay(8500)
-                .animate({
-                    left: "0",
-                    opacity: 1
-                },7000,"easeInOutCubic")
+                stc.eq(0).delay(7000).animate(
+                    {
+                        top: "0",
+                        opacity: 1,
+                    },
+                    5500,
+                    "easeInOutCubic"
+                );
 
+                // (2) 두번째 박스
+                stc.eq(1).delay(7500).animate(
+                    {
+                        right: "0",
+                        opacity: 1,
+                    },
+                    6000,
+                    "easeInOutCubic"
+                );
+
+                // (3) 세번째 박스
+                stc.eq(2).delay(8000).animate(
+                    {
+                        bottom: "0",
+                        opacity: 1,
+                    },
+                    6500,
+                    "easeInOutCubic"
+                );
+
+                // (4) 네번째 박스
+                stc.eq(3).delay(8500).animate(
+                    {
+                        left: "0",
+                        opacity: 1,
+                    },
+                    7000,
+                    "easeInOutCubic"
+                );
             }); /////////////////// jQB //////////////////////
         </script>
     </head>
@@ -168,17 +216,18 @@
             </div>
         </div>
 
+        <!-- 라인 SVG -->
         <svg class="stg">
             <line class="line1" x1="0%" y1="0%" x2="100%" y2="100%"></line>
             <line class="line1" x1="100%" y1="0%" x2="0%" y2="100%"></line>
         </svg>
 
         <!-- 삼각형과 이미지박스 -->
-        <!-- <div id="mtit">
-        <img src="images/GoastInTheShell_logo.png" alt="logo">
-        <svg class="tribox" viewBox="0 0 300 300">
-            <polygon points="0,300 300,300 150,0"></polygon>
-        </svg>
-    </div> -->
+        <div id="mtit">
+            <img src="images/GoastInTheShell_logo.png" alt="logo" />
+            <svg class="tribox" viewBox="0 0 300 300">
+                <polygon points="0,300 300,300 150,0"></polygon>
+            </svg>
+        </div>
     </body>
 </html>
