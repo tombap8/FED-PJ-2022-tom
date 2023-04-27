@@ -101,7 +101,7 @@ new Vue({
             let isrc = $(this).find("img").attr("src");
 
             // 2. 클릭된 이미지 경로를 큰 이미지에 src로 넣기
-            $("#imbx img").attr("src", isrc);
+            $(".gimg img").attr("src", isrc);
 
             // 3. 큰이미지박스 보이기
             $("#bgbx").show();
@@ -139,7 +139,7 @@ new Vue({
             console.log("변경된nowNum:", nowNum);
 
             // 4. 큰 이미지 변경하기
-            $("#imbx img").attr("src", `img_gallery/${nowNum}.jpg`);
+            $(".gimg img").attr("src", `img_gallery/${nowNum}.jpg`);
         }); ////////// click ////////////
     }, //////// mounted 함수구역 /////
 }); ///////////// 뷰JS 인스턴스 //////////////////
