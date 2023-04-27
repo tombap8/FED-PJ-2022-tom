@@ -145,20 +145,10 @@
             /* 오디오버튼 */
             .audPlay{
                 position: fixed;
-                top: 20px;
+                top: 100px;
                 right: 20px;
-                width: 100px;
-                height: 100px;
 
-                background: none;
-                border: 4px solid #fff;
-
-                color: #fff;
-                font-size: 50px;
-                text-shadow: 0 0 10px #000;
-                border-radius: 50%;
                 cursor: pointer;
-            
             }
         </style>
 
@@ -237,6 +227,54 @@
 
                 } //////// titAni함수 ///////////
 
+                // 3. 오디오 기능 구현
+                // (1) 버튼에 오버시 이미지변경
+                $(".audPlay").hover(
+                    function(){ // over
+                        $("img",this)
+                        .attr("src",
+                        $("img",this).attr("src")
+                        .replace(".png","-1.png"))
+                    },
+                    function(){ // out
+                        $("img",this)
+                        .attr("src",
+                        $("img",this).attr("src")
+                        .replace("-1.png",".png"))
+                    }) //////////// hover //////////
+                    // 버튼 클릭시 버튼변경 및 오디오 재생/멈춤 전환!
+                    .click(function(){
+                        // 오디오요소
+                        const myaud = $(".myaud").get(0);
+                        // get(순번) -> 선택법은 제이쿼리용!
+                        // JS는 오디오/비디오 선택후 바로 play()
+                        
+                        // 오디오/비디오 재생여부속성 -> paused
+                        // 멈춤상태이면 true / 재생상태이면 false
+
+                        console.log("오디오재생여부:",
+                        myaud.paused);
+
+                        // 분기하기
+                        // 멈춤이면 재생
+                        if(myaud.paused){
+                            // 버튼 변경하기
+                            $("img",this)
+                            .attr("src","./images/vbt1-1.png");
+                            // 오디오 재생하기 : play() 메서드
+                            myaud.play();
+                        } ////// if //////////
+                        else{
+                            // 버튼 변경하기
+                            $("img",this)
+                            .attr("src","./images/vbt2-1.png");
+                            // 오디오 정지하기 : pause() 메서드
+                            myaud.pause();
+                        } ////// else /////////
+
+                    })
+
+
             }); /////////////////// jQB //////////////////////
         </script>
     </head>
@@ -272,8 +310,9 @@
         </div>
 
         <!-- 오디오 -->
-        <button class="audPlay">▶</button>
-        <div class="audSpot"></div>
-        <iframe width="1280" height="736" src="https://www.youtube.com/embed/WjOuEruzoh0?autoplay=1" allow="autoplay"></iframe>
+        <div class="audPlay">
+            <img src="./images/vbt2.png" alt="조작버튼">
+        </div>
+        <audio src="./images/goast.mp3" class="myaud"></audio>
     </body>
 </html>
