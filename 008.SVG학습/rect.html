@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사각형 + 다각형 SVG</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            color: #fff;
+            background-color: #000;
+            text-align: center;
+        }
+
+        /* 이미지박스 */
+        .ibox {
+            width: 400px;
+            height: 300px;
+            margin: 0 auto;
+            background:
+                url(./images/img1.jpg) no-repeat center/cover;
+        }
+
+        /* 사각형 svg */
+        .rsvg {
+            width: 100%;
+            height: 100%;
+            /* svg는 보통 가로,세로 크기를 주는 것부터 시작!
+            svg 가 백터 그래픽의 스테이지다! */
+        }
+
+        /* rect요소 */
+        .rsvg rect {
+            fill: none;
+            /* 투명 */
+            /* 채우기속성(기본색은 검정) 
+            transparent - 투명, none - 없음*/
+            stroke: lime;
+            /* 선색(안쓰면 안나옴) */
+            stroke-width: 10;
+            /* 사각형 기준선을 중심으로 그려짐
+            따라서 바깥쪽으로 5px나가있음->위치,크기 조정필요!
+            x,y축으로 각각 5px밀고 width,height를 각각 10px줄임! */
+            stroke-linecap: square;
+            /* stroke-linecap 선끝옵션 
+                1) butt - 끝에 중심선이 보임(기본값)
+                2) square - 끝에 사각형으로 덮음
+                3) round - 끝에 둥근모양으로 덮음
+            */
+
+
+            /* 
+                [ svg 라인 애니메이션을 위한 중요속성 2가지! ] 
+
+                1. stroke-dasharray : 
+                선과 공백으로 만드는 점선셋팅 
+                - 단위없이 숫자만 쓰면 px단위
+                - 숫자를 하나만 쓰면 선,공백이 동일하게 셋팅됨
+                - 숫자를 2개 이상 쓰면 선,공백 순으로 크기를 셋팅함
+                [ 만일 %단위를 쓰면? ]
+                -> 50%를 주고 몇조각 나는지 세어본다!
+
+                2. stroke-dashoffset :
+                선, 공백 순서에서 시작위치 셋팅 -> 공백부터 시작가능!
+            
+            */
+            stroke-dasharray: 400%;
+            /* 50%를 값으로 주고 몇조각? 8조각남!
+            50% * 8 = 400% -> 결과적으로 선만 보임!
+            공백이 숨어있음 -> 시작위치를 밀어서 공백부터 보이게함
+            -> stroke-dashoffset으로 밀어준다! 
+            -> stroke-dasharray값과 같은 값을 주면 공백부터시작!*/
+            stroke-dashoffset: 400%;
+
+            /* 트랜지션: 속시이지 */
+            transition: all .4s ease-in-out;
+        }
+
+        /* 버튼에 마우스 오버시 */
+        .ib1:hover rect {
+            stroke-dashoffset: 0;
+            /* 선이 다시나옴!!! */
+        }
+
+        /* 두번째 rect박스 */
+        .ib2 {
+            width: 200px;
+            height: 150px;
+            /* 가로,세로 비율을 4:3으로! */
+            margin-top: 50px;
+        }
+
+        /* 다각형 부모박스 */
+        .pbx{
+            width: 300px;
+            height: 300px;
+            margin: 20px auto;
+            background: url(images/earth.png) no-repeat center 83%/50%;
+            /* outline: 5px solid lime; */
+        }
+        /* 다각형 svg요소 */
+        .psvg{
+            width: 100%;
+            height: 100%;
+        }
+        /* polygon요소 */
+        .psvg polygon{
+            fill: none;/* 채우기없앰 */
+            stroke: hotpink;/* 선색 */
+            stroke-width: 15;/* 선두께 */
+
+            stroke-linecap: round;
+            /* 선끝처리 둥글게 */
+            stroke-linejoin: round;
+            /* 선꺾이는 부분처리 둥글게 */
+            
+            /* 애니메이션을 위한 셋팅 */
+            stroke-dasharray: 310%;
+            /* 50% * 6조각 = 300%+알파 */
+            stroke-dashoffset: 310%;
+            /* 데쉬어레이 값과 같으면 공백부터시작! */
+
+            transition: all 1s;
+        }
+        /* 마우스 오버시 */
+        .psvg:hover polygon{
+            stroke-dashoffset: 0;
+        }
+
+
+        /* 크기가 유동적인 비율유지 박스 */
+        .pbx2{
+            position: relative;
+            /* 부모자격! */
+            width: 40%;
+            height: auto;
+            background-image: url(images/sun.png);
+        }
+        /* 가상요소로 비율만들기 */
+        .pbx2::before{
+            content: '';
+            display: block;
+            padding-top: 100%;
+        }
+        .pbx2 .psvg{
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* 부모는? .pbx2 */
+        }
+    </style>
+</head>
+
+<body>
+    <h1>사각형 SVG</h1>
+
+    <div class="ibox ib1">
+        <svg class="rsvg">
+            <rect width="390" height="290" x="5" y="5"></rect>
+        </svg>
+    </div>
+    <div class="ibox ib1 ib2">
+        <svg class="rsvg" viewBox="0 0 400 300">
+            <rect width="390" height="290" x="5" y="5"></rect>
+        </svg>
+    </div>
+    
+    <h1>다각형 SVG</h1>
+    
+    <div class="pbx">
+        <svg class="psvg" viewBox="-20 0 340 300">
+            <polygon points="0,300 150,0 300,300"></polygon>
+        </svg>
+    </div>
+
+    <!-- 크기가 변경되는 비율유지박스 -->
+    <div class="pbx pbx2">
+        <svg class="psvg" viewBox="-20 0 340 300">
+            <polygon points="0,300 150,0 300,300"></polygon>
+        </svg>
+    </div>
+
+    <!-- 
+        [ SVG 란? ]
+        - Scalable Vector Graphic 의 줄임말
+        즉, 확대해도 깨짐이 없는 벡터 그래픽
+        - 이미지 그래픽은 2가지 종류 중 하나다!
+        (비트맵이미지-픽셀이미지, 벡터이미지-계산하여 화면에 그림)
+        - svg 라는 확장자를 사용함 (예: img1.svg)
+        - html5에서 SVG를 브라우저에 그릴 수 있도록 태그로 도입함!
+
+        [ svg 태그요소란? ]
+        - SVG를 그리는 공간
+        - 하위요소로 그릴 수 있는 여러가지 도형 포멧이 있음
+        1. 사각형 <rect>
+        2. 원 <circle>
+        3. 타원 <ellipse>
+        4. 직선 <line>
+        5. 다중선 <polyline>
+        6. 다각형 <polygon>
+        7. 선 <path> - 직선,곡선 등 다양한 선표현
+
+        [ svg 공통 속성 - 선과 면으로 된 벡터그래픽 ]
+        1. 채우기색 : fill
+        2. 선두께 : stroke-width
+        3. 선색 : stroke
+
+        [ svg  축소확대용 속성 ]
+        viewBox 속성: (주의! 속성명 B대문자 필수! 대소문자구분!)
+        - 형식 : viewBox="x축위치 y축위치 width크기 height크기"
+        - 위의 형식의 값은 4가지이고 각 값은 띄어쓰기로 구분한다!
+        - 각 속성값의 특성
+            1) x축위치, y축위치는 양수값은 스테이지 바깥쪽방향이동
+                                음수값은 스테이지 안쪽방향이동
+            -> 스테이지 보다 큰 svg 이미지가 있다면 위치를 이동해서
+            특정 이미지만 보이게 하는데 사용한다!!!
+
+            2) width크기, height크기는 svg원본 크기를 지정하는 부분이다.(현재 보이는 영역의 스테이지 크기설정)
+            -> 이 값의 width크기를 실제크기와 다르게 조정할 경우
+            값이 원본보다 커지면 보이는 벡터이미지는 작게 표현된다!
+            (값이 작아지면 크게표현됨)
+            -> height 크기는 벡터 그래픽의 세로영역을 확장하는데 사용
+
+            [ viewBox의 가장 일반적인 셋팅은? ]
+            viewBox="0 0 원래가로크기 원래세로크기"
+            -> 이 셋팅을 하면 스테이지가 크기 변경을 할때 svg의
+            크기를 비율을 유지하여 축소확대를 하게된다!
+
+        [ rect 요소 - 사각형을 그리는 svg ]
+        1. 구성속성: 
+            (1) 가로크기 - width
+            (2) 세로크기 - height
+            (3) x축위치 - x
+            (3) y축위치 - y
+        2. 표현법:
+          - svg 요소 하위에 rect 요소를 코딩한다
+
+        [ polygon 요소 - 다각형을 그리는 svg ]
+        1. 구성속성:
+            - points : 다각형의 점들의 좌표값을 셋팅함
+        2. 좌표값 표현
+            - points의 값으로 아래와 같이 표기함
+            points="x1,y1 x2,y2 x3,y3 ..."
+            - x,y좌표를 콤마로 구분하고 다른좌표는 띄어쓰기로 구분함
+     -->
+
+</body>
+
+</html>

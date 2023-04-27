@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0" />
+        <title>SVG - Line Animation</title>
+        <style>
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+            }
+            body {
+                background-color: #000;
+            }
+            .stg {
+                width: 100%;
+                height: 100%;
+            }
+            /* 라인설정 */
+            .line1 {
+                stroke: #fff;
+                /* 선색-흰색 */
+                stroke-width: 4;
+                /* 선두께 */
+                stroke-dasharray: 150%;
+                /* 50% * 3조각 = 150% */
+                stroke-dashoffset: 150%;
+                /* 공백부터 */
+
+                /* 애니메이션:이시이지반방마 */
+                animation: lineAni 5s ease-in-out 2s forwards;
+            }
+            /* 라인애니메이션 키프레임 */
+            @keyframes lineAni {
+                to{
+                    stroke-dashoffset: 0;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <svg class="stg">
+            <line
+                class="line1"
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="100%"></line>
+            <line
+                class="line1"
+                x1="100%"
+                y1="0%"
+                x2="0%"
+                y2="100%"></line>
+        </svg>
+        <!-- 
+        [ svg line 요소 ]
+        - 직선을 그어주는 벡터요소
+        - 직선이란 두 점을 잊는 최단거리
+        - x1,y1 속성이 점하나, x2,y2속성이 점하나
+     -->
+    </body>
+</html>

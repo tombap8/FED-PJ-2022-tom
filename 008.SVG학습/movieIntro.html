@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG 애니메이션 무비 인트로</title>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        body{
+            background-color: #000;
+        }
+        /* 라인svg 스테이지 */
+        .stg{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        /* 라인설정 */
+        .line1{
+            stroke: cyan;
+            /* 선색-흰색 */
+            stroke-width: 3;
+            /* 선두께 */
+            stroke-dasharray: 150%;
+            /* 50% * 3조각 = 150% */
+            stroke-dashoffset: 150%;/* 공백부터 */
+
+            /* 애니메이션: 이시이지반방마 */
+            animation: lineAni 5s ease-in-out 2s forwards;
+        }
+        /* 라인애니메이션 키프레임 */
+        @keyframes lineAni {
+            to{
+                stroke-dashoffset: 0;
+            }
+        }/* 키프레임 */
+
+        /* 공통 CLASS */
+        .ir{/* IR */
+            display: block;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+        }
+
+        /* 스틸컷 박스 */
+        #stc{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        /* 스틸컷 개별박스 공통 */
+        #stc>div{
+            position: absolute;
+            /* 부모는? #stc */
+            background-repeat: no-repeat;
+            background-position: top;
+            background-size: cover;
+            opacity: 0;/* 모두투명! */
+        }
+</style>
+</head>
+<body>
+
+    <!-- 공각기동대 스틸컷 박스 -->
+    <div id="stc">
+        <div><span class="ir">공각스틸컷</span></div>
+        <div><span class="ir">공각스틸컷</span></div>
+        <div><span class="ir">공각스틸컷</span></div>
+        <div><span class="ir">공각스틸컷</span></div>
+    </div>
+
+
+    <svg class="stg">
+        <line class="line1" x1="0%" y1="0%" x2="100%" y2="100%"></line>
+        <line class="line1" x1="100%" y1="0%" x2="0%" y2="100%"></line>
+    </svg>
+
+    <!-- 삼각형과 이미지박스 -->
+    <div id="mtit">
+        <img src="images/GoastInTheShell_logo.png" alt="logo">
+        <svg class="tribox" viewBox="0 0 300 300">
+            <polygon points="0,300 300,300 150,0"></polygon>
+        </svg>
+    </div>
+
+</body>
+</html>
