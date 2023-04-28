@@ -136,17 +136,6 @@ new Vue({
 
             // 5. 값 셋팅하기
             setVal();
-
-            // 6. 가격 계산을 위한 원가격셋팅
-            orgprice = $(this).find("h3>span:first").attr("data-price");
-
-            // 세일 적용일 경우 세일 가격으로 업뎃!
-            if($(this).find("h3>span:first").is(".del")){
-                orgprice = Math.round(orgprice * 0.7);
-            } ///////// if //////////////
-
-
-            console.log("원가격:",orgprice);
         }); /////////// click ////////
 
         // 상품명/ 가격 등 데이터 셋업 함수
@@ -156,23 +145,40 @@ new Vue({
             // console.log(tg.find("h2").text());
             // console.log(tg.find("h3").text());
 
+             // 1. [가격 계산을 위한 원가격셋팅]
+             orgprice = tg.find("h3>span:first").attr("data-price");
+
+             // 세일 적용일 경우 세일 가격으로 업뎃!
+             if(tg.find("h3>span:first").is(".del")){
+                 orgprice = Math.round(orgprice * 0.7);
+             } ///////// if //////////////
+ 
+             console.log("원가격:",orgprice);
+
             // 상품명 큰박스에 넣기
             $("#gtit,#gcode").text(tg.find("h2").text());
             // 상품가격 큰박스에 넣기
             // 세일일 경우와 아닌경우 나누기!
             if(tg.find("h3 span").first().is(".del")){ // 세일일때
                 $("#gprice,#total").html(
-                    "<small>30% 세일가</small> "+tg.find("h3 span").last().text());
+                    "<small>30% 세일가</small> "+ insComma(orgprice) +"원"
+                    // tg.find("h3 span").last().text()
+                    
+                );
             } //// if ////
             else{ // 세일아닐때
-                $("#gprice,#total").text(
-                    tg.find("h3 span").first().text());
+                $("#gprice,#total").text(insComma(orgprice) + "원"
+                    // tg.find("h3 span").first().text()
+                );
             } ///// else /////
-
-
 
             
         } ////////// setVal함수 //////////////////
+
+        //정규식함수(숫자 세자리마다 콤마해주는 기능)
+        function insComma(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
 
         // 2. 닫기버튼 클릭시 큰이미지박스 숨기기
         $(".cbtn").click(function (e) {
@@ -230,7 +236,17 @@ new Vue({
                 // sum.val(isV++);
                 // isV++ 이면 현재값이 변경안됨!
                 // 왜? 1증가전에 반영하기 때문!
-            } ///// if ////////
+            } ///////// if ////////
+
+            // (2) 감소일때 : 한계값 1
+            else{ 
+                isV = --isV;
+                if(isV===0) isV = 1;
+                sum.val(isV);
+            } /////// else ///////
+
+            // 4. 가격표시하기
+
         }); ///////////// click //////////////
 
 
