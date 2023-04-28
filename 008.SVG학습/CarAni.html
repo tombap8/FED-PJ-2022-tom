@@ -221,7 +221,7 @@
             font-family: Verdana;
             color: blue;
             cursor: pointer;
-            display: none;
+            /* display: none; */
         }
         .sbtn:hover{
             color: lime;
@@ -256,6 +256,26 @@
                 스테이지 중앙으로 들어온다!
 
             ***************************************/
+
+            // 위의 순서로 body에 클래스 "on"을 주면
+            // 미리셋팅된 애니메이션이 작동된다!
+            // Start 버튼클릭시 
+            // 1. body 에 클래스 "on"넣기
+            // 2. 오디오 재생하기
+            $(".sbtn").click(function(){
+
+                // 1. 자기자신 없애기
+                $(this).fadeOut(200);
+
+                // 2. body 에 클래스 "on"넣기
+                setTimeout(()=>{
+                    $("body").addClass("on");
+                },1000); // 오디오맞추기위해 1초후작동!
+
+                // 3. 오디오 재생하기
+                $("#myaud").get(0).play();
+
+            }); ///////////// click ///////////////
            
 
 
