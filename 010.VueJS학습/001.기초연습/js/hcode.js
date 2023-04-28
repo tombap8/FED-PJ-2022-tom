@@ -15,7 +15,8 @@ const hcode = {
             <aside>
                 <h2>{{gname}}</h2>
                 <h3>
-                    <span v-bind:class="{del:condiRet()}">
+                    <span v-bind:class="{del:condiRet()}"
+                    v-bind:data-price="orgprice">
                         {{gprice}}
                     </span>
                     <span class="sale" v-if="condiRet()">

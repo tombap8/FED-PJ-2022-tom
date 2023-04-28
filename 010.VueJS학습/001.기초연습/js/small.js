@@ -42,9 +42,11 @@ Vue.component("list-comp", {
             gsrc: `img_gallery/${this.haha}.jpg`,
             // 2. 상품명
             gname: `Sofia23` + this.haha + this.endlet + (this.myseq % 2 ? "😘" : "👍"),
-            // 3. 단위가격(원가격)
+            // 3. 단위가격(원가격 화면표시용)
             gprice: this.insComma((123000 * this.haha) / 2) + `원`,
-            // 4. 할인가격 : 30% 할인된 가격(원가격*0.7)
+            // 4. 단위가격(원가격 숫자만:data-price속성값으로 셋팅)
+            orgprice: (123000 * this.haha) / 2,
+            // 5. 할인가격 : 30% 할인된 가격(원가격*0.7)
             // - 반올림 Math.round()
             sale: this.insComma(Math.round(((123000 * this.haha) / 2) * 0.7)) + `원`,
         };
