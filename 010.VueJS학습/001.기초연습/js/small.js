@@ -174,13 +174,9 @@ new Vue({
 
             // 5. 상품가격 큰박스에 넣기
             // (1) 원가격에 표시
-            $("#gprice").html(
-                insComma(orgprice) + "원"
-            );
+            $("#gprice").html(insComma(orgprice) + "원");
             // (2) 토탈가격에 표시 : 원가 * 개수
-            $("#total").html(
-                insComma(orgprice * tot) + "원"
-            );
+            $("#total").html(insComma(orgprice * tot) + "원");
 
             // 6. 세일일 경우 추가문구넣기
             if (isSale) {
@@ -202,7 +198,6 @@ new Vue({
 
         // 3. 이전/다음버튼 클릭시 이미지변경하기
         $(".abtn").click(function (e) {
-
             // 0. 전체수량초기화
             initTot();
 
@@ -274,12 +269,18 @@ new Vue({
             1. 숫자만 입력
             2. 입력즉시 합계출력
         **********************************/
-       // 대상: #sum
-       // 이벤트 : keyup (입력즉시반응)
-       $("#sum").keyup(function(){
-        console.log("직접입력:");
-       })
-
-
+        // 대상: #sum
+        // 이벤트 : keyup (입력즉시반응)
+        $("#sum").keyup(function () {
+            // 0. 요소자신
+            let ele = $(this);
+            // 1. 입력된 값 : input요소는 val() 메서드로!
+            let txt = ele.val();
+            // 2. 숫자가 아닌경우 : isNaN() - 숫자가 아니면 treu
+            if (isNaN(txt)) {
+                ele.val(1); // 1다시넣음
+            }
+            console.log("직접입력:", txt);
+        });
     }, //////// mounted 함수구역 /////
 }); ///////////// 뷰JS 인스턴스 //////////////////
