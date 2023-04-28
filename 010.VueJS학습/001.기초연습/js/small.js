@@ -117,6 +117,8 @@ new Vue({
         let nowNum = 1;
         // 공유가격변수
         let orgprice = 0;
+        // 공유전체수량변수
+        let tot = 1;
 
         // 1. 갤러리 리스트 클릭시 큰이미지박스 보이기
         $(".grid>div").click(function (e) {
@@ -145,34 +147,36 @@ new Vue({
             // console.log(tg.find("h2").text());
             // console.log(tg.find("h3").text());
 
-             // 1. [가격 계산을 위한 원가격셋팅]
-             orgprice = tg.find("h3>span:first").attr("data-price");
+            // 1. [가격 계산을 위한 원가격셋팅]
+            orgprice = tg.find("h3>span:first").attr("data-price");
 
-             // 세일 적용일 경우 세일 가격으로 업뎃!
-             if(tg.find("h3>span:first").is(".del")){
-                 orgprice = Math.round(orgprice * 0.7);
-             } ///////// if //////////////
- 
-             console.log("원가격:",orgprice);
+            // 2. 세일적용여부
+            let isSale = tg.find("h3>span:first").is(".del");
 
-            // 상품명 큰박스에 넣기
+            // 3. 세일 적용일 경우 세일 가격으로 업뎃!
+            if (isSale) {
+                orgprice = Math.round(orgprice * 0.7);
+            } ///////// if //////////////
+
+            console.log("원가격:", orgprice);
+
+            // 4. 상품명 큰박스에 넣기
             $("#gtit,#gcode").text(tg.find("h2").text());
-            // 상품가격 큰박스에 넣기
-            // 세일일 경우와 아닌경우 나누기!
-            if(tg.find("h3 span").first().is(".del")){ // 세일일때
-                $("#gprice,#total").html(
-                    "<small>30% 세일가</small> "+ insComma(orgprice) +"원"
-                    // tg.find("h3 span").last().text()
-                    
-                );
-            } //// if ////
-            else{ // 세일아닐때
-                $("#gprice,#total").text(insComma(orgprice) + "원"
-                    // tg.find("h3 span").first().text()
-                );
-            } ///// else /////
 
-            
+            // 5. 상품가격 큰박스에 넣기
+            // (1) 원가격에 표시
+            $("#gprice").html(
+                insComma(orgprice) + "원"
+            );
+            // (2) 토탈가격에 표시 : 원가 * 개수
+            $("#total").html(
+                insComma(orgprice * tot) + "원"
+            );
+
+            // 6. 세일일 경우 추가문구넣기
+            if (isSale) {
+                $("#gprice").prepend("<small>30% 세일가</small> ");
+            } //// if ////
         } ////////// setVal함수 //////////////////
 
         //정규식함수(숫자 세자리마다 콤마해주는 기능)
@@ -215,23 +219,23 @@ new Vue({
         }); ////////// click ////////////
 
         // [ 수량증가/감소 버튼 클릭시 데이터 반영하기 ]
-        // 이벤트 대상 : .chg_num img 
+        // 이벤트 대상 : .chg_num img
         // 변경 대상 : input#sum
         const sum = $("input#sum");
 
-        $(".chg_num img").click(function(){
+        $(".chg_num img").click(function () {
             // 1. 클릭된 버튼 구분하기
             let isB = $(this).attr("alt");
 
             // 2. 현재값 읽어오기 : 원래문자형을 숫자형으로 변환
             let isV = Number(sum.val());
 
-            console.log("버튼구분:",isB);
-            console.log("현재값:",isV);
+            console.log("버튼구분:", isB);
+            console.log("현재값:", isV);
 
             // 3. 분기하기
             // (1) 증가일때
-            if(isB === "증가"){
+            if (isB === "증가") {
                 sum.val(++isV);
                 // sum.val(isV++);
                 // isV++ 이면 현재값이 변경안됨!
@@ -239,18 +243,16 @@ new Vue({
             } ///////// if ////////
 
             // (2) 감소일때 : 한계값 1
-            else{ 
+            else {
                 isV = --isV;
-                if(isV===0) isV = 1;
+                if (isV === 0) isV = 1;
                 sum.val(isV);
             } /////// else ///////
 
             // 4. 가격표시하기
+            // 수량을 전역변수에 할당하여 setVal()에 반영함!
 
+            setVal();
         }); ///////////// click //////////////
-
-
-
-
     }, //////// mounted 함수구역 /////
 }); ///////////// 뷰JS 인스턴스 //////////////////
