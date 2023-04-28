@@ -115,6 +115,8 @@ new Vue({
 
         // 공유번호변수
         let nowNum = 1;
+        // 공유가격변수
+        let orgprice = 0;
 
         // 1. 갤러리 리스트 클릭시 큰이미지박스 보이기
         $(".grid>div").click(function (e) {
@@ -134,6 +136,17 @@ new Vue({
 
             // 5. 값 셋팅하기
             setVal();
+
+            // 6. 가격 계산을 위한 원가격셋팅
+            orgprice = $(this).find("h3>span:first").attr("data-price");
+
+            // 세일 적용일 경우 세일 가격으로 업뎃!
+            if($(this).find("h3>span:first").is(".del")){
+                orgprice = Math.round(orgprice * 0.7);
+            } ///////// if //////////////
+
+
+            console.log("원가격:",orgprice);
         }); /////////// click ////////
 
         // 상품명/ 가격 등 데이터 셋업 함수
