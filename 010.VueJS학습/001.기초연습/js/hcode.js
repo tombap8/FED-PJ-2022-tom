@@ -118,7 +118,7 @@ const hcode = {
                             <li>
                                 <span>구매수량</span>
                                 <span>
-                                    <input type="text" id="sum" value="1" readonly />
+                                    <input type="text" id="sum" value="1">
                                     <!--
                                     readonly 속성은 직접입력을 막음
                                     disable 속성은 입력창의 비활성화
