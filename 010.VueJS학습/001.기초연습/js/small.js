@@ -192,5 +192,34 @@ new Vue({
             // 5. 값 셋팅하기
             setVal();
         }); ////////// click ////////////
+
+        // [ 수량증가/감소 버튼 클릭시 데이터 반영하기 ]
+        // 이벤트 대상 : .chg_num img 
+        // 변경 대상 : input#sum
+        const sum = $("input#sum");
+
+        $(".chg_num img").click(function(){
+            // 1. 클릭된 버튼 구분하기
+            let isB = $(this).attr("alt");
+
+            // 2. 현재값 읽어오기 : 원래문자형을 숫자형으로 변환
+            let isV = Number(sum.val());
+
+            console.log("버튼구분:",isB);
+            console.log("현재값:",isV);
+
+            // 3. 분기하기
+            // (1) 증가일때
+            if(isB === "증가"){
+                sum.val(++isV);
+                // sum.val(isV++);
+                // isV++ 이면 현재값이 변경안됨!
+                // 왜? 1증가전에 반영하기 때문!
+            } ///// if ////////
+        }); ///////////// click //////////////
+
+
+
+
     }, //////// mounted 함수구역 /////
 }); ///////////// 뷰JS 인스턴스 //////////////////
