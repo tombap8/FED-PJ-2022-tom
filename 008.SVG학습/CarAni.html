@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Animation</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            overflow: hidden;
+        }
+
+        /* 자동차박스 */
+        #myCar {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* 정중앙이동 */
+
+            width: 1359px;
+            height: 791px;
+            /* outline: 2px dashed blue; */
+        }
+
+        /* 자동차전체 박스 왼쪽 이동 키프레임 */
+        @keyframes goCar {
+            to {
+                left: -50%;
+            }
+        }
+
+        /* 키프레임 */
+
+        /* 자동차 시동떨기 키프레임 */
+        @keyframes brrCar {
+            to {
+                top: 49.5%;
+            }
+        }
+
+        /* 키프레임 */
+
+        /* 자동차 밑그림 이미지 */
+        #car {
+            position: absolute;
+            top: 0;
+            opacity: 0;
+        }
+
+        /* 밑그림 이미지 나타나기 키프레임 */
+        @keyframes showCar {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* 키프레임 */
+
+
+
+        /* svg path 설정 */
+        .spath {
+            position: absolute;
+        }
+
+        .spath path {
+            fill: none;
+            /* 채우기없음 */
+            stroke: #000;
+            /* 선색 */
+            stroke-width: 5px;
+            /* 선두께 */
+            stroke-linecap: round;
+            /* 선끝 둥글게 */
+            stroke-linejoin: round;
+            /* 선연결부위 둥글게 */
+            stroke-dasharray: 240%;
+            /* 50%*4조각=200%+보정 -> 선,공백 중 선으로 채움*/
+            stroke-dashoffset: 240%;
+            /* 시작점밀어서 공백부터나옴 */
+        }
+
+        /* 자동차선 애니 키프레임 */
+        @keyframes carAni {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        /* 키프레임 */
+        /* 자동차선 사라지기 */
+        @keyframes hideLine {
+            to {
+                opacity: 0;
+            }
+        }
+
+        /* 키프레임 */
+
+        /* 바퀴공통 */
+        .ba {
+            position: absolute;
+            width: 133px;
+            height: 133px;
+            border-radius: 50%;
+            background: url(./images/car.jpg) no-repeat;
+            background-position: -249px -424px;
+            /* border: 2px solid red; */
+            opacity: 0;
+        }
+
+        /* 앞바퀴 */
+        .fw {
+            bottom: 235px;
+            left: 249px;
+        }
+
+        /* 뒷바퀴 */
+        .bw {
+            bottom: 240px;
+            right: 273px;
+        }
+
+        /* 바퀴회전 키프레임 */
+        @keyframes rotBa {
+            to {
+                transform: rotate(-360deg);
+                /* 반시계방향으로 회전 */
+            }
+        }
+
+        /* 키프레임 */
+
+
+        /* 로고 */
+        #logo {
+            position: absolute;
+            top: 50%;
+            left: 150%;
+            /* 오른쪽에 나가있음! */
+            transform: translate(-50%, -50%);
+            width: 25%;
+        }
+
+        /* 로고등장 키프레임 */
+        @keyframes comeLogo {
+            to {
+                left: 50%;
+            }
+        }
+
+        /* 키프레임 */
+
+        /*********** 애니메이션 실행 셋팅 ***************/
+        /* body.on 상태면 애니메이션 적용실행! */
+        /* 1. 자동차박스 */
+        body.on #myCar{
+            animation: 
+                brrCar .03s linear 12s infinite alternate,
+                /* 위아래 방향떨기 0.03초간 12초후 영원히 반대방향도 */
+                goCar 4s ease-in-out 15s forwards;
+                /* 15초후 4초간 왼쪽방향으로 나감 */
+        }
+        /* 2. 자동차밑그림 svg */
+        body.on .spath path{
+            animation: 
+            carAni 10s linear forwards,
+            /* 10초간 선을 등속도로 그림 끝상태유지 */
+            hideLine 2s ease-in-out 10s forwards;
+            /* 10초후 2초간 서서히 사라짐 끝상태유지 */
+        }
+        
+        /* 3. 자동차이미지 */
+        body.on #car{
+            animation: showCar 2s ease-in-out 10s forwards;
+            /* 10초후 2초간 서서히 나타짐 끝상태유지 */
+        }
+
+        /* 4. 바퀴박스 */
+        body.on .ba{
+            animation: 
+                showCar 2s ease-in-out 10s forwards,
+                /* 10초후 2초간 서서히 나타짐 끝상태유지 */
+                rotBa 1s linear 15s infinite;
+                /* 1초간 반시계방향 회전 15초후 영원히 */
+        }
+
+        /* 5. 로고박스 */
+        body.on #logo{
+            animation: 
+                comeLogo 4s ease-in-out 15s forwards;
+                /* 15초후 4초간 들어옴 끝상태유지 */
+        }
+
+
+        
+
+
+        /* 시작버튼 */
+        .sbtn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            /* 오른쪽에 나가있음! */
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 200px;
+            border-radius: 20px;
+
+            font-size: 50px;
+            font-weight: bold;
+            font-family: Verdana;
+            color: blue;
+            cursor: pointer;
+            display: none;
+        }
+        .sbtn:hover{
+            color: lime;
+            background-color: #000;
+        }
+    </style>
+    <!-- 제이쿼리 라이브러리 CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <!-- 제이쿼리 UI CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+    
+    <script>
+        $(function(){ /////// jQB ///////////////////
+            /*************************************** 
+                [ 자동차 광고 애니 진행순서 ]
+
+                1. 버튼을 클릭하면 버튼은 사라지고
+                자동차모양 SVG 애니가 시작된다.
+                (이때 오디오가 동시에 재생시작된다)
+
+                2. 자동차 모양이 그려진 후 자동차이미지가
+                서서히 나타나며 자동차모양선은 서서히 사라진다.
+
+                3. 자동차의 시동이 걸리면 차가 위아래방향으로
+                진동을 시작한다!
+
+                4. 자동차가 왼쪽방향으로 이동하여
+                바깥으로 나간다. 이때 바퀴회전애니를 작동한다!
+
+                5. 자동차가 나갈때 오른쪽 바깥의 로고가
+                스테이지 중앙으로 들어온다!
+
+            ***************************************/
+           
+
+
+
+        }); ///////////////// jQB ///////////////////
+    </script>
+</head>
+
+<body>
+    <!-- 자동차박스 -->
+    <div id="myCar">
+        <!-- 자동차밑그림 -->
+        <img src="images/car.jpg" alt="자동차" id="car">
+        <!-- svg path -->
+        <svg viewBox="0 0 1359 791" class="spath">
+            <path
+                d="M113,515c0,0-10-53,0-78c0,0,20-12,25-13c0,0,21-69,114-85c0,0,158-32,176-29c0,0,132-98,164-100c0,0,120-34.333,317.333-2.667c0,0,5.667-10.333,16.667-9.333c0,0-4.334,6-4.667,13c0,0,238.667,75,275.667,180c0,0,33,14,34,35c0,0,3,59-13,71c0,0-11,19-46,18l-65,0.038c0,0-15,51.962-76,59.962c0,0-70,12-98-55l-529,10.667c0,0-18.667,51.333-93.833,46c0,0-48.167,0-79.167-46.667l-91-1L113,515z">
+            </path>
+        </svg>
+        <!-- 앞바퀴 -->
+        <div class="ba fw"></div>
+        <!-- 뒷바퀴 -->
+        <div class="ba bw"></div>
+    </div>
+
+    <!-- 로고이미지 -->
+    <img src="images/volkswagen.jpg" alt="logo" id="logo">
+
+    <!-- 오디오넣기 -->
+    <audio src="images/carsound.mp3" id="myaud"></audio>
+
+    <!-- 시작버튼 -->
+    <button class="sbtn">
+        AD<br>START!
+    </button>
+
+    <!-- 
+    [ SVG : path ]
+    - 특정 명령어를 사용하여 직선과 곡선을 자유롭게 표현하는 벡터 svg표현법
+    - 아래 명령어들은 path 정보를 구현하는데 사용된다.
+    - d 속성에 값을 넣어 화면에 출력한다.
+    예) <svg><path d="선표현식"></svg>
+    -> 표현식: 표시자+x좌표 y좌표 표시자+x좌표 y좌표...
+    예) <path d="M150 50 L200 150 L100 70 Z">
+
+    [ 선의 종류를 지정하는 표시자들 ]
+
+    M = 이동 - 기준점 이동(시작점)
+    L = 선으로 이동
+    H = 수평선
+    V = 수직선
+    C = 곡선
+    S = 부드러운 곡선
+    Q = 2차 베지어곡선
+    T = 부드러운 2차 베지어곡선
+    A = 타원형호
+    Z = 가까운 경로 - 패스닫기
+    
+    참고 : 위의 모든 명령은 소문자로도 표현할 수 있습니다. 
+    대문자는 절대 위치를 의미하고 소문자는 상대적 위치를 의미합니다.
+    
+    [ 원하는 곡선의 path 코드를 얻는 방법 ]
+    1. 일러스트레이터로 벡터 선을 그린다.
+    2. 다른 이름으로 저장하여 형식을 "SVG"를 선택한 후 확인한다.
+    3. SVG 대화창이 뜨면 하단의 "SVG Code..."버튼을 클릭한다.
+    4. 브라우저가 구동하여 코드를 보여준다.
+    5. 여기서 코드의 svg태그의 내부 d속성값을 복사한다.
+    6. 복사한 값을 내가 사용하려는 svg에 넣고 모든 코드를 한줄로 붙여쓴다.
+    -->
+
+
+</body>
+
+</html>
