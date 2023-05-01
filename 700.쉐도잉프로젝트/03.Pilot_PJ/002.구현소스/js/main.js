@@ -339,27 +339,8 @@ let banAuto;
 
 const banAutoSlide = () => {
     banAuto = setInterval(() => {
-        slide.animate(
-            {
-                left: -winW * 2 + "px",
-            },
-            600,
-            "easeOutQuint",
-            () => {
-                // 이동후 맨앞li 맨뒤이동
-                slide.append(slide.find("li").first()).css({ left: "-100%" });
-
-                // 커버제거하기
-                cover.hide();
-
-                // 배너타이틀함수
-                showTit();
-            }
-        ); ////////// animate ///////////
-
-        // 블릿변경함수호출!
-        addOn(2);
-        // 왼쪽이동이므로 2번째 슬라이드
+        // 배너이동함수 호출
+        goSlide(0);
     }, 3000);
 }; /////////// banAutoSlide 함수 ///////
 
