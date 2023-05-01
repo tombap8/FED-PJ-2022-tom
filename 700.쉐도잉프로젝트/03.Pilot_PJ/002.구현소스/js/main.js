@@ -31,6 +31,11 @@ Vue.component("top-comp",{
     template:comData.tarea,
 }); ////////// 상단영역 Vue component //////////
 
+//###### 하단영역 메뉴 뷰 템플릿 셋팅하기 #######
+Vue.component("foot-comp",{
+    template:comData.barea,
+}); ////////// 하단영역 Vue component //////////
+
 //###### 상단영역 뷰 인스턴스 생성하기 ##########
 // new Vue({옵션})
 new Vue({
@@ -54,7 +59,12 @@ new Vue({
         // DOM연결전 데이터 가공작업
         console.log("created구역");
     },    
-})    
+}); //////// 상단영역 뷰 인스턴스 ////////  
+
+//###### 하단영역 뷰 인스턴스 생성하기 ##########
+new Vue({
+    el:"#info",
+}) //////// 하단영역 뷰 인스턴스 ////////  
 
 
 
