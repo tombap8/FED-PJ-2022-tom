@@ -1,8 +1,7 @@
 @charset "utf-8";
 /* 파일럿 PJ 메인 페이지 미디어쿼리 - media.css */
 
-@media only screen and (max-width:800px) {
-
+@media only screen and (max-width: 800px) {
     /* 1. 스크롤 생김 */
     html,
     body {
@@ -14,7 +13,7 @@
 
     /* 1.5. 상단부분 */
     #top {
-        background-color: rgba(0, 0, 0, .5);
+        background-color: rgba(0, 0, 0, 0.5);
     }
 
     #logo {
@@ -78,7 +77,6 @@
         transform: translateX(-50%);
     }
 
-
     /* 3. page의 높이값을 없앰! */
     .page {
         position: relative;
@@ -88,7 +86,7 @@
 
     /* 가상요소 비율밀기 */
     .page::before {
-        content: '';
+        content: "";
         display: block;
         padding-top: 80%;
     }
@@ -106,14 +104,14 @@
     }
 
     /* 5. 내부 구성요소를 서로 겹치고 부모를 꽉채우게함 */
-    .pgc>li {
+    .pgc > li {
         position: absolute;
         width: 100%;
         height: 100%;
     }
 
     /* 6. 글자가 위로 올라옴 + 흰색글자 */
-    .pgc>li.txtc {
+    .pgc > li.txtc {
         z-index: 1;
     }
 
@@ -129,16 +127,16 @@
     }
 
     /* 8. 스타일 영역 2배수 조정하기 */
-    #style .pgc>li {
+    #style .pgc > li {
         height: 50%;
     }
 
     /* 여자 스타일 이미지박스만 50%아래로 이동 */
-    #style .pgc>li:first-child {
+    #style .pgc > li:first-child {
         top: 50%;
     }
 
-    #style .pgc>li:nth-child(2) {
+    #style .pgc > li:nth-child(2) {
         height: 100%;
     }
 
@@ -174,14 +172,6 @@
     #info address {
         transform: none;
     }
-
-
-
-
-
-
-
-
 }
 
 /* 미디어쿼리 800px이하  */
