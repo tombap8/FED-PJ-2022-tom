@@ -25,6 +25,12 @@ autoScroll();
 
 *************************************************/
 
+// 공통전역변수
+// [1] 애니시간/광클금지시간
+const ani_time =  700;
+// [2] 이징
+const ani_easing = "easeOutQuint";
+
 // 햄버거 버튼 클릭시 전체 메뉴 보이기
 $(".ham").click(function () {
     // 햄버거 버튼 클래스변경(토글)
@@ -127,7 +133,7 @@ slide.on("dragstop", function () {
                 left: -winW + "px",
             },
             200,
-            "easeOutQuint",
+            ani_easing,
             () => {
                 // 커버제거하기
                 cover.hide();
@@ -151,8 +157,8 @@ function goSlide(dir){ // dir - 전달변수
             {
                 left: "0px",
             },
-            600,
-            "easeOutQuint",
+            ani_time,
+            ani_easing,
             () => {
                 // 이동후 맨뒤li 맨앞으로 이동하기
                 slide.prepend(slide.find("li").last()).css({ left: "-100%" });
@@ -175,8 +181,8 @@ function goSlide(dir){ // dir - 전달변수
             {
                 left: -winW * 2 + "px",
             },
-            600,
-            "easeOutQuint",
+            ani_time,
+            ani_easing,
             () => {
                 // 이동후 맨앞li 맨뒤이동
                 slide.append(slide.find("li").first()).css({ left: "-100%" });
@@ -389,11 +395,19 @@ $(".btna").hover(
     }
 ); ///// hover ///////////
 
+// 광클금지변수
+let prot = 0;
 /***************************************** 
     배너이동 버튼 클릭시 배너이동하기 
 *****************************************/
 // 대상: .btntit
 $(".btntit").click(function(){
+
+    // 0. 광클금지 ///////
+    if(prot) return;
+    prot = 1;
+    setTimeout(()=>prot=0,ani_time);
+
 
     // 1. 자동넘김 지우기 함수 호출!
     clearAuto();
@@ -401,6 +415,18 @@ $(".btntit").click(function(){
     // 2. 버튼 구분하기
     let isB = $(this).parent().is(".ar1");
     console.log("왼쪽버튼?",isB);
+
+    // 3. 분기하기
+    // 왼쪽으로 이동 ///////
+    if(isB){
+        // 배너이동함수 호출
+        goSlide(1);
+    } ///// if ///////////
+    // 오른쪽으로 이동 /////
+    else{
+        // 배너이동함수 호출
+        goSlide(0);
+    } ///// else ///////////
 
 
 
