@@ -29,7 +29,7 @@ import comData from "./tempData/data-common.js";
 // Vue.component(내가지은요소명,{옵션})
 Vue.component("top-comp",{
     template:comData.tarea,
-}); ////////////// 상단영역 Vue component /////////////
+}); ////////// 상단영역 Vue component //////////
 
 //###### 상단영역 뷰 인스턴스 생성하기 ##########
 // new Vue({옵션})
