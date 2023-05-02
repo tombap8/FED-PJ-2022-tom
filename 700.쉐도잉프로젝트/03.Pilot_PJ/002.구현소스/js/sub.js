@@ -29,6 +29,9 @@ new Vue({
 
         // 메뉴기능 호출
         menuFn();
+
+        // 스와이퍼 생성함수 호출
+        makeSwiper();
     },    
     // created 실행구역 : DOM연결전
     created:function(){
@@ -44,4 +47,29 @@ new Vue({
 
 
 
+
+// 스와이퍼 플러그인 인스턴스 생성하기 ///
+// 스와이퍼 생성함수
+function makeSwiper(){
+
+var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1,
+    spaceBetween: 0,
+    loop: true,
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+        // 인터렉션 비활성화 false 
+        // -> 인터렉션 활성화! (가만히두면 다시자동넘김)
+      },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true, // 블릿클릭이동여부
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+} /////////// makeSwiper 함수 ///////////
 

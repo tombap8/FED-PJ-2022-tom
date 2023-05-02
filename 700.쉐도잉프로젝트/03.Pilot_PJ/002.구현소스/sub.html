@@ -4,10 +4,12 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>파일럿 PJ - 카테고리 서브페이지</title>
+        <!-- 스와이퍼 CSS -->
+        <link rel="stylesheet" href="./css/swiper-bundle.min.css">
         <!-- 메인 CSS -->
         <link rel="stylesheet" href="./css/sub.css" />
         <!-- 미디어쿼리 CSS -->
-        <link rel="stylesheet" href="./css/media.css">
+        <link rel="stylesheet" href="./css/media.css" />
 
         <!-- 뷰JS 스탠드얼론 버전 가져오기! -->
         <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
@@ -17,7 +19,10 @@
         <script src="./js/jquery-ui.min.js"></script>
         <!-- 모바일 이벤트 처리 터치펀치 -->
         <script src="./js/jquery-touch-punch.min.js"></script>
-       
+
+        <!-- Swiper 플러그인 JS -->
+        <script src="./js/swiper-bundle.min.js"></script>
+
         <!-- 메인페이지 JS -->
         <script src="./js/sub.js" type="module"></script>
     </head>
@@ -33,33 +38,40 @@
         <main id="cont">
             <!-- 2-1. 배너영역 -->
             <section id="ban" class="page">
-    
+                <!-- Swiper -->
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="./images/banmen01.png" alt="서브배너이미지">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./images/banmen02.png" alt="서브배너이미지">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./images/banmen03.png" alt="서브배너이미지">
+                        </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
             </section>
             <!-- 2-2. 컨텐츠1 -->
-            <section class="cont">
-    
-            </section>
+            <section class="cont"></section>
             <!-- 2-3. 컨텐츠2 -->
-            <section class="cont">
-    
-            </section>
+            <section class="cont"></section>
             <!-- 2-4. 컨텐츠3 -->
-            <section class="cont">
-    
-            </section>
+            <section class="cont"></section>
             <!-- 2-5. 컨텐츠4 -->
-            <section class="cont">
-    
-            </section>
-
-
+            <section class="cont"></section>
         </main>
-        
 
         <!-- 3. 하단영역 -->
         <footer id="info" class="page">
             <foot-comp></foot-comp>
         </footer>
 
+         <!-- Initialize Swiper -->
+  
     </body>
 </html>
