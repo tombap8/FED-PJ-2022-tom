@@ -32,6 +32,9 @@ new Vue({
 
         // 스와이퍼 생성함수 호출
         makeSwiper();
+
+        // 부드러운 스크롤 실행
+        startSS();
     },    
     // created 실행구역 : DOM연결전
     created:function(){
