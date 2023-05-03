@@ -152,10 +152,17 @@ function sinsangFn() {
         // 마우스 오버된 li자신 (this)에 넣어준다!
         $(this).append(`<div class="ibox"></div>`);
         // .ibox에 상품정보 넣기
-        $(".ibox").html(gd_info).fadeTo(200,1);
+        // ^는 특수문자이므로 정규식에 넣을때 역슬래쉬와 함께씀
+        // -> /\^/
+        $(".ibox").html(gd_info.replace(/\^/g,"<br>"))
+        .animate({
+          top:"110%",
+          opacity: 1
+        },300,"easeOutCirc");
       },
       function(){ // out
-
+        // ibox 나갈때 지우기
+        $(".ibox").remove();
       }); //////////// hover ///////////////////////
      
 
