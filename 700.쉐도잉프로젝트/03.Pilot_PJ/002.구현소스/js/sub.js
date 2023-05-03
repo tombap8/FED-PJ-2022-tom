@@ -145,8 +145,14 @@ function sinsangFn() {
 
         // 2. 클래스 이름으로 셋팅된 신상정보 객체 데이터 가져오기
         let gd_info = sinsang[clsnm];
-        
+
         console.log(clsnm,gd_info);
+
+        // 3. 상품정보박스 만들고 보이게하기
+        // 마우스 오버된 li자신 (this)에 넣어준다!
+        $(this).append(`<div class="ibox"></div>`);
+        // .ibox에 상품정보 넣기
+        $(".ibox").html(gd_info).fadeTo(200,1);
       },
       function(){ // out
 
