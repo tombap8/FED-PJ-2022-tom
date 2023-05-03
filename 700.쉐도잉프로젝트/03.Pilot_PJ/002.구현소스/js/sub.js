@@ -4,6 +4,8 @@
 import menuFn from "./mainjs/menu.js";
 // 공통 데이터 가져오기
 import comData from "./tempData/data-common.js";
+// 신상정보
+import sinsang from "./gdsData/sinsang.js";
 
 
 //###### 상단영역 메뉴 뷰 템플릿 셋팅하기 #######
@@ -75,4 +77,9 @@ var swiper = new Swiper(".mySwiper", {
     },
   });
 } /////////// makeSwiper 함수 ///////////
+
+
+/******************************************** 
+
+********************************************/
 
