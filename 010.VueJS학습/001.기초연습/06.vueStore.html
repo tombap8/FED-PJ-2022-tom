@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>06. 뷰 스토어 저장공간 활용하기</title>
+        <!-- CSS 호출 -->
+        <link rel="stylesheet" href="./css/vuexStore.css">
+        <!-- 뷰JS 스탠드얼론 버전 가져오기! -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
+        <!-- 뷰JS vuex CDN -->
+        <script src="https://unpkg.com/vuex@2.0.0"></script>
+
+        <!-- 제이쿼리 라이브러리 CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+        <!-- 제이쿼리 UI CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+        <script src="./js/vuex-set.js" type="module"></script>
+    </head>
+    <body>
+        <!-- 뷰 인스턴스 대상 요소 -->
+        <div id="app">
+            <!-- 1.상단영역 컴포년트 -->
+            <top-area></top-area>
+            <!-- 2.메인영역 컴포년트 -->
+            <main-area></main-area>
+            <!-- 3.하단영역 컴포년트 -->
+            <info-area></info-area>
+        </div>
+
+    </body>
+</html>

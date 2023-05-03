@@ -1,0 +1,39 @@
+/* 뷰엑스 스토어 CSS - vuexStore.css */
+#app {
+    width: 500px;
+    margin: 0 auto;
+}
+header {
+    padding: 15px;
+    border: 2px solid #ccc;
+}
+header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 0 15px;
+}
+header a {
+    font-size: 30px;
+    color: #222;
+    text-decoration: none;
+}
+header a:hover {
+    color: orangered;
+    text-decoration: overline;
+    text-decoration-style: wavy;
+}
+
+main {
+    padding: 10px;
+}
+main img {
+    width: 100%;
+}
+footer {
+    border: 1px solid #ccc;
+    text-align: center;
+    padding: 20px;
+}
