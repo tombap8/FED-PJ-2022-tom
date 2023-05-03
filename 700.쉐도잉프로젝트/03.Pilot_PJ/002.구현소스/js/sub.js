@@ -88,7 +88,7 @@ function sinsangFn() {
     // 위치값변수
     let lpos = 0;
     // 재귀호출 상태값변수(1-호출가능/0-호출불가)
-    let call_sts = 1;
+    let call_sts = 0;
 
     function moveList() {
         // 1. 이동위치값(left값) 감소하기
@@ -200,8 +200,8 @@ function sinsangFn() {
 
         // 3. 신상품 리스트 이동/멈춤 분기하기
         // (1) 이동기준 gBCR값이 화면높이보다 작고 0보다 클때 이동
-        if (gBCR < winH && gBCR > 0) {
-            call_sts = 1; // 콜백허용!
+        if (gBCR < winH && gBCR > 0 && call_sts===0) {
+            call_sts = 1; // 콜백허용! (한번만실행)
             moveList(); // 함수재호출!
         } ////// if ///////////
         // (2) 기타경우 멈춤
