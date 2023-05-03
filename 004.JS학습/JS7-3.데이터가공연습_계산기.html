@@ -1,0 +1,268 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JS7-3. 계산기</title>
+	<style type="text/css">
+		html,body{
+			padding: 0;
+			margin: 0;
+		}
+		#exep{/*계산식출력*/
+			width: 500px;
+			height: 80px;
+			font-size: 20px;
+			line-height: 80px;
+			outline: 1px solid #ccc;
+			padding: 0 10px;
+			margin: 20px auto;
+			overflow: auto;/*자식요소가 넘칠때 스크롤생김*/
+		}
+		button{/*버튼 전체*/
+			padding:0;
+			width: 100px;
+			height: 100px;
+			margin: 5px;
+			font-size: 24px;
+		}
+		#btns{/*버튼박스*/
+			width: 460px;
+			margin: 0 auto;
+		}
+		
+		.bbtn{/*큰버튼*/
+			width: 215px;
+		}
+		
+	</style>
+	<script type="text/javascript">
+		/*
+		계산기 요구사항
+		1. 숫자와 식이 화면에 출력된다.
+		2. 연산기호를 연속해서 사용할 수 없다.
+		3. 이퀄(=) 클릭시 연산결과를 계산하여 화면에 출력한다.
+		4. 계산결과가 나온 후 숫자나 연산기호 입력불가다.
+		*/
+		/*//////////////////////////////////////////////
+			함수명: calcu
+			기능: 숫자의 사칙연산을 처리하여 화면에 식과 결과를 출력한다.
+		*/////////////////////////////////////////////////
+		
+		//////////////// 상태값 체크 전역변수 /////////////////
+		////// 1. 숫자가 아닌 기호를 사용한 여부 상태값
+		let nsts=0;//0-사용안함, 1-사용함
+		////// 2. 결과값이 나온여부 상태값
+		let rsts=0;//0-결과전, 1-결과후
+		///// 3. 처음상태인지 여부 상태값
+		let ists=0;//0-처음,1-처음아님
+		//// 4. 점(.)을 사용한 여부 상태값
+		let dsts=0;//0-안씀, 1-씀
+		//// 5. 0 다음에 숫자를 넣을 수 없도록 하는 상태값
+		let zsts=0;//0-연속입력가능, 1-연속입력방지
+		
+		///////////////////////////////////////////////////////////	
+		
+		function calcu(val){// val - 넘어온 값
+//			alert(val);// 호출 및 값 확인!
+			
+			//////////// 안전장치구역 ///////////////////
+			////// 1. 기호연속입력 막기
+			/// 기호를 직전에 썼고 지금입력값이 기호이면 돌아가! ///
+			if(nsts===1&&isNaN(val)){return false;}
+			
+			//// 2. 계산 결과가 나온 후에는 입력막기
+			if(rsts===1){return false;}// 돌아가!!
+			
+			//// 3. 처음이고 입력값이 기호이면 막기
+			// (단, 마이너스기호는 허용)
+			if(ists===0&&isNaN(val)&&val!=="－"){return false;}//돌아가!!
+			
+			//// 4. 소수점을 1번이상 사용하면 막기
+			if(dsts===1&&val==="."){return false;}//돌아가!
+			
+			///// 5. 0을 사용후 다시 숫자를 사용하면 막기 ///
+			/// 처음에 0을 쓴경우와 기호입력후 0을쓴 후에 입력방지!//
+			/// 입력 방지상태(zsts=1)이고 숫자를 입력한 경우 돌아가!
+			if(zsts===1 && !isNaN(val)){return false;}//  돌아가!
+//			console.log("그대로"+isNaN(val));
+//			console.log("반대로"+!isNaN(val));
+			
+			////////////////////////////////////////////////			
+			
+			// 1. 대상선정 : 출력창, 출력창의 html
+			let tg=document.getElementById("exep");
+			let res=tg.innerHTML;//화면에 출력된 값
+			
+			// 2. 화면 출력
+			if(val==="＝"){//이퀄기호일 경우 결과값 화면에 찍기!
+				// 화면의 특수문자 기호를 실제 계산할 수 있는 기호롤 변경함!
+				res=res.replace(/＋/g,"+").replace(/－/g,"-")
+					.replace(/×/g,"*").replace(/÷/g,"/");
+//				console.log(res);
+				// 실제로 계산하여 출력하기
+				tg.innerHTML += val + eval(res);
+				// val은 이퀄기호, eval(res) 는 문자로된 숫자식 계산
+				
+				//////// 결과값이 나왔으므로 rsts상태값 1로 변경 /////
+				rsts=1;				
+				console.log("결과값이 나온여부(rsts):"+rsts);
+				
+			}/// if문 ////
+			else{// 이퀄기호가 아닌 경우 계속 화면에 출력하기
+				tg.innerHTML+=val;
+				
+				//// 아래쪽 모든 상태값 변경전에 0을 사용한 여부 판별 ///
+				/// 1. 처음상태이고 입력된 값이 0이면 zsts=1
+//				if(ists===0&&val===0)zsts=1;
+//				else zsts=0;
+				//// 2. 기호입력상태이고(nsts=1) 입력된 값이 0이면 zsts=1
+//				if(nsts===1&&val===0)zsts=1;
+//				else zsts=0;
+				/// 위의 두가지 조건을 하나로 표시
+//				if((ists===0&&val===0)||(nsts===1&&val===0))
+				// 점을사용한 여부에서 사용하지 않은 상태도 추가해야
+				// 소수점 아래에 다른 숫자를 계속해서 사용할 수 있음
+				// && dsts===0 추가
+				if((ists===0||nsts===1)&&val===0&&dsts===0){zsts=1;}
+				else{zsts=0;}
+				
+				
+				//////// 현재사용된 val값이 문자인지 숫자인지에 따라서 
+				// nsts값을 변경한다. 즉, 숫자가 아니면 1로 변경
+				isNaN(val)?nsts=1:nsts=0;//숫자가 아니면 1
+				console.log("기호입력여부(nsts):"+nsts);
+				
+				//// 한번 입력되면 처음상태가 아니므로 ists=1 로 변경
+				ists=1;
+				console.log("처음인지 상태값(ists):"+ists);
+				
+				//// 점(.)을 사용한 경우 dsts값을 1로변경
+				if(val===".")dsts=1;
+				
+				//// 점(.)사용 가능상태 변경하기
+				// 숫자가 아니고 점도 아니면 변경
+				if(isNaN(val)&&val!=="."){
+					dsts=0;
+				}/// if ////
+				
+				
+				
+			}//// else 문 ///
+			
+			//현재 상태값 확인
+			console.log("\n1.기호사용여부(nsts):"+nsts
+						+"\n2.결과값여부(rsts):"+rsts
+						+"\n3.처음상태여부(ists):"+ists
+						+"\n4.점사용여부(dsts):"+dsts
+						+"\n5.0사용여부(zsts):"+zsts);
+			
+			
+		}////////// calcu함수 ////////////////////////
+		///////////////////////////////////////////////
+		
+		/*//////////////////////////////////////////////////////////
+			함수명: delNum
+			기능: 기존 입력된 값의 맨 마지막 값을 지운다.
+		*///////////////////////////////////////////////////////////
+		function delNum(){
+			
+			//만약에 결과가 나온경우 지울 수 없음!!
+			if(rsts===1){return false;}
+			
+			
+			//alert("지워~!");//호출여부
+			let tg = document.getElementById("exep");
+			let res = tg.innerHTML;//기존출력값
+			let cnt = res.length;//문자열개수
+			//console.log("문자열개수: "+cnt);
+			
+			//마지막문자열을 제외한 나머지 문자를 다시 출력함(덮어씀)
+			// substr(시작값번호, 개수) - 0부터셈
+			tg.innerHTML=res.substr(0,cnt-1);
+			let res2=res.substr(0,cnt-1);//마지막지운값
+			let cnt2=res2.length;//마지막지운개수
+			
+			// 마지막 문자가 무엇인지 여부에 따라 상태값 변경하기
+			let last=res2.substr(cnt2-1,1)//마지막번호,1개
+			console.log("마지막문자열:"+last);
+			// 1. 마지막 문자가 기호인지 여부로 변경
+			if(isNaN(last)){//숫자가 아님
+				nsts=1;
+			}/// if문///
+			else{//숫자면
+				nsts=0;
+			}/// else문 ///
+			// 2. 마지막 문자가 점(.)인지 여부		
+			/// 포인트: 계산기호 뒤의 마지막 숫자에 점(.)이 있는지를 조사하여 dsts값을 1로 변경
+			/// 어려운점: 기호가 여러가지 이므로 split으로 자를 기준문자열이 없다. 따라서 연산기호를 모두 슬래쉬(/)로  변경 후 split으로 자르고 마지막 배열에 담긴 숫자에 점(.)이 있는지 여부를 조사하면 된다.
+			
+			// 모든기호를 슬래쉬(/)로 변경(자를기준문자)
+			let filter = res2.replace(/＋/g,"/").replace(/－/g,"/").replace(/×/g,"/").replace(/÷/g,"/");
+			filter=filter.split("/");//기준문자(/)로 자르기
+			filter=filter[filter.length-1];//마지막 배열숫자
+			filter=filter.indexOf(".");//점이 없으면 -1
+			console.log("점검사:"+filter);		
+			
+			if(filter!==-1){//점이 있으면
+				dsts=1;
+			}/// if문 ///
+			else{//점이 없으면
+				dsts=0;
+			}/// else문 ///
+			
+			// 3. 지운개수가 0이면 처음상태값 변경
+			if(cnt2===0){ists=0;}
+			
+			
+			
+			
+			//현재 상태값 확인
+			console.log("1.기호사용여부(nsts):"+nsts
+						+"\n2.결과값여부(rsts):"+rsts
+						+"\n3.처음상태여부(ists):"+ists
+						+"\n4.점사용여부(dsts):"+dsts);
+				
+		}//// delNum함수 ///////////////////////////////
+		
+		
+		
+		
+		
+		
+		
+	</script>
+</head>
+
+<body>
+<div id="exep"></div><!--계산수식 출력-->
+
+<div id="btns"><!--버튼박스-->
+	<button onClick="calcu(1)">1</button>
+	<button onClick="calcu(2)">2</button>
+	<button onClick="calcu(3)">3</button>
+	<button onClick="calcu(4)">4</button>
+	<button onClick="calcu(5)">5</button>
+	<button onClick="calcu(6)">6</button>
+	<button onClick="calcu(7)">7</button>
+	<button onClick="calcu(8)">8</button>
+	<button onClick="calcu(9)">9</button>
+	<button onClick="calcu(0)">0</button>
+	
+	<button onClick="calcu('.')">·</button>
+	<button onClick="calcu('＋')">＋</button>
+	<button onClick="calcu('－')">－</button>
+	<button onClick="calcu('×')">×</button>
+	<button onClick="calcu('÷')">÷</button>
+	<button onClick="calcu('＝')">＝</button>
+	
+	<button class="bbtn" onClick="location.reload()">Reset</button>
+	<button onClick="delNum()" class="bbtn">Del</button>
+	
+</div>
+
+
+
+
+
+</body>
+</html>
