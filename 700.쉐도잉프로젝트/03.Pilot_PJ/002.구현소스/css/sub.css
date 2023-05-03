@@ -47,6 +47,9 @@ html,body{
     background: url(../images/newarrival_bg.png) no-repeat top/auto 134%;
     overflow: hidden;
     /* 넘치는 자식요소 숨기기 + 자식마진포함 */
+    
+    /* 비율설정 */
+    aspect-ratio: 5/2.2;
 }
 /* 신상품 타이틀 */
 .c1tit{
@@ -57,9 +60,9 @@ html,body{
 }
 
 /* 신상품 박스 */
-.flowbx{
+/* .flowbx{
     margin-bottom: 300px;
-}
+} */
 /* 움직일 리스트박스 */
 .flist{
     position: relative;
