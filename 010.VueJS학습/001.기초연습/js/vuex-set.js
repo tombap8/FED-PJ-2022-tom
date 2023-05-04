@@ -63,4 +63,10 @@ Vue.component("info-area",{
 // 대상요소:  #app
 new Vue({
     el:"#app",
+    data:{
+        // 변수:값
+    },
+    methods:{
+        // 메서드(){}
+    }
 }); //////// Vue 인스턴스 /////////
