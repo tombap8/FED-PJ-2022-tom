@@ -129,3 +129,11 @@ html,body{
     /* border-top: 20px solid #101629;역삼각형 */
   
   }
+
+  /* 컨텐츠영역2 - 스페셜영역 */
+  .c2{
+    height: 50vh;
+    background: url(../images/gong.jpg) no-repeat fixed center top/cover;
+    text-align: center;
+  }
+
