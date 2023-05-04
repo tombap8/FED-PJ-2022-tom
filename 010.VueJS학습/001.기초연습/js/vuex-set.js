@@ -55,7 +55,8 @@ Vue.component("main-area",{
         </main>
     `,
     data(){
-        return{}
+        return{
+        }
     },
     methods:{
 
@@ -123,11 +124,11 @@ new Vue({
         function showBx(){
             // 이미지와 설명박스 순서대로 나타나기
             $("main img")
-            .css({opacity:0})
+            .css({opacity:0}).stop()
             .delay(500).fadeTo(500,1);
 
             $("main p")
-            .css({opacity:0})
+            .css({opacity:0}).stop()
             .delay(1000).fadeTo(500,1);
         } ////// showBx ////
     } ////////// mounted //////
