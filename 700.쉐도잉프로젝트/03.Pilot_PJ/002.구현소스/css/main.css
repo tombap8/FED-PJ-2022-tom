@@ -151,49 +151,7 @@
     cursor: pointer;/* 손가락모양 */
 }
 
-/******** 남자,여자,스타일 패션 공통 class *********/
-.pgc{
-    position: relative;
-    top: 5%;/* 위아래 5%떨어짐 */
-    width: 100%;
-    height: 90%;
 
-    display: flex;
-    /* 플렉스박스 */
-}
-/* li요소 */
-.pgc>li{
-    position: relative;
-    /* 부모자격 */
-    flex: 1;/* 기본등분할 설정 */
-    /* 
-        개별적으로 비율을 넓히려면
-        flex-basis를 사용한다!
-    */
-    overflow: hidden;
-    /* 넘치는 이미지 숨기기 */
-}
-/* 이미지 */
-.pgc img{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* 박스에 맞춰서 중앙 보이기 */
-}
-
-/* 글자스타일 */
-.txtc h2{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font: bold 4.6rem UB;
-    letter-spacing: 3px;/* 자간 */
-}
-.txtc a{
-    color: #222;
-}
 
 /********** 2-2.남자패션영역 ***********/
 /* #men {
