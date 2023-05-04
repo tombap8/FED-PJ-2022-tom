@@ -1,5 +1,13 @@
 // 뷰엑스 스토어 구현 JS 
 
+// 스토어 JS 불러오기
+import store from "./store.js";
+
+// [중요!!!!!!!!!!!]
+// 뷰인스턴스에 스토어를 사용할 수 있게 등록해줘야함!!!
+// 등록방법: new Vue({el:"",store,methods:{}})
+// -> 스토아 변수를 그대로 써주면됨!!!
+
 // [1] 컴포넌트 셋팅하기 //////
 // 1. 상단영역 컴포넌트 셋팅
 Vue.component("top-area",{
@@ -26,13 +34,15 @@ Vue.component("top-area",{
     }
 });
 // 2. 메인영역 컴포넌트 셋팅
+// 뷰인스턴스 내부 속성에서 전역변수는 $를 붙인다!
+// 예) 뷰엑스 스토아 전역변수는 $store로 사용!
+// 스토아 변수 내부접근은 영역까지 모두 써준다!
+// 예) store.state.imgsrc
 Vue.component("main-area",{
     template:`
         <main>
-            <img src="https://www.shutterstock.com/image-photo/songpagu-seoul-south-korea-september-260nw-2094838786.jpg" alt="지역이미지">
-            <p>
-                대한민국의 수도인 서울을 지방자치단체인 특별시로 부르는 명칭이다. 한반도 중앙에 있으며, 한강을 사이에 두고 남북으로 펼쳐져 있다. 북쪽 끝은 도봉구 도봉동, 동쪽 끝은 강동구 상일동, 남쪽 끝은 서초구 원지동, 서쪽 끝은 강서구 오곡동이다. 시청은 중구 을지로1가(태평로1가 31)에 있다.
-            </p>
+            <img v-bind:src="$store.state.imgsrc" alt="지역이미지">
+            <p v-text="$store.state.desc"></p>
         </main>
     `,
     data(){
@@ -63,10 +73,30 @@ Vue.component("info-area",{
 // 대상요소:  #app
 new Vue({
     el:"#app",
+    store, // 중요!!! 뷰엑스 스토어 등록!
     data:{
         // 변수:값
     },
     methods:{
         // 메서드(){}
+    },
+    // 데이터 셋팅은 언제하면 좋을까?
+    // created ? / mounted ?
+    // DOM에 직접관여하는 데이터가 아니고
+    // 순수 데이터일때는 처음 뷰인스턴스가
+    // 생성된 후인 created 메서드 구역에 셋팅하자!
+    created(){
+        // 스토어에 있는 initSet 메서드는 어떻게 호출하지?
+        // 스토어 호출 메서드가 따로 있음!
+        // store.commit("메서드명",파라미터값)
+        // 1. 메서드명은 반드시 문자형으로 입력한다!
+        // 2. 파라미터는 단일값 또는 객체형식을 보낼 수 있음
+        // 인스턴스 내부구역 코딩시 store에 $없음!
+        store.commit('initSet',
+        {
+            url:"https://img.freepik.com/premium-vector/city-illustration_23-2147514701.jpg",
+            txt:"도시소개에 오신것을 환영합니다!"
+        });
+        // store.commit('initSet',"https://img.freepik.com/premium-vector/city-illustration_23-2147514701.jpg");
     }
 }); //////// Vue 인스턴스 /////////
