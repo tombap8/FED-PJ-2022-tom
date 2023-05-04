@@ -242,11 +242,15 @@ function sinsangFn() {
         else{
           swiper.autoplay.start()
         } //////// else ///////////
-        
-
-
-
 
 
     }); ////////// scroll /////////////
 } ///////////// sinsangFn 함수 ////////////////
+
+
+// 패럴렉스 플러그인 적용함수
+function setParallax(ele,speed){
+    // 대상: .c2
+    $(ele).parallax("50%",speed);
+    // parallax(배경위치,속도)
+} ///////////// setParallax 함수 ///////////

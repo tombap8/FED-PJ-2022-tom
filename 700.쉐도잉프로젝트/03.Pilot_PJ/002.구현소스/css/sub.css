@@ -9,6 +9,9 @@
 html,body{
     overflow: visible;
 }
+body{
+    overflow-x: hidden;
+}
 
 /* 배너박스 */
 #ban{
@@ -45,7 +48,7 @@ html,body{
 /* 1. 신상품 컨텐츠 박스 */
 .c1{
     background: url(../images/newarrival_bg.png) no-repeat top/auto 134%;
-    overflow: hidden;
+    /* overflow: hidden; */
     /* 넘치는 자식요소 숨기기 + 자식마진포함 */
     
     /* 비율설정 */
@@ -135,5 +138,12 @@ html,body{
     height: 50vh;
     background: url(../images/gong.jpg) no-repeat fixed center top/cover;
     text-align: center;
+  }
+  /* 타이틀 */
+  .c2tit{
+    font: bold 5rem/50vh UB;
+    letter-spacing: 5px;
+    color: #fff;
+    text-shadow: 3px 3px 3px #000;
   }
 
