@@ -126,3 +126,18 @@
     color: #222;
 }
 
+/* 등장액션 플러그인용 클래스 */
+.js-reveal {
+    opacity: 1;
+    transform: translateY(0px);
+    transition: opacity .7s ease-in, transform .7s ease-out;
+  }
+  
+  .js-reveal--hidden {
+    opacity: 0;
+    transform: translateY(200px);
+  }
+  /* a요소는 트랜스폼이 적용되도록 display:inline-block으로 변경 */
+  a.js-reveal{
+    display: inline-block;
+  }
