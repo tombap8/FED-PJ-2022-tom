@@ -141,3 +141,39 @@
   a.js-reveal{
     display: inline-block;
   }
+
+  .jr1.js-reveal {
+    opacity: 1;
+    transform: none;
+    overflow: hidden;
+    height: 100vh;
+    transition: .7s ease-out 1s;
+  }
+  
+  .jr1.js-reveal--hidden {
+    height: 0;
+  }
+
+
+  .jr2.js-reveal {
+    position: relative;
+    opacity: 1;
+    transform: none;
+    overflow: hidden;
+    
+  }
+  .jr2.js-reveal::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 0;
+    background-color: darkblue;
+
+    
+    transition: .7s ease-out 1.2s;
+  }
+  
+  .jr2.js-reveal--hidden::after {
+    height: 100%;
+  }
