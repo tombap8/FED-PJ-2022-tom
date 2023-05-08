@@ -48,6 +48,14 @@ Vue.component("top-area",{
 // 스토아 변수 내부접근은 영역까지 모두 써준다!
 // 예) store.state.imgsrc
 Vue.component("main-area",{
+    // 컴포넌트 영역은 뷰JS에서 해석되는 부분이므로
+    // 뷰엑스 스토어의 변수 store를 전역 표시 $store
+    // 라고 표기해야 유효하다!(에러없음)
+    // 더 정확한 문법은 this.@store 라고 써야하지만
+    // 이 파일이 일반 JS에서 실행되므로 변수할당된
+    // 뷰JS 인스턴스 영역안에서 실행되므로
+    // 뷰인스턴스 자신인 this를 쓰지 않아도
+    // 자동적으로 this로 처리된다!
     template:`
         <main>
             <img v-bind:src="$store.state.imgsrc" alt="지역이미지">
