@@ -108,6 +108,10 @@ new Vue({
             txt:"도시소개에 오신것을 환영합니다!"
         });
         // store.commit('initSet',"https://img.freepik.com/premium-vector/city-illustration_23-2147514701.jpg");
+
+        // actions 메서드 호출하기! : dispatch("메서드명",전달값)
+        store.dispatch('myAct','나야나!')
+
     }, /////////// created /////
     // 제이쿼리는 DOM에 직접 작용하므로 mounted에 구현함!
     mounted(){
