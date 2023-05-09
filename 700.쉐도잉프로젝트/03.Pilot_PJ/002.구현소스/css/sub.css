@@ -47,7 +47,7 @@ body{
 
 /* 1. 신상품 컨텐츠 박스 */
 .c1{
-    background: url(../images/newarrival_bg.png) no-repeat top/auto 134%;
+    background: url(../images/sub/men/01.new-arrival.png) no-repeat top/auto 134%;
     /* overflow: hidden; */
     /* 넘치는 자식요소 숨기기 + 자식마진포함 */
     
@@ -136,7 +136,7 @@ body{
   /* 컨텐츠영역2 - 스페셜영역 */
   .c2{
     height: 50vh;
-    background: url(../images/gong.jpg) no-repeat fixed center top/cover;
+    background: url(../images/sub/men/02.special.png) no-repeat fixed center top/cover;
     text-align: center;
   }
   /* 타이틀 */
