@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>One Page Scroll Action - Top Menu</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            /*화면기준*/
+            /*overflow: hidden;*/
+            /*스크롤바 없애기(스크롤안됨!)*/
+        }
+
+        /*공통셋팅*/
+        a {
+            text-decoration: none;
+            color: #fff;
+            text-shadow: 0 0 2px #777;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        ul::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        li {
+            float: left;
+        }
+
+        img {
+            border: none;
+            /*이미지 링크시 테두리없앰*/
+        }
+
+        h1,
+        h2,
+        h3 {
+            margin: 0;
+            padding: 0;
+            font-size: 100%;
+        }
+
+        /*공통 class*/
+
+        /*페이지 공통 class*/
+        .page {
+            position: relative;
+            /*부모자격*/
+            width: 100%;
+            height: 100%;
+            /*
+                width: 100vw;
+                height: 100vh;
+                보이는 화면 기준의 뷰포트단위를 쓰면
+                body의 height 100% 가 필요없다!
+                단, vw단위는 스크롤바 트랙까지 포함한
+                화면 전체를 기준하므로
+                데이스크 탑에서는 100%를 쓰는게 좋다!
+                (가로스크롤바가 생기기때문!)
+            */
+        }
+
+        /*IR(배경이미지 설명 숨기기)*/
+        .bld {
+            display: block;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+        }
+
+        /*중앙박스*/
+        .ibx {
+            position: relative;
+            /*부모자격*/
+            width: 1920px;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        /*상단영역*/
+        .top {
+            position: absolute;
+            /*부모? body*/
+            top: 0;
+            left: 0;
+            /*상단고정*/
+            width: 100%;
+            z-index: 9999;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        /*상단영역 디자인 변경 class*/
+        .newTop {
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .newTop #logo {
+            /*로고*/
+            width: 150px;
+            height: 40%;
+            margin-top: 4px;
+            background-color: #000;
+        }
+
+        .newTop .gnb {
+            /*GNB*/
+            top: 6px;
+        }
+
+        .newTop .gnb a {
+            /*GNB a링크*/
+            color: #000;
+            text-shadow: none;
+            font-weight: bold;
+        }
+
+        .newTop .gnb a:hover,
+        .newTop .gnb li.on a {
+            /*마우스오버시,선택class*/
+            text-shadow: 1px 0 #000, -1px 0 #000,
+                0 1px #000, 0 -1px #000;
+        }
+
+        #top {
+            height: 80px;
+            /*outline: 1px solid lime;*/
+        }
+
+        /*로고*/
+        #logo {
+            width: 250px;
+            height: 100%;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        #logo img {
+            width: 100%;
+            margin-top: -24px;
+        }
+
+        /*GNB메뉴*/
+        .gnb {
+            position: absolute;
+            /*부모는? #top*/
+            top: 40px;
+            right: 2%;
+        }
+
+        .gnb li {
+            margin: 0 7px;
+        }
+
+        /*마우스오버시 a요소변경*/
+        /*동시에 선택된 메뉴 클래스 on*/
+        .gnb a:hover,
+        .gnb li.on a {
+            color: lime;
+            text-decoration: overline;
+        }
+
+        /*마우스오버시 li변경*/
+        /*동시에 선택된 메뉴 클래스 on*/
+        .gnb li:hover,
+        .gnb li.on {
+            transform: scale(1.1);
+        }
+
+
+
+
+        /*개별페이지 셋팅*/
+        #pg1 {
+            background: url(images/pic1.png) no-repeat top/cover;
+        }
+
+        #pg2 {
+            background: url(images/pic2.png) no-repeat top/cover;
+        }
+
+        #pg3 {
+            background: url(images/pic3.png) no-repeat top/cover;
+        }
+
+        #pg4 {
+            background: url(images/pic4.png) no-repeat top/cover;
+        }
+
+        #pg5 {
+            background: url(images/pic5.png) no-repeat top/cover;
+        }
+
+        #pg6 {
+            background: url(images/pic6.png) no-repeat top/cover;
+        }
+
+        #pg7 {
+            background: url(images/pic7.png) no-repeat top/cover;
+        }
+
+
+        /*각 페이지 공통 등장이미지*/
+        .pic {
+            position: absolute;
+            /*부모? .page*/
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50%;
+            /*이미지의 height는 자동*/
+            box-shadow: 0 0 20px #fff;
+            border-radius: 10px;
+        }
+
+        /*등장액션 클래스*/
+        .scAct {
+            opacity: 0;
+            top: 60%;
+            transition: all 1s ease-out;
+        }
+
+        /*위로 이동버튼*/
+        #tbtn {
+            position: absolute;
+            top: 70%;
+            right: 100px;
+            width: 70px;
+            height: 70px;
+            border: none;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            /*손가락모양*/
+            font: bold 20px Verdana;
+            color: #f00;
+            display: none;
+            /*처음에 안보임*/
+        }
+
+        /*크롬 포커스 아웃라인 없애기*/
+        #tbtn:focus {
+            outline: none;
+        }
+    </style>
+    <script src="js/smoothScroll20.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script>
+        /// 부드러운 스크롤 호출!(제이쿼리 아님!)
+        startSS();
+
+
+        $(function() { /// jQB ///////////////////////
+            /*
+            [ 스크롤 이벤트 처리구역 설정하기 ]
+            1. 스크롤 이벤트는 스크롤바가 움직일때 발생한다
+            (마우스휠 이벤트와는 다름!)
+            2. 제이쿼리에서 scroll() 메서드로 구현함
+            3. 등장할 요소의 위치값과 실행여부를 변수에 관리함
+            4. 전체 스크롤일 경우 window객체를 선택하여 구현하고
+            만일 별개의 박스에 스크롤바를 제어할 경우에는 그 요소를
+            선택하여 구현한다
+            5. 등장액션을 위한 사전 css 클래스를 셋업한다!
+                (예컨데 투명하고 약간 아래쪽에 내려가 있다가 등장할때 다시 서서히 보이면서 원래 위치로 올라오는 셋팅!)
+           */
+
+            /////// 스크롤 관련 변수 설정 /////
+            // 1. 스크롤 등장 요소 위치값 설정
+            let scpos = []; //배열변수
+            // 2. 스크롤 등장 요소 실행여부
+            let exsts = []; //배열변수(실행전:0,실행후:1)
+            ////////////////////////////////
+
+            //////////////////////////////////////////////
+            ////////// [ 위치값 셋팅하기 ] /////////////////
+            // 스크롤 대상 클래스: .scAct
+            let scAct = $(".scAct");
+            // 스크롤 대상 만큼 돌면서 셋팅!
+            // each(function(idx,ele){구현코드})
+            // idx-요소순번, ele-요소자신(this키워드와 동일)
+            scAct.each(function(idx, ele) {
+
+                // 1.각 요소의 위치셋팅
+                scpos[idx] = $(this).offset().top;
+
+                // 2. 각 요소별 실행여부 셋팅(처음에 0으로 셋팅)
+                exsts[idx] = 0;
+
+                ////console.log("위치값:" + scpos[idx] + "/" + exsts[idx]);
+
+            }); /////// each /////////////////
+            /////////////////////////////////////////////////
+
+
+            // 범위를 위한 변수
+            let gap = $(window).height() / 2 + 100;
+            //console.log("윈도우높이절반:" + gap);
+
+            // 메뉴클릭시 메뉴 클래스변경 실행막기 상태변수
+            let mchg = 1; // 1-허용, 0-불허용
+
+            ////////////////////////////////////
+            //// 스크롤 등장액션 함수 /////////////
+            // 전달값: sct 스크롤탑값, seq 액션순번
+            // 조건문 구성 : 
+            // 시작위치 보다 큼(>) && 끝위치 보다 작음(<) 
+            // && 실행여부 0일때
+            // if(scTop > 시작위치 && scTop < 끝위치 && 실행여부)
+            /////////////////////////////////////
+            let showit = function(sct, seq) {
+
+                // 페이지 액션 (등장시작값은 윈도우절반크기를뺌)
+                if (sct > scpos[seq] - gap &&
+                    sct < scpos[seq]) {
+
+                    /// 한번만 실행! ////
+                    if (exsts[seq] === 0) {
+
+                        exsts[seq] = 1; //실행잠금!
+
+                        //console.log((seq + 1) + "번실행!");
+
+                        // 대상요소 등장하기!
+                        scAct.eq(seq).css({
+                            opacity: 1,
+                            top: "50%"
+                        }); ////// css ///////
+
+                    } ////// 한번만 실행 if문 /////
+
+
+                    //// 메뉴 표시 클래스 변경하기 /////
+                    if (mchg) { // 허용상태일때만 변경!
+
+                        $(".gnb li").eq(seq).addClass("on")
+                            .siblings().removeClass("on");
+
+                    } ////// if /////////////////////
+
+
+                } /////// if //////////////////
+
+
+
+
+            }; /////// showit ///////////////
+            ////////////////////////////////
+
+
+
+
+            ///// 스크롤 이벤트 함수 구현하기 /////////////
+            /// 페이지 전체 스크롤은 window 객체로!
+
+            // 스크롤 탑값 변수
+            let scTop;
+            // 탑버튼 위치값 px로 변환(70%위치값)
+            let tbpos = $(window).height() * 0.7;
+            // 탑버튼
+            let tbtn = $("#tbtn");
+
+            ////////////////////////////////////
+            // 탑메뉴 변경실행여부 ////////////////
+            let tmsts = 0; //0-실행전,1-실행후
+            // 탑메뉴 기준위치값 /////////////////
+            let tmpos = $("#pg2").offset().top;
+            console.log("탑메뉴기준위치:" + tmpos);
+            // 탑메뉴 //////////////
+            let tmenu = $(".top");
+            /////////////////////////////////////
+
+
+            $(window).scroll(function() {
+
+                // 1. 전체 window의 스크롤 위치값 알아내기
+                // (1) scrollTop() 메서드 : 세로스크롤 위치값
+                // (2) scrollLeft() 메서드 : 가로스크롤 위치값
+                scTop = $(this).scrollTop();
+                ////console.log("스위:"+scTop);
+
+                // 2. 액션구간 설정하기
+                for (var i = 0; i < scAct.length; i++) {
+                    showit(scTop, i);
+                } /////// for문 //////////////////
+
+
+                //// 탑 이동버튼 위치 변경하기(애니메이션)
+                //// 현재 탑버튼위치값 + 스크롤 위치값
+                // 기준: 200px 보다 크면 탑버튼 보이기 작으면 숨기기
+
+                // 1. 스크롤위치가 200px 미만일때
+                if (scTop < 200) {
+
+                    tbtn.hide().css({
+                        top: tbpos + "px"
+                    }); //// css /////////
+
+                } //////// if ////////////
+                // 2. 스크롤위치가 200px 이상일때
+                // 위치이동은 기본 70% 위치값 + 스크롤 위치값
+                else {
+
+                    tbtn.show()
+                        .stop().animate({
+                            top: (tbpos + scTop) + "px"
+                        }, 400, "easeOutCirc");
+
+                } ///////// else /////////
+
+                /////// 탑메뉴 상단에 고정하기 애니메이션 ///////
+                // 고정위치: 2페이지 상단위치를 통과할때 ///////
+                if (scTop > tmpos && tmsts === 0) {
+                    // 한번만 실행하기 위해 상태값 변경!
+                    tmsts = 1; //잠금!(이 조건문은 못들어옴!)
+                    console.log("탑메뉴등장!");
+
+                    // 1. 탑메뉴(tmenu)에 미리셋팅된 class넣기
+                    // 새로운 클래스 : .newTop
+                    tmenu.addClass("newTop")
+                        // 2. css 포지션 fixed로 변경하고 위쪽에 숨기기
+                        .css({
+                            position: "fixed",
+                            top: "-40px"
+                        })
+                        // 3. 애니메이션으로 top값을 0으로 하여 등장!
+                        .animate({
+                            top: "0"
+                        }, 600, "easeOutQuint");
+
+                } ///////////// if //////////////////
+                /// 2페이지 위치보다 위일때 원위치로 복귀하기 ////
+                else if (scTop < tmpos && tmsts === 1) {
+                    // 한번만 실행하기 위해 상태값 변경!
+                    tmsts = 0; //해제!(이 조건문은 못들어옴!)
+                    console.log("탑메뉴원상복귀!");
+
+                    // 1. 애니메이션으로 top값 -40px로 감추기
+                    tmenu.animate({
+                        top: "-40px"
+                    }, 600, "easeOutQuint", function() {
+                        // 애니후
+                        // 2. 원래 포지션 위치 변경하기
+                        $(this).css({
+                                position: "absolute",
+                                top: "0"
+                            }) ////// css ///////////
+                            // 3. 추가된 class제거하기
+                            .removeClass("newTop");
+
+
+                    }); //// animate ///////////////
+
+
+                } //////////// else if //////////////
+
+
+
+
+            }); //////// scroll //////////////////////////
+            /////////////////////////////////////////////
+
+            //탑버튼 클릭시 최상단으로 이동하기 ///
+            tbtn.click(function(e) {
+
+                //1. 스크롤상태값 변경하기
+                mchg = 0; //잠금
+
+                //2. 부드러운 스크롤 위치값 일치하기
+                pos = scTop;
+
+                //3. 메뉴첫번째로 변경하기
+                $(".gnb li").first().addClass("on")
+                    .siblings().removeClass("on");
+
+                //4. 최상위 이동하기
+                $("html,body").stop().animate({
+                    scrollTop: "0"
+                }, 1200, "easeInOutQuint", function() {
+                    pos = 0; //부드러운 스크롤 위치값 변경
+                    mchg = 1; //해제
+                }); //// animate /////////
+
+            }); ///////// click ////////////////
+
+
+
+
+
+
+            ///////////////////////////////////////////
+            /// GNB a요소 클릭시 스크롤 애니메이션 하기 ////
+            // a요소에 href="#아이디명" 하면 바로이동은 가능
+            // 그러나 스크롤 애니메이션은 되지 않는다!!!
+            // 제이쿼리에서 이것을 해주자!
+            // 클릭 이벤트 대상: .gnb a
+            ///////////////////////////////////////////
+            $(".gnb a").click(function(e) {
+
+                e.preventDefault(); //a이동막기!
+
+                // 스크롤 메뉴변경막기!(언제풀어줘? 이동후에!)
+                mchg = 0;
+
+                // 부드러운 스크롤 위치값 일치하기
+                pos = scTop;
+
+                // 1. a요소의 href값 가져오기
+                // - 셋팅된 id값으로 위치이동할 것임!
+                let pid = $(this).attr("href");
+                //console.log("아이디:" + pid);
+
+                // 2. 이동할 아이디요소 위치의 top값 구하기
+                // - 실제로 스크롤 이동을 위한 값
+                let pgpos = $(pid).offset().top;
+                // offset() 메서드는 요소의 기본셋팅 정보를 리턴함
+                // - top, left, width, height 등을 알 수 있음
+                //console.log("위치값:" + pgpos);
+
+
+                // 3. 스크롤 애니메이션으로 페이지이동하기
+                // scrollTop 속성은 세로 스크롤위치값(제이쿼리용!)
+                // 스크롤 이동대상: html,body 
+                // (범용선택요소: 즉, 여러브라우저에서 공통사용됨!)
+                $("html,body").stop().animate({
+                    scrollTop: pgpos + "px"
+                }, 1200, "easeInOutQuint", function() { //이동후
+
+                    // 스크롤 메뉴변경막기 해제
+                    mchg = 1;
+
+                    // 부드러운 스크롤의 스크롤 위치값에 일치해야함!
+                    pos = pgpos;
+                    //이동위치를 부드러운 스크롤에 알린다!
+
+                }); ///// animate /////
+                // stop()을 사용하여 여러개를 클릭했을때 마지막 선택
+                // 만 남아서 처리되도록 중간에 쌓인 애니메이션 지움!
+
+                // 4. GNB메뉴의 a요소 클릭했을때 클릭된
+                // a요소의 li에 class를 "on"으로 넣으면
+                // 이미 셋팅된 CSS의 디자인이 적용되어
+                // 라임색 윗줄의 크기가 조금 커진 디자인이
+                // 적용되어 마우스 오버시와 동일 디자인이 유지된다
+                // 이것을 하는 이유는 현재 페이지가 무엇인지
+                // 표시하기 위함이다!
+                // this 나자신에서 위로 올라가 li를 선택함!
+                $(this).parent().addClass("on")
+                    .siblings().removeClass("on");
+
+
+
+            }); ///////// click //////////////
+
+
+
+        }); ///////////// jQB ////////////////////////
+    </script>
+</head>
+
+<body>
+    <!--1. 상단영역-->
+    <div class="top">
+        <header id="top" class="ibx">
+            <!--로고-->
+            <h1 id="logo">
+                <a href="#">
+                    <img src="images/logo.png" alt="메가박스로고">
+                </a>
+            </h1>
+            <!--GNB메뉴-->
+            <!--
+               a 요소의 href값으로 "#아이디명" 을 사용하면
+               같은 페이지안의 해당 아이디 위치로 바로 이동한다!
+               (a태그의 기본 기능!!!)
+           -->
+            <nav class="gnb">
+                <ul>
+                    <li class="on">
+                        <a href="#pg1">아수라</a>
+                    </li>
+                    <li><a href="#pg2">고산자</a></li>
+                    <li><a href="#pg3">인천상륙작전</a></li>
+                    <li><a href="#pg4">봉이김선달</a></li>
+                    <li><a href="#pg5">비밀은없다</a></li>
+                    <li><a href="#pg6">아가씨</a></li>
+                    <li><a href="#pg7">탐정홍길동</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+
+    <!--2. 페이지 영역-->
+    <section id="pg1" class="page">
+        <img src="images/m1.jpg" alt="장면" class="pic scAct">
+    </section>
+    <section id="pg2" class="page">
+        <img src="images/m2.jpg" alt="장면" class="pic scAct">
+    </section>
+    <section id="pg3" class="page">
+        <img src="images/m3.jpg" alt="장면" class="pic scAct">
+    </section>
+    <section id="pg4" class="page">
+        <img src="images/m4.jpg" alt="장면" class="pic scAct">
+    </section>
+    <section id="pg5" class="page">
+        <img src="images/m5.jpg" alt="장면" class="pic scAct">
+    </section>
+    <section id="pg6" class="page">
+        <img src="images/m6.jpg" alt="장면" class="pic scAct">
+    </section>
+    <section id="pg7" class="page">
+        <img src="images/m7.jpg" alt="장면" class="pic scAct">
+    </section>
+
+    <!--따라오는 TOP버튼-->
+    <button id="tbtn">TOP</button>
+
+
+
+</body></html>
