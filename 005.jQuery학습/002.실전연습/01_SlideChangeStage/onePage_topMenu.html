@@ -388,7 +388,7 @@
                 // (1) scrollTop() 메서드 : 세로스크롤 위치값
                 // (2) scrollLeft() 메서드 : 가로스크롤 위치값
                 scTop = $(this).scrollTop();
-                ////console.log("스위:"+scTop);
+                console.log("스위:"+scTop);
 
                 // 2. 액션구간 설정하기
                 for (var i = 0; i < scAct.length; i++) {
@@ -478,7 +478,7 @@
                 mchg = 0; //잠금
 
                 //2. 부드러운 스크롤 위치값 일치하기
-                pos = scTop;
+                sc_pos = scTop;
 
                 //3. 메뉴첫번째로 변경하기
                 $(".gnb li").first().addClass("on")
@@ -488,7 +488,7 @@
                 $("html,body").stop().animate({
                     scrollTop: "0"
                 }, 1200, "easeInOutQuint", function() {
-                    pos = 0; //부드러운 스크롤 위치값 변경
+                    sc_pos = 0; //부드러운 스크롤 위치값 변경
                     mchg = 1; //해제
                 }); //// animate /////////
 
@@ -514,7 +514,7 @@
                 mchg = 0;
 
                 // 부드러운 스크롤 위치값 일치하기
-                pos = scTop;
+                sc_pos = scTop;
 
                 // 1. a요소의 href값 가져오기
                 // - 셋팅된 id값으로 위치이동할 것임!
@@ -541,7 +541,7 @@
                     mchg = 1;
 
                     // 부드러운 스크롤의 스크롤 위치값에 일치해야함!
-                    pos = pgpos;
+                    sc_pos = pgpos;
                     //이동위치를 부드러운 스크롤에 알린다!
 
                 }); ///// animate /////
