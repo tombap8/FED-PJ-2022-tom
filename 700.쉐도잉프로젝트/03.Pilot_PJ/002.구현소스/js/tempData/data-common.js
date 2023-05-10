@@ -87,16 +87,7 @@ const comData = {
                 v-for="
                     (v,i) in $store.state.menu
                 ">
-                    <a href="#c1">{{v}}</a>
-                </li>
-                <li>
-                    <a href="#c2">WINDBREAKER</a>
-                </li>
-                <li>
-                    <a href="#style">BEACH STYLE</a>
-                </li>
-                <li>
-                    <a href="#style">SPORT STYLE</a>
+                    <a v-bind:href="'#c'+(i+1)">{{v}}</a>
                 </li>
             </ul>
         </nav>
