@@ -13,6 +13,9 @@
 
         <!-- 뷰JS 스탠드얼론 버전 가져오기! -->
         <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+        
+        <!-- 뷰JS vuex CDN -->
+        <script src="https://unpkg.com/vuex@3.0.0"></script>
 
         <!-- 제이쿼리 라이브러리 -->
         <script src="./js/jquery-3.6.0.min.js"></script>
@@ -46,25 +49,8 @@
         <!-- 2. 컨텐츠영역 -->
         <main id="cont">
             <!-- 2-1. 배너영역 -->
-            <section id="ban" class="page">
-                <!-- Swiper -->
-                <div class="swiper mySwiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img src="./images/sub/men/banner/ban1.png" alt="서브배너이미지" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="./images/sub/men/banner/ban2.png" alt="서브배너이미지" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="./images/sub/men/banner/ban3.png" alt="서브배너이미지" />
-                        </div>
-                    </div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-pagination"></div>
-                </div>
-            </section>
+            <ban-comp></ban-comp>
+
             <!-- 2-2. 컨텐츠1 : New Approval -->
             <section class="cont c1">
                 <!-- 2-1-1.신상품 타이틀 -->
