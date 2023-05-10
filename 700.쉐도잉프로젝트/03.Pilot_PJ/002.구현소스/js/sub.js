@@ -75,6 +75,10 @@ new Vue({
 
         // 스크롤리빌 플러그인 적용호출!
         $.fn.scrollReveal();  
+
+        // 전체메뉴클릭시 전체메뉴창 닫기
+        $(".mlist a").click(
+            ()=>$(".ham").trigger("click"));
          
     },
     // created 실행구역 : DOM연결전
