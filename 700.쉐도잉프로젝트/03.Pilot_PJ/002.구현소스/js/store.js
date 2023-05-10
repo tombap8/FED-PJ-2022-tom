@@ -33,7 +33,7 @@ const store = new Vuex.Store({
         // 공통처리 배너개수 변수
         cnt: 3,
         // 공통처리 카테고리명 변수
-        cat: "men",
+        cat: "women",
     },
     // state 데이터 변경 메서드구역!
     mutations: {
