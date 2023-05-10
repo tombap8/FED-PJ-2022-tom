@@ -82,11 +82,15 @@ const comData = {
         <nav class="gnb">
             <ul>
                 <li class="bld">배너순번 li 숨기기</li>
-                <li>
-                    <a href="#men">NEW ARRIVAL</a>
+
+                <li 
+                v-for="
+                    (v,i) in $store.state.menu
+                ">
+                    <a href="#c1">{{v}}</a>
                 </li>
                 <li>
-                    <a href="#women">WINDBREAKER</a>
+                    <a href="#c2">WINDBREAKER</a>
                 </li>
                 <li>
                     <a href="#style">BEACH STYLE</a>
@@ -94,11 +98,6 @@ const comData = {
                 <li>
                     <a href="#style">SPORT STYLE</a>
                 </li>
-                
-
-
-
-
             </ul>
         </nav>
 

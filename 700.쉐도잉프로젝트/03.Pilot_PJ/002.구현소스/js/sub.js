@@ -38,6 +38,9 @@ new Vue({
 // Vue.component(내가지은요소명,{옵션})
 Vue.component("top-comp", {
     template: comData.tareaSub,
+    methods:{
+        
+    }
 }); ////////// 상단영역 Vue component //////////
 
 //###### 하단영역 메뉴 뷰 템플릿 셋팅하기 #######
@@ -79,6 +82,10 @@ new Vue({
         // 전체메뉴클릭시 전체메뉴창 닫기
         $(".mlist a").click(
             ()=>$(".ham").trigger("click"));
+        // $(선택요소).trigger(이벤트명)
+        // -> 선택요소의 이벤트 강제발생함!
+        // 참고) JS 클릭이벤트 강제발생
+        // document.querySelector(요소).click();
          
     },
     // created 실행구역 : DOM연결전
