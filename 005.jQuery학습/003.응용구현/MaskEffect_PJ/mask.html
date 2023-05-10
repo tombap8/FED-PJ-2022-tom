@@ -20,9 +20,12 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%); */
+            position: relative;
+            /* 부모자격 */
             width: 1007px;
             height: 455px;
             outline: 1px solid red;
+            margin: 0 auto;
         }
 
         /* 1. 배경고정이미지박스 */
@@ -30,7 +33,7 @@
             position: absolute;
             width: 1007px;
             height: 455px;
-            background: url(./images/main2.jpg) no-repeat fixed;
+            background: url(./images/main2.jpg) no-repeat fixed center top;
         }
 
         /* 2. 마스크효과이동박스 */
@@ -40,7 +43,7 @@
             /* 얼굴중앙위치조정 */
             width: 1007px;
             height: 455px;
-            background: url(./images/main1.jpg) no-repeat fixed;
+            background: url(./images/main1.jpg) no-repeat fixed center top;
 
             /* 트랜지션 */
             transition: left .4s ease-out;
@@ -55,7 +58,35 @@
     </style>
     <script src="js/jquery-1.8.1.min.js"></script>
     <script src="js/jquery-ui-1.10.4.min.js"></script>
+    <script>
+        $(()=>{
+            // 세개의 박스중 가장위의 박스가 이벤트 대상(#cover)
+            $("#cover").mousemove(function(e){
     
+                // 1. 마우스 커서 이동시 x축값
+                let posx = e.offsetX;
+                // let posx = e.pageX;
+                // e.pageX 는 보이는 화면 왼쪽끝 기준위치
+                // e.offsetX 부모박스 내부에서의 왼쪽끝 기준위치
+                console.log(posx);
+
+                // 2. 움직일 대상: #mask
+                $("#mask").css({
+                    left: -posx*1.2 + "px"
+                })
+    
+            }) ///////////// mousemove ////////////
+
+            .mouseout(function(){
+                // 2. 움직일 대상: #mask
+                $("#mask").css({
+                    left: "-546px"
+                })
+    
+            }); ///////////// mouseout ////////////
+
+        });
+    </script>
 </head>
 
 <body>
