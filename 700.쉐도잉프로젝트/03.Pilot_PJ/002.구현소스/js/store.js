@@ -48,3 +48,6 @@ const store = new Vuex.Store({
         }, ///////// chgData메서드 ///////
     },
 });
+
+// 내보내기
+export default store;
