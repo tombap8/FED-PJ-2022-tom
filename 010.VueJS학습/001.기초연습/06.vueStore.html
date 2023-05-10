@@ -12,6 +12,9 @@
         <!-- 뷰JS vuex CDN -->
         <script src="https://unpkg.com/vuex@3.0.0"></script>
 
+        <!-- 뷰JS 라우터 CDN -->
+        <script src="https://unpkg.com/vue-router@3.0.1/dist/vue-router.js"></script>
+
         <!-- 제이쿼리 라이브러리 CDN -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
@@ -32,6 +35,30 @@
             <main-area></main-area>
             <!-- 3.하단영역 컴포년트 -->
             <info-area></info-area>
+
+            <!-- 4. 라우터 파트 -->
+            <p class="asso">
+                <!-- 
+                    [라우터 링크 셋팅]
+                    router-link 속성 to 값으로 구분할 URL지정함!
+                    '/' 슬래쉬는 현재페이지 (Root)를 의미함!
+
+                    기본적으로 a요소로 표시됨
+                    -> a가 아닌 다른 요소로 표시하고자할 경우
+                    tag="태그명" 속성을 추가해 주면된다!
+                    예) 
+                    <router-link to="/trip" tag="button">
+                        세계여행사</router-link>
+                -->
+                <router-link to="/trip" tag="button">세계여행사</router-link> | 
+                <router-link to="/foods">세계먹거리</router-link>
+                <!-- 
+                    [라우터에서 연결한 컴포넌트(템플릿) 보일곳] 
+                    router-view를 쓴 자리에 컴포넌트 소스코드가
+                    뿌려진다!
+                -->
+                <router-view></router-view>
+            </p>
         </div>
 
     </body>
