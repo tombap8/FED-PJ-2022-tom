@@ -29,26 +29,30 @@
                 <div class="gnb">
                     <ul>
                         <!-- 라우터 링크 시스템 -->
-                        <li>
+                        <li v-for="(v,i) in this.linkData">
+                            <!-- 파라미터를 보내는 라우트는
+                        반드시 이름을 셋팅하고 이름으로 호출한다! -->
+                            <router-link
+                                v-bind:to="v.link">
+                                {{i}}</router-link
+                            >
+                            <!-- 하위메뉴만들기 -->
+                            <ol class="smenu" 
+                            v-if="v.menu.length!=0">
+                            <!-- a는 값, b는 속성명 -->
+                                <li v-for="(a,b) in v.menu">
+                                    <router-link
+                                        v-bind:to="a"
+                                    >{{b}}</router-link>
+                                </li>
+                            </ol>
+                        </li>
+                        <!-- <li>
                             <router-link to="/trip">세계여행사</router-link>
                         </li>
                         <li>
                             <router-link to="/foods">세계먹거리</router-link>
-                        </li>
-                        <li>
-                            <!-- 파라미터를 보내는 라우트는
-                        반드시 이름을 셋팅하고 이름으로 호출한다! -->
-                            <router-link
-                                v-bind:to="{
-                            name:'umsik',
-                            params:{
-                                item:'피자',
-                                cls:'pizza'
-                            }
-                        }">
-                                피자</router-link
-                            >
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </header>

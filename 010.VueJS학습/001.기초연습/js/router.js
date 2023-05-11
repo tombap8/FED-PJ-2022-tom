@@ -92,8 +92,19 @@ let Trip = {
     template: `<div class="trip router">World Trip</div>`,
 };
 let Foods = {
-    template: `<div class="foods router">World Foods</div>`,
+    template: `
+    <div v-bind:class="
+        'foods router '+this.$route.params.cls
+    ">
+        World Foods {{ this.$route.params.item }}
+    </div>`,
 };
+// this.$route.params.cls
+// (해석:)
+// this는 현재 라우터를 사용하는 뷰인스턴스 자신
+// $route 는 현재 연결된 라우트 정보객체
+// params 파라미터 전달 속성
+// cls -> 내가만든 파라미터 전달속성변수
 
 // 뷰라우터 인스턴스 생성하기
 const router = new VueRouter({
