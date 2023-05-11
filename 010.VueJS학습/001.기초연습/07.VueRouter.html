@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>07.Vue Router</title>
+        <link rel="stylesheet" href="./css/vueRouter.css" />
+        <!-- 뷰JS 스탠드얼론 버전 가져오기! -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
+        <!-- 뷰JS vuex CDN -->
+        <script src="https://unpkg.com/vuex@3.0.0"></script>
+
+        <!-- 뷰JS 라우터 CDN -->
+        <script src="https://unpkg.com/vue-router@3.0.1/dist/vue-router.js"></script>
+
+        <!-- 제이쿼리 라이브러리 CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+        <!-- 제이쿼리 UI CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+        <script src="./js/vueRouter.js" type="module"></script>
+    </head>
+    <body>
+        <div id="app">
+            <!-- 1.상단영역 -->
+            <header class="top">
+                <div class="gnb">
+                    <ul>
+                        <!-- 라우터 링크 시스템 -->
+                        <li>
+                            <router-link to="/trip">세계여행사</router-link>
+                        </li>
+                        <li>
+                            <router-link to="/foods">세계먹거리</router-link>
+                        </li>
+                        <li>
+                            <!-- 파라미터를 보내는 라우트는
+                        반드시 이름을 셋팅하고 이름으로 호출한다! -->
+                            <router-link
+                                v-bind:to="{
+                            name:'umsik',
+                            params:{
+                                item:'피자',
+                                cls:'pizza'
+                            }
+                        }">
+                                피자</router-link
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </header>
+            <!-- 2.메인영역 -->
+            <main class="cont">
+                <!-- 라우터 컨텐츠영역 -->
+                <router-view></router-view>
+            </main>
+            <!-- 3.하단영역 -->
+            <footer class="info">주소 : 서울 강남구 테헤란로5길 24, 장연빌딩/ 3~7층</footer>
+        </div>
+    </body>
+</html>

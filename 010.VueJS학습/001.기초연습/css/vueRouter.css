@@ -1,0 +1,117 @@
+@charset "utf-8";
+/* 라우터 CSS */
+#app {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+#app>*{
+    border: 2px solid #ccc;
+    box-sizing: border-box;
+    padding: 15px;
+}
+#app>.top{
+    position: relative;
+    z-index: 100;
+    height: 100px;
+    background: url(https://img.freepik.com/free-vector/world-concept-illustration_114360-1391.jpg) no-repeat 0/auto 150%;
+}
+#app>.cont{
+    height: 700px;
+    border-top: none;
+}
+#app>.info{
+    height: 80px;
+    border-top: none;
+    text-align: center;
+    font-size: 14px;
+    color: #222;
+}
+
+.gnb ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    line-height: 100px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px 10px;
+}
+.gnb a{
+    display: inline-block;
+    color: green;
+    display: inline-block;
+    padding: 10px;
+    text-decoration: none;
+    transition: .2s;
+}
+.gnb a:hover{
+    color: hotpink;
+    text-decoration: overline;
+    text-decoration-style: wavy;
+    transform: scale(1.1);
+}
+/* 라우터 */
+.router{
+    text-align: center;
+    color: #fff;
+    background: #fff no-repeat center/cover;
+    height: 100%;
+    line-height: 30vh;
+    font-size: 24px;
+    text-shadow: 2px 2px 2px #000;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px #0000008b;
+}
+.trip{
+    background-image: url(https://as2.ftcdn.net/v2/jpg/03/73/40/29/1000_F_373402961_zHwVILZu4UNblYegPKkKTsyiuHdtRscG.jpg);
+}
+.foods{
+    background-image: url(https://cdn.georgeinstitute.org/sites/default/files/styles/width1920_fallback/public/2020-10/world-food-day-2020.png);
+}
+
+.foods.pizza{
+    background-image: url(https://src.hidoc.co.kr/image/lib/2020/6/17/1592363657269_0.jpg);
+}
+.foods.pasta{
+    background-image: url(https://static.wtable.co.kr/image/production/service/recipe/1802/9c556903-01f9-4850-bcf8-1f9c62a0d680.jpg);
+}
+.foods.ddom{
+    background-image: url(https://homecuisine.co.kr/files/attach/images/142/175/026/a83a2f6bbc089b7032ec8ad583b21374.JPG);
+}
+.asso{
+    text-align: center;
+    border-top: 4px double darkgreen;
+}
+
+.gnb>ul>li:hover>a+.smenu{
+    display: flex !important;
+}
+
+/* 서브메뉴 */
+#app .smenu{
+    position: absolute;
+    top: 90px;
+    width: 100px;
+    /* display: flex; */
+    flex-direction: column;
+    gap: 10px 0px;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.474);
+    z-index: 10;
+    line-height: 1;
+    text-align: center;
+
+    margin: 0;
+    list-style: none;
+
+    display: none;
+}
+.smenu a{
+    color: lawngreen;
+}
+.smenu a:hover{
+    color: aqua;
+}
