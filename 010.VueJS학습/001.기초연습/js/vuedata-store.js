@@ -2,6 +2,7 @@
 const store = new Vuex.Store({
     // (1) 데이터 셋팅구역 :
     state:{
+        items: {}, // 제이슨 데이터 담을 변수
 
     }, /////// state 구역 ///////////
 
