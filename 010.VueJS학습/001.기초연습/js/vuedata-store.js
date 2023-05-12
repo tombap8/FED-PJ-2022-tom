@@ -57,6 +57,7 @@ const store = new Vuex.Store({
             // 뮤테이션스의 메서드 호출은? 
             // -> commit('메서드',전달값)
             this.commit('setData',result);
+            // commit('setData',result);
 
 
         }, ///////// initData /////////
