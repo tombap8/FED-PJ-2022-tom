@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+.top{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    z-index: 9999;
+}
+.top *{
+    font-family: 'Founders', 'Noto Sans KR', sans-serif;
+}
+.inner{
+    position: relative;
+    margin: 0 auto;
+    max-width: 1920px;
+    height: 100%;
+}
+.wrap_inner{
+    display: flex;
+    height: 100%;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+.logo a{
+    display: inline-block;
+    background-image: url(/02.Mobile_Web&App_Project/03.sources/img/index/gnb_logo_w.svg);
+    width: 269px;
+    height: 60px;
+    background-size: 269px 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-indent: -9999px;
+}
+.gnb_wrap{
+    width: 33%;
+}
+.gnb{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+.member{
+    width: 33%;
+}
+.category{
+    display: flex;
+}
+.category>h2 a{
+    color: #fff;
+    font-size: 20px;
+    white-space: nowrap;
+    line-height: 60px;
+}
+.category div{
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    /* display: none; */
+}
+.gnb .category:first-child .smenu{
+    display: flex;
+}
+.smenu{
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    /* display: none; */
+}
+.smenu ul{
+    margin-top: 20px;
+    width: 200px;
+}

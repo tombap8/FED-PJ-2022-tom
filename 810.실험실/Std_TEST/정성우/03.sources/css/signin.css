@@ -1,0 +1,95 @@
+@charset "UTF-8";
+
+.wrap_inner{
+    background-color: #333 !important;
+}
+.logo a{
+    background-image: url(/02.Mobile_Web&App_Project/03.sources/img/index/gnb_logo_w.svg) !important;
+}
+.category h2 a{
+    color: #fff !important;
+}
+.main{
+    padding-top: 60px;
+}
+.main .inner{
+    padding: 50px;
+    width: 1100px;
+}
+.sign_tit_wrap{
+    padding-bottom: 10px;
+    border-bottom: 1px solid #aaa;
+}
+.sign_cont{
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 10px;
+}
+.help_wrap{
+    width: 20%;
+    padding-right: 5%;
+}
+.help_wrap h4{
+    padding-bottom: 10px;
+}
+.help_wrap p{
+    font-size: 13px;
+    white-space: nowrap;
+}
+.call_info{
+    font-size: 10px;
+}
+.help_wrap>span{
+    display: inline-block;
+    padding-top: 10px;
+    text-decoration: underline;
+}
+.sign_wrap{
+    width: 50%;
+    padding-right: 10%;
+}
+form>input{
+    display: block;
+    border: 1px solid rgb(10, 10, 40);
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    box-sizing: border-box;
+}
+.cont_tit_wrap{
+    position: relative;
+}
+.ness{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    color: #aaa;
+}
+.bir_wrap{
+    display: flex;
+    width: 100%;
+    gap: 5px;
+}
+.bir_wrap input{
+    width: 50%;
+    padding: 10px;
+    border: 1px solid rgb(10, 10, 40);
+}
+.bir_wrap select{
+    width: 25%;
+    height: 100%;
+    padding: 10px;
+    border: 1px solid rgb(10, 10, 40);
+}
+#gender{
+    display: block;
+    border: 1px solid rgb(10, 10, 40);
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+}
+.wrap{
+    display: flex;
+    width: 100%;
+}

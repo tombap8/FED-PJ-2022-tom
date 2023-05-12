@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://kit.fontawesome.com/6688d7064c.js" crossorigin="anonymous"></script>
+        <link href="https://cdn-fsly.yottaa.net/62b4643a4f1bbf4e83e90207/www.ralphlauren.co.kr/v~4b.2b/on/demandware.static/Sites-RalphLauren_KR-Site/-/default/dwa5513e62/images/favicon_rl.ico?yocs=3c_3f_3g_" rel="shortcut icon" />
+        <script src="./js/lib/jquery-3.6.3.min.js"></script>
+        <script src="./js/lib/jquery-ui.min.js"></script>
+        
+    <!-- 뷰JS 스탠드얼론 버전 가져오기! -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+        <script src="./js/index.js" type="module"></script>
+        <!-- Link Swiper's CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+        <!-- Swiper JS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+        <link rel="stylesheet" href="./css/index.css" />
+        <title>Ralph Lauren (customize)</title>
+    </head>
+    <body>
+        <section id="top">
+            <top-comp></top-comp>
+        </section>
+        <section id="main">
+            <main class="main">
+                <div class="banner">
+                    <div class="inner">
+                        <div class="cover"></div>
+                        <div class="swiper mySwiper3">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide slide_page imgb">
+                                    <img src="./img/index/top3.webp" alt="banner" />
+                                    <img src="./img/index/top3_txt.svg" alt="banner text" />
+                                </div>
+                                <div class="swiper-slide slide_page vid1">
+                                    <video autoplay loop="true" muted>
+                                        <source src="./vid/top1.mp4" type="video/mp4" />
+                                    </video>
+                                    <img src="./img/index/top1_txt.svg" alt="banner text" />
+                                </div>
+                                <div class="swiper-slide slide_page vid2">
+                                    <video autoplay loop="true" muted>
+                                        <source src="./vid/top2.mp4" type="video/mp4" />
+                                    </video>
+                                    <img src="./img/index/top2_img.svg" alt="banner text" />
+                                </div>
+                            </div>
+                            <div class="next_btn fa-solid fa-angles-right"></div>
+                            <div class="prev_btn fa-solid fa-angles-left"></div>
+                            <div class="swiper-pagination"></div>
+                            <div class="autoplay-progress">
+                                <svg viewBox="0 0 48 48">
+                                    <circle cx="24" cy="24" r="20"></circle>
+                                </svg>
+                                <span></span>
+                            </div>
+                            <button class="playcontrol">∥</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="polo_show">
+                    <div class="inner">
+                        <div class="show">
+                            <img src="./img/index/cont1_bg.webp" alt="background" />
+                        </div>
+                        <div class="show_vid">
+                            <video autoplay="true" loop="true" muted>
+                                <source src="./vid/cont1.mp4" />
+                            </video>
+                        </div>
+                        <div class="show_img">
+                            <ul class="img_slide">
+                                <li><img src="./img/index/cont1_1.webp" alt="show image" /></li>
+                                <li><img src="./img/index/cont1_2.webp" alt="show image" /></li>
+                                <li><img src="./img/index/cont1_3.webp" alt="show image" /></li>
+                                <li><img src="./img/index/cont1_4.webp" alt="show image" /></li>
+                            </ul>
+                        </div>
+                        <span class="vid_txt">23 S/S Couture</span>
+                        <span class="img_txt">23 S/S Collection</span>
+                        <span class="choose">Choose Your Look</span>
+                    </div>
+                </div>
+                <div class="vt_wrap">
+                    <div class="hr_wrap">
+                        <ul>
+                            <li>
+                                <div class="polo_collection page">
+                                    <div class="collection">
+                                        <img src="./img/index/cont2_txt.svg" alt="content text" />
+                                        <span class="collect_txt">Spring Forward</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="polo_spring page">
+                                    <div class="spring">
+                                        <img src="./img/index/cont3_txt.svg" alt="content text" />
+                                        <span class="spring_txt">Spring 23 Monaco</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="polo_heritage">
+                    <div class="inner">
+                        <div class="heritage">
+                            <video autoplay="true" loop="true" muted>
+                                <source src="./vid/cont5.mp4" />
+                            </video>
+                            <span class="cont_txt">
+                                Polo Ralph Lauren <br />
+                                <small>Heritage</small>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="more_detail">
+                    <div class="inner">
+                        <div class="detail_tit">
+                            <h2>더 알아보기</h2>
+                        </div>
+                        <div class="detail">
+                            <ul>
+                                <li>
+                                    <img src="./img/index/cont6_1.webp" alt="collection" />
+                                    <h3>컬렉션</h3>
+                                    <a href="#">쇼핑하기</a>
+                                </li>
+                                <li>
+                                    <img src="./img/index/cont6_2.webp" alt="wellington" />
+                                    <h3>웰링턴 컬렉션</h3>
+                                    <a href="#">쇼핑하기</a>
+                                </li>
+                                <li>
+                                    <img src="./img/index/cont6_3.webp" alt="purple label" />
+                                    <h3>퍼플 라벨</h3>
+                                    <a href="#">쇼핑하기</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </section>
+        <section id="info">
+            <foot-comp></foot-comp>
+        </section>
+    </body>
+</html>

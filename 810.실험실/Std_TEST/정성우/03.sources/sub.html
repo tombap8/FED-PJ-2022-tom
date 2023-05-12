@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://kit.fontawesome.com/6688d7064c.js" crossorigin="anonymous"></script>
+        <link href="https://cdn-fsly.yottaa.net/62b4643a4f1bbf4e83e90207/www.ralphlauren.co.kr/v~4b.2b/on/demandware.static/Sites-RalphLauren_KR-Site/-/default/dwa5513e62/images/favicon_rl.ico?yocs=3c_3f_3g_" rel="shortcut icon" />
+        <script src="./js/lib/jquery-3.6.3.min.js"></script>
+        <script src="./js/lib/jquery-ui.min.js"></script>
+        <!-- 뷰JS 스탠드얼론 버전 가져오기! -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+        <!-- 뷰JS vuex CDN -->
+        <script src="https://unpkg.com/vuex@3.0.0"></script>
+        <script src="./js/sub.js" type="module"></script>
+        <link rel="stylesheet" href="./css/index.css" />
+        <link rel="stylesheet" href="./css/sub.css" />
+        <title>Ralph Lauren (customize)</title>
+    </head>
+    <body>
+        <section id="top">
+            <top-comp></top-comp>
+        </section>
+        <section id="main">
+            <main-comp v-on:goval="setVal"></main-comp>
+        </section>
+        <section id="info">
+            <foot-comp></foot-comp>
+        </section>
+    </body>
+</html>

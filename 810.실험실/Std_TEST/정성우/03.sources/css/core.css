@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+
+/* 
+font-family: 'Noto Sans KR', sans-serif;
+font-family: 'Noto Serif KR', serif; 
+font-family: 'Founders', 'Noto Sans KR', sans-serif;
+font-family: "Le Jeune Deck", "Noto Serif KR", serif;
+*/
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Noto+Serif+KR&display=swap');
+@import url("//db.onlinewebfonts.com/c/b461b7ace66f0d83a3146b642ad9baff?family=Le+Jeune+Deck");
+@font-face {
+    font-family: "Founders";
+    src: url(./fonts/Founders_Grotesk/FoundersGrotesk-Regular.otf) format("opentype");
+}
+
+body{
+    cursor: url(../img/index/Normal-Select.png), url(../img/index/Link-Select.png), auto;
+}
+a, button{
+    cursor: url(../img/index/Link-Select.png), auto;
+}
+.h1{
+    font-size: 20px;
+}
+.h2{
+    font-size: 16px;
+}
+.h3{
+    font-size: 14px;
+}

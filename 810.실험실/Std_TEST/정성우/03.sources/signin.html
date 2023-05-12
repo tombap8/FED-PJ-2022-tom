@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://kit.fontawesome.com/6688d7064c.js" crossorigin="anonymous"></script>
+        <link href="https://cdn-fsly.yottaa.net/62b4643a4f1bbf4e83e90207/www.ralphlauren.co.kr/v~4b.2b/on/demandware.static/Sites-RalphLauren_KR-Site/-/default/dwa5513e62/images/favicon_rl.ico?yocs=3c_3f_3g_" rel="shortcut icon" />
+        <script src="./js/lib/jquery-3.6.3.min.js"></script>
+        <script src="./js/lib/jquery-ui.min.js"></script>
+        <!-- 뷰JS 스탠드얼론 버전 가져오기! -->
+            <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+        <script src="./js/signin.js" type="module"></script>
+        <link rel="stylesheet" href="./css/index.css" />
+        <link rel="stylesheet" href="./css/signin.css">
+        <title>Ralph Lauren (customize)</title>
+    </head>
+    <body>
+        <section id="top">
+            <top-comp></top-comp>
+        </section>
+        <section id="main">
+            <main class="main">
+                <div class="inner">
+                    <div class="sign_tit_wrap">
+                        <span class="tit">내 계정 /계정만들기</span>
+                    </div>
+                    <div class="sign_cont">
+                        <div class="help_wrap">
+                            <h4>도움이 필요하신가요?</h4>
+                            <p>
+                                계정과 관련하여 문의가 있으시거나 <br> 도움이 필요하신 경우 <br> 랄프 로렌으로 연락해 주시기 바랍니다.
+                            </p>
+                            <div class="call_info">
+                                <span>전화 문의 080-566-1199</span>
+                                <span>월요일-금요일 10:00 - 18:00</span>
+                            </div>
+                            <span><a href="#">이메일문의</a></span>
+                        </div>
+                        <div class="sign_wrap">
+                            <div class="cont_tit_wrap">
+                                <h2 class="cont_tit">계정 만들기</h2>
+                                <span class="ness">*필수</span>
+                            </div>
+                            <form action="">
+                                <input type="text" placeholder="이메일 주소 *">
+                                <input type="text" placeholder="이메일 주소 확인">
+                                <input type="password" placeholder="비밀번호 *">
+                                <input type="password" placeholder="비밀번호 재입력">
+                                <input type="text" placeholder="휴대폰 번호(번호만 입력)">
+                                <input type="text" placeholder="성 *">
+                                <input type="text" placeholder="이름 *">
+                                <span>생일</span>
+                                <div class="bir_wrap">
+                                    <input type="text" placeholder="연도(ex 1900)" class="year" maxlength="4">
+                                    <select name="month" id="month">
+                                        <option value="mon">월</option>
+                                        <option value="jan">1</option>
+                                        <option value="feb">2</option>
+                                        <option value="mar">3</option>
+                                        <option value="apr">4</option>
+                                        <option value="may">5</option>
+                                        <option value="jun">6</option>
+                                        <option value="jul">7</option>
+                                        <option value="aug">8</option>
+                                        <option value="sep">9</option>
+                                        <option value="oct">10</option>
+                                        <option value="nov">11</option>
+                                        <option value="dec">12</option>
+                                    </select>
+                                    <select name="date" id="date">
+                                        <option value="date">일</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
+                                        <option value="21">21</option>
+                                        <option value="22">22</option>
+                                        <option value="23">23</option>
+                                        <option value="24">24</option>
+                                        <option value="25">25</option>
+                                        <option value="26">26</option>
+                                        <option value="27">27</option>
+                                        <option value="28">28</option>
+                                        <option value="29">29</option>
+                                        <option value="30">30</option>
+                                        <option value="31">31</option>
+                                    </select>
+                                </div>
+                                <select name="gender" id="gender">
+                                    <option value="gen">성별</option>
+                                    <option value="man">남성</option>
+                                    <option value="woman">여성</option>
+                                </select>
+                                <div class="confirm_wrap">
+                                    <div class="wrap">
+                                        <input type="checkbox" name="chk_all" id="chk_all">
+                                        <label for="chk_all">약관 전체 동의</label>
+                                    </div>
+                                    <div class="wrap">
+                                        <input type="checkbox" name="condition" id="condition">
+                                        <label for="condition">* 랄프 로렌 이용약관(필수)</label>
+                                    </div>
+                                    <div class="wrap">
+                                        <input type="checkbox" name="collection" id="collection">
+                                        <label for="collection">* 개인정보 수집 이용동의(필수)</label>
+                                    </div>
+                                    <div class="wrap">
+                                        <input type="checkbox" name="location" id="location">
+                                        <label for="location">개인정보 국외 이전 및 제3자 제공 동의(필수)</label>
+                                    </div>
+                                    <div class="wrap">
+                                        <input type="checkbox" name="ages" id="ages">
+                                        <label for="ages">* 만14세 미만 가입 제한(필수)</label>
+                                    </div>
+                                    <div class="wrap">
+                                        <input type="checkbox" name="marketing" id="marketing">
+                                        <label for="marketing">마케팅 활용 밎 광고성 정보 수신 동의(선택)</label>
+                                    </div>
+                                    <div class="wrap">
+                                        <input type="checkbox" name="autologin" id="autologin">
+                                        <label for="autologin">자동 로그인</label>
+                                    </div>
+                                </div>
+                                <button>계정 만들기</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </section>
+        <section id="info">
+            <foot-comp></foot-comp>
+        </section>
+    </body>
+</html>

@@ -1,0 +1,165 @@
+@charset "UTF-8";
+
+.top{
+    background-color: #fff !important;
+}
+.logo a{
+    background-image: url(/02.Mobile_Web&App_Project/03.sources/img/index/gnb_logo_b.svg) !important;
+}
+.category h2 a{
+    color: #000 !important;
+}
+.cont{
+    max-width: 1400px;
+    margin: 0 auto;
+}
+.tit_warp{
+    margin-top: 100px;
+    padding-top: 30px;
+    text-align: center;
+}
+.cat{
+    font-size: 10px;
+}
+.tit{
+    height: 60px;
+    font-size: 24px;
+    line-height: 60px;
+}
+.search_wrap{
+    position: sticky;
+    top: 60px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 17px;
+    padding: 10px 0;
+    background-color: #eeeeee88;
+    z-index: 10;
+}
+.left_filter{
+    margin-left: 40px;
+}
+.right_fliter_opt{
+    margin-right: 40px;
+}
+.cat_tit{
+    padding: 40px 10px;
+    font-size: 40px;
+}
+.list{
+    padding-bottom: 30px;
+}
+.list ul{
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-row-gap: 40px;
+    grid-column-gap: 20px;
+    width: 100%;
+}
+.list li{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.behind_img{
+    position: absolute;
+    opacity: 0;
+}
+.brand{
+    margin-top: 20px;
+}
+.total h4{
+    text-align: center;
+}
+.result_wrap{
+    padding: 20px 0;
+}
+.more_item{
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    height: 60px;
+    line-height: 60px;
+    border: 2px solid #000;
+    box-sizing: border-box;
+    text-align: center;
+}
+.whole_item{
+    display: block;
+    text-align: center;
+    padding-top: 10px;
+}
+.product_wrap{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;  
+    right: 0;
+    background-color: #000000cc;
+    z-index: 9999;
+    overflow: auto;
+}
+.product_detail{
+    position: relative;
+    top: 0;
+    margin-left: 10%;
+    background-color: #fff;
+    width: 90%;
+}
+.product_detail .inner{
+    display: flex;
+    max-width: 1400px;
+    padding: 40px 0;
+    gap: 30px;
+}
+.product_img_wrap{
+    position: relative;
+    width: 60%;
+}
+.product_img_wrap ul{
+    display: grid;
+    grid-column-gap: 12px;
+    grid-row-gap: 12px;
+    grid-template-columns: 50% 50%;
+    width: calc(100% - 12px);
+}
+.product_img_wrap li{
+    width: 100%;
+    height: 100%;
+}
+.product_info_wrap{
+    position: relative;
+    width: 40%;
+}
+.close_btn{
+    display: inline-block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: #fff;
+}
+.close_btn i{
+    width: 40px;
+    height: 40px;
+    font-size: 50px;
+    line-height: 40px;
+}
+.product_info_wrap .logo{
+    text-indent: -9999px;
+    background: url(../img/index/gnb_logo_b.svg) no-repeat center;
+}
+.product_info{
+    position: sticky;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.product_info li{
+    padding: 10px 0;
+}
+.product_info h3{
+    font-size: 25px;
+    padding-left: 30px;
+}
