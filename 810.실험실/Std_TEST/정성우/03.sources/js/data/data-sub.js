@@ -23,8 +23,11 @@ const subData = {
             <div class="list" id="list">
                 <ul>
                     <li v-for="(value, name) in $store.state.men.polo">
-                        <img class="front_img" v-bind:src="'./img/men/poloShirts/'+value['img']+'.jpg'" v-bind:alt="'남성 폴로 셔츠'+value['img']" />
-                        <img ref="tgi" class="behind_img" v-bind:myval="value" v-bind:src="'./img/men/poloShirts-1/alt'+value['img']+'.jpg'" v-on:click="goPapa" alt="" />
+                        <img class="front_img" v-bind:src="'./img/men/poloShirts/'+value['img']+'.jpg'" 
+                        v-bind:alt="'남성 폴로 셔츠'+value['img']" />
+                        <img ref="tgi" class="behind_img"
+                        :src="'./img/men/poloShirts-1/alt'+value['img']+'.jpg'" 
+                        @click.prevent="chkNum(value)" alt="" />
                         <div class="brand">{{value["brand"]}}</div>
                         <div class="name">{{value["name"]}}</div>
                         <div class="price">{{value["price"]}}</div>
@@ -42,7 +45,10 @@ const subData = {
     </div>
     <div class="product_wrap" >
         <a href="#" class="close_btn"><i class="fa-sharp fa-solid fa-xmark"></i></a>
-        <div class="product_detail" v-for="(value, name) in $store.state.men.polo">
+        <div class="product_detail" 
+        v-for="(value, name) in $store.state.men.polo" 
+        v-if="value['img']==$store.state.imgnum">
+        
             <div class="inner">
                 <div class="product_img_wrap">
                     <ul>
@@ -57,7 +63,7 @@ const subData = {
                 <div class="product_info_wrap">
                     <ul class="product_info">
                         <li>
-                            <h1 class="logo">Ralph Lauren</h1>
+                            <h1 class="logo">Ralph Lauren{{$store.state.imgnum}}</h1>
                         </li>
                         <li>
                             <h3 class="pro_cate">{{value["brand"]}}</h3>

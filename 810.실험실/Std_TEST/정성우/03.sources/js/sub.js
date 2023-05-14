@@ -18,14 +18,14 @@ const mainComp = {
     template: subData.list,
     data(){
         return{
-           setval:this.myval
+           
         }
     },
     props:["myval"],
     methods:{
-        goPapa(){
-            console.log("자식요~!!",this.$refs.tgi.myval);
-            this.$emit("goval")
+        chkNum(pm){
+            console.log("자식요~!!",pm);
+           store.state.imgnum = pm["img"];
         }
     }
 }
@@ -34,15 +34,13 @@ const proComp = {
 }
 new Vue({
     el:"#main",
+    data:{
+        
+    },
     components:{
         "main-comp": mainComp
     },
     store,
-    methods:{
-        setVal(){
-            console.log("부모요~~!");
-        }
-    },
     mounted:function(){
         const behindImg = $(".behind_img");
         
@@ -67,7 +65,8 @@ new Vue({
         });
         
         const close = $(".close_btn");
-        close.on("click", function () {
+        close.on("click", function (e) {
+            e.preventDefault();
             $(this).parent().hide();
         });
     },

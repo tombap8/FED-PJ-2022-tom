@@ -13,7 +13,9 @@ const store = new Vuex.Store({
         },
         home:{
             cat:"홈"
-        }
+        },
+        // 이미지번호 전역화!
+        imgnum:5,
     }
 })
 
