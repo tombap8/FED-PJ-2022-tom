@@ -122,8 +122,9 @@ const subData = {
                 </li>
                 <li class="imgc jr2 js-reveal">
                     <img :src="
-                    './images/sub/'+
-                    $store.state.cat+'/05.disc.png' alt="의자공유" class="js-reveal" />
+                        './images/sub/'+
+                        $store.state.cat+'/05.disc.png'
+                    " alt="의자공유" class="js-reveal" />
                 </li>
             </ul>
         </section>

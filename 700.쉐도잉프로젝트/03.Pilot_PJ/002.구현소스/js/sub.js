@@ -17,6 +17,38 @@ import store from "./store.js";
 // 스와이퍼 변수
 let swiper;
 
+// 바로실행구역 함수구역 ///
+// 바로실행구역을 쓰는이유: 
+// 변수나 명령어를 다른 영역과 구분하여
+// 코딩할때 주로 사용됨!
+// GET방식 데이터를 store에서 초기값으로 셋팅하는 것을
+// 인스턴스 생성전에 해야 아래쪽에 빈값으로 셋팅된값이
+// 들어가서 에러나는 것을 막을 수 있다!
+(() => {
+    // 파라미터 변수
+    let pm;
+
+    // GET 방식으로 넘어온 데이터 처리하여
+    // 분류별 서브 페이지 구성하기!
+    // location.href -> 상단 url읽어옴!
+    // indexOf("?")!==-1 -> 물음표가 있으면!
+    if (location.href.indexOf("?") !== -1) 
+        pm = location.href.split("?")[1].split("=")[1];
+    // 물음표(?)로 잘라서 뒤엣것,이퀄(=)로 잘라서 뒤엣것
+    // 파라미터 값만 추출함!
+    // pm에 할당이 되었다면 undefined가 아니므로 true
+    if (pm) store.commit("chgData", decodeURI(pm));
+    // 메뉴를 선택해서 파라미터로 들어오지 않으면 "남성"
+    else store.commit("chgData", "남성");
+
+    // decodeURI() - 변경할 문자열만 있어야 변환됨
+    // decodeURIComponent() - url전체에 섞여 있어도 모두 변환
+
+})(); ////////////// 바로실행함수구역 ///////////////////
+
+// DOM연결전 데이터 가공작업
+console.log("created구역");
+
 //###### 서브영역 메뉴 뷰 템플릿 셋팅하기 #######
 // 1. 배너파트 컴포넌트
 Vue.component("ban-comp", {
@@ -103,7 +135,6 @@ new Vue({
             // 첫슬라이드는 0번: 스와이퍼 API이용!
             // 4. 등장액션 스크롤리빌 다시 호출!
             $.fn.scrollReveal();
-
         });
         // $(선택요소).trigger(이벤트명)
         // -> 선택요소의 이벤트 강제발생함!
@@ -115,38 +146,36 @@ new Vue({
         // a요소의 #아이디명 으로 기본 위치이동은 되지만
         // 스크롤 애니메이션은 되지 않는다!
         // 이것을 제이쿼리로 구현하자!!!
-        $(".gnb a").click(function(e){
+        $(".gnb a").click(function (e) {
             // 1. 기본이동막기
             e.preventDefault();
 
             // 2. 클릭된 a요소의 href값 읽어오기
             let aid = $(this).attr("href");
-            
+
             // 3. 아이디요소 박스 위치구하기
             let newpos = $(aid).offset().top;
 
-            console.log("이동아이디:",aid,"/위치:",newpos);
+            console.log("이동아이디:", aid, "/위치:", newpos);
 
             // 4. 애니메이션 이동
-            $("html,body").animate({
-                scrollTop: newpos + "px"
-            },600,"easeOutQuint");
+            $("html,body").animate(
+                {
+                    scrollTop: newpos + "px",
+                },
+                600,
+                "easeOutQuint"
+            );
 
             // 5. 부드러운 스크롤 변수에 현재위치값 업데이트!
             sc_pos = newpos;
-
         }); //////////// click /////////
 
-
-
-
-
+        // 로고 클릭시 첫페이지로 이동!!!
+        $("#logo").click(() => (location.href = "index.html"));
     },
     // created 실행구역 : DOM연결전
-    created: function () {
-        // DOM연결전 데이터 가공작업
-        console.log("created구역");
-    },
+    created: function () {},
 }); //////// 상단영역 뷰 인스턴스 ////////
 
 //###### 하단영역 뷰 인스턴스 생성하기 ##########
