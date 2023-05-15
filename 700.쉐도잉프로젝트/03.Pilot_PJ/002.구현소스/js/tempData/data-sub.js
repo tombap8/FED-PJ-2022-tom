@@ -40,32 +40,15 @@ const subData = {
             <div class="flowbx js-reveal">
                 <!-- 리스트박스 -->
                 <ul class="flist">
-                    <li class="m1">
-                        <a href="#"><img src="./images/m1.png" alt="신상품" /></a>
-                    </li>
-                    <li class="m2">
-                        <a href="#"><img src="./images/m2.png" alt="신상품" /></a>
-                    </li>
-                    <li class="m3">
-                        <a href="#"><img src="./images/m3.png" alt="신상품" /></a>
-                    </li>
-                    <li class="m4">
-                        <a href="#"><img src="./images/m4.png" alt="신상품" /></a>
-                    </li>
-                    <li class="m5">
-                        <a href="#"><img src="./images/m5.png" alt="신상품" /></a>
-                    </li>
-                    <li class="m6">
-                        <a href="#"><img src="./images/m6.png" alt="신상품" /></a>
-                    </li>
-                    <li class="m7">
-                        <a href="#"><img src="./images/m7.png" alt="신상품" /></a>
-                    </li>
-                    <li class="m8">
-                        <a href="#"><img src="./images/m8.png" alt="신상품" /></a>
-                    </li>
-                    <li class="m9">
-                        <a href="#"><img src="./images/m9.png" alt="신상품" /></a>
+                    <li v-for="v in 9" :class="'m'+v">
+                        <a href="#">
+                            <img :src="
+                            './images/goods/'+
+                            $store.state.cat +
+                            '/m'+ v +
+                            '.png'
+                            " alt="신상품" />
+                        </a>
                     </li>
                 </ul>
             </div>
