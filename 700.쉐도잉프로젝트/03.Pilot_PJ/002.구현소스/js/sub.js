@@ -29,6 +29,11 @@ Vue.component("cont1-comp", {
     template: subData.cont1,
 }); ////////// 상단영역 Vue component //////////
 
+// 3. 컨텐츠2 영역 컴포넌트
+Vue.component("cont2-comp", {
+    template: subData.cont2,
+}); ////////// 상단영역 Vue component //////////
+
 //###### 서브영역 뷰 인스턴스 셋팅하기 #######
 new Vue({
     el:"#cont",

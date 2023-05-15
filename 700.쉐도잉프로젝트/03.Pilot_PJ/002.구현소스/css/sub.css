@@ -6,15 +6,16 @@
 @import url(core.css);
 @import url(common.css);
 
-html,body{
+html,
+body {
     overflow: visible;
 }
-body{
+body {
     overflow-x: hidden;
 }
 
 /* 배너박스 */
-#ban{
+#ban {
     height: 100vh;
 }
 
@@ -46,29 +47,27 @@ body{
 }
 
 /* 1. 신상품 컨텐츠 박스 */
-.c1{
+.c1 {
     background: url(../images/sub/men/01.new-arrival.png) no-repeat top/auto 134%;
     /* overflow: hidden; */
     /* 넘치는 자식요소 숨기기 + 자식마진포함 */
-    
+
     /* 비율설정 */
     aspect-ratio: 5/2.2;
 }
 /* 신상품 배경이미지 카테고리 클래스추가 */
-.c1.men{
+.c1.men {
     background-image: url(../images/sub/men/01.new-arrival.png);
 }
-.c1.women{
+.c1.women {
     background-image: url(../images/sub/women/01.new-arrival.png);
 }
-.c1.style{
+.c1.style {
     background-image: url(../images/sub/style/01.new-arrival.png);
 }
 
-
-
 /* 신상품 타이틀 */
-.c1tit{
+.c1tit {
     padding: 6% 15%;
     font-size: 4rem;
     color: #fff;
@@ -80,18 +79,18 @@ body{
     margin-bottom: 300px;
 } */
 /* 움직일 리스트박스 */
-.flist{
+.flist {
     position: relative;
-    left: 0;/* 움직일 기준값 */
+    left: 0; /* 움직일 기준값 */
     display: flex;
 }
 /* 리스트 하위 li */
-.flist li{
+.flist li {
     position: relative;
     /* 부모자격 - 설명박스 */
 }
 /* 리스트 상품 이미지 */
-.flist li img{
+.flist li img {
     width: 300px;
 }
 
@@ -110,10 +109,10 @@ body{
     opacity: 0;
     /* 1로 투명도 변경될 것임 */
     /* 처음에 투명 */
-  }
-  
-  /* 가상요소로 안쪽 테두리 */
-  .ibox::before {
+}
+
+/* 가상요소로 안쪽 테두리 */
+.ibox::before {
     content: "";
     display: block;
     position: absolute;
@@ -122,14 +121,14 @@ body{
     width: 100%;
     height: 100%;
     border: 2px solid #fff;
-    transform: scaleX(.94) scaleY(.85);
+    transform: scaleX(0.94) scaleY(0.85);
     box-sizing: border-box;
     /* 보더때문에 늘어나지 않게 처리! */
-  }
-  
-  /* 가상요소로 화살표만들기 */
-  .ibox::after {
-    content: '';
+}
+
+/* 가상요소로 화살표만들기 */
+.ibox::after {
+    content: "";
     display: block;
     position: absolute;
     top: -20px;
@@ -143,60 +142,70 @@ body{
     border-bottom: 20px solid #101629;
     /* 삼각형 */
     /* border-top: 20px solid #101629;역삼각형 */
-  
-  }
+}
 
-  /* 컨텐츠영역2 - 스페셜영역 */
-  .c2{
+/* 컨텐츠영역2 - 스페셜영역 */
+.c2 {
     height: 50vh;
     background: url(../images/sub/men/02.special.png) no-repeat fixed center top/cover;
     text-align: center;
-  }
-  /* 타이틀 */
-  .c2tit{
+}
+/* 신상품 배경이미지 카테고리 클래스추가 */
+.c2.men {
+    background-image: url(../images/sub/men/02.special.png);
+}
+.c2.women {
+    background-image: url(../images/sub/women/02.special.png);
+}
+.c2.style {
+    background-image: url(../images/sub/style/02.special.png);
+}
+/* 타이틀 */
+.c2tit {
     font: bold 5rem/50vh UB;
     letter-spacing: 5px;
     color: #fff;
     text-shadow: 3px 3px 3px #000;
-  }
+}
 
-  /* 컨텐츠영역 3,4번 공통 */
-  .c3,.c4{
+/* 컨텐츠영역 3,4번 공통 */
+.c3,
+.c4 {
     height: 100vh;
-  }
+}
 
 /********** 컨텐츠영역 4 - 비치스타일 ***********/
 
 /* 비치스타일 이미지영역 */
-.c3 .imgc{
+.c3 .imgc {
     flex-basis: 25%;
     /* 등분할 영역까지가 0%이고 양수는 영역침범 */
 }
 /********** 컨텐츠영역 4 - 비치스타일 ***********/
 
 /* 컨텐츠영역4 이미지영역 */
-.c4 .imgc{
+.c4 .imgc {
     /* flex-basis: 15%; */
     /* 등분할 영역까지가 0%이고 양수는 영역침범 */
 }
 /* 컨텐츠영역4 이미지 */
-.c4 img{
+.c4 img {
     object-fit: fill;
     /* width: auto; */
     /* right: -26%; */
 }
 
 /* 컨텐츠영역4 글자 */
-.c4 .txtc .tm{/* 오른쪽글자 */
+.c4 .txtc .tm {
+    /* 오른쪽글자 */
     top: 20%;
     left: auto;
     transform: none;
     right: 5%;
 }
-.c4 .txtc .tw{/* 왼쪽글자 */
+.c4 .txtc .tw {
+    /* 왼쪽글자 */
     top: 70%;
     left: 5%;
     transform: none;
 }
-
-

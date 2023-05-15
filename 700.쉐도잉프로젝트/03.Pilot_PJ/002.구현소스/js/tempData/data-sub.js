@@ -67,7 +67,14 @@ const subData = {
         </section>
     `,
     // 컨텐츠영역2 : special
-    cont2:``,
+    cont2:`
+        <section 
+        :class="
+            'cont c2 '+ $store.state.cat
+        " id="c2">
+            <h2 class="c2tit js-reveal">2023 BEACH SPECIAL WINDBREAKER</h2>
+        </section>
+    `,
     // 컨텐츠영역3 : 일반소개1
     cont3:``,
     // 컨텐츠영역4 : 일반소개2
