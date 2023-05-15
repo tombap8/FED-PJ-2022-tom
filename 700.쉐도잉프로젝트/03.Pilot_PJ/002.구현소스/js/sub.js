@@ -131,7 +131,10 @@ new Vue({
             $("html,body").animate({
                 scrollTop: newpos + "px"
             },600,"easeOutQuint");
-            
+
+            // 5. 부드러운 스크롤 변수에 현재위치값 업데이트!
+            sc_pos = newpos;
+
         }); //////////// click /////////
 
 
