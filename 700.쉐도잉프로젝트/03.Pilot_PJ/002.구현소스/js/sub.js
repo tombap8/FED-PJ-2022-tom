@@ -109,6 +109,35 @@ new Vue({
         // -> 선택요소의 이벤트 강제발생함!
         // 참고) JS 클릭이벤트 강제발생
         // document.querySelector(요소).click();
+
+        // GNB 메뉴 클릭시 해당위치로 스크롤이동 애니메이션
+        // 각 .gnb a 에는 href="#c2" 이런식으로 아이디요소가 있음!
+        // a요소의 #아이디명 으로 기본 위치이동은 되지만
+        // 스크롤 애니메이션은 되지 않는다!
+        // 이것을 제이쿼리로 구현하자!!!
+        $(".gnb a").click(function(e){
+            // 1. 기본이동막기
+            e.preventDefault();
+
+            // 2. 클릭된 a요소의 href값 읽어오기
+            let aid = $(this).attr("href");
+            
+            // 3. 아이디요소 박스 위치구하기
+            let newpos = $(aid).offset().top;
+
+            console.log("이동아이디:",aid,"/위치:",newpos);
+
+            // 4. 애니메이션 이동
+            $("html,body").animate({
+                scrollTop: newpos + "px"
+            },600,"easeOutQuint");
+            
+        }); //////////// click /////////
+
+
+
+
+
     },
     // created 실행구역 : DOM연결전
     created: function () {
