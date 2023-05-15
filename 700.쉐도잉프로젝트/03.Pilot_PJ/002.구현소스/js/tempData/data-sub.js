@@ -99,7 +99,35 @@ const subData = {
         </section>
     `,
     // 컨텐츠영역4 : 일반소개2
-    cont4:``,
+    cont4:`
+        <section class="cont c4" id="c4">
+            <ul class="pgc">
+                <li class="imgc jr2 js-reveal">
+                    <img :src="
+                        './images/sub/'+
+                        $store.state.cat+'/04.disc.png'
+                    " alt="가방공유" />
+                </li>
+                <li class="txtc">
+                    <h2 class="tm">
+                        <a href="#" class="js-reveal"> 
+                        {{$store.state.cat.toUpperCase()}}'S<br />
+                        SPORT STYLE </a>
+                    </h2>
+                    <h2 class="tw">
+                        <a href="#" class="js-reveal"> 
+                        {{$store.state.cat.toUpperCase()}}'S<br />
+                        LIFE STYLE </a>
+                    </h2>
+                </li>
+                <li class="imgc jr2 js-reveal">
+                    <img :src="
+                    './images/sub/'+
+                    $store.state.cat+'/05.disc.png' alt="의자공유" class="js-reveal" />
+                </li>
+            </ul>
+        </section>
+    `,
 
 }; //////////// subData ////////////////
 
