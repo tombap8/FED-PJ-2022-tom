@@ -78,7 +78,26 @@ const subData = {
         </section>
     `,
     // 컨텐츠영역3 : 일반소개1
-    cont3:``,
+    cont3:`
+        <section class="cont c3" id="c3">
+            <ul class="pgc">
+                <li class="txtc">
+                    <h2 class="js-reveal">
+                        <a href="#"> 
+                        {{$store.state.cat.toUpperCase()}}'S <br />
+                        {{$store.state.menu[2]}} </a>
+                    </h2>
+                </li>
+                <li class="imgc jr1 js-reveal">
+                    <img 
+                    :src="
+                        './images/sub/'+
+                        $store.state.cat+'/03.disc.png'
+                    " alt="해변공유" />
+                </li>
+            </ul>
+        </section>
+    `,
     // 컨텐츠영역4 : 일반소개2
     cont4:``,
 
