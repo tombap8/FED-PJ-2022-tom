@@ -17,7 +17,6 @@ import store from "./store.js";
 // 스와이퍼 변수
 let swiper;
 
-
 //###### 서브영역 메뉴 뷰 템플릿 셋팅하기 #######
 // 1. 배너파트 컴포넌트
 Vue.component("ban-comp", {
@@ -36,21 +35,15 @@ Vue.component("cont2-comp", {
 
 //###### 서브영역 뷰 인스턴스 셋팅하기 #######
 new Vue({
-    el:"#cont",
+    el: "#cont",
     store, // 뷰엑스 스토어 등록필수!!!
 }); ////////// 상단영역 Vue component //////////
-
-
-
-
 
 //###### 상단영역 메뉴 뷰 템플릿 셋팅하기 #######
 // Vue.component(내가지은요소명,{옵션})
 Vue.component("top-comp", {
     template: comData.tareaSub,
-    methods:{
-        
-    }
+    methods: {},
 }); ////////// 상단영역 Vue component //////////
 
 //###### 하단영역 메뉴 뷰 템플릿 셋팅하기 #######
@@ -82,21 +75,23 @@ new Vue({
         sinsangFn();
 
         // 패럴렉스 적용함수 호출!
-        setParallax(".c2",0.6);
+        setParallax(".c2", 0.6);
         // setParallax(적용할요소,속도);
         // 속도는 0.1~0.9
 
         // 스크롤리빌 플러그인 적용호출!
-        $.fn.scrollReveal();  
+        $.fn.scrollReveal();
 
         // 전체메뉴클릭시 전체메뉴창 닫기
-        $(".mlist a").click(
-            ()=>$(".ham").trigger("click"));
+        $(".mlist a").click(() => {
+            $(".ham").trigger("click");
+            // 부드러운 스크롤 위치값 업데이트
+            sc_pos = 0;
+        });
         // $(선택요소).trigger(이벤트명)
         // -> 선택요소의 이벤트 강제발생함!
         // 참고) JS 클릭이벤트 강제발생
         // document.querySelector(요소).click();
-         
     },
     // created 실행구역 : DOM연결전
     created: function () {
@@ -109,7 +104,6 @@ new Vue({
 new Vue({
     el: "#info",
 }); //////// 하단영역 뷰 인스턴스 ////////
-
 
 // 스와이퍼 플러그인 인스턴스 생성하기 ///
 // 스와이퍼 생성함수
@@ -218,7 +212,7 @@ function sinsangFn() {
             let cat = $(this).parents("#c1").attr("data-cat");
             let gd_info = sinsang[cat][clsnm];
 
-            console.log("data-cat:",cat);
+            console.log("data-cat:", cat);
 
             // 3. 상품정보박스 만들고 보이게하기
             // 마우스 오버된 li자신 (this)에 넣어준다!
@@ -226,8 +220,7 @@ function sinsangFn() {
             // .ibox에 상품정보 넣기
             // ^는 특수문자이므로 정규식에 넣을때 역슬래쉬와 함께씀
             // -> /\^/
-            $(".ibox",this).html(gd_info.replace(/\^/g, "<br>"))
-            .animate(
+            $(".ibox", this).html(gd_info.replace(/\^/g, "<br>")).animate(
                 {
                     top: "110%",
                     opacity: 1,
@@ -239,7 +232,7 @@ function sinsangFn() {
         function () {
             // out
             // ibox 나갈때 지우기
-            $(".ibox",this).remove();
+            $(".ibox", this).remove();
         }
     ); //////////// hover ///////////////////////
 
@@ -257,7 +250,7 @@ function sinsangFn() {
 
     // 3. 화면높이값
     let winH = $(window).height();
-    console.log("화면높이값:",winH);
+    console.log("화면높이값:", winH);
 
     // 4. 스크롤 이벤트함수 ///////////
     $(window).scroll(function () {
@@ -271,16 +264,16 @@ function sinsangFn() {
 
         // 3. 신상품 리스트 이동/멈춤 분기하기
         // (1) 이동기준 gBCR값이 화면높이보다 작고 0보다 클때 이동
-        if (gBCR < winH && gBCR > -300 && sc_sts===0) {
-            sc_sts=1;// 한번만실행
-            call_sts = 1; // 콜백허용! 
+        if (gBCR < winH && gBCR > -300 && sc_sts === 0) {
+            sc_sts = 1; // 한번만실행
+            call_sts = 1; // 콜백허용!
             moveList(); // 함수재호출!
             console.log("범위1");
         } ////// if ///////////
         // (2) 기타경우 멈춤
         // (조건: 윈도우높이보다 크거나 0보다 작고 call_sts===1일때)
-        else if ((gBCR > winH || gBCR < -300) && sc_sts===1){
-            sc_sts=0;// 한번만실행
+        else if ((gBCR > winH || gBCR < -300) && sc_sts === 1) {
+            sc_sts = 0; // 한번만실행
             call_sts = 0; // 콜백중단!
             console.log("범위2");
         } ///// else ///////////////
@@ -289,26 +282,23 @@ function sinsangFn() {
         // 서브 배너 스와이퍼 API를 //
         // 이용한 작동멈춤셋팅하기! //
         ////////////////////////////
-        // 기준: 화면높이값 보다 
+        // 기준: 화면높이값 보다
         //      스크롤위치가 크면 멈춤
         // 스와이퍼API : swiper.autoplay.stop()
         //      스크롤위치가 작으면 자동넘김
         // 스와이퍼API : swiper.autoplay.start()
-        if(scTop > winH){
-          swiper.autoplay.stop()
+        if (scTop > winH) {
+            swiper.autoplay.stop();
         } /////////// if ////////
-        else{
-          swiper.autoplay.start()
+        else {
+            swiper.autoplay.start();
         } //////// else ///////////
-
-
     }); ////////// scroll /////////////
 } ///////////// sinsangFn 함수 ////////////////
 
-
 // 패럴렉스 플러그인 적용함수
-function setParallax(ele,speed){
+function setParallax(ele, speed) {
     // 대상: .c2
-    $(ele).parallax("50%",speed);
+    $(ele).parallax("50%", speed);
     // parallax(배경위치,속도)
 } ///////////// setParallax 함수 ///////////
