@@ -31,7 +31,19 @@ const subData = {
         <section 
         :class="
             'cont c1 '+ $store.state.cat
-        " id="c1">
+        " id="c1"
+        :data-cat="$store.state.cat">
+
+        <!-- 
+            class = "cont c1 카테고리명"
+            -> 해당 배경이미지가 나오도록 카테고리명 클래스넣기
+
+            data-cat 속성 : data-로 시작하는 사용자정의속성
+            -> 제이쿼리에서 DOM셋팅 속성을 읽어서
+            sinsang 객체의 하위 속성 카테고리명을
+            사용하기 위해 셋팅함!
+        -->
+
             <!-- 2-1-1.신상품 타이틀 -->
             <h2 class="c1tit js-reveal">
                 {{ $store.state.menu[0] }}
