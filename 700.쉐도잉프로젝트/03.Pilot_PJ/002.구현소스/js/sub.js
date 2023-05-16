@@ -75,6 +75,11 @@ Vue.component("cont4-comp", {
     template: subData.cont4,
 }); ////////// 상단영역 Vue component //////////
 
+// 6. 상세보기 영역 컴포넌트
+Vue.component("detail-comp", {
+    template: subData.detail,
+}); ////////// 상단영역 Vue component //////////
+
 //###### 서브영역 뷰 인스턴스 셋팅하기 #######
 new Vue({
     el: "#cont",
@@ -160,6 +165,7 @@ new Vue({
                 history.pushState(null,null,"my.html?hi=bye") 
             *****************************************************/
 
+
         });
         // $(선택요소).trigger(이벤트명)
         // -> 선택요소의 이벤트 강제발생함!
@@ -198,7 +204,28 @@ new Vue({
 
         // 로고 클릭시 첫페이지로 이동!!!
         $("#logo").click(() => (location.href = "index.html"));
-    },
+
+        // 상품 클릭시 상세보기 정보 셋팅하여 보이기
+        $(".flist a").click(function(e){
+            // 0. 기본이동막기
+            e.preventDefault();
+
+            // 1. 클릭된 요소의 부모(li)의 클래스 읽어오기
+            let cls = $(this).parent().attr("class");
+            console.log("클래스명:",cls);
+
+            // 2. 클릭된 요소의 다음형제요소의 정보값읽어오기
+            // split("<br>") br태그로 잘라서 배열에 담음!
+            let ginfo = $(this).next(".ibox").html().split("<br>");
+            console.log("상품정보:",ginfo);
+
+            // 3. 뷰엑스 스토어 업데이트(리액티브 데이터 반영!)
+            store.state.cls = cls;
+
+
+        }); /////////////// click ///////////
+
+    }, ///////////// mounted ///////////////
     // created 실행구역 : DOM연결전
     created: function () {},
 }); //////// 상단영역 뷰 인스턴스 ////////
