@@ -145,7 +145,11 @@ const subData = {
                     <section class="gimg">
                         <img 
                         :src="
-                            'images/goods/'+'/'+'.png'
+                            'images/goods/'+
+                            $store.state.cat+
+                            '/'+
+                            $store.state.cls+
+                            '.png'
                         " alt="큰 이미지">
                     </section>
                     <!-- 이미지 설명 -->

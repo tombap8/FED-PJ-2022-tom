@@ -221,6 +221,9 @@ new Vue({
 
             // 3. 뷰엑스 스토어 업데이트(리액티브 데이터 반영!)
             store.state.cls = cls;
+            store.state.gname = ginfo[0];
+            store.state.gcode = ginfo[1];
+            store.state.gprice = ginfo[2];
 
 
         }); /////////////// click ///////////
