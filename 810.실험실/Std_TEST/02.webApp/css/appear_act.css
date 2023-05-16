@@ -1,0 +1,172 @@
+/* 이미지 등장액션 */
+.image-container {
+    height: 100vh;
+    /* padding: 1vw 0; */
+}
+
+.hidden {
+    position: absolute;
+    opacity: 0;
+}
+
+.img1 {
+    width: 23%;
+    bottom: 50%;
+    right: 50%;
+    z-index: 1;
+    animation: moveCenter1 .2s ease-out forwards;
+    animation-delay: .5s;
+}
+
+.img2 {
+    width: 18%;
+    right: 45%;
+    bottom: 5%;
+    z-index: 2;
+    animation: moveCenter2 .2s ease-out forwards;
+    animation-delay: 1s;
+}
+
+.img3 {
+    width: 23%;
+    left: 50%;
+    bottom: 10%;
+    z-index: 3;
+    transform: translate(-50%, 0) rotate(-5deg);
+    animation: moveCenter3 .2s ease-out forwards;
+    animation-delay: 1.5s;
+}
+
+.img4 {
+    width: 18%;
+    top: 55%;
+    left: 50%;
+    z-index: 4;
+    transform: translate(-50%,-50%) rotate(5deg);
+    animation: moveCenter4 .2s ease-out forwards;
+    animation-delay: 2s;
+}
+
+@keyframes moveCenter1 {
+    from {
+        right: 0;
+        bottom: 0;
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0;
+    }
+    to {
+        right: 50%;
+        bottom: 45%;
+        transform: translate(50%, 0) rotate(7deg);
+        opacity: 1;
+    }
+}
+
+@keyframes moveCenter2 {
+    from {
+        right: 0;
+        bottom: 0;
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0;
+    }
+    to {
+        right: 48%;
+        bottom: 10%;
+        transform: translate(45%, 0) rotate(-3deg);
+        opacity: 1;
+    }
+}
+
+@keyframes moveCenter3 {
+    from {
+        left: 0;
+        bottom: 0;
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0;
+    }
+    to {
+        left: 50%;
+        bottom: 20%;
+        transform: translate(-50%, 0) rotate(-5deg);
+        opacity: 1;
+    }
+}
+
+@keyframes moveCenter4 {
+    from {
+        top: 0;
+        left: 0;
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    to {
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -55%) rotate(5deg);
+        opacity: 1;
+    }
+}
+
+/* 화살표 애니 */
+#path1 {
+    position: absolute;
+    right: 0;
+    bottom: 70px;
+    width: 200px;
+    height: 200px;
+}
+
+#path2 {
+    position: absolute;
+    right: 33px;
+    bottom: 50px;
+    width: 60px;
+    height: 60px;
+}
+
+svg {
+    stroke-width: 5;
+    stroke-dasharray: 300;
+    /* 데쉬어레이 값과 같으면 공백부터시작 */
+    stroke-dashoffset: 300;
+    /* 선끝처리 둥글게 */
+    stroke-linecap: round;
+    /* 선꺾이는 부분처리 둥글게 */  
+    stroke-linejoin: round;
+}
+
+#path1 > path {
+    animation: lineAni 3s forwards;
+    animation-delay: 3.5s;
+}
+
+#path2 > path {
+    stroke-width: 5;
+    stroke-dasharray: 300;
+    /* 데쉬어레이 값과 같으면 공백부터시작 */
+    stroke-dashoffset: 300;
+
+    /* 선끝처리 둥글게 */
+    stroke-linecap: round;
+    /* 선꺾이는 부분처리 둥글게 */  
+    stroke-linejoin: round;
+    animation: lineAni 3s forwards;
+    animation-delay: 6s;
+}
+
+@keyframes lineAni {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.fade-container {
+    position: relative;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+} 
+  
+.fade-container.fade-out {
+    opacity: 0;
+}
+  

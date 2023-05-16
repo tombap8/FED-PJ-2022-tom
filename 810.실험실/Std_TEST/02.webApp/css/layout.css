@@ -1,0 +1,23 @@
+@charset "utf-8";
+
+/***************** B. 메인영역 *****************/
+.section3_container,
+.section5_container  {
+    margin-top: 120px;
+    position: relative;
+}
+
+.section5_container {
+    margin-bottom: 80px;
+}
+
+.section4_container {
+    margin-top: 80px;
+}
+
+.section3_inner, .section4_inner,
+.section5_inner  {
+    position: relative;
+    width: 1080px;
+    margin: 0 auto;
+}

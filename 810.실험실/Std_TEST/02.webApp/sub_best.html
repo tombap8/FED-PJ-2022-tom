@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>슈펜 공식 온라인 스토어 :: SHOOPEN</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="https://static.elandrs.com/f/img/favicon/shoopen.ico" />
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/subPage.css" />
+    <!-- Icon CDN -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css" />
+  </head>
+  <body>
+    <div id="cont_wrap">
+      <!-- A. 상단영역 -->
+      <header id="header">
+        <top-area></top-area>
+      </header>
+      <!-- B. 메인영역 -->
+      <main id="cont">
+        <aside class="recent-view-prod-bx">
+          <prod-comp></prod-comp>
+        </aside>
+        <section class="new_container">
+          <div class="new_inner">
+            <h2 v-html="subTit[1]"></h2>
+            <div class="new-prod-container">
+              <!-- new 아이템 탭메뉴 -->
+              <stab-comp></stab-comp>
+              <!-- new 아이템 리스트 -->
+              <div class="new-prod-cont">
+                <list-comp></list-comp>
+              </div>
+              <!-- 더보기 버튼 -->
+              <button v-if="$store.state.newData['전체'].showmore" type="button" class="showmore_btn">더보기</button>
+            </div>
+          </div>
+        </section>
+        <aside class="scrollTop-btn-wrap">
+          <div class="scrollTop">
+            <i></i>
+          </div>
+        </aside>
+      </main>
+      <!-- C. 하단영역 -->
+      <footer id="info">
+        <info-area></info-area>
+        <p class="f-copyright">COPYRIGHT © WONDERPLACE ALL RIGHTS RESERVED.</p>
+      </footer>
+    </div>
+
+    <!-- Plugin JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="./js/plugin/jquery-3.6.0.min.js"></script>
+    <script src="./js/plugin/jquery-ui.min.js"></script>
+    <!-- 뷰JS 스탠드얼론 버전 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <!-- 뷰JS 라우터 CDN -->
+    <script src="https://unpkg.com/vue-router@3.0.1/dist/vue-router.js"></script>
+    <!-- 뷰JS vuex CDN -->
+    <script src="https://unpkg.com/vuex@3.0.0"></script>
+    <!-- JS File -->
+    <script type="module" src="./js/common.js"></script>
+    <script type="module" src="./js/goBtn.js"></script>
+    <script type="module" src="./js/search.js"></script>
+    <script type="module" src="./js/recent_view_prod.js"></script>
+    <script type="module" src="./js/subpage.js"></script>
+    <script type="module" src="./js/mypage.js"></script>
+  </body>
+</html>
