@@ -151,7 +151,19 @@ const subData = {
                             $store.state.cls+
                             '.png'
                         " alt="큰 이미지">
-                        
+                     <!-- 썸네일 이미지 구역 -->
+                     <div class="small">
+                        <a href="#">
+                            <img 
+                            v-for="v in 6"
+                            v-bind:src="
+                                'images/goods/'+
+                                $store.state.cat+
+                                '/m'+ v +
+                                '.png'
+                            " alt="썸네일 이미지">
+                        </a>
+                     </div>   
                     </section>
                     <!-- 이미지 설명 -->
                     <section class="gdesc scbar">
