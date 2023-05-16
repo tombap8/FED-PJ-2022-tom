@@ -151,18 +151,25 @@ const subData = {
                             $store.state.cls+
                             '.png'
                         " alt="큰 이미지">
+                        
                     </section>
                     <!-- 이미지 설명 -->
                     <section class="gdesc scbar">
                         
                         <!--상품 정보 영역-->
-                        <h1>HOME &gt; WOMEN &gt; DRESS</h1>
+                        <h1>
+                            HOME &gt; 
+                        {{$store.state.cat.toUpperCase()}} 
+                        </h1>
                         <div>
                             <ol>
                                 <li>
                                     <img src="images/dx_ico_new-28143800.gif" alt="new버튼">
                                 </li>
-                                <li id="gtit">상품명</li>
+                                <li id="gtit">
+                                상품명:
+                                {{$store.state.gname}}
+                                </li>
                                 <li>
                                     <img src="images/icon_type02_social01.gif" alt="페이스북"><img
                                         src="images/icon_type02_social02.gif" alt="트위터"><img src="images/icon_mail02.gif"
@@ -170,7 +177,9 @@ const subData = {
                                 </li>
                                 <li>
                                     <span>판매가</span>
-                                    <span id="gprice">99,000</span>
+                                    <span id="gprice">
+                                    {{$store.state.gprice}}
+                                    </span>
                                 </li>
                                 <li>
                                     <span>적립금</span>
@@ -182,7 +191,9 @@ const subData = {
                                 </li>
                                 <li>
                                     <span>상품코드</span>
-                                    <span id="gcode">23fdfsdfsfsd</span>
+                                    <span id="gcode">
+                                    {{$store.state.gcode}}
+                                    </span>
                                 </li>
                                 <li>
                                     <span>사이즈</span>
