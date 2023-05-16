@@ -133,16 +133,21 @@ new Vue({
         $(".mlist a").click((e) => {
             // 0. 기본이동막기
             e.preventDefault();
+
             // 1. 전체메뉴창 닫기
             $(".ham").trigger("click");
+
             // 2. 부드러운 스크롤 위치값 업데이트 + 맨위이동
             sc_pos = 0;
             $("html,body").animate({scrollTop:"0"},1);
+
             // 3. 스와이퍼 첫번째 슬라이드로 이동!
             swiper.slideTo(0);
             // 첫슬라이드는 0번: 스와이퍼 API이용!
+
             // 4. 등장액션 스크롤리빌 다시 호출!
             $.fn.scrollReveal();
+            
             // 5. URL 강제변경하기
             // 변경이유 : SPA변경시 전달변수내용일치 
             // -> 새로고침시 현재변경로딩!
@@ -165,6 +170,8 @@ new Vue({
                 history.pushState(null,null,"my.html?hi=bye") 
             *****************************************************/
 
+            // 6. 상세보기 박스가 열려있을 수 있으므로 닫기!
+            $("#bgbx").hide();
 
         });
         // $(선택요소).trigger(이벤트명)
@@ -225,8 +232,22 @@ new Vue({
             store.state.gcode = ginfo[1];
             store.state.gprice = ginfo[2];
 
+            // 4. 슬라이드 애니메이션 하여 나타나기!
+            $("#bgbx").slideDown(400);
 
         }); /////////////// click ///////////
+
+        // 상세보기 박스 닫기버튼 클릭시 닫기!
+        $(".cbtn").click(e=>{
+            e.preventDefault();
+            $("#bgbx").slideUp(400);
+        }); //////// click ////////////
+
+        // 상세보기 썸네일 링크 셋팅
+        $(".small a").click(e=>{
+            e.preventDefault();
+            // 추가기능코드 구현...
+        }); //////// click ////////////
 
     }, ///////////// mounted ///////////////
     // created 실행구역 : DOM연결전
