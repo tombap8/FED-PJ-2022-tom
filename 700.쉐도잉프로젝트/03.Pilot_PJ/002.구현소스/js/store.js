@@ -49,6 +49,8 @@ const store = new Vuex.Store({
             dt.cat = dt.subData[pm].cat;
             // 3. 해당 카테고리 메뉴 업데이트
             dt.menu = dt.subData[pm].menu;
+            // 4. 해당 분류명 업데이트
+            dt.name = pm;
         }, ///////// chgData메서드 ///////
     },
 });
