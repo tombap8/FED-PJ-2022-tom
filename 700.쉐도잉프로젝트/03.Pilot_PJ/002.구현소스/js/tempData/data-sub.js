@@ -47,6 +47,9 @@ const subData = {
             <!-- 2-1-1.신상품 타이틀 -->
             <h2 class="c1tit js-reveal">
                 {{ $store.state.menu[0] }}
+                <button onclick="location.href='glist.html'">
+                    전체리스트
+                </button>
             </h2>
             <!-- 2-1-2.신상품 박스 -->
             <div class="flowbx js-reveal">

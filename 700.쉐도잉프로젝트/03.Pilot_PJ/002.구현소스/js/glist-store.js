@@ -9,11 +9,41 @@ const store = new Vuex.Store({
         // 전체상품정보 전역화
         gdata:gdata,
         // 필터데이터용 배열변수
-        chkarr:[],
+        chkarr:[true,true,true],
+        // 필터데이터용 배열입력값 변수
+        selnm:["","",""],
+        // 페이징용 변수
+        pnum:0,
     },
     // state 데이터 변경 메서드구역!
     mutations: {
-        
+        // 체크박스 체크시 처리메서드
+        resCheck(dt){
+            console.log(dt.chkarr);
+            // 3개의 체크박스 상태배열변수값에 따라
+            // 실제 조건에 들어갈 cat명을 넣어준다!
+
+            // v는 배열값인 true/false값이 들어옴!
+            dt.chkarr.forEach((v,i)=>{
+                if(v){// 체크박스 체크시
+                    dt.selnm[i] = 
+                    i==0?"men":i==1?"women":"style";
+                    // 조건1?값1:((조건2?값2):최종값);
+                    // 중첩3항연산자 사용!
+                }
+                else{// 체크박스 체크안됨
+                    //무조건 빈값을 할당!!!
+                    dt.selnm[i] = "";
+                }
+            });
+
+        }, /////// resCheck ///////////
+
+        // 페이징 변수 업데이트 메서드
+        updatePaging(dt,pm){ // pm - 업데이트할 전달숫자
+            // pnum은 리스트 범위수
+            dt.pnum = pm;
+        }, ///////// updatePaging /////////
     },
 });
 

@@ -61,6 +61,7 @@ body{
     box-sizing: border-box;
     padding: 10px;
     text-align: center;
+    font-size: 20px;
     background-color: #fff;
 }
 /* 페이징박스 */
