@@ -14,6 +14,10 @@ const store = new Vuex.Store({
         selnm:["","",""],
         // 페이징용 변수
         pnum:0,
+        // 모어용 변수
+        mnum:0,
+        // 모어버튼 표시변수
+        mbtn:true,
     },
     // state 데이터 변경 메서드구역!
     mutations: {
@@ -44,6 +48,14 @@ const store = new Vuex.Store({
             // pnum은 리스트 범위수
             dt.pnum = pm;
         }, ///////// updatePaging /////////
+
+        // 모어 변수 업데이트 메서드
+        updateMore(dt,pm){ // pm - 업데이트할 전달숫자
+            // mnum은 모어 범위수
+            dt.mnum = pm;
+            // 업데이트 후 모어버튼 없애기
+            dt.mbtn = false;
+        }, ///////// updateMore /////////
     },
 });
 
