@@ -121,7 +121,7 @@ let More = {
             "
             v-if="
                 v.idx >= 1 && 
-                v.idx <= 10 + $store.state.mnum
+                v.idx <= 5 + $store.state.mnum
             ">
                 [{{v.idx}}]<img 
                     v-bind:src="
@@ -137,11 +137,11 @@ let More = {
         </div>
 
         <!-- 모어버튼 표시구역 -->
-        <div id="more">
+        <div id="more" v-if="$store.state.mbtn">
             <button class="more" 
             @click.prevent="
-            $store.commit('updateMore',30)"
-            v-if="$store.state.mbtn">
+            $store.commit('updateMore',5)"
+            >
                 MORE
             </button>
         </div>
