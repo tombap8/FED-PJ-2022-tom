@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>파일럿 PJ - 상품리스트 서브페이지</title>
+        <!-- 스와이퍼 CSS -->
+        <link rel="stylesheet" href="./css/swiper-bundle.min.css" />
+        <!-- 메인 CSS -->
+        <link rel="stylesheet" href="./css/glist.css" />
+        <!-- 미디어쿼리 CSS -->
+        <link rel="stylesheet" href="./css/media.css" />
+
+        <!-- 뷰JS 스탠드얼론 버전 가져오기! -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
+        <!-- 뷰JS vuex CDN -->
+        <script src="https://unpkg.com/vuex@3.0.0"></script>
+
+        <!-- 뷰JS 라우터 CDN -->
+        <script src="https://unpkg.com/vue-router@3.0.1/dist/vue-router.js"></script>
+
+        <!-- 제이쿼리 라이브러리 -->
+        <script src="./js/jquery-3.6.0.min.js"></script>
+        <script src="./js/jquery-ui.min.js"></script>
+        <!-- 모바일 이벤트 처리 터치펀치 -->
+        <script src="./js/jquery-touch-punch.min.js"></script>
+
+        <!-- Swiper 플러그인 JS -->
+        <script src="./js/swiper-bundle.min.js"></script>
+
+        <!-- 부드러운 스크롤 -->
+        <script src="./js/smoothScroll20.js"></script>
+
+        <!-- 패럴렉스 플러그인 JS -->
+        <script src="./js/jquery.parallax-1.1.3.js"></script>
+
+        <!-- 스크롤리빌 플러그인 JS -->
+        <script src="./js/jquery.scroll-reveal.js"></script>
+
+        <!-- 메인페이지 JS -->
+        <script src="./js/glist.js" type="module"></script>
+    </head>
+
+    <body>
+        <div class="wrap">
+            <!-- 1. 상단영역 -->
+            <div id="top">
+                <!-- 부모 컴포넌트 요소 -->
+                <top-comp></top-comp>
+            </div>
+            <!-- 2. 컨텐츠영역 -->
+            <main id="cont">        
+                <!-- 라우터 템플릿 출력요소 -->       
+                <router-view></router-view>
+            </main>
+            <!-- 3. 하단영역 -->
+            <footer id="info" class="page">
+                <foot-comp></foot-comp>
+            </footer>
+            <!-- Initialize Swiper -->
+        </div>
+    </body>
+</html>
