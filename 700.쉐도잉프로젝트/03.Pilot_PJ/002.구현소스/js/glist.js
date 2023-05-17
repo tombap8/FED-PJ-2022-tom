@@ -5,10 +5,29 @@
 import menuFn from "./mainjs/menu.js";
 // 전체리스트 태그 데이터 가져오기
 import comData from "./tempData/data-glist.js";
-// 신상정보
-import sinsang from "./gdsData/sinsang.js";
 
-// 뷰엑스 스토어 JS 가져오기
-// 중요! 반드시 메인JS파일 한군데서 불러와 써야 상태관리됨!
-// -> 이 JS파일에 Vue 인스턴스 생성코드가 같이 있어야한다!
-import store from "./store.js";
+// 전체 리스트용 뷰엑스 스토어 JS 가져오기
+import store from "./glist-store.js";
+// 전체 리스트용 뷰 라우터 JS 가져오기
+import router from "./glist-router.js";
+
+
+// 1. 뷰 템블릿 만들기
+//###### 상단영역 메뉴 뷰 템플릿 셋팅하기 #######
+// Vue.component(내가지은요소명,{옵션})
+Vue.component("top-comp", {
+    template: comData.tarea,
+    methods: {},
+}); ////////// 상단영역 Vue component //////////
+
+//###### 하단영역 메뉴 뷰 템플릿 셋팅하기 #######
+Vue.component("foot-comp", {
+    template: comData.barea,
+}); ////////// 하단영역 Vue component //////////
+
+// 2. 뷰 인스턴스 생성하기
+new Vue({
+    el:".wrap",
+    store,// 스토어등록!
+    router,// 라우터등록!
+})
