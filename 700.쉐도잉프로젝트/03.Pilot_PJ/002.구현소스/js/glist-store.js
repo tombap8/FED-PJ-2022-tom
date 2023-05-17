@@ -8,6 +8,8 @@ const store = new Vuex.Store({
         // 서브데이터 셋업
         // 전체상품정보 전역화
         gdata:gdata,
+        // 필터데이터용 배열변수
+        chkarr:[],
     },
     // state 데이터 변경 메서드구역!
     mutations: {
