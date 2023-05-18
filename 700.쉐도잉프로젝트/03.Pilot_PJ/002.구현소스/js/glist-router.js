@@ -39,8 +39,7 @@ let Glist = {
                 
                 <!-- 파라미터가 있는 뷰라우터는 이름으로 호출! -->
                 <router-link 
-                    v-bind:to="
-                    {
+                    v-bind:to="{
                         name:'det',
                         params:{id : v.idx, list : $route.path}
                     }">
@@ -93,8 +92,7 @@ let Paging = {
                
             <!-- 파라미터가 있는 뷰라우터는 이름으로 호출! -->
             <router-link 
-                v-bind:to="
-                {
+                v-bind:to="{
                     name:'det',
                     params:{id : v.idx, list : $route.path}
                 }">
@@ -156,8 +154,7 @@ let More = {
                
             <!-- 파라미터가 있는 뷰라우터는 이름으로 호출! -->
             <router-link 
-                v-bind:to="
-                {
+                v-bind:to="{
                     name:'det',
                     params:{id : v.idx, list : $route.path}
                 }">
