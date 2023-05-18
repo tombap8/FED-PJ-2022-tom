@@ -36,12 +36,10 @@ let Glist = {
                         v.cat==$store.state.selnm[2]
                 ">
 
+                
                 <!-- 파라미터가 있는 뷰라우터는 이름으로 호출! -->
                 <router-link 
-                    v-bind:to="
-                        {name:'det',param:{id:v.idx}}
-                    ">
-
+                    v-bind:to="{name:'det',params:{id:v.idx}}">
                 [{{v.idx}}]
                     <img 
                         v-bind:src="
@@ -87,6 +85,11 @@ let Paging = {
                 v.idx >= 1 + $store.state.pnum && 
                 v.idx <= 10 + $store.state.pnum
             ">
+
+               
+            <!-- 파라미터가 있는 뷰라우터는 이름으로 호출! -->
+            <router-link 
+                v-bind:to="{name:'det',params:{id:v.idx}}">
                 [{{v.idx}}]
                 
                 <img 
@@ -99,6 +102,9 @@ let Paging = {
                     <h2>{{v.ginfo[1]}}</h2>
                     <h3>{{v.ginfo[3]}}</h3>
                 </aside>
+
+            </router-link>
+
             </div>
         </div>
 
@@ -138,7 +144,15 @@ let More = {
                 v.idx >= 1 && 
                 v.idx <= 5 + $store.state.mnum
             ">
-                [{{v.idx}}]<img 
+
+               
+            <!-- 파라미터가 있는 뷰라우터는 이름으로 호출! -->
+            <router-link 
+                v-bind:to="{name:'det',params:{id:v.idx}}">
+                
+                [{{v.idx}}]
+                
+                <img 
                     v-bind:src="
                     './images/goods/'+
                     v.cat +
@@ -148,6 +162,8 @@ let More = {
                     <h2>{{v.ginfo[1]}}</h2>
                     <h3>{{v.ginfo[3]}}</h3>
                 </aside>
+            </router-link>
+
             </div>
         </div>
 
@@ -171,7 +187,8 @@ const Detail = {
     <!-- 큰이미지 배경박스 -->
     <div id="bgbx">
         <!-- 닫기버튼 -->
-        <a href="#" class="cbtn" @click="$router.push('/glist')">
+        <a href="#" class="cbtn" 
+        @click="$router.push('/glist')">
             <span class="ir">닫기버튼</span>
         </a>
         
@@ -180,15 +197,36 @@ const Detail = {
             <div class="inx">
                 <!-- 큰 이미지 -->
                 <section class="gimg">
-                    <img class="magnify" :src="
-                    'images/goods/'+$store.state.gdata[$route.params.id-1].cat+
-                    '/'+$store.state.gdata[$route.params.id-1].ginfo[0]+'.png'
+                    <img class="magnify" 
+
+                    v-bind:src="
+                    'images/goods/'+
+
+                    <!-- 카테고리명(men/women/style) -->
+                    $store.state.gdata[$route.params.id-1].cat+
+
+                    '/'+
+                    
+                    <!-- 이미지명(클래스명) -->
+                    $store.state.gdata[$route.params.id-1].ginfo[0]+
+                    
+                    '.png'
                     " alt="큰 이미지">
+
                     <div class="small">
                         <a href="#">
-                        <img v-for="v in 6" :src="
-                        'images/goods/'+$store.state.gdata[$route.params.id-1].cat+
+
+                        <img v-for="v in 6" 
+
+                        v-bind:src="
+
+                        'images/goods/'+
+
+                        <!-- 카테고리명(men/women/style) -->
+                        $store.state.gdata[$route.params.id-1].cat+
+
                         '/m'+v+'.png'
+
                         " alt="작은 이미지"></a>
                     </div>
                 </section>
@@ -202,7 +240,11 @@ const Detail = {
                             <li>
                                 <img src="images/dx_ico_new-28143800.gif" alt="new버튼">
                             </li>
-                            <li id="gtit">상품명 : {{$store.state.gdata[$route.params.id-1].ginfo[1]}}</li>
+                            <li id="gtit">상품명 :
+
+                            {{$store.state.gdata[$route.params.id-1].ginfo[1]}}
+                            
+                            </li>
                             <li>
                                 <img src="images/icon_type02_social01.gif" alt="페이스북"><img
                                     src="images/icon_type02_social02.gif" alt="트위터"><img src="images/icon_mail02.gif"
@@ -210,7 +252,11 @@ const Detail = {
                             </li>
                             <li>
                                 <span>판매가</span>
-                                <span id="gprice">{{$store.state.gdata[$route.params.id-1].ginfo[3]}}</span>
+                                <span id="gprice">
+
+                                {{$store.state.gdata[$route.params.id-1].ginfo[3]}}
+
+                                </span>
                             </li>
                             <li>
                                 <span>적립금</span>
@@ -222,7 +268,11 @@ const Detail = {
                             </li>
                             <li>
                                 <span>상품코드</span>
-                                <span id="gcode">{{$store.state.gdata[$route.params.id-1].ginfo[2]}}</span>
+                                <span id="gcode">
+                                
+                                {{$store.state.gdata[$route.params.id-1].ginfo[2]}}
+                                
+                                </span>
                             </li>
                             <li>
                                 <span>사이즈</span>
@@ -297,7 +347,15 @@ const router = new VueRouter({
             path:"/detail",
             component: Detail,
         },
-    ],
+    ], /// routes 끝
+
+    
+    // 라우터 호출시 스크롤위치 최상단 자동이동코드!!!
+    // 새로 라우팅을 할때마다 이 스크롤 메서드가 호출되어 실행됨!
+    scrollBehavior (to, from, savedPosition) {
+        return { x: 0, y: 0 }
+    }
+
 });
 
 // 내보내기

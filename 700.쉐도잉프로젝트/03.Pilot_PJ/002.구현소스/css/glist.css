@@ -380,7 +380,9 @@ body{
 /* 큰 이미지 배경박스 */
 #bgbx {
     position: relative;
-    display: none;
+    margin-top: 12vw;
+    background-color: #fff;
+    /* display: none; */
 }
 
 
