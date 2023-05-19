@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Management</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            background: url(images/bg.jpg) no-repeat center/cover;
+            overflow: hidden;
+            perspective: 480px;
+
+        }
+
+        ul {
+            margin: 0 auto;
+            padding: 0;
+            list-style: none;
+        }
+
+        ul::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+        }
+
+
+        /*큰제목*/
+        .mainTit {
+            position: absolute;
+            top: 5%;
+            left: 50%;
+            transform: translateX(-50%) rotateY(5deg);
+            width: 40vw;
+            text-align: center;
+            background: url(images/cyberpan.jpg) no-repeat center/cover;
+            color: #fff;
+            font-size: 2vw;
+            line-height: 4vw;
+            text-shadow: 1px 0 #000, -1px 0 #000,
+                0 1px #000, 0 -1px #000;
+            overflow: hidden;
+            cursor: pointer;
+            animation: mtitAni 1s ease-in-out infinite alternate;
+        }
+
+        .mainTit:hover {
+            animation: mtitAni2 1s ease-in-out infinite alternate;
+        }
+
+        .mainTit::after {
+            content: "";
+            display: block;
+            position: absolute;
+            top: -100px;
+            left: -50%;
+            width: 70px;
+            height: 500px;
+            background-image: linear-gradient(to left, #fff 5%, transparent 50%, transparent);
+            transform: rotate(30deg);
+            opacity: .5;
+            animation: reflect 1s ease-in-out infinite alternate;
+        }
+
+        .mainTit:hover::after {
+            left: -100px;
+            top: -50%;
+            height: 70px;
+            width: 1000px;
+            background-image: linear-gradient(to bottom, #fff 5%, transparent 50%, transparent);
+            transform: rotate(10deg);
+            opacity: .5;
+            animation: reflect2 1s ease-in-out infinite alternate;
+        }
+
+        .mainTit span {
+            font-size: 20px;
+        }
+
+        @keyframes mtitAni {
+            from {
+                transform: translateX(-50%) rotateY(5deg);
+            }
+
+            to {
+                transform: translateX(-50%) rotateY(-5deg);
+            }
+        }
+
+        @keyframes mtitAni2 {
+            from {
+                transform: translateX(-50%) rotateY(0deg) rotateX(15deg);
+            }
+
+            to {
+                transform: translateX(-50%) rotateY(0deg) rotateX(-15deg);
+            }
+        }
+
+        @keyframes reflect {
+            from {
+                left: -50%;
+            }
+
+            to {
+                left: 150%;
+            }
+        }
+
+        @keyframes reflect2 {
+            from {
+                top: -50%;
+            }
+
+            to {
+                top: 150%;
+            }
+        }
+
+        .sbox {
+            position: absolute;
+            margin-top: 15vh;
+            left: 150%;
+            /* transform: translate(-50%, -50%); */
+            width: 100vw;
+            z-index: 9999;
+        }
+
+
+        .sbox li {
+            position: relative;
+            float: left;
+            width: 100%;
+            margin: 0;
+        }
+
+        .cbox {
+            /* position: absolute; */
+            top: 0;
+            left: 50%;
+            /* width: 0; */
+            /*300px;*/
+            height: 0px;
+            overflow: hidden;
+            transition: .2s ease-out .2s;
+            /*            outline: 1px solid red;*/
+        }
+
+        .cbox>div {
+            float: left;
+            height: 100%;
+        }
+
+        .cbox>div:first-child {
+            position: relative;
+            /* width: 100px; */
+            /*            background: #d05858;*/
+        }
+
+        .cbox>div:first-child::before {
+            /* content: ""; */
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            /* width: 110%; */
+            /* height: 1px; */
+            background: #00ffeb;
+            transform-origin: right;
+            transform: rotate(-30deg);
+            box-shadow: 0 0 5px #000;
+        }
+
+        .cbox>div:last-child {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0px;
+            background: #000 url(images/cyberpan.jpg) no-repeat center 50px/100%;
+            border: 2px solid #00ffeb;
+            color: #fff;
+            text-shadow: 0 1px #000, 0 -1px #000,
+                1px 0 #000, -1px 0 #000;
+            text-align: center;
+            box-sizing: border-box;
+            overflow: hidden;
+            transition: .2s ease-out;
+        }
+
+        .cbox>div:last-child img {
+            width: auto;
+            float: left;
+        }
+
+
+        .kw {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 5vh;
+            margin: 0 auto;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #fff;
+            /* border-radius: 50%; */
+            text-align: center;
+            line-height: 5vh;
+            text-shadow: 0 0 2px #777;
+            z-index: 1;
+        }
+
+        .s1>li .kw {
+            background-image: linear-gradient(to bottom, #f8b2d8 10%, #c7207a 70%);
+            animation: updown2 .5s ease-in-out infinite alternate;
+        }
+
+        .s2>li .kw {
+            background-image: radial-gradient(farthest-side at 110% 110%, #a2b8ff 10%, #2047c7 70%);
+            animation: updown2 .5s ease-in-out infinite alternate;
+        }
+
+        .s1>li .cbox {
+            animation: updown2 .5s ease-in-out infinite alternate;
+        }
+
+        .s2>li .cbox {
+            animation: updown2 .5s ease-in-out infinite alternate;
+        }
+
+        /*
+        .s1>li .cbox>div:first-child::before {
+            animation: rot .5s ease-in-out infinite alternate;
+        }
+*/
+
+        .sbox>li .cbox>div:first-child::before {
+            animation: rot2 .5s ease-in-out infinite alternate;
+        }
+        .sbox>li:hover .cbox {
+            height: 20vh;
+            /* width: 300px; */
+            transition: .4s ease-out;
+            z-index: 2;
+        }
+
+        .sbox>li:hover .cbox>div:last-child {
+            height: 20vh;
+            transition: .4s ease-out .4s;
+        }
+
+        .s2>li:hover .kw {
+            background-image: radial-gradient(farthest-side at 30% 30%, #a2b8ff 10%, #2047c7 70%);
+            z-index: 3;
+        }
+
+        .s1>li:hover .kw {
+            background-image: radial-gradient(farthest-side at 30% 30%, #f8b2d8 10%, #c7207a 70%);
+            z-index: 3;
+        }
+
+        .tit {
+            margin: 0;
+            padding: 10px 0;
+            background: rgba(0, 0, 255, 0.67);
+            font-size: 18px;
+        }
+
+        .desc {
+            overflow: auto;
+            height: 20vh;
+            background: rgba(0, 0, 0, 0.7);
+            font-size: 3vh;
+            margin: 0;
+            padding: 10px;
+            text-align: left;
+            line-height:5vh;
+        }
+
+        .desc::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .desc::-webkit-scrollbar-thumb {
+            background: #666;
+            border-radius: 5px;
+        }
+
+        .desc::-webkit-scrollbar-track {
+            background: #ddd;
+            border-radius: 5px;
+        }
+
+        .desc>a {
+            display: block;
+        }
+
+        .two {
+            line-height: 30px;
+            padding-top: 15px;
+            box-sizing: border-box;
+        }
+
+        @keyframes updown {
+            from {
+                transform: translateY(1px);
+            }
+
+            to {
+                transform: translateY(-1px);
+            }
+        }
+
+        @keyframes updown2 {
+            from {
+                transform: translateY(-1px);
+            }
+
+            to {
+                transform: translateY(1px);
+            }
+        }
+
+        @keyframes rot {
+            from {
+                transform: rotate(-31deg);
+            }
+
+            to {
+                transform: rotate(-29deg);
+            }
+        }
+
+        @keyframes rot2 {
+            from {
+                transform: rotate(-29deg);
+            }
+
+            to {
+                transform: rotate(-31deg);
+            }
+
+        }
+
+        .mtit {
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20vw;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+
+        .mtit::before {
+            content: '';
+            display: block;
+            padding-top: 100%;
+        }
+
+        .mtit::after {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: url(images/circle.png) no-repeat center/cover;
+
+
+        }
+
+        /* 내부글자 */
+        .mtit>span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            font: bold 3vw/20vw Verdana;
+            color: #fff;
+            text-align: center;
+            text-shadow: 0 0 3px #777;
+            white-space: nowrap;
+            z-index: 1;
+        }
+
+        .rot:hover::after {
+            animation: rot 3s ease-in-out infinite;
+        }
+
+        @keyframes rot {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            12.5% {
+                transform: rotate(45deg);
+            }
+
+            25% {
+                transform: rotate(90deg);
+            }
+
+            37.5% {
+                transform: rotate(135deg);
+            }
+
+            50% {
+                transform: rotate(180deg);
+            }
+
+            62.5% {
+                transform: rotate(225deg);
+            }
+
+            75% {
+                transform: rotate(270deg);
+            }
+
+            87.5% {
+                transform: rotate(315deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+
+        .mt1 {
+            right: 60%;
+        }
+
+        .mt2 {
+            left: 60%;
+        }
+
+        /*전체중앙디피박스*/
+        #dpbox {
+            position: fixed;
+            width: 60%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999999;
+            background-color: rgba(255, 255, 255, 0.51);
+            overflow: hidden;
+            border-radius: 10px;
+            padding: 5px;
+            display: none;
+        }
+
+        #dpbox::before {
+            content: "";
+            display: block;
+            padding-top: 60%;
+        }
+
+        #dpbox>div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+
+        #dpbox>span {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 30px;
+            height: 30px;
+            font-size: 24px;
+            text-align: center;
+            line-height: 30px;
+            color: #000;
+            text-shadow: 0 0 3px #fff;
+            cursor: pointer;
+        }
+
+        #dpbox>div>iframe {
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+            overflow-y: auto;
+            border: none;
+        }
+    </style>
+    <script src="js/jquery-3.5.0.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script>
+        $(function () { // jQB /////////////////
+
+            // 메인타이틀 클릭시
+            $(".mainTit").click(function () {
+                $(".mtit").css({
+                    top: "50%",
+                    transform: "translateY(-50%) scale(1)"
+                }); /// css ///
+                $(".s1").css({
+                    left: "100%"
+                }); /// css ///
+            });
+
+            // 링크 클릭시 //
+            $(".desc a").click(function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                const idx = $(this).index();
+
+                // a링크의 href값
+                const tgsrc = $(this).attr("href");
+
+                // 문서넣기
+                if (idx) { // pdf문서는 내부창으로!
+                    $("#dpbox>div").html(`<iframe src="${tgsrc}"></iframe>`);
+                    // 보이기
+                    $("#dpbox").fadeIn(300);
+                } else { // 사이트 열기는 새창으로
+                    window.open().location.href = tgsrc;
+                }
+
+
+            }); //// click ///////
+
+            $("#dpbox>span").click(function () {
+                // 숨기기
+                $("#dpbox").fadeOut(300);
+            }); //// click ///////
+
+
+
+        }); ///////// jQB /////////////////////
+        /////////////////////////////////////
+
+
+
+
+        window.addEventListener("DOMContentLoaded", function () {
+            var tg = document.getElementsByClassName("mtit");
+            var tg2 = document.getElementsByClassName("sbox");
+            tg[0].addEventListener("click", function () {
+                //                alert("하하");
+                this.style.top = "15%";
+                this.style.transform = "translateY(-50%) scale(.4)";
+                this.style.transition = "all .5s ease-in-out";
+
+                tg2[0].style.left = "0%";
+                tg2[0].style.zIndex = "9999";
+                tg2[0].style.transition = "all .5s ease-in-out";
+
+            }); ///// click //////////////////////////////
+
+
+        });
+    </script>
+</head>
+
+<body>
+
+    <!--제목-->
+    <h1 class="mainTit">
+        강남IT아카데미<br>
+        프론트엔드 웹개발<br>
+        1회차<br>
+        <span>2021.09.02~2021.10.27</span>
+    </h1>
+
+
+    <ul class="sbox s1">
+        <li>
+            <a href="#" class="kw">KJS</a>
+            <div class="cbox">
+                <div></div>
+                <div>
+                    <h2 class="tit">소니 카메라</h2>
+                    <img src="images/pf1.png" alt="강지수포폴">
+                    <p class="desc">
+                        <a href="../강지수/소니카메라/index.html">1. 포트폴리오 사이트</a>
+                        <a href="../강지수/최종 포폴.pdf">2. 가이드 문서</a>
+                    </p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <a href="#" class="kw">KSR</a>
+            <div class="cbox">
+                <div></div>
+                <div>
+                    <h2 class="tit">네이처 리퍼블릭</h2>
+                    <img src="images/pf2.png" alt="고세라포폴">
+                    <p class="desc">
+                        <a href="../고세라/네이처리퍼블릭/main.html">1. 포트폴리오 사이트</a>
+                        <a href="../고세라/고세라_최종발표.pdf">2. 가이드 문서</a>
+                    </p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <a href="#" class="kw">KSH</a>
+            <div class="cbox">
+                <div></div>
+                <div>
+                    <h2 class="tit">영화진흥위원회</h2>
+                    <img src="images/pf3.png" alt="권소현포폴">
+                    <p class="desc">
+                        <a href="../권소현/영화진흥위원회/index.html">1. 포트폴리오 사이트</a>
+                        <a href="../권소현/권소현_영화진흥위원회.pdf">2. 가이드 문서</a>
+                    </p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <a href="#" class="kw">MSW</a>
+            <div class="cbox">
+                <div></div>
+                <div>
+                    <h2 class="tit">K2</h2>
+                    <img src="images/pf4.png" alt="문성원포폴">
+                    <p class="desc">
+                        <a href="../문성원/K2/index.html">1. 포트폴리오 사이트</a>
+                        <a href="../문성원/K2_문성원.pdf">2. 가이드 문서</a>
+                    </p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <a href="#" class="kw">YMH</a>
+            <div class="cbox leega1">
+                <div></div>
+                <div>
+                    <h2 class="tit">뚜레쥬르</h2>
+                    <img src="images/pf5.png" alt="윤명현포폴">
+                    <p class="desc">
+                        <a href="../윤명현/TOUSlesJOURS/index.html">1. 포트폴리오 사이트</a>
+                        <a href="../윤명현/뚜레쥬르_윤명현.pdf">2. 가이드 문서</a>
+                    </p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <a href="#" class="kw">LDI</a>
+            <div class="cbox">
+                <div></div>
+                <div>
+                    <h2 class="tit">asos</h2>
+                    <img src="images/pf6.png" alt="이동인포폴">
+                    <p class="desc">
+                        <a href="../이동인/asos/index.html">1. 포트폴리오 사이트</a>
+                        <a href="../이동인/asos_이동인.pdf">2. 가이드 문서</a>
+                    </p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <a href="#" class="kw">JEK</a>
+            <div class="cbox">
+                <div></div>
+                <div>
+                    <h2 class="tit">동국제강</h2>
+                    <img src="images/pf7.png" alt="장은경포폴">
+                    <p class="desc">
+                        <a href="../장은경/동국제강/index.html">1. 포트폴리오 사이트</a>
+                        <a href="../장은경/동국제강_장은경.pdf">2. 가이드 문서</a>
+                    </p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <a href="#" class="kw">JRA</a>
+            <div class="cbox">
+                <div></div>
+                <div>
+                    <h2 class="tit">러쉬</h2>
+                    <img src="images/pf8.png" alt="주리아포폴">
+                    <p class="desc">
+                        <a href="../주리아/러쉬/web/index.html">1. 포트폴리오 사이트</a>
+                        <a href="../주리아/러쉬_주리아.pdf">2. 가이드 문서</a>
+                    </p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <a href="#" class="kw">HHK</a>
+            <div class="cbox">
+                <div></div>
+                <div>
+                    <h2 class="tit">온더보더</h2>
+                    <img src="images/pf9.png" alt="한희경포폴">
+                    <p class="desc">
+                        <a href="../한희정/온더보더/index.html">1. 포트폴리오 사이트</a>
+                        <a href="../한희정/온더보더_한희정.pdf">2. 가이드 문서</a>
+                    </p>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <h2 class="mtit rot"><span>포트폴리오<br>1차</span></h2>
+
+    <!--전체중앙디피박스-->
+    <div id="dpbox">
+        <div></div>
+        <span>×</span>
+    </div>
+
+<!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script></body>
+
+</html>

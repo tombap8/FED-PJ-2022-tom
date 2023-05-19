@@ -1,516 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Management</title>
-    <style>
-        html,
-        body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        body {
-            background: url(images/bg.jpg) no-repeat center/cover;
-            overflow: hidden;
-            perspective: 480px;
-
-        }
-
-        ul {
-            margin: 0 auto;
-            padding: 0;
-            list-style: none;
-        }
-
-        ul::after {
-            content: "";
-            display: block;
-            clear: both;
-        }
-
-        a {
-            text-decoration: none;
-            color: #fff;
-            font-size: 18px;
-        }
-
-
-        /*큰제목*/
-        .mainTit {
-            position: absolute;
-            top: 5%;
-            left: 50%;
-            transform: translateX(-50%) rotateY(5deg);
-            width: 40vw;
-            text-align: center;
-            background: url(images/cyberpan.jpg) no-repeat center/cover;
-            color: #fff;
-            font-size: 2vw;
-            line-height: 4vw;
-            text-shadow: 1px 0 #000, -1px 0 #000,
-                0 1px #000, 0 -1px #000;
-            overflow: hidden;
-            cursor: pointer;
-            animation: mtitAni 1s ease-in-out infinite alternate;
-        }
-
-        .mainTit:hover {
-            animation: mtitAni2 1s ease-in-out infinite alternate;
-        }
-
-        .mainTit::after {
-            content: "";
-            display: block;
-            position: absolute;
-            top: -100px;
-            left: -50%;
-            width: 70px;
-            height: 500px;
-            background-image: linear-gradient(to left, #fff 5%, transparent 50%, transparent);
-            transform: rotate(30deg);
-            opacity: .5;
-            animation: reflect 1s ease-in-out infinite alternate;
-        }
-
-        .mainTit:hover::after {
-            left: -100px;
-            top: -50%;
-            height: 70px;
-            width: 1000px;
-            background-image: linear-gradient(to bottom, #fff 5%, transparent 50%, transparent);
-            transform: rotate(10deg);
-            opacity: .5;
-            animation: reflect2 1s ease-in-out infinite alternate;
-        }
-
-        .mainTit span {
-            font-size: 20px;
-        }
-
-        @keyframes mtitAni {
-            from {
-                transform: translateX(-50%) rotateY(5deg);
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Portfolio Management</title>
+        <style>
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 100%;
             }
 
-            to {
-                transform: translateX(-50%) rotateY(-5deg);
-            }
-        }
-
-        @keyframes mtitAni2 {
-            from {
-                transform: translateX(-50%) rotateY(0deg) rotateX(15deg);
+            body {
+                background: url(images/bg.jpg) no-repeat center/cover;
+                overflow: hidden;
+                perspective: 480px;
             }
 
-            to {
-                transform: translateX(-50%) rotateY(0deg) rotateX(-15deg);
-            }
-        }
-
-        @keyframes reflect {
-            from {
-                left: -50%;
+            ul {
+                margin: 0 auto;
+                padding: 0;
+                list-style: none;
             }
 
-            to {
-                left: 150%;
-            }
-        }
-
-        @keyframes reflect2 {
-            from {
-                top: -50%;
+            ul::after {
+                content: "";
+                display: block;
+                clear: both;
             }
 
-            to {
-                top: 150%;
+            a {
+                text-decoration: none;
+                color: #fff;
+                font-size: 18px;
             }
-        }
-
-        .sbox {
-            position: absolute;
-            top: 50%;
-            left: 150%;
-            transform: translate(-50%, -50%);
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2vw 2%;
-            width: 800px;
-            z-index: 9999;
-        }
-
-
-        .sbox li {
-            position: relative;
-            flex-shrink: 0;
-            flex-basis: 18%;
-        }
-
-        .cbox {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 0;
-            /*300px;*/
-            height: 300px;
-            overflow: hidden;
-            transition: .2s ease-out .2s;
-            /*            outline: 1px solid red;*/
-        }
-
-        .cbox>div {
-            float: left;
-            height: 100%;
-        }
-
-        .cbox>div:first-child {
-            position: relative;
-            width: 100px;
-            /*            background: #d05858;*/
-        }
-
-        .cbox>div:first-child::before {
-            content: "";
-            display: block;
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 110%;
-            height: 1px;
-            background: #00ffeb;
-            transform-origin: right;
-            transform: rotate(-30deg);
-            box-shadow: 0 0 5px #000;
-        }
-
-        .cbox>div:last-child {
-            position: absolute;
-            top: 0;
-            left: 100px;
-            width: 200px;
-            height: 0px;
-            background: #000 url(images/cyberpan.jpg) no-repeat center 50px/100%;
-            border: 2px solid #00ffeb;
-            color: #fff;
-            text-shadow: 0 1px #000, 0 -1px #000,
-                1px 0 #000, -1px 0 #000;
-            text-align: center;
-
-            box-sizing: border-box;
-            overflow: hidden;
-            transition: .2s ease-out;
-        }
-
-        .cbox>div:last-child img {
-            width: 100%;
-        }
-
-
-        .kw {
-            position: relative;
-            display: block;
-            width: 90px;
-            height: 90px;
-            margin: 0 auto;
-            font-size: 24px;
-            font-weight: bold;
-            text-decoration: none;
-            color: #fff;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 90px;
-            text-shadow: 0 0 2px #777;
-            z-index: 1;
-        }
-
-        .s1>li .kw {
-            background-image: radial-gradient(farthest-side at 110% 110%, #f8b2d8 10%, #c7207a 70%);
-            animation: updown2 .5s ease-in-out infinite alternate;
-        }
-
-        .s2>li .kw {
-            background-image: radial-gradient(farthest-side at 110% 110%, #a2b8ff 10%, #2047c7 70%);
-            animation: updown2 .5s ease-in-out infinite alternate;
-        }
-
-        .s1>li .cbox {
-            animation: updown2 .5s ease-in-out infinite alternate;
-        }
-
-        .s2>li .cbox {
-            animation: updown2 .5s ease-in-out infinite alternate;
-        }
-
-        /*
-        .s1>li .cbox>div:first-child::before {
-            animation: rot .5s ease-in-out infinite alternate;
-        }
-*/
-
-        .sbox>li .cbox>div:first-child::before {
-            animation: rot2 .5s ease-in-out infinite alternate;
-        }
-
-        .sbox>li:hover .cbox {
-            width: 300px;
-            transition: .4s ease-out;
-            z-index: 2;
-        }
-
-        .sbox>li:hover .cbox>div:last-child {
-            height: 300px;
-            transition: .4s ease-out .4s;
-        }
-
-        .s2>li:hover .kw {
-            background-image: radial-gradient(farthest-side at 30% 30%, #a2b8ff 10%, #2047c7 70%);
-            z-index: 3;
-        }
-
-        .s1>li:hover .kw {
-            background-image: radial-gradient(farthest-side at 30% 30%, #f8b2d8 10%, #c7207a 70%);
-            z-index: 3;
-        }
-
-        .tit {
-            margin: 0;
-            padding: 10px 0;
-            background: rgba(0, 0, 255, 0.67);
-            font-size: 18px;
-        }
-
-        .desc {
-            overflow: auto;
-            height: 120px;
-            background: rgba(0, 0, 0, 0.7);
-            font-size: 12px;
-            margin: 0;
-            padding: 10px;
-            text-align: left;
-            line-height: 25px;
-        }
-
-        .desc::-webkit-scrollbar {
-            width: 5px;
-        }
-
-        .desc::-webkit-scrollbar-thumb {
-            background: #666;
-            border-radius: 5px;
-        }
-
-        .desc::-webkit-scrollbar-track {
-            background: #ddd;
-            border-radius: 5px;
-        }
-
-        .desc>a {
-            display: block;
-        }
-
-        .two {
-            line-height: 30px;
-            padding-top: 15px;
-            box-sizing: border-box;
-        }
-
-        @keyframes updown {
-            from {
-                transform: translateY(1px);
-            }
-
-            to {
-                transform: translateY(-1px);
-            }
-        }
-
-        @keyframes updown2 {
-            from {
-                transform: translateY(-1px);
-            }
-
-            to {
-                transform: translateY(1px);
-            }
-        }
-
-        @keyframes rot {
-            from {
-                transform: rotate(-31deg);
-            }
-
-            to {
-                transform: rotate(-29deg);
-            }
-        }
-
-        @keyframes rot2 {
-            from {
-                transform: rotate(-29deg);
-            }
-
-            to {
-                transform: rotate(-31deg);
-            }
-
-        }
-
-        .mtit {
-            position: absolute;
-            top: 60%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 20vw;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            cursor: pointer;
-        }
-
-        .mtit::before {
-            content: '';
-            display: block;
-            padding-top: 100%;
-        }
-
-        .mtit::after {
-            content: "";
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: url(images/circle.png) no-repeat center/cover;
-
-
-        }
-
-        /* 내부글자 */
-        .mtit>span {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            font: bold 3vw/20vw Verdana;
-            color: #fff;
-            text-align: center;
-            text-shadow: 0 0 3px #777;
-            white-space: nowrap;
-            z-index: 1;
-        }
-
-        .rot:hover::after {
-            animation: rot 3s ease-in-out infinite;
-        }
-
-        @keyframes rot {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            12.5% {
-                transform: rotate(45deg);
-            }
-
-            25% {
-                transform: rotate(90deg);
-            }
-
-            37.5% {
-                transform: rotate(135deg);
-            }
-
-            50% {
-                transform: rotate(180deg);
-            }
-
-            62.5% {
-                transform: rotate(225deg);
-            }
-
-            75% {
-                transform: rotate(270deg);
-            }
-
-            87.5% {
-                transform: rotate(315deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-
-        .mt1 {
-            right: 60%;
-        }
-
-        .mt2 {
-            left: 60%;
-        }
-
-        /*전체중앙디피박스*/
-        #dpbox {
-            position: fixed;
-            width: 60%;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 9999999;
-            background-color: rgba(255, 255, 255, 0.51);
-            overflow: hidden;
-            border-radius: 10px;
-            padding: 5px;
-            display: none;
-        }
-
-        #dpbox::before {
-            content: "";
-            display: block;
-            padding-top: 60%;
-        }
-
-        #dpbox>div {
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-        }
-
-        #dpbox>span {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 30px;
-            height: 30px;
-            font-size: 24px;
-            text-align: center;
-            line-height: 30px;
-            color: #000;
-            text-shadow: 0 0 3px #fff;
-            cursor: pointer;
-        }
-
-        #dpbox>div>iframe {
-            width: 100%;
-            height: 100%;
-            overflow-x: hidden;
-            overflow-y: auto;
-            border: none;
-        }
-
-        @media only screen and (max-width:1200px) {
-
 
             /*큰제목*/
             .mainTit {
@@ -518,14 +43,13 @@
                 top: 5%;
                 left: 50%;
                 transform: translateX(-50%) rotateY(5deg);
-                width: max(40vw,370px);
+                width: 40vw;
                 text-align: center;
                 background: url(images/cyberpan.jpg) no-repeat center/cover;
                 color: #fff;
-                font-size: max(2vw,20px);
-                line-height: max(4vw,30px);
-                text-shadow: 1px 0 #000, -1px 0 #000,
-                    0 1px #000, 0 -1px #000;
+                font-size: 2vw;
+                line-height: 4vw;
+                text-shadow: 1px 0 #000, -1px 0 #000, 0 1px #000, 0 -1px #000;
                 overflow: hidden;
                 cursor: pointer;
                 animation: mtitAni 1s ease-in-out infinite alternate;
@@ -545,7 +69,7 @@
                 height: 500px;
                 background-image: linear-gradient(to left, #fff 5%, transparent 50%, transparent);
                 transform: rotate(30deg);
-                opacity: .5;
+                opacity: 0.5;
                 animation: reflect 1s ease-in-out infinite alternate;
             }
 
@@ -556,7 +80,7 @@
                 width: 1000px;
                 background-image: linear-gradient(to bottom, #fff 5%, transparent 50%, transparent);
                 transform: rotate(10deg);
-                opacity: .5;
+                opacity: 0.5;
                 animation: reflect2 1s ease-in-out infinite alternate;
             }
 
@@ -564,133 +88,201 @@
                 font-size: 20px;
             }
 
+            @keyframes mtitAni {
+                from {
+                    transform: translateX(-50%) rotateY(5deg);
+                }
+
+                to {
+                    transform: translateX(-50%) rotateY(-5deg);
+                }
+            }
+
+            @keyframes mtitAni2 {
+                from {
+                    transform: translateX(-50%) rotateY(0deg) rotateX(15deg);
+                }
+
+                to {
+                    transform: translateX(-50%) rotateY(0deg) rotateX(-15deg);
+                }
+            }
+
+            @keyframes reflect {
+                from {
+                    left: -50%;
+                }
+
+                to {
+                    left: 150%;
+                }
+            }
+
+            @keyframes reflect2 {
+                from {
+                    top: -50%;
+                }
+
+                to {
+                    top: 150%;
+                }
+            }
 
             .sbox {
                 position: absolute;
-                margin-top: 15vh;
+                top: 50%;
                 left: 150%;
-                /* transform: translate(-50%, -50%); */
-                width: max(100vw,370px);
+                transform: translate(-50%, -50%);
+                display: flex;
+                flex-wrap: wrap;
+                gap: 2vw 2%;
+                width: 800px;
                 z-index: 9999;
-                flex-direction: column;
-                gap: 0 0;
             }
-
 
             .sbox li {
                 position: relative;
-                width: 100%;
-                margin: 0;
+                flex-shrink: 0;
+                flex-basis: 18%;
             }
 
             .cbox {
-                position: static;
+                position: absolute;
                 top: 0;
                 left: 50%;
-                width: auto;
+                width: 0;
                 /*300px;*/
-                height: 0px;
+                height: 300px;
                 overflow: hidden;
-                transition: .2s ease-out .2s;
+                transition: 0.2s ease-out 0.2s;
                 /*            outline: 1px solid red;*/
             }
 
-            .cbox>div {
+            .cbox > div {
                 float: left;
                 height: 100%;
             }
 
-            .cbox>div:first-child {
+            .cbox > div:first-child {
                 position: relative;
-                width: auto;
+                width: 100px;
                 /*            background: #d05858;*/
             }
 
-            .cbox>div:first-child::before {
-                display: none;
-            }
-
-            .cbox>div:last-child {
+            .cbox > div:first-child::before {
+                content: "";
+                display: block;
                 position: absolute;
                 top: 0;
-                left: 0;
-                width: 100%;
+                right: 0;
+                width: 110%;
+                height: 1px;
+                background: #00ffeb;
+                transform-origin: right;
+                transform: rotate(-30deg);
+                box-shadow: 0 0 5px #000;
+            }
+
+            .cbox > div:last-child {
+                position: absolute;
+                top: 0;
+                left: 100px;
+                width: 200px;
                 height: 0px;
                 background: #000 url(images/cyberpan.jpg) no-repeat center 50px/100%;
                 border: 2px solid #00ffeb;
                 color: #fff;
-                text-shadow: 0 1px #000, 0 -1px #000,
-                    1px 0 #000, -1px 0 #000;
+                text-shadow: 0 1px #000, 0 -1px #000, 1px 0 #000, -1px 0 #000;
                 text-align: center;
+
                 box-sizing: border-box;
                 overflow: hidden;
-                transition: .2s ease-out;
+                transition: 0.2s ease-out;
             }
 
-            .cbox>div:last-child img {
-                width: auto;
-                float: left;
+            .cbox > div:last-child img {
+                width: 100%;
             }
-
 
             .kw {
                 position: relative;
                 display: block;
-                width: 100%;
-                height: 5vh;
+                width: 90px;
+                height: 90px;
                 margin: 0 auto;
                 font-size: 24px;
                 font-weight: bold;
                 text-decoration: none;
                 color: #fff;
-                border-radius: 0;
+                border-radius: 50%;
                 text-align: center;
-                line-height: 5vh;
+                line-height: 90px;
                 text-shadow: 0 0 2px #777;
                 z-index: 1;
             }
 
-            .s1>li .kw {
-                background-image: linear-gradient(to bottom, #f8b2d8 10%, #c7207a 70%);
-                animation: updown2 .5s ease-in-out infinite alternate;
+            .s1 > li .kw {
+                background-image: radial-gradient(
+                    farthest-side at 110% 110%,
+                    #f8b2d8 10%,
+                    #c7207a 70%
+                );
+                animation: updown2 0.5s ease-in-out infinite alternate;
             }
 
-            .s2>li .kw {
-                background-image: radial-gradient(farthest-side at 110% 110%, #a2b8ff 10%, #2047c7 70%);
-                animation: updown2 .5s ease-in-out infinite alternate;
+            .s2 > li .kw {
+                background-image: radial-gradient(
+                    farthest-side at 110% 110%,
+                    #a2b8ff 10%,
+                    #2047c7 70%
+                );
+                animation: updown2 0.5s ease-in-out infinite alternate;
             }
 
-            .s1>li .cbox {
-                animation: updown2 .5s ease-in-out infinite alternate;
+            .s1 > li .cbox {
+                animation: updown2 0.5s ease-in-out infinite alternate;
             }
 
-            .s2>li .cbox {
-                animation: updown2 .5s ease-in-out infinite alternate;
+            .s2 > li .cbox {
+                animation: updown2 0.5s ease-in-out infinite alternate;
             }
 
-            .sbox>li .cbox>div:first-child::before {
-                animation: rot2 .5s ease-in-out infinite alternate;
+            /*
+        .s1>li .cbox>div:first-child::before {
+            animation: rot .5s ease-in-out infinite alternate;
+        }
+*/
+
+            .sbox > li .cbox > div:first-child::before {
+                animation: rot2 0.5s ease-in-out infinite alternate;
             }
 
-            .sbox>li:hover .cbox {
-                height: 20vh;
-                width: auto;
-                transition: .4s ease-out;
+            .sbox > li:hover .cbox {
+                width: 300px;
+                transition: 0.4s ease-out;
                 z-index: 2;
             }
 
-            .sbox>li:hover .cbox>div:last-child {
-                height: 20vh;
-                transition: .4s ease-out .4s;
+            .sbox > li:hover .cbox > div:last-child {
+                height: 300px;
+                transition: 0.4s ease-out 0.4s;
             }
 
-            .s2>li:hover .kw {
-                background-image: radial-gradient(farthest-side at 30% 30%, #a2b8ff 10%, #2047c7 70%);
+            .s2 > li:hover .kw {
+                background-image: radial-gradient(
+                    farthest-side at 30% 30%,
+                    #a2b8ff 10%,
+                    #2047c7 70%
+                );
                 z-index: 3;
             }
 
-            .s1>li:hover .kw {
-                background-image: radial-gradient(farthest-side at 30% 30%, #f8b2d8 10%, #c7207a 70%);
+            .s1 > li:hover .kw {
+                background-image: radial-gradient(
+                    farthest-side at 30% 30%,
+                    #f8b2d8 10%,
+                    #c7207a 70%
+                );
                 z-index: 3;
             }
 
@@ -703,24 +295,85 @@
 
             .desc {
                 overflow: auto;
-                height: 20vh;
+                height: 120px;
                 background: rgba(0, 0, 0, 0.7);
-                font-size: 3vh;
+                font-size: 12px;
                 margin: 0;
                 padding: 10px;
                 text-align: left;
-                line-height: 5vh;
+                line-height: 25px;
             }
 
+            .desc::-webkit-scrollbar {
+                width: 5px;
+            }
 
+            .desc::-webkit-scrollbar-thumb {
+                background: #666;
+                border-radius: 5px;
+            }
 
+            .desc::-webkit-scrollbar-track {
+                background: #ddd;
+                border-radius: 5px;
+            }
+
+            .desc > a {
+                display: block;
+            }
+
+            .two {
+                line-height: 30px;
+                padding-top: 15px;
+                box-sizing: border-box;
+            }
+
+            @keyframes updown {
+                from {
+                    transform: translateY(1px);
+                }
+
+                to {
+                    transform: translateY(-1px);
+                }
+            }
+
+            @keyframes updown2 {
+                from {
+                    transform: translateY(-1px);
+                }
+
+                to {
+                    transform: translateY(1px);
+                }
+            }
+
+            @keyframes rot {
+                from {
+                    transform: rotate(-31deg);
+                }
+
+                to {
+                    transform: rotate(-29deg);
+                }
+            }
+
+            @keyframes rot2 {
+                from {
+                    transform: rotate(-29deg);
+                }
+
+                to {
+                    transform: rotate(-31deg);
+                }
+            }
 
             .mtit {
                 position: absolute;
                 top: 60%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                width: max(20vw,200px);
+                width: 20vw;
                 margin: 0;
                 padding: 0;
                 box-sizing: border-box;
@@ -728,7 +381,7 @@
             }
 
             .mtit::before {
-                content: '';
+                content: "";
                 display: block;
                 padding-top: 100%;
             }
@@ -743,21 +396,16 @@
                 height: 100%;
                 border-radius: 50%;
                 background: url(images/circle.png) no-repeat center/cover;
-
-
             }
 
             /* 내부글자 */
-            .mtit>span {
+            .mtit > span {
                 position: absolute;
                 top: 0;
                 left: 0;
                 right: 0;
                 bottom: 0;
-                font-weight: bold;
-                font-size: max(3vw,30px);
-                line-height: max(20vw,200px);
-                font-family: Verdana;
+                font: bold 3vw/20vw Verdana;
                 color: #fff;
                 text-align: center;
                 text-shadow: 0 0 3px #777;
@@ -769,125 +417,494 @@
                 animation: rot 3s ease-in-out infinite;
             }
 
+            @keyframes rot {
+                0% {
+                    transform: rotate(0deg);
+                }
 
+                12.5% {
+                    transform: rotate(45deg);
+                }
 
-        }
+                25% {
+                    transform: rotate(90deg);
+                }
 
-        /* 미디어쿼리 */
-    </style>
-    <script src="js/jquery-3.5.0.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script>
-        $(function () { // jQB /////////////////
+                37.5% {
+                    transform: rotate(135deg);
+                }
 
-            // 메인타이틀 클릭시
-            $(".mainTit").click(function () {
-                $(".mtit").css({
-                    top: "50%",
-                    transform: "translateY(-50%) scale(1)"
-                }); /// css ///
-                $(".s1").css({
-                    left: "100%"
-                }); /// css ///
+                50% {
+                    transform: rotate(180deg);
+                }
+
+                62.5% {
+                    transform: rotate(225deg);
+                }
+
+                75% {
+                    transform: rotate(270deg);
+                }
+
+                87.5% {
+                    transform: rotate(315deg);
+                }
+
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+
+            .mt1 {
+                right: 60%;
+            }
+
+            .mt2 {
+                left: 60%;
+            }
+
+            /*전체중앙디피박스*/
+            #dpbox {
+                position: fixed;
+                width: 60%;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 9999999;
+                background-color: rgba(255, 255, 255, 0.51);
+                overflow: hidden;
+                border-radius: 10px;
+                padding: 5px;
+                display: none;
+            }
+
+            #dpbox::before {
+                content: "";
+                display: block;
+                padding-top: 60%;
+            }
+
+            #dpbox > div {
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+            }
+
+            #dpbox > span {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                width: 30px;
+                height: 30px;
+                font-size: 24px;
+                text-align: center;
+                line-height: 30px;
+                color: #000;
+                text-shadow: 0 0 3px #fff;
+                cursor: pointer;
+            }
+
+            #dpbox > div > iframe {
+                width: 100%;
+                height: 100%;
+                overflow-x: hidden;
+                overflow-y: auto;
+                border: none;
+            }
+
+            @media only screen and (max-width: 1200px) {
+                /*큰제목*/
+                .mainTit {
+                    position: absolute;
+                    top: 5%;
+                    left: 50%;
+                    transform: translateX(-50%) rotateY(5deg);
+                    width: max(40vw, 370px);
+                    text-align: center;
+                    background: url(images/cyberpan.jpg) no-repeat center/cover;
+                    color: #fff;
+                    font-size: max(2vw, 20px);
+                    line-height: max(4vw, 30px);
+                    text-shadow: 1px 0 #000, -1px 0 #000, 0 1px #000, 0 -1px #000;
+                    overflow: hidden;
+                    cursor: pointer;
+                    animation: mtitAni 1s ease-in-out infinite alternate;
+                }
+
+                .mainTit:hover {
+                    animation: mtitAni2 1s ease-in-out infinite alternate;
+                }
+
+                .mainTit::after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    top: -100px;
+                    left: -50%;
+                    width: 70px;
+                    height: 500px;
+                    background-image: linear-gradient(
+                        to left,
+                        #fff 5%,
+                        transparent 50%,
+                        transparent
+                    );
+                    transform: rotate(30deg);
+                    opacity: 0.5;
+                    animation: reflect 1s ease-in-out infinite alternate;
+                }
+
+                .mainTit:hover::after {
+                    left: -100px;
+                    top: -50%;
+                    height: 70px;
+                    width: 1000px;
+                    background-image: linear-gradient(
+                        to bottom,
+                        #fff 5%,
+                        transparent 50%,
+                        transparent
+                    );
+                    transform: rotate(10deg);
+                    opacity: 0.5;
+                    animation: reflect2 1s ease-in-out infinite alternate;
+                }
+
+                .mainTit span {
+                    font-size: 20px;
+                }
+
+                .sbox {
+                    position: absolute;
+                    margin-top: 15vh;
+                    left: 150%;
+                    /* transform: translate(-50%, -50%); */
+                    width: max(100vw, 370px);
+                    z-index: 9999;
+                    flex-direction: column;
+                    gap: 0 0;
+                }
+
+                .sbox li {
+                    position: relative;
+                    width: 100%;
+                    margin: 0;
+                }
+
+                .cbox {
+                    position: static;
+                    top: 0;
+                    left: 50%;
+                    width: auto;
+                    /*300px;*/
+                    height: 0px;
+                    overflow: hidden;
+                    transition: 0.2s ease-out 0.2s;
+                    /*            outline: 1px solid red;*/
+                }
+
+                .cbox > div {
+                    float: left;
+                    height: 100%;
+                }
+
+                .cbox > div:first-child {
+                    position: relative;
+                    width: auto;
+                    /*            background: #d05858;*/
+                }
+
+                .cbox > div:first-child::before {
+                    display: none;
+                }
+
+                .cbox > div:last-child {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 0px;
+                    background: #000 url(images/cyberpan.jpg) no-repeat center 50px/100%;
+                    border: 2px solid #00ffeb;
+                    color: #fff;
+                    text-shadow: 0 1px #000, 0 -1px #000, 1px 0 #000, -1px 0 #000;
+                    text-align: center;
+                    box-sizing: border-box;
+                    overflow: hidden;
+                    transition: 0.2s ease-out;
+                }
+
+                .cbox > div:last-child img {
+                    width: auto;
+                    float: left;
+                }
+
+                .kw {
+                    position: relative;
+                    display: block;
+                    width: 100%;
+                    height: 5vh;
+                    margin: 0 auto;
+                    font-size: 24px;
+                    font-weight: bold;
+                    text-decoration: none;
+                    color: #fff;
+                    border-radius: 0;
+                    text-align: center;
+                    line-height: 5vh;
+                    text-shadow: 0 0 2px #777;
+                    z-index: 1;
+                }
+
+                .s1 > li .kw {
+                    background-image: linear-gradient(to bottom, #f8b2d8 10%, #c7207a 70%);
+                    animation: updown2 0.5s ease-in-out infinite alternate;
+                }
+
+                .s2 > li .kw {
+                    background-image: radial-gradient(
+                        farthest-side at 110% 110%,
+                        #a2b8ff 10%,
+                        #2047c7 70%
+                    );
+                    animation: updown2 0.5s ease-in-out infinite alternate;
+                }
+
+                .s1 > li .cbox {
+                    animation: updown2 0.5s ease-in-out infinite alternate;
+                }
+
+                .s2 > li .cbox {
+                    animation: updown2 0.5s ease-in-out infinite alternate;
+                }
+
+                .sbox > li .cbox > div:first-child::before {
+                    animation: rot2 0.5s ease-in-out infinite alternate;
+                }
+
+                .sbox > li:hover .cbox {
+                    height: 20vh;
+                    width: auto;
+                    transition: 0.4s ease-out;
+                    z-index: 2;
+                }
+
+                .sbox > li:hover .cbox > div:last-child {
+                    height: 20vh;
+                    transition: 0.4s ease-out 0.4s;
+                }
+
+                .s2 > li:hover .kw {
+                    background-image: radial-gradient(
+                        farthest-side at 30% 30%,
+                        #a2b8ff 10%,
+                        #2047c7 70%
+                    );
+                    z-index: 3;
+                }
+
+                .s1 > li:hover .kw {
+                    background-image: radial-gradient(
+                        farthest-side at 30% 30%,
+                        #f8b2d8 10%,
+                        #c7207a 70%
+                    );
+                    z-index: 3;
+                }
+
+                .tit {
+                    margin: 0;
+                    padding: 10px 0;
+                    background: rgba(0, 0, 255, 0.67);
+                    font-size: 18px;
+                }
+
+                .desc {
+                    overflow: auto;
+                    height: 20vh;
+                    background: rgba(0, 0, 0, 0.7);
+                    font-size: 3vh;
+                    margin: 0;
+                    padding: 10px;
+                    text-align: left;
+                    line-height: 5vh;
+                }
+
+                .mtit {
+                    position: absolute;
+                    top: 60%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: max(20vw, 200px);
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                    cursor: pointer;
+                }
+
+                .mtit::before {
+                    content: "";
+                    display: block;
+                    padding-top: 100%;
+                }
+
+                .mtit::after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                    background: url(images/circle.png) no-repeat center/cover;
+                }
+
+                /* 내부글자 */
+                .mtit > span {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    font-weight: bold;
+                    font-size: max(3vw, 30px);
+                    line-height: max(20vw, 200px);
+                    font-family: Verdana;
+                    color: #fff;
+                    text-align: center;
+                    text-shadow: 0 0 3px #777;
+                    white-space: nowrap;
+                    z-index: 1;
+                }
+
+                .rot:hover::after {
+                    animation: rot 3s ease-in-out infinite;
+                }
+            }
+
+            /* 미디어쿼리 */
+        </style>
+        <script src="js/jquery-3.5.0.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+        <script>
+            $(function () {
+                // jQB /////////////////
+
+                // 메인타이틀 클릭시
+                $(".mainTit").click(function () {
+                    $(".mtit").css({
+                        top: "50%",
+                        transform: "translateY(-50%) scale(1)",
+                    }); /// css ///
+                    $(".s1").css({
+                        left: "100%",
+                    }); /// css ///
+                });
+
+                // 링크 클릭시 //
+                $(".desc a").click(function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    // a링크의 href값
+                    const tgsrc = $(this).attr("href");
+
+                    window.open().location.href = tgsrc;
+                }); //// click ///////
+
+                $("#dpbox>span").click(function () {
+                    // 숨기기
+                    $("#dpbox").fadeOut(300);
+                }); //// click ///////
+
+                $("body").append('<button class="back">메인페이지</button>');
+                $(".back")
+                    .css({
+                        position: "fixed",
+                        bottom: "5px",
+                        left: "50%",
+                        transform: "translateX(-50%)",
+                        backgroundColor: "cyan",
+                        fontSize: "3vh",
+                        lineHeight: "5vh",
+                        borderRadius: "5px",
+                    })
+                    .click(function () {
+                        location.href = "../../index.html";
+                    });
+            }); ///////// jQB /////////////////////
+            /////////////////////////////////////
+
+            window.addEventListener("DOMContentLoaded", function () {
+                var tg = document.getElementsByClassName("mtit");
+                var tg2 = document.getElementsByClassName("sbox");
+                tg[0].addEventListener("click", function () {
+                    //                alert("하하");
+                    this.style.top = "15%";
+                    this.style.transform = "translateY(-50%) scale(.4)";
+                    this.style.transition = "all .5s ease-in-out";
+
+                    tg2[0].style.left = "50%";
+                    tg2[0].style.transition = "all .5s ease-in-out";
+                }); ///// click //////////////////////////////
             });
+        </script>
+    </head>
 
-            // 링크 클릭시 //
-            $(".desc a").click(function (e) {
-                e.preventDefault();
-                e.stopPropagation();
+    <body>
+        <!--제목-->
+        <h1 class="mainTit">
+            강남그린컴퓨터아카데미<br />
+            프론트엔드 SW개발자과정<br />
+            6회차<br />
+            <span>2022.12.14~2023.07.03</span>
+        </h1>
 
-                // a링크의 href값
-                const tgsrc = $(this).attr("href");
-
-                window.open().location.href = tgsrc;
-
-            }); //// click ///////
-
-            $("#dpbox>span").click(function () {
-                // 숨기기
-                $("#dpbox").fadeOut(300);
-            }); //// click ///////
-
-            $("body").append('<button class="back">메인페이지</button>');
-            $(".back").css({
-                position: "fixed",
-                bottom:"5px",
-                left:"50%",
-                transform:"translateX(-50%)",
-                backgroundColor:"cyan",
-                fontSize:"3vh",
-                lineHeight:"5vh",
-                borderRadius:"5px"
-            }).click(function(){
-                location.href = "../../index.html";
-            });
-
-        }); ///////// jQB /////////////////////
-        /////////////////////////////////////
-
-
-
-
-        window.addEventListener("DOMContentLoaded", function () {
-            var tg = document.getElementsByClassName("mtit");
-            var tg2 = document.getElementsByClassName("sbox");
-            tg[0].addEventListener("click", function () {
-                //                alert("하하");
-                this.style.top = "15%";
-                this.style.transform = "translateY(-50%) scale(.4)";
-                this.style.transition = "all .5s ease-in-out";
-
-                tg2[0].style.left = "50%";
-                tg2[0].style.transition = "all .5s ease-in-out";
-
-            }); ///// click //////////////////////////////
-
-
-        });
-    </script>
-</head>
-
-<body>
-
-    <!--제목-->
-    <h1 class="mainTit">
-        강남그린컴퓨터아카데미<br>
-        프론트엔드 SW개발자과정<br>
-        6회차<br>
-        <span>2022.12.14~2023.07.03</span>
-    </h1>
-
-
-    <ul class="sbox s1">
-        <li>
-            <a href="#" class="kw">김동호</a>
-            <div class="cbox">
-                <div></div>
-                <div>
-                    <h2 class="tit">FESCARO</h2>
-                    <img src="images/pf1.png" alt="김동호PJ">
-                    <p class="desc">
-                        <a href="https://dlfdydwlrshehdwk.github.io/FED-PJ-WBS-DongHo/01.1%EC%B0%A8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/03.%EA%B5%AC%ED%98%84%EC%86%8C%EC%8A%A4/mypj.html">1. 포트폴리오 사이트</a>
-                        <a href="https://dlfdydwlrshehdwk.github.io/FED-PJ-WBS-DongHo/01.1%EC%B0%A8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/04.%EA%B0%80%EC%9D%B4%EB%93%9C%EB%AC%B8%EC%84%9C/%EC%9E%90%EB%8F%99%EC%B0%A8%20%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4%20%EC%82%AC%EC%9D%B4%ED%8A%B8.pdf">2. 가이드 문서</a>
-                    </p>
+        <ul class="sbox s1">
+            <li>
+                <a href="#" class="kw">김동호</a>
+                <div class="cbox">
+                    <div></div>
+                    <div>
+                        <h2 class="tit">FESCARO</h2>
+                        <img src="images/pf1.png" alt="김동호PJ" />
+                        <p class="desc">
+                            <a
+                                href="https://dlfdydwlrshehdwk.github.io/FED-PJ-WBS-DongHo/01.1%EC%B0%A8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/03.%EA%B5%AC%ED%98%84%EC%86%8C%EC%8A%A4/mypj.html"
+                                >1. 포트폴리오 사이트</a
+                            >
+                            <a
+                                href="https://dlfdydwlrshehdwk.github.io/FED-PJ-WBS-DongHo/01.1%EC%B0%A8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/04.%EA%B0%80%EC%9D%B4%EB%93%9C%EB%AC%B8%EC%84%9C/%EC%9E%90%EB%8F%99%EC%B0%A8%20%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4%20%EC%82%AC%EC%9D%B4%ED%8A%B8.pdf"
+                                >2. 가이드 문서</a
+                            >
+                        </p>
+                    </div>
                 </div>
-            </div>
-        </li>
-        <li>
-            <a href="#" class="kw">김민경</a>
-            <div class="cbox">
-                <div></div>
-                <div>
-                    <h2 class="tit">이디야커피</h2>
-                    <img src="images/pf2.png" alt="김민경PJ">
-                    <p class="desc">
-                        <a href="https://kmmkyung.github.io/FED-PJ-WBS-MK/01.%EC%9B%B9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/03.%EA%B5%AC%ED%98%84%EC%86%8C%EC%8A%A4/intro.html">1. 포트폴리오 사이트</a>
-                        <a href="https://kmmkyung.github.io/FED-PJ-WBS-MK/01.%EC%9B%B9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/04.%EA%B0%80%EC%9D%B4%EB%93%9C%EB%AC%B8%EC%84%9C/KIM%20MIN%20KYUNG_EDIYA%20coffee.pdf">2. 가이드 문서</a>
-                    </p>
+            </li>
+            <li>
+                <a href="#" class="kw">김민경</a>
+                <div class="cbox">
+                    <div></div>
+                    <div>
+                        <h2 class="tit">이디야커피</h2>
+                        <img src="images/pf2.png" alt="김민경PJ" />
+                        <p class="desc">
+                            <a
+                                href="https://kmmkyung.github.io/FED-PJ-WBS-MK/01.%EC%9B%B9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/03.%EA%B5%AC%ED%98%84%EC%86%8C%EC%8A%A4/intro.html"
+                                >1. 포트폴리오 사이트</a
+                            >
+                            <a
+                                href="https://kmmkyung.github.io/FED-PJ-WBS-MK/01.%EC%9B%B9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/04.%EA%B0%80%EC%9D%B4%EB%93%9C%EB%AC%B8%EC%84%9C/KIM%20MIN%20KYUNG_EDIYA%20coffee.pdf"
+                                >2. 가이드 문서</a
+                            >
+                        </p>
+                    </div>
                 </div>
-            </div>
-        </li>
-        <!-- <li>
+            </li>
+            <!-- <li>
             <a href="#" class="kw">김세중</a>
             <div class="cbox">
                 <div></div>
@@ -901,111 +918,152 @@
                 </div>
             </div>
         </li> -->
-        <li>
-            <a href="#" class="kw">배요한</a>
-            <div class="cbox">
-                <div></div>
-                <div>
-                    <h2 class="tit">료칸 고라카탄</h2>
-                    <img src="images/pf4.png" alt="배요한PJ">
-                    <p class="desc">
-                        <a href="https://maplestorykid.github.io/FED-PJ-WBS-BAE-YOHAN/">1. 포트폴리오 사이트</a>
-                        <a href="https://maplestorykid.github.io/FED-PJ-WBS-BAE-YOHAN/%EA%B3%A0%EB%9D%BC%EC%B9%B4%ED%83%84%20%EA%B0%80%EC%9D%B4%EB%93%9C.pdf">2. 가이드 문서</a>
-                    </p>
+            <li>
+                <a href="#" class="kw">배요한</a>
+                <div class="cbox">
+                    <div></div>
+                    <div>
+                        <h2 class="tit">료칸 고라카탄</h2>
+                        <img src="images/pf4.png" alt="배요한PJ" />
+                        <p class="desc">
+                            <a href="https://maplestorykid.github.io/FED-PJ-WBS-BAE-YOHAN/"
+                                >1. 포트폴리오 사이트</a
+                            >
+                            <a
+                                href="https://maplestorykid.github.io/FED-PJ-WBS-BAE-YOHAN/%EA%B3%A0%EB%9D%BC%EC%B9%B4%ED%83%84%20%EA%B0%80%EC%9D%B4%EB%93%9C.pdf"
+                                >2. 가이드 문서</a
+                            >
+                        </p>
+                    </div>
                 </div>
-            </div>
-        </li>
-        <li>
-            <a href="#" class="kw">서해원</a>
-            <div class="cbox leega1">
-                <div></div>
-                <div>
-                    <h2 class="tit">ORGANICA</h2>
-                    <img src="images/pf5.png" alt="서해원PJ">
-                    <p class="desc">
-                        <a href="https://seo-001.github.io/FED-REAL-PJ-SHW/01.%EA%B0%9C%EC%9D%B8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EC%84%9C%ED%95%B4%EC%9B%90/index.html">1. 포트폴리오 사이트</a>
-                        <a href="https://seo-001.github.io/FED-REAL-PJ-SHW/01.%EA%B0%9C%EC%9D%B8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_ppt/%EA%B0%80%EC%9D%B4%EB%93%9C%20%EB%AC%B8%EC%84%9C_%EC%84%9C%ED%95%B4%EC%9B%90.pdf">2. 가이드 문서</a>
-                    </p>
+            </li>
+            <li>
+                <a href="#" class="kw">서해원</a>
+                <div class="cbox leega1">
+                    <div></div>
+                    <div>
+                        <h2 class="tit">ORGANICA</h2>
+                        <img src="images/pf5.png" alt="서해원PJ" />
+                        <p class="desc">
+                            <a
+                                href="https://seo-001.github.io/FED-REAL-PJ-SHW/01.%EA%B0%9C%EC%9D%B8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EC%84%9C%ED%95%B4%EC%9B%90/index.html"
+                                >1. 포트폴리오 사이트</a
+                            >
+                            <a
+                                href="https://seo-001.github.io/FED-REAL-PJ-SHW/01.%EA%B0%9C%EC%9D%B8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_ppt/%EA%B0%80%EC%9D%B4%EB%93%9C%20%EB%AC%B8%EC%84%9C_%EC%84%9C%ED%95%B4%EC%9B%90.pdf"
+                                >2. 가이드 문서</a
+                            >
+                        </p>
+                    </div>
                 </div>
-            </div>
-        </li>
-        <li>
-            <a href="#" class="kw">소다미</a>
-            <div class="cbox">
-                <div></div>
-                <div>
-                    <h2 class="tit">OHORA</h2>
-                    <img src="images/pf6.png" alt="소다미PJ">
-                    <p class="desc">
-                        <a href="https://so-dami.github.io/FED-PJ-WBS-DAMI/01.%20%EC%9B%B9%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/03.%20%EA%B5%AC%ED%98%84%EC%86%8C%EC%8A%A4/html/index.html">1. 포트폴리오 사이트</a>
-                        <a href="https://so-dami.github.io/FED-PJ-WBS-DAMI/01.%20%EC%9B%B9%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/04.%20%EA%B0%80%EC%9D%B4%EB%93%9C%EB%AC%B8%EC%84%9C/1%EC%B0%A8%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EC%86%8C%EB%8B%A4%EB%AF%B8.pptx">2. 가이드 문서</a>
-                    </p>
+            </li>
+            <li>
+                <a href="#" class="kw">소다미</a>
+                <div class="cbox">
+                    <div></div>
+                    <div>
+                        <h2 class="tit">OHORA</h2>
+                        <img src="images/pf6.png" alt="소다미PJ" />
+                        <p class="desc">
+                            <a
+                                href="https://so-dami.github.io/FED-PJ-WBS-DAMI/01.%20%EC%9B%B9%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/03.%20%EA%B5%AC%ED%98%84%EC%86%8C%EC%8A%A4/html/index.html"
+                                >1. 포트폴리오 사이트</a
+                            >
+                            <a
+                                href="https://so-dami.github.io/FED-PJ-WBS-DAMI/01.%20%EC%9B%B9%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/04.%20%EA%B0%80%EC%9D%B4%EB%93%9C%EB%AC%B8%EC%84%9C/1%EC%B0%A8%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EC%86%8C%EB%8B%A4%EB%AF%B8.pptx"
+                                >2. 가이드 문서</a
+                            >
+                        </p>
+                    </div>
                 </div>
-            </div>
-        </li>
-        <li>
-            <a href="#" class="kw">오동한</a>
-            <div class="cbox">
-                <div></div>
-                <div>
-                    <h2 class="tit">POLYTERU</h2>
-                    <img src="images/pf7.png" alt="오동한PJ">
-                    <p class="desc">
-                        <a href="https://dong13475.github.io/FED-PJ-WBS-DONG/01.%EC%9B%B9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/03.%EA%B5%AC%ED%98%84%EC%86%8C%EC%8A%A4/index.html">1. 포트폴리오 사이트</a>
-                        <a href="https://dong13475.github.io/FED-PJ-WBS-DONG/01.%EC%9B%B9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/04.%EA%B0%80%EC%9D%B4%EB%93%9C%EB%AC%B8%EC%84%9C/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C_%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%ED%8F%B4%EB%A6%AC%ED%85%8C%EB%A3%A8_%EA%B0%80%EC%9D%B4%EB%93%9C%EB%AC%B8%EC%84%9C.pdf">2. 가이드 문서</a>
-                    </p>
+            </li>
+            <li>
+                <a href="#" class="kw">오동한</a>
+                <div class="cbox">
+                    <div></div>
+                    <div>
+                        <h2 class="tit">POLYTERU</h2>
+                        <img src="images/1st/pf7.png" alt="오동한PJ" />
+                        <p class="desc">
+                            <a
+                                href="https://dong13475.github.io/FED-PJ-WBS-DONG/01.%EC%9B%B9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/03.%EA%B5%AC%ED%98%84%EC%86%8C%EC%8A%A4/index.html"
+                                >1. 포트폴리오 사이트</a
+                            >
+                            <a
+                                href="https://dong13475.github.io/FED-PJ-WBS-DONG/01.%EC%9B%B9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/04.%EA%B0%80%EC%9D%B4%EB%93%9C%EB%AC%B8%EC%84%9C/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C_%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%ED%8F%B4%EB%A6%AC%ED%85%8C%EB%A3%A8_%EA%B0%80%EC%9D%B4%EB%93%9C%EB%AC%B8%EC%84%9C.pdf"
+                                >2. 가이드 문서</a
+                            >
+                        </p>
+                    </div>
                 </div>
-            </div>
-        </li>
-        <li>
-            <a href="#" class="kw">우새미</a>
-            <div class="cbox">
-                <div></div>
-                <div>
-                    <h2 class="tit">CJ그룹</h2>
-                    <img src="images/pf8.png" alt="우새미PJ">
-                    <p class="desc">
-                        <a href="https://bbbgoat.github.io/FED-PJ-WBS-SAEM/01.%EC%9B%B9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/03.%EA%B5%AC%ED%98%84%EC%86%8C%EC%8A%A4/index.html">1. 포트폴리오 사이트</a>
-                        <a href="https://bbbgoat.github.io/FED-PJ-WBS-SAEM/01.%EC%9B%B9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/04.%EA%B0%80%EC%9D%B4%EB%93%9C%EB%AC%B8%EC%84%9C/%EC%9A%B0%EC%83%88%EB%AF%B8_%EB%B0%9C%ED%91%9C%EC%9E%90%EB%A3%8C.pptx">2. 가이드 문서</a>
-                    </p>
+            </li>
+            <li>
+                <a href="#" class="kw">우새미</a>
+                <div class="cbox">
+                    <div></div>
+                    <div>
+                        <h2 class="tit">CJ그룹</h2>
+                        <img src="images/1st/pf8.png" alt="우새미PJ" />
+                        <p class="desc">
+                            <a
+                                href="https://bbbgoat.github.io/FED-PJ-WBS-SAEM/01.%EC%9B%B9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/03.%EA%B5%AC%ED%98%84%EC%86%8C%EC%8A%A4/index.html"
+                                >1. 포트폴리오 사이트</a
+                            >
+                            <a
+                                href="https://bbbgoat.github.io/FED-PJ-WBS-SAEM/01.%EC%9B%B9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/04.%EA%B0%80%EC%9D%B4%EB%93%9C%EB%AC%B8%EC%84%9C/%EC%9A%B0%EC%83%88%EB%AF%B8_%EB%B0%9C%ED%91%9C%EC%9E%90%EB%A3%8C.pptx"
+                                >2. 가이드 문서</a
+                            >
+                        </p>
+                    </div>
                 </div>
-            </div>
-        </li>
-        <li>
-            <a href="#" class="kw">이다인</a>
-            <div class="cbox">
-                <div></div>
-                <div>
-                    <h2 class="tit">SOFITEL</h2>
-                    <img src="images/pf9.png" alt="이다인PJ">
-                    <p class="desc">
-                        <a href="https://dain302.github.io/FED-PJ-WBS-DAIN/01.%EC%9B%B9%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/03.%EA%B5%AC%ED%98%84%EC%86%8C%EC%8A%A4/index.html">1. 포트폴리오 사이트</a>
-                        <a href="https://dain302.github.io/FED-PJ-WBS-DAIN/01.%EC%9B%B9%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/04.%EA%B0%80%EC%9D%B4%EB%93%9C%EB%AC%B8%EC%84%9C/1%EC%B0%A8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EB%B0%9C%ED%91%9C.pdf">2. 가이드 문서</a>
-                    </p>
+            </li>
+            <li>
+                <a href="#" class="kw">이다인</a>
+                <div class="cbox">
+                    <div></div>
+                    <div>
+                        <h2 class="tit">SOFITEL</h2>
+                        <img src="images/1st/pf9.png" alt="이다인PJ" />
+                        <p class="desc">
+                            <a
+                                href="https://dain302.github.io/FED-PJ-WBS-DAIN/01.%EC%9B%B9%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/03.%EA%B5%AC%ED%98%84%EC%86%8C%EC%8A%A4/index.html"
+                                >1. 포트폴리오 사이트</a
+                            >
+                            <a
+                                href="https://dain302.github.io/FED-PJ-WBS-DAIN/01.%EC%9B%B9%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/04.%EA%B0%80%EC%9D%B4%EB%93%9C%EB%AC%B8%EC%84%9C/1%EC%B0%A8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EB%B0%9C%ED%91%9C.pdf"
+                                >2. 가이드 문서</a
+                            >
+                        </p>
+                    </div>
                 </div>
-            </div>
-        </li>
-        <li>
-            <a href="#" class="kw">이승준</a>
-            <div class="cbox">
-                <div></div>
-                <div>
-                    <h2 class="tit">북구청홍보</h2>
-                    <img src="images/pf9.png" alt="이승준PJ">
-                    <p class="desc">
-                        <a href="https://motora22.github.io/PED-PJ-FS-LSJ/%EB%B6%81%EA%B5%AC%EC%B2%AD_%ED%99%8D%EB%B3%B4_%EC%82%AC%EC%9D%B4%ED%8A%B8/index.html">1. 포트폴리오 사이트</a>
-                        <a href="https://motora22.github.io/PED-PJ-FS-LSJ/%EB%B6%81%EA%B5%AC%EC%B2%AD_%ED%99%8D%EB%B3%B4_%EC%82%AC%EC%9D%B4%ED%8A%B8/%EC%B0%B8%EA%B3%A0%20%EC%9E%90%EB%A3%8C/%EC%9D%B4%EC%8A%B9%EC%A4%80_1%EC%B0%A8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8.pdf">2. 가이드 문서</a>
-                    </p>
+            </li>
+            <li>
+                <a href="#" class="kw">이승준</a>
+                <div class="cbox">
+                    <div></div>
+                    <div>
+                        <h2 class="tit">북구청홍보</h2>
+                        <img src="images/1st/pf9.png" alt="이승준PJ" />
+                        <p class="desc">
+                            <a
+                                href="https://motora22.github.io/PED-PJ-FS-LSJ/%EB%B6%81%EA%B5%AC%EC%B2%AD_%ED%99%8D%EB%B3%B4_%EC%82%AC%EC%9D%B4%ED%8A%B8/index.html"
+                                >1. 포트폴리오 사이트</a
+                            >
+                            <a
+                                href="https://motora22.github.io/PED-PJ-FS-LSJ/%EB%B6%81%EA%B5%AC%EC%B2%AD_%ED%99%8D%EB%B3%B4_%EC%82%AC%EC%9D%B4%ED%8A%B8/%EC%B0%B8%EA%B3%A0%20%EC%9E%90%EB%A3%8C/%EC%9D%B4%EC%8A%B9%EC%A4%80_1%EC%B0%A8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8.pdf"
+                                >2. 가이드 문서</a
+                            >
+                        </p>
+                    </div>
                 </div>
-            </div>
-        </li>
-        <!-- <li>
+            </li>
+            <!-- <li>
             <a href="#" class="kw">이지은</a>
             <div class="cbox">
                 <div></div>
                 <div>
                     <h2 class="tit">제출전</h2>
-                    <img src="images/pf0.png" alt="이지은PJ">
+                    <img src="images/1st/pf0.png" alt="이지은PJ">
                     <p class="desc">
                         <a href="">1. 포트폴리오 사이트</a>
                         <a href="">2. 가이드 문서</a>
@@ -1013,97 +1071,133 @@
                 </div>
             </div>
         </li> -->
-        <li>
-            <a href="#" class="kw">임성해</a>
-            <div class="cbox">
-                <div></div>
-                <div>
-                    <h2 class="tit">PARADISE CITY</h2>
-                    <img src="images/pf12.png" alt="임성해PJ">
-                    <p class="desc">
-                        <a href="https://seong-hae.github.io/FED-PJ-WBS-SH/01.%EC%9B%B9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/03.%EA%B5%AC%ED%98%84%EC%86%8C%EC%8A%A4/index.html">1. 포트폴리오 사이트</a>
-                        <a href="https://seong-hae.github.io/FED-PJ-WBS-SH/01.%EC%9B%B9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/04.%EA%B0%80%EC%9D%B4%EB%93%9C%EB%AC%B8%EC%84%9C/%EC%9E%84%EC%84%B1%ED%95%B4_1%EC%B0%A8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EA%B0%80%EC%9D%B4%EB%93%9C%EB%AC%B8%EC%84%9C.pdf">2. 가이드 문서</a>
-                    </p>
+            <li>
+                <a href="#" class="kw">임성해</a>
+                <div class="cbox">
+                    <div></div>
+                    <div>
+                        <h2 class="tit">PARADISE CITY</h2>
+                        <img src="images/1st/pf12.png" alt="임성해PJ" />
+                        <p class="desc">
+                            <a
+                                href="https://seong-hae.github.io/FED-PJ-WBS-SH/01.%EC%9B%B9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/03.%EA%B5%AC%ED%98%84%EC%86%8C%EC%8A%A4/index.html"
+                                >1. 포트폴리오 사이트</a
+                            >
+                            <a
+                                href="https://seong-hae.github.io/FED-PJ-WBS-SH/01.%EC%9B%B9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/04.%EA%B0%80%EC%9D%B4%EB%93%9C%EB%AC%B8%EC%84%9C/%EC%9E%84%EC%84%B1%ED%95%B4_1%EC%B0%A8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EA%B0%80%EC%9D%B4%EB%93%9C%EB%AC%B8%EC%84%9C.pdf"
+                                >2. 가이드 문서</a
+                            >
+                        </p>
+                    </div>
                 </div>
-            </div>
-        </li>
-        <li>
-            <a href="#" class="kw">임수희</a>
-            <div class="cbox">
-                <div></div>
-                <div>
-                    <h2 class="tit">나무엑터스</h2>
-                    <img src="images/pf13.png" alt="임수희PJ">
-                    <p class="desc">
-                        <a href="https://pie-suhee.github.io/FED-PJ-WBS-SUHEE/01.%EC%9B%B9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/03.%EA%B5%AC%ED%98%84%EC%86%8C%EC%8A%A4/index.html">1. 포트폴리오 사이트</a>
-                        <a href="https://pie-suhee.github.io/FED-PJ-WBS-SUHEE/01.%EC%9B%B9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/04.%EA%B0%80%EC%9D%B4%EB%93%9C%EB%AC%B8%EC%84%9C/1%EC%B0%A8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%9E%84%EC%88%98%ED%9D%AC.pptx">2. 가이드 문서</a>
-                    </p>
+            </li>
+            <li>
+                <a href="#" class="kw">임수희</a>
+                <div class="cbox">
+                    <div></div>
+                    <div>
+                        <h2 class="tit">나무엑터스</h2>
+                        <img src="images/1st/pf13.png" alt="임수희PJ" />
+                        <p class="desc">
+                            <a
+                                href="https://pie-suhee.github.io/FED-PJ-WBS-SUHEE/01.%EC%9B%B9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/03.%EA%B5%AC%ED%98%84%EC%86%8C%EC%8A%A4/index.html"
+                                >1. 포트폴리오 사이트</a
+                            >
+                            <a
+                                href="https://pie-suhee.github.io/FED-PJ-WBS-SUHEE/01.%EC%9B%B9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/04.%EA%B0%80%EC%9D%B4%EB%93%9C%EB%AC%B8%EC%84%9C/1%EC%B0%A8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%9E%84%EC%88%98%ED%9D%AC.pptx"
+                                >2. 가이드 문서</a
+                            >
+                        </p>
+                    </div>
                 </div>
-            </div>
-        </li>
-        <li>
-            <a href="#" class="kw">임유정</a>
-            <div class="cbox">
-                <div></div>
-                <div>
-                    <h2 class="tit">서울미식주간</h2>
-                    <img src="images/pf14.png" alt="임유정PJ">
-                    <p class="desc">
-                        <a href="https://ba-latte.github.io/FED-PJ-WBS-youj/01.%EC%9B%B9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/03.%EA%B5%AC%ED%98%84%EC%86%8C%EC%8A%A4/index.html">1. 포트폴리오 사이트</a>
-                        <a href="https://ba-latte.github.io/FED-PJ-WBS-youj/01.%EC%9B%B9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/04.%EA%B0%80%EC%9D%B4%EB%93%9C%EB%AC%B8%EC%84%9C/(%EC%9E%84%EC%9C%A0%EC%A0%95)%EC%84%9C%EC%9A%B8%EB%AF%B8%EC%8B%9D%EC%A3%BC%EA%B0%84_%EA%B0%80%EC%9D%B4%EB%93%9C%EB%AC%B8%EC%84%9C.pdf">2. 가이드 문서</a>
-                    </p>
+            </li>
+            <li>
+                <a href="#" class="kw">임유정</a>
+                <div class="cbox">
+                    <div></div>
+                    <div>
+                        <h2 class="tit">서울미식주간</h2>
+                        <img src="images/1st/pf14.png" alt="임유정PJ" />
+                        <p class="desc">
+                            <a
+                                href="https://ba-latte.github.io/FED-PJ-WBS-youj/01.%EC%9B%B9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/03.%EA%B5%AC%ED%98%84%EC%86%8C%EC%8A%A4/index.html"
+                                >1. 포트폴리오 사이트</a
+                            >
+                            <a
+                                href="https://ba-latte.github.io/FED-PJ-WBS-youj/01.%EC%9B%B9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/04.%EA%B0%80%EC%9D%B4%EB%93%9C%EB%AC%B8%EC%84%9C/(%EC%9E%84%EC%9C%A0%EC%A0%95)%EC%84%9C%EC%9A%B8%EB%AF%B8%EC%8B%9D%EC%A3%BC%EA%B0%84_%EA%B0%80%EC%9D%B4%EB%93%9C%EB%AC%B8%EC%84%9C.pdf"
+                                >2. 가이드 문서</a
+                            >
+                        </p>
+                    </div>
                 </div>
-            </div>
-        </li>
-        <li>
-            <a href="#" class="kw">정성우</a>
-            <div class="cbox leega1">
-                <div></div>
-                <div>
-                    <h2 class="tit">스타벅스</h2>
-                    <img src="images/pf15.png" alt="정성우PJ">
-                    <p class="desc">
-                        <a href="https://seongwoo83.github.io/FED-PJ-WBS-JSW/01.%20Web%20Project/index.html">1. 포트폴리오 사이트</a>
-                        <a href="https://seongwoo83.github.io/FED-PJ-WBS-JSW/01.%20Web%20Project/04.%20%EA%B0%80%EC%9D%B4%EB%93%9C%EB%AC%B8%EC%84%9C/1%EC%B0%A8%20%EC%A0%95%EC%84%B1%EC%9A%B0%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8.pptx">2. 가이드 문서</a>
-                    </p>
+            </li>
+            <li>
+                <a href="#" class="kw">정성우</a>
+                <div class="cbox leega1">
+                    <div></div>
+                    <div>
+                        <h2 class="tit">스타벅스</h2>
+                        <img src="images/1st/pf15.png" alt="정성우PJ" />
+                        <p class="desc">
+                            <a
+                                href="https://seongwoo83.github.io/FED-PJ-WBS-JSW/01.%20Web%20Project/index.html"
+                                >1. 포트폴리오 사이트</a
+                            >
+                            <a
+                                href="https://seongwoo83.github.io/FED-PJ-WBS-JSW/01.%20Web%20Project/04.%20%EA%B0%80%EC%9D%B4%EB%93%9C%EB%AC%B8%EC%84%9C/1%EC%B0%A8%20%EC%A0%95%EC%84%B1%EC%9A%B0%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8.pptx"
+                                >2. 가이드 문서</a
+                            >
+                        </p>
+                    </div>
                 </div>
-            </div>
-        </li>
-        <li>
-            <a href="#" class="kw">정찬</a>
-            <div class="cbox">
-                <div></div>
-                <div>
-                    <h2 class="tit">Apple</h2>
-                    <img src="images/pf16.png" alt="정찬PJ">
-                    <p class="desc">
-                        <a href="https://tztx2004.github.io./FED-PJ-WBS-CHAN/01.%EC%9B%B9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/03.%EA%B5%AC%ED%98%84%EC%86%8C%EC%8A%A4/apple.html">1. 포트폴리오 사이트</a>
-                        <a href="https://tztx2004.github.io./FED-PJ-WBS-CHAN/01.웹프로젝트/04.가이드문서/apple_guide.pptx">2. 가이드 문서</a>
-                    </p>
+            </li>
+            <li>
+                <a href="#" class="kw">정찬</a>
+                <div class="cbox">
+                    <div></div>
+                    <div>
+                        <h2 class="tit">Apple</h2>
+                        <img src="images/1st/pf16.png" alt="정찬PJ" />
+                        <p class="desc">
+                            <a
+                                href="https://tztx2004.github.io./FED-PJ-WBS-CHAN/01.%EC%9B%B9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/03.%EA%B5%AC%ED%98%84%EC%86%8C%EC%8A%A4/apple.html"
+                                >1. 포트폴리오 사이트</a
+                            >
+                            <a
+                                href="https://tztx2004.github.io./FED-PJ-WBS-CHAN/01.웹프로젝트/04.가이드문서/apple_guide.pptx"
+                                >2. 가이드 문서</a
+                            >
+                        </p>
+                    </div>
                 </div>
-            </div>
-        </li>
-        <li>
-            <a href="#" class="kw">지수진</a>
-            <div class="cbox">
-                <div></div>
-                <div>
-                    <h2 class="tit">selecto</h2>
-                    <img src="images/pf17.png" alt="지수진PJ">
-                    <p class="desc">
-                        <a href="https://zisuzin.github.io/NEW_ZISUZIN_2023/project/01.web/selecto.html">1. 포트폴리오 사이트</a>
-                        <a href="https://www.google.com/url?q=https://zisuzin.github.io/NEW_ZISUZIN_2023/project/01.web/selectoCoffee_project1_%25EC%25A7%2580%25EC%2588%2598%25EC%25A7%2584_20230404_%25EC%25B5%259C%25EC%25A2%2585.pptx&sa=D&source=docs&ust=1680589073536830&usg=AOvVaw3u-YhLsijXJgNbinGr1Xn_">2. 가이드 문서</a>
-                    </p>
+            </li>
+            <li>
+                <a href="#" class="kw">지수진</a>
+                <div class="cbox">
+                    <div></div>
+                    <div>
+                        <h2 class="tit">selecto</h2>
+                        <img src="images/1st/pf17.png" alt="지수진PJ" />
+                        <p class="desc">
+                            <a
+                                href="https://zisuzin.github.io/NEW_ZISUZIN_2023/project/01.web/selecto.html"
+                                >1. 포트폴리오 사이트</a
+                            >
+                            <a
+                                href="https://www.google.com/url?q=https://zisuzin.github.io/NEW_ZISUZIN_2023/project/01.web/selectoCoffee_project1_%25EC%25A7%2580%25EC%2588%2598%25EC%25A7%2584_20230404_%25EC%25B5%259C%25EC%25A2%2585.pptx&sa=D&source=docs&ust=1680589073536830&usg=AOvVaw3u-YhLsijXJgNbinGr1Xn_"
+                                >2. 가이드 문서</a
+                            >
+                        </p>
+                    </div>
                 </div>
-            </div>
-        </li>
-        <!-- <li>
+            </li>
+            <!-- <li>
             <a href="#" class="kw">최명진</a>
             <div class="cbox">
                 <div></div>
                 <div>
                     <h2 class="tit">러쉬</h2>
-                    <img src="images/pf18.png" alt="주리아포폴">
+                    <img src="images/1st/pf18.png" alt="주리아포폴">
                     <p class="desc">
                         <a href="../주리아/러쉬/web/index.html">1. 포트폴리오 사이트</a>
                         <a href="../주리아/러쉬_주리아.pdf">2. 가이드 문서</a>
@@ -1111,30 +1205,37 @@
                 </div>
             </div>
         </li> -->
-        <li>
-            <a href="#" class="kw">최소미</a>
-            <div class="cbox">
-                <div></div>
-                <div>
-                    <h2 class="tit">달콤커피</h2>
-                    <img src="images/pf19.png" alt="최소미PJ">
-                    <p class="desc">
-                        <a href="https://kum1416.github.io/FED_PJ_WBS_SOMI/01.%EC%9B%B9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/03.%EA%B5%AC%ED%98%84%EC%86%8C%EC%8A%A4/index.html">1. 포트폴리오 사이트</a>
-                        <a href="https://kum1416.github.io/FED_PJ_WBS_SOMI/01.%EC%9B%B9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/04.%EA%B0%80%EC%9D%B4%EB%93%9C%EB%AC%B8%EC%84%9C/20230404_1%EC%B0%A8%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EB%8B%AC%EC%BD%A4%EC%BB%A4%ED%94%BC_%EC%B5%9C%EC%86%8C%EB%AF%B8.pdf">2. 가이드 문서</a>
-                    </p>
+            <li>
+                <a href="#" class="kw">최소미</a>
+                <div class="cbox">
+                    <div></div>
+                    <div>
+                        <h2 class="tit">달콤커피</h2>
+                        <img src="images/1st/pf19.png" alt="최소미PJ" />
+                        <p class="desc">
+                            <a
+                                href="https://kum1416.github.io/FED_PJ_WBS_SOMI/01.%EC%9B%B9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/03.%EA%B5%AC%ED%98%84%EC%86%8C%EC%8A%A4/index.html"
+                                >1. 포트폴리오 사이트</a
+                            >
+                            <a
+                                href="https://kum1416.github.io/FED_PJ_WBS_SOMI/01.%EC%9B%B9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/04.%EA%B0%80%EC%9D%B4%EB%93%9C%EB%AC%B8%EC%84%9C/20230404_1%EC%B0%A8%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EB%8B%AC%EC%BD%A4%EC%BB%A4%ED%94%BC_%EC%B5%9C%EC%86%8C%EB%AF%B8.pdf"
+                                >2. 가이드 문서</a
+                            >
+                        </p>
+                    </div>
                 </div>
-            </div>
-        </li>
-    
-    </ul>
-    <h2 class="mtit rot"><span>포트폴리오</span></h2>
+            </li>
+        </ul>
+        <h2 class="mtit rot">
+            <span style="line-height: 1.5; display: inline-block; transform: translateY(30%)"
+                >포트폴리오<br />1차</span
+            >
+        </h2>
 
-    <!--전체중앙디피박스-->
-    <div id="dpbox">
-        <div></div>
-        <span>×</span>
-    </div>
-
-</body>
-
+        <!--전체중앙디피박스-->
+        <div id="dpbox">
+            <div></div>
+            <span>×</span>
+        </div>
+    </body>
 </html>
