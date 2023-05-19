@@ -14,7 +14,7 @@
             }
 
             body {
-                background: url(images/bg.jpg) no-repeat center/cover;
+                background: url(images/1st/bg.jpg) no-repeat center/cover;
                 overflow: hidden;
                 perspective: 480px;
             }
@@ -45,7 +45,7 @@
                 transform: translateX(-50%) rotateY(5deg);
                 width: 40vw;
                 text-align: center;
-                background: url(images/cyberpan.jpg) no-repeat center/cover;
+                background: url(images/1st/cyberpan.jpg) no-repeat center/cover;
                 color: #fff;
                 font-size: 2vw;
                 line-height: 4vw;
@@ -189,7 +189,7 @@
                 left: 100px;
                 width: 200px;
                 height: 0px;
-                background: #000 url(images/cyberpan.jpg) no-repeat center 50px/100%;
+                background: #000 url(images/1st/cyberpan.jpg) no-repeat center 50px/100%;
                 border: 2px solid #00ffeb;
                 color: #fff;
                 text-shadow: 0 1px #000, 0 -1px #000, 1px 0 #000, -1px 0 #000;
@@ -395,7 +395,7 @@
                 width: 100%;
                 height: 100%;
                 border-radius: 50%;
-                background: url(images/circle.png) no-repeat center/cover;
+                background: url(images/1st/circle.png) no-repeat center/cover;
             }
 
             /* 내부글자 */
@@ -523,7 +523,7 @@
                     transform: translateX(-50%) rotateY(5deg);
                     width: max(40vw, 370px);
                     text-align: center;
-                    background: url(images/cyberpan.jpg) no-repeat center/cover;
+                    background: url(images/1st/cyberpan.jpg) no-repeat center/cover;
                     color: #fff;
                     font-size: max(2vw, 20px);
                     line-height: max(4vw, 30px);
@@ -626,7 +626,7 @@
                     left: 0;
                     width: 100%;
                     height: 0px;
-                    background: #000 url(images/cyberpan.jpg) no-repeat center 50px/100%;
+                    background: #000 url(images/1st/cyberpan.jpg) no-repeat center 50px/100%;
                     border: 2px solid #00ffeb;
                     color: #fff;
                     text-shadow: 0 1px #000, 0 -1px #000, 1px 0 #000, -1px 0 #000;
@@ -759,7 +759,7 @@
                     width: 100%;
                     height: 100%;
                     border-radius: 50%;
-                    background: url(images/circle.png) no-repeat center/cover;
+                    background: url(images/1st/circle.png) no-repeat center/cover;
                 }
 
                 /* 내부글자 */
@@ -796,11 +796,12 @@
                 // 메인타이틀 클릭시
                 $(".mainTit").click(function () {
                     $(".mtit").css({
-                        top: "50%",
-                        transform: "translateY(-50%) scale(1)",
+                        top: "60%",
+                        left: "50%",
+                        transform: "translate(-50%,-50%) scale(1)",
                     }); /// css ///
                     $(".s1").css({
-                        left: "100%",
+                        left: "150%",
                     }); /// css ///
                 });
 
@@ -843,7 +844,8 @@
                 var tg2 = document.getElementsByClassName("sbox");
                 tg[0].addEventListener("click", function () {
                     //                alert("하하");
-                    this.style.top = "15%";
+                    this.style.top = "10%";
+                    this.style.left = "70%";                    
                     this.style.transform = "translateY(-50%) scale(.4)";
                     this.style.transition = "all .5s ease-in-out";
 
@@ -870,7 +872,7 @@
                     <div></div>
                     <div>
                         <h2 class="tit">FESCARO</h2>
-                        <img src="images/pf1.png" alt="김동호PJ" />
+                        <img src="images/1st/pf1.png" alt="김동호PJ" />
                         <p class="desc">
                             <a
                                 href="https://dlfdydwlrshehdwk.github.io/FED-PJ-WBS-DongHo/01.1%EC%B0%A8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/03.%EA%B5%AC%ED%98%84%EC%86%8C%EC%8A%A4/mypj.html"
@@ -890,7 +892,7 @@
                     <div></div>
                     <div>
                         <h2 class="tit">이디야커피</h2>
-                        <img src="images/pf2.png" alt="김민경PJ" />
+                        <img src="images/1st/pf2.png" alt="김민경PJ" />
                         <p class="desc">
                             <a
                                 href="https://kmmkyung.github.io/FED-PJ-WBS-MK/01.%EC%9B%B9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/03.%EA%B5%AC%ED%98%84%EC%86%8C%EC%8A%A4/intro.html"
@@ -910,7 +912,7 @@
                 <div></div>
                 <div>
                     <h2 class="tit">아직안냄</h2>
-                    <img src="images/pf3.png" alt="김세중PJ">
+                    <img src="images/1st/pf3.png" alt="김세중PJ">
                     <p class="desc">
                         <a href="">1. 포트폴리오 사이트</a>
                         <a href="">2. 가이드 문서</a>
@@ -924,7 +926,7 @@
                     <div></div>
                     <div>
                         <h2 class="tit">료칸 고라카탄</h2>
-                        <img src="images/pf4.png" alt="배요한PJ" />
+                        <img src="images/1st/pf4.png" alt="배요한PJ" />
                         <p class="desc">
                             <a href="https://maplestorykid.github.io/FED-PJ-WBS-BAE-YOHAN/"
                                 >1. 포트폴리오 사이트</a
@@ -943,7 +945,7 @@
                     <div></div>
                     <div>
                         <h2 class="tit">ORGANICA</h2>
-                        <img src="images/pf5.png" alt="서해원PJ" />
+                        <img src="images/1st/pf5.png" alt="서해원PJ" />
                         <p class="desc">
                             <a
                                 href="https://seo-001.github.io/FED-REAL-PJ-SHW/01.%EA%B0%9C%EC%9D%B8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EC%84%9C%ED%95%B4%EC%9B%90/index.html"
@@ -963,7 +965,7 @@
                     <div></div>
                     <div>
                         <h2 class="tit">OHORA</h2>
-                        <img src="images/pf6.png" alt="소다미PJ" />
+                        <img src="images/1st/pf6.png" alt="소다미PJ" />
                         <p class="desc">
                             <a
                                 href="https://so-dami.github.io/FED-PJ-WBS-DAMI/01.%20%EC%9B%B9%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/03.%20%EA%B5%AC%ED%98%84%EC%86%8C%EC%8A%A4/html/index.html"
