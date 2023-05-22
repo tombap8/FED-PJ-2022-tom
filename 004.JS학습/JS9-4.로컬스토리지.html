@@ -167,6 +167,44 @@
                  .setItem("minfo",JSON.stringify(obj));
                  console.log(localStorage.getItem("minfo"));
             } /////////// makeObj ///////////////////////
+
+
+            // 화면 데이터 바인딩 함수 //////////
+            function bindData(){
+                let hcode = `
+                    <table>
+                        <tr>
+                            <th>번호</th>
+                            <th>제목</th>
+                            <th>내용</th>
+                        </tr>
+                    `;
+                // 로컬스토리지 객체데이터 가져오기
+                // 입력된 데이터는 문자형 객체이므로 
+                // 다시 파싱하여 원래 객체로 복원한다!
+                let org = localStorage.getItem("minfo");
+                org = JSON.parse(org);
+                console.log("변환객체:",org);
+
+                hcode += "<tr>"
+
+                org.forEach(val=>{
+                    hcode +=`
+                        <td>${val.idx}</td>
+                        <td>${val.tit}</td>
+                        <td>${val.cont}</td>
+                    `;
+                });
+                
+                hcode += "</tr></table>";
+
+                // html에 넣기
+                document.querySelector(".board")
+                .innerHTML=hcode;
+                
+
+
+            } /////////// bindData ////////////////
         </script>
     </head>
     <body>
@@ -189,7 +227,11 @@
                 <button onclick="showFn('.local')">보여줘</button>
                 <button onclick="delFn('로칼쓰')">전체삭제</button>
                 <button onclick="makeObj()">처리</button>
-                <button onclick="">추가</button>
+                <button onclick="bindData()">업데이트</button>
+
+                <div class="board">
+
+                </div>
 
                 <div class="inbx">
                     <form action="" method="post">
