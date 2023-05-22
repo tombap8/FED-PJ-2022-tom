@@ -158,13 +158,13 @@
                  }];
 
                  // 로컬스토리지에 넣기
-                 // 배열/객체를 직접 넣으면 데이터형 문자값만
-                 // 입력이 되고 실제 객체는 입려되지 않는다!
+                 // 배열/객체를 직접 넣으면 데이터형 표시문자값만
+                 // 입력이 되고 실제 객체는 입력되지 않는다!
                  // 왜????? 로컬스토리지는 문자형만 받으니까!!!
                  // 그래서 배열/객체를 문자데이터 화해서 넣는다!
                  // JSON.stringify(배열/객체)                 
                  localStorage
-                 .setItem("minfo",JSON.stringify(obj));
+                 .setItem("minfo",JSON.stringify(obj)); 
                  console.log(localStorage.getItem("minfo"));
             } /////////// makeObj ///////////////////////
 
