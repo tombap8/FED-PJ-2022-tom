@@ -273,7 +273,7 @@ $(function () { //// jQB2 //////////////////////////
             // 이미지 경로 변경하기 : ".png" -> "-1.png"
             // JS메서드 replace(바꿀값,바뀔값)
             csrc = csrc.replace(".png","-1.png");
-            console.log("현재경로:",csrc);
+            // console.log("현재경로:",csrc);
             // 실제 이미지 변경하기
             $(this).attr("src",csrc);
 
@@ -283,12 +283,25 @@ $(function () { //// jQB2 //////////////////////////
             let csrc = $(this).attr("src");
             // JS메서드 replace(바꿀값,바뀔값)
             csrc = csrc.replace("-1.png",".png");
-            console.log("현재경로:",csrc);
+            // console.log("현재경로:",csrc);
             // 실제 이미지 변경하기
             $(this).attr("src",csrc);
 
         }
     ); //////// hover ///////////
+
+    // 2-1-2. 재생/멈춤 기능구현
+    // 대상: .btnpp img
+    // 원리: 재생상태이면 멈추고 멈춤상태이면 재생한다!
+    // 핵심: 동영상의 멈춤상태를 알아낼 수 있다!
+    $(".btnpp img").click(function(){
+        // 동영상 멈춤상태 알아내기 - paused 속성으로 알아냄!
+        // 결과: true - 멈춤, false - 재생중(멈춤아님)
+        let paused_sts = mv.get(0).paused;
+        console.log("비디오가 멈췄니?",paused_sts);
+
+
+    }); //////////// click //////////////
 
 
     
