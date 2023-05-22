@@ -85,11 +85,15 @@
        function startFn(pm){
             if(pm==="로칼쓰"){
                 localStorage.setItem("lname","이정재");
+                localStorage.setItem("lrole","박평호역");
+                localStorage.setItem("lcat","조직내 스파이를 색출하는 해외팀 안기부팀장");
                 // 확인
                 console.log("로칼:",localStorage.length);
             }
             else if(pm==="세션쓰"){
                 sessionStorage.setItem("sname","정우성");
+                localStorage.setItem("srole","김정도역");
+                localStorage.setItem("scat","국내팀 안기부팀장,박평호랑 사이나쁨");
                 // 확인
                 console.log("세션:",sessionStorage.length);
             }
