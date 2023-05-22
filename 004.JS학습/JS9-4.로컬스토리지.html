@@ -1,50 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS9-4.로컬 스토리지</title>
-    <style>
-        html,body{
-            margin: 0;
-            padding: 0;
-        }
-        .tit{
-            max-width: 1000px;
-            height: 25vh;
-            margin: 0 auto;
-            background: url(https://www.crowdnet.or.kr/files/recu/06/20220720153040030_06_47087_20220725_1869.PNG) center 25%/50%;
-        }
-        .wrap{
-            max-width: 1000px;
-            min-height: 100vh;
-            display: flex;
-            margin: 0 auto;
-        }
-        .wrap>div{
-            flex: 1;
-            box-sizing: border-box;
-            border: 4px double darkblue;
-            text-align: center;
-        }
-        .imgbx{
-            max-width: 235px;
-            aspect-ratio: 235/381;
-            margin: 0 auto;
-        }
-        .imgbx img{
-            object-fit: cover;
-            width: 100%;
-            height: 100%;
-            object-position: left;
-        }
-        .imgbx.ib2 img{
-            object-position: right;
-        }
-    </style>
-    <script>
-        /* 
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>JS9-4.로컬 스토리지</title>
+        <style>
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .tit {
+                max-width: 1000px;
+                height: 25vh;
+                margin: 0 auto;
+                background: url(https://www.crowdnet.or.kr/files/recu/06/20220720153040030_06_47087_20220725_1869.PNG)
+                    center 25%/50%;
+            }
+            .wrap {
+                max-width: 1000px;
+                min-height: 100vh;
+                display: flex;
+                margin: 0 auto;
+            }
+            .wrap > div {
+                flex: 1;
+                box-sizing: border-box;
+                border: 4px double darkblue;
+                text-align: center;
+            }
+            .imgbx {
+                max-width: 235px;
+                aspect-ratio: 235/381;
+                margin: 0 auto;
+            }
+            .imgbx img {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+                object-position: left;
+            }
+            .imgbx.ib2 img {
+                object-position: right;
+            }
+        </style>
+        <script>
+            /* 
             [ JS 로컬스토리지 : localStorage ]
             - window하위객체 window.localStorage
             -> window는 주로 생략함!
@@ -76,124 +78,117 @@
             https://www.w3schools.com/js/js_api_web_storage.asp
         */
 
+            // 전역변수
+            let com_name;
+            let com_role;
+            let com_cat;
 
-        // 전역변수
-        let com_name;
+            // 초기셋팅 함수
+            function startFn(pm) {
+                if (pm === "로칼쓰") {
+                    localStorage.setItem("lname", "이정재");
+                    localStorage.setItem("lrole", "박평호역");
+                    localStorage.setItem("lcat", "조직내 스파이를 색출하는 해외팀 안기부팀장");
+                    // 확인
+                    console.log("로칼:", localStorage.length);
+                } else if (pm === "세션쓰") {
+                    sessionStorage.setItem("sname", "정우성");
+                    sessionStorage.setItem("srole", "김정도역");
+                    sessionStorage.setItem("scat", "국내팀 안기부팀장,박평호랑 사이나쁨");
+                    // 확인
+                    console.log("세션:", sessionStorage.length);
+                }
+            } ///////////// startFn //////////////
+            // 전체지우기 함수
+            function delFn(pm) {
+                if (pm === "로칼쓰") {
+                    localStorage.clear();
+                    // 확인
+                    console.log("로칼:", localStorage.length);
+                } else if (pm === "세션쓰") {
+                    sessionStorage.clear();
+                    // 확인
+                    console.log("세션:", sessionStorage.length);
+                }
+            } ///////////// startFn //////////////
 
+            // 보여줘 함수
+            function showFn(pm) {
+                //pm - 선택부모요소
 
-       // 초기셋팅 함수
-       function startFn(pm){
-            if(pm==="로칼쓰"){
-                localStorage.setItem("lname","이정재");
-                localStorage.setItem("lrole","박평호역");
-                localStorage.setItem("lcat","조직내 스파이를 색출하는 해외팀 안기부팀장");
-                // 확인
-                console.log("로칼:",localStorage.length);
-            }
-            else if(pm==="세션쓰"){
-                sessionStorage.setItem("sname","정우성");
-                localStorage.setItem("srole","김정도역");
-                localStorage.setItem("scat","국내팀 안기부팀장,박평호랑 사이나쁨");
-                // 확인
-                console.log("세션:",sessionStorage.length);
-            }
+                // 로컬스토리지/세션스토리지 분기
+                if (pm === ".local") {
+                    com_name = localStorage.getItem("lname");
+                } else if (pm === ".session") {
+                    com_name = sessionStorage.getItem("sname");
+                }
 
+                // 출력하기
+                document.querySelector(pm + " .nm")
+                .innerText = com_name;
+                document.querySelector(pm + " .role")
+                .innerText = com_role;
+                document.querySelector(pm + " .cat")
+                .innerText = com_cat;
+            } ////////////// showFn ////////////////////
+        </script>
+    </head>
+    <body>
+        <div class="tit"></div>
+        <div class="wrap">
+            <div class="local">
+                <h2>로칼쓰님</h2>
+                <div class="imgbx">
+                    <img
+                        src="https://img.marieclairekorea.com/2022/08/mck_62e9fd08ca1bd.jpg"
+                        alt="이정재" />
+                </div>
+                <ol>
+                    <li>당신의 이름은? : <span class="nm"></span></li>
+                    <li>영화속 역할은? : <span class="role"></span></li>
+                </ol>
 
-       } ///////////// startFn //////////////
-       // 전체지우기 함수
-       function delFn(pm){
-            if(pm==="로칼쓰"){
-                localStorage.clear();
-                // 확인
-                console.log("로칼:",localStorage.length);
-            }
-            else if(pm==="세션쓰"){
-                sessionStorage.clear();
-                // 확인
-                console.log("세션:",sessionStorage.length);
-            }
+                <button onclick="startFn('로칼쓰')">처음</button>
+                <button onclick="">처리</button>
+                <button onclick="showFn('.local')">보여줘</button>
+                <button onclick="">추가</button>
+                <button onclick="delFn('로칼쓰')">전체삭제</button>
 
-
-       } ///////////// startFn //////////////
-
-       // 보여줘 함수
-       function showFn(pm){//pm - 선택부모요소
-
-            // 로컬스토리지/세션스토리지 분기
-            if(pm === ".local")
-                com_name = localStorage.getItem("lname");
-            else if(pm===".session")
-                com_name = sessionStorage.getItem("sname");
-
-            // 출력하기
-            document.querySelector(pm+" .nm")
-            .innerText = com_name;
-
-       } ////////////// showFn ////////////////////
-       
-    </script>
-</head>
-<body>
-    <div class="tit"></div>
-    <div class="wrap">
-        <div class="local">
-            <h2>로칼쓰님</h2>
-            <div class="imgbx">
-                <img src="https://img.marieclairekorea.com/2022/08/mck_62e9fd08ca1bd.jpg" alt="이정재">
+                <div class="inbx">
+                    <form action="" method="post">
+                        <ul>
+                            <li>
+                                <label for="idx">일련번호</label>
+                                <input type="text" id="idx" />
+                            </li>
+                            <li>
+                                <label for="cont">내용</label>
+                                <input type="text" id="cont" />
+                            </li>
+                            <li>
+                                <input type="submit" value="처리" id="sbtn" />
+                            </li>
+                        </ul>
+                    </form>
+                </div>
             </div>
-            <ol>
-                <li>
-                    당신의 이름은? : <span class="nm"></span>
-                </li>
-                <li>
-                    영화속 역할은? : <span class="role"></span>
-                </li>
-            </ol>
+            <div class="session">
+                <h2>세션쓰님</h2>
+                <div class="imgbx ib2">
+                    <img
+                        src="https://img.marieclairekorea.com/2022/08/mck_62e9fd08ca1bd.jpg"
+                        alt="정우성" />
+                </div>
+                <ol>
+                    <li>당신의 이름은? : <span class="nm"></span></li>
+                </ol>
 
-            <button onclick="startFn('로칼쓰')">처음</button>
-            <button onclick="">처리</button>
-            <button onclick="showFn('.local')">보여줘</button>
-            <button onclick="">추가</button>
-            <button onclick="delFn('로칼쓰')">전체삭제</button>
-
-            <div class="inbx">
-                <form action="" method="post">
-                <ul>
-                    <li>
-                        <label for="idx">일련번호</label>
-                        <input type="text" id="idx">
-                    </li>
-                    <li>
-                        <label for="cont">내용</label>
-                        <input type="text" id="cont">
-                    </li>
-                    <li>
-                        <input type="submit" value="처리" id="sbtn">
-                    </li>
-                </ul></form>
+                <button onclick="startFn('세션쓰')">처음</button>
+                <button onclick="">처리</button>
+                <button onclick="showFn('.session')">보여줘</button>
+                <button onclick="">추가</button>
+                <button onclick="delFn('세션쓰')">전체삭제</button>
             </div>
-
         </div>
-        <div class="session">
-            <h2>세션쓰님</h2>
-            <div class="imgbx ib2">
-                <img src="https://img.marieclairekorea.com/2022/08/mck_62e9fd08ca1bd.jpg" alt="정우성">
-            </div>
-            <ol>
-                <li>
-                    당신의 이름은? : <span class="nm"></span>
-                </li>
-            </ol>
-
-            
-            <button onclick="startFn('세션쓰')">처음</button>
-            <button onclick="">처리</button>
-            <button onclick="showFn('.session')">보여줘</button>
-            <button onclick="">추가</button>
-            <button onclick="delFn('세션쓰')">전체삭제</button>
-
-
-        </div>
-    </div>
-</body>
+    </body>
 </html>
