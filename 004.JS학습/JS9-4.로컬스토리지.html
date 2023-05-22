@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS9-4.로컬 스토리지</title>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+        }
+        .tit{
+            max-width: 1000px;
+            height: 25vh;
+            margin: 0 auto;
+            background: url(https://www.crowdnet.or.kr/files/recu/06/20220720153040030_06_47087_20220725_1869.PNG) center 25%/50%;
+        }
+        .wrap{
+            max-width: 1000px;
+            min-height: 100vh;
+            display: flex;
+            margin: 0 auto;
+        }
+        .wrap>div{
+            flex: 1;
+            box-sizing: border-box;
+            border: 4px double darkblue;
+            text-align: center;
+        }
+        .imgbx{
+            max-width: 235px;
+            aspect-ratio: 235/381;
+            margin: 0 auto;
+        }
+        .imgbx img{
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            object-position: left;
+        }
+        .imgbx.ib2 img{
+            object-position: right;
+        }
+    </style>
+    <script>
+        /* 
+            [ JS 로컬스토리지 : localStorage ]
+            1. 정의 : 브라우저별 로컬 어플리케이션 영역에 저장되는 스트링데이터 저장소(JS API)
+            2. 유지 : 같은 PC, 같은 브라우저(재설치없이사용) 일 경우 계속유지됨
+            3. 특징 : 모드 데이터는 키,값 쌍으로 구성되며 데이터값은 반드시 문자형으로 사용됨
+            4. 응용 : 데이터로 배열/객체를 사용할 경우 문자형 변환하여 넣고
+                        다시 객체형으로 파싱하여 사용한다!
+                    (1) 입력시 : JSON.stringify(배열/객체)
+                    (2) 사용시 : JSON.parse(문자형배열/객체)
+            5. 사용메서드 : 
+                (1) 값설정 : setItem(키명,값)
+                (2) 값읽기 : getItem(키명)
+                (3) 전체지우기 : clear()
+                (4) 키번호읽기 : key(순번) -> 0부터 (키이름리턴)
+                (5) 개별항목삭제 : removeItem(키명)
+                (6) 개수 : length
+
+            [  ]
+        */
+       
+    </script>
+</head>
+<body>
+    <div class="tit"></div>
+    <div class="wrap">
+        <div class="local">
+            <h2>로칼쓰님</h2>
+            <div class="imgbx">
+                <img src="https://img.marieclairekorea.com/2022/08/mck_62e9fd08ca1bd.jpg" alt="이정재">
+            </div>
+            <ol>
+                <li>
+                    당신의 이름은? : <span class="nm"></span>
+                </li>
+                <li>
+                    영화속 역할은? : <span class="role"></span>
+                </li>
+            </ol>
+
+            <button onclick="">처리</button>
+            <button onclick="">보여</button>
+            <button onclick="">추가</button>
+
+            <div class="inbx">
+                <form action="" method="post">
+                <ul>
+                    <li>
+                        <label for="idx">일련번호</label>
+                        <input type="text" id="idx">
+                    </li>
+                    <li>
+                        <label for="cont">내용</label>
+                        <input type="text" id="cont">
+                    </li>
+                    <li>
+                        <input type="submit" value="처리" id="sbtn">
+                    </li>
+                </ul></form>
+            </div>
+
+        </div>
+        <div class="session">
+            <h2>세션쓰님</h2>
+            <div class="imgbx ib2">
+                <img src="https://img.marieclairekorea.com/2022/08/mck_62e9fd08ca1bd.jpg" alt="정우성">
+            </div>
+            <ol>
+                <li>
+                    당신의 이름은? : <span class="nm"></span>
+                </li>
+            </ol>
+
+        </div>
+    </div>
+</body>
+</html>
