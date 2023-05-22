@@ -260,6 +260,37 @@ $(function () { //// jQB2 //////////////////////////
     ////////// video태그 기능 컨트롤 ////////////////
     ////////////////////////////////////////////////
 
+    // 2. 동영상 컨트롤 기능구현하기 //////////////////
+
+    // 2-1. 재생/멈춤 기능 /////////////////////
+    // 2-1-1. 마우스 오버/아웃시 이미지변경하기
+    // 대상: .btnpp img
+    // 제이쿼리 메서드 : hover(함수1,함수2)
+    $(".btnpp img").hover(
+        function(){ // over - 진한이미지
+            // 이미지 경로 읽어오기
+            let csrc = $(this).attr("src");
+            // 이미지 경로 변경하기 : ".png" -> "-1.png"
+            // JS메서드 replace(바꿀값,바뀔값)
+            csrc = csrc.replace(".png","-1.png");
+            console.log("현재경로:",csrc);
+            // 실제 이미지 변경하기
+            $(this).attr("src",csrc);
+
+        },
+        function(){ // out - 흐린이미지
+            // 이미지 경로 읽어오기
+            let csrc = $(this).attr("src");
+            // JS메서드 replace(바꿀값,바뀔값)
+            csrc = csrc.replace("-1.png",".png");
+            console.log("현재경로:",csrc);
+            // 실제 이미지 변경하기
+            $(this).attr("src",csrc);
+
+        }
+    ); //////// hover ///////////
+
+
     
 
 
