@@ -46,6 +46,9 @@
     <script>
         /* 
             [ JS 로컬스토리지 : localStorage ]
+            - window하위객체 window.localStorage
+            -> window는 주로 생략함!
+
             1. 정의 : 브라우저별 로컬 어플리케이션 영역에 저장되는 스트링데이터 저장소(JS API)
             2. 유지 : 같은 PC, 같은 브라우저(재설치없이사용) 일 경우 계속유지됨
             3. 특징 : 모드 데이터는 키,값 쌍으로 구성되며 데이터값은 반드시 문자형으로 사용됨
@@ -62,7 +65,55 @@
                 (6) 개수 : length
 
             [  ]
+
+
+            -> w3 schools 참고
+            https://www.w3schools.com/js/js_api_web_storage.asp
         */
+
+
+        // 전역변수
+        let loc_name;
+        let sec_name;
+
+
+       // 초기셋팅 함수
+       function startFn(pm){
+            if(pm==="로칼쓰"){
+                localStorage.setItem("lname","이정재");
+                // 확인
+                console.log("로칼:",localStorage.length);
+            }
+            else if(pm==="세션쓰"){
+                sessionStorage.setItem("sname","정우성");
+                // 확인
+                console.log("세션:",sessionStorage.length);
+            }
+
+
+       } ///////////// startFn //////////////
+       // 전체지우기 함수
+       function delFn(pm){
+            if(pm==="로칼쓰"){
+                localStorage.clear();
+                // 확인
+                console.log("로칼:",localStorage.length);
+            }
+            else if(pm==="세션쓰"){
+                sessionStorage.clear();
+                // 확인
+                console.log("세션:",sessionStorage.length);
+            }
+
+
+       } ///////////// startFn //////////////
+
+       // 보여줘 함수
+       function showFn(pm){//pm - 선택부모요소
+            document.querySelector(pm+" .nm")
+            .innerText = localStorage.getItem("lname");
+
+       } ////////////// showFn ////////////////////
        
     </script>
 </head>
@@ -83,9 +134,11 @@
                 </li>
             </ol>
 
+            <button onclick="startFn('로칼쓰')">처음</button>
             <button onclick="">처리</button>
-            <button onclick="">보여</button>
+            <button onclick="showFn('.local')">보여줘</button>
             <button onclick="">추가</button>
+            <button onclick="delFn('로칼쓰')">전체삭제</button>
 
             <div class="inbx">
                 <form action="" method="post">
@@ -115,6 +168,14 @@
                     당신의 이름은? : <span class="nm"></span>
                 </li>
             </ol>
+
+            
+            <button onclick="startFn('세션쓰')">처음</button>
+            <button onclick="">처리</button>
+            <button onclick="showFn('.session')">보여줘</button>
+            <button onclick="">추가</button>
+            <button onclick="delFn('세션쓰')">전체삭제</button>
+
 
         </div>
     </div>
