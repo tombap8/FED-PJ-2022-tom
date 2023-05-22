@@ -119,8 +119,12 @@
                 // 로컬스토리지/세션스토리지 분기
                 if (pm === ".local") {
                     com_name = localStorage.getItem("lname");
+                    com_role = localStorage.getItem("lrole");
+                    com_cat = localStorage.getItem("lcat");
                 } else if (pm === ".session") {
                     com_name = sessionStorage.getItem("sname");
+                    com_role = sessionStorage.getItem("srole");
+                    com_cat = sessionStorage.getItem("scat");
                 }
 
                 // 출력하기
@@ -146,13 +150,14 @@
                 <ol>
                     <li>당신의 이름은? : <span class="nm"></span></li>
                     <li>영화속 역할은? : <span class="role"></span></li>
+                    <li>캐릭터는? : <span class="cat"></span></li>
                 </ol>
 
                 <button onclick="startFn('로칼쓰')">처음</button>
-                <button onclick="">처리</button>
                 <button onclick="showFn('.local')">보여줘</button>
-                <button onclick="">추가</button>
                 <button onclick="delFn('로칼쓰')">전체삭제</button>
+                <button onclick="">처리</button>
+                <button onclick="">추가</button>
 
                 <div class="inbx">
                     <form action="" method="post">
@@ -181,13 +186,15 @@
                 </div>
                 <ol>
                     <li>당신의 이름은? : <span class="nm"></span></li>
+                    <li>영화속 역할은? : <span class="role"></span></li>
+                    <li>캐릭터는? : <span class="cat"></span></li>
                 </ol>
 
                 <button onclick="startFn('세션쓰')">처음</button>
-                <button onclick="">처리</button>
                 <button onclick="showFn('.session')">보여줘</button>
-                <button onclick="">추가</button>
                 <button onclick="delFn('세션쓰')">전체삭제</button>
+                <button onclick="">처리</button>
+                <button onclick="">추가</button>
             </div>
         </div>
     </body>
