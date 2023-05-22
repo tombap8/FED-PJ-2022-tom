@@ -1,0 +1,16 @@
+[ 리엑트 CDN방식 호출코드! ]
+
+<!-- 1.리액트 기본 라이브러리 -->
+<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+<!-- 2.리액트 가상돔 라이브러리 -->
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+<!-- 3.리액트 바벨 라이브러리 -->
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+
+
+<!-- 아래쪽에 나의 JS : 반드시 type="text/babel" 쓸것! -->
+<!-- import할 모듈JS가 위쪽에 위치 -->
+<script src="모듈JS" data-plugins="transform-es2015-modules-umd" type="text/babel"></script>
+<!-- 메인 JS가 아래쪽에 위치 -->
+<script src="메인JS" data-plugins="transform-es2015-modules-umd" type="text/babel"></script>

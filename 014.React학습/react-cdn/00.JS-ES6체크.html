@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>00. JS ES6버전 문법 사전체크!</title>
+    <script>
+        // 아래 8가지 ES6버전의 문법이 리액트에서 
+        // 주요하게 사용된다!
+
+        // 1. 클래스 : JS5-1.1, JS5-1.2
+
+        // 2. 화살표함수 : JS5-2
+
+        // 3. 새로운 변수선언 : JS2-2
+
+        // 4. 배열 메서드 : map()
+        // -> 배열을 자동으로 돌면서 목록을 만들어준다!
+        const arr1 = ["수박","사과","단감"];
+        console.log(arr1);
+        // document.write(arr1);
+        // 원래는 for of 또는 forEach() 메서드로
+        // 순회하면서 코드를 생성하였음!
+        // 다른 쉬운 방법이 있으니.... map()!
+        const list = arr1.map(val => `<h1>${val}</h1>`);
+        console.log(list);
+        // document.write(list);
+        // 기존 배열을 중간에 변경하여 태그를 씌워줄 수 있다!
+        // for of / forEach() 의 순회와 다른점은?
+        // 다시 배열에 담아준다!!!
+
+        // 5. JS 구조화
+        // -> 배열을 쪼개서 변수에 배열값을 하나씩 담는 쉬운방법
+        // 위의 배열을 사용하여... 배열값을 각각의 변수에 담기!
+        let fruit1 = list[0];
+        let fruit2 = list[1];
+        let fruit3 = list[2];
+        console.log("각각의 변수에 배열값 담고 출력:",
+        fruit1,fruit2,fruit3);
+
+        // 쉬운 방법 : 구조화방식!
+        // 변수선언 [변수1,변수2,변수3] = 배열변수
+        let [myGet,mySo,myTT] = list;
+        console.log("구조화방식으로 담고 출력:",
+        myGet,mySo,myTT);
+
+        // 6. 모듈 문법 : JS9-2
+
+        // 7. 삼항연산자 : JS2-1
+
+        // 8. 스프레드 연산자 : ... (점3개로 표시 -> 배열/객체값 순서표시)
+        // 기존배열/객체 전체나 일부를 배열이나 객체로 빠르게 복사!!!
+        // 배열값1
+        const arr2 = [30,40,80,70];
+        const arr3 = [100,200,300,800,900];
+        const addAll = [...arr2,...arr3];
+        console.log("스프레드 연산자로 배열합침!",addAll);
+
+        // 객체의 경우
+        const cars = {
+            brand: "현대",
+            model: "그랜다이져",
+            color: "검정색"
+        }
+        // 2022년 추가정보 객체
+        const newCars = {
+            type: "썬루프",
+            year: "2022",
+            color: "흰색" // 나중것이 같은 속성값을 덮어씀!
+        }
+        // 객체 합치기! 배열은 대괄호[], 객체는 중괄호{}
+        const myNewInfo = {...cars,...newCars};
+        console.log("새로운 자동차정보:",myNewInfo);
+        // 결과는? 합쳐졌고 같은속성은 값이 변경됨!
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>리액트 잘해보자!</title>
+    <style>
+      h1 {
+        text-align: center;
+      }
+      nav ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        border: 4px ridge darkgreen;
+      }
+      nav ul li {
+        padding: 5px 10px;
+      }
+      nav a {
+        font-size: 20px;
+        color: gray;
+        text-decoration: none;
+      }
+      nav li.on a{
+        text-decoration: underline;
+        text-decoration-style: wavy;
+        color: #000;
+        font-weight: bold;
+      }
+      nav a:hover {
+        text-decoration: underline;
+        color: darkblue;
+      }
+      .cont {
+        margin: 15px;
+        border: 1px solid green;
+        overflow: hidden;
+      }
+      #myifr {
+        width: 100%;
+        min-height: 800px;
+        border: none;
+        overflow: hidden;
+      }
+    </style>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const list = document.querySelectorAll("nav a");
+        const listPrt = document.querySelectorAll("nav ul li");
+        const ifr = document.querySelector("#myifr");
+        list.forEach((ele) => {
+          ele.onclick = () => {
+            ifr.src = ele.href;
+            listPrt.forEach(ele=>ele.classList.remove("on"));
+            ele.parentElement.classList.add("on");
+            return false;
+          }; ///////// click /////////
+        }); //////// forEach ////////
+      }); /////////////// load /////////////////
+
+      function autoResize(i) {
+        setTimeout(() => {
+            var ifrH = i.contentWindow.document.body.scrollHeight;
+            i.height = ifrH + 50;
+            console.log(ifrH);
+            
+        }, 200);
+      }
+    </script>
+  </head>
+  <body>
+    <h1>리액트 : ReactJS</h1>
+    <nav>
+      <ul>
+        <li class="on">
+          <a href="./01.시작하기.html">01.시작하기</a>
+        </li>
+        <li>
+          <a href="./02.HTML출력.html">02.HTML출력</a>
+        </li>
+        <li>
+          <a href="./03.JSX.html">03.JSX</a>
+        </li>
+        <li>
+          <a href="./04.컴포넌트.html">04.컴포넌트</a>
+        </li>
+        <li>
+          <a href="./05.Props.html">05.Props</a>
+        </li>
+        <li>
+          <a href="./06.Event.html">06.Event</a>
+        </li>
+        <li>
+          <a href="./07.조건렌더링.html">07.조건렌더링</a>
+        </li>
+      </ul>
+    </nav>
+    <main class="cont">
+      <iframe id="myifr" src="./01.시작하기.html" onload="autoResize(this)"></iframe>
+      <!-- <iframe id="myifr" src="https://ko.reactjs.org/tutorial/tutorial.html" onload="autoResize(this)"></iframe> -->
+    </main>
+  </body>
+</html>
