@@ -1,0 +1,612 @@
+@charset "utf-8";
+/* 메가박스 PJ 메인 CSS - main.css */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    /* 보이는 화면기준 채우기 */
+    /* body하위 요소의 높이값 %의 기준이됨! */
+    overflow: hidden;
+    /* 스크롤바 없애기(스크롤안됨!) */
+}
+
+/* 공통셋팅 */
+a {
+    text-decoration: none;
+    color: #fff;
+    text-shadow: 0 0 2px #777;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+ul::after {
+    /* float해제 */
+    content: '';
+    display: block;
+    clear: both;
+}
+
+li {
+    float: left;
+    /* 옆으로 흐르게 */
+}
+
+img {
+    border: none;
+    /* 이미지 링크시 테두리없앰 */
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+}
+
+/* 공통 class */
+
+
+/*드래그 선택 안되게 하는 CSS*/
+.disableselect {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Chrome/Safari/Opera */
+    -khtml-user-select: none;
+    /* Konqueror */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge*/
+    user-select: none;
+    /* Non-prefixed version, currently 
+    not supported by any browser */
+}
+
+.disabledrag {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+}
+
+
+/* 페이지 공통 class */
+.page {
+    position: relative;
+    /* 부모자격 */
+    /* 한페이지 보이는 화면 채우기 */
+    width: 100%;
+    height: 100%;
+    /* 
+        width: 100vw;
+        height: 100vh;
+        보이는 화면 기준의 뷰포트단위를 쓰면
+        body의 height 100%가 필요없다!
+        왜냐하면 보이는 화면을 기준하니까!
+        단, vw단위는 스크롤바 트랙까지 포함한
+        화면 전체를 기준하므로
+        데스트탑에서는 100%를 사용하는게 좋다!
+        (이유는 가로스크롤바가 생기게 되므로!)
+     */
+}
+
+/* IR(배경이미지 설명 숨기기) class */
+.ir {
+    display: block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+/* 중앙 속박스 */
+.ibx {
+    width: 1920px;
+    max-width: 100%;
+    /* 1920px보다 작을땐 100%를 유지함! */
+    margin: 0 auto;
+    /* 마영오 - 중앙정렬 */
+}
+
+/* 1. 상단영역 */
+#top {
+    position: fixed;
+    /* 상단고정-보이는화면기준 */
+    width: 100%;
+    z-index: 9999;
+    /* 맨위! */
+    background-color: rgba(0, 0, 0, .7);
+}
+
+/* 상단영역 속박스 */
+.top {
+    position: relative;
+    /* 부모자격 */
+    height: 80px;
+}
+
+/* 1-1.로고 */
+#logo {
+    width: 250px;
+    height: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+
+#logo img {
+    width: 100%;
+    margin-top: -24px;
+}
+
+/* 1-2. GNB 메뉴 */
+.gnb {
+    position: absolute;
+    /* 부모는? .top */
+    top: 40px;
+    right: 2%;
+}
+
+.gnb li {
+    margin: 0 7px;
+}
+
+/* 메뉴에 마우스 오버시 + li에 on클래스 있는 경우 */
+.gnb a:hover,
+.gnb li.on a {
+    display: inline-block;
+    /* 트랜스폼적용위해 */
+    color: lime;
+    text-decoration: overline;
+    /* 윗줄 */
+    transform: scale(1.1);
+}
+
+/* 2. 페이지영역 */
+/* 개별 페이지 셋팅 */
+#pg1 {
+    background: #000 url(../images/cover.jpg) no-repeat center/130%;
+}
+
+#pg2 {
+    background: url(../images/cover2.jpg) no-repeat top/cover;
+}
+
+#pg3 {
+    background: url(../images/cover3.jpg) no-repeat top/cover;
+}
+
+#pg4 {
+    background: url(../images/cover4.jpg) no-repeat top/cover;
+}
+
+
+/* 인디케이터 */
+.indic {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    /* 세로중앙이동 */
+    left: 5%;
+    width: 20px;
+    /* outline: 3px dotted blue; */
+}
+
+.indic li {
+    width: 100%;
+    height: 10px;
+    margin: 3px 0;
+    cursor: pointer;/* 손가락모양 */
+}
+
+/* a요소 */
+.indic a {
+    display: block;
+    width: 100%;
+    height: 2px;
+    margin-top: 4px;
+    background-color: #ccc;
+    box-shadow: 1px 1px 1px #777;
+    transition: width .4s;
+}
+
+/* 마우스 오버시 + 클래스 "on" */
+.indic li:hover a,
+.indic li.on a {
+    width: 150%;
+    background-color: #fff;
+}
+
+
+/* 설명글자숨기기 */
+.indic span {
+    display: none;
+}
+
+
+/* 2. 페이지 영역 */
+
+/* 2-1. 영화예고편 페이지 */
+#pg1{
+    position: relative;
+}
+/* 2-1-1.스크린박스 */
+#screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 32.3%;
+    /* outline: 2px dashed lime; */
+    display: none;/* 처음에 안보임! */
+    
+    /*트랜지션:속시이지*/
+    transition: all 1s ease-in-out;
+}
+
+/*스크린 확대 class*/
+#screen.on{
+    width: 70%;
+    z-index: 1;
+}
+/* 스크린비율 가상요소 */
+#screen::before{
+    content: '';
+    display: block;
+    padding-top: 55%;
+}
+
+/* 동영상 */
+#mv {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 2-1-2.예고편 선택박스 */
+/* 포스터 전체박스 */
+#gbx {    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    /* outline: 4px dashed blue; */
+}
+/* 포스터박스 */
+.gbx{
+    position: relative;
+    /* 부모자격 */
+    width: 20%;
+    /* max-width: 300px; */
+    /* 최대크기지정 */
+    margin: 0 auto;
+}
+.gbx::before{
+    content: '';
+    display: block;
+    padding-top: 100%;
+}
+
+/* 갤러리 이미지 */
+.gbx img{
+    position: absolute;
+    /* 부모는? .gbx */
+    top: 0;
+    width: 100%;
+    box-shadow: 6px 6px 5px #333;
+    border-radius: 15px;
+    cursor: pointer;/* 손가락모양 */
+
+    /* 트랜지션 */
+    transition: all .4s ease-in-out;
+}
+
+/* 개별이미지 설정 */
+
+/* 왼쪽 끝 */
+.gbx img:nth-child(1){
+    top: -40%;
+    left: -210%;
+    transform: scale(.7);
+    opacity: 0;/* 안보임 */
+    cursor: default;
+}
+/* 왼쪽 바로옆 */
+.gbx img:nth-child(2){
+    top: -20%;
+    left: -110%;
+    transform: scale(.9);
+}
+/* 중앙이미지 */
+.gbx img:nth-child(3) {
+    top: 0;
+    left: 0;
+    transform: scale(1);
+}
+/* 오른쪽 바로옆 */
+.gbx img:nth-child(4){
+    top: -20%;
+    left: 110%;
+    transform: scale(.9);
+}
+/* 오른쪽 끝 */
+.gbx img:nth-child(5){
+    top: -40%;
+    left: 210%;
+    transform: scale(.7);
+    opacity: 0;/* 안보임 */
+    cursor: default;
+}
+
+/* 이동버튼 공통 */
+.abtn{
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 4%;
+    max-width: 55px;
+    /* 최대크기지정 */
+}
+.abtn img{
+    width: 100%;
+    /* 높이값은 자동조절 */
+}
+/* 오른쪽버튼 */
+.rb{
+    left: 90%;
+}
+/* 왼쪽버튼 */
+.lb{
+    left: 10%;
+}
+
+/* 동영상 제어버튼 */
+
+/* 공통 */
+.ctrls{
+    opacity: 0;
+    transition: opacity .3s;
+}
+/* 스크린 오버시 컨트롤 보이기 */
+#screen:hover .ctrls{
+    opacity: 1;
+}
+
+/* 재생/멈춤버튼 */
+.btnpp{
+    position: absolute;
+    /* 부모는? #screen */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20%;
+}
+.btnpp img{
+    width: 100%;
+}
+
+/* 소리표시버튼 */
+.btnsnd{
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    width: 5%;
+}
+.btnsnd img{
+    width: 100%;
+}
+
+/* 동영상 진행바 */
+/* 진행바 트랙 */
+.pBar {
+    position: absolute;
+    bottom: 4%;
+    left: 2%;
+    width: 96%;
+    height: 6px;
+    background-color: rgba(255,255,255,.5);
+    cursor: pointer;
+    transform: scaleY(.5);
+    /* 스케일을 Y축으로 반으로 줄임 */
+    transition: transform .2s;
+}
+/* .pBar에 마우스 오버시 Y축 크기 복원하기 */
+.pBar:hover {
+    transform: scaleY(1);
+}
+
+/* 시간 진행바 */
+.tBar{
+    position: absolute;
+    /* 부모는? .pBar */
+    top: 0;
+    left: 0;
+    width: 0%;/* 처음에 0% */
+    height: 100%;
+    background: red;
+}
+
+/* 진행바 꼭지 */
+.tBar::after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: -5px;
+    right: -8px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #f00;
+    transform: scale(0);
+    /* 크기를 안보이게 스케일 0으로 */
+    transition: transform .2s;
+}
+/* .pBar에 마우스 오버시 진행바 꼭지를 원래 크기로 scale복원하기 */
+.pBar:hover .tBar::after{
+    transform: scale(1);
+}
+
+/* 동영상 시간표시 */
+.ctime {
+    position: absolute;
+    bottom: 7%;
+    right: 3%;
+    font: 10px Verdana;
+    color: #fff;
+    text-shadow: 0 0 5px #777;
+}
+
+/*볼륨버튼*/
+.volume{
+    position: absolute;
+    bottom: 9%;
+    left: 8%;
+    width: 60px;
+    height: 1px;
+    background-color: #fff;
+}
+/*볼륨바*/
+#bar{
+    position: relative;
+    left: 20%;/*첫볼륨위치(JS에서 20%볼륨)*/
+    display: block;
+    width: 6px;
+    height: 11px;
+    background-color: #fff;
+    margin-top: -5px;
+    box-shadow: 0 0 3px #777 inset;/*안쪽그림자*/
+}
+
+/*축소/확대버튼*/
+.expand{
+    position: absolute;
+    bottom: 7%;
+    left: 3%;
+    font: 16px Verdana;
+    color: #CCC;
+    text-shadow: 0 0 2px #777;
+}
+/*처음에 두번째 축소하기 버튼 숨기기*/
+.expand a:last-child{
+    display: none;
+}
+/*#screen에 클래스 "on"이 적용된 경우*/
+/*확대하기 버튼 숨기기*/
+#screen.on .expand a:first-child{
+    display: none;
+}
+/*축소하기 버튼 보이기*/
+#screen.on .expand a:last-child{
+    display: inline;
+}
+
+/* 되돌리기 버튼 */
+.rtn {
+    position: absolute;
+    top: 30%;
+    right: 30%;
+    display: none;
+}
+.rtn img{
+    width: 35px;
+}
+
+
+/******** 2. 큐레이션 페이지: typed 플러그인 **********/
+.type-wrap{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 620px;
+    height: 300px;
+    font: bold 20px/50px "맑은 고딕";
+    color: #fff;
+    text-shadow: 0 0 3px #777;
+    padding: 20px;
+    /*outline: 3px dotted lime;*/
+}
+/*플러그인 문구에 태그를 사용할 수 없으므로
+css에서 가상요소 첫번째줄만 적용하는 코딩이 필요!*/
+.type-wrap::first-line{
+    color: powderblue;
+    font-size: 40px;
+    line-height: 100px;
+}
+
+/************* 3. 영화관 페이지 : 스와이퍼 플러그인 ***********/
+/*스와이퍼 전체박스*/
+.swiper-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 250px;
+    height: 370px;
+    box-shadow: 0 0 10px 5px #fff;
+}
+/*스와이퍼 개별리스트*/
+.swiper-slide{
+    display: flex;
+    /*원래 flex는 부모박스에 잡지만
+    swiper는 자식요소에 셋팅한다!*/
+    justify-content: center;
+    align-content: center;
+}
+/*스와이퍼 이미지*/
+.swiper-slide img{
+    width: 100%;
+    height: 100%;
+}
+
+/***** 4.특별관 페이지 - photobox 플러그인 디자인***/
+#gallery{
+    position: absolute;
+    bottom: 10%;
+    width: 100%;
+    text-align: center;
+}
+#gallery img{
+    height: 100px;
+    border: 1px solid #fff;
+    transition: all .4s ease-out;
+}
+#gallery img:hover{
+    transform: scale(1.2);
+    z-index: 1;
+}
+
+/*특별관 타이틀박스*/
+.txts{
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    font: bold 2rem "맑은 고딕";
+    color: #fff;
+}
+/*패딩으로 띄어쓰기*/
+.pd{
+    padding-right: 10px;
+}
+/*float해제로 줄바꿈*/
+.ent{
+    clear: left;
+}
+/*글자초기셋팅*/
+.txts > li{
+    position: relative;
+    top: -100px;
+    left: 200px;
+    opacity: 0;
+}
+

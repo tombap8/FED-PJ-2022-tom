@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Megabox PJ</title>
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/photobox.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/jquery-3.5.0.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/autoScroll.js"></script>
+    <script src="js/typed.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/jquery.photobox.js"></script>
+    <script src="js/main.js"></script>
+</head>
+
+<body>
+    <!-- 1. 상단영역 -->
+    <div id="top">
+        <header class="top ibx">
+            <!-- 1-1.로고 -->
+            <h1 id="logo">
+                <a href="#">
+                    <img src="images/logo.png" alt="메가박스로고">
+                </a>
+            </h1>
+            <!-- 1-2.GNB메뉴 -->
+            <nav class="gnb">
+                <ul>
+                    <li class="on">
+                        <a href="#pg1">영화</a>
+                    </li>
+                    <li>
+                        <a href="#pg2">큐레이션</a>
+                    </li>
+                    <li>
+                        <a href="#pg3">영화관</a>
+                    </li>
+                    <li>
+                        <a href="#pg4">특별관</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+
+
+    <!-- 2. 페이지영역 -->
+
+    <!-- 2-1. 영화예고편 페이지 -->
+    <section id="pg1" class="page">
+
+        <!-- 2-1-1.스크린박스 -->
+        <div id="screen" class="disableselect disabledrag">
+            <!-- 2-1-1-1.동영상 -->
+            <video src="mv/mv1.mp4" id="mv"></video>
+            <!-- 2-1-1-2.재생/멈춤버튼 -->
+            <div class="btnpp ctrls">
+                <a href="#">
+                    <img src="images/vbt1.png" alt="재생멈춤버튼">
+                </a>
+            </div>
+            <!-- 2-1-1-3.소리표시버튼 -->
+            <div class="btnsnd ctrls">
+                <a href="#">
+                    <img src="./images/speaker_blue.png" alt="스피커">
+                </a>
+            </div>
+            <!-- 2-1-1-4.동영상 진행바 -->
+            <div class="pBar ctrls">
+                <div class="tBar"></div>
+            </div>
+
+            <!-- 2-1-1-5.동영상 시간표시 -->
+            <div class="ctime ctrls">
+                <span class="current">01:20</span> /
+                <span class="duration">03:50</span>
+            </div>
+
+            <!-- 2-1-1-6.볼륨버튼 -->
+            <div class="volume ctrls">
+                <span id="bar"></span>
+            </div>
+
+            <!-- 2-1-1-7.확대/축소버튼 -->
+            <div class="expand ctrls">
+                <a href="#" title="화면확대하기">▣</a>
+                <a href="#" title="화면축소하기">▦</a>
+            </div>
+        </div><!-- #screen -->
+
+        <!-- 2-1-2.예고편 선택박스 -->
+        <nav id="gbx">
+            <div class="gbx">
+                <img src="images/cast01.jpg" alt="분노의 질주" data-mv="mv1.mp4">
+                <img src="images/cast02.jpg" alt="엑시트" data-mv="mv2.mp4">
+                <img src="images/cast03.jpg" alt="봉오동전투" data-mv="mv3.mp4">
+                <img src="images/cast04.jpg" alt="광대들" data-mv="mv4.mp4">
+                <img src="images/cast05.jpg" alt="변신" data-mv="mv5.mp4">
+            </div>
+            <!-- 이동버튼 -->
+            <a href="#" class="abtn lb">
+                <img src="images/left_btn.png" alt="왼쪽버튼">
+            </a>
+            <a href="#" class="abtn rb">
+                <img src="images/right_btn.png" alt="오른쪽버튼">
+            </a>
+        </nav>
+        <!-- 되돌리기 버튼 -->
+        <a href="#" class="rtn">
+            <img src="images/return.png" alt="되돌리기">
+        </a>
+    </section>
+
+    <!--2-2.큐페이션 페이지:typed 플러그인-->
+    <section id="pg2" class="page">
+        <div class="type-wrap">
+            <span id="typed" style="white-space:pre;"></span>
+            <!--
+                white-space: pre
+                있는 그대로 화면에 출력!
+                이 설정이 없으면 줄바꿈 타이핑이 적용안됨!
+            -->
+        </div>
+    </section>
+
+    <!--2-3.영화관 페이지:swiper 플러그인-->
+    <section id="pg3" class="page">
+        <!-- Swiper -->
+        <div class="swiper-container">
+            <ul class="swiper-wrapper">
+                <li class="swiper-slide"><img src="c_imgs/mv1.jpg" alt="movie"></li>
+                <li class="swiper-slide"><img src="c_imgs/mv2.jpg" alt="movie"></li>
+                <li class="swiper-slide"><img src="c_imgs/mv3.jpg" alt="movie"></li>
+                <li class="swiper-slide"><img src="c_imgs/mv4.jpg" alt="movie"></li>
+                <li class="swiper-slide"><img src="c_imgs/mv5.jpg" alt="movie"></li>
+                <li class="swiper-slide"><img src="c_imgs/mv6.jpg" alt="movie"></li>
+                <li class="swiper-slide"><img src="c_imgs/mv7.jpg" alt="movie"></li>
+                <li class="swiper-slide"><img src="c_imgs/mv8.jpg" alt="movie"></li>
+                <li class="swiper-slide"><img src="c_imgs/mv9.jpg" alt="movie"></li>
+                <li class="swiper-slide"><img src="c_imgs/mv10.jpg" alt="movie"></li>
+
+
+            </ul>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Add Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </section>
+
+    <!--2-4.특별관 페이지:photobox 플러그인-->
+    <section id="pg4" class="page">
+        <!--타이틀 등장액션박스-->
+        <ul class="txts">
+            <li>영</li>
+            <li>화</li>
+            <li class="pd">를</li>
+            <li>본</li>
+            <li>다</li>
+            <li class="pd">는</li>
+            <li>것</li>
+            <li>,</li>
+            <li class="pd ent">그</li>
+            <li>놀</li>
+            <li>라</li>
+            <li class="pd">운</li>
+            <li>경</li>
+            <li>험</li>
+            <li class="pd">을</li>
+            <li>위</li>
+            <li>하</li>
+            <li>여</li>
+        </ul>
+
+        <!--포토박스 플러그인적용-->
+        <div id="gallery">
+            <a href="images/boutique_03.jpg">
+                <img src="images/boutique_03.jpg" alt="특별관이미지">
+            </a>
+            <a href="images/boutique_05.jpg">
+                <img src="images/boutique_05.jpg" alt="특별관이미지">
+            </a>
+            <a href="images/boutique_06.jpg">
+                <img src="images/boutique_06.jpg" alt="특별관이미지">
+            </a>
+            <a href="images/boutique_08.jpg">
+                <img src="images/boutique_08.jpg" alt="특별관이미지">
+            </a>
+            <a href="images/boutique_10.jpg">
+                <img src="images/boutique_10.jpg" alt="특별관이미지">
+            </a>
+            <a href="images/comfort.png">
+                <img src="images/comfort.png" alt="특별관이미지">
+            </a>
+            <a href="images/kids.png">
+                <img src="images/kids.png" alt="특별관이미지">
+            </a>
+            <a href="images/mx.jpg">
+                <img src="images/mx.jpg" alt="특별관이미지">
+            </a>
+            <!--동영상연결하기: a링크 속성 중 rel="video"
+            를 반드시 써줘야함. href에 실제 유튜브 영상 링크를 넣어줘야함-->
+            <a href="https://www.youtube.com/embed/umNopj9MQ9A" rel="video">
+                <img src="images/boutique_mv_cover.jpg" alt="메가박스 부티크">
+            </a>
+        </div>
+    </section>
+
+    <!-- 3. 인디케이터(위치표시자) -->
+    <nav class="indic">
+        <ul>
+            <li class="on">
+                <a href="#pg1"><span>영화</span></a>
+            </li>
+            <li>
+                <a href="#pg2"><span>큐레이션</span></a>
+            </li>
+            <li>
+                <a href="#pg3"><span>영화관</span></a>
+            </li>
+            <li>
+                <a href="#pg4"><span>특별관</span></a>
+            </li>
+        </ul>
+    </nav>
+
+
+</body>
+
+</html>
