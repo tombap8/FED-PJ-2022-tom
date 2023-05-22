@@ -73,8 +73,7 @@
 
 
         // 전역변수
-        let loc_name;
-        let sec_name;
+        let com_name;
 
 
        // 초기셋팅 함수
@@ -110,8 +109,16 @@
 
        // 보여줘 함수
        function showFn(pm){//pm - 선택부모요소
+
+            // 로컬스토리지/세션스토리지 분기
+            if(pm === ".local")
+                com_name = localStorage.getItem("lname");
+            else if(pm===".session")
+                com_name = sessionStorage.getItem("sname");
+
+            // 출력하기
             document.querySelector(pm+" .nm")
-            .innerText = localStorage.getItem("lname");
+            .innerText = com_name;
 
        } ////////////// showFn ////////////////////
        
