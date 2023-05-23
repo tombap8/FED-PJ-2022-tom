@@ -46,7 +46,8 @@
             }
 
             table {
-                margin: 20px;
+                width: 90%;
+                margin: 20px auto;
                 border-collapse: collapse;
             }
             table th {
@@ -306,8 +307,12 @@
 
                 // 2. 특정데이터 배열항목 삭제
                 // splice(순번,개수) -> 순번부터 몇개 지움
-                org.splice(i,1);
-                console.log("제거후객체:", org);
+                // confirm(메시지) 
+                // -> 확인,취소 중 확인일 경우 true (취소는 false)
+                if(confirm("정말정말정말로 지우시게요?")){
+                    org.splice(i,1);
+                    console.log("제거후객체:", org);
+                }
 
 
                 // 3. 객체를 문자형으로 변환후 로컬스토리지에 반영
