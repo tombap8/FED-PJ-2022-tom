@@ -213,20 +213,34 @@
                 org = JSON.parse(org);
                 console.log("변환객체:", org);
 
-                // i변수는 배열의 순번(유일키!)
-                org.forEach((val, i) => {
+                // 배열개수가 0이 아니면
+                if(org.length!==0){
+                    // i변수는 배열의 순번(유일키!)
+                    org.forEach((val, i) => {
+                        hcode += `
+                            <tr>
+                                <td>${val.idx}</td>
+                                <td>${val.tit}</td>
+                                <td>${val.cont}</td>
+                                <td>
+                                    <a href="#" 
+                                    onclick="delRec(${i})">×</a>
+                                </td>
+                            </tr>
+                        `;
+                    });
+
+                } ////// if ///////////////////
+                else{ // 데이터가 없는 경우
                     hcode += `
                         <tr>
-                            <td>${val.idx}</td>
-                            <td>${val.tit}</td>
-                            <td>${val.cont}</td>
-                            <td>
-                                <a href="#" 
-                                onclick="delRec(${i})">×</a>
+                            <td colspan="4" style="text-align:center">
+                                데이터가 없습니다...
                             </td>
                         </tr>
                     `;
-                });
+                } /////// else ///////////////////
+
 
                 hcode += "</table>";
 
@@ -280,6 +294,9 @@
             // 특정항목 데이터 삭제 함수 ///////
             function delRec(i) {
                 // i는 배열데이터 순번(유일키!)
+
+                // 기본기능막기(a요소)
+                event.preventDefault();
 
                 // 1. 로컬스토리지 데이터 가져오기 : minfo
                 // 가져온 후 객체형으로 사용하도록 파싱한다!!!
