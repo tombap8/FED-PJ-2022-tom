@@ -168,14 +168,25 @@ if(x<10000){
 const myele8 = <div>
     <h1>현재 내가 가진 돈은 {x}원!</h1>
     <h1>{txt}</h1>
-</div>
-
-;
+</div>;
 
 // 여덟번째 div요소에 출력하기
 ReactDOM.render(myele8, 
     document.querySelectorAll("#root>div")[7]);
 
+// JSX 표현식에 삼항연산자 사용하기
+let time = 10;
+
+const myele9 = (
+    <React.Fragment>
+        <h1>지금 몇시지? {time}시야!</h1>
+        <h1>{time > 9 ? "지금 집에 들어와!":"더 놀다와~!"}</h1>
+    </React.Fragment>
+);
+
+// 아홉번째 div요소에 출력하기
+ReactDOM.render(myele9, 
+    document.querySelectorAll("#root>div")[8]);
 
 /***************************************************** 
 
