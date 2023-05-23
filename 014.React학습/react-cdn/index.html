@@ -57,6 +57,10 @@
             listPrt.forEach(ele=>ele.classList.remove("on"));
             ele.parentElement.classList.add("on");
             return false;
+            // a요소 기본이동막기를 return false로 대신함
+            // 함수를 실행후 돌아갈때 false를 리턴함으로
+            // 부가적인 이동기능을 멈추게한다!
+            // 다른 방법으로는 event.preventDefault() 도 있음!
           }; ///////// click /////////
         }); //////// forEach ////////
       }); /////////////// load /////////////////
