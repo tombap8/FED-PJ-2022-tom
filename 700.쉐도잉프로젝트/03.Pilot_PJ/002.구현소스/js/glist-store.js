@@ -65,11 +65,26 @@ const store = new Vuex.Store({
             console.log("선택gdata:",dt.gdata[pm]);
             console.log("cart전:",localStorage.getItem("cart"));
 
-            // 로컬스 데이터 cart가 없으면 [] 배열형식으로 문자넣기
+            // 1. 로컬스 데이터 cart가 없으면 [] 배열형식으로 문자넣기
             if(localStorage.getItem("cart")==null)
                 localStorage.setItem("cart","[]");
 
             console.log("cart후:",localStorage.getItem("cart"));
+
+            // 2. 로컬스토리지 객체데이터 가져오기
+            // 입력된 데이터는 문자형 객체이므로
+            // 다시 파싱하여 원래 객체로 복원한다!
+            let org = localStorage.getItem("cart");
+            org = JSON.parse(org);
+            console.log("변환객체:", org);
+            
+            // 3. 배열뒤에 밀어넣기 메서드 : push(값)
+            org.push(dt.gdata[pm]);
+            console.log("넣은후:", org);
+
+            // 4. 객체를 문자형으로 변환후 로컬스토리지에 반영
+            localStorage.setItem("cart", JSON.stringify(org));
+            console.log("반영후 로칼쓰:", localStorage.getItem("cart"));
 
         }, /////////// setData 메서드 ///////////////////
 
