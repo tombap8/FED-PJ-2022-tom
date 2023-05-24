@@ -319,7 +319,9 @@ const Detail = {
                     <div>
                         <!--버튼영역-->
                         <button class="btn btn1">BUY NOW</button>
-                        <button class="btn">SHOPPING CART</button>
+                        <button class="btn scbtn"
+                        @click="$store.commit('setData',$route.params.id-1)"
+                        >SHOPPING CART</button>
                         <button class="btn">WISH LIST</button>
 
                     </div>
