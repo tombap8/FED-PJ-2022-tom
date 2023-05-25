@@ -151,9 +151,13 @@ const store = new Vuex.Store({
                 console.log("리스트구성 객체:", org);
 
                 // (2) 데이터를 이용하여 리스트 태그 만들기
-                let rec = "";
-                org.forEach((v,i)=>{ // v - 배열각 값 / i - 배열순번
-                    rec += `
+                // forEach((값,순번)=>{})
+                // map((값,순번)=>{})
+                // -> 차이는? map은 리턴값으로 처리할 경우
+                // 값을 자동으로 대입연산처리함!
+                // v - 배열각 값 / i - 배열순번
+                let rec = org.map((v,i)=> 
+                    `
                         <tr>
                             <!--상품이미지-->
                             <td>
@@ -185,8 +189,8 @@ const store = new Vuex.Store({
                             </td>
                         </tr>
 
-                    `;
-                })
+                    `
+                ); ////////// map //////////////
 
                 // 3. 생성된 카트리스트에 테이블 넣기
                 $("#cartlist").html(`
