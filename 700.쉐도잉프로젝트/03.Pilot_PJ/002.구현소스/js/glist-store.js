@@ -162,158 +162,199 @@ const store = new Vuex.Store({
                 } ////////// if ///////////////
 
                 // 2. 로컬스 데이터로 테이블 레코드 태그 구성하기
-
-                // (1) 로컬스 데이터 읽어와서 객체화하기
-                let org = localStorage.getItem("cart");
-                org = JSON.parse(org);
-                console.log("리스트구성 객체:", org);
-
-                // (2) 데이터를 이용하여 리스트 태그 만들기
-                // forEach((값,순번)=>{})
-                // map((값,순번)=>{})
-                // -> 차이는? map은 리턴값으로 처리할 경우
-                // 값을 자동으로 대입연산처리함!
-                // v - 배열각 값 / i - 배열순번
-
-                /* 
-                    [ forEach 메서드는 변수를 선언후 
-                        대입연산처리하여 값을 모아야함]
-
-                    let rec = "";
-                    org.forEach((v,i)=>{
-                        rec += `<li>${v}</li>`;
-                    })
-                    ____________________________
-                    반면...
-                    [ map 메서드는 변수에 직접할당해도
-                        리턴값을 대입연산처리해줌!]
-
-                    let rec = org.map((v,i)=> `<li>${v}</li>`)
-
-                */
-
-                let rec = org.map((v,i)=> 
-                    `
-                        <tr>
-                            <!--상품이미지-->
-                            <td>
-                                <img 
-                                src="${
-                    'images/goods/'+v.cat+'/'+v.ginfo[0]+'.png'
-                                }" 
-                                style="width:50px"
-                                alt="item">
-                            </td>
-                            <!-- 번호 : 리스트순서번호 -->
-                            <td>${i+1}</td>
-                            <!--상품명-->
-                            <td>${v.ginfo[1]}</td>
-                            <!--상품코드-->
-                            <td>${v.ginfo[2]}</td>
-                            <!--단가-->
-                            <td>${v.ginfo[3]}</td>
-                            <!--수량-->
-                            <td>1</td>
-                            <!--합계-->
-                            <td>${v.ginfo[3]}</td>
-                            <!--삭제-->
-                            <td>
-                                <button class="cfn" 
-                                data-idx="${v.idx}">
-                                    ×
-                                </button>
-                            </td>
-                        </tr>
-
-                    `
-                ); ////////// map //////////////
-
-                // 3. 생성된 카트리스트에 테이블 넣기
-                $("#cartlist")
-                // (1) html 테이블 태그 넣기
-                .html(`
-                    <a href="#" class="cbtn cbtn2">×</a>
-                    <table>
-                        <caption>
-                            <h1> 카트 리스트</h1> 
-                        </caption>
-                        <tr>
-                            <th>상품</th>
-                            <th>번호</th>
-                            <th>상품명</th>
-                            <th>상품코드</th>
-                            <th>단가</th>
-                            <th>수량</th>
-                            <th>합계</th>
-                            <th>삭제</th>
-                        </tr>
-                        ${rec}
-                    </table>
-                `) ///// html ////////
-                // (2)카트박스 CSS넣기
-                .css({
-                    position: "fixed",
-                    top:"0",
-                    right: "-60vw",
-                    width:"60vw",
-                    height:"100vh",
-                    backgroundColor:"rgba(255,255,255,.8)",
-                    zIndex:"99999999",
-                })
-                // (3) 등장애니메이션
-                .animate({
-                    right:"0"
-                },600,"easeOutQuint")
-                // (4) table css 넣기
-                .find("table")
-                .css({
-                    width:"90%",
-                    margin:"50px auto",
-                    fontSize:"14px",
-                    borderTop:"2px solid #222",
-                    borderBottom:"2px solid #222",
-                    borderCollapse:"collapse",
-                })
-                // (5) td css 넣기
-                .find("td")
-                .css({
-                    padding:"10px 0",
-                    borderTop:"1px solid #555",
-                    textAlign:"center",
-                })
-                // (6) th css 넣기
-                .parents("table")
-                .find("th")
-                .css({
-                    padding:"15px 0",
-                    backgroundColor:"#e5e5e5",
-                    fontSize:"16px",
-                })
-                // (7) caption css 넣기
+                store.commit('bindData');
                 
-                .parents("table")
-                .find("caption")
-                .css({                    
-                    padding:"20px 0",
-                    textDecoration:"underline",
-                    textDecorationStyle:"wavy",
-                    fontSize:"30px",
-                })
 
-                // 닫기버튼 셋팅
-                $(".cbtn2").click(()=>{
-                    $("#cartlist")
-                    .animate({
-                        right:"-60vw"
-                    },600,"easeOutQuint")
-                })
-
-            })
+            }); /////////// 카트버튼 click /////////////////
 
         }, //////////////// carAni 메서드 //////////////////
 
+        /////////// 카트 아이템 삭제 메서드 //////////
+        delRec(dt,pm){
+            console.log("아이템 삭제!",pm);
+            // 1. 로컬스 데이터 읽기
+            // 2. 로컬스 데이터 파싱
+            let org = localStorage.getItem("cart");
+                org = JSON.parse(org);
+                console.log("삭제구성 객체:", org);
+            // 3. 삭제아이템 찾아 지우기 : splice(순번,1)
+            org.forEach((v,i)=>{
+                // 지울 아이템과 같으면
+                if(v.idx==pm){
+                    // 지울것인지 물어봄(확인시 true/취소시 false)
+                    if(confirm("정말정말정말로 지우겠습니까? 할인도하는데?")){
+                        org.splice(i,1);
+                    }
+                }
+            })
+            // 4. 로컬스 문자화하여 넣기
+            localStorage.setItem("cart", JSON.stringify(org));
+            console.log("삭제후 로칼쓰:", localStorage.getItem("cart"));
+    
+            // 5. 리스트 갱신하기
+            store.commit('bindData');
 
-    },
+        }, //////////////// delRec 메서드 ///////////////
+
+        /////////// 리스트 바인딩 메서드 ////////////////
+        bindData(dt,pm){
+            // (1) 로컬스 데이터 읽어와서 객체화하기
+            let org = localStorage.getItem("cart");
+            org = JSON.parse(org);
+            console.log("리스트구성 객체:", org);
+
+            // (2) 데이터를 이용하여 리스트 태그 만들기
+            // forEach((값,순번)=>{})
+            // map((값,순번)=>{})
+            // -> 차이는? map은 리턴값으로 처리할 경우
+            // 값을 자동으로 대입연산처리함!
+            // v - 배열각 값 / i - 배열순번
+
+            /* 
+                [ forEach 메서드는 변수를 선언후 
+                    대입연산처리하여 값을 모아야함]
+
+                let rec = "";
+                org.forEach((v,i)=>{
+                    rec += `<li>${v}</li>`;
+                })
+                ____________________________
+                반면...
+                [ map 메서드는 변수에 직접할당해도
+                    리턴값을 대입연산처리해줌!]
+
+                let rec = org.map((v,i)=> `<li>${v}</li>`)
+
+            */
+
+            let rec = org.map((v,i)=> 
+                `
+                    <tr>
+                        <!--상품이미지-->
+                        <td>
+                            <img 
+                            src="${
+                'images/goods/'+v.cat+'/'+v.ginfo[0]+'.png'
+                            }" 
+                            style="width:50px"
+                            alt="item">
+                        </td>
+                        <!-- 번호 : 리스트순서번호 -->
+                        <td>${i+1}</td>
+                        <!--상품명-->
+                        <td>${v.ginfo[1]}</td>
+                        <!--상품코드-->
+                        <td>${v.ginfo[2]}</td>
+                        <!--단가-->
+                        <td>${v.ginfo[3]}</td>
+                        <!--수량-->
+                        <td>1</td>
+                        <!--합계-->
+                        <td>${v.ginfo[3]}</td>
+                        <!--삭제-->
+                        <td>
+                            <button class="cfn" 
+                            data-idx="${v.idx}">
+                                ×
+                            </button>
+                        </td>
+                    </tr>
+
+                `
+            ); ////////// map //////////////
+
+            // 3. 생성된 카트리스트에 테이블 넣기
+            $("#cartlist")
+            // (1) html 테이블 태그 넣기
+            .html(`
+                <a href="#" class="cbtn cbtn2">×</a>
+                <table>
+                    <caption>
+                        <h1> 카트 리스트</h1> 
+                    </caption>
+                    <tr>
+                        <th>상품</th>
+                        <th>번호</th>
+                        <th>상품명</th>
+                        <th>상품코드</th>
+                        <th>단가</th>
+                        <th>수량</th>
+                        <th>합계</th>
+                        <th>삭제</th>
+                    </tr>
+                    ${rec}
+                </table>
+            `) ///// html ////////
+            // (2)카트박스 CSS넣기
+            .css({
+                position: "fixed",
+                top:"0",
+                right: "-60vw",
+                width:"60vw",
+                height:"100vh",
+                backgroundColor:"rgba(255,255,255,.8)",
+                zIndex:"99999999",
+            })
+            // (3) 등장애니메이션
+            .animate({
+                right:"0"
+            },600,"easeOutQuint")
+            // (4) table css 넣기
+            .find("table")
+            .css({
+                width:"90%",
+                margin:"50px auto",
+                fontSize:"14px",
+                borderTop:"2px solid #222",
+                borderBottom:"2px solid #222",
+                borderCollapse:"collapse",
+            })
+            // (5) td css 넣기
+            .find("td")
+            .css({
+                padding:"10px 0",
+                borderTop:"1px solid #555",
+                textAlign:"center",
+            })
+            // (6) th css 넣기
+            .parents("table")
+            .find("th")
+            .css({
+                padding:"15px 0",
+                backgroundColor:"#e5e5e5",
+                fontSize:"16px",
+            })
+            // (7) caption css 넣기
+            
+            .parents("table")
+            .find("caption")
+            .css({                    
+                padding:"20px 0",
+                textDecoration:"underline",
+                textDecorationStyle:"wavy",
+                fontSize:"30px",
+            })
+
+            // (8) 닫기버튼 셋팅
+            $(".cbtn2").click(()=>{
+                $("#cartlist")
+                .animate({
+                    right:"-60vw"
+                },600,"easeOutQuint")
+            }); /////// click //////
+
+            // (9) 삭제버튼 처리연결하기
+            $(".cfn").click(function(){
+                // 아이템 삭제 메서드 호출
+                store.commit('delRec',
+                $(this).attr("data-idx"));
+                // 삭제할 idx정보를 넘겨준다!
+            }); ///////// click ///////
+
+
+        }, /////////////// bindData 메서드 ///////////////
+
+    }, /////////////////// 
 });
 
 // 내보내기
