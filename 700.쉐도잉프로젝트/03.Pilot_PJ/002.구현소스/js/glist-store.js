@@ -194,6 +194,18 @@ const store = new Vuex.Store({
             // 5. 리스트 갱신하기
             store.commit('bindData');
 
+            // 6. 카트버튼 툴팁 문구 업데이트하기
+            if(org.length==0){ // 데이터가 없으면 지우기
+                $("#mycart").remove();
+                $("#cartlist").remove();
+            } ////////// if //////////
+            else{ // 데이터 개수 업데이트하기
+                $("#mycart")
+                .attr("title",
+                org.length+"개의 상품이 카트에 있습니다!");
+            } /////////// else ////////
+        
+
         }, //////////////// delRec 메서드 ///////////////
 
         /////////// 리스트 바인딩 메서드 ////////////////
