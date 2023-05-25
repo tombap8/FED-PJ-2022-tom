@@ -84,7 +84,9 @@ const store = new Vuex.Store({
 
             org.forEach(v=>{
                 // 같은 데이터인가?(idx값으로 비교)
-                if(v.idx == pm.idx){
+                // v.idx 는 현재 카트에 있는 아이템 idx
+                // dt.gdata[pm].idx 는 입력하려는 새로운 아이템 idx
+                if(v.idx == dt.gdata[pm].idx){
                     alert("이미 선택하신 상품입니다!^^");
                     save = false;
                 } ////// if //////////
@@ -227,7 +229,9 @@ const store = new Vuex.Store({
                 ); ////////// map //////////////
 
                 // 3. 생성된 카트리스트에 테이블 넣기
-                $("#cartlist").html(`
+                $("#cartlist")
+                // (1) html 테이블 태그 넣기
+                .html(`
                     <a href="#" class="cbtn cbtn2">×</a>
                     <table>
                         <caption>
@@ -245,7 +249,65 @@ const store = new Vuex.Store({
                         </tr>
                         ${rec}
                     </table>
-                `)
+                `) ///// html ////////
+                // (2)카트박스 CSS넣기
+                .css({
+                    position: "fixed",
+                    top:"0",
+                    right: "-60vw",
+                    width:"60vw",
+                    height:"100vh",
+                    backgroundColor:"rgba(255,255,255,.8)",
+                    zIndex:"99999999",
+                })
+                // (3) 등장애니메이션
+                .animate({
+                    right:"0"
+                },600,"easeOutQuint")
+                // (4) table css 넣기
+                .find("table")
+                .css({
+                    width:"90%",
+                    margin:"50px auto",
+                    fontSize:"14px",
+                    borderTop:"2px solid #222",
+                    borderBottom:"2px solid #222",
+                    borderCollapse:"collapse",
+                })
+                // (5) td css 넣기
+                .find("td")
+                .css({
+                    padding:"10px 0",
+                    borderTop:"1px solid #555",
+                    textAlign:"center",
+                })
+                // (6) th css 넣기
+                .parents("table")
+                .find("th")
+                .css({
+                    padding:"15px 0",
+                    backgroundColor:"#e5e5e5",
+                    fontSize:"16px",
+                })
+                // (7) caption css 넣기
+                
+                .parents("table")
+                .find("caption")
+                .css({                    
+                    padding:"20px 0",
+                    textDecoration:"underline",
+                    textDecorationStyle:"wavy",
+                    fontSize:"30px",
+                })
+
+                // 닫기버튼 셋팅
+                $(".cbtn2").click(()=>{
+                    $("#cartlist")
+                    .animate({
+                        right:"-60vw"
+                    },600,"easeOutQuint")
+                })
+
             })
 
         }, //////////////// carAni 메서드 //////////////////
