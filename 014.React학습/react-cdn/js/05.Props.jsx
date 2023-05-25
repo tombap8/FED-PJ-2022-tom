@@ -22,8 +22,6 @@ function Car(props){
 
 } /////////// Car 컴포넌트 //////////////
 
-// 속성을 객체로 여러개 셋팅한다!
-const carInfo = {color:"라잇블루",model:"2023년형"};
 
 // 자기차를 소개하는 컴포넌트 2 ////////
 function Car2(props){
@@ -33,6 +31,13 @@ function Car2(props){
                 모델명은 {props.brand.model}이고
                 차색은 {props.brand.color}입니다!
             </h2>
+            <img src="./images/ray.png" alt="레이" 
+            style={props.brand.opt} />
+            {/* 
+                인라인 스타일시트 넣기형식:
+                <태그 style={{객체형식CSS}}>
+                -> 값은 문자형으로함! {속성:값}
+            */}
         </React.Fragment>
     )
 
@@ -55,9 +60,30 @@ function Brand(){
 } ///////////// Brand 컴포넌트 //////////////
 
 ///// 차정보를 자세히 물어보는 컴포넌트 - Car2 컴포넌트 사용
-function Brand2(){
-    
-}
+function Brand2(props){
+    // 코드를 여러가지로 return 전에 만들어준다!
+    // 속성을 객체로 여러개 셋팅한다!
+    const carInfo =[ 
+        {
+            color:"라잇블루",
+            model:"2023년형",
+            opt:{filter:'hue-rotate(0deg)'},
+        },
+        {
+            color:"녹차그린",
+            model:"2024년형",
+            opt:{filter:'hue-rotate(207deg)',transform:"rotateY(180deg)"},
+        },
+    ];
+
+    return(
+        <React.Fragment>
+            <h1>더 자세히 말씀해주세요?</h1>
+            <Car2 brand={carInfo[props.num]} />
+        </React.Fragment>
+    )
+
+} ///////////// Brand2 컴포넌트 ///////////////
 
 
 
@@ -65,7 +91,8 @@ function Brand2(){
 ReactDOM.render(
     <div>
         <Brand />
-        <Car2 brand={carInfo} />
+        <Brand2 num="0" />
+        <Brand2 num="1" />
     </div>
 ,
 document.querySelector("#root1"));
