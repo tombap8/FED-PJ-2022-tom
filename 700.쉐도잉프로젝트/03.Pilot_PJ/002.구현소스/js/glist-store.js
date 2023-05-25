@@ -77,18 +77,34 @@ const store = new Vuex.Store({
             let org = localStorage.getItem("cart");
             org = JSON.parse(org);
             console.log("변환객체:", org);
+
+            // 이미선택한 상품일 경우 분기하기 //////
+            // 저장상태변수
+            let save = true;
+
+            org.forEach(v=>{
+                // 같은 데이터인가?(idx값으로 비교)
+                if(v.idx == pm.idx){
+                    alert("이미 선택하신 상품입니다!^^");
+                    save = false;
+                } ////// if //////////
+
+            }); /////////// forEach //////////
             
-            // 3. 배열뒤에 밀어넣기 메서드 : push(값)
-            org.push(dt.gdata[pm]);
-            console.log("넣은후:", org);
-
-            // 4. 객체를 문자형으로 변환후 로컬스토리지에 반영
-            localStorage.setItem("cart", JSON.stringify(org));
-            console.log("반영후 로칼쓰:", localStorage.getItem("cart"));
-
-            // 5. 카트 애니메이션 버튼을 등장시켜 카트리스트까지 연동한다!
-            this.commit('cartAni',org.length);
-            // org.length는 배열 데이터 개수를 넘김
+            // save == true 일때만 배열넣고 처리함!
+            if(save){
+                // 3. 배열뒤에 밀어넣기 메서드 : push(값)
+                org.push(dt.gdata[pm]);
+                console.log("넣은후:", org);
+    
+                // 4. 객체를 문자형으로 변환후 로컬스토리지에 반영
+                localStorage.setItem("cart", JSON.stringify(org));
+                console.log("반영후 로칼쓰:", localStorage.getItem("cart"));
+    
+                // 5. 카트 애니메이션 버튼을 등장시켜 카트리스트까지 연동한다!
+                this.commit('cartAni',org.length);
+                // org.length는 배열 데이터 개수를 넘김
+            } ///////////// if //////////////
 
             // localStorage.clear();
 
@@ -156,6 +172,24 @@ const store = new Vuex.Store({
                 // -> 차이는? map은 리턴값으로 처리할 경우
                 // 값을 자동으로 대입연산처리함!
                 // v - 배열각 값 / i - 배열순번
+
+                /* 
+                    [ forEach 메서드는 변수를 선언후 
+                        대입연산처리하여 값을 모아야함]
+
+                    let rec = "";
+                    org.forEach((v,i)=>{
+                        rec += `<li>${v}</li>`;
+                    })
+                    ____________________________
+                    반면...
+                    [ map 메서드는 변수에 직접할당해도
+                        리턴값을 대입연산처리해줌!]
+
+                    let rec = org.map((v,i)=> `<li>${v}</li>`)
+
+                */
+
                 let rec = org.map((v,i)=> 
                     `
                         <tr>
