@@ -56,7 +56,8 @@ import Avengers from "./Avengers";
 
     // 랜더링 하기
     const root1 = 
-    ReactDOM.createRoot(document.getElementById("root1"));
+    ReactDOM.createRoot(
+        document.getElementById("root1"));
     root1.render(<Gogh />);
     // render(출력할요소)
     // 출력할 요소 -> 클래스를 호출하면 구성된 태그가 들어옴
