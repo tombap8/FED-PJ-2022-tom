@@ -99,7 +99,23 @@ function EventShow(){
 
         },500);
 
+        // 4. 소원빌기 버튼 3초후 보이기
+        setTimeout(()=>{
+            document.querySelectorAll("button")[1]
+            .style.display="inline-block";
+        },3000);
+
+
     }; ////////////////// getIt /////////////////
+
+    // 3. 소원빌어 페라리 얻기 함수 ///////////////////
+    const getIt2 = (ss) => { // ss - 페라리 이미지 경로
+        const ferrari = 
+        ReactDOM
+        .createRoot(document.getElementById("ferrari"));
+        // Ferrari컴포넌트 호출함!
+        ferrari.render(<Ferrari isrc={ss} />);
+    }; ///////////// getIt2 ////////////////////////
 
 
     // 컴포넌트의 return은 가장 아랫쪽에 위치함!
@@ -117,7 +133,9 @@ function EventShow(){
             <div className="lamp"></div>
             {/* 버튼들 */}
             <button onClick={getIt}>램프가져오기~!</button> <br />
-            <button>소원빌기~!!! 페라리주세요~!!!</button>
+            <button onClick={()=>{
+                getIt2("https://www.pngplay.com/wp-content/uploads/13/Ferrari-458-Transparent-PNG.png");
+            }}>소원빌기~!!! 페라리주세요~!!!</button>
         </React.Fragment>
     );
 
@@ -131,9 +149,29 @@ function AlaLamp(props){ // 이미지경로를 props로 받는다!
 
 
 ////////// 페라리 이미지 출력 컴포넌트 //////////////
-function Ferrari(){
-
+function Ferrari(props){
+    return (
+        <img
+            id="car"
+            src={props.isrc}
+            alt="페라리"
+            title="클릭하면 시운전해요!"
+            onClick={move}
+        />
+    );
 } ////////////// Ferrari //////////////////////
+
+// 일반 함수로 구현! 페라리움직이기! ////////////
+let one = 1;
+function move() {console.log(one);
+    let car = document.getElementById("car");
+    car.style.transform = one?"translateX(150%) scale(2)":"translateX(0) scale(1)";
+    car.style.transition = "2s ease-in-out";
+
+    one?one=0:one=1;
+} ///////////// move함수 ///////////////////
+
+
 
 ////// 최초 컴포넌트 출력하기 /////////////////
 ReactDOM.render(<EventShow />,
