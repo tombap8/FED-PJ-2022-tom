@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>06.리액트 Event</title>
+
+        <!-- 1.리액트 기본 라이브러리 -->
+        <script
+            src="https://unpkg.com/react@18/umd/react.production.min.js"
+            crossorigin
+        ></script>
+        <!-- 2.리액트 가상돔 라이브러리 -->
+        <script
+            src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
+            crossorigin
+        ></script>
+        <!-- 3.리액트 바벨 라이브러리 -->
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+        <!-- 리액트 Props JSX 호출 -->
+        <script
+            src="./js/06.Event.jsx"
+            type="text/babel"
+        ></script>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Hi+Melody&display=swap');
+            body{
+                background-image: linear-gradient(to bottom, blue, darkgreen);
+                background-attachment: fixed;
+                font-family: 'Hi Melody', cursive;
+            }
+            #toptit{
+                text-align: center;
+                color: #ff0;
+            }
+            .wrap{
+                height: 300px;
+                text-align: center;
+            }
+            #ferrari{
+                height: 100px;
+            }
+            #ferrari img{
+                height: 200px;
+            }
+            button{
+                font-size: 30px;
+                border-radius: 15px;
+                display: none;
+                font-family: 'Hi Melody', cursive;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="toptit">지니를 문지르세요!!!!</h1>
+        <!-- 리액트 출력요소 -->
+        <div class="wrap">
+            <!-- 버튼출력:이벤트적용요소 -->
+            <div id="root"></div>
+            <!-- 이벤트 결과 출력 -->
+            <div>
+                <span id="ala"></span>
+                <span id="ferrari"></span>
+            </div>
+        </div>
+    </body>
+</html>
