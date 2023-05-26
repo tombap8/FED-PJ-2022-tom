@@ -138,8 +138,12 @@ const store = new Vuex.Store({
             $("#mycart")
             .css({
                 position:"fixed",
+                
+                // 변경셋(top,left,width)
                 top:"50%",
                 left:"50%",
+                width:"50px",
+
                 transform:"translate(-50%,-50%)",
                 cursor:"pointer",
                 zIndex:"9999999",
@@ -276,11 +280,19 @@ const store = new Vuex.Store({
                 `
             ); ////////// map //////////////
 
+            // console.log("생성코드:",rec.join(""));
+            // 배열.join(구분자) 
+            // -> 배열을 구분자로 한문자열로 만들어준다!
+            // 구분자를 빈문자열로 넣으면 사이구분자 없이합쳐진다!
+            // 구분자를 생략하면 콤마(,)가 사이에 들어감
+
             // 3. 생성된 카트리스트에 테이블 넣기
             $("#cartlist")
             // (1) html 테이블 태그 넣기
             .html(`
-                <a href="#" class="cbtn cbtn2">×</a>
+                <a href="#" class="cbtn cbtn2">
+                    <span style="display:none">닫기버튼</span>
+                </a>
                 <table>
                     <caption>
                         <h1> 카트 리스트</h1> 
@@ -295,7 +307,7 @@ const store = new Vuex.Store({
                         <th>합계</th>
                         <th>삭제</th>
                     </tr>
-                    ${rec}
+                    ${rec.join('')}
                 </table>
             `) ///// html ////////
             // (2)카트박스 CSS넣기
