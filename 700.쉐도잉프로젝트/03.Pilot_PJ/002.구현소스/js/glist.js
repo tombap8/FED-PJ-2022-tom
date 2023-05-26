@@ -51,7 +51,18 @@ new Vue({
         // 페이지 로딩시 로컬스 데이터 
         // cart에 데이터가 있으면
         // 카트 이미지버튼 보여주기
-        
+        if(localStorage.getItem("cart").length!=0){
+            let org = localStorage.getItem("cart");
+            org = JSON.parse(org);
+            console.log("변환객체:", org);
+
+            // 카트버튼 애니메서드 호출하기
+            store.commit('cartAni',{cnt:org.length,opt:0});
+            // 애니메서드 파라미터
+            // cnt - 카트아이템 개수
+            // opt - 셋팅옵션번호 (초기CSS값 선택옵션)
+            // opt값 - 0 (오른쪽위 작은것) / 1 (정중앙 큰것)
+        }
 
 
 
