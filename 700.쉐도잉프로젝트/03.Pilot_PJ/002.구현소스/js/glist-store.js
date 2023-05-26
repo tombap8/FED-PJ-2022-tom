@@ -227,6 +227,8 @@ const store = new Vuex.Store({
             if(org.length==0){ // 데이터가 없으면 지우기
                 $("#mycart").remove();
                 $("#cartlist").remove();
+                // 로컬스 데이터 지우기
+                localStorage.removeItem("cart");
             } ////////// if //////////
             else{ // 데이터 개수 업데이트하기
                 $("#mycart")
