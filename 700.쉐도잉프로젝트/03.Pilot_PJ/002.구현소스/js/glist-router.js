@@ -314,7 +314,9 @@ const Detail = {
                             </li>
                             <li class="tot">
                                 <span>총합계</span>
-                                <span id="total">니가계산해!</span>
+                                <span id="total">
+                                {{$store.state.gdata[$route.params.id-1].ginfo[3]}}
+                                </span>
                             </li>
                         </ol>
 

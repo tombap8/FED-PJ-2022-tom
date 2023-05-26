@@ -95,7 +95,31 @@ const store = new Vuex.Store({
             
             // save == true 일때만 배열넣고 처리함!
             if(save){
+                /* 
+                    [ 기존 데이터 구조에 컬럼 추가하기 ]
+                    dt.gdata의 데이터 구조는
+                    {
+                        idx: "1",
+                        cat: "men",
+                        ginfo:[],
+                    }
+                    -> 여기에 num항목을 추가하여 개수데이터를 입력함!
+                    {
+                        idx: "1",
+                        cat: "men",
+                        ginfo:[],
+                        num: 4
+                    }
+                    -> 기존객체에 속성추가는 간단하다!
+                    객체변수.새항목 = 값
+                    여기서는
+                    dt.gdata[pm]["num"] = 값
+                */
+
                 // 3. 배열뒤에 밀어넣기 메서드 : push(값)
+                // 넣기전에 num항목 추가하기
+                dt.gdata[pm]["num"] = $("#sum").val();
+                // 추가후 데이터 넣기!
                 org.push(dt.gdata[pm]);
                 console.log("넣은후:", org);
     
@@ -269,6 +293,7 @@ const store = new Vuex.Store({
                 let rec = org.map((v,i)=> `<li>${v}</li>`)
 
             */
+            const chx = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
             let rec = org.map((v,i)=> 
                 `
@@ -291,9 +316,15 @@ const store = new Vuex.Store({
                         <!--단가-->
                         <td>${v.ginfo[3]}</td>
                         <!--수량-->
-                        <td>1</td>
+                        <td>${v.num}</td>
                         <!--합계-->
-                        <td>${v.ginfo[3]}</td>
+                        <td>${
+                            chx(
+                                v.ginfo[3].trim()
+                                .replaceAll(",","")
+                                .replace("원","") * v.num
+                            ) + "원"
+                        }</td>
                         <!--삭제-->
                         <td>
                             <button class="cfn" 
@@ -411,6 +442,10 @@ const store = new Vuex.Store({
             /// DOM모두 로딩보장후 셋팅하기
             // 제이쿼리 로딩구역에 넣자!
             $(()=>{
+
+                // 세자리마다 콤마함수
+                const chx = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
                 // console.log($(".chg_num"))
                 $(".chg_num img").click(function(){
 
@@ -445,7 +480,7 @@ const store = new Vuex.Store({
                     console.log("계산된값:",cnum);
 
                     // 4. 출력하기
-                    $("#total").text(cnum+"원");
+                    $("#total").text(chx(cnum)+"원");
 
                 }); ///////// click ////////////
 
