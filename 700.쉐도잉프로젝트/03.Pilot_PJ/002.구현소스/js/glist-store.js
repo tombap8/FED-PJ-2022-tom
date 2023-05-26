@@ -405,7 +405,57 @@ const store = new Vuex.Store({
 
         }, /////////////// bindData 메서드 ///////////////
 
-    }, /////////////////// 
+        ///// 상세보기 버튼 기능 셋팅 메서드 ////////
+        setBtn(dt,pm){
+            console.log("버튼기능셋팅!");
+            /// DOM모두 로딩보장후 셋팅하기
+            // 제이쿼리 로딩구역에 넣자!
+            $(()=>{
+                // console.log($(".chg_num"))
+                $(".chg_num img").click(function(){
+
+                    // 0. 수량표시요소
+                    let sum = $("#sum");
+
+                    // 1. 이미지 alt속성값 읽기
+                    let ialt = $(this).attr("alt");
+                    console.log(ialt);
+
+                    // 2. 증가/감소 처리하기
+                    if(ialt=="증가")
+                        sum.val(Number(sum.val())+1);
+                    else
+                        sum.val(Number(sum.val())-1);
+
+                    // 0이면 1로고정함
+                    if(sum.val()==0) sum.val(1);
+
+                    // -,*,/ 는 숫자대상이므로 자동형변환된다
+                    // 반명 +는 문자더하기도 있으므로
+                    // 기본형이 문자면 자동형변환하지 않는다
+                    // 그래서 Number() 로 강제형변환해야
+                    // 숫자계산을 하게됨!!
+
+                    // 3. 기본금액 * 개수 
+                    let cnum = 
+                    $("#gprice").text().trim()
+                    .replaceAll(",","")
+                    .replace("원","")*sum.val();
+
+                    console.log("계산된값:",cnum);
+
+                    // 4. 출력하기
+                    $("#total").text(cnum+"원");
+
+                }); ///////// click ////////////
+
+
+            }); /////////////// jQB ////////////////
+
+
+        }, //////////// setBtn 메서드 /////////////
+
+    }, /////////////////// mutations 구역 ///////////// 
 });
 
 // 내보내기
