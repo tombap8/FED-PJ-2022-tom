@@ -16,11 +16,52 @@ function EventShow(){
 
 
     // 컴포넌트에서 사용하는 내부용 함수는 할당형 함수로 작성함!
-    const aladin = (lamp) => {
+    const aladin = (lamp) => { // lamp - 알라딘 주인공 이미지경로!
         console.log("aladin함수:",lamp);
         // 1. #tbox 인 요소의 내부에 h1요소 넣기
         document.querySelector("#tbox").innerHTML +=
         `<h1 class="tit">소원이 무엇이냐?</h1>`;
+
+        // 2. 소원이 무엇이냐 타이틀박스 CSS구성하기
+        let tit = document.querySelector(".tit");
+        tit.style.cssText = `
+            width: 50%;
+            padding: 50px 0;
+            margin: 0 auto;
+            border: 2px solid lime;
+            transition: all 2s 1s;
+            opacity: 0;
+        `;
+
+        setTimeout(()=>{
+            tit.style.cssText = `
+            width: 50%;
+            padding: 50px 0;
+            margin: 0 auto;
+            border: 2px solid lime;
+            transition: all 2s 1s;
+            opacity: 1;
+
+            border-radius: 50%;
+            transform: translateY(-200px);
+            font-size: 40px;
+            color: white;
+            background-color: rgba(0,0,0,.5);
+        `;
+
+
+        },500); ///////// setTimeout ////////
+
+        // 3. 램프 가져오기 버튼 3초뒤에 보이기
+        setTimeout(()=>{
+            document.querySelectorAll("button")[0]
+            .style.display="inline-block";
+        },3000);
+
+        // 4. 별도의 요소인 #ala에 이미지생성 컴포넌트 출력하기!
+        ReactDOM.render(<AlaLamp isrc={lamp} />, 
+        document.querySelector("#ala"));
+
     }; //////////// aladin함수 /////////////
 
 
@@ -35,6 +76,11 @@ function EventShow(){
                 }}
                 />
             </div>
+            {/* 램프가 들어갈요소 */}
+            <div className="lamp"></div>
+            {/* 버튼들 */}
+            <button>램프가져오기~!</button> <br />
+            <button>소원빌기~!!! 페라리주세요~!!!</button>
         </React.Fragment>
     );
 
@@ -42,8 +88,8 @@ function EventShow(){
 
 
 ////////// 알라딘 램프 이미지 출력 컴포넌트 //////////////
-function AlaLamp(){
-
+function AlaLamp(props){ // 이미지경로를 props로 받는다!
+    return <img src={props.isrc} alt="알라딘 램프" />;
 } ////////////// AlaLamp //////////////////////
 
 
