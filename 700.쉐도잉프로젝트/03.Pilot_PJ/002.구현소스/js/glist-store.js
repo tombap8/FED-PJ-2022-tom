@@ -104,7 +104,7 @@ const store = new Vuex.Store({
                 console.log("반영후 로칼쓰:", localStorage.getItem("cart"));
     
                 // 5. 카트 애니메이션 버튼을 등장시켜 카트리스트까지 연동한다!
-                this.commit('cartAni',org.length);
+                this.commit('cartAni',{cnt:org.length,opt:1});
                 // org.length는 배열 데이터 개수를 넘김
             } ///////////// if //////////////
 
@@ -120,8 +120,26 @@ const store = new Vuex.Store({
         },
 
         ////////////// 장바구니 애니메이션 버튼 생성하기 /////////
-        cartAni(dt,pm){
+        cartAni(dt,pm){ // pm.cnt / pm.opt
+            // cnt - 카트아이템 개수
+            // opt - 셋팅옵션번호 (초기CSS값 선택옵션)
+            // opt값 - 0 (오른쪽위 작은것) / 1 (정중앙 큰것)
             console.log("카트애니!",pm);
+
+            // 초기CSS셋팅값 배열
+            let icss = [
+                {
+                    tv:"5%",
+                    lv:"80%",
+                    wd:"50px",
+                },
+                {
+                    tv:"50%",
+                    lv:"50%",
+                    wd:"370px",
+                },
+            ];
+
 
             // 0. 생성될 카트이미지 지우고시작!(하나만 생성!)
             $("#mycart").remove();
@@ -131,7 +149,13 @@ const store = new Vuex.Store({
             $("body").append(`
                 <img id="mycart" 
                 src="./images/mycart.gif" 
-                title="${pm}개의 상품이 카트에 있습니다!" />
+                title="${pm.cnt}개의 상품이 카트에 있습니다!" />
+            `);
+
+            console.log(`
+                top: ${icss[pm.opt].tv}
+                left: ${icss[pm.opt].lv}
+                width: ${icss[pm.opt].wd}
             `);
 
             // 추가한 이미지 화면중앙에 위치하기
@@ -140,9 +164,9 @@ const store = new Vuex.Store({
                 position:"fixed",
                 
                 // 변경셋(top,left,width)
-                top:"50%",
-                left:"50%",
-                width:"50px",
+                top : icss[pm.opt].tv,
+                left : icss[pm.opt].lv,
+                width : icss[pm.opt].wd,
 
                 transform:"translate(-50%,-50%)",
                 cursor:"pointer",
