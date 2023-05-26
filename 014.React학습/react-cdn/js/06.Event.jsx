@@ -16,6 +16,8 @@ function EventShow(){
 
 
     // 컴포넌트에서 사용하는 내부용 함수는 할당형 함수로 작성함!
+
+    // 1. 소원이 무엇이냐 실행 함수 ///////
     const aladin = (lamp) => { // lamp - 알라딘 주인공 이미지경로!
         console.log("aladin함수:",lamp);
         // 1. #tbox 인 요소의 내부에 h1요소 넣기
@@ -64,6 +66,41 @@ function EventShow(){
 
     }; //////////// aladin함수 /////////////
 
+    // 2. 램프 가져오기 함수 ///////////////////
+    const getIt = () => {
+        // 1. 램프 선택 : 컴포넌트 구성요소에 넣음
+        let lamp = document.querySelector(".lamp");
+
+        // 2. 램프 이미지 넣기
+        lamp.innerHTML = `
+        <img src="https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/3168457870/B.png" alt="램프" />
+        `;
+
+        // 3. 램프 초기셋팅 및 애니메이션 설정하기
+        lamp.querySelector("img").style.cssText = `
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            border-radius: 50%;
+            transition: 2s;
+        `;
+
+        setTimeout(()=>{
+            lamp.querySelector("img").style.cssText = `
+            position: absolute;
+            top: 310px;
+            right: calc(50% - 100px);
+            width: 200px;
+            border-radius: 50%;
+            transform: rotate(720deg);
+            transition: 2s ,right 1s 2s;
+        `;
+
+        },500);
+
+    }; ////////////////// getIt /////////////////
+
 
     // 컴포넌트의 return은 가장 아랫쪽에 위치함!
     return(
@@ -79,7 +116,7 @@ function EventShow(){
             {/* 램프가 들어갈요소 */}
             <div className="lamp"></div>
             {/* 버튼들 */}
-            <button>램프가져오기~!</button> <br />
+            <button onClick={getIt}>램프가져오기~!</button> <br />
             <button>소원빌기~!!! 페라리주세요~!!!</button>
         </React.Fragment>
     );
