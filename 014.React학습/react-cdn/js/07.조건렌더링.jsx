@@ -88,8 +88,8 @@ function Title(props){ // 컴포넌트 호출시 속성으로 tit셋팅!
 } /////////// Title 컴포넌트 /////////////
 
 // 음식리스트
-// const foods = ["스파게티","짜파게티","냉면","짜장면","마라탕"];
-const foods = [];
+const foods = ["스파게티","짜파게티","냉면","짜장면","마라탕"];
+// const foods = [];
 
 // 2-2. 반복리스트를 위한 컴포넌트 /////
 function FoodList(props){// 음식명을 fname담아서 보내준다!
@@ -122,6 +122,11 @@ function WishList(props){ // wlist속성에 담아 보내준다!
                     </ul>
                 </div>
             }
+            {/* 다른 경우출력은 별도의 JSX출력 중괄호구역에 코딩 */}
+            {
+                myfood.length == 0 &&
+                <h2>아직 개발자음식 리스트가 업데이트 되지 않았습니다!</h2>
+            }
         </React.Fragment>
     );
 } /////////// WishList 컴포넌트 //////////////////
@@ -129,4 +134,26 @@ function WishList(props){ // wlist속성에 담아 보내준다!
 
 // 컴포넌트 출력하기
 ReactDOM.render(<WishList wlist={foods} />,
-document.querySelector("#root2"))
+document.querySelector("#root3"));
+
+
+///////// 좀 더 복잡한 리스트를 출력하는 컴포넌트 /////////
+
+// 전달할 배열변수 ///
+const movs = [
+    {year:"2021",mtit:"영화1"},
+    {year:"2022",mtit:"영화2"},
+    {year:"2023",mtit:"영화2"},
+];
+
+// 개발자가 좋아하는 영화 - 찍기!
+// 컴포넌트 구성하여 찍기
+
+/* 
+    [ 출력형태 ]
+    👨‍🔧개발자👩‍🔧가 좋아하는 영화
+    개발자가 좋아하는 영화는 최근 3년간 아래와 같습니다!
+    2021년도 영화1
+    2022년도 영화2
+    2023년도 영화3
+*/
