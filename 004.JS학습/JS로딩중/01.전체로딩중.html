@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>01. 전체로딩중</title>
+        <style>
+            /* 로딩중 이미지 */
+            .loading {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 15vw;
+            }
+
+            /* 화면에 넣을 이미지 */
+            .timg {
+                width: 100%;
+            }
+        </style>
+        <script>
+            // body에 넣을 이미지 주소
+            const isrc = [
+                "https://img.freepik.com/free-vector/night-ocean-landscape-full-moon-stars-shine_107791-7397.jpg?w=2000",
+                "https://marketplace.canva.com/EAE-xnqWvJk/1/0/1600w/canva-retro-smoke-and-round-light-desktop-wallpapers-JLofAI27pCg.jpg",
+                "https://images3.alphacoders.com/131/1311991.jpeg",
+                "https://www.grafico.com.au/assets/uploads/MelbourneMap.jpg",
+            ];
+
+            /******************************************* 
+                [ 로딩중 표시는 어떤 기준으로 하는가? ]
+                - 로드이벤트 종류에 따라 아래 2가지가 있다
+                1. DOMContentLoaded 
+                - html태그만 모두 그려지면 발생함
+                2. load 
+                - 대상내부에 이미 넣은 태그의 컨텐츠가 
+                모두 로딩되면 발생(이미지내용, 동영상내용 등 포함)
+
+                -> 위의 개념을 볼때 load이벤트 구역을 사용
+                해야 할것 같으나... JS로 만들어서 동적으로
+                생성하는 태그요소를 모두 로딩할때까지 기다려야함!
+                그러나 일반 load이벤트는 이것을 체크못함!
+
+                promise를 사용해야함!!!
+                promise구역에 태그로드 코드를 넣어서
+                기다리게 한후 로딩되면 다음을 실행함!
+
+                [ 로딩중 표시는 어떻게하나? ]
+                1. 태그를 넣기전 로딩중 이미지(바)를 먼저실행
+                2. 태그넣기 함수 실행(promise안에 위치)
+                3. 로딩후 promise then 또는 async/await 를
+                사용한 로딩중 이미지 없애기 실행
+
+            *******************************************/
+
+            // 이벤트 발생 확인하기
+            // JS실행구역->DOMContentLoaded->load
+            window.addEventListener("DOMContentLoaded", () => {
+                // body가 로딩되면 체크
+                document.body.onload = () => {
+                    console.log("body로딩완료!");
+                }; //////////// load /////////////
+
+                // 로딩중 이미지 넣기함수
+                const firstDo = () => {
+                    document.body.innerHTML += 
+                    `<img class="loading" 
+                    src="images/loading_img.gif" alt="로딩중">`;
+                }; //////////// firstDo함수 //////////////
+
+
+                // 페이지에 많은 양의 이미지 넣기 함수
+                const addImg = () => {
+                    // 4개의 이미지를 200번 반복해서 800개 이미지넣기
+                    for(let i=0; i<200; i++){
+                        isrc.forEach(v=>{
+                            document.body.innerHTML +=
+                            `<img class="timg" src="${v}" alt="test">`;
+                        });
+                    } ////////// for /////////////
+                }; //////////////// addImg 함수 ///////////
+
+                
+                // 이미지 컨텐츠를 로딩하는 함수를 Promise하자!
+                // async / await 를 사용함!
+                // async function안에 프라미스의 세계를 만들어준다!
+                async function setIt(){
+                    let doit = new Promise(function(success){
+                        // 시간이 걸리는 코드
+                        addImg();
+                        // 위의 코드가 다실행되면 아랫코드를 호출함!
+                        success("다됐어~!");
+                    }); /////////// doit 프라미스 ////////
+
+                    // 프라미스가 보장하는 코드실행후 실행함수
+                    const thenDoit = (txt) => {
+                        //txt - success에서 전달한 값 받기
+                        console.log("이게뭐야?",txt);
+
+                    }; ///////////// thenDoit 함수 ////////////
+
+                    // 프라미스 호출하기(await사용)
+                    thenDoit(await doit);
+                    // 실행순서
+                    // await 뒤에 doit 함수를 먼저 호출!
+                    // doit은 프라미스 생성자함수임!
+                    // doit에서 시간이 걸리는 코드가 모두 끝나면
+                    // success() 가 실행되고 그것은 
+                    // thenDoit 함수는 success가 리턴해주는 값을
+                    // 받을때 까지 기다림!
+
+                } //////////// async 함수구역 ////////////////
+
+
+                // 먼저 로딩표시 이미지 보이기 함수 호출!
+                firstDo();
+                // async/await 는 반드시 바깥에서 호출필수!
+                // 약간의 시차를 줌
+                setTimeout(setIt,100);
+
+
+
+
+
+
+
+                console.log("DOM로드");
+            }); /////////// DOMContentLoaded /////////////
+
+            console.log("JS시작");
+        </script>
+    </head>
+    <body></body>
+</html>
