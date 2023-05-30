@@ -168,6 +168,7 @@ function move() {console.log(one);
     car.style.transform = one?"translateX(150%) scale(2)":"translateX(0) scale(1)";
     car.style.transition = "2s ease-in-out";
 
+    // 왔다갔다 1/0값 전환하기
     one?one=0:one=1;
 } ///////////// move함수 ///////////////////
 
