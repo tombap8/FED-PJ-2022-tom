@@ -75,19 +75,21 @@
                 }; //////////// load /////////////
 
                 // 로딩중 이미지 넣기함수
-                const firstDo = () => {
-                    document.querySelector(".mybx").innerHTML += 
+                document.querySelectorAll(".mybx")
+                .forEach(v=>{
+                    v.innerHTML += 
                     `<img class="loading" 
                     src="images/loading_img.gif" alt="로딩중">`;
-                }; //////////// firstDo함수 //////////////
+                }) ////////// 로딩중이미지 모두 넣기 ///////////
 
 
                 // 페이지에 많은 양의 이미지 넣기 함수
-                const addImg = () => {
-                    // 4개의 이미지를 200번 반복해서 800개 이미지넣기
-                    for(let i=0; i<200; i++){
+                const addImg = (num,seq) => { 
+                    // num - 반복개수, seq - 해당요소순번
+                    // num개수 만큼 반복하여 이미지 넣기
+                    for(let i=0; i<num; i++){
                         isrc.forEach(v=>{
-                            document.querySelector(".mybx")
+                            document.querySelectorAll(".mybx")[seq]
                             .innerHTML +=
                             `<img class="timg" src="${v}" alt="test">`;
                         });
@@ -132,8 +134,8 @@
                 } //////////// async 함수구역 ////////////////
 
 
-                // 먼저 로딩표시 이미지 보이기 함수 호출!
-                firstDo();
+                // 먼저 로딩표시 이미지 보이기 함수 호출! -> 상단에서 모두 넣기함!
+                // firstDo();
                 // setIt();
 
                 // async/await 는 반드시 바깥에서 호출필수!
@@ -153,6 +155,8 @@
     </head>
     <body>
         <!-- 개별박스 -->
+        <div class="mybx"></div>
+        <div class="mybx"></div>
         <div class="mybx"></div>
 
     </body>
