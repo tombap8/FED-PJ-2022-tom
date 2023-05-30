@@ -316,8 +316,9 @@ $(function () {
 
         // 3. 아이콘을 현재 소리상태로 넣기
         // sound가 true이면 반대로 했으므로 소리남 아이콘!
-        if(sound) $(this).attr("src","./images/speaker_blue.png");
-        else $(this).attr("src","./images/speaker-mute_blue.png");
+        // 비?집:놀이동산
+       sound ? $(this).attr("src","./images/speaker_blue.png"):
+       $(this).attr("src","./images/speaker-mute_blue.png");
 
     }); /////////// click //////////////////
 
