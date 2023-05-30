@@ -105,7 +105,7 @@
                     // 재사용성을 위해 실행할 함수를 받는다!
                     let doit = new Promise(function(success){
                         // 시간이 걸리는 코드
-                        fn();
+                        fn;
                         // addImg();
 
                         // 위의 코드가 다실행되면 아랫코드를 호출함!
@@ -145,9 +145,9 @@
                 setTimeout(()=>{
                     // setIt(적용함수,순번)
                     // addImg(반복횟수,순번)
-                    setIt(addImg(200,0),0);
+                    setIt(addImg(100,0),0);
                     setIt(addImg(50,1),1);
-                    setIt(addImg(100,2),2);
+                    setIt(addImg(1,2),2);
                 },100);
                 // 로딩바와 실행처리구역을 구분하여
                 // 로딩바 이미지가 처리이미지와 같이 처리되지 않도록
