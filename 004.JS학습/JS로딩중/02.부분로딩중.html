@@ -100,7 +100,8 @@
                 // 이미지 컨텐츠를 로딩하는 함수를 Promise하자!
                 // async / await 를 사용함!
                 // async function안에 프라미스의 세계를 만들어준다!
-                async function setIt(fn){ // fn 실행코드함수
+                async function setIt(fn,seq){ 
+                    // fn 실행코드함수, seq-적용대상순번
                     // 재사용성을 위해 실행할 함수를 받는다!
                     let doit = new Promise(function(success){
                         // 시간이 걸리는 코드
@@ -108,16 +109,17 @@
                         // addImg();
 
                         // 위의 코드가 다실행되면 아랫코드를 호출함!
-                        success("다됐어~!");
+                        success(seq);
                     }); /////////// doit 프라미스 ////////
 
                     // 프라미스가 보장하는 코드실행후 실행함수
-                    const thenDoit = (txt) => {
-                        //txt - success에서 전달한 값 받기
-                        console.log("이게뭐야?",txt);
+                    const thenDoit = (seq) => { // seq - 적용순번
+                        //seq - success에서 전달한 값 받기
+                        console.log("이게뭐야?",seq);
 
                         // 로딩바를 없앰!
-                        document.querySelector(".loading").remove();
+                        document.querySelectorAll(".mybx")[seq]
+                        .querySelector(".loading").remove();
 
                     }; ///////////// thenDoit 함수 ////////////
 
@@ -140,7 +142,13 @@
 
                 // async/await 는 반드시 바깥에서 호출필수!
                 // 약간의 시차를 줌
-                setTimeout(()=>setIt(addImg),100);
+                setTimeout(()=>{
+                    // setIt(적용함수,순번)
+                    // addImg(반복횟수,순번)
+                    setIt(addImg(200,0),0);
+                    setIt(addImg(50,1),1);
+                    setIt(addImg(100,2),2);
+                },100);
                 // 로딩바와 실행처리구역을 구분하여
                 // 로딩바 이미지가 처리이미지와 같이 처리되지 않도록
                 // 비동기적으로 처리해야 로딩바가 별도로 화면에 먼저
