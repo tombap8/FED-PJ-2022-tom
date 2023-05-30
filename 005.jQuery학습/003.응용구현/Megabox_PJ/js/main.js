@@ -280,7 +280,7 @@ $(function () {
         // 동영상 멈춤상태 알아내기 - paused 속성으로 알아냄!
         // 결과: true - 멈춤, false - 재생중(멈춤아님)
         let paused_sts = mv.get(0).paused;
-        console.log("비디오가 멈췄니?", paused_sts);
+        // console.log("비디오가 멈췄니?", paused_sts);
 
         // 1. 멈춤아니면(false) 동영상 멈추기
         if (!paused_sts) {
@@ -308,6 +308,17 @@ $(function () {
         // 동영상 소리 안남여부 속성 -> muted
         let sound = mv.get(0).muted;
         console.log("소리안나나?",sound);
+
+        // 2. 만약 소리가 안나면 나게/ 나면 안나게하기
+        // muted 속성은 현재소리안남 상태값을 불린으로 읽기/쓰기 가능
+        mv.get(0).muted = !sound;
+        // !sound 는 true/false 전환 코드임!
+
+        // 3. 아이콘을 현재 소리상태로 넣기
+        // sound가 true이면 반대로 했으므로 소리남 아이콘!
+        if(sound) $(this).attr("src","./images/speaker_blue.png");
+        else $(this).attr("src","./images/speaker-mute_blue.png");
+
     }); /////////// click //////////////////
 
     ///// 3. 영화페이지 : 스와이퍼 적용하기 //////
