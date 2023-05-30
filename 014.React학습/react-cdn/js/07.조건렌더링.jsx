@@ -88,8 +88,8 @@ function Title(props){ // 컴포넌트 호출시 속성으로 tit셋팅!
 } /////////// Title 컴포넌트 /////////////
 
 // 음식리스트
-const foods = ["스파게티","짜파게티","냉면","짜장면","마라탕"];
-// const foods = [];
+// const foods = ["스파게티","짜파게티","냉면","짜장면","마라탕"];
+const foods = [];
 
 // 2-2. 반복리스트를 위한 컴포넌트 /////
 function FoodList(props){// 음식명을 fname담아서 보내준다!
