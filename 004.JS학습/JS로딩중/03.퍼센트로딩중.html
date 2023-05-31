@@ -19,8 +19,7 @@
             .btns {
                 width: 15vw;
                 aspect-ratio: 1/1;
-                background-image: 
-                linear-gradient(to left, hotpink, lightgreen, lightblue);
+                background-image: linear-gradient(to left, hotpink, lightgreen, lightblue);
                 border-radius: 50%;
             }
 
@@ -71,6 +70,13 @@
                 width: 100%;
             }
         </style>
+
+        <!-- 제이쿼리 라이브러리 CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+        <!-- 제이쿼리 UI CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+        
         <script>
             // body에 넣을 이미지 주소
             const isrc = [
@@ -185,7 +191,8 @@
 
                 // async/await 는 반드시 바깥에서 호출필수!
                 // 약간의 시차를 줌
-                setTimeout(() => setIt(addImg), 100);
+                // setTimeout(() => setIt(addImg), 100);
+
                 // 로딩바와 실행처리구역을 구분하여
                 // 로딩바 이미지가 처리이미지와 같이 처리되지 않도록
                 // 비동기적으로 처리해야 로딩바가 별도로 화면에 먼저
@@ -193,6 +200,49 @@
 
                 console.log("DOM로드");
             }); /////////// DOMContentLoaded /////////////
+
+            /****************************************** 
+                함수명: progFn    
+                기능: 퍼센트 증가에 따른 숫자,그래프변경
+            ******************************************/
+            function progFn(seq, pers) {
+                //seq - 버튼순번 / pers - 설정%값
+
+                // 해당순번의 숫자요소
+                let ptxt = btns.eq(seq).find(".ptxt");
+                // 퍼센트 증가
+                // 개별숫자 텍스트 읽어오기
+                let num = ptxt.text(); // 문자형숫자
+                num++; // 문자형숫자는 숫자형으로 자동변환됨!
+                // 개별숫자 반영하기
+                ptxt.text(num);
+
+                // 300% -> 0%
+                // 300을 최대수로 볼때 100분율로 변경하면
+                // 최대수 * 적용할%/100 = 적용결과%
+                // 예) 100만원*0.2 = 20%
+
+                // 계산하기
+                let calc = (300 * (100 - num)) / 100;
+                // 계산법: 전체옵션값 X (100%-현재%)/100
+                // 100%-현재% 로 계산한 이유는 300에서부터
+                // 숫자가 거꾸로 0까지 작아져야 하므로 반대로뺌
+
+                // 첫번째 퍼센트원 진행하기
+                btns.eq(seq)
+                    .find("circle")
+                    .css({
+                        strokeDashoffset: calc + "%",
+                    });
+
+                // 재귀호출하기! : 기준수보다 작을때까지
+                // 기준수의 숫자가 원하는 %가 된다!
+                if (num < pers) {
+                    setTimeout(() => {
+                        progFn(seq, pers);
+                    }, 40);
+                } ///////// if ///////////
+            } ///////////// progFn 함수 ////////////////
 
             console.log("JS시작");
         </script>
