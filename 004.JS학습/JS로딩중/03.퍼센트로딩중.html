@@ -78,9 +78,6 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
 
         <script>
-            
-            $(()=>{ /////////// jQB ////////////////////
-            
                 
                 // 로딩버튼 할당하기 ///////
                 let btns;
@@ -121,7 +118,7 @@
 
             // 이벤트 발생 확인하기
             // JS실행구역->DOMContentLoaded->load
-            // window.addEventListener("DOMContentLoaded", () => {
+            window.addEventListener("DOMContentLoaded", () => {
                 // body가 로딩되면 체크
                 document.body.onload = () => {
                     console.log("body로딩완료!");
@@ -212,7 +209,7 @@
                 // 나타날 수 있다!
 
                 console.log("DOM로드");
-            // }); /////////// DOMContentLoaded /////////////
+            }); /////////// DOMContentLoaded /////////////
 
 
                 /****************************************** 
@@ -259,8 +256,6 @@
                         }, 40);
                     } ///////// if ///////////
                 } ///////////// progFn 함수 ////////////////
-
-            }); //////////// jQB ///////////////////
 
             console.log("JS시작");
         </script>
