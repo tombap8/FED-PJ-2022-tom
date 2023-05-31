@@ -1,0 +1,25 @@
+[ 리액트 CDN방식 / CLI환경방식 차이 ]
+1. import JS사용시 CDN은 확장자 생략불가!
+2. 외부 JS import시 CDN은 본 html파일에도 표기
+3. render() 메서드 사용시 CDN은 
+    ReactDOM.render() 를 바로 사용했으나
+    CLI방식은 createRoot() 를 사용하여
+    2단계로 랜더링 코드작성해야함!
+    예)
+    const root = ReactDOM.createRoot(
+        document.getElementById("root"));
+    root.render(<App />);
+
+4. <></> 빈 프레그먼트 요소는 CLI에서만 지원
+5. CDN은 앞에 모듈을 반드시 써야했음
+    그러나 CLI에서는 안써도 됨
+    (왜? import했으니까!)
+    
+    예)
+    CDN에서 ...
+    <React.Fragment>
+    React.useState
+
+    CLI에서 ...
+    <Fragment>
+    useState
