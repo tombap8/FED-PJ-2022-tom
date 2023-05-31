@@ -126,7 +126,7 @@
 
                 // 로딩중 이미지 넣기함수
                 const firstDo = () => {
-                    document.body.innerHTML += `
+                    $(".loadbx").html(`
                     <div class="btns loading">
                         <!-- 숫자퍼센트박스 -->
                         <span class="txt"><b class="ptxt">0</b>%</span>
@@ -141,8 +141,9 @@
                             ></circle>
                         </svg>
                     </div>
-                    `;
+                    `);
 
+                    // 소스 생성후 함수호출전 로딩버튼 할당하기!
                     btns = $(".btns");
 
                     // 프로그래스 함수 호출하기
@@ -154,7 +155,7 @@
                     // 4개의 이미지를 200번 반복해서 800개 이미지넣기
                     for (let i = 0; i < 200; i++) {
                         isrc.forEach((v) => {
-                            document.body.innerHTML += `<img class="timg" src="${v}" alt="test">`;
+                            document.querySelector(".cont").innerHTML+=`<img class="timg" src="${v}" alt="test">`;
                         });
                     } ////////// for /////////////
                 }; //////////////// addImg 함수 ///////////
@@ -167,8 +168,12 @@
                     // 재사용성을 위해 실행할 함수를 받는다!
                     let doit = new Promise(function (success) {
                         // 시간이 걸리는 코드
-                        fn();
-                        // addImg();
+                        // fn();
+                        for (let i = 0; i < 200; i++) {
+                        isrc.forEach((v) => {
+                            document.querySelector(".cont").innerHTML+=`<img class="timg" src="${v}" alt="test">`;
+                        });
+                    } ////////// for /////////////
 
                         // 위의 코드가 다실행되면 아랫코드를 호출함!
                         success("다됐어~!");
@@ -179,8 +184,9 @@
                         //txt - success에서 전달한 값 받기
                         console.log("이게뭐야?", txt);
 
+                        temp = 1;
                         // 로딩바를 없앰!
-                        document.querySelector(".loading").remove();
+                        // document.querySelector(".loading").remove();
                     }; ///////////// thenDoit 함수 ////////////
 
                     // 프라미스 호출하기(await사용)
@@ -196,12 +202,12 @@
 
                 // 먼저 로딩표시 이미지 보이기 함수 호출!
                 firstDo();
-                // setIt();
+                // setIt(addImg);
 
 
                 // async/await 는 반드시 바깥에서 호출필수!
                 // 약간의 시차를 줌
-                // setTimeout(() => setIt(addImg), 100);
+                setTimeout(() => setIt(), 200);
 
                 // 로딩바와 실행처리구역을 구분하여
                 // 로딩바 이미지가 처리이미지와 같이 처리되지 않도록
@@ -210,7 +216,6 @@
 
                 console.log("DOM로드");
             }); /////////// DOMContentLoaded /////////////
-
 
                 /****************************************** 
                     함수명: progFn    
@@ -260,5 +265,8 @@
             console.log("JS시작");
         </script>
     </head>
-    <body></body>
+    <body>
+        <div class="loadbx"></div>
+        <div class="cont"></div>
+    </body>
 </html>
