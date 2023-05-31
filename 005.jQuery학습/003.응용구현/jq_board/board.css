@@ -1,0 +1,138 @@
+@charset "utf-8";
+
+/* CSS Document */
+/*테이블 디자인*/
+.dtbl {
+    /*테이블전체*/
+    text-align: center;
+    /*텍스트 가로 중앙*/
+    font-family: "맑은 고딕", "굴림";
+    font-size: 14px;
+    border-collapse: collapse;
+    width: 750px;
+    margin: 0 auto;
+}
+
+.dtbl caption,
+.dtblview caption {
+    /*테이블 타이틀*/
+    font-family: "맑은 고딕", "굴림";
+    font-size: 24px;
+    font-weight: bold;
+    /*글자두께*/
+    color: #333;
+    padding: 10px 0;
+}
+
+.dtbl a {
+    text-decoration: none;
+    color: #666;
+}
+
+.btngrp td {
+    border-bottom: none !important;
+    text-align: right;
+}
+
+.dtbl td,
+.dtbl th {
+    /*여러개를 설정할때 컴마(,) 사용*/
+    padding: 5px 10px;
+    /*위아래, 양쪽*/
+    /*
+		padding은 안쪽 공간-> 기존박스가 커짐
+		padding: 위 오른 아래 왼;(4개)
+		padding: 위 오른왼 아래;(3개)
+		padding: 위아래 오른왼;(2개)
+		padding: 모든방향;(1개)
+	*/
+}
+
+/*각 th별 가로크기지정 */
+.dtbl th:nth-child(1){
+    width: 50px;
+}
+.dtbl th:nth-child(2){
+    width: 420px;
+}
+.dtbl th:nth-child(3){
+    width: 100px;
+}
+.dtbl th:nth-child(4){
+    width: 100px;
+}
+.dtbl th:nth-child(5){
+    width: 80px;
+}
+
+.dtbl tbody tr td {
+    /*본문 td 밑줄*/
+    border-bottom: 1px solid #ccc;
+    /*두종색*/
+}
+
+.dtbl thead tr th {
+    /*머리줄 th 윗줄*/
+    border-top: 2px solid #999;
+    /*두종색*/
+    border-bottom: 1px solid #999;
+}
+
+.dtbl tbody tr:last-child td {
+    /*테이블본문의 마지막 줄 tr 의 td 밑줄변경*/
+    border-bottom: 2px solid #999;
+}
+
+/*
+	가상 클래스 중
+	:first-child - 첫번째 자식
+	:last-child - 두번째 자식
+	:nth-child(숫자) - 숫자번째 자식 (짝수 even, 홀수 odd 사용)
+	단, 자식 태그의 종류가 한가지 여야함~!!!!
+*/
+/*짝수번째 배경색 넣기*/
+.dtbl tbody tr:nth-child(even) td {
+    /*even 짝수, odd 홀수*/
+    background-color: #F3F3F3;
+}
+
+/*하단 패딩*/
+/* tfoot의 td에 padding 및 글자중앙 적용하기 */
+.dtbl tfoot td {
+    text-align: center;
+    /*글자중앙정렬*/
+    padding: 20px 0px;
+    /*위아래,우좌 padding설정*/
+}
+
+
+/* 내용보기 */
+.dtblview {
+    font-family: "맑은 고딕", "굴림";
+    font-size: 14px;
+    border-collapse: collapse;
+    width: 750px;
+    margin: 20px auto;
+    border-top: 2px solid #999;
+    /*두종색*/
+    border-bottom: 2px solid #999;
+}
+/*첫째열*/
+.dtblview td:first-child {
+    width: 100px;
+}
+/*둘째열*/
+.dtblview td:last-child {
+    width: 650px;
+}
+
+.dtblview td {
+    border-bottom: 1px solid #ccc;
+    padding: 8px;
+}
+
+.dtblview td:first-child {
+    width: 200px;
+    background-color: #E0E0E0;
+    text-align: center;
+}

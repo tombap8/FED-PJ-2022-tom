@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>게시판 리스트 페이지</title>
+    <link rel="stylesheet" href="board.css">
+</head>
+
+<body>
+    
+
+    <!--게시판 리스트-->
+    <table class="dtbl">
+        <caption>방명록 게시판</caption>
+        <!--상단 컬럼명 표시영역-->
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>글 제목</th>
+                <th>글 쓴이</th>
+                <th>등록일자</th>
+                <th>조회수</th>
+            </tr>
+        </thead>
+
+
+
+
+
+        <!--중앙 레코드 표시부분-->
+        <tbody>
+             <tr>
+                        <td colspan="5">
+                            등록된 글이 없습니다.
+                        </td>
+                    </tr>
+                    <!-- echo 
+                    "<tr>".
+                        // 리스트의 순번을 새로 붙여준다!
+                        "<td>$lno</td>".
+                        //// 글보기는 리스트페이지다
+                        "<td>
+                            <a href='list.php?no=$no&mode=read&read_uno=$uno'>$subject</a>
+                        </td>".
+                        "<td>$name</td>".
+                        "<td>$register_date</td>".
+                        "<td>$hit</td>".
+                    "</tr>";
+                    
+                    # 리스트번호 증가
+                    $lno++;//1씩증가
+             
+                echo '
+                  
+                '; -->
+
+        </tbody>
+
+
+
+        <!--하단 페이징 표시부분-->
+        <tfoot>
+            <tr>
+                <td colspan="5">
+                    <!--PHP에서 페이징을 구성하여 표시한다!-->
+                  
+
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <br>
+    <table class="dtbl btngrp">
+        <tr>
+            <td>
+                <button>
+                    <a href="list.php">글 목록</a>
+                </button>
+                <button class="wbtn">
+                    <a href="write.php">글 쓰기</a>
+                </button>
+            </td>
+        </tr>
+    </table>
+
+
+
+
+</body>
+
+</html>
