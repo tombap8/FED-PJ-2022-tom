@@ -147,9 +147,9 @@ document.querySelector("#root3"));
 
 // 전달할 배열변수 ///
 const movs = [
-    {year:"2021",mtit:"영화1"},
-    {year:"2022",mtit:"영화2"},
-    {year:"2023",mtit:"영화3"},
+    {year:"2021",mtit:"모가디슈"},
+    {year:"2022",mtit:"범죄도시2"},
+    {year:"2023",mtit:"가디언즈 오브 갤럭시3"},
 ];
 
 // 개발자가 좋아하는 영화 - 찍기!
@@ -211,3 +211,34 @@ function WishList2(props){ // wlist속성에 담아 보내준다!
 // 컴포넌트 출력하기
 ReactDOM.render(<WishList2 wlist={movs} />,
 document.querySelector("#root4"));
+
+/********************************************************** 
+    3. 조건 연산자(삼항연산자)를 사용하여 조건부 랜더링하기 
+**********************************************************/
+
+// 명화 데이터
+const worksrc = {
+    "피카소":"https://m.theartin.net/web/product/big/201907/30c5a0fdd153bfdfdc8f19b2f4166fa8.jpg",
+    "모네":"https://dimg.donga.com/wps/NEWS/IMAGE/2015/12/11/75316598.3.jpg"
+};
+
+// 개발자가 좋아하는 그림(명화) 찍기
+
+// 3-1. 타이틀과 그림찍기 컴포넌트
+// 구성: 작가이름 + 작품이미지
+// 데이터: 작가이름(painter), 이미지경로(작가이름의 객체worsrc이용)
+//          작품명(wname)
+function MakeWork(props){
+    return(
+        <div>
+            <h2>{props.painter}</h2>
+            <img 
+                src={worksrc[props.painter]}
+                alt={props.wname}
+                style={{width:"400px"}}
+                title={props.wname}
+            />
+        </div>
+    );
+
+} ///////////// MakeWork ///////////////////////
