@@ -22,7 +22,11 @@ function LostDev(){
 
 // 3번 컴포넌트
 function MakeImg(props){
-    return <img src={props.isrc} alt={props.ialt} />;
+    return <img 
+        src={props.isrc} 
+        alt={props.ialt} 
+        title={props.ialt} 
+    />;
 }
 
 // 출력 메인 컴포넌트 //////
@@ -33,6 +37,7 @@ function Developer(props){ // 호출시 전달되는 속성 props
     if(isNow){
         return( 
             <React.Fragment>
+                {/* MakeDev 컴포넌트 선택출력 */}
                 <MakeDev />
                 <MakeImg 
                     isrc={props.isrc} 
@@ -45,6 +50,7 @@ function Developer(props){ // 호출시 전달되는 속성 props
     // return 때문에 컴포넌트를 나감!
     return( 
         <React.Fragment>
+            {/* LostDev 컴포넌트 선택출력 */}
             <LostDev />
             <MakeImg 
                 isrc={props.isrc} 
@@ -143,7 +149,7 @@ document.querySelector("#root3"));
 const movs = [
     {year:"2021",mtit:"영화1"},
     {year:"2022",mtit:"영화2"},
-    {year:"2023",mtit:"영화2"},
+    {year:"2023",mtit:"영화3"},
 ];
 
 // 개발자가 좋아하는 영화 - 찍기!
@@ -157,3 +163,51 @@ const movs = [
     2022년도 영화2
     2023년도 영화3
 */
+
+// 2-2. 반복리스트를 위한 컴포넌트 /////
+function MovieList(props){// year - 영화개봉년도 / mname - 영화명
+    return <li>{props.year}년도 {props.mname}</li>
+} //////////// MovieList 컴포넌트 ////////////////
+
+// 2-3. 개발자 선호 영화 리스트 출력 컴포넌트 ////
+function WishList2(props){ // wlist속성에 담아 보내준다!
+    // 위시리스트 담기
+    const mymv = props.wlist;
+    // 코드리턴
+    return(
+        <React.Fragment>
+            <Title tit="영화" />
+            {/* 영화 위시리스트의 길이가 0보다 클때만 출력 */}
+            {
+                mymv.length > 0 &&
+                <div>
+                    <h2>
+                        개발자가 좋아하는 영화는 
+                        최근 {mymv.length}년간 아래와 같습니다!
+                    </h2>
+                    <ul>
+                        {
+                            // 배열변수.map() 메서드사용!
+                            // map(변수=>{표현식})
+                            // 변수는 화살표함수 안으로 배열값전달
+                            // 배열값으로 객체가 들어가 있으므로
+                            // 각 배열값은 객체의 속성으로 지정함!
+                            // x.year / x.mtit
+                            mymv.map(x=> 
+                            <MovieList year={x.year} mname={x.mtit} /> )
+                        }
+                    </ul>
+                </div>
+            }
+            {/* 다른 경우출력은 별도의 JSX출력 중괄호구역에 코딩 */}
+            {
+                mymv.length == 0 &&
+                <h2>아직 개발자영화 리스트가 업데이트 되지 않았습니다!</h2>
+            }
+        </React.Fragment>
+    );
+} /////////// WishList2 컴포넌트 //////////////////
+
+// 컴포넌트 출력하기
+ReactDOM.render(<WishList2 wlist={movs} />,
+document.querySelector("#root4"));
