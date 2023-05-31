@@ -1,0 +1,71 @@
+[ 리액트 SPA 앱 환경설정 초기셋팅 ]
+
+-> 왜 노드JS인가?
+(서버에서 작동하는 JS가 바로 노드JS다!)
+-> 요즘 개발환경 대세임~!(성능좋고 결과확인 탁월하다!)
+
+1. node.js 를 설치
+https://nodejs.org/ko/download/
+위의 주소는 공식홈페이지 다운로드 페이지임
+
+-> 설치후 확인 폴더는 아래와 같다
+C:\Program Files\nodejs
+
+->>> 시스템 환경변수에 등록해준다!
+PATH에 추가등록!
+(노드설치시 자동등록된다! 그러나 확인필요!`)
+예) C:\Program Files\nodejs 
+-> 설치된 노드js위치를 등록후 재부팅필요!!!
+
+####################################
+[ VSCODE에서 작업 ] 
+npm 명령어 사용 - (node package management)
+-> 터미널의 Command Prompt 창에서 명령어를 입력한다!
+(VSCODE에서 터미널은 ctrl+`(백틱)으로 연다!)
+-> 처음에 열면 프로젝트 Root폴더부터 나옴
+
+1. 작업할 폴더까지 이동한다!
+-> cd 이동할 폴더명 (react-app까지 이동)
+
+
+2. 기존에 리액트앱이 글로벌로 설치되었다면 삭제
+npm uninstall -g create-react-app
+
+3. 새로운 리액트 어플리케이션을 만든다
+npx create-react-app my-react-app
+(my-react-app은 내가지은이름)
+
+참고: npx는 npm 과 달리 버전 선택하지 않아도 최신버전의 리액트 모듈을 설치해 준다!(버전이 상이해서 생기는 문제를 막아준다!)
+
+4. 이미 만들고 깃허브에서 연결하였다면...
+만약 package.json파일에서 
+"dependencies"항목에
+react와 react-dom이 없다면
+해당 소스까지 들어와서 react와 react-dom을 설치한다!
+
+npm i react react-dom
+
+
+5. 해당어플위치에서 npm을 스타트한다
+npm start
+
+###################################################
+-> 5번의 결과로 브라우저에 가상서버가 뜨고 
+http://localhost:3000/
+위의 주소로 테스트 환경의 브라우저가 구동한다!
+새로고침 없이 계속 변경된 소스와 에러시 메시지를 리턴함!
+####################################################
+
+
+6. 라우터 기능사용시 추가설치
+npm i -D react-router-dom
+최신라우터 업그레이드는 아래 코드
+npm i -D react-router-dom@latest
+
+7. 부트스트랩 추가 설치
+npm install react-bootstrap bootstrap
+
+8. 제이쿼리 추가설치
+npm install jquery
+사용:
+import $ from 'jquery';
