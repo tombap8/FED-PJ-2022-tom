@@ -34,19 +34,30 @@ const pgblock = 9;
 function bindList(pgnum){ // pgnum - 페이지번호
     // 0. 게시판 리스트 생성하기
     let blist = "";
+    // 전체 레코드 개수
+    let totnum = bdata.length;
     
     // 1.일반형 for문으로 특정대상 배열 데이터 가져오기
     // 데이터 순서: 번호,글제목,글쓴이,등록일자,조회수
     for (let i = (pgnum - 1) * pgblock; i < pgnum * pgblock; i++) {
-        blist += `
-            <tr>
-                <td>${bdata[i]["idx"]}</td>
-                <td>${bdata[i]["tit"]}</td>
-                <td>${bdata[i]["writer"]}</td>
-                <td>${bdata[i]["date"]}</td>
-                <td>${bdata[i]["cnt"]}</td>
-            </tr>
-        `;
+        // 마지막 번호한계값 조건으로 마지막페이지 데이터 
+        // 존재하는 데이터까지만 바인딩하기
+        if(i < totnum){
+
+            blist += `
+                <tr>
+                    <td>${bdata[i]["idx"]}</td>
+                    <td>
+                        <a href="view.html?idx=${bdata[i]["idx"]}">
+                            ${bdata[i]["tit"]}
+                        </a>
+                    </td>
+                    <td>${bdata[i]["writer"]}</td>
+                    <td>${bdata[i]["date"]}</td>
+                    <td>${bdata[i]["cnt"]}</td>
+                </tr>
+            `;
+        } //////////// if ////////////
     } /////////// for 문 ///////////////
     
     console.log("코드:", blist);
@@ -57,9 +68,9 @@ function bindList(pgnum){ // pgnum - 페이지번호
     // 3. 페이징 블록 만들기
     // 3-1.전체 페이지 번호수 계산하기
     // 전체레코드수 / 페이지단위수 (나머지있으면+ 1 )
-    // 전체 레코드 수 : bdata.length
-    let pgtotal = Math.floor(bdata.length / pgblock);
-    let pgadd = bdata.length % pgblock;
+    // 전체 레코드 수 : totnum 변수에 이미 할당
+    let pgtotal = Math.floor(totnum / pgblock);
+    let pgadd = totnum % pgblock;
     console.log("페이징 전체수:",pgtotal);
     console.log("페이징 나머지:",pgadd);
 
@@ -75,7 +86,7 @@ function bindList(pgnum){ // pgnum - 페이지번호
 
         pgcode += 
         // 페이지번호와 i가 같으면 a링크를 만들지 않는다!
-        pgnum == i ? i : `<a href="#">${i}</a>`;
+        pgnum == i ? `<b>${i}</b>` : `<a href="#">${i}</a>`;
 
         // 사이구분자(마지막번호 뒤는 제외)
         if(i!=pgtotal) pgcode += " | ";
