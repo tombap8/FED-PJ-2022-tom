@@ -12,12 +12,12 @@
 [객체구조]
 
 {
-    idx :"",
-    tit : "",
-    cont :"",
-    att : "",
-    date :"",
-    writer "",
-    pwd : "",
-    cnt : "",
-}
+    "idx" : "",
+    "tit" : "",
+    "cont" : "",
+    "att" : "",
+    "date" : "",
+    "writer" : "",
+    "pwd" : "",
+    "cnt" : ""
+},
