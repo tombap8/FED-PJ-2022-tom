@@ -1,5 +1,32 @@
 @charset "utf-8";
 /* 메인배너용 CSS - ban.css */
+.banner{
+    position: relative;
+}
 .bantit{
     position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 25px;
+    color: #fff;
+    text-shadow: 0 0 3px #000;
+}
+/* 배너슬라이드 */
+.slider{
+    position: relative;
+    left: 0;
+}
+/* 배너 컨텐츠버튼 */
+.banner button{
+    border-radius: 20px;
+    padding: 10px;
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+}
+.banner button:hover{
+    background-color: hotpink;
+}
+.banimg{
+    width: 100%;
 }
