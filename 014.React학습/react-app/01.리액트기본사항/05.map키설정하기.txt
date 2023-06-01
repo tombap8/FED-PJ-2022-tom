@@ -1,0 +1,57 @@
+[ 리액트 map을 이용한 반복코드 사용시 key설정방법 ]
+
+- 리액트의 반복코드 생성시 각 레코드를 구분하기위해
+key속성을 셋팅하도록 하고 있다!
+
+아래 방법 3가지:
+
+[1] map 내부에 직접 코드를 생성할 경우
+
+return (
+    <div className="banner">
+        <ul className="slider">
+            {
+                sel_data.map((x,i)=> 
+                <MakeList rec={x} key={i} />)
+            }
+        </ul>
+    </div>
+);
+
+
+[2] map에서 외부 컴포넌트를 호출할 경우
+
+return (
+    <div className="banner">
+        <ul className="slider">
+            {
+                sel_data.map((x,i)=> 
+                (
+                    <li key={i}>
+                        <img className="banimg" src={x["src"]} alt="배너" />
+                        <section className="bantit">
+                            <h3>{x["tit1"]}</h3>
+                            <h2>{x["tit2"]}</h2>
+                            <p>{x["cont"]}</p>
+                            <button>{x["btn"]}</button>
+                        </section>
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
+);
+
+[3] Children.toArray() 를 사용하여 고유 키값을 만들어줄 경우
+
+return (
+    <div className="banner">
+        <ul className="slider">
+            {
+                Children.toArray(
+                    sel_data.map((x,i)=> 
+                    <MakeList rec={x} />))
+            }
+        </ul>
+    </div>
+);
