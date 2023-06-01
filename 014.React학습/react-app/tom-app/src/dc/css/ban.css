@@ -16,6 +16,10 @@
     position: relative;
     left: 0;
 }
+.slider li{
+    position: relative;
+    /* 부모자격 */
+}
 /* 배너 컨텐츠버튼 */
 .banner button{
     border-radius: 20px;
