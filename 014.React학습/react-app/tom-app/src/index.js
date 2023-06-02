@@ -8,6 +8,8 @@ import Layout from "./dc/Layout";
 import "./index.css";
 import Comics from "./dc/Comics";
 import Movies from "./dc/Movies";
+import Games from "./dc/Games";
+import News from "./dc/News";
 
 /********************************************* 
     [ 리액트 라우터 ]
@@ -47,6 +49,8 @@ export default function App(){
                     <Route path="ct" element={<Characters />} />
                     <Route path="co" element={<Comics />} />
                     <Route path="mv" element={<Movies />} />
+                    <Route path="gm" element={<Games />} />
+                    <Route path="nw" element={<News />} />
                </Route>
 
             </Routes>

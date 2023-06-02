@@ -58,6 +58,24 @@ const ban_data = {
             "btn":"New Places, Familiar Faces",
         },
     ],
+    "GAMES":[
+        {
+            "src":"./images/dcm37.jpg",
+            "tit1":"GOTHAM GAZETTE",
+            "tit2":"WORLDS TRAVELER",
+            "cont":`Barry who? The Flash isn't the only DC hero this summer who's been traveling through the multiverse.`,
+            "btn":"New Places, Familiar Faces",
+        },
+    ],
+    "NEWS":[
+        {
+            "src":"./images/dcm33.jpg",
+            "tit1":"GOTHAM GAZETTE",
+            "tit2":"WORLDS TRAVELER",
+            "cont":`Barry who? The Flash isn't the only DC hero this summer who's been traveling through the multiverse.`,
+            "btn":"New Places, Familiar Faces",
+        },
+    ],
 };
 
 // 데이터 내보내기
