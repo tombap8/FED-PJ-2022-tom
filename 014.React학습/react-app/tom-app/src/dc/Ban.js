@@ -3,6 +3,21 @@
 import "./css/ban.css";
 // 배너 데이터
 import ban_data from "./data/banner";
+// 제이쿼리
+import $ from "jquery";
+
+$(()=>{////////// jQB ////////////////
+
+    // 1. 버튼 클릭시 이동기능구현
+    $(".abtn").click(function(){
+        // 1. 버튼구분하기
+        let isB = $(this).is(".rb");
+        console.log("오른쪽?",isB);
+
+    }); ////////// click ////////////
+
+}); ///////////// jQB ////////////////
+
 
 // 반복리스트 코드 생성용 컴포넌트 ///////
 function MakeList(props) { 
@@ -28,12 +43,24 @@ function Ban(props) {
 
     return (
         <div className="banner">
+            {/* 이동 슬라이드 */}
             <ul className="slider">
                 {
                     sel_data.map((x,i)=> 
                     <MakeList rec={x} key={i} />)
                 }
             </ul>
+            {/* 이동버튼 + 슬라이드 블릿 : 슬라이드가 2개이상 */}
+            {
+                // 조건식 && 코드 : 조건식이 true일때 코드출력
+                sel_data.length > 1 &&
+                <>
+                <button className="abtn lb">＜</button>
+                <button className="abtn rb">＞</button>
+                </>
+                
+            }
+
         </div>
     );
 } /////////// Ban 컴포넌트 /////////////
