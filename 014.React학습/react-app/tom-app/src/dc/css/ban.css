@@ -68,7 +68,6 @@
     bottom: 3vh;
     transform: translateX(-50%);
     display: flex;
-    justify-content: center;
 }
 .indic li{
     width: 10px;

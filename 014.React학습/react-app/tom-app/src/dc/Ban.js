@@ -8,8 +8,16 @@ import $ from "jquery";
 
 $(()=>{////////// jQB ////////////////
 
+    // 광클금지변수
+    let prot = 0;
+
     // 1. 버튼 클릭시 이동기능구현
     $(".abtn").click(function(){
+        // 0.광클금지
+        if(prot) return;
+        prot = 1;
+        setTimeout(()=>prot=0,400);
+
         // 1. 버튼구분하기
         let isB = $(this).is(".rb");
         console.log("오른쪽?",isB);
@@ -18,11 +26,24 @@ $(()=>{////////// jQB ////////////////
         const tg = $(this).siblings(".slider");
         
         // 2. 분기하여 기능구현하기
-        // (1) 오른쪽버튼 클릭시 : 오른쪽에서 들어옴(left:-100%)
+        // (1) 오른쪽버튼 클릭시 : 오른쪽에서 들어옴(left:0->-100%)
         if(isB){
-            tg.animate({left:"-100%"},400)
-
+            tg.animate({left:"-100%"},400,
+            function(){ // this는 타겟!
+                // 첫번째 li 맨뒤로 보내기! 동시에 left:0
+                $(this).append($(this).find("li").first())
+                .css({left:"0"});
+            }); /////// animate ///////
         } ///////// if ////////////////
+
+        // (2) 왼쪽버튼 클릭시 : 왼쪽에서 들어옴(left:-100%->0)
+        else{
+            // 마지막 li 맨앞이동+동시에 left:-100% 후 left:0 애니
+            tg.prepend(tg.find("li").last())
+            .css({left:"-100%"})
+            .animate({left:"0"},400);
+
+        } //////////// else ////////////////
 
 
     }); ////////// click ////////////
@@ -66,8 +87,17 @@ function Ban(props) {
                 // 조건식 && 코드 : 조건식이 true일때 코드출력
                 sel_data.length > 1 &&
                 <>
-                <button className="abtn lb">＜</button>
-                <button className="abtn rb">＞</button>
+                    {/* 양쪽이동버튼 */}
+                    <button className="abtn lb">＜</button>
+                    <button className="abtn rb">＞</button>
+                    {/* 블릿 인디케이터 */}
+                    <ol className="indic">
+                        {
+                            sel_data.map((x,i)=>
+                            <li className={i==0?'on':''}></li>
+                            )
+                        }
+                    </ol>
                 </>
                 
             }
