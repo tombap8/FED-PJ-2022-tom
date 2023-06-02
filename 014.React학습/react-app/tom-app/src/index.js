@@ -3,8 +3,10 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Characters from "./dc/Characters";
+import Main from "./dc/Main";
 import Layout from "./dc/Layout";
 import "./index.css";
+import Comics from "./dc/Comics";
 
 /********************************************* 
     [ 리액트 라우터 ]
@@ -42,6 +44,8 @@ export default function App(){
                     {/* path대신 index만 쓰면 첫페이지임! */}
                     <Route index element={<Main />} />
                     <Route path="ct" element={<Characters />} />
+                    <Route path="co" element={<Comics />} />
+                    <Route path="mv" element={<Mo />} />
                </Route>
 
             </Routes>

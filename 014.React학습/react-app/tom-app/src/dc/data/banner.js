@@ -40,6 +40,24 @@ const ban_data = {
             "btn":"MEET RYAN",
         },
     ],
+    "COMICS":[
+        {
+            "src":"./images/dcm3.jpg",
+            "tit1":"GOTHAM GAZETTE",
+            "tit2":"WORLDS TRAVELER",
+            "cont":`Barry who? The Flash isn't the only DC hero this summer who's been traveling through the multiverse.`,
+            "btn":"New Places, Familiar Faces",
+        },
+    ],
+    "MOVIES":[
+        {
+            "src":"./images/dcm34.jpg",
+            "tit1":"GOTHAM GAZETTE",
+            "tit2":"WORLDS TRAVELER",
+            "cont":`Barry who? The Flash isn't the only DC hero this summer who's been traveling through the multiverse.`,
+            "btn":"New Places, Familiar Faces",
+        },
+    ],
 };
 
 // 데이터 내보내기
