@@ -7,6 +7,7 @@ import Main from "./dc/Main";
 import Layout from "./dc/Layout";
 import "./index.css";
 import Comics from "./dc/Comics";
+import Movies from "./dc/Movies";
 
 /********************************************* 
     [ 리액트 라우터 ]
@@ -45,7 +46,7 @@ export default function App(){
                     <Route index element={<Main />} />
                     <Route path="ct" element={<Characters />} />
                     <Route path="co" element={<Comics />} />
-                    <Route path="mv" element={<Mo />} />
+                    <Route path="mv" element={<Movies />} />
                </Route>
 
             </Routes>
