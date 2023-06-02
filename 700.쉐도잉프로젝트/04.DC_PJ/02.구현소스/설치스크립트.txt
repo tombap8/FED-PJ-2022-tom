@@ -1,0 +1,21 @@
+[ 설치스크립트 ]
+1. 리액트 앱 설치하기
+- 설치위치: 04.DC_PJ\02.구현소스
+- 설치이름: dc-app
+- 스크립트: npx create-react-app dc-app
+
+2. 팩키지 모듈 설치하기
+- 설치위치: 04.DC_PJ\02.구현소스\dc-app
+- 스크립트: 
+    (1) npm i react-router-dom
+    (2) npm i jquery
+
+3. 설치확인
+- 파일명: package.json
+- 항목명: "dependencies"
+
+4. 개발서버구동
+- 서버구동위치: 04.DC_PJ\02.구현소스\dc-app
+- 스크립트:
+    (1) 시작: npm start
+    (2) 멈춤: ctrl+c 후 질문에 답: y
