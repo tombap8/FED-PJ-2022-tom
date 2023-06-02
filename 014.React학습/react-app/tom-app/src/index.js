@@ -2,6 +2,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
+import Layout from "./dc/Layout";
 
 /********************************************* 
     [ 리액트 라우터 ]
@@ -34,7 +35,8 @@ export default function App(){
         <BrowserRouter>
             <Routes>
                {/* 중요!!!:레이아웃 컴포넌트를 루트로 잡아준다!!! */} 
-               <Route path="/" element={}>
+               <Route path="/" element={<Layout />}>
+                    {/* 하위라우트 셋팅 */}
 
                </Route>
 
