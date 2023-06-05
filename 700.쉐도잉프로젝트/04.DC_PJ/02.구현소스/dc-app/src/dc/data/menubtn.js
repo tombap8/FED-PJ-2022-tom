@@ -26,3 +26,5 @@ const menubtn_data = [
         "link":"/nw",
     },
 ]
+
+export default menubtn_data;
