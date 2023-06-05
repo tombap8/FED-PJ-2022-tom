@@ -1,13 +1,14 @@
-body {
+@charset "utf-8";
+/* 전체 페이지 공통 CSS
+- index.html 페이지 전체에 적용됨! */
+html,body,ul,ol,dl,dt,dd,p,figure,figcaption,h1,h2,h3,h4 {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body{
+  background-color: #e5e5e5;
+}
+/* ul,ol */
+ul,ol{
+  list-style: none;
 }
