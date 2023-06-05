@@ -1,2 +1,44 @@
 @charset "utf-8";
 /* MenuBtn 모듈용 CSS - menubtn.css  */
+
+.menubtn{
+    position: relative;
+    max-width: 1320px;
+    display: flex;
+    margin: 0 auto;
+    margin-top: 5vh;
+    gap: 5% 0;
+    font-family: 'Roboto Condensed', sans-serif;
+    padding-bottom: 30px;
+}
+.menubtn>div{
+    flex-basis: 20%;
+    aspect-ratio: 1/1.7;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.701);
+    background-color: #fff;
+}
+.imbx img{
+    clip-path: polygon(0% 0%,100% 0%, 100% 80%,0% 100%);
+}
+.titbx h3{
+    padding: 6px 0;
+    margin-bottom: 5px;
+    font-size: 12px;
+    color: #555;
+}
+.titbx h2{
+    margin-bottom: 8px;
+}
+.btnbx button{
+    padding: 15px 30px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 25px;
+    font-family: 'Roboto Condensed', sans-serif;
+    background-color: transparent;
+    transition: .4s;
+}
+.btnbx button:hover{
+    background-color: #0074eb;
+    color: #fff;
+}
