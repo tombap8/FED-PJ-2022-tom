@@ -5,17 +5,18 @@
     position: relative;
     max-width: 1320px;
     display: flex;
+    justify-content: space-between;
     margin: 0 auto;
     margin-top: 5vh;
-    gap: 5% 0;
     font-family: 'Roboto Condensed', sans-serif;
     padding-bottom: 30px;
 }
 .menubtn>div{
-    flex-basis: 20%;
+    position: relative;
+    flex-basis: 23%;
     aspect-ratio: 1/1.7;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.701);
-    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background-color: #fdfdfd;
 }
 .imbx img{
     clip-path: polygon(0% 0%,100% 0%, 100% 80%,0% 100%);
@@ -24,10 +25,19 @@
     padding: 6px 0;
     margin-bottom: 5px;
     font-size: 12px;
-    color: #555;
+    color: #888;
+    letter-spacing: 2px;
 }
 .titbx h2{
     margin-bottom: 8px;
+    padding: 0 20px;
+}
+.btnbx{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 30px;
+    white-space: nowrap;
 }
 .btnbx button{
     padding: 15px 30px;
