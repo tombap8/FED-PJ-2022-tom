@@ -27,6 +27,7 @@ function MenuBtn() {
                             <h2>{v.tit.split('^')[1].toUpperCase()}</h2>
                         </div>
                         <div className="btnbx">
+                            {/* 라우터를 이용한 이동은 반드시 Link를 사용하자! */}
                             <Link to={v.link}>
                                 <button>
                                     {v.btn.toUpperCase()}
