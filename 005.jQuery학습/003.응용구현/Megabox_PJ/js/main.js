@@ -322,6 +322,47 @@ $(function () {
 
     }); /////////// click //////////////////
 
+    // 2-3. 재생위치변경 기능(클릭/드래그) ////////////
+
+    // 2-3-1. 비디오 현재 진행바 기능(시간경과표시) ////
+    // 변경대상: .tBar
+    const tBar = $(".tBar") 
+    // 사용할 이벤트 : timeupdate (비디오요소의 시간이 변경될때 발생)
+    // on(이벤트,함수) 메서드 사용!
+    mv.on("timeupdate",function(){
+        // 목표: 비디오가 재생중일때 진행바가 움지이게한다
+        // 원리: 진행바의 진행비율을 %로 나타내야한다!
+        // 계산법 : 현재시간 / 전체시간 * 100 -> 백분율(%)
+
+        // 1. 비디오 현재시간 가져오기 : currentTime속성(비디오현재시간)
+        let ctime = mv[0].currentTime;
+        // mv[0] === mv.get(0)
+        // 비교) document.querySelectorAll(".my").item(0)
+        //  === document.querySelectorAll(".my")[0]
+        // console.log("현재시간:",ctime);
+
+        // 2. 비디오 전체재생시간 : duration(전체진행시간)
+        let ftime = mv[0].duration;
+        // console.log("전체시간:",ftime);
+
+        // 3. 진행바 변경하기
+        // 퍼센트 진행율 : 현재시간 / 전체시간 * 100
+        // 현재시간이 0일 경우 전체시간이 안나옴(if문으로 막기)
+        if(!isNaN(ftime)){
+            let percent = ctime / ftime *100;
+            console.log("진행율:",percent.toFixed(2));
+            // 소수점변수.toFixed(자릿수) -> 특정자릿수까지만 소수점표시!
+    
+            // 4. 진행바의 width를 %값으로 변경!
+            tBar.css({
+                width: percent.toFixed(2) + "%"
+            }); ////////////// css //////////////
+        } ////////////////// if ///////////////
+
+
+    }); ////////////// timeupdate ///////////////
+
+
     ///// 3. 영화페이지 : 스와이퍼 적용하기 //////
     // swiper변수를 전역변수로 만들고 페이지액션에서 사용!
     swiper = new Swiper(".swiper-container", {
