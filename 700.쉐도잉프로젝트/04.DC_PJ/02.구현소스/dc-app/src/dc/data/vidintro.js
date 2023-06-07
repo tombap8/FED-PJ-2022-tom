@@ -44,17 +44,8 @@ const vidintro_data = {
     },
     GAMES: {
         vsrc: "https://www.youtube.com/embed/bFmeHsaYn8Y",
-
-        
-
-
- 
-
-
-
-
         stit: "FEATURED VIDEO",
-        btit: "SUICIDE SQUAD: KILL THE JUSTICE LEAGUE OFFICIAL CO-OP GAMEPLAY - "NO MATTER THE COST"",
+        btit: `SUICIDE SQUAD: KILL THE JUSTICE LEAGUE OFFICIAL CO-OP GAMEPLAY - "NO MATTER THE COST"`,
         sum: "Stop The Flash and rescue Lex Luthor in the process. No matter the cost.",
         desc: "Suicide Squad: Kill the Justice League is available May 26, 2023 on PS5, Xbox Series X|S, and PC. Learn more: *",
         link: ["https://www.suicidesquadgame.com/en-us","https://www.suicidesquadgame.com/en-us"],
