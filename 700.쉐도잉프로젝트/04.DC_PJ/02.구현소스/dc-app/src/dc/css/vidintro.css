@@ -7,9 +7,13 @@
     max-width: 1320px;
     margin: 0 auto;
     margin-top: 30px;
-    padding-bottom: 30px;
+    padding: 24px;
     display: flex;
 }
+
+/* 클래스 "on" 적용시 배경색,글자색 변경적용 */
+
+
 .vb1{
     width: 55%;
 }
@@ -18,10 +22,11 @@
     width: 100%;
 }
 .vb2{
-    font-family: 'Roboto Condensed', sans-serif;
+    width: 45%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    font-family: 'Roboto Condensed', sans-serif;
     text-align-last: left;
     padding: 30px;
 }
