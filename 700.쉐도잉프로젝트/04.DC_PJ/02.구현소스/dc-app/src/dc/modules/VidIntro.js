@@ -14,6 +14,7 @@ function jqFn(){
 
 function VidIntro(props){ 
     // props.pg - 해당페이지 데이터속성명
+    // props.mm - 디자인 CSS클래스"on"속성
 
     // 데이터 선택하기
     const sdt = vidintro_data[props.pg];
@@ -34,7 +35,7 @@ function VidIntro(props){
     return(
         <>
         {/* 모듈코드 */}
-        <section className='vidbox'>
+        <section className={'vidbox'+' '+props.mm}>
             {/* 비디오파트 */}
             <div className='vb1'>
             <iframe src={sdt.vsrc} title={sdt.btit}></iframe>

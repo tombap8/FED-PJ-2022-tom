@@ -7,7 +7,7 @@ const Video = () => {
     return(
         <>
             <h2>Video 페이지</h2>            
-            <VidIntro pg="VIDEO" />
+            <VidIntro pg="VIDEO" mm="on" />
 
         </>
     );

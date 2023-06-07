@@ -1,5 +1,12 @@
 // VidIntro 컴포넌트용 데이터
 
+/* 
+    [ 데이터 조건 ]
+    link 속성 값 셋팅시 하나의 링크만 셋팅할것!
+    링크가 있을 경우 sum 또는 desc 속성값에 
+    단하나의 *표시만 어디든지 넣는다!
+*/
+
 const vidintro_data = {
     main: {
         vsrc: "https://www.youtube.com/embed/jprhe-cWKGs",
