@@ -21,6 +21,7 @@
     background-color: #fdfdfd;
 }
 .imbx img{
+    max-width: 100%;
     clip-path: polygon(0% 0%,100% 0%, 100% 80%,0% 100%);
 }
 .titbx h3{
