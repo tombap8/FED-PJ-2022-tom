@@ -22,14 +22,13 @@
             (click) + location(라우트이동)
  
 [3] 비디오 소개 모듈
-    - 모듈명: VidIntro
+    - 모듈명: VidIntro (JS/CSS/data)
     (1) 구조정의 :
         Root > video box(>video+img) 
                 + title box(>heading+p tag)
     (2) 객체화 :
         {
             "vsrc":"유튜브동영상경로",
-            "isrc":"포스터이미지경로",
             "stit":"작은타이틀",
             "btit":"큰타이틀",
             "sum":"요약소개",
