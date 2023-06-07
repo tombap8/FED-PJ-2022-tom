@@ -58,3 +58,6 @@ const vidintro_data = {
         link: "관련링크",
     },
 };
+
+// 데이터 내보내기
+export default vidintro_data;
