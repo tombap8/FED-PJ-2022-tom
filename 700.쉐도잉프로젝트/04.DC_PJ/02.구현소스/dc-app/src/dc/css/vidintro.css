@@ -50,3 +50,15 @@
 .vb2 .desc{
     margin-top: 20px;
 }
+
+
+@media screen and (max-width:1024px) {
+    .vidbox{
+        flex-direction: column;
+        justify-content: center;
+    }
+    .vidbox>div{
+        width: 80%;
+    }
+
+}
