@@ -1,0 +1,34 @@
+[ React에서 Font Awesome 사용하기 ]
+Font Awesome 5의 SVG 지원
+
+[1] 관련 패키지 설치
+
+1. Font Awesome의 SVG 기반 아이콘을 활성화 시키기 위한 기본 패키지
+
+$ npm i @fortawesome/fontawesome-svg-core
+
+2. 무료로 제공되는 Solid, Regular Brands 3개의 카테고리에 대한 패키지만 설치
+
+$ npm i @fortawesome/free-solid-svg-icons @fortawesome/free-regular-svg-icons @fortawesome/free-brands-svg-icons
+
+3. Font Awesome을 React 컴포넌트 형태로 사용할 수 있도록 해주는 패키지 설치
+$ npm i @fortawesome/react-fontawesome
+
+[2] Font Awesome 아이콘 임포트 하기 : 중괄호안에 필요한 아이콘만 써준다(여러개는 콤마로 구분)
+이름은 fa-play-circle 일 경우 faPlayCircle 로 캐믈케이스로 씀.
+
+import { faCheckSquare, faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { faSquare } from "@fortawesome/free-regular-svg-icons";
+
+[3] React 컴포넌트로 사용하기
+
+import React from "react";
+import { faCamera } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+export default () => <FontAwesomeIcon icon={faCamera} />;
+
+
+
+
+

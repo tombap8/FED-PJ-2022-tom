@@ -45,6 +45,9 @@ const Layout = () => {
                         <li>
                             <Link to="/vd">VIDEO</Link>
                         </li>
+                        <li>
+                            <Link to="/sw">SWIPER</Link>
+                        </li>
                     </ul>
                 </nav>
             </header>

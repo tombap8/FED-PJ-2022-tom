@@ -11,6 +11,7 @@ import Movies from "./dc/Movies";
 import Games from "./dc/Games";
 import News from "./dc/News";
 import Video from "./dc/Video";
+import SwiperApp from "./plugin/SwiperApp";
 
 /********************************************* 
     [ 리액트 라우터 ]
@@ -54,6 +55,7 @@ export default function App(){
                     <Route path="gm" element={<Games />} />
                     <Route path="nw" element={<News />} />
                     <Route path="vd" element={<Video />} />
+                    <Route path="sw" element={<SwiperApp mm="jj" />} />
                </Route>
 
             </Routes>
