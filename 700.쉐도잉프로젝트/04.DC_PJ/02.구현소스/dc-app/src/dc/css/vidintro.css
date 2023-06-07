@@ -20,12 +20,15 @@
     color: #fff;
 }
 
+/* 비디오파트 박스 */
 .vb1{
     width: 55%;
+    aspect-ratio: 4/3;
 }
 .vb1 iframe{
     border: none;
     width: 100%;
+    height: 100%;
 }
 .vb2{
     width: 45%;

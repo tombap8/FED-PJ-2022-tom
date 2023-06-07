@@ -27,28 +27,37 @@ const vidintro_data = {
         link: "관련링크",
     },
     COMICS: {
-        vsrc: "유튜브동영상경로",
-        stit: "작은타이틀",
-        btit: "큰타이틀",
-        sum: "요약소개",
-        desc: "설명",
-        link: "관련링크",
+        vsrc: "https://www.youtube.com/embed/uGGjQH4YLPU",
+        stit: "FEATURED VIDEO",
+        btit: "WELCOME TO THE DAWN OF DC - COMIC TRAILER",
+        sum: "Welcome to the Dawn of DC! In this yearlong storytelling initiative, DC is forging the future one hero at a time with epic new series, new creative teams and new battles to fight across the DC Universe in comics including Superman, Harley Quinn, Green Arrow and many more. Experience the action in this trailer, featuring the incredible art of Jeff Spokes!",
+        desc: "",
+        link: "",
     },
     MOVIES: {
-        vsrc: "유튜브동영상경로",
-        stit: "작은타이틀",
-        btit: "큰타이틀",
-        sum: "요약소개",
-        desc: "설명",
-        link: "관련링크",
+        vsrc: "https://www.youtube.com/embed/r51cYVZWKdY",
+        stit: "FEATURED VIDEO",
+        btit: "THE FLASH – OFFICIAL TRAILER 2",
+        sum: "Watch worlds collide in trailer 2 for The Flash - Only in Theaters June 16.",
+        desc: "Warner Bros. Pictures presents The Flash, directed by Andy Muschietti (the IT films, Mama). Ezra Miller reprises their role as Barry Allen in the DC Super Hero’s first-ever standalone feature film.",
+        link: "",
     },
     GAMES: {
-        vsrc: "유튜브동영상경로",
-        stit: "작은타이틀",
-        btit: "큰타이틀",
-        sum: "요약소개",
-        desc: "설명",
-        link: "관련링크",
+        vsrc: "https://www.youtube.com/embed/bFmeHsaYn8Y",
+
+        
+
+
+ 
+
+
+
+
+        stit: "FEATURED VIDEO",
+        btit: "SUICIDE SQUAD: KILL THE JUSTICE LEAGUE OFFICIAL CO-OP GAMEPLAY - "NO MATTER THE COST"",
+        sum: "Stop The Flash and rescue Lex Luthor in the process. No matter the cost.",
+        desc: "Suicide Squad: Kill the Justice League is available May 26, 2023 on PS5, Xbox Series X|S, and PC. Learn more: *",
+        link: ["https://www.suicidesquadgame.com/en-us","https://www.suicidesquadgame.com/en-us"],
     },
     NEWS: {
         vsrc: "유튜브동영상경로",
