@@ -1,2 +1,38 @@
 @charset "utf-8";
 /* VidIntro 모듈용 CSS - VidIntro.css  */
+
+/* 전체박스 */
+.vidbox{
+    position: relative;
+    max-width: 1320px;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding-bottom: 30px;
+    display: flex;
+}
+.vb1{
+    width: 55%;
+}
+.vb1 iframe{
+    border: none;
+    width: 100%;
+}
+.vb2{
+    font-family: 'Roboto Condensed', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align-last: left;
+    padding: 30px;
+}
+.vb2 h2{
+    font-size: 40px;
+    margin: 20px 0 5px;
+}
+.vb2 p{
+    line-height: 30px;
+    font-weight: bold;
+}
+.vb2 .desc{
+    margin-top: 20px;
+}
