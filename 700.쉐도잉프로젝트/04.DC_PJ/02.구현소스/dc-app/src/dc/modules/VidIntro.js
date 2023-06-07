@@ -18,9 +18,6 @@ function VidIntro(props){
     // 데이터 선택하기
     const sdt = vidintro_data[props.pg];
 
-    const mlink = (a,b) => <a href={a} target="_blank">{b}</a>;
-
-
     return(
         <>
         {/* 모듈코드 */}
@@ -35,10 +32,11 @@ function VidIntro(props){
                 <h2>{sdt.btit}</h2>
                 <p>{sdt.sum}</p>
                 <p className='desc'>
-                    {sdt.desc.split("*")[0]}
-                    <a href={sdt.link[1]} target="_blank">
-                        {sdt.link[0]}</a> 
-                    { sdt.desc.split("*")[1]}
+                    {sdt.desc.split('*')[0]}
+                    <a href={sdt.link[1]} target='_blank'>
+                        {sdt.link[0]}
+                    </a>
+                    {sdt.desc.split('*')[1]}
                 </p>
                 {/* 링크있을경우 표시 */}
             </div>
