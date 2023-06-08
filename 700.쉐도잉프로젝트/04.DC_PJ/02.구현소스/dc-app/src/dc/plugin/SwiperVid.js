@@ -27,13 +27,17 @@ export default function SwiperVid(props) {
                 className="mySwiper">
                 {sdt.map((v, i) => (
                     <SwiperSlide key={i}>
-                        <div className="vidimg">
-                            <img src={v.isrc} alt={v.tit}></img>
-                        </div>
-                        <div className="vidtit">
-                            <h4>{v.cat}</h4>
-                            <h3>{v.tit}</h3>
-                        </div>
+                        <section className="swinbx">
+                            {/* 동영상이미지영역 */}
+                            <div className="vidimg">
+                                <img src={v.isrc} alt={v.tit}></img>
+                            </div>
+                            {/* 동영상타이틀영역 */}
+                            <div className="vidtit">
+                                <h4>{v.cat}</h4>
+                                <h3>{v.tit}</h3>
+                            </div>
+                        </section>
                     </SwiperSlide>
                 ))}
             </Swiper>

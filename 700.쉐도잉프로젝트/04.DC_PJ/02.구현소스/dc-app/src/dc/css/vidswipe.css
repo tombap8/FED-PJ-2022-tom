@@ -1,2 +1,7 @@
 @charset "utf-8";
 /* VidSwipe 모듈용 CSS - vidswipe.css  */
+
+.vidswbox{
+    max-width: 1320px;
+    margin: 0 auto;
+}
