@@ -24,39 +24,34 @@ const Layout = () => {
         {
             txt:"CHARACTERS",
             link:"/ct",
-            sub:[],
         },
         {
             txt:"COMICS",
             link:"/co",
-            sub:["Hi","My","Me"],
+            sub:[{txt:"Hi",link:"/hi"},{txt:"My",link:"/my"},{txt:"We",link:"/we"},],
         },
         {
             txt:"MOVIES",
             link:"/mv",
-            sub:[],
         },
         {
             txt:"GAMES",
             link:"/gm",
-            sub:[],
         },
         {
             txt:"NEWS",
             link:"/nw",
-            sub:[],
         },
         {
             txt:"VIDEO",
             link:"/vd",
-            sub:[],
         },
         {
             txt:"SWIPER",
             link:"/sw",
-            sub:[],
         },
     ];
+
 
     return (
         <>
@@ -72,6 +67,20 @@ const Layout = () => {
                             menu.map((v,i)=>
                                 <li key={i}>
                                     <Link to={v.link}>{v.txt}</Link>
+                                    {console.log(v.sub)}
+                                    {
+                                        v.sub != undefined &&
+                                        <ol className="smenu">
+                                            {
+                                                v.sub.map((v,i)=>
+                                                    <li key={i}>
+                                                        <Link to={v.link}>{v.txt}</Link>
+                                                    </li>
+                                                )
+                                            }
+                                        </ol>
+                                        
+                                    }
                                 </li>                            
                             )
                         }

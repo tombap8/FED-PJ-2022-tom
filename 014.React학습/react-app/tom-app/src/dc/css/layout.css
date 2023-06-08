@@ -25,6 +25,17 @@
     text-decoration-style: wavy;
     text-shadow: 2px 2px 2px #555;
 }
+.gnb>ul>li:hover .smenu{
+    display: block;
+}
+.smenu{
+    position: absolute;
+    padding: 5px;
+    background-color: #00000072;
+    border-radius:10px;
+    z-index: 99;
+    display: none;
+}
 h1{
     text-align: center;
 }

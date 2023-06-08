@@ -86,9 +86,9 @@ http://localhost:3000/
 
 
 6. 라우터 기능사용시 추가설치
-npm i -D react-router-dom
+npm i react-router-dom
 최신라우터 업그레이드는 아래 코드
-npm i -D react-router-dom@latest
+npm i react-router-dom@latest
 
 7. 부트스트랩 추가 설치
 npm install react-bootstrap bootstrap
