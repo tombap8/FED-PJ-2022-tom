@@ -13,6 +13,51 @@ import { Link, Outlet } from "react-router-dom";
 *******************************************************/
 
 const Layout = () => {
+
+
+
+    const menu = [
+        {
+            txt:"Home",
+            link:"/",
+        },
+        {
+            txt:"CHARACTERS",
+            link:"/ct",
+            sub:[],
+        },
+        {
+            txt:"COMICS",
+            link:"/co",
+            sub:["Hi","My","Me"],
+        },
+        {
+            txt:"MOVIES",
+            link:"/mv",
+            sub:[],
+        },
+        {
+            txt:"GAMES",
+            link:"/gm",
+            sub:[],
+        },
+        {
+            txt:"NEWS",
+            link:"/nw",
+            sub:[],
+        },
+        {
+            txt:"VIDEO",
+            link:"/vd",
+            sub:[],
+        },
+        {
+            txt:"SWIPER",
+            link:"/sw",
+            sub:[],
+        },
+    ];
+
     return (
         <>
             {/* 1.상단영역 */}
@@ -23,31 +68,13 @@ const Layout = () => {
                         <li>
                             <Logo />
                         </li>
-
-                        <li>
-                            <Link to="/">Home</Link>
-                        </li>
-                        <li>
-                            <Link to="/ct">CHARACTERS</Link>
-                        </li>
-                        <li>
-                            <Link to="/co">COMICS</Link>
-                        </li>
-                        <li>
-                            <Link to="/mv">MOVIES & TV</Link>
-                        </li>
-                        <li>
-                            <Link to="/gm">GAMES</Link>
-                        </li>
-                        <li>
-                            <Link to="/nw">NEWS</Link>
-                        </li>
-                        <li>
-                            <Link to="/vd">VIDEO</Link>
-                        </li>
-                        <li>
-                            <Link to="/sw">SWIPER</Link>
-                        </li>
+                        {
+                            menu.map((v,i)=>
+                                <li key={i}>
+                                    <Link to={v.link}>{v.txt}</Link>
+                                </li>                            
+                            )
+                        }
                     </ul>
                 </nav>
             </header>
