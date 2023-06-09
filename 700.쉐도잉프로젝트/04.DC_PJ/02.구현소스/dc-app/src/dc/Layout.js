@@ -13,6 +13,47 @@ import { Link, Outlet } from "react-router-dom";
 *******************************************************/
 
 const Layout = () => {
+
+    /* 
+    sub:[{
+        txt:"",
+        link:"",
+    }]
+    
+    */
+
+    /* GNB메뉴 데이터구성하기 */
+    const gnb_data = [
+        {
+            txt:"Home",
+            link:"/">",
+        },
+        {
+            txt:"CHARACTERS",
+            link:"/ct",
+        },
+        {
+            txt:"COMICS",
+            link:"/co",
+        },
+        {
+            txt:"MOVIES & TV",
+            link:"/mv",
+        },
+        {
+            txt:"GAMES",
+            link:"/gm",
+        },
+        {
+            txt:"NEWS",
+            link:"/nw",
+        },
+        {
+            txt:"VIDEO",
+            link:"/vd",
+        },
+    ];
+
     return (
         <>
             {/* 1.상단영역 */}
@@ -23,28 +64,14 @@ const Layout = () => {
                         <li>
                             <Logo />
                         </li>
+                        {
+                            gnb_data.map((v,i)=>
+                                <li key={i}>
+                                    <Link to={v.link}>{v.txt}</Link>
+                                </li>
+                            )
+                        }
 
-                        <li>
-                            <Link to="/">Home</Link>
-                        </li>
-                        <li>
-                            <Link to="/ct">CHARACTERS</Link>
-                        </li>
-                        <li>
-                            <Link to="/co">COMICS</Link>
-                        </li>
-                        <li>
-                            <Link to="/mv">MOVIES & TV</Link>
-                        </li>
-                        <li>
-                            <Link to="/gm">GAMES</Link>
-                        </li>
-                        <li>
-                            <Link to="/nw">NEWS</Link>
-                        </li>
-                        <li>
-                            <Link to="/vd">VIDEO</Link>
-                        </li>
                     </ul>
                 </nav>
             </header>
