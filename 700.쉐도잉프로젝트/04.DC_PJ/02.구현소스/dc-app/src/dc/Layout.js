@@ -4,7 +4,7 @@ import "./css/layout.css";
 import { Link, Outlet } from "react-router-dom";
 
 /* 폰트어썸 임포트 */
-import { faCamera, faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 /******************************************************* 
     [ 리액트 라우터와 연결하여 사용되는 라우터 컴포넌트 ]
