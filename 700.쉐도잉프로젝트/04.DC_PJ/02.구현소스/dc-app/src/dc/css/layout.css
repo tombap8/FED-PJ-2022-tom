@@ -42,7 +42,7 @@
 .smenu{
     position: absolute;
     left: 50%;
-    transform: translateX(-50%) translateY(15px);
+    transform: translateX(-50%);
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
@@ -64,9 +64,9 @@
     transform: translateX(-50%);
     width: 0;
     height: 0;
-    border-bottom: 15px solid rgba(0, 0, 0, 0.291);
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
+    border-bottom: 16px solid rgba(0, 0, 0, 0.291);
+    border-left: 16px solid transparent;
+    border-right: 16px solid transparent;
 
 
 }
