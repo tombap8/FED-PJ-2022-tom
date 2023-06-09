@@ -3,6 +3,9 @@ import Logo from "./Logo";
 import "./css/layout.css";
 import { Link, Outlet } from "react-router-dom";
 
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 /******************************************************* 
     [ 리액트 라우터와 연결하여 사용되는 라우터 컴포넌트 ]
     1. <Link to="/경로명"></Link>
@@ -116,6 +119,9 @@ const Layout = () => {
                             )
                         }
 
+                        <li>
+                        <FontAwesomeIcon icon={faSearch} />
+                        </li>
                     </ul>
                 </nav>
             </header>
