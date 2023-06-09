@@ -1,0 +1,33 @@
+[ 스와이퍼 플러그인 리액트 적용하기 ]
+https://swiperjs.com/
+
+1. Demos에서 내가 원하는 유형찾기
+
+2. React메뉴로 소스를 본다
+
+3. 소스 가져오기
+
+(1) 스와이퍼 설치하기
+   npm i swiper
+   - 설치후 package.json 의존성에 확인
+   - "swiper": "^9.3.2",
+
+(2) 스와이퍼 폴더를 따로만든다
+   - dc폴더아래
+   - plugin 폴더만들고 아래에 SwiperVid.js 만들기
+
+(3) SwiperVid.js 에 Demos의 React 페이지에서
+   App.js 소스를 모두 카피해서 붙여넣는다!
+   연결CSS를 아래(4)처럼하고 링크정보도 업데이트한다!
+
+(4) styles.css 도 같은 폴더안에 swipervid.css 이름으로 만들고
+   붙여 넣기를 하고 수정한다
+   (html,body 는 모두 지우고 
+   .swiper{height:400px} 만 우선 수정함!
+
+(5) 필요한 기능을 가진 Demos의 예시 React코드를 참조하여
+SwiperVid.js 컴포넌트 코드를 업데이트함
+
+4. 데이터 연결하기
+(1) 데이터 만큼 반복하기 : map 메서드 사용!
+(2) 컴포넌트 속성 전달하기 : props사용!
