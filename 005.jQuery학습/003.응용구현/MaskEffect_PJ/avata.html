@@ -5,7 +5,97 @@
     <title>Mask Effect - Avata</title>
     <script src="js/jquery-1.8.1.min.js"></script>
     <script src="js/jquery-ui-1.10.4.min.js"></script>
-    
+    <script>
+        $(function() { /// jQB //////////////////
+
+            // 위치보정함수 호출
+            calc();
+
+            // 윈도우 화면 사이즈 변경시 위치보정함수 호출
+            $(window).resize(calc);
+
+
+            // 마스크박스
+            let mk = $("#mask");
+
+            // 커버박스
+            let cv = $("#cover");
+
+            // 마우스가 #cover 위에서 움직일때 //
+            // #mask박스 이동하기 /////////////
+            // 이벤트 대상: #cover
+            // 사용이벤트: mousemove
+            cv.mousemove(function(e) {
+                // e-이벤트전달변수
+
+                // 마우스 포인터 위치값 알아내기
+                // 1. pageX, pageY : 화면기준
+                // 2. offsetX, offsetY : 선택요소기준
+
+                // x축 위치값 보정(박스크기의 절반빼기)
+                let posx = e.offsetX - 100;
+
+                // y축 위치값 보정(박스크기의 절반빼기)
+                let posy = e.offsetY - 100;
+
+                // 움직일 대상: #mask
+                mk.css({
+                    top: posy + "px",
+                    left: posx + "px"
+                }); /////// css ///////////
+
+
+            }); //////// mousemove ////////////
+
+            // 처음에 마스크 숨기기 ///
+            mk.hide();
+
+            // 커버박스에 오버시 보이고, 아웃시 숨기기
+            cv.hover(
+                function() { // over
+                    mk.show();
+                },
+                function() { // out
+                    mk.hide();
+                }); ///// hover ///////////
+            ///////////////////////////////
+
+            $(window).scroll(calc);
+
+
+        }); ////////// jQB //////////////////////
+
+        /*/////////////////////////////////////////////
+            함수명: calc
+            기능: 박스위치 이동에 의한 배경고정요소의 
+                위치값 보정
+                
+            이해: 배경이미지를 고정할 경우 보이는 화면에
+            위치가 고정되므로 유동적인 박스 위치에 
+            배경을 고정할때는 위치를 재설정해야한다!
+        */ ////////////////////////////////////////////
+        function calc() {
+            // 박스의 실제위치를 구함
+            // 실제 박스위치에 크기의 절반을 더한 이유는
+            // transform에서 위치이동을 했기때문이다!
+            let bgtop = $(".wrap").offset().top - $(window).scrollTop();
+
+            let bgleft = $(".wrap").offset().left;
+
+            // 고정된 배경이미지 위치보정
+            $("#bg").css({
+                backgroundPosition: bgleft + "px " +
+                    bgtop + "px"
+            }); ////// css ////////
+            $("#mask").css({
+                backgroundPosition: bgleft + "px " +
+                    bgtop + "px"
+            }); ////// css ////////
+
+
+        } /////// calc함수 ////////////////////////////
+        /////////////////////////////////////////////
+        </script>
     <style>
         html,
         body {
@@ -14,12 +104,15 @@
             width: 100%;
             height: 100%;
         }
+        body{
+            height: 3000px;
+        }
 
         .wrap {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            top: calc(50% - 590px/2);
+            left: calc(50% - 500px/2);
+            /* transform: translate(-50%, -50%); */
             width: 590px;
             height: 500px;
             outline: 1px solid #ccc;

@@ -89,7 +89,7 @@ function MakeList(props) {
                 <h3>{props.rec["tit1"]}</h3>
                 <h2>{props.rec["tit2"]}</h2>
                 <p>{props.rec["cont"]}</p>
-                <button>{props.rec["btn"]}</button>
+                <button>{props.rec["btn"].toUpperCase()}</button>
             </section>
         </li>
     );
