@@ -1,22 +1,31 @@
 @charset "utf-8";
 .top{
-    background-image: linear-gradient(to bottom,#CCC,#111);
-    border: 4px double #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 58px;
+    z-index: 9999;
+    background-color: #fff;    
+    font-family: 'Roboto Condensed', sans-serif;
 }
 .gnb{
-    width: 800px;
+    max-width: 1320px;
     margin: 0 auto;
 }
 .gnb ul{
     display: flex;
     align-items: center;
     list-style: none;
+    gap: 0 20px
 }
-.gnb li{
-    margin: 0 10px;
+.gnb>ul>li{
+    /* 상위메뉴 부모자격 */
+    position: relative;
 }
 .gnb a{
-    color: #fff;
+    color: #111;
+    font-weight: bold;
     text-decoration: none;
 }
 .gnb a:hover{
@@ -25,6 +34,50 @@
     text-decoration-style: wavy;
     text-shadow: 2px 2px 2px #555;
 }
+
+
+
+/* 서브메뉴 */
+.smenu{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(15px);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.503);
+    white-space: nowrap;
+    line-height: 2.5;
+}
+.smenu::before{
+    content: '';
+    position: absolute;
+    top: -17px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-bottom: 15px solid rgba(0, 0, 0, 0.291);
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+
+
+}
+.smenu::after{
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-bottom: 15px solid #fff;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+
+
+}
+
 h1{
     text-align: center;
 }
