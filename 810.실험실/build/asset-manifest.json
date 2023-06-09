@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/FED-PJ-2022-tom/static/css/main.c6908f78.css",
+    "main.js": "/FED-PJ-2022-tom/static/js/main.7f244d90.js",
+    "index.html": "/FED-PJ-2022-tom/index.html",
+    "main.c6908f78.css.map": "/FED-PJ-2022-tom/static/css/main.c6908f78.css.map",
+    "main.7f244d90.js.map": "/FED-PJ-2022-tom/static/js/main.7f244d90.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c6908f78.css",
+    "static/js/main.7f244d90.js"
+  ]
+}
