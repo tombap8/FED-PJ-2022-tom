@@ -22,6 +22,7 @@
 .gnb>ul>li{
     /* 상위메뉴 부모자격 */
     position: relative;
+    line-height: 58px;
 }
 .gnb a{
     color: #111;
