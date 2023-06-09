@@ -49,7 +49,9 @@ export default function App(){
                     -> Layout의 Link to="/"에 해당하는 셋팅임! 필수! */}
                     <Route index element={<Main />} />
                     <Route path="ct" element={<Characters />} />
-                    <Route path="co" element={<Comics />} />
+                    <Route path="co1" element={<Comics sub="0" />} />
+                    <Route path="co2" element={<Comics sub="1" />} />
+                    <Route path="co3" element={<Comics sub="2" />} />
                     <Route path="mv" element={<Movies />} />
                     <Route path="gm" element={<Games />} />
                     <Route path="nw" element={<News />} />
