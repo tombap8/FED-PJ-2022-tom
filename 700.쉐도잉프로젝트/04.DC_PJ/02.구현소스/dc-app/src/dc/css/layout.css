@@ -28,12 +28,10 @@
     color: #111;
     font-weight: bold;
     text-decoration: none;
+    transition: .3s;
 }
-.gnb a:hover{
-    color: hotpink;
-    text-decoration: underline;
-    text-decoration-style: wavy;
-    text-shadow: 2px 2px 2px #555;
+.gnb a:hover{    
+    color: #007aff;
 }
 
 
@@ -96,16 +94,32 @@ h1{
 .info{
     text-align: center;
     padding: 30px;
-    background-image: linear-gradient(to bottom, #CCC, #777);
+    background-color: #000;
     color: #fff;
     display: flex;
     flex-direction: column;
 }
-.info>ul>li:first-child h1{
-    width: 100%;
+.info>ul>li:last-child{
+    font-weight: bold;
 }
 .bmenu{
+    font-family: 'Roboto Condensed', sans-serif;
     display: flex;
     justify-content: center;
-    gap: 0 20px;
+    margin: 15px 0;
+}
+.bmenu li{
+    padding: 0 10px;
+}
+.bmenu li + li{
+    border-left: 2px solid #fff;
+}
+.bmenu a{
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: .3s;
+}
+.bmenu a:hover{
+    color: #007aff;
 }

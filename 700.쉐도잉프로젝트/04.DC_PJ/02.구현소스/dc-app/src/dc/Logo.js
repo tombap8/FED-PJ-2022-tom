@@ -14,10 +14,7 @@ const Logo = (props) => { // props.gb : 상단,하단구분코드
         // outline:"3px solid lime"
     },
     bottom:{
-        width:"45px",
-        height:"45px",
-        marginRight:"30px",
-        borderRadius:"50%"
+        height:"80px"
     }
 };
 

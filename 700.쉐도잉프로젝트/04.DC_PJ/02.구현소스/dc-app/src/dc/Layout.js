@@ -165,7 +165,7 @@ const Layout = () => {
                             {bmenu.map((v, i) => (
                                 <li key={i}>
                                     <a href={v.link} target="_blank">
-                                        {v.txt}
+                                        {v.txt.toUpperCase()}
                                     </a>
                                 </li>
                             ))}
