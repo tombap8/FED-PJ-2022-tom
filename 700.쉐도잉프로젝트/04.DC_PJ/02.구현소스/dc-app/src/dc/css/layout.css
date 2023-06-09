@@ -48,6 +48,12 @@
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.503);
     white-space: nowrap;
     line-height: 2.5;
+    /* 처음에 안보임 */
+    display: none;
+}
+/* 오버시보임 */
+.gnb>ul>li:hover .smenu{
+    display: block;
 }
 .smenu::before{
     content: '';
