@@ -1,2 +1,11 @@
 @charset "utf-8";
 /* Member 모듈용 CSS - member.css  */
+
+/* 전체박스 */
+.membx{
+    max-width: 700px;
+    min-height: 600px;
+    padding: 15px;
+    border: 1px solid #555;
+    margin: 0 auto;
+}
