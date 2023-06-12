@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    <form id="contactForm" method="get">
+    <form id="contactForm" method="post" action="process.php">
         <h1>Register a User Account</h1>
         <fieldset>
             <ul>
@@ -45,15 +45,16 @@
                         - w3schools.com 에서 우선 찾으시오!
                 -->
                     <label for="email_addr">Email Address </label>
-                    <input type="text" name="email_addr" id="email_addr" placeholder="ex)email@gmail.com" maxlength="30">
+                    <input type="email" name="email_addr" id="email_addr" placeholder="ex)email@gmail.com" maxlength="30" required autofocus pattern="[a-zA-Z0-9]+[@][a-zA-Z0-9]+[.]+[a-zA-Z]+[.]*[a-zA-Z]*">
                 </li>
                 <li>
                     <label for="passwd">Password</label>
-                    <input type="password" name="passwd" id="passwd"  maxlength="9" >
+                    <input type="password" name="passwd" id="passwd" placeholder="6-8글자"  maxlength="9" required pattern=".{6,8}" >
                 </li>
                 <li>
                     <label for="birth">Birthday</label>
-                    <input type="date" name="birth" id="birth" placeholder=" YYYY-MM-DD" maxlength="10" >
+                    <input type="date" name="birth" id="birth" placeholder="YYYY-MM-DD" maxlength="10"
+                    min="2000-01-01" max="2010-12-31" required >
                     <!--
                         max, min 속성 : type이 date인 경우 
                         최대,최소입력값의 범위를 지정할 수 있는 속성
@@ -62,19 +63,19 @@
                 </li>
                 <li>
                     <label for="addr">Address</label>
-                    <textarea name="addr" id="addr" placeholder="ex) 서울시 강남구 신사동" maxlength="150"  rows="5"></textarea>
+                    <textarea name="addr" id="addr" placeholder="ex) 서울시 강남구 신사동" maxlength="150"  rows="5" required></textarea>
                 </li>
                 <li>
                     <label for="phone">Phone </label>
-                    <input type="text" name="phone" id="phone" placeholder="ex) 010-333-5555" maxlength="20" >
+                    <input type="text" name="phone" id="phone" placeholder="ex) 010-3333-5555" maxlength="20" pattern="\d{3}[\-]\d{4}[\-]\d{4}">
                 </li>
                 <li>
                     <label for="homepage">Homepage </label>
-                    <input type="text" name="homepage" id="homepage" placeholder="ex)http://www.naver.com" maxlength="40" title="Include http://" >
+                    <input type="text" name="homepage" id="homepage" placeholder="ex)http://www.naver.com" maxlength="40" title="Include http://" pattern="https?://.+" >
                 </li>
                 <li>
                     <label for="cardNumber">Credit Card Number </label>
-                    <input type="text" id="cardNumber" name="cardNumber" placeholder="ex)2342-2342-3413-2345" maxlength="30">
+                    <input type="text" id="cardNumber" name="cardNumber" placeholder="ex)2342-2342-3413-2345" maxlength="30" pattern="\d{4}[\-]\d{4}[\-]\d{4}[\-]\d{4}">
                 </li>
             </ul>
 

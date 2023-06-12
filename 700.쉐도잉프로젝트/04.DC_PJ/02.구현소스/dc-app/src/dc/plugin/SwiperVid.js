@@ -24,9 +24,6 @@ export default function SwiperVid(props) {
     // 데이터 셋팅
     const sdt = swipervid_data;
 
-    // 하나당 슬라이드수
-    const [perSld,setPerSld] = useState(4)
-
     // 비디오보이기 함수
     const showVid = (src,tit) => { 
         // src-비디오경로, tit-비디오제목
@@ -48,24 +45,11 @@ export default function SwiperVid(props) {
         });
     }; //////////// showVid ///////////////////
 
-    // 이벤트 함수/////////////
-    const evtFn = () => {
-        $(()=>{
-            $(window).resize(function(){
-                let nowW = $(this).width();
-                console.log(nowW);
-                if(nowW <= 1000 && nowW > 700) setPerSld(3);
-                else if(nowW <= 700) setPerSld(2);
-                else setPerSld(4);
-
-            })
-        })
-    };
-
+    
     return (
         <>
             <Swiper
-                slidesPerView={perSld}
+                slidesPerView={4}
                 spaceBetween={20}
                 navigation={true}
                 modules={[Navigation]}
