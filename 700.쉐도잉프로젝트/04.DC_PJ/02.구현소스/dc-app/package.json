@@ -2,7 +2,7 @@
   "name": "dc-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://tombap8.github.io/react-site/700.쉐도잉프로젝트/04.DC_PJ/02.구현소스/dc-app/app/",
+  "homepage": "https://tombap8.github.io/FED-PJ-2022-tom/700.쉐도잉프로젝트/04.DC_PJ/02.구현소스/dc-app/app/",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "@fortawesome/free-brands-svg-icons": "^6.4.0",
