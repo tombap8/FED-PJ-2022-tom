@@ -108,7 +108,7 @@ const Layout = () => {
                 <nav className="gnb">
                     <ul>
                         <li>
-                            <Link to="/">
+                            <Link to="main">
                                 <Logo gb="top" />
                             </Link>
                         </li>
@@ -142,7 +142,7 @@ const Layout = () => {
                             <FontAwesomeIcon icon={faSearch} />
                         </li>
                         <li>
-                            <Link to="/mem">Join Us</Link>
+                            <Link to="mem">Join Us</Link>
                         </li>
                         <li>
                             <Link to="/login">LOG IN</Link>

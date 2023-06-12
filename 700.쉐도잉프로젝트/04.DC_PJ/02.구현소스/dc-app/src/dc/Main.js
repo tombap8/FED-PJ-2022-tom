@@ -2,7 +2,6 @@
 import Ban from "./modules/Ban";
 import MenuBtn from "./modules/MenuBtn";
 import VidIntro from "./modules/VidIntro";
-import SwiperVid from "./plugin/SwiperVid";
 import VidSwipe from "./modules/VidSwipe";
 
 const Main = () => {
