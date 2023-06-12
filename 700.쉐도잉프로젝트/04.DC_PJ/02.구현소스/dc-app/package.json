@@ -2,7 +2,7 @@
   "name": "dc-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://tombap8.github.io/FED-PJ-2022-tom/700.%EC%89%90%EB%8F%84%EC%9E%89%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/04.DC_PJ/02.%EA%B5%AC%ED%98%84%EC%86%8C%EC%8A%A4/dc-app",
+  "homepage": "/700.%EC%89%90%EB%8F%84%EC%9E%89%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/04.DC_PJ/02.%EA%B5%AC%ED%98%84%EC%86%8C%EC%8A%A4/dc-app/app",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "@fortawesome/free-brands-svg-icons": "^6.4.0",
