@@ -142,7 +142,7 @@ const Layout = () => {
                             <FontAwesomeIcon icon={faSearch} />
                         </li>
                         <li>
-                            <Link to="/signup">SIGN UP</Link>
+                            <Link to="/mem">Join Us</Link>
                         </li>
                         <li>
                             <Link to="/login">LOG IN</Link>
