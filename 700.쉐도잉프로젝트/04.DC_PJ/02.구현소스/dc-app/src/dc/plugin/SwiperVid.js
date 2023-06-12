@@ -24,6 +24,12 @@ export default function SwiperVid(props) {
     // 데이터 셋팅
     const sdt = swipervid_data;
 
+    // 하나당 슬라이드수 : Hook 변수
+    // const [변수,set변수] = useState(초기값)
+    const [perSld,setPerSld] = useState(4);
+    // 값의 사용은 Hook 변수를 쓰고
+    // 값의 변경은 set변수(값) 형식으로 사용함!
+
     // 비디오보이기 함수
     const showVid = (src,tit) => { 
         // src-비디오경로, tit-비디오제목
@@ -45,11 +51,34 @@ export default function SwiperVid(props) {
         });
     }; //////////// showVid ///////////////////
 
+    // 이벤트 함수 ///////////////////////////
+    const evtFn = () => {
+        $(()=>{//////// jQB //////////
+
+            // 윈도우 리사이즈 이벤트
+            $(window).on("resize",function(){
+                // 윈도우사이즈체크
+                let nowW = $(this).width();
+                console.log(nowW);
+                // 화면사이즈별 슬라이드수 변경하기
+                if(nowW <= 1000 && nowW > 700) setPerSld(3);
+                else if(nowW <= 700) setPerSld(2);
+                else setPerSld(4); // 1000초과
+
+            }); ///////// resize ///////////
+
+
+
+        }); /////////// jQB //////////
+
+    }; //////////////// evtFn 함수 //////////////
+
     
     return (
         <>
             <Swiper
-                slidesPerView={4}
+                // 한화면당 개수를 Hook변수사용!
+                slidesPerView={perSld}
                 spaceBetween={20}
                 navigation={true}
                 modules={[Navigation]}
@@ -79,6 +108,7 @@ export default function SwiperVid(props) {
                     </SwiperSlide>
                 ))}
             </Swiper>
+            {/* 스와이퍼 모듈에 이벤트입히기! */}
             {evtFn()}
         </>
     );
