@@ -1,0 +1,84 @@
+<!doctype html>
+ <html lang="ko">
+  <head>
+    <title>HTML5 WebForm Sample</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+    <form id="contactForm" method="get">
+        <h1>Register a User Account</h1>
+        <fieldset>
+            <ul>
+                <li>
+                    <!--
+                    [input 요소의 주요 속성들]
+
+                    1. name 속성: form태그의 내부 구성요소로 접근하는 접근경로를
+                    제공해주는 속성
+                    ex) form이름.name명
+
+                    2. placeholder 속성: 입력태그를 안내하는 문구를 초기에 출력해 주는
+                        속성(포커스가 가면 지워지거나 글자를 쓰면 지워진다-브라우저따라)
+                    
+                    3. maxlength 속성: 최대입력글자수 지정속성
+                    (단, 영어와 같은 1byte문자는 개수와 같으나 한글과 같은 2byte문자는
+                    절반의 개수만 들어간다.)
+
+                    4. required 속성: 필수입력항목설정 속성(지정하면 html5 유효성 검사에서 안썼을 경우 필수여부를 화면에 표시함)
+
+                    5. autofocus 속성: 처음 로딩시 포커스가 가서 깜박이는 입력상태를 만들어주는 속성 (하나만 쓸것!)
+
+                    6. type 속성값 새로추가!(html5에서)
+                        - text의 세분화!!
+                        1) email : 이메일 형식
+                        2) date : 날짜 형식(달력도 제공함!)
+                        3) tel : 전화번호 형식
+                        4) url : 웹사이트 주소 형식
+                        - 기타 다양한 type의 값이 추가되어 있음!
+                        - 추가된 type의 값의 형식에 맞게 유효성검사를 할 수 있다!!!
+                        
+                    7. pattern 속성 : 각 입력양식의 값을 검사해주는 속성
+                                    내용으로 정규표현식을 써준다.
+                                    (각 pattern의 정규식은 인터넷에서 검색해라!)
+                        - w3schools.com 에서 우선 찾으시오!
+                -->
+                    <label for="email_addr">Email Address </label>
+                    <input type="text" name="email_addr" id="email_addr" placeholder="ex)email@gmail.com" maxlength="30">
+                </li>
+                <li>
+                    <label for="passwd">Password</label>
+                    <input type="password" name="passwd" id="passwd"  maxlength="9" >
+                </li>
+                <li>
+                    <label for="birth">Birthday</label>
+                    <input type="date" name="birth" id="birth" placeholder=" YYYY-MM-DD" maxlength="10" >
+                    <!--
+                        max, min 속성 : type이 date인 경우 
+                        최대,최소입력값의 범위를 지정할 수 있는 속성
+                        - 범위를 지정한 경우 달력도 범위를 넘어가지 않게 제공됨!
+                    -->
+                </li>
+                <li>
+                    <label for="addr">Address</label>
+                    <textarea name="addr" id="addr" placeholder="ex) 서울시 강남구 신사동" maxlength="150"  rows="5"></textarea>
+                </li>
+                <li>
+                    <label for="phone">Phone </label>
+                    <input type="text" name="phone" id="phone" placeholder="ex) 010-333-5555" maxlength="20" >
+                </li>
+                <li>
+                    <label for="homepage">Homepage </label>
+                    <input type="text" name="homepage" id="homepage" placeholder="ex)http://www.naver.com" maxlength="40" title="Include http://" >
+                </li>
+                <li>
+                    <label for="cardNumber">Credit Card Number </label>
+                    <input type="text" id="cardNumber" name="cardNumber" placeholder="ex)2342-2342-3413-2345" maxlength="30">
+                </li>
+            </ul>
+
+        </fieldset>
+        <input type="submit" name="reg_action" value="Register" />
+    </form>
+</body></html>
