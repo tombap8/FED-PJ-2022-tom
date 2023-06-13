@@ -1,0 +1,280 @@
+    <!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>제이쿼리 레이어 팝업</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            margin: 100px;
+        }
+
+        a {
+            color: #fff;
+            font-size: 34px;
+            font-weight: bold;
+        }
+
+        .pop-layer .pop-container {
+            padding: 20px 25px;
+        }
+
+        .pop-layer p.ctxt {
+            color: #666;
+            line-height: 25px;
+        }
+
+        .pop-layer .btn-r {
+            width: 100%;
+            margin: 10px 0 20px;
+            padding-top: 10px;
+            border-top: 1px solid #DDD;
+            text-align: right;
+        }
+
+        .pop-layer {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 410px;
+            height: auto;
+            background-color: #fff;
+            border: 5px solid #3571B5;
+            z-index: 10;
+        }
+
+        .dim-layer {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 100;
+        }
+
+        .dim-layer .dimBg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            opacity: .5;
+            filter: alpha(opacity=50);
+        }
+
+        .dim-layer .pop-layer {
+            display: block;
+        }
+
+        a.btn-layerClose {
+            display: inline-block;
+            height: 25px;
+            padding: 0 14px 0;
+            border: 1px solid #304a8a;
+            background-color: #3f5a9d;
+            font-size: 13px;
+            color: #fff;
+            line-height: 25px;
+        }
+
+        a.btn-layerClose:hover {
+            border: 1px solid #091940;
+            background-color: #1f326a;
+            color: #fff;
+        }
+
+        /*배경박스*/
+        #bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: url(bg2.jpg) no-repeat 0/cover;
+        }
+
+        #cont {
+            position: relative;
+        }
+    </style>
+    <script src="jquery-1.7.2.min.js"></script>
+    <script src="jquery.foggy.min.js"></script>
+    <script src="jquery.cookie.js"></script>
+    <script>
+        $(function() { //////// jQB //////////////
+            /*
+            쿠키란?(cookie)
+            - 사용자 로컬 시스템에 저장되는 작은 텍스트 데이터 파일
+            - 쿠키 저장공간은 각 브라우저마다 다르다. 
+              특정 브라우저 설치 폴더 하위에 보통 위치한다.
+            - 활용: 팝업창 하루동안 안보기, 자동 로그인 하기 체크 등 사용자가 개별적으로
+            설정할때 이것을 쿠키에 저장하여 자바스크립트로 체크함
+            
+            제이쿼리 쿠키 플러그인으로 셋팅하기
+            - 우선 제이쿼리 라이브러리 아래에 쿠키플러그인을 불러온다.
+              (jquery.cookie.js)
+            - 코딩은 아래와 같이 함
+            $.cookie("쿠키이름","쓸값",{expires: 1, path:"/",domain:"tom.google.com"})
+            - 중괄호의 셋팅값
+            1. expires : 유효기간(일단위:365일까지 기록)
+            2. path: 쿠키적용범위경로("/"는 root를 말함)
+            3. domain: 쿠키가 적용될 도메인
+            (path와 domain은 서버설정시 서로 다른 서버에서 호출할 경우 셋팅하고 일반적으로는 사용하지 않는다. 중요한것은 expires다!)
+            */
+
+
+
+
+            //// 익명함수로 팝업띄우기 기능구현하기 ////
+            // showPop변수에 익명함수를 할당하는 순간 변수가 함수가 된다!!!!
+            // 호출시에는 함수와 같이 showPop() 호출한다.
+            // 익명함수의 중요한 사실은 호출은 함수 아래쪽에서 해야한다!!!
+            var showPop = function() {
+                // 만약에 쿠키가 유효하다면 팝업창을 띄우기 않는다!
+                if ($.cookie("mypop") === "OK") {
+                    alert("팝업창 하루동안 못띄움!!!");
+                } ///// if //////////////////////////
+                else {
+                    // 레이어팝업 보이게하기
+                    $(".pop-layer").fadeIn(300);
+
+                    // foggy플러그인으로 배경흐리게하기
+                    $("#bg").foggy({
+                        blurRadius: 5, // 흐림정도(단위없는 px숫자)
+                        opacity: .8 // 투명도
+                    }); /// foggy //////
+
+
+                } ///// else /////////////////////////
+
+            }; /////// showPop함수 ///////////////////////
+            ////////////////////////////////////////////
+
+
+
+
+            /// 팝업띄우기 버튼을 클릭하면 팝업 띄우기
+            $(".btn-example").click(function() {
+                // 팝업보이기함수 호출하기
+                showPop();
+            }); ////// click //////////////////////
+            //////////////////////////////////////
+
+            //// 팝업닫기버튼 클릭시 팝업사라짐 ////
+            $(".pop-close-btn").click(function(e) {
+                e.preventDefault(); //기본이동막기
+
+                /// 쿠키처리하기
+                // 하루동안보지않기의 체크박스 체크여부를 조사하여 처리
+                var csts = $(".pop-day").is(":checked");
+                // is()메서드는 설정값이 있으면 true, 없으면 false를 리턴함
+                console.log("체크박스체크여부:" + csts);
+                if (csts) { // 체크박스가 체크된 경우
+                    $.cookie("mypop", "OK", {
+                        expires: 1
+                    }); ///// cookie /////////
+                    console.log("쿠키셋팅!!!");
+                } ///// if //////////////////////////
+
+                $(".pop-layer").fadeOut(300);
+
+                // foggy플러그인 배경복원
+                $("#bg").foggy(false);
+
+            }); //////// click ////////////////////
+            ///////////////////////////////////////
+
+            ///// 쿠키지우기 버튼 클릭시 쿠키지움 /////
+            $(".remove").click(function() {
+                // 쿠키지우는 방법
+
+                // 1. removeCookie(쿠키이름) 사용하기
+                // 파일접근권한으로 지우지 못할 경우가 있음!
+                //$.removeCookie("mypop");
+
+                // 2. 같은 이름의 쿠키를 기간을 -1로 줘서 강제로 기간경과 시키기
+                // 유효기간이 -1일인 경우 하루전이므로 쿠키가 지워진 효과가 있음!
+                // 이 방법이 1번 보다 안전한 방법임!
+                $.cookie("mypop", "OK", {
+                    expires: -1
+                }); ///// cookie /////////
+
+                alert("쿠키지움!");
+            }); ////////// click ///////////////////
+            ///////////////////////////////////////
+
+
+
+
+
+
+        }); //jQB/////////////////////////////////
+        //////////////////////////////////////////
+        //////////////////////////////////////////
+    </script>
+</head>
+
+<body>
+    <div id="bg"></div>
+    <div id="cont">
+
+        HTML CSS JS Result
+        Edit on
+        <div style="height: 300px;"></div>
+        <a href="#layer1" class="btn-example">일반 팝업레이어</a>
+        <div id="layer1" class="pop-layer">
+            <div class="pop-container">
+                <div class="pop-conts">
+                    <!--content //-->
+                    <p class="ctxt mb20">Thank you.<br>
+                        Your registration was submitted successfully.<br>
+                        Selected invitees will be notified by e-mail on JANUARY 24th.<br><br>
+                        Hope to see you soon!
+                    </p>
+
+                    <div class="pop-close btn-r">
+                        <input type="checkbox" class="pop-day" /> 하루동안 보지 않기&nbsp;
+                        <a href="#" class="pop-close-btn btn-layerClose">Close</a>
+                    </div>
+                    <!--// content-->
+                </div>
+            </div>
+        </div>
+        <br /><br />
+        <a href="#layer2" class="btn-example">딤처리 팝업레이어 1</a>
+        <br>
+        <br>
+        <a href="#" class="remove">쿠키지우기</a>
+        <div class="dim-layer">
+            <div class="dimBg"></div>
+            <div id="layer2" class="pop-layer">
+                <div class="pop-container">
+                    <div class="pop-conts">
+                        <!--content //-->
+                        <p class="ctxt mb20">Thank you.<br>
+                            Your registration was submitted successfully.<br>
+                            Selected invitees will be notified by e-mail on JANUARY 24th.<br><br>
+                            Hope to see you soon!
+                        </p>
+
+                        <div class="pop-close btn-r">
+                            <input type="checkbox" class="pop-day" /> 하루동안 보지 않기&nbsp;
+                            <a href="#" class="pop-close-btn btn-layerClose">Close</a>
+                        </div>
+                        <!--// content-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--컨텐츠-->
+</body></html>
