@@ -70,6 +70,7 @@ basename={process.env.PUBLIC_URL}
 2. 해결책: 404.html페이지를 만들고 404에러가 날때 이 페이지가 있으면
 메시지를 뿌려주는 용도로 사용할 수 있다.
 우리는 여기에 JS를 사용하여 첫페이지가 보이는 경로 주소로 보내준다!
+
 (스크립트)
 <script>
     location.replace("/dc-app/")
