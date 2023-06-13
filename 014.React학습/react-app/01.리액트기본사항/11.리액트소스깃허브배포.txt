@@ -7,11 +7,16 @@
 깃허브 소스관리폴더에서 제외하여 업로드 하지 않음!)
 
 2. 깃허브 실서버용 레파지토리를 생성한다
+
 3. 깃허브 Pages에 서버를 공개한다
 (단, 소스를 올린후 index파일이 있어야함!)
+
 4. 깃허브 실서버용 소스공간에 업로드한다
+
 5. Pages에 공개한 주소를 카피한다
+
 (1) 깃허브 첫페이지에 링크 주소등록(편리함때문)
+
 (2) 개발소스 package.json파일에 
 "homepage": 깃허브주소, 를 등록해준다!
 (배포시에만 넣고 개발시엔 뺀다!-있는 json을 백업!)
@@ -43,7 +48,7 @@ basename={process.env.PUBLIC_URL}
 없는 BrowserRouter를 사용한다!)
 
 
-->>>> 추가수정하기!
+----->>>> 추가수정하기! <<<<<-----
 루트로 돌아올때 슬래쉬만으로 돌아오면
 루트에 슬래쉬없는 주소가 리턴되어
 이미지 경로가 깨진다! 확인바람!!!
@@ -90,7 +95,7 @@ basename={process.env.PUBLIC_URL}
  -> 새로고침시 제자리에 있으려면 아래의 HashRouter 사용해야함!
 
 ******************************************************
- [ 새로고침 404 에러 다른 해결법 ]
+ [ 새로고침 404 에러 다른 해결법 : HashRouter 사용하기! ]
 
  기존 <BrowserRouter> 를 쓰지말고
 라우터 중 주소를 해시코드로 넣는 
@@ -98,7 +103,9 @@ basename={process.env.PUBLIC_URL}
 index.js의 상단에 
 BrowserRouter 대신에 HashRouter를 import해주고
 
-import { HashRouter, Routes, Route} from "react-router-dom";
+(실제코드)
+import { HashRouter, Routes, Route} 
+from "react-router-dom";
 
 코드에 
 <BrowserRouter> 대신
@@ -109,7 +116,10 @@ import { HashRouter, Routes, Route} from "react-router-dom";
 최상단으로만 이동해서 404에러가 나지 않는 
 더 좋은 방법입니다!
 
-*************************************
+(그리고 기존 BrowserRouter에서 라우팅 경로속성인
+basename도 HashRouter에서는 사용할 필요가 없음!!!)
+
+************************************************
 [ 참고: HashRouter가 사용하는 /#/경로는 무엇인가? ]
 
 ->> 원래 URL에 슬래쉬 뒤에 #을 쓰면 최상단으로 이동함
