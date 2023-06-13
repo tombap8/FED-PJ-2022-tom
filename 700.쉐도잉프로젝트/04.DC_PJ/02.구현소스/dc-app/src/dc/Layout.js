@@ -108,7 +108,7 @@ const Layout = () => {
                 <nav className="gnb">
                     <ul>
                         <li>
-                            <Link to="main">
+                            <Link to="/">
                                 <Logo gb="top" />
                             </Link>
                         </li>
