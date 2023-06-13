@@ -103,6 +103,28 @@ function Member() {
         setPwd(e.target.value);
     }; ///////////// changePwd ///////////////////
 
+    // 3. 비밀번호 확인 유효성검사
+    const changeChkPwd = e => {
+        // 1. 위에 입력한 비밀번호와 일치여부
+        if(pwd === e.target.value) setChkPwdError(false); // 에러아님!
+        else setChkPwdError(true); // 에러임!
+
+        // 2. 입력값 반영하기
+        setChkPwd(e.target.valid);
+
+    }; ////////////// changeChkPwd /////////////////
+
+    // 4. 사용자이름 유효성검사
+    const changeUserName = e => {
+        // 1. 빈값 체크
+        if(e.target.value !== "") setUserNameError(false);
+        else setUserNameError(true);
+
+        // 2. 입력값 반영하기
+        setUserName(e.target.value);
+
+    }; ////////////// changeChkPwd /////////////////
+
     return (
         <>
             {/* 모듈코드 */}
@@ -140,7 +162,7 @@ function Member() {
                         </li>
                         <li>
                             {/* 2.비밀번호 */}
-                            <label>비밀번호 : </label>
+                            <label>Password : </label>
                             <input
                                 type="password"
                                 maxLength="20"
@@ -159,9 +181,54 @@ function Member() {
                                     </div>
                                 )
                             }
+                            
                         </li>
-                        <li>{/* 3.비밀번호확인 */}</li>
-                        <li>{/* 4.이름 */}</li>
+                        <li>
+                            {/* 3.비밀번호확인 */}
+                            <label>Confirm password : </label>
+                            <input
+                                type="password"
+                                maxLength="20"
+                                placeholder="Please enter your Confirm Password"
+                                value={chkPwd}
+                                onChange={changeChkPwd}
+                            />
+                            {
+                                // 에러일 경우 메시지 보여주기
+                                // 조건문 && 요소 -> 조건이 true이면 요소출력
+                                chkPwdError && (
+                                    <div className="msg">
+                                        <small style={{ color: "red", fontSize: "10px" }}>
+                                        Password verification does not match
+                                        </small>
+                                    </div>
+                                )
+                            }
+                            
+                            </li>
+                        <li>
+                            {/* 4.이름 */}
+                            <label>User Name : </label>
+                            <input
+                                type="text"
+                                maxLength="20"
+                                placeholder="Please enter your Name"
+                                value={userName}
+                                onChange={changeUserName}
+                            />
+                            {
+                                // 에러일 경우 메시지 보여주기
+                                // 조건문 && 요소 -> 조건이 true이면 요소출력
+                                userNameError && (
+                                    <div className="msg">
+                                        <small style={{ color: "red", fontSize: "10px" }}>
+                                        This is a required entry
+                                        </small>
+                                    </div>
+                                )
+                            }
+                            
+                            </li>
                         <li>{/* 5.이메일 */}</li>
                         <li>{/* 6.버튼 */}</li>
                         <li>{/* 7.로그인페이지링크 */}</li>
