@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팝업창</title>
+    <script>
+        function wClose(){
+
+            // window.opener -> 팝업을 연 부모창 윈도우
+
+            // 부모창 요소 글자바꾸기!
+            window.opener
+            .document.querySelector("#my").innerText =
+            "으하하하!졸리다~~~!";
+
+            // 현재창 닫기
+            window.close();
+            
+        } //////// wClose함수 //////
+    </script>
+</head>
+<body>
+    <h1 id="tit">팝업창이양~!</h1>
+    <button onclick="wClose()">Close</button>
+    
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팝업창 띄우기</title>
+    <script>
+        /* //////////////////////////////////
+            함수명: popup
+            기능: 팝업창 띄우기
+        */ ////////////////////////////////////
+        function popup(gubun) {//gubun 팝업구분하기
+            // 1.함수호출확인
+            console.log("팝업이양~!",gubun);
+
+            // 2. 팝업창 띄우기 url할당하기
+
+            let url;
+
+            if(gubun){ // 인터넷 사이트
+                url = "https://www.w3schools.com/";
+            } //////////// if ///////////
+            else{ // 내팝업
+                url = "popwin.html";
+            } ///////// else ///////////
+
+            // 3. 팝업창 띄우기
+            window.open(url,"_blank","width=500,height=600,top=200,left=200");
+            // window.open(이동창주소,창이름/창형식,옵션)
+            
+            // window.open(url);
+            // window.open(url)
+            // 옵션없이 url만 사용하면 새창(새탭)으로 뜸
+
+           
+
+            
+            
+        } //////// popup 함수 ////////////////
+        //////////////////////////////////////
+        
+        /**********************************************
+        - 익스는 최신엣지가 아닌 이전 익스임!
+        
+            1. 툴바출력여부(yes/no 또는 1/0) - 익스용
+            toolbar=yes/no 
+            2. 스크롤바여부 - 익스용
+            scrollbars=yes/no
+            3. 창크기조절여부 - 익스용
+            resizable=yes/no
+            4. top위치값 - 공용
+            top=숫자(px)
+            5. left위치값 - 공용
+            left=숫자(px)
+            6. 폭 - 공용
+            width=숫자(px)
+            7. 높이 - 공용
+            height=숫자(px)
+        **********************************************/
+    </script>
+</head>
+
+<body>
+    <h1>
+        <a href="#" onclick="popup(1)">
+            여기를 클릭하시면 팝업이 열립니다!
+        </a>
+
+        <br>
+        <br>
+        <a href="#" onclick="popup(0)" id="my">내팝업!</a>
+    </h1>
+
+</body>
+
+</html>
