@@ -135,17 +135,51 @@ function Member() {
         if(valid.test(e.target.value)) setEmailError(false);
         else setEmailError(true);
 
-        // 2. 입력값 반영하기
+        // 2. 입력값 반영하기   
         setEmail(e.target.value);
 
     }; ////////////// changeEmail /////////////////
+
+    // 6. 전체 유효성 검사 함수 /////////////
+    const totalValid = () => {
+        // 모든 입력창 검사(빈값일 경우 모두 에러를 후크변수에 전달!)
+        if(!userId) setUserIdError(true);
+        if(!pwd) setPwdError(true);
+        if(!chkPwd) setChkPwdError(true);
+        if(!userName) setUserNameError(true);
+        if(!email) setEmailError(true);
+
+        // 모두 true일 경우 treu값 리턴
+        if(userId && pwd && chkPwd && userName && email) return true;
+        else return false; // 하나라도 에러면  false값 리턴!
+
+    }; ////////////// totalValid ////////////////
+
+    // 7. 서브밋 기능함수 ///////////////
+    const onSubmit = e => {
+        // 기본 서브밋기능 막기!
+        e.preventDefault();
+
+        console.log("서브밋!");
+
+        // 유효성검사 전체 통과시 ////
+        if(totalValid()) {
+            alert("처리페이지로 이동!");
+        } /// if ////
+        // 불통과시 ////////////////
+        else{
+            alert("입력을 수정하세요!");
+        } /// else /////
+
+
+    }; ///////////// onSubmit ////////////////
 
     return (
         <>
             {/* 모듈코드 */}
             <section className="membx">
                 <h2>Join Us</h2>
-                <form>
+                <form method="post" action="process.php">
                     <ul>
                         <li>
                             {/* 1.아이디 */}
@@ -267,8 +301,18 @@ function Member() {
                             }
                             
                         </li>
-                        <li>{/* 6.버튼 */}</li>
-                        <li>{/* 7.로그인페이지링크 */}</li>
+                        <li style={{overflow:"hidden"}}>
+                            {/* 6.버튼 */}
+                            <button className="sbtn" onClick={onSubmit}>
+                                Submit
+                            </button>
+                            {/* input submit버튼이 아니어도 form요소
+                            내부의 button은 submit기능이 있다! */}
+                        </li>
+                        <li>
+                            {/* 7.로그인페이지링크 */}
+
+                        </li>
                     </ul>
                 </form>
             </section>
