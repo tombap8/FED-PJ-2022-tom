@@ -63,15 +63,14 @@ function Member() {
     // 5. 이메일에러변수
     const [emailError, setEmailError] = useState(false);
 
-
     // [ 아이디관련 메시지 프리셋 ]
     const msgId = [
         "User ID must contain a minimum of 5 characters",
         "This ID is already in use!",
-        "That's a great ID!"
+        "That's a great ID!",
     ];
     // 후크변수 메시지
-    const [idMsg,setIdMsg] = useState(msgId[0]);
+    const [idMsg, setIdMsg] = useState(msgId[0]);
 
     // [ 3. 유효성 검사 메서드 ]
     // 1. 아이디 유효성 검사
@@ -87,34 +86,51 @@ function Member() {
         // 조건: 유효성 검사결과가 true인가? 에러상태! false(에러아님)
         // 정규식.test() -> 정규식 검사결과 리턴 메서드
         // 결과: true이면 에러상태값 false / false이면 에러상태값 true
-        if (valid.test(e.target.value)){ 
+        if (valid.test(e.target.value)) {
             // 아이디 형식에는 맞지만 사용중인 아이디인지 검사하기
             let memData = localStorage.getItem("mem-data");
-            console.log("로컬쓰:",memData);
+            console.log("로컬쓰:", memData);
             // 로컬쓰 null아닌경우
-            if(memData){
+            if (memData) {
                 // 로컬쓰에 기존 아이디중 있는지 확인하기
                 // 문자형데이터를 객체형 데이터로 변환(배열형!)
                 memData = JSON.parse(memData);
-                console.log("검사:",memData);
+                console.log("검사:", memData);
+
+                // 기존아이디가 있으면 상태값 false로 업데이트
+                let isOK = true;
+
                 // 검사돌기!
-                memData.forEach(v=>{
+                memData.forEach((v) => {
                     // 기존의 아이디와 같은 경우!
-                    if(v["uid"]===e.target.value){
+                    if (v["uid"] === e.target.value) {
+                        console.log(v["uid"]);
                         // 메시지변경
                         setIdMsg(msgId[1]);
                         // 아이디에러상태값 업데이트
-                        userIdError(true);
+                        setUserIdError(true);
+                        // 존재여부 업데이트
+                        isOK = false;
                     } ////// if /////
-                })
+                }); ///////// forEach //////////////
+                
+                // 기존아이디가 없으면 들어감!
+                if(isOK){
+                    console.log("바깥");
+                    // 메시지변경(처음메시지로 변경)
+                    setIdMsg(msgId[0]);              
+                    // 아이디에러상태값 업데이트
+                    setUserIdError(false);
+
+                }
+
 
             } ///////// if ////////////////////
-            else{
+            else {
                 console.log("DB가 없어욧!!!");
             } ////////// else /////////////////
 
             // setUserIdError(false); // 에러아님상태!
-
         } ////// if ///////////
         else setUserIdError(true); // 에러상태임!
 
@@ -143,78 +159,86 @@ function Member() {
     }; ///////////// changePwd ///////////////////
 
     // 3. 비밀번호 확인 유효성검사
-    const changeChkPwd = e => {
+    const changeChkPwd = (e) => {
         // 1. 위에 입력한 비밀번호와 일치여부
-        if(pwd === e.target.value) setChkPwdError(false); // 에러아님!
+        if (pwd === e.target.value) setChkPwdError(false); // 에러아님!
         else setChkPwdError(true); // 에러임!
 
         // 2. 입력값 반영하기
         setChkPwd(e.target.value);
-
     }; ////////////// changeChkPwd /////////////////
 
     // 4. 사용자이름 유효성검사
-    const changeUserName = e => {
+    const changeUserName = (e) => {
         // 1. 빈값 체크
-        if(e.target.value !== "") setUserNameError(false);
+        if (e.target.value !== "") setUserNameError(false);
         else setUserNameError(true);
 
         // 2. 입력값 반영하기
         setUserName(e.target.value);
-
     }; ////////////// changeUserName /////////////////
 
     // 5. 이메일 유효성검사 ///////////////////////
-    const changeEmail = e => {
-
+    const changeEmail = (e) => {
         // 1.이메일 정규식 셋팅
-        const valid = /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+        const valid =
+            /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
 
         // 1. 이메일유효성 검사체크
-        if(valid.test(e.target.value)) setEmailError(false);
+        if (valid.test(e.target.value)) setEmailError(false);
         else setEmailError(true);
 
-        // 2. 입력값 반영하기   
+        // 2. 입력값 반영하기
         setEmail(e.target.value);
-
     }; ////////////// changeEmail /////////////////
 
     // 6. 전체 유효성 검사 함수 /////////////
     const totalValid = () => {
         // 모든 입력창 검사(빈값일 경우 모두 에러를 후크변수에 전달!)
-        if(!userId) setUserIdError(true);
-        if(!pwd) setPwdError(true);
-        if(!chkPwd) setChkPwdError(true);
-        if(!userName) setUserNameError(true);
-        if(!email) setEmailError(true);
+        if (!userId) setUserIdError(true);
+        if (!pwd) setPwdError(true);
+        if (!chkPwd) setChkPwdError(true);
+        if (!userName) setUserNameError(true);
+        if (!email) setEmailError(true);
 
-        // 통과조건: 
+        // 통과조건:
         // 1. 빈값이 아님
         // 2. 에러 후크 변수가 모두 false
         // 위의 2가지 만족시 treu값 리턴
-        if(userId && pwd && chkPwd && userName && email && 
-            !userIdError && !pwdError && 
-            !chkPwdError && !userNameError && !emailError) return true;
+        if (
+            userId &&
+            pwd &&
+            chkPwd &&
+            userName &&
+            email &&
+            !userIdError &&
+            !pwdError &&
+            !chkPwdError &&
+            !userNameError &&
+            !emailError
+        )
+            return true;
         else return false; // 하나라도 에러면  false값 리턴!
-
     }; ////////////// totalValid ////////////////
 
     // 7. 서브밋 기능함수 ///////////////
-    const onSubmit = e => {
+    const onSubmit = (e) => {
         // 기본 서브밋기능 막기!
         e.preventDefault();
 
         console.log("서브밋!");
 
         // 유효성검사 전체 통과시 ////
-        if(totalValid()) {
+        if (totalValid()) {
             // alert("처리페이지로 이동!");
 
             // localStorage.clear();
 
             // 만약 로컬스 "mem-data"가 null이면 만들어준다!
-            if(localStorage.getItem("mem-data")===null){
-                localStorage.setItem("mem-data",`
+            if (localStorage.getItem("mem-data") === null) {
+                localStorage.setItem(
+                    "mem-data",
+                    `
                     [
                         {
                             "idx": "1",
@@ -224,9 +248,10 @@ function Member() {
                             "eml":"tom@gmail.com"
                         }
                     ]
-                `)
+                `
+                );
             }
-    
+
             // 로컬스 변수할당
             let memData = localStorage.getItem("mem-data");
 
@@ -239,11 +264,11 @@ function Member() {
 
             // 새로운 데이터구성
             let newObj = {
-                "idx": memData.length+1,
-                "uid": userId,
-                "pwd": pwd,
-                "unm": userName,
-                "eml": email
+                idx: memData.length + 1,
+                uid: userId,
+                pwd: pwd,
+                unm: userName,
+                eml: email,
             };
 
             // 데이터 추가하기 : 배열에 데이터 추가임 -> push()
@@ -253,19 +278,15 @@ function Member() {
             console.log(memData);
 
             // 로컬쓰에 반영하기
-            localStorage.setItem("mem-data",JSON.stringify(memData))
+            localStorage.setItem("mem-data", JSON.stringify(memData));
 
             // 로컬쓰 확인
             console.log(localStorage.getItem("mem-data"));
-
         } /// if ////
         // 불통과시 ////////////////
-        else{
+        else {
             // alert("입력을 수정하세요!");
         } /// else /////
-
-
-
     }; ///////////// onSubmit ////////////////
 
     return (
@@ -288,10 +309,26 @@ function Member() {
                             {
                                 // 에러일 경우 메시지 보여주기
                                 // 조건문 && 요소 -> 조건이 true이면 요소출력
+                                // 훅크 데이터 idMsg로 변경출력!
                                 userIdError && (
                                     <div className="msg">
                                         <small style={{ color: "red", fontSize: "10px" }}>
-                                        {idMsg}
+                                            {idMsg}
+                                        </small>
+                                    </div>
+                                )
+                            }
+
+                            {
+                                // "훌륭한 아이디네요"일 경우!
+                                // 아이디에러가 false일때 출력!
+                                // 고정데이터 배열 msgId 세번째값 출력
+                                // 조건추가 : userId가 입력전일때는 안보임
+                                // userId가 입력전엔 false를 리턴함!
+                                !userIdError && userId && (
+                                    <div className="msg">
+                                        <small style={{ color: "green", fontSize: "10px" }}>
+                                            {msgId[2]}
                                         </small>
                                     </div>
                                 )
@@ -319,12 +356,12 @@ function Member() {
                                 pwdError && (
                                     <div className="msg">
                                         <small style={{ color: "red", fontSize: "10px" }}>
-                                        Password must be at least 8 characters long and must contain at least one letter and one number each.
+                                            Password must be at least 8 characters long and must
+                                            contain at least one letter and one number each.
                                         </small>
                                     </div>
                                 )
                             }
-                            
                         </li>
                         <li>
                             {/* 3.비밀번호확인 */}
@@ -342,13 +379,12 @@ function Member() {
                                 chkPwdError && (
                                     <div className="msg">
                                         <small style={{ color: "red", fontSize: "10px" }}>
-                                        Password verification does not match
+                                            Password verification does not match
                                         </small>
                                     </div>
                                 )
                             }
-                            
-                            </li>
+                        </li>
                         <li>
                             {/* 4.이름 */}
                             <label>User Name : </label>
@@ -365,13 +401,12 @@ function Member() {
                                 userNameError && (
                                     <div className="msg">
                                         <small style={{ color: "red", fontSize: "10px" }}>
-                                        This is a required entry
+                                            This is a required entry
                                         </small>
                                     </div>
                                 )
                             }
-                            
-                            </li>
+                        </li>
                         <li>
                             {/* 5.이메일 */}
                             <label>Email : </label>
@@ -388,14 +423,13 @@ function Member() {
                                 emailError && (
                                     <div className="msg">
                                         <small style={{ color: "red", fontSize: "10px" }}>
-                                        Please enter a valid email format
+                                            Please enter a valid email format
                                         </small>
                                     </div>
                                 )
                             }
-                            
                         </li>
-                        <li style={{overflow:"hidden"}}>
+                        <li style={{ overflow: "hidden" }}>
                             {/* 6.버튼 */}
                             <button className="sbtn" onClick={onSubmit}>
                                 Submit
@@ -405,7 +439,7 @@ function Member() {
                         </li>
                         <li>
                             {/* 7.로그인페이지링크 */}
-                            Are you already a member? 
+                            Are you already a member?
                             <Link to="/login"> Log In </Link>
                         </li>
                     </ul>
