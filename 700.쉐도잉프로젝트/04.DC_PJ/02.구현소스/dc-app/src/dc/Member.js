@@ -122,7 +122,7 @@ function Member() {
                     // 아이디에러상태값 업데이트
                     setUserIdError(false);
 
-                }
+                } /////////// if : isOK /////////
 
 
             } ///////// if ////////////////////
