@@ -1,7 +1,7 @@
 // index.js는 public/index.html 페이지에 적용되는 컴포넌트다!
 import React from "react";
 import ReactDOM from "react-dom/client";
-import {BrowserRouter, HashRouter, Routes, Route} from "react-router-dom";
+import { Routes, Route, HashRouter } from "react-router-dom";
 import Characters from "./dc/Characters";
 import Main from "./dc/Main";
 import Layout from "./dc/Layout";
