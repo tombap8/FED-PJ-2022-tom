@@ -149,8 +149,13 @@ function Member() {
         if(!userName) setUserNameError(true);
         if(!email) setEmailError(true);
 
-        // 모두 true일 경우 treu값 리턴
-        if(userId && pwd && chkPwd && userName && email) return true;
+        // 통과조건: 
+        // 1. 빈값이 아님
+        // 2. 에러 후크 변수가 모두 false
+        // 위의 2가지 만족시 treu값 리턴
+        if(userId && pwd && chkPwd && userName && email && 
+            !userIdError && !pwdError && 
+            !chkPwdError && !userNameError && !emailError) return true;
         else return false; // 하나라도 에러면  false값 리턴!
 
     }; ////////////// totalValid ////////////////
