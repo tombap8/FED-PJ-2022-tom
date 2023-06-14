@@ -110,7 +110,7 @@ function Member() {
         else setChkPwdError(true); // 에러임!
 
         // 2. 입력값 반영하기
-        setChkPwd(e.target.valid);
+        setChkPwd(e.target.value);
 
     }; ////////////// changeChkPwd /////////////////
 
@@ -123,13 +123,28 @@ function Member() {
         // 2. 입력값 반영하기
         setUserName(e.target.value);
 
-    }; ////////////// changeChkPwd /////////////////
+    }; ////////////// changeUserName /////////////////
+
+    // 5. 이메일 유효성검사 ///////////////////////
+    const changeEmail = e => {
+
+        // 1.이메일 정규식 셋팅
+        const valid = /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+
+        // 1. 이메일유효성 검사체크
+        if(valid.test(e.target.value)) setEmailError(false);
+        else setEmailError(true);
+
+        // 2. 입력값 반영하기
+        setEmail(e.target.value);
+
+    }; ////////////// changeEmail /////////////////
 
     return (
         <>
             {/* 모듈코드 */}
             <section className="membx">
-                <h2>Member</h2>
+                <h2>Join Us</h2>
                 <form>
                     <ul>
                         <li>
@@ -229,7 +244,29 @@ function Member() {
                             }
                             
                             </li>
-                        <li>{/* 5.이메일 */}</li>
+                        <li>
+                            {/* 5.이메일 */}
+                            <label>Email : </label>
+                            <input
+                                type="text"
+                                maxLength="50"
+                                placeholder="Please enter your Email"
+                                value={email}
+                                onChange={changeEmail}
+                            />
+                            {
+                                // 에러일 경우 메시지 보여주기
+                                // 조건문 && 요소 -> 조건이 true이면 요소출력
+                                emailError && (
+                                    <div className="msg">
+                                        <small style={{ color: "red", fontSize: "10px" }}>
+                                        Please enter a valid email format
+                                        </small>
+                                    </div>
+                                )
+                            }
+                            
+                        </li>
                         <li>{/* 6.버튼 */}</li>
                         <li>{/* 7.로그인페이지링크 */}</li>
                     </ul>
