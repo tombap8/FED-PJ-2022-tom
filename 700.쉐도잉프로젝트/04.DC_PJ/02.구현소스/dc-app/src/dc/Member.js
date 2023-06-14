@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import $ from "jquery";
 import "./css/member.css";
+import { Link } from "react-router-dom";
 
 /* 
     [ 후크 : Hook - 왜 필요한가? ]
@@ -76,7 +77,20 @@ function Member() {
         // 조건: 유효성 검사결과가 true인가? 에러상태! false(에러아님)
         // 정규식.test() -> 정규식 검사결과 리턴 메서드
         // 결과: true이면 에러상태값 false / false이면 에러상태값 true
-        if (valid.test(e.target.value)) setUserIdError(false); // 에러아님상태!
+        if (valid.test(e.target.value)){ 
+            // 아이디 형식에는 맞지만 사용중인 아이디인지 검사하기
+            let memData = localStorage.getItem("mem-data");
+            // 로컬쓰 null아닌경우
+            if(memData){
+                
+            }
+            else{
+                console.log("DB가 없어욧!!!");
+            }
+
+            setUserIdError(false); // 에러아님상태!
+
+        } ////// if ///////////
         else setUserIdError(true); // 에러상태임!
 
         // 4. 실제 useerId 후크변수값이 업데이트 되어야 화면에 출력됨!
@@ -169,12 +183,62 @@ function Member() {
 
         // 유효성검사 전체 통과시 ////
         if(totalValid()) {
-            alert("처리페이지로 이동!");
+            // alert("처리페이지로 이동!");
+
+            // localStorage.clear();
+
+            // 만약 로컬스 "mem-data"가 null이면 만들어준다!
+            if(localStorage.getItem("mem-data")===null){
+                localStorage.setItem("mem-data",`
+                    [
+                        {
+                            "idx": "1",
+                            "uid":"tomtom",
+                            "pwd":"1111",
+                            "unm":"Tom",
+                            "eml":"tom@gmail.com"
+                        }
+                    ]
+                `)
+            }
+    
+            // 로컬스 변수할당
+            let memData = localStorage.getItem("mem-data");
+
+            console.log(memData);
+
+            // 로컬스 객체로 변환하기
+            memData = JSON.parse(memData);
+
+            console.log(memData);
+
+            // 새로운 데이터구성
+            let newObj = {
+                "idx": memData.length+1,
+                "uid": userId,
+                "pwd": pwd,
+                "unm": userName,
+                "eml": email
+            };
+
+            // 데이터 추가하기 : 배열에 데이터 추가임 -> push()
+            memData.push(newObj);
+
+            // 추가후 확인
+            console.log(memData);
+
+            // 로컬쓰에 반영하기
+            localStorage.setItem("mem-data",JSON.stringify(memData))
+
+            // 로컬쓰 확인
+            console.log(localStorage.getItem("mem-data"));
+
         } /// if ////
         // 불통과시 ////////////////
         else{
-            alert("입력을 수정하세요!");
+            // alert("입력을 수정하세요!");
         } /// else /////
+
 
 
     }; ///////////// onSubmit ////////////////
@@ -316,7 +380,8 @@ function Member() {
                         </li>
                         <li>
                             {/* 7.로그인페이지링크 */}
-
+                            Are you already a member? 
+                            <Link to="/login"> Log In </Link>
                         </li>
                     </ul>
                 </form>
