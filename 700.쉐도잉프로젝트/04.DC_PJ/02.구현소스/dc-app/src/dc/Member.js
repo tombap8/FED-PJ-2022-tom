@@ -90,15 +90,17 @@ function Member() {
         if (valid.test(e.target.value)){ 
             // 아이디 형식에는 맞지만 사용중인 아이디인지 검사하기
             let memData = localStorage.getItem("mem-data");
+            console.log("로컬쓰:",memData);
             // 로컬쓰 null아닌경우
             if(memData){
                 // 로컬쓰에 기존 아이디중 있는지 확인하기
                 // 문자형데이터를 객체형 데이터로 변환(배열형!)
                 memData = JSON.parse(memData);
+                console.log("검사:",memData);
                 // 검사돌기!
                 memData.forEach(v=>{
                     // 기존의 아이디와 같은 경우!
-                    if(v.uid===e.target.value){
+                    if(v["uid"]===e.target.value){
                         // 메시지변경
                         setIdMsg(msgId[1]);
                         // 아이디에러상태값 업데이트
@@ -111,7 +113,7 @@ function Member() {
                 console.log("DB가 없어욧!!!");
             } ////////// else /////////////////
 
-            setUserIdError(false); // 에러아님상태!
+            // setUserIdError(false); // 에러아님상태!
 
         } ////// if ///////////
         else setUserIdError(true); // 에러상태임!
