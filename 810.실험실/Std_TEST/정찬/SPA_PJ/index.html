@@ -111,10 +111,18 @@
                 setTimeout(()=>rotAni(tg),2000);
             } //////////// rotAni 함수 /////////
 
+
+            // 최초호출전 잠깐 숨기기
+            $(".com").fadeTo(1,0);
+
             // 최초호출
             rotAni($(".ag"));
             setTimeout(()=>rotAni($(".bg")),666);
-            setTimeout(()=>rotAni($(".cg")),1332);
+            setTimeout(()=>{
+                rotAni($(".cg"));
+                // 마지막박스 호출후 보이기
+                $(".com").fadeTo(1,1);
+            },1332);
 
 
             }); ////////// jQB //////////////////////
