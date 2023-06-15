@@ -13,6 +13,7 @@ import News from "./dc/News";
 import Video from "./dc/Video";
 import Member from "./dc/Member";
 import ScrollTop from "./dc/common/ScrollTop";
+import LogIn from "./dc/LogIn";
 
 /********************************************* 
     [ 리액트 라우터 ]
@@ -63,6 +64,7 @@ export default function App(){
                     <Route path="nw" element={<News />} />
                     <Route path="vd" element={<Video />} />
                     <Route path="mem" element={<Member />} />
+                    <Route path="login" element={<LogIn />} />
                </Route>
 
             </Routes>
