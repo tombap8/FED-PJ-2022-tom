@@ -290,7 +290,7 @@ function Member() {
     }; ///////////// onSubmit ////////////////
 
     return (
-        <>
+        <div className="outbx">
             {/* 모듈코드 */}
             <section className="membx">
                 <h2>Join Us</h2>
@@ -448,7 +448,7 @@ function Member() {
 
             {/* 빈루트를 만들고 JS로드함수포함 */}
             {jqFn()}
-        </>
+        </div>
     );
 }
 
