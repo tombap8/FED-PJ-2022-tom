@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import $ from "jquery";
 import "./css/member.css";
 import { Link, useNavigate } from "react-router-dom";
+import { clearData, initData } from "./fns/fnMem"; 
+
 
 /* 
     [ 후크 : Hook - 왜 필요한가? ]
@@ -83,33 +85,33 @@ function Member() {
     // 후크변수 메시지
     const [idMsg, setIdMsg] = useState(msgId[0]);
 
-    // [ 로컬쓰 클리어 ] /////////
-    const clearData = () => {
-        localStorage.clear();
-        console.log("로컬쓰 클리어!");
-    }; /////////// clearData //////////////
+    // [ 로컬쓰 클리어 ] // -> fns/fnMem.js로 보냄
+    // const clearData = () => {
+    //     localStorage.clear();
+    //     console.log("로컬쓰 클리어!");
+    // }; /////////// clearData //////////////
 
-    // [ 로컬쓰 초기체크셋팅! ] ////////////
-    const initData = () => {
+    // [ 로컬쓰 초기체크셋팅! ] /// -> fns/fnMem.js로 보냄
+    // const initData = () => {
 
-        // 만약 로컬스 "mem-data"가 null이면 만들어준다!
-        if (localStorage.getItem("mem-data") === null) {
-            localStorage.setItem(
-                "mem-data",
-                `
-                    [
-                        {
-                            "idx": "1",
-                            "uid":"tomtom",
-                            "pwd":"1111",
-                            "unm":"Tom",
-                            "eml":"tom@gmail.com"
-                        }
-                    ]
-                `
-            );
-        }
-    }; ///////////// initData /////////////////
+    //     // 만약 로컬스 "mem-data"가 null이면 만들어준다!
+    //     if (localStorage.getItem("mem-data") === null) {
+    //         localStorage.setItem(
+    //             "mem-data",
+    //             `
+    //                 [
+    //                     {
+    //                         "idx": "1",
+    //                         "uid":"tomtom",
+    //                         "pwd":"1111",
+    //                         "unm":"Tom",
+    //                         "eml":"tom@gmail.com"
+    //                     }
+    //                 ]
+    //             `
+    //         );
+    //     }
+    // }; ///////////// initData /////////////////
 
     // [ 3. 유효성 검사 메서드 ]
     // 1. 아이디 유효성 검사
