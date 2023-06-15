@@ -301,7 +301,10 @@ function Member() {
 
             // 로그인 페이지로 이동(라우터이동하기!)
             // useNavigate 사용!
-            goRoute('/login');
+            $(".sbtn").text("넌 이제 회원인거야~!!");
+            setTimeout(() => {
+                goRoute('/login');                
+            }, 1500);
 
         } /// if ////
         // 불통과시 ////////////////
