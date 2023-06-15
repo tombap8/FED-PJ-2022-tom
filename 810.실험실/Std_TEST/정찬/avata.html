@@ -61,7 +61,7 @@
                     },
                     function () {
                         // out
-                        mk.hide();
+                        // mk.hide();
                     }
                 ); ///// hover ///////////
                 ///////////////////////////////
@@ -95,9 +95,8 @@
             } /////// calc함수 ////////////////////////////
             /////////////////////////////////////////////
 
-            const tg = $(".ag");
 
-            function rotAni(){
+            function rotAni(tg){
                 setTimeout(() => {
                     tg.css({
                         top:"calc(50% - 250px/2)",
@@ -126,11 +125,13 @@
                         transition:"top .5s ease-out,left .5s ease-in"
                     })
                 }, 1500);
-                setTimeout(rotAni,2000);
+                setTimeout(()=>rotAni(tg),2000);
             } //////////// rotAni 함수 /////////
 
             // 최초호출
-            rotAni();
+            rotAni($(".ag"));
+            setTimeout(()=>rotAni($(".bg")),666);
+            setTimeout(()=>rotAni($(".cg")),1332);
 
 
             }); ////////// jQB //////////////////////
@@ -179,19 +180,36 @@
                 /*트랜지션:속시이지*/
                 transition: top 0.4s ease-out, left 0.4s ease-out;
             }
-            .ag {
+            .com {
                 position: absolute;
                 top: 0;
                 left: 0;
                 width: 250px;
                 height: 250px;
-
-                background: url(images/kv_a_pc.jpg) no-repeat fixed center/1312px;
-                border: 2px solid white;
-                border-radius: 2px;
+                
 
                 /*트랜지션:속시이지*/
                 transition: top 0.4s ease-out, left 0.4s ease-out;
+            }
+            .com::after{
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                border: 2px solid white;
+                border-radius: 2px;
+                z-index: 999;
+            }
+            .ag{
+                background: url(images/kv_a_pc.jpg) no-repeat fixed center/1312px;
+            }
+            .bg{
+                background: url(images/kv_b_pc.jpg) no-repeat fixed center/1312px;
+            }
+            .cg{
+                background: url(images/kv_c_pc.jpg) no-repeat fixed center/1312px;
             }
 
             /*이벤트가 적용되는 box*/
@@ -207,7 +225,9 @@
         <div class="wrap">
             <div id="bg"></div>
             <div id="mask">
-                <div class="ag"></div>
+                <div class="com ag"></div>
+                <div class="com bg"></div>
+                <div class="com cg"></div>
             </div>
             <div id="cover"></div>
         </div>
