@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Mask Effect - Avata</title>
+
+        <!-- 제이쿼리 라이브러리 CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+        <!-- 제이쿼리 UI CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+
+        <script>
+            $(function () {
+                /// jQB //////////////////
+
+                // 위치보정함수 호출
+                calc();
+
+                // 윈도우 화면 사이즈 변경시 위치보정함수 호출
+                $(window).resize(calc);
+
+                // 마스크박스
+                let mk = $("#mask");
+
+                // 커버박스
+                let cv = $("#cover");
+
+                // 마우스가 #cover 위에서 움직일때 //
+                // #mask박스 이동하기 /////////////
+                // 이벤트 대상: #cover
+                // 사용이벤트: mousemove
+                cv.mousemove(function (e) {
+                    // e-이벤트전달변수
+
+                    // 마우스 포인터 위치값 알아내기
+                    // 1. pageX, pageY : 화면기준
+                    // 2. offsetX, offsetY : 선택요소기준
+
+                    // x축 위치값 보정(박스크기의 절반빼기)
+                    let posx = e.offsetX - 100;
+
+                    // y축 위치값 보정(박스크기의 절반빼기)
+                    let posy = e.offsetY - 100;
+
+                    // 움직일 대상: #mask
+                    mk.css({
+                        top: posy + "px",
+                        left: posx + "px",
+                    }); /////// css ///////////
+                }); //////// mousemove ////////////
+
+                // 처음에 마스크 숨기기 ///
+                mk.hide();
+
+                // 커버박스에 오버시 보이고, 아웃시 숨기기
+                cv.hover(
+                    function () {
+                        // over
+                        mk.show();
+                    },
+                    function () {
+                        // out
+                        mk.hide();
+                    }
+                ); ///// hover ///////////
+                ///////////////////////////////
+
+                $(window).scroll(calc);
+
+            /*/////////////////////////////////////////////
+            함수명: calc
+            기능: 박스위치 이동에 의한 배경고정요소의 
+                위치값 보정
+                
+            이해: 배경이미지를 고정할 경우 보이는 화면에
+            위치가 고정되므로 유동적인 박스 위치에 
+            배경을 고정할때는 위치를 재설정해야한다!
+        */ ////////////////////////////////////////////
+            function calc() {
+                // 박스의 실제위치를 구함
+                // 실제 박스위치에 크기의 절반을 더한 이유는
+                // transform에서 위치이동을 했기때문이다!
+                let bgtop = $(".wrap").offset().top - $(window).scrollTop();
+
+                let bgleft = $(".wrap").offset().left;
+
+                // 고정된 배경이미지 위치보정
+                $("#bg").css({
+                    backgroundPosition: bgleft + "px " + bgtop + "px",
+                }); ////// css ////////
+                $("#mask").css({
+                    backgroundPosition: bgleft + "px " + bgtop + "px",
+                }); ////// css ////////
+            } /////// calc함수 ////////////////////////////
+            /////////////////////////////////////////////
+
+            const tg = $(".ag");
+
+            function rotAni(){
+                setTimeout(() => {
+                    tg.css({
+                        top:"calc(50% - 250px/2)",
+                        left:"calc(0% - 250px/2)",
+                        transition:"top .5s ease-in,left .5s ease-out"
+                    })
+                }, 0);
+                setTimeout(() => {
+                    tg.css({
+                        top:"calc(0% - 250px/2)",
+                        left:"calc(50% - 250px/2)",
+                        transition:"top .5s ease-out,left .5s ease-in"
+                    })
+                }, 500);
+                setTimeout(() => {
+                    tg.css({
+                        top:"calc(50% - 250px/2)",
+                        left:"calc(100% - 250px/2)",
+                        transition:"top .5s ease-in,left .5s ease-out"
+                    })
+                }, 1000);
+                setTimeout(() => {
+                    tg.css({
+                        top:"calc(100% - 250px/2)",
+                        left:"calc(50% - 250px/2)",
+                        transition:"top .5s ease-out,left .5s ease-in"
+                    })
+                }, 1500);
+                setTimeout(rotAni,2000);
+            } //////////// rotAni 함수 /////////
+
+            // 최초호출
+            rotAni();
+
+
+            }); ////////// jQB //////////////////////
+        </script>
+        <style>
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 100%;
+            }
+            body {
+                height: 3000px;
+            }
+
+            .wrap {
+                position: absolute;
+                top: calc(50% - 808px / 2);
+                left: calc(50% - 1312px / 2);
+                /* transform: translate(-50%, -50%); */
+                width: 1312px;
+                height: 808px;
+                outline: 1px solid #ccc;
+                overflow: hidden;
+                /*바깥으로 나가는 #mask박스 숨기기*/
+            }
+
+            /*가장 아래 깔리는 박스*/
+            #bg {
+                position: absolute;
+                width: 1312px;
+                aspect-ratio: 1312/808;
+                background: url(images/kv_base_pc.jpg) no-repeat fixed center/1312px;
+            }
+
+            /*마스크 효과 box*/
+            #mask {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 250px;
+                height: 250px;
+                border-radius: 50%;
+
+                /*트랜지션:속시이지*/
+                transition: top 0.4s ease-out, left 0.4s ease-out;
+            }
+            .ag {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 250px;
+                height: 250px;
+
+                background: url(images/kv_a_pc.jpg) no-repeat fixed center/1312px;
+                border: 2px solid white;
+                border-radius: 2px;
+
+                /*트랜지션:속시이지*/
+                transition: top 0.4s ease-out, left 0.4s ease-out;
+            }
+
+            /*이벤트가 적용되는 box*/
+            #cover {
+                position: absolute;
+                width: 1312px;
+                height: 808px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="wrap">
+            <div id="bg"></div>
+            <div id="mask">
+                <div class="ag"></div>
+            </div>
+            <div id="cover"></div>
+        </div>
+    </body>
+</html>
