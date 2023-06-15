@@ -50,21 +50,7 @@
                     }); /////// css ///////////
                 }); //////// mousemove ////////////
 
-                // 처음에 마스크 숨기기 ///
-                mk.hide();
-
-                // 커버박스에 오버시 보이고, 아웃시 숨기기
-                cv.hover(
-                    function () {
-                        // over
-                        mk.show();
-                    },
-                    function () {
-                        // out
-                        // mk.hide();
-                    }
-                ); ///// hover ///////////
-                ///////////////////////////////
+                
 
                 $(window).scroll(calc);
 
@@ -86,10 +72,7 @@
                 let bgleft = $(".wrap").offset().left;
 
                 // 고정된 배경이미지 위치보정
-                $("#bg").css({
-                    backgroundPosition: bgleft + "px " + bgtop + "px",
-                }); ////// css ////////
-                $("#mask").css({
+                $("#bg,#mask,.com").css({
                     backgroundPosition: bgleft + "px " + bgtop + "px",
                 }); ////// css ////////
             } /////// calc함수 ////////////////////////////
