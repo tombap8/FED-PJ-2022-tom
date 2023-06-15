@@ -72,6 +72,34 @@ function Member() {
     // 후크변수 메시지
     const [idMsg, setIdMsg] = useState(msgId[0]);
 
+    // [ 로컬쓰 클리어 ] /////////
+    const clearData = () => {
+        localStorage.clear();
+        console.log("로컬쓰 클리어!");
+    }; /////////// clearData //////////////
+
+    // [ 로컬쓰 초기체크셋팅! ] ////////////
+    const initData = () => {
+
+        // 만약 로컬스 "mem-data"가 null이면 만들어준다!
+        if (localStorage.getItem("mem-data") === null) {
+            localStorage.setItem(
+                "mem-data",
+                `
+                    [
+                        {
+                            "idx": "1",
+                            "uid":"tomtom",
+                            "pwd":"1111",
+                            "unm":"Tom",
+                            "eml":"tom@gmail.com"
+                        }
+                    ]
+                `
+            );
+        }
+    }; ///////////// initData /////////////////
+
     // [ 3. 유효성 검사 메서드 ]
     // 1. 아이디 유효성 검사
     const changeUserId = (e) => {
@@ -87,6 +115,9 @@ function Member() {
         // 정규식.test() -> 정규식 검사결과 리턴 메서드
         // 결과: true이면 에러상태값 false / false이면 에러상태값 true
         if (valid.test(e.target.value)) {
+            // 로컬쓰 데이터 체크 함수호출
+            initData();
+
             // 아이디 형식에는 맞지만 사용중인 아이디인지 검사하기
             let memData = localStorage.getItem("mem-data");
             console.log("로컬쓰:", memData);
@@ -113,18 +144,15 @@ function Member() {
                         isOK = false;
                     } ////// if /////
                 }); ///////// forEach //////////////
-                
+
                 // 기존아이디가 없으면 들어감!
-                if(isOK){
+                if (isOK) {
                     console.log("바깥");
                     // 메시지변경(처음메시지로 변경)
-                    setIdMsg(msgId[0]);              
+                    setIdMsg(msgId[0]);
                     // 아이디에러상태값 업데이트
                     setUserIdError(false);
-
                 } /////////// if : isOK /////////
-
-
             } ///////// if ////////////////////
             else {
                 console.log("DB가 없어욧!!!");
@@ -232,26 +260,6 @@ function Member() {
         if (totalValid()) {
             // alert("처리페이지로 이동!");
 
-            // localStorage.clear();
-
-            // 만약 로컬스 "mem-data"가 null이면 만들어준다!
-            if (localStorage.getItem("mem-data") === null) {
-                localStorage.setItem(
-                    "mem-data",
-                    `
-                    [
-                        {
-                            "idx": "1",
-                            "uid":"tomtom",
-                            "pwd":"1111",
-                            "unm":"Tom",
-                            "eml":"tom@gmail.com"
-                        }
-                    ]
-                `
-                );
-            }
-
             // 로컬스 변수할당
             let memData = localStorage.getItem("mem-data");
 
@@ -293,7 +301,7 @@ function Member() {
         <div className="outbx">
             {/* 모듈코드 */}
             <section className="membx">
-                <h2>Join Us</h2>
+                <h2 onClick={clearData}>Join Us</h2>
                 <form method="post" action="process.php">
                     <ul>
                         <li>

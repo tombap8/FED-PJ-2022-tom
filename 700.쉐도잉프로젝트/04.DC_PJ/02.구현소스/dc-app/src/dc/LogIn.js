@@ -19,13 +19,16 @@ export default function LogIn() {
     // 2. 비밀번호에러변수
     const [pwdError, setPwdError] = useState(false);
     // [ 아이디관련 메시지 프리셋 ]
-    const msgId = [
-        "User ID must contain a minimum of 5 characters",
-        "This ID is already in use!",
-        "That's a great ID!",
+    const msgTxt = [
+        "This is a required entry",//필수입력
+        "ID does not exist",//아이디가 존재하지 않습니다
+        "Password doesn't match",//비밀번호가 일치하지 않습니다
     ];
     // 후크변수 메시지
-    const [idMsg, setIdMsg] = useState(msgId[0]);
+    // 아이디메시지
+    const [idMsg, setIdMsg] = useState(msgTxt[0]);
+    // 비번메시지
+    const [pwdMsg, setPwdMsg] = useState(msgTxt[0]);
 
     // [ 3. 유효성 검사 메서드 ]
     // 1. 아이디 유효성 검사 
@@ -77,69 +80,18 @@ export default function LogIn() {
 
         // 유효성검사 전체 통과시 ////
         if (totalValid()) {
-            // alert("처리페이지로 이동!");
-
-            // localStorage.clear();
-
-            // 만약 로컬스 "mem-data"가 null이면 만들어준다!
-            if (localStorage.getItem("mem-data") === null) {
-                localStorage.setItem(
-                    "mem-data",
-                    `
-                    [
-                        {
-                            "idx": "1",
-                            "uid":"tomtom",
-                            "pwd":"1111",
-                            "unm":"Tom",
-                            "eml":"tom@gmail.com"
-                        }
-                    ]
-                `
-                );
-            }
-
-            // 로컬스 변수할당
-            let memData = localStorage.getItem("mem-data");
-
-            console.log(memData);
-
-            // 로컬스 객체로 변환하기
-            memData = JSON.parse(memData);
-
-            console.log(memData);
-
-            // 새로운 데이터구성
-            let newObj = {
-                idx: memData.length + 1,
-                uid: userId,
-                pwd: pwd,
-                unm: userName,
-                eml: email,
-            };
-
-            // 데이터 추가하기 : 배열에 데이터 추가임 -> push()
-            memData.push(newObj);
-
-            // 추가후 확인
-            console.log(memData);
-
-            // 로컬쓰에 반영하기
-            localStorage.setItem("mem-data", JSON.stringify(memData));
-
-            // 로컬쓰 확인
-            console.log(localStorage.getItem("mem-data"));
+            console.log("성공!");
         } /// if ////
         // 불통과시 ////////////////
         else {
-            // alert("입력을 수정하세요!");
+            console.log("실패!");
         } /// else /////
     }; ///////////// onSubmit ////////////////
 
     return (
         <div className="outbx">
             {/* 모듈코드 */}
-            <section className="membx">
+            <section className="membx" style={{minHeight:"300px"}}>
                 <h2>LOG IN</h2>
                 <form method="post" action="process.php">
                     <ul>
@@ -184,8 +136,7 @@ export default function LogIn() {
                                 pwdError && (
                                     <div className="msg">
                                         <small style={{ color: "red", fontSize: "10px" }}>
-                                            Password must be at least 8 characters long and must
-                                            contain at least one letter and one number each.
+                                            {pwdMsg}
                                         </small>
                                     </div>
                                 )
@@ -198,11 +149,6 @@ export default function LogIn() {
                             </button>
                             {/* input submit버튼이 아니어도 form요소
                             내부의 button은 submit기능이 있다! */}
-                        </li>
-                        <li>
-                            {/* 7.로그인페이지링크 */}
-                            Are you already a member?
-                            <Link to="/login"> Log In </Link>
                         </li>
                     </ul>
                 </form>
