@@ -17,6 +17,9 @@ export default function ScrollTop(){
     useEffect(()=>{
         // 윈도우 객체 스크롤 최상위이동 코드
         window.scrollTo(0,0);
+        // 로그인 상태를 확인! : "minfo"
+        console.log("useEffect:",
+        localStorage.getItem("minfo"));
     }, [pathname]);
 
     // console.log(pathname);
