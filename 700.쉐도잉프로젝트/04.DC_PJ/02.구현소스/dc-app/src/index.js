@@ -12,7 +12,6 @@ import Games from "./dc/Games";
 import News from "./dc/News";
 import Video from "./dc/Video";
 import Member from "./dc/Member";
-import ScrollTop from "./dc/common/ScrollTop";
 import LogIn from "./dc/LogIn";
 
 /********************************************* 
@@ -45,8 +44,6 @@ export default function App(){
     return(
         // <BrowserRouter basename={process.env.PUBLIC_URL}>
         <HashRouter>
-        {/* 라우터 갱신될때 스크롤 상단이동 모듈작동함! */}
-            <ScrollTop />
             <Routes>
                {/* 중요!!!:레이아웃 컴포넌트를 루트로 잡아준다!!! */} 
                <Route path="/" element={<Layout />}>

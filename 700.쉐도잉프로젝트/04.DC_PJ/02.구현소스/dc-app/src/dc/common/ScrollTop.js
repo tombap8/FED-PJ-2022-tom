@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
 // <ScrollTop /> 형태로 호출해야 한다!(import는 당연히함!)
 // 현재 PJ에서는 index.js에 위치함!
 
-export default function ScrollTop(){
+export default function ScrollTop(props){ // props.sfn - 로그인셋팅함수
     // 현재 라우터의 매핑 페이지 위치 알아내기
     const { pathname } = useLocation();
 
@@ -20,6 +20,10 @@ export default function ScrollTop(){
         // 로그인 상태를 확인! : "minfo"
         console.log("useEffect:",
         localStorage.getItem("minfo"));
+        // 부모컴포넌트(Layout) 로그인 셋팅함수 호출하기!
+        props.sfn();
+        // 만약 로컬쓰 "minfo"가 null이 아닌 셋팅값이 있다면
+        // 로그인 환영메시지를 보여준다(+로그아웃버튼 출력)
     }, [pathname]);
 
     // console.log(pathname);

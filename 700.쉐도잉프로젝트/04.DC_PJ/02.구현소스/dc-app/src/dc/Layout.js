@@ -8,6 +8,7 @@ import { gnb_data, bmenu } from "./data/common";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
+import ScrollTop from "./common/ScrollTop";
 /******************************************************* 
     [ 리액트 라우터와 연결하여 사용되는 라우터 컴포넌트 ]
     1. <Link to="/경로명"></Link>
@@ -55,6 +56,10 @@ const Layout = () => {
 
     return (
         <>
+        
+            {/* 라우터 갱신될때 스크롤 상단이동 모듈작동함!
+            + 로그인셋팅함수 호출전달하기! 자식에게 setLogin함수전달 */}
+            <ScrollTop sfn={setLogin} />
             {/* 1.상단영역 */}
             <header className="top">
 
