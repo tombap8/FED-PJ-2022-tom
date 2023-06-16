@@ -39,6 +39,7 @@ const Layout = () => {
     }; //////// logstyle ///////////
 
     // 로그인 셋팅 함수 //////////
+    // -> ScrollTop.js 의 useEffect 함수구역에서 호출!
     const setLogin = () => {
         // 1. 로그인 Hook변수 업데이트하기
         setLogSts(localStorage.getItem("minfo"));
@@ -52,6 +53,17 @@ const Layout = () => {
 
 
     }; ///////// setLogin ////////////
+
+    // 로그아웃 함수 ///////////////////
+    // -> LOGOUT 버튼에서 호출함!
+    const logout = () => {
+        // 1. 로컬쓰 "minfo" 삭제하기
+        localStorage.removeItem("minfo");
+        // 2. 로그인상태 Hook 변수 업데이트하기
+        setLogSts(null);
+        console.log("로그아웃됨!",logSts);
+
+    }; ////////////// logout ///////////
 
 
     return (
