@@ -1,0 +1,20 @@
+@charset "utf-8";
+/* CatSwipe 모듈용 CSS - catswipe.css  */
+
+.catswbox{
+    max-width: 1320px;
+    margin: 40px auto;
+}
+
+/* 캐릭터박스 */
+.catbx{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999999;
+    background-color: rgba(0, 0, 0, 0.742);
+    display: none;
+    /* 처음에 안보임 */
+}

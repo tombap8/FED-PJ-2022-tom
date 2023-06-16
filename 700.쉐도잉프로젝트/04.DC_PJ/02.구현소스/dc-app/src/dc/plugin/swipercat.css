@@ -1,0 +1,105 @@
+@charset "utf-8";
+
+#app {
+    height: 100%;
+  }
+  
+  .swiper {
+    width: 100%;
+    padding: 10px;
+    margin: 20px 0;
+    box-sizing: border-box;
+  }
+  
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+  
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+
+  /* 타이틀박스 */
+  .tit{    
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 40px;
+    /* background: url(../../../public/images/dcm1.jpg); */
+  }
+  
+  /* 컨텐츠 박스 */
+  .swinbx{
+    width: 100%;
+    aspect-ratio: 1 / 1.1;
+    cursor: pointer;
+    user-select: none;
+    /* outline: 1px solid red; */
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.553);
+  }
+
+  /* 비디오이미지박스 */
+  .vidimg{
+    vertical-align: top;
+  }
+  .vidimg img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* 타이틀박스 */
+  .vidtit{ 
+    font-family: 'Roboto Condensed', sans-serif;
+    padding: 15px;
+  }
+  /* 카테고리 */
+  .vidtit h4{
+    font-size: 14px;
+    color: #555;
+  }
+  /* 동영상타이틀 */
+  .vidtit h3{
+    font-size: 20px;
+    margin-top: 15px;
+  }
+  
+  
+  /* 기존 스와이퍼 디자인 변경 */
+
+
+  .swiper-button-prev, .swiper-button-next{
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    background-color: #fff;
+    box-shadow: 0 0 10px #000;
+  }
+  
+  .swiper-button-next{
+    transform: scale(.8) translateX(15px);
+  }
+  
+  .swiper-button-prev{
+    transform: scale(.8) translateX(-15px);
+  }
+
+
+  @media screen and (max-width:1200px) {
+    
+  /* 동영상타이틀 */
+  .vidtit h3{
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  }
+  
