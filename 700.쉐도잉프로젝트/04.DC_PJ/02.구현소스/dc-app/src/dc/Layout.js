@@ -121,12 +121,28 @@ const Layout = () => {
                         <li style={{ marginLeft: "auto" }}>
                             <FontAwesomeIcon icon={faSearch} />
                         </li>
-                        <li>
-                            <Link to="/mem">Join Us</Link>
-                        </li>
-                        <li>
-                            <Link to="/login">LOG IN</Link>
-                        </li>
+                        {
+                            /* 회원가입,로그인은 로그인아닌 상태일때만 */
+                            logSts === null &&
+                            <>
+                                <li>
+                                    <Link to="/mem">Join Us</Link>
+                                </li>
+                                <li>
+                                    <Link to="/login">LOGIN</Link>
+                                </li>
+                            </>
+                        }
+
+                        {
+                            /* 로그아웃버튼은 로인인상태일때만 */
+                            logSts !== null &&
+                            <li>
+                                <a href="#" onClick={logout}>
+                                    LOGOUT
+                                </a>
+                            </li>
+                        }
                     </ul>
                 </nav>
             </header>
