@@ -2,10 +2,12 @@
 import Logo from "./Logo";
 import "./css/layout.css";
 import { Link, Outlet } from "react-router-dom";
+import { gnb_data, bmenu } from "./data/common";
 
 /* 폰트어썸 임포트 */
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState } from "react";
 /******************************************************* 
     [ 리액트 라우터와 연결하여 사용되는 라우터 컴포넌트 ]
     1. <Link to="/경로명"></Link>
@@ -15,101 +17,62 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
     -> 라우터 연결 컴포넌트 출력자리 컴포넌트
 *******************************************************/
 
+   
+    
 const Layout = () => {
-    /* GNB메뉴 데이터구성하기 */
-    const gnb_data = [
-        //    {
-        //        txt:"Home",
-        //        link:"/",
-        //     },
-        {
-            txt: "CHARACTERS",
-            link: "/ct",
-        },
-        {
-            txt: "COMICS",
-            link: "/co1",
-            sub: [
-                {
-                    txt: "LATEST COMICS",
-                    link: "/co1",
-                },
-                {
-                    txt: "DC UNIVERSE INFINITE",
-                    link: "/co2",
-                },
-                {
-                    txt: "ALL COMICS SERIES",
-                    link: "/co3",
-                },
-            ],
-        },
-        {
-            txt: "MOVIES & TV",
-            link: "/mv",
-            sub: [
-                {
-                    txt: "DC MOVIES",
-                    link: "/mv",
-                },
-                {
-                    txt: "DC SERIES",
-                    link: "/mv",
-                },
-                {
-                    txt: "DC ON HBO MAX",
-                    link: "/mv",
-                },
-            ],
-        },
-        {
-            txt: "GAMES",
-            link: "/gm",
-        },
-        {
-            txt: "NEWS",
-            link: "/nw",
-        },
-        {
-            txt: "VIDEO",
-            link: "/vd",
-        },
-    ];
 
-    /* 하단링크 데이터 셋업! */
-    const bmenu = [
-        {
-            txt: "Privacy Policy",
-            link: "https://www.warnermediaprivacy.com/policycenter/b2c/WM/",
-        },
-        {
-            txt: "Terms",
-            link: "https://www.dcuniverseinfinite.com/terms?_gl=1*5nxhg2*_gcl_au*MTk3OTgxNzUwMi4xNjgzMTc3NDg3",
-        },
-        {
-            txt: "Ad Choices",
-            link: "https://www.warnermediaprivacy.com/policycenter/b2c/wm/",
-        },
-        {
-            txt: "Accessibility",
-            link: "https://policies.warnerbros.com/terms/en-us/#accessibility",
-        },
-        {
-            txt: "Cookie Settings",
-            link: "https://www.dc.com/#compliance-link",
-        },
-    ];
+     // 자식컴포넌트 값 전달 테스트 함수
+    const callMe = (x) => {
+        console.log("누구?",x);
+    }; ////////// callMe /////////////
+
+    // 로그인 상태  Hook변수 : 로컬쓰 "minfo" 초기할당!
+    const [logSts,setLogSts] = useState(localStorage.getItem("minfo"));
+    // 로그인 환영메시지 Hook변수
+    const [logMsg,setLogMsg] = useState("");
+    // 로그인 환영메시지 스타일
+    const logstyle = {
+        position:"absolute",
+        left:"50%",
+        transform:"translateX(-50%)"
+    }; //////// logstyle ///////////
+
+    // 로그인 셋팅 함수 //////////
+    const setLogin = () => {
+        // 1. 로그인 Hook변수 업데이트하기
+        setLogSts(localStorage.getItem("minfo"));
+
+        // 2. 로컬쓰값이 null이 아니면 메시지 뿌리기
+        if(localStorage.getItem("minfo")){
+            // 메시지 셋팅하기 : 객체안의 "unm"속성이 사용자이름!
+            setLogMsg("Welcome " + 
+            JSON.parse(localStorage.getItem("minfo"))["unm"]);
+        } ////////////// if ///////////////
+
+
+    }; ///////// setLogin ////////////
+
 
     return (
         <>
             {/* 1.상단영역 */}
             <header className="top">
+
+                {/* 로그인 환영메시지 : 조건-logSts값이 null이 아니면 */}
+                {
+                    logSts !== null &&
+                    <div className="logmsg" style={logstyle}>
+                        {logMsg}
+                    </div>
+                }
+
+
                 {/* 네비게이션 파트 */}
                 <nav className="gnb">
                     <ul>
                         <li>
                             <Link to="/main">
-                                <Logo gb="top" />
+                                <Logo gb="top" tt={callMe} />
                             </Link>
                         </li>
                         {gnb_data.map((v, i) => (
@@ -159,7 +122,7 @@ const Layout = () => {
             <footer className="info">
                 <ul>
                     <li>
-                        <Logo gb="bottom" />
+                        <Logo gb="bottom" tt={callMe} />
                     </li>
                     <li>
                         <ol className="bmenu">
