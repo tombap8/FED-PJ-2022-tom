@@ -5,6 +5,7 @@ import "../css/ban.css";
 import ban_data from "../data/banner";
 // 제이쿼리
 import $ from "jquery";
+import { Cookies } from "react-cookie";
 
 /* 
     [ JS 혹은 jQuery 라우터구현시 로드 불일치문제 ]
@@ -28,15 +29,22 @@ import $ from "jquery";
         }
 */
 // 로드구역 함수화하기!!! ///////////
-function jqFn() {
+function jqFn(obj) {
     $(() => {
+        const cookie = new Cookies();
+        console.log("하하하");
+
+        // cookie.set("mypop", "OK", {
+        //     maxAge: 10
+        // }); ///// cookie /////////
+        console.log(cookie.get("mypop"));
         ////////// jQB ////////////////
 
         // 광클금지변수
         let prot = 0;
 
         // 1. 버튼 클릭시 이동기능구현
-        $(".abtn").click(function () {
+        $(this).find(".abtn").on("click",function () {
             // 0.광클금지
             if (prot) return;
             prot = 1;
@@ -70,12 +78,13 @@ function jqFn() {
             // eq(순번) -> 오른쪽이동시 1, 왼쪽이동시 0
             // isB값으로 오른쪽은 true->1, 왼쪽은 false->0
             // 순서가 바뀌는 슬라이드에 고유 순번속성 data-seq값을 읽어옴!
-            $(".indic li")
+            $(this).find(".indic li")
                 .eq(tg.find("li").eq(isB).attr("data-seq"))
                 .addClass("on")
                 .siblings()
                 .removeClass("on");
         }); ////////// click ////////////
+        console.log("배너jqFn");
     }); ///////////// jQB ////////////////
 } ///////////// jqFn 함수 /////////////////
 
@@ -100,9 +109,12 @@ function Ban(props) {
     // props.cat 은 배너데이터 구분속성명
     const sel_data = ban_data[props.cat];
     // sel_data에 담긴값은 data/banner.js의 객체의 배열값
-
+    const loadFn = () => {
+        console.log(this);
+        jqFn(this);
+    }
     return (
-        <div className="banner">
+        <div className="banner" onLoad={loadFn}>
             {/* 이동 슬라이드 */}
             <ul className="slider">
                 {sel_data.map((x, i) => (
@@ -127,7 +139,7 @@ function Ban(props) {
                 )
             }
             {/* JS/jQuery 로드구역호출! */}
-            {jqFn()}
+            {/* {jqFn()} */}
         </div>
     );
 } /////////// Ban 컴포넌트 /////////////
