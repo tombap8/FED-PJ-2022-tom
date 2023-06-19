@@ -47,7 +47,7 @@ export default function SwiperCat(props) {
                 className="mySwiper">
                 {sdt.map((v, i) => (
                     <SwiperSlide key={i}>
-                        <Link to="/det">
+                        <Link to="/det" state={{sdt:v.cname}}>
                             <section className="swinbx">
                                 {/* 캐릭터이미지영역 */}
                                 <div className="catimg">
