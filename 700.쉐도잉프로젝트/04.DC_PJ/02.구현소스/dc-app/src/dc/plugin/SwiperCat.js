@@ -15,6 +15,7 @@ import "./swipercat.css";
 import { Navigation } from "swiper";
 // 데이터 가져오기
 import cat_data from "../data/cat";
+import { Link } from "react-router-dom";
 
 export default function SwiperCat(props) {
     // 데이터 셋팅
@@ -46,17 +47,19 @@ export default function SwiperCat(props) {
                 className="mySwiper">
                 {sdt.map((v, i) => (
                     <SwiperSlide key={i}>
-                        <section className="swinbx">
-                            {/* 캐릭터이미지영역 */}
-                            <div className="catimg">
-                                <img src={v.tmsrc} alt={v.cname} />
-                                
-                            </div>
-                            {/* 동영상타이틀영역 */}
-                            <div className="cattit">
-                                <h3>{v.cname}</h3>
-                            </div>
-                        </section>
+                        <Link to="/det">
+                            <section className="swinbx">
+                                {/* 캐릭터이미지영역 */}
+                                <div className="catimg">
+                                    <img src={v.tmsrc} alt={v.cname} />
+                                    
+                                </div>
+                                {/* 동영상타이틀영역 */}
+                                <div className="cattit">
+                                    <h3>{v.cname}</h3>
+                                </div>
+                            </section>
+                        </Link>
                     </SwiperSlide>
                 ))}
             </Swiper>

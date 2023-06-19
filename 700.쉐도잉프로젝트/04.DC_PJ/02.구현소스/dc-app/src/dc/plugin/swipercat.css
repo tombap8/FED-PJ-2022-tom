@@ -68,6 +68,11 @@
     font-size: 22px;
     margin-top: 15px;
   }
+  a{
+    /* Link로 싸서 a요소가 작용함! 밑줄,글자색 변경 */
+    text-decoration: none;
+    color: #000;    
+  }
   
   
   /* 기존 스와이퍼 디자인 변경 */
