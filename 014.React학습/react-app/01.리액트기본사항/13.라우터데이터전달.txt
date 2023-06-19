@@ -1,0 +1,41 @@
+[ 라우터 컴포넌트 호출시 데이터 전달하기 ]
+
+- 일반적인 웹 페이지에서는 GET/POST방식으로
+페이지간 데이터를 전달하여 처리한다.
+-> 리액트 라우터를 사용할때 데이터 전달은 어떻게하나?
+
+[ 1. Link 라우터 컴포넌트 사용시 ]
+state 속성값으로 객체를 보내주면 된다!
+
+코드)
+-> 보내는 페이지
+import { Link } from "react-router-dom";
+
+<Link to="라우터주소" state={{속성명:값}} />
+
+받는방법)
+useLocation 라우터 객체를 사용한다!
+
+코드)
+-> 받는 페이지
+import { useLocation } from "react-router-dom"
+
+const loc = useLocation();
+const sel = loc.state.속성명;
+
+-> useLocation 생성 변수 하위의 state객체 하위 보낸속성명
+
+
+[ 2. useNavigate 사용하여 전달값 보내기 ]
+
+코드)
+-> 보내는 페이지
+import { useNavigate } from "react-router-dom";
+
+const goNav = useNavigate();
+goNav(보낼라우터주소,{state:{속성:값}})
+
+받는 방법은 위의 Link 보내기시 받는 방법은 동일하다!
+-> useLocation 으로 받는다!
+
+
