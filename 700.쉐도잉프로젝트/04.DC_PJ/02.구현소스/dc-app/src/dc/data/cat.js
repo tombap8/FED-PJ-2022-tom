@@ -182,3 +182,6 @@ const cat_data = [
         type: "indiv",
     },
 ];
+
+// 내보내기
+export default cat_data;

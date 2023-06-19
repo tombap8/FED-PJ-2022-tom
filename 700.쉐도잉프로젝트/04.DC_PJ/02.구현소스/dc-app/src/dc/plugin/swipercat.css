@@ -1,5 +1,5 @@
 @charset "utf-8";
-
+/* 스와이퍼 캐릭터 컴포넌트 CSS */
 #app {
     height: 100%;
   }
@@ -48,28 +48,24 @@
   }
 
   /* 비디오이미지박스 */
-  .vidimg{
+  .catimg{
     vertical-align: top;
   }
-  .vidimg img{
+  .catimg img{
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
 
   /* 타이틀박스 */
-  .vidtit{ 
+  .cattit{ 
     font-family: 'Roboto Condensed', sans-serif;
     padding: 15px;
-  }
-  /* 카테고리 */
-  .vidtit h4{
-    font-size: 14px;
-    color: #555;
+    aspect-ratio: 2/1;
   }
   /* 동영상타이틀 */
-  .vidtit h3{
-    font-size: 20px;
+  .cattit h3{
+    font-size: 22px;
     margin-top: 15px;
   }
   
@@ -103,8 +99,8 @@
   @media screen and (max-width:1200px) {
     
   /* 동영상타이틀 */
-  .vidtit h3{
-    font-size: 14px;
+  .cattit h3{
+    font-size: 20px;
     margin-top: 10px;
   }
   }
