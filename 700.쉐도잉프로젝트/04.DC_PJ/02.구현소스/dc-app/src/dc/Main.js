@@ -1,5 +1,6 @@
 // DC 페인 페이지 컴포넌트
 import Ban from "./modules/Ban";
+import CatSwipe from "./modules/CatSwipe";
 import MenuBtn from "./modules/MenuBtn";
 import VidIntro from "./modules/VidIntro";
 import VidSwipe from "./modules/VidSwipe";
@@ -17,7 +18,9 @@ const Main = () => {
             <VidSwipe 
             pg="main" 
             tit="LATEST TRAILERS, CLIPS & MORE" />
-            {/* 5. 메뉴스와이프모듈 */}
+            {/* 5. 캐릭터메뉴스와이프모듈 */}
+            <CatSwipe 
+            tit="WHO'S WHO: THE JUSTICE LEAGUE" />
             {/* 6. 배너모듈(캐릭터) */}
             <Ban cat="CHARACTERS" />
             {/* 7. 메뉴스와이프모듈 */}

@@ -93,6 +93,11 @@
     transform: scale(.8) translateX(-15px);
   }
 
+  /* 슬라이드 끝에서 버튼 숨김 */
+  .swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled{    
+    display: none;
+  }
+
 
   @media screen and (max-width:1200px) {
     
