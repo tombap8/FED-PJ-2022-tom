@@ -26,3 +26,9 @@
     max-width: 80%;
     margin: 0 auto;
 }
+.facts h3{
+    font-size: 45px;
+}
+.facts table td{
+    padding: 15px 0;
+}
