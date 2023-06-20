@@ -38,10 +38,24 @@ function MakeList(props) {
         <li data-seq={props.idx}>
             <img className="banimg" src={props.rec["src"]} alt="배너" />
             <section className="bantit">
-                <h3>{props.rec["tit1"]}</h3>
-                <h2>{props.rec["tit2"]}</h2>
-                <p>{props.rec["cont"]}</p>
-                <button>{props.rec["btn"].toUpperCase()}</button>
+                {
+                    props.rec["tit1"] !== "" &&
+                    <h3>{props.rec["tit1"]}</h3>
+                }
+                {
+                    props.rec["tit2"] !== "" &&
+                    <h2>{props.rec["tit2"]}</h2>
+                }
+                {
+                    props.rec["cont"] !== "" &&
+                    <p>{props.rec["cont"]}</p>
+                }
+                {
+                    props.rec["btn"] !== "" &&
+                    <button>
+                        {props.rec["btn"].toUpperCase()}
+                    </button>
+                }
             </section>
         </li>
     );
