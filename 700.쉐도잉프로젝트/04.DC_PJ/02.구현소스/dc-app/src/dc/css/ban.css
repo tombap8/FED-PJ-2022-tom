@@ -40,6 +40,12 @@
     flex-shrink: 0;
     /* 강제축소옵션 해제 */
 }
+/* 슬라이드 이미지 */
+.slider img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 /* 배너 컨텐츠버튼 */
 .banner button{
     border-radius: 25px;
