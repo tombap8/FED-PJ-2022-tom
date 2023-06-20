@@ -1,11 +1,11 @@
 // 상세페이지 컴포넌트 - Detail.js
 
 import { useLocation } from "react-router-dom";
-
+import "../../src/dc/css/detail.css";
 
 // 라우터 파라미터값 받아서 데이터 처리!
 
-function Detail(props){
+function Detail(props) {
     // 라우터 전달값을 받기위한 useLocation 생성하기!
     const loc = useLocation();
     // 보내 속성명을 변수에 할당하기
@@ -14,25 +14,30 @@ function Detail(props){
     const cname = loc.state.cname;
     // 2. 캐릭터설명 - '^'문자로 잘라 배열로 데이터로 변경!
     let cdesc = loc.state.cdesc;
-    cdesc = cdesc.split('^');
+    cdesc = cdesc.split("^");
     // 3. 캐릭터명세
     const facts = loc.state.facts;
 
-
-    return(
-        <>        
-            <h2>{cname}</h2>
-            <div className="cdesc">
-                {
-                    cdesc.map(v=><p>{v}</p>)
-                }
-            </div>
-            <div className="facts">
-                <h3>CHARACTER FACTS</h3>
-                {facts}
+    return (
+        <>
+            <div className="detail">
+                <div className="descbx">
+                    <h2>{cname}</h2>
+                    <div className="cdesc">
+                        {cdesc.map((v) => (
+                            <p>{v}</p>
+                        ))}
+                    </div>
+                </div>
+                <div className="facts">
+                    <div>
+                        <h3>CHARACTER FACTS</h3>
+                        {facts}
+                    </div>
+                </div>
             </div>
         </>
-    )
-}; //////////// Detail ////////////////
+    );
+} //////////// Detail ////////////////
 
 export default Detail;

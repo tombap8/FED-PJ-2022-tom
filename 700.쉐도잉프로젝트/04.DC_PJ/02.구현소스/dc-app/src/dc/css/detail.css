@@ -1,0 +1,28 @@
+@charset "utf-8";
+/* 상세 페이지 컴포넌트 CSS - detail.css */
+
+.detail{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.descbx{
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.detail h2{
+    margin: 16px 0 8px;
+    font-size: 50px;    
+}
+.detail p{
+    margin-bottom: 16px;
+    font-size: 16px;
+    line-height: 2;
+}
+.facts{
+    background-color: #eeeeee;
+    padding: 16px;
+}
+.facts>div{    
+    max-width: 80%;
+    margin: 0 auto;
+}
