@@ -16,8 +16,10 @@ function Detail(props) {
     // 2. 캐릭터설명 - '^'문자로 잘라 배열로 데이터로 변경!
     let cdesc = loc.state.cdesc;
     cdesc = cdesc.split("^");
-    // 3. 캐릭터명세
-    const facts = loc.state.facts;
+    // 3. 캐릭터명세 - '^'문자로 잘라 배열로 데이터로 변경!
+    let facts = loc.state.facts;
+    facts = facts.split("^");
+
 
     return (
         <>
@@ -28,15 +30,26 @@ function Detail(props) {
                 <div className="descbx">
                     <h2>{cname}</h2>
                     <div className="cdesc">
-                        {cdesc.map((v) => (
-                            <p>{v}</p>
+                        {cdesc.map((v,i) => (
+                            <p key={i}>{v}</p>
                         ))}
                     </div>
                 </div>
                 <div className="facts">
                     <div>
                         <h3>CHARACTER FACTS</h3>
-                        {facts}
+                        <table>
+                            <tbody>
+                            {
+                                facts.map((v,i)=>
+                                    <tr key={i}>
+                                        <td>{v.split(':')[0]}:</td>
+                                        <td>{v.split(':')[1]}</td>
+                                    </tr>
+                                )
+                            }
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
