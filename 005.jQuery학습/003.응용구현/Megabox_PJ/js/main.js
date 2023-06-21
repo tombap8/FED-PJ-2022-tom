@@ -362,6 +362,230 @@ $(function () {
 
     }); ////////////// timeupdate ///////////////
 
+    /***********  여기서부터 업데이트 ****************/
+    // 2-3-2. 진행바를 클릭하거나 드래그 하면 타임라인 이동함수 호출
+
+    // 드래그 상태변수 : true는 드래그상태, false는 드래그아님
+    let tDrag = false;
+    /* 
+        [ 드래그란 무엇인가? ]
+        - 마우스 왼쪽버튼을 누르고 마우스를 움직이면 드래그다!
+        mousedown + mousemove
+        - 드래그의 끝은? 마우스 왼쪽버튼을 떼는것!
+        mouseup
+
+        - 보통 클릭은 "딸각" 이지만 구분할 수 있다!
+        mousedown -> "딸"
+        mouseup -> "각"
+    */
+
+        /////////////// 드래그시 동영상 시간이동 함수 /////////
+        let updateBar = function(x){ // x - 마우스 x 좌표값
+
+            // console.log("x:"+x+" / drag:"+tDrag);
+
+            // 1. 넘겨준 x좌표를 백분율(%)로 변환!(타임바변경위해)
+            // 백분율 = x좌표 / .pBar 의 가로 width값 * 100
+            let percent  = x / pbar.width() * 100;
+            // console.log("이동위치%:"+percent);
+
+            // 2. 타임바 변경하기
+            $(".tBar").css({
+                width: percent + "%"
+            }); //////// css /////////
+
+            // 3. 비디오 시간 변경하기
+            // 위에서 구한 백분율(%)을 활용한다!
+            // 비디오현재시간(%) = 비디오현재시간/비디오전체시간*100
+            // 비디오현재시간 = 비디오현재시간(%)*비디오전체시간/100
+            mv[0].currentTime = 
+                percent * mv[0].duration / 100;
+            // currentTime 속성은 값을 읽어오기도 하고 설정하기도함!
+
+        };/////////////// updateBar 함수 /////////////////////
+        //////////////////////////////////////////////////////
+
+
+        // 드래그 대상선정: .pBar(진행바 부모)
+        let pbar = $(".pBar");
+
+        ///// 마우스 왼쪽버튼을 누를때 : 드래그 시작! ///////////
+        pbar.mousedown(function(e){ // e - 이벤트 전달함수
+
+            // 마우스 다운 즉, "딸" 하는 순간 드래그 시작!
+            tDrag = true; // 드래그 상태값 변경(true-드래그중)
+
+            // 드래그함수 호출!
+            updateBar(e.offsetX);
+            // e.offsetX - 현재 클릭된 마우스 포인터 x좌표값!
+
+        }); ///////////// mousedown 함수 /////////////////////
+
+        ///// 마우스 왼쪽버튼을 땔때 : 드래그 끝! ///////////
+        pbar.mouseup(function(e){ // e - 이벤트 전달함수
+
+            // 마우스 업 즉, "각" 하는 순간 드래그 끝!
+            tDrag = false; // 드래그 상태값 변경(false-드래그끝)
+
+             // 드래그함수 호출!
+             updateBar(e.offsetX);
+             // e.offsetX - 현재 클릭된 마우스 포인터 x좌표값!
+
+        }); ///////////// mousedown 함수 /////////////////////
+
+        /////// 마우스가 .pBar 위에서 마우스 다운상태로 움직일때 ////
+        pbar.mousemove(function(e){
+
+            // 마우스 다운상태 일때만 드래그 함수를 호출!
+            // 즉, tDrag가 true일때만 호출!
+            if(tDrag) updateBar(e.offsetX);
+
+        }); ////////////// mousemove 함수 /////////////////////////
+
+        ///// 드래그 상태 오작동 막기 위해 mouseleave일때 처리////
+        pbar.mouseleave(function(){
+            // 드래그 상태값 변경!
+            tDrag = false;
+        }); ////////////////// mouseleave 함수 /////////////////
+        
+        // 2-3-3. 비디오시간 표시하기 ///////////
+        //// [ 비디오 관련이벤트 ] 
+        // 1. timeupdate 이벤트: 비디오 태그가 재생 중 시간변경시 발생
+        // 2. loadedmetadata 이벤트: 비디오 기본정보 로딩완료시 발생
+
+        // 전체시간 변수
+        let ftm = $(".duration");
+        // 현재시간 변수
+        let ctm = $(".current");
+
+        // 비디오 기본정보 로딩완료시 전체시간 찍기 ////
+        mv.on("loadedmetadata",function(){
+            // 전체시간
+            let ftime = mv[0].duration;
+            ftime = Math.floor(ftime);// 소수점 아래 버리기
+            ftime = changeTime(ftime);// 시분초 변환함수 호출!
+            // console.log("전체시간=>"+ftime);
+
+            // 화면에 출력
+            ftm.text(ftime);
+
+        }); ///////////// loadedmetadata 함수 //////////////
+
+        // 현재 진행시간 찍기 ////
+        mv.on("timeupdate",function(){
+            // 전체시간
+            let ctime = mv[0].currentTime;
+            ctime = Math.floor(ctime);// 소수점 아래 버리기
+            ctime = changeTime(ctime);// 시분초 변환함수 호출!
+            // console.log("전체시간=>"+ctime);
+
+            // 화면에 출력
+            ctm.text(ctime);
+
+        }); ///////////// timeupdate 함수 //////////////
+
+
+
+
+    // 2-4. 소리크기변경 기능 //////////////////////
+
+    ///////// 볼륨컨트롤 구현하기 /////////////////////
+    //// 볼륨바 드래그 가능하게 설정!
+    $("#bar").draggable({
+        axis: "x", //x축고정
+        containment: "parent" // 작동범위부모고정
+    }); /////// draggable ///////
+
+    /// 바를 드래그 이동시 볼륨변경하기 //////
+    $("#bar").on("drag", function () {
+
+        //현재 볼륨바의 이동값
+        let barpos = $(this).position().left;
+        // position().left는 static이 아닌 부모박스기준 left
+        //console.log("바위치:"+barpos);
+
+
+        // 바이동 최소값: 0, 바이동 최대값: 54
+        // 비를 계산(최대값을 나눔)
+        let val = barpos / 54;
+        //console.log("볼륨비:"+val);
+
+        // 비디오에 볼륨적용하기
+        // volume의 값은 0~1 사이의 값을 적용한다!
+        // 우리가 위에서 구한 비가 곧 볼륨값이 된다!
+        mv[0].volume = val;
+
+
+    }); ////////// drag //////////////////
+    /////////////////////////////////////
+
+    /// 스크린에 마우스가 들어올때 볼륨 컨트롤바 위치//////
+    /// 현재 볼륨크기로 위치 이동하기 //////////////////
+    $("#screen").mouseenter(function () {
+
+        // 현재 볼륨 크기를 측정
+        let cvol = mv[0].volume;
+        //console.log("현재볼륨:"+cvol);
+
+        // 백분율로 변경하기
+        cvol = Math.floor(cvol * 100);
+        //console.log("볼륨%:" + cvol);
+
+        // 볼륨바의 위치 재설정하기
+        $("#bar").css({
+            left: cvol + "%"
+        }); //// css ////////
+
+    }); //////// mouseenter ////////////////////
+    ////////////////////////////////////////////    
+
+    // 2-5. 플레이어 축소/확대 기능
+
+    //// 스크린 축소/확대 기능 구현 ///////
+    // 원리: 미리 셋팅된 확대 클래스를 넣었다 뺐다함 ///
+    // 이벤트 대상: .expand a
+    // 변경 대상: #screen
+    $(".expand a").click(function (e) {
+
+        //기본이동막기
+        e.preventDefault();
+
+        //스크린에 클래스 "on" 넣기/빼기
+        $("#screen").toggleClass("on");
+        // toggleClass() 메서드는 
+        // 클래스가 없으면 넣고 있으면 뺌!
+
+    }); //////// click /////////////////
+
+
+    // 2-6. 리스트 원상복귀 기능 ////////////////
+    $(".rtn").click(function(){
+
+        // 1. 포스터 네비 원위치하기
+        $("#gbx").css({
+            width: "90%",
+            Transform: "translate(-50%, -50%)"
+        }); ////////////// css //////////////
+
+        // 2. 스크린 박스 안보이게 하기
+        $("#screen").fadeOut(300);
+
+        // 3. 동영상 멈추기
+        mv[0].pause();
+
+        // 4. 되돌리기 버튼 숨기기
+        $(this).fadeOut(300);
+
+        // 5. 포스터 자동넘김 함수 호출
+        autoSlide();
+
+        // 6. 포스터 상태값 변경
+        autoOK = 1;
+
+    }); //////////////// click /////////////////
+    
+    /***********  여기까지 업데이트 *****************/
+
 
     ///// 3. 영화페이지 : 스와이퍼 적용하기 //////
     // swiper변수를 전역변수로 만들고 페이지액션에서 사용!
