@@ -240,7 +240,8 @@
                 ]; /////////////// list1 /////////////
 
                 // 2. html넣기 : .showList3 -> 함수화하기!
-                const upCode = obj => { // obj 배열데이터
+                const upCode = (obj,ele) => { 
+                    // obj - 배열데이터, ele - 출력요소
                     // (1) 데이터 코드 만들기
                     const htc = obj.map(
                         (v) => `
@@ -253,7 +254,7 @@
                     );
     
                     // (2) 요소에 데이터 코드 넣기
-                    document.querySelector(".showList3").innerHTML = `
+                    document.querySelector(ele).innerHTML = `
                         <table>
                             <thead>
                                 <tr>
@@ -271,7 +272,7 @@
                 }; //////////// upCode ////////////////
 
                 // upCode함수 최초호출
-                upCode(list1);
+                upCode(list1,".showList3");
 
                 // 3. 정렬변경 선택박스 이벤트함수 만들기
                 // 대상: .sel3 (오름차순1,내림차순2)
@@ -302,7 +303,7 @@
                     console.log("정렬결과:",list1);
 
                     // 4. html반영하기
-                    upCode(list1);
+                    upCode(list1,".showList3");
 
                 }; /////////////// change : .sel3 ////////////
 
@@ -357,6 +358,39 @@
 
 
                 }; ////////////// click : .sample ///////////
+
+                // 3. 최초데이터 구성하여 화면에 넣기 : upCode함수사용!
+                upCode(list2,".showList4");
+
+                // 4. 검색버튼 클릭시 검색결과 만들어 화면에 출력하기
+                // 대상: .sbtn
+                document.querySelector(".sbtn").onclick = () => {
+                    // 1. 검색어 가져오기 : #stxt
+                    let stxt = document.querySelector("#stxt").value;
+                    if(stxt.trim()==""){
+                        alert("검색어를 넣어주세요~!");
+                        return; // 나가!
+                    } ///////// if ///////////
+                    console.log("검색어:",stxt);
+
+                    // 2. 검색조건 가져오기 : .cta4
+                    let cta = document.querySelector(".cta4").value;
+                    console.log("검색기준:",cta);
+
+                    // 3. 다중값 리턴 LIKE검색
+                    // filter() + indexOf() 사용!!!
+                    let res = list2.filter(v=>{
+                        // indexOf()는 문자열만 가능하므로
+                        // String() 으로 문자형변환해야함!
+                        if(String(v[cta]).indexOf(stxt)!==-1) return true;
+                    }); ///////// filter ////////////
+
+                    console.log("검색결과:",res);
+
+                    // 4. 출력하기 : upCode
+                    upCode(res,".showList4");
+                    
+                }; //////////// click : .sbtn ////////////////////
 
 
 
