@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS4-4. 배열의 정렬</title>
+    <title>JS4-4. 배열의 정렬과 검색</title>
     <script>
         /************************************************ 
             [ JS 배열의 정렬 ]
@@ -15,6 +15,7 @@
 
             [ sort() 메서드의 특징 ]
             1. 기본정렬 :  오름차순(1,2,3,.../a,b,c,...)
+                -> 기본 내림차순 메서드 -> reverse()
             2. 원리 : 배열값을 문자열로 캐스팅(형변환)한후
                     변환된 문자열을 비교하여 순서를 결정함
             (참고: undefined 값일 경우 배열 맨뒤에 배치함)
@@ -26,6 +27,10 @@
             [-> 기준정렬 : 오름차순]
             배열변수.sort() -> 기본정렬
 
+            [-> 기준정렬 : 내림차순]
+            배열변수.reverse() -> 기본정렬
+
+            [ sort() 메서드만 사용하여 정렬잡기 ]
             (비교함수사용)
             배열변수.sort(function(x,y){
                 if(x>y) return 1;
@@ -39,10 +44,13 @@
                 return x == y ? 0 : x > y ? 1 : -1;
             })
 
-            -> 리턴값의 의미
+            -> 리턴값의 의미(오름차순)
             1) if(x>y) return 1; -> x가 y뒤에 옴 (리턴값 양수)
             2) if(x<y) return -1; -> x가 y앞에 옴 (리턴값 음수)
             3) return 0; -> x,y 정렬을 유지 (리턴값 0)
+
+            -> 내림차순은 양수/음수만 반대로 써주면 된다!
+
 
 
 
@@ -56,7 +64,7 @@
 
         window.addEventListener("DOMContentLoaded",()=>{
 
-            // 숫자로만 된 배열의 화면 뿌리기
+            //[ 1. 숫자로만 된 배열의 화면 뿌리기]
             // map으로 코드 대체함
             const newArray = (obj) => { // obj - 배열객체받음!
                 // map으로 코드구성하기(새로운배열)
@@ -82,14 +90,56 @@
 
                 if(opt==1){
                     org_num.sort(function(x,y){
-                        return x - y;
-                        // 빼서 음수나오면 오름차순!
+                        console.log(x-y);
+                        // return x - y;
+                        // 앞에서 뒤를 빼면 오름차순!
+                        return x == y ? 0 : x > y ? 1 : -1;
                     })
                 }
                 else if(opt==2){
                     org_num.sort(function(x,y){
-                        return y - x;
-                        // 거꾸로 빼면 내림차순
+                        // return y - x;
+                        // 뒤에서 앞을 빼면 내림차순
+                        return x == y ? 0 : x > y ? -1 : 1;
+                    })
+                    
+                }
+                
+                // 화면에 반영하기(sort후엔 배열자체가 바뀜!)
+                newArray(org_num);
+
+            }; ///////////// change ///////////////
+
+
+            //[ 2. 문자데이터 배열의 화면 뿌리기]
+            const newArray2 = obj => {
+                let temp = obj.map(x=>`<span>${x}</span>`);
+                document.querySelector(".showNum2")
+                .innerHTML=temp.join('');
+            };
+
+            // 최초호출
+            newArray2(org_num2);
+
+            // 첫번째 선택박스 정렬변경 이벤트함수 만들기
+            document.querySelector(".sel2").onchange = e=>{
+                //  선택값확인
+                let opt = e.target.value;
+                console.log(opt);
+
+                if(opt==1){
+                    org_num.sort(function(x,y){
+                        console.log(x-y);
+                        // return x - y;
+                        // 앞에서 뒤를 빼면 오름차순!
+                        return x == y ? 0 : x > y ? 1 : -1;
+                    })
+                }
+                else if(opt==2){
+                    org_num.sort(function(x,y){
+                        // return y - x;
+                        // 뒤에서 앞을 빼면 내림차순
+                        return x == y ? 0 : x > y ? -1 : 1;
                     })
                     
                 }
@@ -103,43 +153,127 @@
         }); ////////////// load ////////////////////
     </script>
     <style>
-        .showNum img{
-            height: 100px;
-        }
+        /* 타이틀 */
+        .tit,
+            .stit {
+                text-align: center;
+            }
+            .showNum img {
+                height: 100px;
+            }
+            .showNum2 span {
+                font-size: 64px;
+                display: inline-block;
+                margin: 0 10px;
+                font-family: "궁서";
+                color: darkgreen;
+            }
+            /* 구분박스 */
+            .sbx {
+                margin: 20px auto;
+                padding: 20px;
+                border: 5px dotted lightseagreen;
+                max-width: 1000px;
+            }
+            .cont {
+                text-align: center;
+            }
+            /* 선택박스의 박스 */
+            .selbx {
+                text-align: center;
+            }
+            .sbx select,input,button {
+                margin-bottom: 15px;
+                font-size: 24px;
+            }
+
+            .sbx table {
+                width: 700px;
+                border-collapse: collapse;
+                border-top: 2px solid #222;
+                margin: 0 auto;
+            }
+
+            .sbx table th {
+                padding: 10px;
+                border-bottom: 2px solid #555;
+                background-color: #ccc;
+            }
+            .sbx table td {
+                padding: 10px 0;
+                border-bottom: 1px solid #888;
+            }
+            .sbx tbody tr:nth-child(even) {
+                background-color: #eeeeee;
+            }
+            .sbx tbody tr td:first-child {
+                text-align: center;
+            }
+            .sbx tbody tr:last-child td {
+                border-bottom: 2px solid #222;
+            }
     </style>
 </head>
-<body>
+<body><h1 class="tit">[ 🏢배열의 정렬🏰 ]</h1>
 
-    <h1 class="tit">배열의 정렬</h1>
-
-        <h2>숫자로만된 배열의 정렬</h2>
-        <select name="sel" id="sel" class="sel">
-            <option value="0">정렬선택</option>
-            <option value="1">오름차순</option>
-            <option value="2">내림차순</option>
-        </select>
-        <div class="showNum"></div>
-
-        <select name="sel2" id="sel2" class="sel2">
-            <option value="0">정렬선택</option>
-            <option value="1">오름차순</option>
-            <option value="2">내림차순</option>
-        </select>
-        <div class="showNum2"></div>
-
-        <select name="cta" id="cta" class="cta">
-            <option value="idx">idx</option>
-            <option value="tit">tit</option>
-            <option value="cont">cont</option>
-        </select>
-        <select name="sel3" id="sel3" class="sel3">
-            <option value="0">정렬선택</option>
-            <option value="1">오름차순</option>
-            <option value="2">내림차순</option>
-        </select>
-        <div class="showList1">
-            <table></table>
+    <h2 class="stit">🌊숫자로만된 배열의 정렬</h2>
+    <div class="sbx">
+        <div class="selbx">
+            <select name="sel" id="sel" class="sel">
+                <option value="0">정렬선택</option>
+                <option value="1">오름차순</option>
+                <option value="2">내림차순</option>
+            </select>
         </div>
-    
-</body>
+        <div class="showNum cont"></div>
+    </div>
+
+    <h2 class="stit">🛕문자데이터 배열의 정렬</h2>
+    <div class="sbx">
+        <div class="selbx">
+            <select name="sel2" id="sel2" class="sel2">
+                <option value="0">정렬선택</option>
+                <option value="1">오름차순</option>
+                <option value="2">내림차순</option>
+            </select>
+        </div>
+        <div class="showNum2 cont"></div>
+    </div>
+
+    <h2 class="stit">👨‍👩‍👦‍👦객체데이터 배열의 정렬</h2>
+    <div class="sbx">
+        <div class="selbx">
+            <select name="cta3" id="cta3" class="cta3">
+                <option value="idx">idx</option>
+                <option value="tit">tit</option>
+                <option value="cont">cont</option>
+            </select>
+            <select name="sel3" id="sel3" class="sel3">
+                <option value="0">정렬선택</option>
+                <option value="1">오름차순</option>
+                <option value="2">내림차순</option>
+            </select>
+        </div>
+        <div class="showList3"></div>
+    </div>
+
+    <h2 class="stit">🏸객체데이터 검색후 배열의 정렬</h2>
+    <div class="sbx">
+        <div class="selbx">
+            <select name="cta4" id="cta4" class="cta4">
+                <option value="idx">idx</option>
+                <option value="tit">tit</option>
+                <option value="cont">cont</option>
+            </select>
+            <select name="sel4" id="sel4" class="sel4">
+                <option value="0">정렬선택</option>
+                <option value="1">오름차순</option>
+                <option value="2">내림차순</option>
+            </select>
+            <input id="stxt" type="text" maxlength="50" />
+            <button class="sbtn">검색</button>
+            <button class="sample">샘플</button>
+        </div>
+        <div class="showList4"></div>
+    </div></body>
 </html>
