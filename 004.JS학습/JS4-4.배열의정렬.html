@@ -191,6 +191,64 @@
             }; ///////////// change ///////////////
 
 
+            // [ 3. 객체데이터 배열의 정렬 ] /////////
+            // 1.데이터
+            const list1 = [
+                    {
+                        idx: 8,
+                        tit: "나는 구누?",
+                        cont: "공동구매) 슬로건 공구 (계좌와 네이버폼)",
+                    },
+                    {
+                        idx: 4,
+                        tit: "여기는 어디?",
+                        cont: "총공 공지] 오늘부터 일 2회, 총공 진행합니다",
+                    },
+                    {
+                        idx: 1,
+                        tit: "나야나",
+                        cont: "연합 갈라 서포트 계좌오픈",
+                    },
+                    {
+                        idx: 15,
+                        tit: "이제 얼마나 남은거니?",
+                        cont: "음악프로그램에 출연 요청글도 써볼까요?",
+                    },
+                ]; /////////////// list1 /////////////
+                
+                // 2. html넣기 : .showList3
+
+                // (1) 데이터 코드 만들기
+                const htc = list1.map(v=>`
+                    <tr>
+                        <td>${v.idx}</td>
+                        <td>${v.tit}</td>
+                        <td>${v.cont}</td>
+                    </tr>
+                `);
+
+                // (2) 요소에 데이터 코드 넣기
+                document.querySelector(".showList3")
+                .innerHTML=`
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>번호</th>
+                                <th>제목</th>
+                                <th>내용</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${htc.join('')}
+                        </tbody>
+                    </table>
+                `;
+
+
+
+
+
+
         }); ////////////// load ////////////////////
     </script>
     <style>
