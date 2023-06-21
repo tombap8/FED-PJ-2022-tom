@@ -90,7 +90,7 @@
 
                 if(opt==1){
                     org_num.sort(function(x,y){
-                        console.log(x-y);
+                        // console.log(x-y);
                         // return x - y;
                         // 앞에서 뒤를 빼면 오름차순!
                         return x == y ? 0 : x > y ? 1 : -1;
@@ -121,31 +121,35 @@
             // 최초호출
             newArray2(org_num2);
 
-            // 첫번째 선택박스 정렬변경 이벤트함수 만들기
+            // 두번째 선택박스 정렬변경 이벤트함수 만들기
             document.querySelector(".sel2").onchange = e=>{
                 //  선택값확인
                 let opt = e.target.value;
                 console.log(opt);
 
                 if(opt==1){
-                    org_num.sort(function(x,y){
-                        console.log(x-y);
+                    org_num2.sort(function(x,y){
+                        // console.log(x-y);
                         // return x - y;
                         // 앞에서 뒤를 빼면 오름차순!
+
+                        // 문자는 빼기 연산으로 정렬못함!
                         return x == y ? 0 : x > y ? 1 : -1;
                     })
                 }
                 else if(opt==2){
-                    org_num.sort(function(x,y){
+                    org_num2.sort(function(x,y){
                         // return y - x;
                         // 뒤에서 앞을 빼면 내림차순
+                        
+                        // 문자는 빼기 연산으로 정렬못함!
                         return x == y ? 0 : x > y ? -1 : 1;
                     })
                     
                 }
                 
                 // 화면에 반영하기(sort후엔 배열자체가 바뀜!)
-                newArray(org_num);
+                newArray2(org_num2);
 
             }; ///////////// change ///////////////
 
