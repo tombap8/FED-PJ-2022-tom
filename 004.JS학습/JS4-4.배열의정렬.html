@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS4-4. 배열의 정렬과 검색</title>
-    <script>
-        /************************************************ 
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>JS4-4. 배열의 정렬과 검색</title>
+        <script>
+            /************************************************ 
             [ JS 배열의 정렬 ]
             -> 용어의 정의: 정렬이란?
             : 배열의 값을 기준으로 순서를 다시 정하는것!
@@ -94,106 +94,96 @@
 
         ************************************************/
 
-        // 숫자값 배열
-        const org_num = [4, 5, 8, 10, 2, 1, 9, 3, 7, 6];
-        // 문자값 배열
-        const org_num2 = ["파", "타", "하", "가", "바", "사", "다", "라", "차"];
+            // 숫자값 배열
+            const org_num = [4, 5, 8, 10, 2, 1, 9, 3, 7, 6];
+            // 문자값 배열
+            const org_num2 = ["파", "타", "하", "가", "바", "사", "다", "라", "차"];
 
-        window.addEventListener("DOMContentLoaded",()=>{
-
-            //[ 1. 숫자로만 된 배열의 화면 뿌리기]
-            // map으로 코드 대체함
-            const newArray = (obj) => { // obj - 배열객체받음!
-                // map으로 코드구성하기(새로운배열)
-                let temp = obj.map(x=>`
+            window.addEventListener("DOMContentLoaded", () => {
+                //[ 1. 숫자로만 된 배열의 화면 뿌리기]
+                // map으로 코드 대체함
+                const newArray = (obj) => {
+                    // obj - 배열객체받음!
+                    // map으로 코드구성하기(새로운배열)
+                    let temp = obj.map(
+                        (x) => `
                 <img src="./images/num/num_0${x}.png" alt="Number">
-                `);
+                `
+                    );
 
-                // 배열출력하기
-                document.querySelector(".showNum")
-                .innerHTML=temp.join('');
+                    // 배열출력하기
+                    document.querySelector(".showNum").innerHTML = temp.join("");
+                }; ////////////// newArray /////////////
 
-            }; ////////////// newArray /////////////
-
-
-            // 배열전달/함수호출
-            newArray(org_num);
-
-            // 첫번째 선택박스 정렬변경 이벤트함수 만들기
-            document.querySelector(".sel").onchange = e=>{
-                //  선택값확인
-                let opt = e.target.value;
-                console.log(opt);
-
-                if(opt==1){
-                    org_num.sort(function(x,y){
-                        // console.log(x-y);
-                        // return x - y;
-                        // 앞에서 뒤를 빼면 오름차순!
-                        return x == y ? 0 : x > y ? 1 : -1;
-                    })
-                }
-                else if(opt==2){
-                    org_num.sort(function(x,y){
-                        // return y - x;
-                        // 뒤에서 앞을 빼면 내림차순
-                        return x == y ? 0 : x > y ? -1 : 1;
-                    })
-                    
-                }
-                
-                // 화면에 반영하기(sort후엔 배열자체가 바뀜!)
+                // 배열전달/함수호출
                 newArray(org_num);
 
-            }; ///////////// change ///////////////
+                // 첫번째 선택박스 정렬변경 이벤트함수 만들기
+                document.querySelector(".sel").onchange = (e) => {
+                    //  선택값확인
+                    let opt = e.target.value;
+                    console.log(opt);
 
+                    if (opt == 1) {
+                        org_num.sort(function (x, y) {
+                            // console.log(x-y);
+                            // return x - y;
+                            // 앞에서 뒤를 빼면 오름차순!
+                            return x == y ? 0 : x > y ? 1 : -1;
+                        });
+                    } else if (opt == 2) {
+                        org_num.sort(function (x, y) {
+                            // return y - x;
+                            // 뒤에서 앞을 빼면 내림차순
+                            return x == y ? 0 : x > y ? -1 : 1;
+                        });
+                    }
 
-            //[ 2. 문자데이터 배열의 화면 뿌리기]
-            const newArray2 = obj => {
-                let temp = obj.map(x=>`<span>${x}</span>`);
-                document.querySelector(".showNum2")
-                .innerHTML=temp.join('');
-            };
+                    // 화면에 반영하기(sort후엔 배열자체가 바뀜!)
+                    newArray(org_num);
+                }; ///////////// change ///////////////
 
-            // 최초호출
-            newArray2(org_num2);
+                //[ 2. 문자데이터 배열의 화면 뿌리기]
+                const newArray2 = (obj) => {
+                    let temp = obj.map((x) => `<span>${x}</span>`);
+                    document.querySelector(".showNum2").innerHTML = temp.join("");
+                };
 
-            // 두번째 선택박스 정렬변경 이벤트함수 만들기
-            document.querySelector(".sel2").onchange = e=>{
-                //  선택값확인
-                let opt = e.target.value;
-                console.log(opt);
-
-                if(opt==1){
-                    org_num2.sort(function(x,y){
-                        // console.log(x-y);
-                        // return x - y;
-                        // 앞에서 뒤를 빼면 오름차순!
-
-                        // 문자는 빼기 연산으로 정렬못함!
-                        return x == y ? 0 : x > y ? 1 : -1;
-                    })
-                }
-                else if(opt==2){
-                    org_num2.sort(function(x,y){
-                        // return y - x;
-                        // 뒤에서 앞을 빼면 내림차순
-
-                        // 문자는 빼기 연산으로 정렬못함!
-                        return x == y ? 0 : x > y ? -1 : 1;
-                    })
-                    
-                }
-                
-                // 화면에 반영하기(sort후엔 배열자체가 바뀜!)
+                // 최초호출
                 newArray2(org_num2);
 
-            }; ///////////// change ///////////////
+                // 두번째 선택박스 정렬변경 이벤트함수 만들기
+                document.querySelector(".sel2").onchange = (e) => {
+                    //  선택값확인
+                    let opt = e.target.value;
+                    console.log(opt);
 
+                    if (opt == 1) {
+                        org_num2.sort(function (x, y) {
+                            // console.log(x-y);
+                            // return x - y;
+                            // 앞에서 뒤를 빼면 오름차순!
 
-            // [ 3. 객체데이터 배열의 정렬 ] /////////
-            // 1.데이터
-            const list1 = [
+                            // 문자는 빼기 연산으로 정렬못함!
+                            return x == y ? 0 : x > y ? 1 : -1;
+                        });
+                    } else if (opt == 2) {
+                        org_num2.sort(function (x, y) {
+                            // return y - x;
+                            // 뒤에서 앞을 빼면 내림차순
+
+                            // 문자는 빼기 연산으로 정렬못함!
+                            return x == y ? 0 : x > y ? -1 : 1;
+                        });
+                    }
+
+                    // 화면에 반영하기(sort후엔 배열자체가 바뀜!)
+                    newArray2(org_num2);
+                }; ///////////// change ///////////////
+
+                // [ 3. 객체데이터 배열의 정렬 ] /////////
+                // 1.데이터
+                const list1 = [
                     {
                         idx: 8,
                         tit: "나는 구누?",
@@ -215,45 +205,78 @@
                         cont: "음악프로그램에 출연 요청글도 써볼까요?",
                     },
                 ]; /////////////// list1 /////////////
-                
-                // 2. html넣기 : .showList3
 
-                // (1) 데이터 코드 만들기
-                const htc = list1.map(v=>`
-                    <tr>
-                        <td>${v.idx}</td>
-                        <td>${v.tit}</td>
-                        <td>${v.cont}</td>
-                    </tr>
-                `);
+                // 2. html넣기 : .showList3 -> 함수화하기!
+                const upCode = obj => { // obj 배열데이터
+                    // (1) 데이터 코드 만들기
+                    const htc = obj.map(
+                        (v) => `
+                        <tr>
+                            <td>${v.idx}</td>
+                            <td>${v.tit}</td>
+                            <td>${v.cont}</td>
+                        </tr>
+                    `
+                    );
+    
+                    // (2) 요소에 데이터 코드 넣기
+                    document.querySelector(".showList3").innerHTML = `
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>번호</th>
+                                    <th>제목</th>
+                                    <th>내용</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${htc.join("")}
+                            </tbody>
+                        </table>
+                    `;
 
-                // (2) 요소에 데이터 코드 넣기
-                document.querySelector(".showList3")
-                .innerHTML=`
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>번호</th>
-                                <th>제목</th>
-                                <th>내용</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            ${htc.join('')}
-                        </tbody>
-                    </table>
-                `;
+                }; //////////// upCode ////////////////
 
+                // upCode함수 최초호출
+                upCode(list1);
 
+                // 3. 정렬변경 선택박스 이벤트함수 만들기
+                // 대상: .sel3 (오름차순1,내림차순2)
+                // 기준: .cta3 (idx/tit/cont) - cta(criteria기준)
+                document.querySelector(".sel3").onchange = (e) => {
+                    // 1. 선택값읽어오기
+                    let opt = e.target.value;
 
+                    // 2. 기준값읽어오기
+                    let cta = document.querySelector(".cta3").value;
+                    console.log(opt, cta);
 
+                    // 3. 선택에 따른 정렬반영하기
+                    if (opt == 1) {
+                        // 오름차순 (x>y?1바꿔)
+                        // x,y는 배열의값 즉, 객체가 들어옴!
+                        // 비교시 객체의 속성명을 사용하여 값을 비교!
+                        list1.sort((x, y) => {
+                            return x[cta] == y[cta] ? 0 : x[cta] > y[cta] ? 1 : -1;
+                        });
+                    } ///////// if ////////
+                    else if (opt == 2) { // 내림차순(x>y?-1안바꿈)
+                        list1.sort((x, y) => {
+                            return x[cta] == y[cta] ? 0 : x[cta] > y[cta] ? -1 : 1;
+                        });
+                    }
 
+                    console.log("정렬결과:",list1);
 
-        }); ////////////// load ////////////////////
-    </script>
-    <style>
-        /* 타이틀 */
-        .tit,
+                    // 4. html반영하기
+                    upCode(list1);
+                    
+                }; /////////////// change : .sel3 ////////////
+            }); ////////////// load ////////////////////
+        </script>
+        <style>
+            /* 타이틀 */
+            .tit,
             .stit {
                 text-align: center;
             }
@@ -281,7 +304,9 @@
             .selbx {
                 text-align: center;
             }
-            .sbx select,input,button {
+            .sbx select,
+            input,
+            button {
                 margin-bottom: 15px;
                 font-size: 24px;
             }
@@ -311,68 +336,70 @@
             .sbx tbody tr:last-child td {
                 border-bottom: 2px solid #222;
             }
-    </style>
-</head>
-<body><h1 class="tit">[ 🏢배열의 정렬🏰 ]</h1>
+        </style>
+    </head>
+    <body>
+        <h1 class="tit">[ 🏢배열의 정렬🏰 ]</h1>
 
-    <h2 class="stit">🌊숫자로만된 배열의 정렬</h2>
-    <div class="sbx">
-        <div class="selbx">
-            <select name="sel" id="sel" class="sel">
-                <option value="0">정렬선택</option>
-                <option value="1">오름차순</option>
-                <option value="2">내림차순</option>
-            </select>
+        <h2 class="stit">🌊숫자로만된 배열의 정렬</h2>
+        <div class="sbx">
+            <div class="selbx">
+                <select name="sel" id="sel" class="sel">
+                    <option value="0">정렬선택</option>
+                    <option value="1">오름차순</option>
+                    <option value="2">내림차순</option>
+                </select>
+            </div>
+            <div class="showNum cont"></div>
         </div>
-        <div class="showNum cont"></div>
-    </div>
 
-    <h2 class="stit">🛕문자데이터 배열의 정렬</h2>
-    <div class="sbx">
-        <div class="selbx">
-            <select name="sel2" id="sel2" class="sel2">
-                <option value="0">정렬선택</option>
-                <option value="1">오름차순</option>
-                <option value="2">내림차순</option>
-            </select>
+        <h2 class="stit">🛕문자데이터 배열의 정렬</h2>
+        <div class="sbx">
+            <div class="selbx">
+                <select name="sel2" id="sel2" class="sel2">
+                    <option value="0">정렬선택</option>
+                    <option value="1">오름차순</option>
+                    <option value="2">내림차순</option>
+                </select>
+            </div>
+            <div class="showNum2 cont"></div>
         </div>
-        <div class="showNum2 cont"></div>
-    </div>
 
-    <h2 class="stit">👨‍👩‍👦‍👦객체데이터 배열의 정렬</h2>
-    <div class="sbx">
-        <div class="selbx">
-            <select name="cta3" id="cta3" class="cta3">
-                <option value="idx">idx</option>
-                <option value="tit">tit</option>
-                <option value="cont">cont</option>
-            </select>
-            <select name="sel3" id="sel3" class="sel3">
-                <option value="0">정렬선택</option>
-                <option value="1">오름차순</option>
-                <option value="2">내림차순</option>
-            </select>
+        <h2 class="stit">👨‍👩‍👦‍👦객체데이터 배열의 정렬</h2>
+        <div class="sbx">
+            <div class="selbx">
+                <select name="cta3" id="cta3" class="cta3">
+                    <option value="idx">idx</option>
+                    <option value="tit">tit</option>
+                    <option value="cont">cont</option>
+                </select>
+                <select name="sel3" id="sel3" class="sel3">
+                    <option value="0">정렬선택</option>
+                    <option value="1">오름차순</option>
+                    <option value="2">내림차순</option>
+                </select>
+            </div>
+            <div class="showList3"></div>
         </div>
-        <div class="showList3"></div>
-    </div>
 
-    <h2 class="stit">🏸객체데이터 검색후 배열의 정렬</h2>
-    <div class="sbx">
-        <div class="selbx">
-            <select name="cta4" id="cta4" class="cta4">
-                <option value="idx">idx</option>
-                <option value="tit">tit</option>
-                <option value="cont">cont</option>
-            </select>
-            <select name="sel4" id="sel4" class="sel4">
-                <option value="0">정렬선택</option>
-                <option value="1">오름차순</option>
-                <option value="2">내림차순</option>
-            </select>
-            <input id="stxt" type="text" maxlength="50" />
-            <button class="sbtn">검색</button>
-            <button class="sample">샘플</button>
+        <h2 class="stit">🏸객체데이터 검색후 배열의 정렬</h2>
+        <div class="sbx">
+            <div class="selbx">
+                <select name="cta4" id="cta4" class="cta4">
+                    <option value="idx">idx</option>
+                    <option value="tit">tit</option>
+                    <option value="cont">cont</option>
+                </select>
+                <select name="sel4" id="sel4" class="sel4">
+                    <option value="0">정렬선택</option>
+                    <option value="1">오름차순</option>
+                    <option value="2">내림차순</option>
+                </select>
+                <input id="stxt" type="text" maxlength="50" />
+                <button class="sbtn">검색</button>
+                <button class="sample">샘플</button>
+            </div>
+            <div class="showList4"></div>
         </div>
-        <div class="showList4"></div>
-    </div></body>
+    </body>
 </html>
