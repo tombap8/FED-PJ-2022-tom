@@ -2,7 +2,8 @@
 import $ from 'jquery';
 import { useState } from 'react';
 import cat_data from '../data/cat';
-import "./css/search.css";
+import "../css/search.css";
+import CatList from './CatList';
 
 // 제이쿼리 로드구역 함수 /////////
 function jqFn(){
