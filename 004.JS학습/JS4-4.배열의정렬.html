@@ -531,6 +531,50 @@ Object
                     },
                 }; /////////////// list3 /////////////  
 
+                // 2. 키배열 만들기 : Object.keys(객체)
+                let myKey = Object.keys(list3);
+                // console.log(myKey);
+                // console.log(myKey.reverse());
+
+                // 3. 키배열을 값배열로 변환하기
+                let myVal = myKey.map(v=>list3[v]);
+                console.log(myVal);
+
+                // 4. 리스트 화면출력
+                upCode(myVal,".showList5");
+
+                // 5. 정렬기능구현
+                document.querySelector(".sel5").onchange = (e) => {
+                    // 1. 선택값읽어오기
+                    let opt = e.target.value;
+
+                    // 2. 기준값읽어오기
+                    let cta = document.querySelector(".cta5").value;
+                    console.log(opt, cta);
+
+                    // 3. 선택에 따른 정렬반영하기
+                    if (opt == 1) {
+                        // 오름차순 (x>y?1바꿔)
+                        // x,y는 배열의값 즉, 객체가 들어옴!
+                        // 비교시 객체의 속성명을 사용하여 값을 비교!
+                        myVal.sort((x, y) => {
+                            return x[cta] == y[cta] ? 0 : x[cta] > y[cta] ? 1 : -1;
+                        });
+                    } ///////// if ////////
+                    else if (opt == 2) { // 내림차순(x>y?-1안바꿈)
+                        myVal.sort((x, y) => {
+                            return x[cta] == y[cta] ? 0 : x[cta] > y[cta] ? -1 : 1;
+                        });
+                    }
+
+                    console.log("정렬결과:",myVal);
+
+                    // 4. html반영하기
+                    upCode(myVal,".showList5");
+
+                }; /////////////// change : .sel3 ////////////
+
+
 
             }); ////////////// load ////////////////////
         </script>
