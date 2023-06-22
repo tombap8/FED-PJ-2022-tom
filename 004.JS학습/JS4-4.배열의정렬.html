@@ -423,6 +423,39 @@
                     
                 }; //////////// click : .sbtn ////////////////////
 
+                // 5. 정렬변경 선택박스 이벤트함수 만들기
+                // 대상: .sel4 (오름차순1,내림차순2)
+                // 기준: .cta4 (idx/tit/cont) - cta(criteria기준)
+                document.querySelector(".sel4").onchange = (e) => {
+                    // 1. 선택값읽어오기
+                    let opt = e.target.value;
+
+                    // 2. 기준값읽어오기
+                    let cta = document.querySelector(".cta4").value;
+                    console.log(opt, cta);
+
+                    // 3. 선택에 따른 정렬반영하기
+                    if (opt == 1) {
+                        // 오름차순 (x>y?1바꿔)
+                        // x,y는 배열의값 즉, 객체가 들어옴!
+                        // 비교시 객체의 속성명을 사용하여 값을 비교!
+                        list2.sort((x, y) => {
+                            return x[cta] == y[cta] ? 0 : x[cta] > y[cta] ? 1 : -1;
+                        });
+                    } ///////// if ////////
+                    else if (opt == 2) { // 내림차순(x>y?-1안바꿈)
+                        list2.sort((x, y) => {
+                            return x[cta] == y[cta] ? 0 : x[cta] > y[cta] ? -1 : 1;
+                        });
+                    }
+
+                    console.log("정렬결과:",list2);
+
+                    // 4. html반영하기
+                    upCode(list2,".showList4");
+
+                }; /////////////// change : .sel4 ////////////
+
 
 
             }); ////////////// load ////////////////////
