@@ -256,15 +256,33 @@
                 const upCode = (obj,ele) => { 
                     // obj - 배열데이터, ele - 출력요소
                     // (1) 데이터 코드 만들기
-                    const htc = obj.map(
-                        (v) => `
-                        <tr>
-                            <td>${v.idx}</td>
-                            <td>${v.tit}</td>
-                            <td>${v.cont}</td>
-                        </tr>
-                    `
-                    );
+                    let htc;
+                    // 배열값이 비었는지 확인후 할당분기
+                    if(obj.length!=0){
+                        htc = obj.map(
+                            (v) => `
+                            <tr>
+                                <td>${v.idx}</td>
+                                <td>${v.tit}</td>
+                                <td>${v.cont}</td>
+                            </tr>
+                        `
+                        );
+
+                        // 값만추출!
+                        htc.join('');
+
+                    } ////////// if /////////
+                    // 데이터가 없는 경우
+                    else{
+                        htc = `
+                            <tr>
+                                <td colspan="3">
+                                    결과값이 없습니다.
+                                </td>
+                            </tr>
+                        `;
+                    } ///////// else /////////////
     
                     // (2) 요소에 데이터 코드 넣기
                     document.querySelector(ele).innerHTML = `
@@ -277,7 +295,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                ${htc.join("")}
+                                ${htc}
                             </tbody>
                         </table>
                     `;
