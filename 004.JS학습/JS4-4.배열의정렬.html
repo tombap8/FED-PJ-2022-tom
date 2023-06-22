@@ -269,8 +269,8 @@
                         `
                         );
 
-                        // 값만추출!
-                        htc.join('');
+                        // 값만추출! 재할당!
+                        htc = htc.join('');
 
                     } ////////// if /////////
                     // 데이터가 없는 경우
@@ -362,7 +362,7 @@
                         tit: "올해는 다른 회사로 이직한다!",
                         cont: "⚜️갈라콘 서포트에 많은 참여 부탁드립니다!",
                     },
-                ]; /////////////// list2 /////////////
+                ]; /////////////// list2 /////////////                
 
                 // 2. 샘플 버튼 클릭하여 데이터 확인
                 document.querySelector(".sample").onclick = () => {
@@ -390,8 +390,20 @@
 
                 }; ////////////// click : .sample ///////////
 
+                //->>> 검색시 배열이 변경되므로 변경배열을 담는 별도의
+                // 변수가 필요하다!!!
+                let newList;
+
                 // 3. 최초데이터 구성하여 화면에 넣기 : upCode함수사용!
-                upCode(list2,".showList4");
+                const showFull = () => {
+                    newList = list2;
+                    upCode(newList,".showList4");
+                }
+
+                showFull();
+
+                // 전체버튼 클릭시 전체리스트함수 호출
+                document.querySelector(".fbtn").onclick = showFull;
 
                 // 4. 검색버튼 클릭시 검색결과 만들어 화면에 출력하기
                 // 대상: .sbtn
@@ -408,7 +420,7 @@
                     let cta = document.querySelector(".cta4").value;
                     console.log("검색기준:",cta);
 
-                    // 3. 다중값 리턴 LIKE검색
+                    // 3. 다중값 리턴 LIKE검색 : 원본데이터(list2)로 검색!
                     // filter() + indexOf() 사용!!!
                     let res = list2.filter(v=>{
                         // indexOf()는 문자열만 가능하므로
@@ -417,6 +429,9 @@
                     }); ///////// filter ////////////
 
                     console.log("검색결과:",res);
+
+                    // 4. 정렬에서도 사용하도록 newList에 업데이트!
+                    newList = res;
 
                     // 4. 출력하기 : upCode
                     upCode(res,".showList4");
@@ -434,25 +449,27 @@
                     let cta = document.querySelector(".cta4").value;
                     console.log(opt, cta);
 
+                    console.log(newList);
+
                     // 3. 선택에 따른 정렬반영하기
                     if (opt == 1) {
                         // 오름차순 (x>y?1바꿔)
                         // x,y는 배열의값 즉, 객체가 들어옴!
                         // 비교시 객체의 속성명을 사용하여 값을 비교!
-                        list2.sort((x, y) => {
+                        newList.sort((x, y) => {
                             return x[cta] == y[cta] ? 0 : x[cta] > y[cta] ? 1 : -1;
                         });
                     } ///////// if ////////
                     else if (opt == 2) { // 내림차순(x>y?-1안바꿈)
-                        list2.sort((x, y) => {
+                        newList.sort((x, y) => {
                             return x[cta] == y[cta] ? 0 : x[cta] > y[cta] ? -1 : 1;
                         });
                     }
 
-                    console.log("정렬결과:",list2);
+                    console.log("정렬결과:",newList);
 
                     // 4. html반영하기
-                    upCode(list2,".showList4");
+                    upCode(newList,".showList4");
 
                 }; /////////////// change : .sel4 ////////////
 
@@ -584,6 +601,7 @@
                 <input id="stxt" type="text" maxlength="50" />
                 <button class="sbtn">검색</button>
                 <button class="sample">샘플</button>
+                <button class="fbtn">FL</button>
             </div>
             <div class="showList4"></div>
         </div>
