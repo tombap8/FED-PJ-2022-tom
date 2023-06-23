@@ -56,6 +56,7 @@ function Search() {
         // Hook변수인 데이터변수와 데이터건수 변수를 업데이트함!
         setSdt([newList, 2]);
         setTot(newList.length);
+
     }; /////////// schList 함수 /////////////
 
     // 입력창에서 엔터키를 누르면 검색함수 호출!
@@ -89,6 +90,7 @@ function Search() {
         // 3. 데이터 정렬변경 반영하기
         // setSdt([배열데이터,정렬상태값])
         setSdt([temp, Number(opt)]);
+
     }; //////////// sortList 함수 //////////////
 
     return (
@@ -122,7 +124,7 @@ function Search() {
                     {/* 정렬선택박스 */}
                     <aside className="sortbx">
                         <select className="sel" name="sel" id="sel" onChange={sortList}>
-                            <option value="0">A-Z</option>
+                            <option value="0" selected>A-Z</option>
                             <option value="1">Z-A</option>
                         </select>
                     </aside>
