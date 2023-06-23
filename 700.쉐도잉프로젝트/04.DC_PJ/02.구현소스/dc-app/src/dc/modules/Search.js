@@ -27,8 +27,28 @@ function Search(){
     const schList = () => {
         // 검색요소 대상 :  #schin
         let inp = document.querySelector("#schin");
+
         // 1. 검색어 읽기
         let keyword = inp.value;
+
+        // 2. 검색어 입력확인분기
+        if(keyword.trim()==""){
+            // 입력창으로 다시 보내기
+            inp.focus();
+            return;
+        }
+        console.log("검색어:",keyword);
+
+        // 3. 데이터 검색하기
+        // 배열값 다중검색 메서드 -> filter()
+        // 검색대상: 전체원본데이터 (cat_data)
+        let newList = cat_data.filter(v=>{
+            if(v.cname.toLowerCase().indexOf(keyword) !== -1) 
+            return true;
+        }); ////////// filter /////////////////
+
+        console.log("검색결과:",newList);
+
 
     }; /////////// schList 함수 /////////////
 
