@@ -7,6 +7,7 @@ import { gnb_data, bmenu } from "./data/common";
 /* 폰트어썸 임포트 */
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { useState } from "react";
 import ScrollTop from "./common/ScrollTop";
 /******************************************************* 
