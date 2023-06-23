@@ -2,7 +2,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Routes, Route, HashRouter } from "react-router-dom";
-import Characters from "./dc/Characters";
+import Characters from "./dc/characters";
 import Main from "./dc/Main";
 import Layout from "./dc/Layout";
 import "./index.css";
