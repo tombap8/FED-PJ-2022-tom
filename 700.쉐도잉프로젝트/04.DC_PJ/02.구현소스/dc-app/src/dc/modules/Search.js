@@ -124,7 +124,7 @@ function Search() {
                     {/* 정렬선택박스 */}
                     <aside className="sortbx">
                         <select className="sel" name="sel" id="sel" onChange={sortList}>
-                            <option value="0" selected>A-Z</option>
+                            <option value="0">A-Z</option>
                             <option value="1">Z-A</option>
                         </select>
                     </aside>
