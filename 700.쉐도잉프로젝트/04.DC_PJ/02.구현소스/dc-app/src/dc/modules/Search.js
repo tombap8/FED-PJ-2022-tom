@@ -52,6 +52,11 @@ function Search(){
 
     }; /////////// schList 함수 /////////////
 
+    // 입력창에서 엔터키를 누르면 검색함수 호출!
+    const enterKey = (e) => {
+        if(e.key === 'Enter') schList();
+    }; //////////// enterKey 함수 ////////////
+
     return(
         <>
         {/* 모듈코드 */}
@@ -68,7 +73,8 @@ function Search(){
                     onClick={schList} />
                     {/* 입력창 */}
                     <input id='schin' type='text' 
-                    placeholder='Filter by Keyword' />
+                    placeholder='Filter by Keyword'
+                    onKeyUp={enterKey} />
                 </div>
             </div>
             {/* 2. 결과리스트박스 */}
