@@ -48,6 +48,11 @@ function Search(){
         }); ////////// filter /////////////////
 
         console.log("검색결과:",newList);
+        
+        // 4. 검색결과 리스트 업데이트하기
+        // Hook변수인 데이터변수와 데이터건수 변수를 업데이트함!
+        setSdt(newList);
+        setTot(newList.length);
 
 
     }; /////////// schList 함수 /////////////
@@ -56,6 +61,15 @@ function Search(){
     const enterKey = (e) => {
         if(e.key === 'Enter') schList();
     }; //////////// enterKey 함수 ////////////
+
+    // 리스트 정렬 변경함수 /////////////
+    const sortList = (e) => {
+        // 1. 선택옵션값
+        let opt = e.target.value;
+        console.log("선택옵션:",opt);
+
+
+    }; //////////// sortList 함수 //////////////
 
     return(
         <>
@@ -85,7 +99,12 @@ function Search(){
                 </h2>
                 {/* 정렬선택박스 */}
                 <aside className='sortbx'>
-
+                    <select 
+                    className='sel' name='sel' id='sel'
+                    onChange={sortList}>
+                        <option value='0'>A-Z</option>
+                        <option value='1'>Z-A</option>
+                    </select>
                 </aside>
                 {/* 캐릭터 리스트 컴포넌트 
                 전달속성 dt - 리스트 데이터 */}
