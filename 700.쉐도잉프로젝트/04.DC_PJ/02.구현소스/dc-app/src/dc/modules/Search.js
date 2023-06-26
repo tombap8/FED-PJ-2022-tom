@@ -93,6 +93,18 @@ function Search() {
 
     }; //////////// sortList 함수 //////////////
 
+
+    /////// 체크박스 검색함수 ////////////
+    const chkSearch = (e) => {
+        // 1. 체크박스 아이디 : 검색항목의 값(alignment)
+        let cid = e.target.id;
+        // 2. 체크박스 체크여부 : checked (true/false)
+        let chked = e.target.checked;
+        console.log("아이디:",cid,chked);
+
+    }; //////////// chkSearch 함수 ////////////
+
+
     return (
         <>
             {/* 모듈코드 */}

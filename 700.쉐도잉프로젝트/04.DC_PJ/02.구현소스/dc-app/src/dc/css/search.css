@@ -51,3 +51,57 @@ input:focus{
 .listbx{
     width: 70%;
 }
+
+
+/* 정렬박스 */
+.sortbx{
+    padding-bottom: 15px;
+    overflow: hidden;
+}
+.sel{
+    float: right;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    letter-spacing: 4px;
+}
+.sel:focus{
+    outline: none;
+}
+
+/* 체크박스의 박스 */
+.chkbx h2{
+    margin: 15px 0 5px;
+}
+.spbtn{
+    display: block;
+    float: right;
+    margin-right: 5px;
+    font-size: 30px;
+    line-height: 25px;
+    cursor: pointer;
+}
+.chkbx ol>li{
+    padding: 10px;
+}
+.chkbx input[type=checkbox]{
+    display: none;
+}
+.chklb{
+    float: right;
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: #ccc;
+}
+input:checked+.chklb{
+    background-color: #0d6efd;
+    text-align: center;
+    font-weight: bold;
+}
+input:checked+.chklb::before{
+    content: '√';
+    color: #fff;
+    line-height: 0;
+}
