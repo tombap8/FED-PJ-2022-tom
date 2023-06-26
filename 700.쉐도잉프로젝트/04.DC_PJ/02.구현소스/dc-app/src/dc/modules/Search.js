@@ -140,6 +140,30 @@ function Search() {
                                         htmlFor="hero"
                                         className="chklb"></label>
                                     </li>
+                                    <li>
+                                        It's Complicated
+                                        <input 
+                                        type="checkbox"
+                                        id="comp"
+                                        className="chkhdn"
+                                        onChange={chkSearch} 
+                                        />
+                                        <label
+                                        htmlFor="comp"
+                                        className="chklb"></label>
+                                    </li>
+                                    <li>
+                                        Villiains
+                                        <input 
+                                        type="checkbox"
+                                        id="villain"
+                                        className="chkhdn"
+                                        onChange={chkSearch} 
+                                        />
+                                        <label
+                                        htmlFor="villain"
+                                        className="chklb"></label>
+                                    </li>
                                 </ol>
                             </li>
                         </ul>
