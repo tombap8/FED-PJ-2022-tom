@@ -84,6 +84,8 @@ input:focus{
 }
 .chkbx ol>li{
     padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
 }
 .chkbx input[type=checkbox]{
     display: none;
