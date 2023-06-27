@@ -19,24 +19,21 @@ import ScrollTop from "./common/ScrollTop";
     -> 라우터 연결 컴포넌트 출력자리 컴포넌트
 *******************************************************/
 
-   
-    
 const Layout = () => {
-
-     // 자식컴포넌트 값 전달 테스트 함수
+    // 자식컴포넌트 값 전달 테스트 함수
     const callMe = (x) => {
-        console.log("누구?",x);
+        console.log("누구?", x);
     }; ////////// callMe /////////////
 
     // 로그인 상태  Hook변수 : 로컬쓰 "minfo" 초기할당!
-    const [logSts,setLogSts] = useState(localStorage.getItem("minfo"));
+    const [logSts, setLogSts] = useState(localStorage.getItem("minfo"));
     // 로그인 환영메시지 Hook변수
-    const [logMsg,setLogMsg] = useState("");
+    const [logMsg, setLogMsg] = useState("");
     // 로그인 환영메시지 스타일
     const logstyle = {
-        position:"absolute",
-        left:"50%",
-        transform:"translateX(-50%)"
+        position: "absolute",
+        left: "50%",
+        transform: "translateX(-50%)",
     }; //////// logstyle ///////////
 
     // 로그인 셋팅 함수 //////////
@@ -46,13 +43,10 @@ const Layout = () => {
         setLogSts(localStorage.getItem("minfo"));
 
         // 2. 로컬쓰값이 null이 아니면 메시지 뿌리기
-        if(localStorage.getItem("minfo")){
+        if (localStorage.getItem("minfo")) {
             // 메시지 셋팅하기 : 객체안의 "unm"속성이 사용자이름!
-            setLogMsg("Welcome " + 
-            JSON.parse(localStorage.getItem("minfo"))["unm"]);
+            setLogMsg("Welcome " + JSON.parse(localStorage.getItem("minfo"))["unm"]);
         } ////////////// if ///////////////
-
-
     }; ///////// setLogin ////////////
 
     // 로그아웃 함수 ///////////////////
@@ -62,28 +56,22 @@ const Layout = () => {
         localStorage.removeItem("minfo");
         // 2. 로그인상태 Hook 변수 업데이트하기
         setLogSts(null);
-        console.log("로그아웃됨!",logSts);
-
+        console.log("로그아웃됨!", logSts);
     }; ////////////// logout ///////////
-
 
     return (
         <>
-        
             {/* 라우터 갱신될때 스크롤 상단이동 모듈작동함!
             + 로그인셋팅함수 호출전달하기! 자식에게 setLogin함수전달 */}
             <ScrollTop sfn={setLogin} />
             {/* 1.상단영역 */}
             <header className="top">
-
                 {/* 로그인 환영메시지 : 조건-logSts값이 null이 아니면 */}
-                {
-                    logSts !== null &&
+                {logSts !== null && (
                     <div className="logmsg" style={logstyle}>
                         {logMsg}
                     </div>
-                }
-
+                )}
 
                 {/* 네비게이션 파트 */}
                 <nav className="gnb">
@@ -120,31 +108,51 @@ const Layout = () => {
                         ))}
 
                         <li style={{ marginLeft: "auto" }}>
-                            <Link to="/sch">
+                            {/* 검색입력박스 */}
+                            <div className="searching">
+                                {/* 검색버튼 돋보기아이콘 */}
+                                <FontAwesomeIcon
+                                    icon={faSearch}
+                                    className="schbtn"
+                                    title="Open search"
+                                    onClick={schList}
+                                />
+                                {/* 입력창 */}
+                                <input
+                                    id="schin"
+                                    type="text"
+                                    placeholder="Filter by Keyword"
+                                    onKeyUp={enterKey}
+                                />
+                            </div>
+                            {/* 검색기능링크 */}
+                            <a href="#" onClick={searchFn}>
                                 <FontAwesomeIcon icon={faSearch} />
-                            </Link>
+                            </a>
                         </li>
                         {
                             /* 회원가입,로그인은 로그인아닌 상태일때만 */
-                            logSts === null &&
-                            <>
-                                <li>
-                                    <Link to="/mem">Join Us</Link>
-                                </li>
-                                <li>
-                                    <Link to="/login">LOGIN</Link>
-                                </li>
-                            </>
+                            logSts === null && (
+                                <>
+                                    <li>
+                                        <Link to="/mem">Join Us</Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/login">LOGIN</Link>
+                                    </li>
+                                </>
+                            )
                         }
 
                         {
                             /* 로그아웃버튼은 로인인상태일때만 */
-                            logSts !== null &&
-                            <li>
-                                <a href="#" onClick={logout}>
-                                    LOGOUT
-                                </a>
-                            </li>
+                            logSts !== null && (
+                                <li>
+                                    <a href="#" onClick={logout}>
+                                        LOGOUT
+                                    </a>
+                                </li>
+                            )
                         }
                     </ul>
                 </nav>
