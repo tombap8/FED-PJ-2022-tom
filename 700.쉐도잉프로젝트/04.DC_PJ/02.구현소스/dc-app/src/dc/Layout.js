@@ -115,18 +115,16 @@ const Layout = () => {
                                     icon={faSearch}
                                     className="schbtn"
                                     title="Open search"
-                                    onClick={schList}
                                 />
                                 {/* 입력창 */}
                                 <input
                                     id="schin"
                                     type="text"
                                     placeholder="Filter by Keyword"
-                                    onKeyUp={enterKey}
                                 />
                             </div>
                             {/* 검색기능링크 */}
-                            <a href="#" onClick={searchFn}>
+                            <a href="#">
                                 <FontAwesomeIcon icon={faSearch} />
                             </a>
                         </li>
