@@ -65,9 +65,10 @@ const Layout = () => {
     }; ////////////// logout ///////////
 
     // 검색창 보이기 함수 ///////
-    const showSearch = (e) => {
-        // 1. 자기자신 숨기기
-        e.target.style.opacity = "0";
+    const showSearch = () => {
+        // 1. a요소숨기기
+        document.querySelector(".searchingGnb+a")
+        .style.opacity = "0";
 
         // 2. 검색창 보이기
         let tg =
