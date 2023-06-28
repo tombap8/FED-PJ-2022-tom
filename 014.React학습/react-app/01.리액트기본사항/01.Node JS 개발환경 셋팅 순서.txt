@@ -32,3 +32,4 @@ npm ci -> Clean Install (깔끔한 셋업!)
 ((만약 npm ci 명령어입력시 에러발생하면))
 npm ci --legacy-peer-deps
 ->>> 에러 메시지에 자세히 보면 ci 뒤에 쓸 명령어를 알려준다!
+참고: https://velog.io/@rayong/aws-amplify-%ED%98%B8%EC%8A%A4%ED%8C%85-%EB%B9%8C%EB%93%9C-%EC%97%90%EB%9F%AC-npm-ci-legacy-peer-deps
