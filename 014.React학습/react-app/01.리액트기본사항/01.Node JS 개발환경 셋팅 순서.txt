@@ -19,6 +19,7 @@
 -> 더쉬운 자동화 설치방법은? 바로아래!!!
 
 [ npm ci 명령어로 개발환경 설치하기 ]
+npm ci -> Clean Install (깔끔한 셋업!)
 
 1. 깃 소스를 다운로드 받는다
 2. package-lock.json 파일이 있는지 확인한다
@@ -27,3 +28,7 @@
 5. 설치완료후 npm start 명령어로 개발서버를 구동한다!
 
 -> 설명참고 : https://mygumi.tistory.com/409
+
+((만약 npm ci 명령어입력시 에러발생하면))
+npm ci --legacy-peer-deps
+->>> 에러 메시지에 자세히 보면 ci 뒤에 쓸 명령어를 알려준다!
