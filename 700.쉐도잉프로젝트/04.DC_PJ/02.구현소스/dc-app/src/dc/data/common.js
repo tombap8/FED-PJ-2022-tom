@@ -58,6 +58,10 @@ const gnb_data = [
         txt: "VIDEO",
         link: "/vd",
     },
+    {
+        txt: "OPINION",
+        link: "/board",
+    },
 ];
 
 /* 하단링크 데이터 셋업! */
