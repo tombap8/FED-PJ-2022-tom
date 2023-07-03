@@ -7,7 +7,7 @@
     /*테이블전체*/
     text-align: center;
     /*텍스트 가로 중앙*/
-    font-family: "맑은 고딕", "굴림";
+    font-family: 'Roboto Condensed', sans-serif;
     font-size: 14px;
     border-collapse: collapse;
     max-width: 90%;
@@ -18,7 +18,7 @@
 .dtbl caption,
 .dtblview caption {
     /*테이블 타이틀*/
-    font-family: "맑은 고딕", "굴림";
+    font-family: 'Roboto Condensed', sans-serif;
     font-size: 24px;
     font-weight: bold;
     /*글자두께*/
@@ -113,7 +113,7 @@
 
 /* 내용보기 */
 .dtblview {
-    font-family: "맑은 고딕", "굴림";
+    font-family: 'Roboto Condensed', sans-serif;
     font-size: 34px;
     border-collapse: collapse;
     width: 750px;

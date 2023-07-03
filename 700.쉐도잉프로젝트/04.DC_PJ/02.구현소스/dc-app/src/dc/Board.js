@@ -1,6 +1,6 @@
 ///  게시판 모듈 - Board.js
 import $ from "jquery";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./css/board.css";
 /* 제이슨 불러오기 */
 import orgdata from "./data/data.json";
@@ -115,6 +115,14 @@ function Board() {
             bindList($(this).text());
         }); /////////// click /////////////
     } /////////////// bindList함수 ///////////////
+
+
+    // 게시판 모드별 상태구분 Hook 변수만들기 ////
+    // 모드구분값 : CRUD (Create/Read/Update/Delete)
+    // C - 글쓰기 / R - 글읽기 / U - 글수정 / D - 삭제
+    // 상태추가 : L - 글목록
+    const [bdmode,setBdmode]  = useState('L');
+
 
     const callFn = () => bindList(1);
     useEffect(callFn, []);
