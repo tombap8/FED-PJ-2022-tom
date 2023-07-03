@@ -9,6 +9,11 @@ import orgdata from "./data/data.json";
 // 반드시 바깥에서 담을것!
 let jsn = orgdata;
 
+// 제이슨 데이터 배열정렬하기(내림차순:최신등록순번이 1번)
+jsn.sort((x,y)=>{
+    return Number(x.idx) == Number(y.idx) ? 0 : Number(x.idx) > Number(y.idx) ? -1 : 1;
+})
+
 // 제이쿼리 로드구역 함수 /////////
 function jqFn() {
     $(() => {}); //////// jQB ///////////
@@ -28,6 +33,7 @@ function Board() {
     let bdata = JSON.parse(localStorage.getItem("bdata"));
     // console.log("로컬스파싱:",bdata,
     // "/개수:",bdata.length);
+
 
     // 페이지번호 : 페이지단위별 순서번호
     // let pgnum = 1; -> 함수내 전달변수로 처리!
@@ -56,10 +62,11 @@ function Board() {
         for (let i = (pgnum - 1) * pgblock; i < pgnum * pgblock; i++) {
             // 마지막 번호한계값 조건으로 마지막페이지 데이터
             // 존재하는 데이터까지만 바인딩하기
+            // 순번은 리스트상 순서번호를 넣는다(idx아님!)
             if (i < totnum) {
                 blist += `
                 <tr>
-                    <td>${bdata[i]["idx"]}</td>
+                    <td>${i+1}</td>
                     <td>
                         <a href="view.html?idx=${bdata[i]["idx"]}">
                             ${bdata[i]["tit"]}
@@ -73,7 +80,7 @@ function Board() {
             } //////////// if ////////////
         } /////////// for 문 ///////////////
 
-        console.log("코드:", blist);
+        // console.log("코드:", blist);
 
         // 2. 리스트 코드 테이블에 넣기
         $("#board tbody").html(blist);
@@ -84,8 +91,8 @@ function Board() {
         // 전체 레코드 수 : totnum 변수에 이미 할당
         let pgtotal = Math.floor(totnum / pgblock);
         let pgadd = totnum % pgblock;
-        console.log("페이징 전체수:", pgtotal);
-        console.log("페이징 나머지:", pgadd);
+        // console.log("페이징 전체수:", pgtotal);
+        // console.log("페이징 나머지:", pgadd);
 
         // 페이징코드변수
         let pgcode = "";
@@ -104,6 +111,8 @@ function Board() {
             if (i != pgtotal) pgcode += " | ";
         } /////////// for문 ///////////////
 
+        // console.log(pgcode);
+
         // 3-3. 페이징코드 넣기
         $(".paging").html(pgcode);
 
@@ -116,15 +125,23 @@ function Board() {
         }); /////////// click /////////////
     } /////////////// bindList함수 ///////////////
 
+    // 현재로그인 사용자 정보
+    let [nowmem,setNowmem]=useState('');
 
     /// 로그인 상태 체크 함수 //////////
     const chkLogin = () => {
         // 로컬스에 'minfo'가 있는지 체크
         let chk = localStorage.getItem('minfo');
-        console.log("요기:",chk);
+        // console.log("요기:",chk);
         // 로컬스에 셋팅했을 경우 상태Hook에 treu값 업데이트!
         if(chk) setLog(true);
         else setLog(false);
+
+        // 현재로그인한 맴버정보
+        if(chk){
+            setNowmem(JSON.parse(chk));
+            console.log("현재너:",nowmem);
+        }
 
     }; ////////// chkLogin /////////////
 
@@ -146,10 +163,48 @@ function Board() {
 
         // 하위 글자읽기
         let txt = $(e.target).text();
-        console.log("버튼:",txt);
+        // console.log("버튼:",txt);
 
-        if(txt=="Write") setBdmode('C');
-        else if(txt=="List") setBdmode('L');
+        // (1)글쓰기 버튼 클릭
+        if(txt=="Write"){
+            // 모드 상태값 업데이트
+            setBdmode('C');
+
+            // console.log(nowmem.unm);
+
+            // 읽기전용 입력창에 기본정보 셋팅
+            $(()=>{
+                $(".dtblview .name").val(nowmem.unm);
+                $(".dtblview .email").val(nowmem.eml);
+            });
+
+        } 
+        // (2)리스트 버튼 클릭
+        else if(txt=="List")setBdmode('L');
+        // (3)글쓰기 모드(C)일때 실행(Submit)버튼클릭
+        else if(txt=="Submit" && bdmode=="C"){
+
+            // 타이틀
+            let tit = $(".dtblview .subject").val();
+            // 내용
+            let cont = $(".dtblview .content").val();
+
+
+            // 제목/내용 빈값 체크
+            if(tit.trim()==''||cont.trim()==''){
+                alert("Title and content are required");
+            }
+
+
+        } ////////////// 새로입력 ///////////
+
+
+        // 리스트 태그로딩구역에서 일괄호출!
+        // 리스트 태그가 출력되었을때 적용됨!
+        $(()=>bindList(1))
+
+
+
 
     }; ////////////// chgMode함수 ///////////////
 
@@ -157,11 +212,11 @@ function Board() {
     // 로딩 체크함수 : useEffect에서 호출함! ///
     const callFn = () => {
         // 리스트 상태일때만 호출!
-        bindList(1);
+        if(bdmode == 'L') bindList(1);
         // 로그인상태 체크함수 호출!
         chkLogin();
         
-        console.log("로그인:",log,"/모드:",bdmode);
+        // console.log("로그인:",log,"/모드:",bdmode);
     }; ////////// callFn ///////////
 
     // 로딩체크함수 호출!
@@ -208,7 +263,43 @@ function Board() {
             {/* 2. 글쓰기 테이블 : 게시판 모드 'C'일때만 출력 */}
             {
                 bdmode == 'C' &&
-                <h1>글쓰기양~~~!</h1>
+                <table className="dtblview">
+                    <caption>OPINION</caption>
+                    <tbody>
+                        <tr>
+                            <td width="100">
+                                Name
+                            </td>
+                            <td width="650">
+                                <input type="text" className="name" size="20" readOnly />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Email
+                            </td>
+                            <td>
+                                <input type="text" className="email" size="40" readOnly />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Title
+                            </td>
+                            <td>
+                                <input type="text" className="subject" size="60" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Content
+                            </td>
+                            <td>
+                                <textarea className="content" cols="60" rows="10"></textarea>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             }
 
             <br />
