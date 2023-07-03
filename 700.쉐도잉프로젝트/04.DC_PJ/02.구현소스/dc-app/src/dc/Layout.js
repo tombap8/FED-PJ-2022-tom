@@ -3,6 +3,7 @@ import Logo from "./Logo";
 import "./css/layout.css";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { gnb_data, bmenu } from "./data/common";
+import $ from 'jquery';
 
 /* 폰트어썸 임포트 */
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
@@ -93,9 +94,10 @@ const Layout = () => {
     }; ///////////// goSearch ////////////////
 
     ///////// 상단메뉴 변경 함수 ///////////////
-    const chgMenu = () => {
+    // .top.on 이면 메뉴가 나타남!
+    const chgMenu = () => $(".top").toggleClass('on');
 
-    }; ///////// chgMenu 함수 /////////////////
+    
 
     return (
         <>

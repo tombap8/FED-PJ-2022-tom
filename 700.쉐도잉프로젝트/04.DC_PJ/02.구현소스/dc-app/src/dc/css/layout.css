@@ -252,8 +252,8 @@ input:focus{
         border-bottom: 1px solid #000;
     }
     /* Join Us / LOGIN */
-    .gnb>ul>li:nth-child(10) a,
-    .gnb>ul>li:nth-child(11) a    
+    .gnb>ul>li:nth-child(10) > a,
+    .gnb>ul>li:nth-child(11) > a    
     {
         position: absolute;
         top: calc(58px * 8);
@@ -267,16 +267,16 @@ input:focus{
         margin-top: 20px;
         transition: .3s;
     }
-    .gnb>ul>li:nth-child(11) a{        
+    .gnb>ul>li:nth-child(11) > a{        
         left: 55%;
     }
-    .gnb>ul>li:nth-child(10) a:hover,
-    .gnb>ul>li:nth-child(11) a:hover  {
+    .gnb>ul>li:nth-child(10) > a:hover,
+    .gnb>ul>li:nth-child(11) > a:hover  {
         color: #fff;
         background-color: #0d6efd;
     }
-    .gnb>ul>li:nth-child(3) a::after,
-    .gnb>ul>li:nth-child(4) a::after  {
+    .gnb>ul>li:nth-child(3) > a::after,
+    .gnb>ul>li:nth-child(4) > a::after  {
         content: '▼';
         font-size: 11px;
         vertical-align: 2px;
@@ -291,6 +291,13 @@ input:focus{
     /* 햄버거버튼 */
     .hambtn{
         display: block;
+    }
+
+    /* 서브메뉴 */
+    .smenu {
+        left: 5%;
+        transform: none;
+        z-index: 1;
     }
     
     
