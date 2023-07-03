@@ -149,7 +149,7 @@ function Board() {
         console.log("버튼:",txt);
 
         if(txt=="Write") setBdmode('C');
-        else if(txt=="List") {setBdmode('L');}
+        else if(txt=="List") setBdmode('L');
 
     }; ////////////// chgMode함수 ///////////////
 
@@ -157,7 +157,7 @@ function Board() {
     // 로딩 체크함수 : useEffect에서 호출함! ///
     const callFn = () => {
         // 리스트 상태일때만 호출!
-        if(bdmode == 'L') bindList(1);
+        bindList(1);
         // 로그인상태 체크함수 호출!
         chkLogin();
         
