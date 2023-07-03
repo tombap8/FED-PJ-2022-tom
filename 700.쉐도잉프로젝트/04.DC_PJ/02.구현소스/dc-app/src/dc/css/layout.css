@@ -161,17 +161,39 @@ input:focus{
     color: #007aff;
 }
 
+/* 햄버거버튼 */
+.hambtn{
+    position: absolute;
+    right: 30px;
+    top: 10px;
+    width: 20px;
+    height: 20px;
+    border: none;
+    background-color: transparent;
+    font-size: 30px;
+    cursor: pointer;
+    display: none;
+}
+
+.hambtn::before{
+    content: '≡';
+}
+.top.on .hambtn::before{
+    content: '×';
+}
+
 /* 1320px이하 미디어쿼리 */
 @media screen and (max-width:1320px) {
     body{
         padding-top: 58px;
         /* 첫번째 컨텐츠 가려짐방지 패딩 */
+        overflow-x: hidden;
     }
     .top{
         /* 보이는 화면고정 */
         position: fixed;
         top: 0;
-        width: 100%;
+        width: 100vw;
         height: 58px;
         padding: 0 20px;
         box-sizing: border-box;
@@ -268,22 +290,8 @@ input:focus{
 
     /* 햄버거버튼 */
     .hambtn{
-        position: absolute;
-        right: 20px;
-        top: 10px;
-        width: 20px;
-        height: 20px;
-        border: none;
-        background-color: transparent;
-        font-size: 30px;
-        cursor: pointer;
+        display: block;
     }
     
-    .hambtn::before{
-        content: '≡';
-    }
-    .top.on .hambtn::before{
-        content: '×';
-    }
     
 }
