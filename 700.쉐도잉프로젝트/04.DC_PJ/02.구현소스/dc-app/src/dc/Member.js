@@ -183,7 +183,7 @@ function Member() {
     const changePwd = (e) => {
         // e - 이벤트전달변수
         // 1. 유효성 검사식(따옴표싸지 말것!)
-        const valid = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+        const valid = /^.*(?=^.{5,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
 
         // 2. 입력값 확인 : e.target -> 이벤트가 발생한 요소
         console.log(e.target.value);
@@ -382,8 +382,7 @@ function Member() {
                                 pwdError && (
                                     <div className="msg">
                                         <small style={{ color: "red", fontSize: "10px" }}>
-                                            Password must be at least 8 characters long and must
-                                            contain at least one letter and one number each.
+                                        5 to 15 digits in the form of special characters, characters, and numbers
                                         </small>
                                     </div>
                                 )
