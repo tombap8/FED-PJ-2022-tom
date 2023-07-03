@@ -21,7 +21,7 @@ function Board() {
 
     // 2. 로컬스토리지 변수를 설정하여 할당하기
     localStorage.setItem("bdata", JSON.stringify(jsn));
-    console.log("로컬스:", localStorage.getItem("bdata"));
+    // console.log("로컬스:", localStorage.getItem("bdata"));
 
     // 3. 로컬스토리지 데이터를 파싱하여 게시판 리스트에 넣기
     // 3-1. 로컬 스토리지 데이터 파싱하기
@@ -193,7 +193,7 @@ function Board() {
                     <td>
                         {
                             // 리스트모드(L)
-                            bdmode == 'L' &&
+                            bdmode == 'L' && log &&
                             <>
                                 <button>
                                     <a href="#">Write</a>
