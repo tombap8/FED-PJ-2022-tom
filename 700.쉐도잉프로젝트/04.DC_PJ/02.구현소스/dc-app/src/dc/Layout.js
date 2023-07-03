@@ -97,7 +97,7 @@ const Layout = () => {
     // .top.on 이면 메뉴가 나타남!
     const chgMenu = () => $(".top").toggleClass('on');
 
-    
+
 
     return (
         <>
@@ -122,7 +122,7 @@ const Layout = () => {
                             </Link>
                         </li>
                         {gnb_data.map((v, i) => (
-                            <li key={i}>
+                            <li key={i} onClick={chgMenu}>
                                 <Link to={v.link}>{v.txt}</Link>
                                 {/* {console.log(v.sub)} */}
                                 {/* v.sub가 없으면 undefined */}
@@ -174,10 +174,10 @@ const Layout = () => {
                             /* 회원가입,로그인은 로그인아닌 상태일때만 */
                             logSts === null && (
                                 <>
-                                    <li>
+                                    <li onClick={chgMenu}>
                                         <Link to="/mem">Join Us</Link>
                                     </li>
-                                    <li>
+                                    <li onClick={chgMenu}>
                                         <Link to="/login">LOGIN</Link>
                                     </li>
                                 </>
@@ -187,7 +187,7 @@ const Layout = () => {
                         {
                             /* 로그아웃버튼은 로인인상태일때만 */
                             logSts !== null && (
-                                <li>
+                                <li onClick={chgMenu}>
                                     <a href="#" onClick={logout}>
                                         LOGOUT
                                     </a>
