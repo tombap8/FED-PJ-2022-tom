@@ -117,14 +117,39 @@ function Board() {
     } /////////////// bindList함수 ///////////////
 
 
+    /// 로그인 상태 체크 함수 //////////
+    const chkLogin = () => {
+        // 로컬스에 'minfo'가 있는지 체크
+        let chk = localStorage.getItem('minfo');
+        // 로컬스에 셋팅했을 경우 상태Hook에 treu값 업데이트!
+        if(chk) setLog(true);
+        else setLog(false);
+
+    }; ////////// chkLogin /////////////
+
+
     // 게시판 모드별 상태구분 Hook 변수만들기 ////
     // 모드구분값 : CRUD (Create/Read/Update/Delete)
     // C - 글쓰기 / R - 글읽기 / U - 글수정 / D - 삭제(U에 포함!)
     // 상태추가 : L - 글목록
     const [bdmode,setBdmode]  = useState('L');
 
+    // 로그인 상태 Hook 변수 만들기 ///
+    // 상태값 : false - 로그아웃상태 / true - 로그인상태
+    const [log,setLog] = useState(false);
 
-    const callFn = () => bindList(1);
+
+    // 로딩 체크함수 : useEffect에서 호출함! ///
+    const callFn = () => {
+        // 리스트 상태일때만 호출!
+        if(bdmode == 'L') bindList(1);
+        // 로그인상태 체크함수 호출!
+        chkLogin();
+        
+        console.log("로그인:",log,"/모드:",bdmode);
+    }; ////////// callFn ///////////
+
+    // 로딩체크함수 호출!
     useEffect(callFn, []);
 
     return (
@@ -162,6 +187,7 @@ function Board() {
             </table>
 
             <br />
+            {/* 버튼 그룹박스 */}
             <table className="dtbl btngrp">
                 <tr>
                     <td>
