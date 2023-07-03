@@ -92,6 +92,11 @@ const Layout = () => {
         goNav('/res',{state:{keyword:kw}})
     }; ///////////// goSearch ////////////////
 
+    ///////// 상단메뉴 변경 함수 ///////////////
+    const chgMenu = () => {
+
+    }; ///////// chgMenu 함수 /////////////////
+
     return (
         <>
             {/* 라우터 갱신될때 스크롤 상단이동 모듈작동함!
@@ -188,6 +193,8 @@ const Layout = () => {
                             )
                         }
                     </ul>
+                    {/* 햄버거버튼 */}
+                    <button className="hambtn" onClick={chgMenu}></button>
                 </nav>
             </header>
             {/* 2. 메인영역 */}
