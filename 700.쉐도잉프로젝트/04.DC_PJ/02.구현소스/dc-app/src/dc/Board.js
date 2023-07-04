@@ -32,8 +32,10 @@ function Board() {
     const [jsn, setJsn] = useState(org); // 초기데이터 셋팅
 
     // 현재로그인 사용자 정보 : 처음에 현재로그인 정보로 셋팅함!
+    // 삼항연산자로 셋팅된 경우에만 할당함!
     const [nowmem, setNowmem] = 
-    useState(JSON.parse(localStorage.getItem("minfo")));
+    useState(localStorage.getItem("minfo")?
+    JSON.parse(localStorage.getItem("minfo")):'');
 
     // 게시판 모드별 상태구분 Hook 변수만들기 ////
     // 모드구분값 : CRUD (Create/Read/Update/Delete)
@@ -249,7 +251,7 @@ function Board() {
                 // 날짜데이터처리
                 let today = new Date();
                 let yy = today.getFullYear();
-                let mm = today.getMonth();
+                let mm = today.getMonth()+1;//숫자월은 +1
                 mm = mm < 10 ? "0" + mm : mm;
                 let dd = today.getDate();
                 dd = dd < 10 ? "0" + dd : dd;
