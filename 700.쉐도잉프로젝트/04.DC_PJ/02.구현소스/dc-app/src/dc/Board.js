@@ -26,11 +26,29 @@ function jqFn() {
 } ////////////// jQFn ///////////
 
 function Board() {
+
+    // Hook 변수 구역 ///////////////////////
     // [ 제이슨 파일 데이터 로컬스토리지에 넣기 ]
     // 1. 변수에 제이슨 파일 문자화 하여 불러오기
     // 상단에서 불러옴!
     // 실시간 데이터 변경 관리를 Hook변수화 하여 처리함!
     const [jsn,setJsn] = useState(org); // 초기데이터 셋팅
+
+    // 현재로그인 사용자 정보
+    const [nowmem,setNowmem] = useState('');
+
+    // 게시판 모드별 상태구분 Hook 변수만들기 ////
+    // 모드구분값 : CRUD (Create/Read/Update/Delete)
+    // C - 글쓰기 / R - 글읽기 / U - 글수정 / D - 삭제(U에 포함!)
+    // 상태추가 : L - 글목록
+    const [bdmode,setBdmode]  = useState('L');
+
+    // 로그인 상태 Hook 변수 만들기 ///
+    // 상태값 : false - 로그아웃상태 / true - 로그인상태
+    const [log,setLog] = useState(false);
+
+
+    // Hook /////////////////////////////////////
 
     // 2. 로컬스토리지 변수를 설정하여 할당하기
     localStorage.setItem("bdata", JSON.stringify(jsn));
@@ -140,8 +158,6 @@ function Board() {
         }); /////////// click /////////////
     } /////////////// bindList함수 ///////////////
 
-    // 현재로그인 사용자 정보
-    let [nowmem,setNowmem] = useState('');
 
     /// 로그인 상태 체크 함수 //////////
     const chkLogin = () => {
@@ -161,16 +177,7 @@ function Board() {
     }; ////////// chkLogin /////////////
 
 
-    // 게시판 모드별 상태구분 Hook 변수만들기 ////
-    // 모드구분값 : CRUD (Create/Read/Update/Delete)
-    // C - 글쓰기 / R - 글읽기 / U - 글수정 / D - 삭제(U에 포함!)
-    // 상태추가 : L - 글목록
-    const [bdmode,setBdmode]  = useState('L');
-
-    // 로그인 상태 Hook 변수 만들기 ///
-    // 상태값 : false - 로그아웃상태 / true - 로그인상태
-    const [log,setLog] = useState(false);
-
+    
     // 모드전환함수 //////////////////////
     const chgMode = e => {
         // 기본이동막기(하위a)
@@ -189,8 +196,8 @@ function Board() {
 
             // 읽기전용 입력창에 기본정보 셋팅
             $(()=>{
-                $(".dtblview .name").val(nowmem.unm);
-                $(".dtblview .email").val(nowmem.eml);
+                $(".writeone .name").val(nowmem.unm);
+                $(".writeone .email").val(nowmem.eml);
             });
 
         } 
@@ -200,9 +207,9 @@ function Board() {
         else if(txt=="Submit" && bdmode=="C"){
 
             // 타이틀
-            let tit = $(".dtblview .subject").val();
+            let tit = $(".writeone .subject").val();
             // 내용
-            let cont = $(".dtblview .content").val();
+            let cont = $(".writeone .content").val();
 
 
             // 제목/내용 빈값 체크
@@ -319,8 +326,8 @@ function Board() {
             {/* 2. 글쓰기 테이블 : 게시판 모드 'C'일때만 출력 */}
             {
                 bdmode == 'C' &&
-                <table className="dtblview">
-                    <caption>OPINION</caption>
+                <table className="dtblview writeone">
+                    <caption>OPINION : Write</caption>
                     <tbody>
                         <tr>
                             <td width="100">
@@ -357,6 +364,75 @@ function Board() {
                     </tbody>
                 </table>
             }
+
+            {/* 3. 읽기 테이블 : 게시판 모드 'R'일때만 출력 */}
+            {
+                bdmode == 'R' &&
+                <table className="dtblview readone">
+                    <caption>OPINION : Read</caption>
+                    <tbody>
+                        <tr>
+                            <td width="100">
+                                Name
+                            </td>
+                            <td width="650">
+                                <input type="text" className="name" size="20" readOnly />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Title
+                            </td>
+                            <td>
+                                <input type="text" className="subject" size="60" readOnly />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Content
+                            </td>
+                            <td>
+                                <textarea className="content" cols="60" rows="10" readOnly></textarea>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            }
+            {/* 4. 수정(삭제) 테이블 : 게시판 모드 'U'일때만 출력 */}
+            {
+                bdmode == 'U' &&
+                <table className="dtblview updateone">
+                    <caption>OPINION : Modify</caption>
+                    <tbody>
+                        <tr>
+                            <td width="100">
+                                Name
+                            </td>
+                            <td width="650">
+                                <input type="text" className="name" size="20" readOnly />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Title
+                            </td>
+                            <td>
+                                <input type="text" className="subject" size="60" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Content
+                            </td>
+                            <td>
+                                <textarea className="content" cols="60" rows="10"></textarea>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            }
+
+
 
             <br />
             {/* 버튼 그룹박스 */}
