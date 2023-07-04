@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lotte World</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            /* 보이는 화면기준 */
+        }
+
+        ul,
+        ol {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        /* 전체부모 */
+        #wrap {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* ul 파티션 부모박스 */
+        #wrap>ul {
+            display: flex;
+            /* 
+                [ flex 란? ]
+                - 가변적인 자식요소를 컨트롤 하기 위해 CSS3에서 
+                새롭게 선보인 display 기술
+                - 자식요소를 같은 비율 혹은 다른비율로 분할이 쉽다
+                - 자식요소의 순서를 일괄 변경할 수 있다
+                - 무엇보다도 블록요소를 옆으로 흐르게 하는데 탁월하다!
+                [ 셋팅법 ]
+                - 옆으로 흐르게 할 부모요소에 display:flex로 설정함
+                - 자식요소의 flex:1 설정하면 등분할 된다!
+             */
+            flex-direction: row;
+            /* 
+                flex-direction 속성은 진행방향과 순서를 설정함
+                1) row : 좌 -> 우(기본값)
+                2) row-reverse : 우 -> 좌
+                3) column : 위 -> 아래
+                4) column-reverse : 아래 -> 위
+             */
+
+
+            width: 100%;
+            height: 100%;
+        }
+
+        /* 파티션 li공통 */
+        #wrap>ul>li {
+            position: relative;
+            /* 부모자격 */
+            flex: 1;
+            transition: all .4s ease-in-out;
+        }
+
+        /* 파티션 li에 마우스 오버시 가로커짐 */
+        #wrap>ul>li:hover {
+            flex: 1.4;
+            /* 오버된 li만 1.4배커지고 나머지는 등분할된다! */
+        }
+
+        /* 파티션 li에 반투명 검은색 커버 만들기 */
+        #wrap>ul>li::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-color: #000;
+            opacity: 0.5;
+            transition: opacity .6s;
+        }
+
+        /* li에 마우스 오버시 반투명 커버 투명도0 */
+        #wrap>ul>li:hover::before {
+            opacity: 0;
+        }
+
+        /* 각 파티션 li */
+        #wrap>ul>li:nth-child(1) {
+            background:
+                url(./images/Lotte/m01_bg.jpg) no-repeat center/cover;
+        }
+
+        #wrap>ul>li:nth-child(2) {
+            background:
+                url(./images/Lotte/m02_bg.jpg) no-repeat center/cover;
+        }
+
+        #wrap>ul>li:nth-child(3) {
+            background:
+                url(./images/Lotte/m03_bg.jpg) no-repeat center/cover;
+        }
+
+        #wrap>ul>li:nth-child(4) {
+            background:
+                url(./images/Lotte/m04_bg.jpg) no-repeat center/cover;
+        }
+
+        #wrap>ul>li:nth-child(5) {
+            background:
+                url(./images/Lotte/m05_bg.jpg) no-repeat center/cover;
+        }
+
+        /* 파트별 타이틀+로고 이미지 공통 */
+        #wrap>ul>li>img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            /* 부모는? 싸고있는 li */
+            transform: translate(-50%, -50%);
+            /* 정중앙이동 */
+            width: 70%;
+            max-width: 250px;
+            /* 최대크기지정 */
+        }
+
+        /* 박스별 로고 이미지 공통 */
+        #wrap>ul>li>img:last-child {
+            top: 80%;
+            width: auto;
+            /* 원래자기 크기로 나옴! */
+        }
+
+
+        /* 중앙타이틀 공통 */
+        .tit {
+            /* 일반설정 */
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            /* 가로중앙이동 */
+            width: 500px;
+            height: 100px;
+            /* border: 5px double #fff; */
+        }
+
+        /* 타이틀 하위 li */
+        .tit>li {
+            width: 50px;
+            height: 50px;
+            border: 3px solid #fff;
+            border-radius: 50%;
+            /* 원 */
+            background-color: #f00;
+            font: bold 14px/50px Verdana;
+            color: #fff;
+            text-align: center;
+        }
+
+        /* 타이틀1 */
+        .t1 {
+            top: 5%;
+
+            /* flex box 설정 */
+            display: flex;
+
+            /* flex 옵션 */
+            justify-content: space-evenly;
+            /* 
+                justify-content 속성
+                - 수평정렬속성 (justify 양쪽정렬의 뜻)
+                1) flex-start : 왼쪽끝(기본값-normal)
+                2) flex-end : 오른쪽 끝
+                3) center : 중앙
+                4) space-around : 아이템 요소 양쪽에 같은 간격
+                                    (마진과 유사함)
+                5) space-between : 아이템 요소의 사이간격 일정
+                                    (처음과 끝이 구석에 붙어나옴)
+                6) space-evenly : 아이템 요소의 양쪽과 사이간격 일정
+                                    (ie미지원 - 엣지최신버전 지원)
+
+             */
+
+            align-items: center;
+            /* 
+                align-items 속성
+                - 수직정렬 속성(한줄로 셋팅된 경우!)
+                1) flex-start : 맨위(기본값-normal)
+                2) flex-end : 맨아래
+                3) center : 세로중앙
+                4) stretch : 세로방향 꽉채워서 늘림
+                            (단, height 크기가 auto여야함!!!)
+                5) baseline : 각 요소의 내부에 글자가 있다면
+                            글자 아래쪽 기준선으로 정렬됨
+                            (글자의 line-height를 변경해 보면됨)
+              */
+
+        }
+
+        /* 타이틀2 */
+        .t2 {
+            top: 20%;
+
+            /* flex box 설정 */
+            display: flex;
+
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        /* 하단로고바 */
+        .binfo {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 47px;
+            background-color: #da041c;
+            text-align: center;
+            box-sizing: border-box;
+            padding-top: 10px;
+        }
+
+        @media only screen and (max-width:500px) {
+
+            /* 전체 랩박스 */
+            #wrap{
+                position: fixed;
+                top: 46px;
+                bottom: 47px;
+                height: auto;
+            }
+
+            /* 타이틀박스 */
+            .t1, .t2 {
+                position: fixed;
+                top: 0;
+                width: 50%;
+                left: 0;
+                transform: none;
+                border: none;
+                background: #fff;
+                height: 26px;
+                padding: 10px 0;
+                /* 총높이 46px */
+            }
+            .t2{
+                left: 50%;
+            }
+
+            .tit>li{
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+            }
+
+            /* 파티션 방향변경 */
+            #wrap>ul{
+                flex-direction: column;
+            }
+
+            /* 첫번째 파티션 배경위치 */
+            #wrap>ul>li:nth-child(1){
+                background-position-y: 22%;
+            }
+
+            /* 각 파티션 타이틀 이미지 */
+            #wrap>ul>li>img:first-child{
+                width: auto;
+                height: 90%;
+            }
+
+            /* 각 파티션 로고 이미지 */
+            #wrap>ul>li>img:last-child{
+                width: auto;
+                height: 50%;
+                top: 50%;
+                left: 80%;
+            }
+
+
+
+        }
+        /* 모바일 미디어쿼리 */
+    </style>
+</head>
+
+<body>
+    <!-- 전체부모박스 -->
+    <div id="wrap">
+        <!-- 파티션박스 -->
+        <ul>
+            <li>
+                <img src="images/Lotte/m01_txtbox.png" alt="썸머페스티벌">
+                <img src="images/Lotte/m01_logo1.png" alt="어드벤처로고">
+            </li>
+            <li>
+                <img src="images/Lotte/m02_txtbox.png" alt="서울을 한눈에 담다">
+                <img src="images/Lotte/m04_logo.png" alt="서울스카이로고">
+            </li>
+            <li>
+                <img src="images/Lotte/m03_txtbox.png" alt="쉐어더드림">
+                <img src="images/Lotte/m03_logo.png" alt="아쿠아리움로고">
+            </li>
+            <li>
+                <img src="images/Lotte/m04_txtbox.png" alt="어린이왕국">
+                <img src="images/Lotte/m05_logo.png" alt="키즈파크로고">
+            </li>
+            <li>
+                <img src="images/Lotte/m05_txtbox.png" alt="워터파크">
+                <img src="images/Lotte/m02_logo.png" alt="워터파크로고">
+            </li>
+        </ul>
+
+        <!-- 타이틀박스1 -->
+        <ol class="tit t1">
+            <li>L</li>
+            <li>O</li>
+            <li>T</li>
+            <li>T</li>
+            <li>E</li>
+        </ol>
+
+        <!-- 타이틀박스2 -->
+        <ol class="tit t2">
+            <li>W</li>
+            <li>O</li>
+            <li>R</li>
+            <li>L</li>
+            <li>D</li>
+        </ol>
+    </div>
+
+    <!-- 하단로고바 -->
+    <footer class="binfo">
+        <img src="images/Lotte/lotte_logo.gif" alt="로고">
+    </footer>
+
+</body>
+
+</html>

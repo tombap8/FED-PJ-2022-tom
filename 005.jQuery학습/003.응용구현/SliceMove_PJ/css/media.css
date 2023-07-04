@@ -1,0 +1,70 @@
+@charset "utf-8";
+/*브라우저 다운로드 사이트 : 미디어쿼리 - media.css */
+
+/* 960px이하 미디어쿼리 */
+@media only screen and (max-width:960px) {
+
+    /* 1.높이값 지정해제하기
+    -보이는 화면기준이 아닌 자연스런 스크롤 생성하기 위해*/
+    html,
+    body,
+    .wrap,
+    .wrap > ul {
+        height: auto;
+        /*height:100%*/
+    }
+
+    /* 2.body에 스크롤 생성*/
+    body {
+        overflow: visible;
+        /*기본상태*/
+        /*overflow: hidden;*/
+    }
+
+    /* 3.flex설정 부모박스의 flex방향 세로로!*/
+    .wrap > ul {
+        flex-direction: column;
+    }
+
+    /* 4.flex박스 파티션 li요소의 높이값 지정*/
+    .wrap > ul > li {
+        flex: none !important;
+        /* 기존 flex:1 등분할을 없애야 height값이 적용됨 */
+        /* 제이쿼리 인트로때문에 최우선순위를 줌! */
+        height: 100vmax;
+        /*화면기준 vmax는 가로,세로길이중 큰쪽기준*/
+    }
+
+    /* 5.내용박스중 숨김 박스를 처음부터 보이게함 */
+    .cbox > li:nth-child(1),
+    .cbox > li:nth-child(3) {
+        opacity: 1;
+    }
+
+    /* 6. 작은 사이즈를 위한 조정:브라우저아이콘박스 */
+    .cbox > li:nth-child(2) {
+        top: 40%;
+    }
+
+    .cbox > li:nth-child(2) > h4 {
+        margin-top: 0;
+    }
+
+    /*7. 작은타이틀 모바일용 보이기/데스크탑용 숨기기*/
+    /* 박스조정도 같이! */
+    .top h2{
+        width: 60vw;
+        margin: 0 auto;
+    }
+    .mb {
+        display: inline;
+    }
+    .dt{
+        display: none;
+    }
+
+
+
+}
+
+/*960px이하 미디어쿼리*/

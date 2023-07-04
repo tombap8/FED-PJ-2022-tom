@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexible Gallery</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            /* height: 100%; */
+            /* html,body의 높이값 auto로! */
+        }
+
+        /* 갤러리 상단박스 */
+        .top {
+            position: relative;
+            width: 980px;
+            max-width: 100%;
+            height: 14vh;
+            margin: 0 auto;
+            border-bottom: 2px solid #222;
+        }
+
+        /* 갤러리 타이틀 */
+        .mtit {
+            position: relative;
+            /* 부모자격 */
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            font: 2.8rem/12vh "맑은 고딕";
+        }
+
+        /* 포토정보박스 */
+        .pinfo {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            line-height: 1rem;
+        }
+
+        .pinfo i {
+            font-style: normal;
+            color: red;
+        }
+
+        .link {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            font: 1.2rem/14vh "맑은 고딕";
+        }
+
+        .link a {
+            color: #222;
+            text-decoration: none;
+        }
+
+        /* 이동꺽쇠 */
+        .link a span {
+            font-size: 2.3rem;
+            transform: scaleX(.5) translateY(3px);
+            display: inline-block;
+        }
+
+        .rps {
+            right: 0;
+        }
+
+        /* 갤러리박스 */
+        #gallery {
+            display: flex;
+            /* 플렉스박스 */
+            width: 1000px;
+            max-width: 100%;
+            margin: 0 auto;
+            margin-bottom: 150px;
+        }
+
+        /* 갤러리 트랙 */
+        .track {
+            flex: 1;
+        }
+
+        /* 각 갤러리박스 공통 */
+        .photobox {
+            position: relative;
+            /* 부모자격 */
+            width: 94%;
+            cursor: pointer;
+            margin: 3%;
+            overflow: hidden;
+            /* 자식요소숨김 */
+        }
+
+        .photobox img {
+            width: 100%;
+            /* height설정없이 자동으로! */
+        }
+
+        /* 커버 */
+        .cover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            opacity: 0.5;
+        }
+
+        /* 이미지설명박스 */
+        .txt {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            color: #fff;
+            font: 0.68rem/4.68rem sans-serif;
+            /* 0.68rem=11px, 4.68rem=75px */
+            text-align: center;
+            white-space: nowrap;
+            /* 줄바꿈방지 */
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        /* IR 클래스 */
+        .ir {
+            display: block;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+        }
+
+        /* 큰 이미지 배경박스 */
+        #bgbx {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(255, 255, 255, 0.9);
+            display: none;
+            /* 처음에 안보임 */
+        }
+
+        /* 이동버튼 공통 */
+        .abtn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            /* 세로중앙이동 */
+            width: 56px;
+            height: 111px;
+            background: url(images/mv_btns.png) no-repeat;
+        }
+
+        /* 오른쪽버튼 */
+        .rb {
+            right: 5%;
+            background-position: 0 -100px;
+        }
+
+        .rb:hover {
+            background-position: -167px 0;
+        }
+
+        /* 왼쪽버튼 */
+        .lb {
+            left: 5%;
+            background-position: -232px 0;
+        }
+
+        .lb:hover {
+            background-position: 0 -221px;
+        }
+
+        /* 닫기버튼 */
+        .cbtn {
+            position: absolute;
+            top: 5%;
+            right: 5%;
+            width: 40px;
+            height: 39px;
+            background: url(images/mv_btns.png) no-repeat;
+            background-position: -129px -342px;
+
+            /* 트랜지션 */
+            transition: transform .3s;
+        }
+
+        /* 닫기버튼 오버시 */
+        .cbtn:hover {
+            transform: rotate(-90deg);
+        }
+
+        /* 큰 이미지박스 */
+        #imbx {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* 정중앙이동 */
+
+            height: 60vmin;
+            /* vmin은 보이는 화면에서 가로/세로중 작은쪽기준! */
+            display: none;
+            /* 처음에 안보임 */
+        }
+
+        /* 큰 이미지 */
+        #imbx img {
+            height: 100%;
+        }
+
+/* 미디어쿼리 */
+@media only screen and (max-width:850px) {
+    .top{
+        height: 20vh;
+    }
+    .mtit{
+        font-size: 2rem;
+    }
+    .link{
+        line-height: 22vh;
+    }
+}/* 미디어쿼리 */
+
+    </style>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script>
+        $(function () { ///////// jQB ////////////////////
+
+            // 이미지 설명글 ////////////////////////
+            let itxt = [];
+            for (let i = 0; i < 52; i++) {
+                itxt[i] = "스타화보2021-0" + (i + 1);
+            } ///////// for문 : 이미지설명 배열 //////
+
+            ////////////////////////////////
+            // 1. 갤러리박스 코드 셋팅하기 ///
+            ////////////////////////////////
+
+            // 5개의 갤러리 박스생성하기
+            // 대상: #gallery
+            let gallery = $("#gallery");
+
+            // 각 3개의 트랙을 순서대로 돌면서 이미지를 넣어준다!
+
+            // 트랙구분 변수
+            let tnum = 1; // 트랙구분 class번호
+
+            for (let i = 0; i < 52; i++) {
+
+                gallery.find(".t" + tnum)
+                    .append(
+                        '<div class="photobox" data-seq="' + i + '">' +
+                        '    <img src="flexImg/' + (i + 1) + '.jpg" alt="fashion">' +
+                        '    <span class="txt">' + itxt[i] + '</span>' +
+                        '</div>'
+                    );
+
+                // 트랙번호 증가하기
+                tnum++;
+                if (tnum === 4) tnum = 1;
+                // 1~3까지만 반복!!!
+
+            } ///////// for문 //////////////
+
+
+            // 대상: .photobox
+            let ptbx = $(".photobox");
+
+            // 포토박스 공통 대상
+            let imbx = $("#imbx");
+            let bgbx = $("#bgbx");
+
+            // 포토박스 클릭시 순번
+            let pseq;
+
+            // 포토박스 개수
+            let pcnt = ptbx.length;
+            // console.log("포토박스개수:"+pcnt);
+
+            ////////////////////////////////////////////
+            // 3. 갤러리 박스 클릭시 큰 이미지 보이기 /////
+            ////////////////////////////////////////////
+            ptbx.click(function () {
+
+                // 0. 포토박스 순번 변수에 할당!
+                // 트랙이 생겼으므로 이미 할당된 순번을 읽어온다!
+                // for문으로 생성시 data-seq에 순번이 있음!
+                pseq = $(this).attr("data-seq");
+                // console.log("포토박스순번:"+pseq)
+
+                // 1. 클릭된 박스의 하위 img 요소의 src 읽어오기
+                // 속성읽기: attr(속성명)
+                let isrc = $("img", this).attr("src");
+                // console.log("이미지경로:" + isrc);
+
+                // 2. 이미지경로 변경하기 -> smGallery는 불필요!
+                // -> 큰 이미지경로는 mob폴더경로만 없으면됨!
+                // isrc = isrc.replace("/mob", "");
+                // console.log("변경경로:" + isrc);
+
+                // 3. 이미지경로 적용하기
+                // 대상: 큰 이미지 -> #imbx img
+                // 사용메서드: attr(속성명,속성값)
+                imbx.find("img").attr("src", isrc);
+
+                // 4. 이미지 설명 넣기
+                // 대상: 큰 이미지박스
+                // -> 해당설명글은 배열변수에 이미셋팅됨!
+                // -> 포토박스의 순번은? pseq변수
+                imbx.find("h4").text(itxt[pseq]);
+
+                // 5. 큰 이미지박스, 큰 이미지배경 보이기
+                imbx.fadeIn(300);
+                bgbx.fadeIn(300);
+
+                // 6. 큰 이미지보기시 body의 스크롤막기
+                // $("body").css({
+                //     overflow: "hidden"
+                // }); ////// css ////////
+
+            }); ///////////// click ////////////////////
+            ////////////////////////////////////////////
+
+            /////////////////////////////////////////////
+            //////////// 4. 닫기버튼구현 /////////////////
+            /////////////////////////////////////////////
+            $(".cbtn")
+                .hover(
+                    function () { // over
+                        $(this).animate({
+                            rotate: "90deg"
+                        }, 100); ///// animate /////////
+                        // rotate속성은 회전기능
+                    },
+                    function () { // out
+                        $(this).animate({
+                            rotate: "0deg"
+                        }, 100); ///// animate /////////
+                    }) ////// hover //////
+                .click(function (e) {
+
+                    // 1. 기본이동막기
+                    e.preventDefault();
+
+                    // 2. 큰 이미지박스, 큰 이미지 배경 숨기기
+                    imbx.fadeOut(300);
+                    bgbx.fadeOut(300);
+
+                    // 3. body 스크롤막기 해제하기
+                    // $("body").css({
+                    //     overflow: "visible"
+                    // }); //////// css /////////
+
+                }); ///////////// click /////////////
+            /////////////////////////////////////////////
+
+            //////////////////////////////////////////////
+            /////// 5. 큰 이미지 변경 이동버튼 구현 ////////
+            //////////////////////////////////////////////
+            // 대상: .abtn
+            // 방향구분: 클릭된 버튼이 .rb인지 .lb인지 알아냄
+            // -> is() 메서드로 알아낸다!!!
+            $(".abtn").click(function (e) {
+
+                // 기본이동막기
+                e.preventDefault();
+
+                // 1. 버튼 구분하기 : is(".rb")는 오른쪽버튼인가?
+                let wbtn = $(this).is(".rb");
+                // console.log("오른쪽버튼?" + wbtn);
+
+                // 2. 버튼에 따라 포토박스 순번변경하기
+                // 원리: 포토박스 순번을 변경하여 이미지와 설명을 변경함
+                if (wbtn) { // 오른쪽버튼
+                    pseq++;
+                    if (pseq === pcnt) pseq = 0;
+                    // 한계수 - 순번이 개수와 같으면 처음으로
+                } ////////// if문 //////////////
+                else { // 왼쪽버튼
+                    pseq--;
+                    if (pseq === -1) pseq = pcnt - 1;
+                    // 한계수 - 순번이 0보다 작으로 끝번호로
+                } ////////// else문 ////////////
+
+                // console.log("변경순번:" + pseq);
+
+                // 3. 변경된 순번에 맞는 큰 이미지와 설명넣기
+                // 3-1. 큰 이미지 변경 : 이미지이름은 순번보다 1큼
+                imbx.find("img")
+                    .attr("src", "flexImg/" + (pseq + 1) + ".jpg");
+                // 3-2. 이미지 설명 변경 : 순번에 맞는 설명배열값 넣기
+                imbx.find("h4").text(itxt[pseq]);
+
+            }); ////////////// click /////////////////////
+            //////////////////////////////////////////////
+
+
+        }); /////////////////// jQB ////////////////////
+    </script>
+</head>
+
+<body>
+    <!-- 갤러리 타이틀 -->
+    <header class="top">
+        <h1 class="mtit">
+            화보 속 스타
+            <span class="pinfo"><i>17,232</i> PHOTOS</span>
+        </h1>
+        <div class="link rps">
+            <a href="#">
+                방송 현장포토 <span>＞</span>
+            </a>
+        </div>
+        <div class="link lps">
+            <a href="#">
+                <span>＜</span> 영화계 현장포토
+            </a>
+        </div>
+    </header>
+
+    <!-- 갤러리 박스 -->
+    <div id="gallery">
+        <div class="track t1"></div>
+        <div class="track t2"></div>
+        <div class="track t3"></div>
+    </div>
+
+    <!-- 큰이미지 배경박스 -->
+    <div id="bgbx">
+        <!-- 큰이미지 박스 -->
+        <div id="imbx">
+            <!-- 큰 이미지 -->
+            <img src="images/1.jpg" alt="큰 이미지">
+            <!-- 이미지 설명 -->
+            <h4></h4>
+        </div>
+
+        <!-- 오른쪽버튼 -->
+        <a href="#" class="abtn rb">
+            <span class="ir">오른쪽버튼</span>
+        </a>
+        <!-- 왼쪽버튼 -->
+        <a href="#" class="abtn lb">
+            <span class="ir">왼쪽버튼</span>
+        </a>
+        <!-- 닫기버튼 -->
+        <a href="#" class="cbtn">
+            <span class="ir">닫기버튼</span>
+        </a>
+        
+    </div>
+
+</body>
+
+</html>

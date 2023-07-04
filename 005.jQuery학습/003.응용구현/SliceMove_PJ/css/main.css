@@ -1,0 +1,449 @@
+@charset "utf-8";
+/*브라우저 다운로드 사이트 메인 CSS - main.css*/
+
+/*공통 CSS*/
+html,body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body{
+    overflow: hidden;
+    font-family: Helvetica,Arial,sans-serif;
+}
+
+ul,ol{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+h1,h2,h3,h4,h5,h6{
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+}
+/*IR*/
+.bld{
+    display: block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+/*상단영역*/
+.top{
+    position: fixed;
+    width: 100%;
+    height: 70px;
+    color: #fff;
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+/*큰 타이틀*/
+.top h1{
+    font-size: 15px;
+    padding-top: 15px;
+}
+/*작은 타이틀*/
+.top h2{
+    font-size: 12px;
+}
+/*처음에 작은타이틀 모바일용 숨기기*/
+.mb{
+    display: none;
+}
+
+/*햄버거버튼*/
+#ham{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70px;
+    height: 70px;
+    font: 42px/70px Verdana;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+}
+
+/*GNB메뉴*/
+.gnb{
+    position: fixed;
+    top: 0;
+    left: -300px;
+    /*왼쪽에 나가있음!*/
+    width: 300px;
+    height: 100vh;
+    z-index: 99999;/*가장위!*/
+    /*outline: 3px dashed red;*/
+}
+.gnb ul{
+    width: 100%;
+    height: 100%;
+    background-color: #F2B635;
+}
+/*GNB List*/
+.gnb li{
+    position: relative;
+    left: -100%;
+    /*ul자식요소 왼쪽에 나가있음*/
+    width: 100%;
+    height: 15%;
+    /*
+        대부분(5개) 높이비율
+        15% * 5 = 75%
+    */
+    text-align: center;
+    font-weight: bold;
+    font-size: 13px;
+    /*outline: 3px dotted lime;*/
+}
+/*1,7번 li 높이조정*/
+.gnb li:nth-child(1),
+.gnb li:nth-child(7){
+    height: 7.5%;
+    /*
+        7.5% *2 = 15%
+    */
+}
+/*마지막 li 높이조정*/
+.gnb li:nth-child(8){
+    height: 10%;
+}
+/*메뉴 글자 a요소*/
+.gnb a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: #fff;
+    line-height: 13px;
+}
+/*메뉴 세로 중앙이동*/
+.gnb span{
+    position: relative;
+    top: 50%;
+    display: inline-block;
+    transform: translateY(-50%);
+    /*트랜스폼은 최소한 inline-block이어야함!
+    inline요소는 안먹힌다!*/
+}
+
+/*GNB메뉴 배경색*/
+.gnb li:nth-child(1) a{
+    background-color: #2c2c2c;
+}
+.gnb li:nth-child(2) a{
+    background-color: rgba(0, 0, 0, 0.2);
+    cursor: default;
+    /*"HOME PAGE"메뉴는 손가락표시 없앰!*/
+}
+.gnb li:nth-child(3) a{
+    background-color: #656565;
+}
+.gnb li:nth-child(4) a{
+    background-color: #545454;
+}
+.gnb li:nth-child(5) a{
+    background-color: #494949;
+}
+.gnb li:nth-child(6) a{
+    background-color: #3c3c3c;
+}
+.gnb li:nth-child(7) a{
+    background-color: #2c2c2c;
+}
+.gnb li:nth-child(8) a{
+    background-color: #333333;
+}
+
+
+
+/******** 개별디자인 **********/
+/*컨텐츠 전체박스*/
+.wrap{
+    position: relative;
+    left: 0;/*메뉴때문에 이동할 기준값!*/
+    width: 100%;
+    height: 100%;
+}
+.wrap>ul{
+    /*플렉스 박스!*/
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+/*파티션 박스*/
+.wrap>ul>li{
+    flex: 1;/*등분할!*/
+    overflow: hidden;
+    transition: all .3s ease-out;
+}
+
+/*인트로셋팅! class="on"을 .wrap에 추가하면 된다!*/
+.wrap.on>ul>li{
+    flex: 0;/*모두0*/
+    transition: none;
+}
+.wrap.on>ul>li:nth-child(1){
+    flex: 1;/*첫번째만 처음에 전체로 보임*/
+}
+
+
+/*1.크롬*/
+.wrap>ul>li:nth-child(1){
+    background-color: #f2b635;
+}
+/*2.파폭*/
+.wrap>ul>li:nth-child(2){
+    background-color: #f19a2a;
+}
+/*3.익스*/
+.wrap>ul>li:nth-child(3){
+    background-color: #00caff;
+}
+/*4.사파리*/
+.wrap>ul>li:nth-child(4){
+    background-color: #00a0e6;
+}
+/*5.오페라*/
+.wrap>ul>li:nth-child(5){
+    background-color: #f25648;
+}
+
+/*마우스 오버시 파티션 박스 확장하기~!*/
+.wrap>ul>li:hover{
+    flex: 2;/*2배크게~!*/
+    /*그라데이션 배경색넣기(원형: 반투명흰색->투명흰색)*/
+    /*closest-side at 50% 50% 중심에서 바깥쪽 경계선 안쪽*/
+    background-image: radial-gradient(closest-side at 50% 50%, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+}
+
+/******************* 컨텐츠 박스 *********************/
+.cbox{
+    position: relative;
+    top: 15%;
+    width: 270px;
+    height: 81%;
+    margin: 0 auto;
+    /*outline: 1px solid red;*/
+}
+
+/*공통 li*/
+.cbox > li{
+    text-align: center;
+    color: #fff;
+    /*트랜지션*/
+    transition: opacity .4s;
+}
+
+/*점유율, 버튼박스는 처음에 안보임*/
+.cbox >li:nth-child(1),
+.cbox >li:nth-child(3){
+    opacity: 0;
+}
+
+/*상위 파티션 li에 마우스 오버시 점유율, 버튼 박스 보이기*/
+.wrap>ul>li:hover .cbox > li:nth-child(1),
+.wrap>ul>li:hover .cbox > li:nth-child(3){
+    opacity: 1;
+}
+
+/*구성요소 디자인*/
+
+/*1. 점유율 숫자*/
+.cbox > li:nth-child(1) h2{
+    font-size: 58px;
+}
+/*2. 점유율 안내문구*/
+.cbox > li:nth-child(1) h4{
+    font-size: 12px;
+}
+/*3. 로고박스*/
+.cbox > li:nth-child(2) {
+    position: absolute;
+    top: 35%;
+    transform: translateY(-50%);
+    width: 100%;
+}
+/*4. 로고*/
+.logo{
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    background-image: url(../images/OB/browsers-bg.png);
+    background-repeat: no-repeat;
+    background-size: auto 200px;
+}
+
+/*크롬로고*/
+.google{
+    background-position: 0 0;
+}
+/*크롬로고 마우스 오버시*/
+.wrap > ul > li:hover .google{
+    background-position: 0 -100px;
+}
+/*파폭로고*/
+.firefox{
+    background-position: -100px 0;
+}
+/*파폭로고 마우스 오버시*/
+.wrap > ul > li:hover .firefox{
+    background-position: -100px -100px;
+}
+/*익스로고*/
+.ie{
+    background-position: -200px 0;
+}
+/*익스로고 마우스 오버시*/
+.wrap > ul > li:hover .ie{
+    background-position: -200px -100px;
+}
+/*사파리로고*/
+.safari{
+    background-position: -300px 0;
+}
+/*사파리로고 마우스 오버시*/
+.wrap > ul > li:hover .safari{
+    background-position: -300px -100px;
+}
+/*오페라로고*/
+.opera{
+    background-position: -400px 0;
+}
+/*오페라로고 마우스 오버시*/
+.wrap > ul > li:hover .opera{
+    background-position: -400px -100px;
+}
+
+/*5. 로고 타이틀*/
+.cbox > li:nth-child(2) > h4{
+    font-size: 12px;
+    margin-top: 30px;
+}
+
+/*6. 다운로드 버튼 박스*/
+.cbox > li:nth-child(3){
+    position: absolute;
+    top: 61%;
+    transform: translateY(-50%);
+    width: 100%;
+}
+/*7. 다운로드 버튼*/
+.btndown{
+    height: 57px;
+    padding: 0 48px;
+    white-space: nowrap;/*줄바꿈방지*/
+    /*가로크기는 유동적임*/
+    border: 3px solid #fff;
+    border-radius: 30px;
+    color: #fff;
+    background-color: transparent;
+    font: bold 15px/15px Verdana;
+    cursor: pointer;/*손가락모양*/
+    margin-top: 60px;
+    
+}
+/*버튼에 마우스 오버시 배경색*/
+.btndown:hover{
+    background-color: #fff;
+}
+
+/*크롬버튼 오버시 글자색*/
+.btnC:hover{
+    color: #f2b635;
+}
+
+/*파폭버튼 오버시 글자색*/
+.btnF:hover{
+    color: #f19a2a;
+}
+
+/*익스버튼 오버시 글자색*/
+.btnI:hover{
+    color: #00caff;
+}
+
+/*사파리버튼 오버시 글자색*/
+.btnS:hover{
+    color: #00a0e6;
+}
+
+/*오페라버튼 오버시 글자색*/
+.btnO:hover{
+    color: #f25648;
+}
+
+/*8. 다운로드 버전글자박스*/
+.cbox > li:nth-child(3) > h5{
+    font-size: 10px;
+    line-height: 30px;
+}
+
+/*9. 추가문구*/
+.cbox > li:nth-child(3) > h6{
+    font-size: 9px;
+    line-height: 10px;
+    color: #a3ecff;
+}
+
+/*10. 가용시스템박스*/
+.cbox > li:nth-child(4) {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+/*11. 가용시스템 타이틀*/
+.cbox > li:nth-child(4) > h5{
+    font-size: 10px;
+}
+/*12. 가용시스템 표시박스*/
+.cbox > li:nth-child(4) > ul{
+    display: flex;
+    justify-content: center;
+    width: 135px;
+    margin: 10px auto;
+}
+
+/*13. 가용시스템 li*/
+.cbox > li:nth-child(4) > ul > li{
+    width: 25px;
+    height: 25px;
+    margin: 0 10px;
+    background-image: url(../images/OB/operatingsystems-bg.png);
+    background-repeat: no-repeat;
+    background-size: auto 25px;
+}
+/*시스템별 배경이미지 위치변경*/
+/*
+    아래에서 말단 클래스명으로 배경위치를 잡은 것이
+    적용되려면 공통 설정시 배경위치를 잡지 않으면 된다!
+    (위에서 background로 한꺼번에 설정하지 말것!)
+*/
+/*윈도우*/
+.win{
+    background-position: 0 0;
+}
+/*맥*/
+.mac{
+    background-position: -25px 0;
+}
+/*리눅스*/
+.lin{
+    background-position: -50px 0;
+}
+
+
+
+
+
+
+
+
+
+

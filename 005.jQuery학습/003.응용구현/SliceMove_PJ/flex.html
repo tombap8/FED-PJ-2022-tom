@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Display</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            /* 보이는 화면기준 */
+        }
+
+        ul,
+        ol {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        /* 전체부모 */
+        #wrap {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* ul 파티션 부모박스 */
+        #wrap>ul {
+            display: flex;
+            /* 
+                [ flex 란? ]
+                - 가변적인 자식요소를 컨트롤 하기 위해 CSS3에서 
+                새롭게 선보인 display 기술
+                - 자식요소를 같은 비율 혹은 다른비율로 분할이 쉽다
+                - 자식요소의 순서를 일괄 변경할 수 있다
+                - 무엇보다도 블록요소를 옆으로 흐르게 하는데 탁월하다!
+                [ 셋팅법 ]
+                - 옆으로 흐르게 할 부모요소에 display:flex로 설정함
+                - 자식요소의 flex:1 설정하면 등분할 된다!
+             */
+            flex-direction: row;
+            /* 
+                flex-direction 속성은 진행방향과 순서를 설정함
+                1) row : 좌 -> 우(기본값)
+                2) row-reverse : 우 -> 좌
+                3) column : 위 -> 아래
+                4) column-reverse : 아래 -> 위
+             */
+
+
+            width: 100%;
+            height: 100%;
+        }
+
+        /* 파티션 li공통 */
+        #wrap>ul>li {
+            flex: 1;
+            /* 
+                flex 속성을 하나만 쓰면 3가지가 모두 셋팅된다!
+                flex: flex-grow flex-shrink flex-basis;
+                flex: 1 숫자하나만 쓰면
+                flex: 1 1 0 으로 설정한 것과 같다!
+                -> 가로로 등분할 되는 이유다!
+             */
+        }
+
+        /* 각 파티션 li */
+        #wrap>ul>li:nth-child(1) {
+            background: 
+            url(./images/Lotte/m01_bg.jpg) no-repeat center/cover;
+        }
+        #wrap>ul>li:nth-child(2) {
+            background: 
+            url(./images/Lotte/m02_bg.jpg) no-repeat center/cover;
+        }
+        #wrap>ul>li:nth-child(3) {
+            background: 
+            url(./images/Lotte/m03_bg.jpg) no-repeat center/cover;
+        }
+        #wrap>ul>li:nth-child(4) {
+            background: 
+            url(./images/Lotte/m04_bg.jpg) no-repeat center/cover;
+        }
+        #wrap>ul>li:nth-child(5) {
+            background: 
+            url(./images/Lotte/m05_bg.jpg) no-repeat center/cover;
+        }
+
+        /* 중앙타이틀 공통 */
+        .tit{
+            /* 일반설정 */
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            /* 가로중앙이동 */
+            width: 500px;
+            height: 100px;
+            border: 5px double #fff;
+        }
+
+        /* 타이틀 하위 li */
+        .tit>li{
+            width: 50px;
+            height: 50px;
+            border: 3px solid #fff;
+            border-radius: 50%;/* 원 */
+            background-color: #f00;
+            font: bold 14px/50px Verdana;
+            color: #fff;
+            text-align: center;
+        }
+
+        /* 타이틀1 */
+        .t1{
+            top: 5%;
+
+            /* flex box 설정 */
+            display: flex;
+
+            /* flex 옵션 */
+            justify-content: space-evenly;
+            /* 
+                justify-content 속성
+                - 수평정렬속성 (justify 양쪽정렬의 뜻)
+                1) flex-start : 왼쪽끝(기본값-normal)
+                2) flex-end : 오른쪽 끝
+                3) center : 중앙
+                4) space-around : 아이템 요소 양쪽에 같은 간격
+                                    (마진과 유사함)
+                5) space-between : 아이템 요소의 사이간격 일정
+                                    (처음과 끝이 구석에 붙어나옴)
+                6) space-evenly : 아이템 요소의 양쪽과 사이간격 일정
+                                    (ie미지원 - 엣지최신버전 지원)
+
+             */
+
+             align-items: center;
+             /* 
+                align-items 속성
+                - 수직정렬 속성(한줄로 셋팅된 경우!)
+                1) flex-start : 맨위(기본값-normal)
+                2) flex-end : 맨아래
+                3) center : 세로중앙
+                4) stretch : 세로방향 꽉채워서 늘림
+                            (단, height 크기가 auto여야함!!!)
+                5) baseline : 각 요소의 내부에 글자가 있다면
+                            글자 아래쪽 기준선으로 정렬됨
+                            (글자의 line-height를 변경해 보면됨)
+              */
+            
+        }
+
+        /* 타이틀2 */
+        .t2{
+            top: 20%;
+
+            /* flex box 설정 */
+            display: flex;
+
+            justify-content: space-between;
+            /* 사이간격일정 */
+            align-items: baseline;
+            /* 글자 아랫줄을 기준으로 정렬 */
+        }
+        .t2 li:nth-child(2){
+            line-height: 80px;
+        }
+        .t2 li:nth-child(4){
+            line-height: 30px;
+        }
+
+        /* 타이틀박스3 */
+        .t3{
+            top: 35%;
+
+            /* flex box 설정 */
+            display: flex;
+            align-items: center;
+        }
+        /* 3번째 li를 오른쪽 끝으로 보내기! 
+        -> 왼쪽마진값을 auto로 설정!!! */
+        .t3>li:nth-child(3){
+            margin-left: auto;
+        }
+
+        /* 타이틀박스4 */
+        .t4{
+            /* 일반설정변경 */
+            top: 5%;
+            left: 10%;
+            width: 150px;
+            height: 600px;
+
+            /* flex box 설정 */
+            display: flex;
+            flex-direction: column;
+            /* 세로방향 */
+            align-items: center;
+            /* align-items는 진행방향에 따라 
+            가로/세로 정렬방향이 달라진다 */
+        }
+        /* 4번째 li를 아래쪽 끝으로 보내기! 
+        -> 윗쪽마진값을 auto로 설정!!! */
+        .t4>li:nth-child(4){
+            margin-top: auto;
+        }
+
+        /* 타이틀박스5 */
+        /* flex 여러줄 설정하기 */
+        .t5{
+            /* 일반설정변경 */
+            top: 50%;
+            height: 300px;
+
+            /* flex box 설정 */
+            display: flex;
+
+            /* flex 옵션 - 랩핑!!! */
+            flex-wrap: wrap;
+            /* 
+                flex-wrap 속성
+                - 박스 가로크기 보다 아이템요소가 많을 경우
+                아랫줄로 줄바꿈하려면 wrap으로 설정한다!
+                기본값은 nowrap임
+
+                -> 이설정을 하지 않으면
+                자동적으로 가로크기를 줄여서 한줄에 오게한다!!!
+
+                그 이유는???
+                자식요소의 flex속성값으로 아래 3가지가 설정된다
+
+                1) flex-grow : 부모박스가 커질때 옵션(기본값0)
+                2) flex-shrink : 부모박스가 작아질때 옵션(기본값1)
+                3) flex-basis : 자체크기(기본값auto) -> width설정과 같음
+
+                -> 기본값 설정 중 flex-shrink가 1이기 때문에
+                0은 크기유지, 1은 크기자동변경
+                flex-grow : 0 -> 크기유지
+                flex-grow : 1 -> 부모박스 크기가 커지면 같이 커짐
+                flex-shrink : 0 -> 크기유지
+                flex-shrink : 1 -> 부모박스 크기가 작아지면 같이 작아짐
+             */
+
+             /* 수평간격일정하게 */
+             justify-content: space-around;
+             /* 여러줄일때 수직간격은? -> align-content로! */
+             align-content: space-evenly;
+             /* 
+                align-content 속성
+                - 수직정렬속성(여러줄일때!!!)
+                1) flex-start : 맨위(기본값-normal)
+                2) flex-end : 맨아래
+                3) center : 세로방향중앙
+                4) space-around : 아이템 요소 상하에 같은 간격
+                                    (마진과 유사함)
+                5) space-between : 아이템 요소의 상하간격 일정
+                                    (처음과 끝이 구석에 붙어나옴)
+                6) space-evenly : 아이템 요소의 상하와 사이간격 일정
+                                    (ie미지원 - 엣지최신버전 지원)
+              */
+
+        }
+        /* li의 양쪽 마진으로 한줄에 오는 개수를 
+        인위적으로 조정할 수 있다! */
+        .t5 li{
+            margin: 0 3%;
+        }
+
+        /* 타이틀박스6 */
+        /* 플랙스 랩핑박스에서 특정위치에서 줄바꿈하기 */
+        .t6{
+            /* 일반설정변경 */
+            top: 87%;
+            height: auto;
+
+            /* flex box 설정 */
+            display: flex;
+            flex-wrap: wrap;/* 줄바꿈 */
+            justify-content: space-between;
+        }
+        /* 내가 줄바꿈 하고 싶은 위치에 class 주기! */
+        .tit .brk{
+            flex-basis: 100%;
+            /* width값을 100%한 것과 같다! */
+            height: 0;
+            border: none;
+        }
+
+
+
+    </style>
+</head>
+
+<body>
+    <!-- 전체부모박스 -->
+    <div id="wrap">
+        <!-- 파티션박스 -->
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+        <!-- 타이틀박스1 -->
+        <ol class="tit t1">
+            <li>L</li>
+            <li>O</li>
+            <li>T</li>
+            <li>T</li>
+            <li>E</li>
+        </ol>
+
+        <!-- 타이틀박스2 -->
+        <ol class="tit t2">
+            <li>W</li>
+            <li>O</li>
+            <li>R</li>
+            <li>L</li>
+            <li>D</li>
+        </ol>
+
+        <!-- 타이틀박스3 -->
+        <ol class="tit t3">
+            <li>W</li>
+            <li>O</li>
+            <li>R</li>
+            <li>L</li>
+            <li>D</li>
+        </ol>
+
+        <!-- 타이틀박스4 -->
+        <ol class="tit t4">
+            <li>W</li>
+            <li>O</li>
+            <li>R</li>
+            <li>L</li>
+            <li>D</li>
+        </ol>
+
+        <!-- 타이틀박스5 -->
+        <ol class="tit t5">
+            <li>L</li>
+            <li>O</li>
+            <li>T</li>
+            <li>T</li>
+            <li>E</li>
+            <li>W</li>
+            <li>O</li>
+            <li>R</li>
+            <li>L</li>
+            <li>D</li>
+            <li>L</li>
+            <li>O</li>
+            <li>T</li>
+            <li>T</li>
+            <li>E</li>
+            <li>W</li>
+            <li>O</li>
+            <li>R</li>
+            <li>L</li>
+            <li>D</li>
+        </ol>
+
+        <!-- 타이틀박스6 -->
+        <ol class="tit t6">
+            <li>L</li>
+            <li>O</li>
+            <li>T</li>
+            <li>T</li>
+            <li>E</li>
+            <li class="brk"></li>
+            <li>W</li>
+            <li>O</li>
+            <li>R</li>
+            <li>L</li>
+            <li>D</li>
+        </ol>
+
+    </div>
+
+</body>
+
+</html>
