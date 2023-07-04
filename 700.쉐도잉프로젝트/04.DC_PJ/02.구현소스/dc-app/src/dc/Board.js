@@ -44,6 +44,12 @@ function Board() {
     // 상태값 : false - 로그아웃상태 / true - 로그인상태
     const [log, setLog] = useState(false);
 
+    // 쓰기버튼 출력여부상태 : 로그인사용자와 글작성자 일치시 true
+    const [wtmode,setWtmode] = useState(false);
+
+    // 수정모드에서 사용할 현재글 정보 셋팅하기 : [idx,uid,tit,cont]
+    const [currItem,setCurrItem] = useState([]);
+
     // Hook /////////////////////////////////////
 
     // 2. 로컬스토리지 변수를 설정하여 할당하기
