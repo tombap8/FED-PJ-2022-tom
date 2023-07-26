@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="fruits">
+        <p>     사과  </p>
+        <p>  배  </p>
+        <p>   오렌지  </p>
+    </div>
+
+    <script>
+        const fruits = document.querySelectorAll('.fruits p');
+        // const fruitArray = Array.from(fruits,fruit=>{
+        //     console.log(fruit);
+        //     return fruit.textContent;
+        // })
+        const fruitArray = Array.from(fruits,fruit=>fruit.textContent.trim());
+
+        console.log(fruitArray);
+
+        const name = "mytoto";
+        const person = {
+            [name] : '토토잠보',
+        }
+
+        console.log(person.mytoto);
+
+        const office1 = {
+            Tom : 'CEO',
+            Mark : 'CTO',
+            Mark : 'CIO',
+        }
+
+        for(let val in office1){
+            console.log(val);
+        }
+        
+        const office2 = {
+            [Symbol('Tom')] : 'CEO',
+            [Symbol('Mark')] : 'CTO',
+            [Symbol('Mark')] : 'CIO',
+        }
+        
+        for(let val in office2){
+            console.log(val);
+        }
+    </script>
+    
+</body>
+</html>
