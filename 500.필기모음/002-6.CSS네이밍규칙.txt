@@ -1,0 +1,225 @@
+[ CSS 네이밍 규칙 ]
+ 
+
+Javascript에서는 흔히 Camel Case로 불리는 컨벤션 규칙을 사용
+첫단어를 제외한 다음단어의 첫 글자는 대문자로 작성
+
+const myName = document.getElementById('...')
+ 
+
+하지만 CSS에서 카멜케이스 사용은 부적합
+
+ 
+
+BAD
+
+.selectBtn {
+	border: 1px solid blue;
+}
+ 
+
+GOOD
+
+.select-btn {
+	border: 1px solid blue;
+}
+ 
+ 
+
+[BEM 규칙]
+BEM은 Block, Element, Modifier 의 줄인 말로 일종의 네이밍 컨벤션
+
+컴포넌트 기반의 웹 개발론중 하나이다.
+ 
+
+BEM 규칙을 이용해 만든 네이밍은 
+직관적이고, 
+재사용성이 좋고, 
+중복을 방지할 수 있다.
+
+ 
+
+[Block]
+블록은 기능적으로 독립되어 재사용될 수 있는 컴포넌트 이다.
+
+ 
+
+[Element]
+요소는 블록에서 분리되어 사용할 수 없는, 블록의 일부분이다. 요소는 서로 중첩될 수 없다.
+
+두 개의 밑줄(underscore, __)로 표현된다.
+
+ 
+
+사용 예시) heaer__logo
+
+ 
+
+[Modifier]
+속성(Modifier)은 block이나 element 행동이나 상태 또는 외양을 정의하는 객체이다.
+
+ 
+
+속성의 경우 한개의 밑줄(_) 또는 하이픈(-)을 추가하여 표시한다. 
+(혹은 더블 하이픈 --을 사용하는 곳도 있다.)
+
+ 
+
+1. Boolean
+
+속성(Modifier)의 유무가 중요할때 사용된다.
+
+값이 상관 없을 때는 disabled로 표현된다.
+
+ 
+
+사용 예시)
+
+block-name_modifier-name
+block-name__element-name_modifier-name
+>> search-form__button_disabled
+
+ 
+
+2. Key-Value
+
+속성의 값이 중요할 때 사용된다.
+
+ 
+
+사용 예시)
+
+block-name_modifier-name_modifier-value
+block-name__element-name_modifier-name_modifier-value
+>> menu_theme_islands
+
+ 
+
+[좋은 네이밍을 만들기 위한 규칙들]
+
+1. 시작이름은 
+{영문 대문자}, 
+{숫자}, 
+{특수문자}
+로 시작할 수 없다. (파일 및 폴더 제외)
+
+잘못된 예
+
+Title_pop.html
+*-hidden-obj
+03_btn_more.gif
+ 
+
+[올바른 예]
+
+title-section
+
+
+
+2. 네이밍의 조합은 
+(형태)(의미)(순서)_(상태) 
+순으로 작성한다.
+
+
+잘못된 예
+
+cancel_btn_off_01.gif
+msgbox-off-toggle
+ 
+
+올바른 예
+
+btn_cancel_01_off.gif
+msgbox-toggle-off
+
+
+
+3. 네이밍 규칙의 언더스코어(_) 조합은 
+파일, 폴더, 이미지에 사용한다.
+
+
+잘못된 예
+
+btn-login-001-off.png
+ 
+
+올바른 예
+
+btn_login_001_off.png
+
+
+4. 하이픈을 사용한다.
+네이밍 규칙의 하이픈(-)조합 사용하는 것을 권장한다. 
+HTML 문서 안에서 언더스코어(_)의 조합은 
+form, input 엘리먼트 등의 name 어트리뷰트의 값을 
+사용하는 것을 권장한다. 
+이유는 클래스 네임이 서버사이드 스크립트의 변수와 
+자바스크립트의 변수 정의시 혼돈을 방지하기 위함이다.
+
+ 
+
+잘못된 예
+
+hidden_obj
+ 
+
+올바른 예
+
+hidden-obj
+
+
+5. id가 아닌 class로 사용하는 것을 권장한다.
+
+
+6.  숫자는 확장성을 고려한다.
+
+1, 2와 같은 한자리 정수는 사용하지 않으며 
+01, 02와 같이 사용을 권장한다. 
+대부분의 파일관리 유틸리티 프로그램들을 
+사용하여 파일의 이름으로 정렬할 때에 
+정렬의 순서를 보장하기 위함이다.
+
+ 
+
+잘못된 예
+
+cyber_center_1
+cyber_center_2
+ 
+
+올바른 예
+
+cyber_center_01
+cyber_center_02
+ 
+
+잘못된 예
+
+box-type01
+box-type02
+box-type03
+ 
+
+올바른 예
+
+box-type
+box-type02
+box-type03
+
+
+7.  레이아웃 예약어
+
+#wrapper - 페이지 전체 영역 그룹핑
+#header - 머리글 영역
+#container - 본문영역 그룹핑
+#content - 주용컨텐츠 영역
+#footer - 바닥글
+#popWrapper - 팝업 페이지 전체 영역 그룹핑
+#popHeader - 팝업 머리글 영역
+#popContainer - 팝업 본문영역 그룹핑
+#popContent -  팝업 주용컨텐츠 영역
+#popFooter - 팝업 바닥글
+#gnbNav - 글로벌 네이게이션 영역 메뉴
+#lnbNav - 로컬 네비게이션 영역의 메뉴
+#snbNav - 사이드 네이게이션 영역의 메뉴
+ 
