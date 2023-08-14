@@ -444,7 +444,7 @@
             함수명: 맘대로해라
             기능: 선택요소를 중앙으로 보낸다!
       **************************************************/
-     function 맘대로해라(헐){ // 헐 - 전달변수(순번값 들어옴)
+     function 맘대로해라(헐,헉스){ // 헐 - 전달변수(순번값 들어옴)
         // 1. 함수호출확인! + 전달값확인!
         console.log("나야나!!!",헐);
         // 콘솔로그에 값 합치기
@@ -460,6 +460,7 @@
         
         // 변수에 담긴 요소집합(컬렉션집합)을 확인
         console.log(멍청이);
+        멍청이.cssText
 
 
         // 기존 길게쓰는 방식:
@@ -468,10 +469,13 @@
 
         // 3. 변경내용 : 트랜지션으로 화면중앙으로 이동하기
         // -> .원이야 중에서 몇번째인지 헐...변수에 담김!
-        멍청이.style.transition = "1s ease-out";
-        멍청이.style.top = "50%";
-        멍청이.style.right = "50%";
-        멍청이.style.transform = "translate(50%,-50%)";
+        멍청이.style.transition = "1s ease-out,border-radius 1s 1s";
+        멍청이.style.top = "calc(100% - 200px)";
+        멍청이.style.right = "calc(100% - 200px - "+헐+"*200px)";
+        멍청이.style.borderRadius = "0";
+        멍청이.style.border = '10px ridge goldenrod';
+
+        멍청이.innerHTML = '<span>고흐<br>'+헉스+'</span>'
 
 
      } ///////////// 맘대로해라 함수 ///////////////////
@@ -511,6 +515,8 @@
         나야나.style.fontWeight = "bold";
         나야나.style.textShadow = "5px 5px 3px #000";
         나야나.style.lineHeight = "100vh";
+
+        console.log(window.innerHeight);
 
 
 
@@ -561,6 +567,7 @@
             /* 배경공통 */
             background-repeat: no-repeat;
             background-size: cover;
+            box-sizing: border-box;
         }
         /* 원모양 개별 셋팅 */
         .원이야:nth-child(1){
@@ -573,6 +580,16 @@
         }
         .원이야:nth-child(3){
             background-image: url(./images/03.png);
+        }
+        .원이야 span{
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            display: block;
+            font-weight: bold;
+            color: #fff;
+            font-size: 14px;
+            text-align: center;
         }
 
         /* 사각형으로 변할 원 */
@@ -603,12 +620,12 @@
     <!-- 원모양 박스 -->
     <div class="박스야">
         <!-- 원모양 -->
-        <div class="원이야" onmouseover="맘대로해라(0)"></div>
-        <div class="원이야" onmouseover="맘대로해라(1)"></div>
-        <div class="원이야" onmouseover="맘대로해라(2)"></div>
+        <div class="원이야" onmouseover="맘대로해라(0,'별이 빛나는 밤')"></div>
+        <div class="원이야" onmouseover="맘대로해라(1,'론강의 별이 빛나는 밤')"></div>
+        <div class="원이야" onmouseover="맘대로해라(2,'밤의 카페 테라스')"></div>
 
         <!-- 사각형으로 변할 원박스 -->
-        <div class="넌뭐냐" title="반드시 더블클릭 해주세요~!!!" ondblclick="사각사각()"></div>
+        <div class="넌뭐냐" title="오른쪽 버튼을 클릭 해주세요~!!!" oncontextmenu="사각사각()"></div>
 
     </div>
 
