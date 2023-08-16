@@ -11,7 +11,7 @@ const myName = document.getElementById('...')
 CSS에서 케믈케이스(Camel Case) 사용은 부적합!
 
 이유: 코딩시 아이디, 클래스 이름과 
-JS 변수, 함수 이름과 구분이 모호해진다!
+JS 변수, 함수 이름과 구분이 모호해짐!
  
 
 (나쁜예)
@@ -35,52 +35,51 @@ JS 변수, 함수 이름과 구분이 모호해진다!
 BEM(Block, Element, Modifier의 약어)은
 컴포넌트 기반의 웹 개발론의 이름규칙(Naming Rule)임!
  
-[BEM 규칙 이름의 특징]
+[ BEM 규칙 이름의 특징]
 1. 직관적이다
 2. 재사용성이 좋다
 3. 중복을 방지한다
 
 
 [Block]
-블록은 기능적으로 독립되어 재사용될 수 있는 컴포넌트
-
+	블록은 기능적으로 독립되어 재사용될 수 있는 컴포넌트
 
 [Element] : 두 개의 밑줄(underscore, __)로 표현
-요소는 블록에서 분리되어 사용할 수 없는, 
-블록의 일부분. 요소는 서로 중첩될 수 없음
+	요소는 블록에서 분리되어 사용할 수 없는, 
+	블록의 일부분. 요소는 서로 중첩될 수 없음
 
-사용예) header__logo
- 
+	사용예) header__logo 
 
 [Modifier] : 밑줄(_) 또는 하이픈(-)을 추가하여 표시(또는 더블 하이픈 --)
-속성(Modifier)은 block이나 element 작동형식, 상태 또는 디자인을 정의하는 객체
+	속성(Modifier)은 block이나 element 작동형식, 상태 또는 디자인을 정의하는 객체
 
-1. Boolean
-속성(Modifier)의 유무가 중요할때 사용
-값이 상관 없을 때는 disabled로 표현
+	1. Boolean
+	속성(Modifier)의 유무가 중요할때 사용
+	값이 상관 없을 때는 disabled로 표현
 
-사용예)
+	사용예)
 
-block-name_modifier-name
-block-name__element-name_modifier-name
->> search-form__button_disabled
+	block-name_modifier-name
+	block-name__element-name_modifier-name
+	>> search-form__button_disabled
 
- 
+	
 
-2. Key-Value
-속성의 값이 중요할 때 사용 
+	2. Key-Value
+	속성의 값이 중요할 때 사용 
 
-사용예)
+	사용예)
 
-block-name_modifier-name_modifier-value
-block-name__element-name_modifier-name_modifier-value
->> menu_theme_islands
+	block-name_modifier-name_modifier-value
+	block-name__element-name_modifier-name_modifier-value
+	>> menu_theme_islands
 
 *****************************************
 	[좋은 네이밍을 만들기 위한 규칙들]
 *****************************************
 
-@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 1. 이름 시작문자는 
 // 영문 대문자 //
 // 숫자 //
@@ -105,7 +104,8 @@ Title_pop.html
 title-section
 
 
-@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 2. 네이밍의 조합은 
 (형태)(의미)(순서)_(상태) 
 순으로 작성한다. -> 형의순상!!!
@@ -126,7 +126,8 @@ btn_cancel_01_off.gif
 msgbox-toggle-off
 
 
-@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 3. 네이밍 규칙의 언더스코어 또는 언더바(_) 조합은 
 파일, 폴더, 이미지에 사용한다.
 
@@ -141,6 +142,7 @@ btn-login-001-off.png
 btn_login_001_off.png
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 4. CSS에서는 하이픈(데쉬)을 사용하자!
 네이밍 규칙의 하이픈(-)조합 사용하는 것을 권장
 * 이유: 클래스 네임이 서버사이드 스크립트의 변수와 
@@ -158,11 +160,13 @@ hiddenObj
 
 hidden-obj
 
-@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 5. id말고 되도록 class로 사용하는 것을 권장
 -> 아이디는 정해진 상위 레이아웃요소에만 사용하자!
 
-@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 6.  숫자는 확장성을 고려하여 앞에 0을 사용하여 정렬에 대비한다!
 
 1, 2와 같은 한자리 정수는 사용하지 않으며 
@@ -198,7 +202,8 @@ box-type01
 box-type02
 box-type03
 
-@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 7.  레이아웃 예약어
 
 #wrapper - 페이지 전체 영역 그룹핑
@@ -206,11 +211,13 @@ box-type03
 #container - 본문영역 그룹핑
 #content - 주용컨텐츠 영역
 #footer - 바닥글
+
 #popWrapper - 팝업 페이지 전체 영역 그룹핑
 #popHeader - 팝업 머리글 영역
 #popContainer - 팝업 본문영역 그룹핑
 #popContent -  팝업 주용컨텐츠 영역
 #popFooter - 팝업 바닥글
+
 #gnbNav - 글로벌 네이게이션 영역 메뉴
 #lnbNav - 로컬 네비게이션 영역의 메뉴
 #snbNav - 사이드 네이게이션 영역의 메뉴
