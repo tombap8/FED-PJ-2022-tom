@@ -104,6 +104,24 @@ body{
     top: 100px;
     right: 50px;
     z-index: 10;
+    border: 3px dashed red;
+    border-radius: 50%;
+    padding: 20px;
+    background-color: #ffffffb0;
+}
+.link::before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 76px solid red;
+    position: absolute;
+    bottom: -17px;
+    left: -35px;
+    transform: rotate(52deg);
+    z-index: -1;
 }
 /* 링크 a */
 .link a{
