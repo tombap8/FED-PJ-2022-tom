@@ -37,13 +37,7 @@
             }
             .mover {
                 position: fixed;
-                z-index: 1;
-                /* 
-                    [ z-index 무버에 주는 기준 ]
-                    -> 오버시 위에 와야 하므로 가장 높게준                    
-                    z-index보다 크게 준다!(맨 아래 코딩했으므로
-                    같아도 위에 올 수 있다) - 일반요소0보다 크게함!
-                */
+                
                 width: var(--msz);
                 height: var(--msz);
                 border-radius: 50%;
@@ -58,6 +52,18 @@
                 */
                 mix-blend-mode: exclusion;
 
+                /* 아래쪽 요소 클릭가능하게 하는 속성!
+                기본값 : auto
+                기본적으로 어떤 요소위에 있을 경우
+                그 요소에 대한 이벤트가 마우스포인터
+                위치에서 발생함! 그런데 따라다니는
+                요소의 이벤트를 무시하고 아래쪽에
+                있는 요소를 활성화 하기위해
+                이 요소자체에 pointer-event 속성을
+                none으로 설정하면 이벤트가 무시되고
+                마치 없는 것처럼 사용됨! */
+                pointer-events: none;
+
                 /* 트랜지션
             - 이징을 반드시 ease-out을 준다
             따라다니는 반응이 시작할때 바로 움직여야함 */
@@ -66,11 +72,6 @@
             /* 컨텐츠박스 */
             .cont {
                 position: relative;
-                /* z-index: 99999; 
-                ((중요!!!))
-                -> 무버와 z-index로 위치관계 비교를 내부의 요소와
-                하려면 부모박스에 z-index를 주지 않아야 비교할 수 있다!
-                */
                 display: flex;
             }
             .cont > div {
@@ -86,12 +87,6 @@
             /* 컨텐츠 a링크 */
             .cont > div > a {
                 position: absolute;
-                /* 무버보다 위에 오도록 z-index주기
-                    a요소는 포지션이 없으면 z-index가 적용안됨
-                    만약 포지션이 없다면 relative라도 주도록한다!
-                    무버가 z-index:1 이므로 이것보다 크게함!
-                */
-                z-index: 2;
 
                 bottom: 10%;
                 left: 50%;
