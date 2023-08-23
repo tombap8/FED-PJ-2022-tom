@@ -19,15 +19,37 @@
 
             /* 파란색 가방 */
             .Bcase {
+                position: relative;
                 border: 20px ridge blue;
-                min-height: 250px;
+                min-height: 30vh;
                 /* 최소높이를 주면 설정높이를 유지하다가
             내용이 많아지면 높이값이 늘어남! */
+                border-radius: 20px;
+                width: 80vw;
+                margin: 0 auto;
             }
 
             .Bcase img {
                 width: 150px;
                 /* 크기줄임 */
+            }
+
+            .Bcase::after{
+                content: '';
+                position: absolute;
+                top: -100px;
+                left: 50%;
+                transform: translateX(-50%);
+                border: 30px ridge blue;
+                border-radius: 50px;
+                width: 20vw;
+                height: 100px;
+                clip-path: polygon(0 0,100% 0,100% 50%,0 50%);
+                
+            }
+            .tit,
+            .cbx{
+                text-align: center;
             }
         </style>
         <!-- JS코드구역 -->
@@ -140,11 +162,14 @@
     </head>
 
     <body>
-        <h1>for문 연습1 - 파란상자에 미니언즈 집어넣기</h1>
+        <h1 class="tit">for문 연습1 - 파란상자에 미니언즈 집어넣기</h1>
         <!-- data-cnt는 각 미니언즈를 몇개씩 넣을지에 대한 정보값임 -->
-        <img src="./images/Minions.png" alt="미니언즈" class="mini" title="나를 클릭하면 한개씩 가방에 들어갈꼬얌~!" data-cnt="1" />
-        <img src="./images/Minions.png" alt="미니언즈" class="mini" title="나를 클릭하면 다섯개씩 가방에 들어갈꼬얌~!" data-cnt="5" />
-        <img src="./images/Minions.png" alt="미니언즈" class="mini" title="나를 클릭하면 열개씩 가방에 들어갈꼬얌~!" data-cnt="10" />
+        <div class="cbx">
+            <img src="./images/Minions.png" alt="미니언즈" class="mini" title="나를 클릭하면 한개씩 가방에 들어갈꼬얌~!" data-cnt="1" />
+            <img src="./images/Minions.png" alt="미니언즈" class="mini" title="나를 클릭하면 다섯개씩 가방에 들어갈꼬얌~!" data-cnt="5" />
+            <img src="./images/Minions.png" alt="미니언즈" class="mini" title="나를 클릭하면 열개씩 가방에 들어갈꼬얌~!" data-cnt="10" />
+
+        </div>
 
         <!-- 
         [ 데이터를 저장하기위한 속성사용하기 ]
@@ -153,13 +178,15 @@
         <요소 data-내가만든이름="값">
      -->
 
-        <!-- 현재 미니언즈 개수표시 -->
-        <h2 class="stxt">현재 미니언즈 그룹개수 : <span>0</span>개</h2>
-
-        <!-- 리셋을 한다면 이렇게...! -->
-        <button class="rbtn">리셋</button>
+         <!-- 현재 미니언즈 개수표시 -->
+         <h2 class="stxt">현재 미니언즈 그룹개수 : <span>0</span>개</h2>
+ 
+         <!-- 리셋을 한다면 이렇게...! -->
+         <button class="rbtn">리셋</button>
 
         <!-- 파란상자 -->
-        <div class="Bcase"></div>
+        <div class="Bcase">
+
+        </div>
     </body>
 </html>
