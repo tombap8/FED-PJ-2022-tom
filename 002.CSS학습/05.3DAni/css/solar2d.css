@@ -2,6 +2,9 @@
 
 /* 태양계 2D 애니 - solar2d.css */
 
+/* 웹폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Text:wght@900&display=swap');
+
 /************************************************* 
     [ CSS에서 변수사용하기 ]
 
@@ -61,6 +64,23 @@ body{
 /* body *{
     outline: 1px dashed lightblue;
 } */
+
+
+/* 타이틀 */
+.tit {
+    position: relative;
+    z-index: 1;
+    /* 행성들보다 위 */
+
+    margin: 0;
+    padding: 0;
+    /* h1의 기본마진,패딩 없앰 */
+    font-family: 'Big Shoulders Stencil Text', cursive;
+    color: #fff;
+    font-size: 80px;
+    text-align: center;
+    padding-top: 20px;
+}
 
 /* 태양계박스 */
 #solar{
