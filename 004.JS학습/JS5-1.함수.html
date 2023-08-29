@@ -5,7 +5,47 @@
         <title>JS5-1. 함수(function)</title>
         <style>
             body {
-                background: url(https://images.adsttc.com/media/images/5f73/76e0/63c0/17bc/c900/04e8/large_jpg/HK_1_N3.jpg?1601402564) no-repeat fixed center/cover;
+                margin: 0;
+                min-height: 100vh;
+                /* 최소 높이로 보이는 화면크기만큼 지정하면
+                기본적으로 body가 보이는 화면을 유지하다가
+                컨텐츠가 많아져서 스크롤 생성시 body도 늘어남! */
+
+                /* background: url(https://images.adsttc.com/media/images/5f73/76e0/63c0/17bc/c900/04e8/large_jpg/HK_1_N3.jpg?1601402564) no-repeat fixed center/cover; */
+            }
+            /* 배경박스 */
+            .bgbox {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                z-index: -1;
+                /* body가 투명하므로 아래쪽에 내려가 있어도
+                배경은 보인다! -> 배경처리시 이렇게 하면됨! */
+            }
+            .bgbox ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                width: 100%;
+                height: 100%;
+            }
+            .bgbox li {
+                position: absolute;
+                /* 서로겹쳐짐 */
+                width: 100%;
+                height: 100%;
+                /* 투명하게 */
+                opacity: 0;
+                /* 트랜지션 */
+                transition: 0.5s ease-in-out;
+            }
+            .bgbox li.on {
+                /* 보이게함 */
+                opacity: 1;
+                /* 맨위로 오게함 */
+                z-index: 1;
             }
 
             h2 {
@@ -20,9 +60,7 @@
             }
         </style>
         <script>
-            // 온라인상 배경이미지 주소를 배열로 셋팅
-            const scene = ["https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Fsundaytimes%2Fprod%2Fweb%2Fbin%2F1ee63066-4239-11ec-b414-b1f6389ab345.jpg?crop=2667%2C1500%2C0%2C0&resize=1200", "https://www.asml.com/-/media/asml/images/careers/working-at-asml/south-korea/gyeongbokgung_palace_south_korea.jpg?mw=1920&rev=5154661f5c8943bb8c81419c01b327e2&hash=30B844A1D30F8A9B2BB0A2FE6377E953", "https://images.adsttc.com/media/images/5f73/76e0/63c0/17bc/c900/04e8/large_jpg/HK_1_N3.jpg?1601402564"];
-            /* 
+            /**************************************** 
             [ 함수란? ]
             - JS의 특정실행코드 담고 있는 메모리 공간
             - 특징: 함수는 호출시에만 실행된다!
@@ -162,88 +200,98 @@
                 function(){} 
                 아래와 같이 줄여씀!
                 ()=>{}
+        ***********************************************/
+
+            // 온라인상 배경이미지 주소를 배열로 셋팅
+            const scene = [
+                "https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Fsundaytimes%2Fprod%2Fweb%2Fbin%2F1ee63066-4239-11ec-b414-b1f6389ab345.jpg",
+                "https://cdn.britannica.com/57/75757-050-122EC2ED/Changgyong-Palace-background-Seoul.jpg",
+                "https://images.adsttc.com/media/images/5f73/76e0/63c0/17bc/c900/04e8/large_jpg/HK_1_N3.jpg",
+                "https://www.wallpaperflare.com/static/353/548/867/cityscape-seoul-south-korea-landscape-wallpaper-preview.jpg",
+                "https://wallpaperaccess.com/full/11675.jpg",
+                "https://wallpaperaccess.com/full/11676.jpg",
+                "https://wallpaperaccess.com/full/11678.jpg",
+                "https://wallpaperaccess.com/full/5480068.jpg",
+                "https://wallpaperaccess.com/full/11682.jpg",
+                "https://wallpaperaccess.com/full/5480079.jpg",
+            ];
+
+            /* 
+https://www.wallpaperflare.com/static/353/548/867/cityscape-seoul-south-korea-landscape-wallpaper-preview.jpg
+https://wallpaperaccess.com/full/11675.jpg
+https://wallpaperaccess.com/full/11676.jpg
+https://wallpaperaccess.com/full/11678.jpg
+https://wallpaperaccess.com/full/5480068.jpg
+https://wallpaperaccess.com/full/11682.jpg
+
         */
 
             /*////////////////////////////////
-            함수명: Korea
-            기능: 다른함수호출
-        */ ////////////////////////////////
+                함수명: Korea
+                기능: 다른함수호출
+            */ ////////////////////////////////
             function Korea(txt) {
                 // 1.함수호출,전달값 확인
-                alert(txt); // "우"
-
+                alert(txt); // '우'
                 // 2. 다른함수호출
-                let ri = Ri(txt + "리"); // "우리"전달
-
+                let ri = Ri(txt + "리"); // '우리'
                 // 3. 리턴값 찍기
-                alert(ri);
-                // "우리나라 대한민"
-
-                // 4. 리턴값 보내기
+                alert(ri); // '우리나라 대한민'
+                // 4. 리턴값 보내기! -> 호출한 곳으로!
                 return ri + "국 만세!!!";
-                // "우리나라 대한민국 만세!!!"
+                // '우리나라 대한민국 만세!!!' 리턴
             } ///// Korea함수 ////////////////
             //////////////////////////////////
 
             /*////////////////////////////////
-            함수명: Ri
-            기능: 다른함수호출
-        */ ////////////////////////////////
+                함수명: Ri
+                기능: 다른함수호출
+            */ ////////////////////////////////
             function Ri(txt) {
                 // 1.함수호출,전달값 확인
-                alert(txt); // "우리"
-
+                alert(txt); // '우리'
                 // 2. 다른함수호출
-                let na = Na(txt + "나"); //"우리나"전달
-
+                let na = Na(txt + "나"); // '우리나'
                 // 3. 리턴값 찍기
-                alert(na); // "우리나라 대한"
-
-                // 4. 리턴값 보내기
+                alert(na); // '우리나라 대한'
+                // 4. 리턴값 보내기! -> 호출한 곳으로!
                 return na + "민";
-                // "우리나라 대한민" -> 호출한 곳으로!!!
+                // '우리나라 대한민' 리턴
             } ///// Ri함수 ////////////////
             //////////////////////////////////
 
             /*////////////////////////////////
-            함수명: Na
-            기능: 다른함수호출
-        */ ////////////////////////////////
+                함수명: Na
+                기능: 다른함수호출
+            */ ////////////////////////////////
             function Na(txt) {
                 // 1.함수호출,전달값 확인
-                alert(txt); // "우리나"
-
+                alert(txt); // '우리나'
                 // 2. 다른함수호출
-                let ra = Ra(txt + "라"); //"우리나라"전달
-                // 변수에 함수를 담으면 그 함수가 리턴한 값이
-                // 변수에 할당된다!!!
-                // 보통 변수에 함수를 할당하면 이런 이유다!!!
-
-                // 3.리턴값 찍기
-                alert(ra); // "우리나라 대"
-
-                // 4.리턴값 보내기
+                let ra = Ra(txt + "라"); // '우리나라'
+                // 3. 리턴값 찍기
+                alert(ra); // '우리나라 대'
+                // 4. 리턴값 보내기! -> 호출한 곳으로!
                 return ra + "한";
-                // "우리나라 대한" -> 호출한 곳으로 간다!
+                // '우리나라 대한' 리턴
             } ///// Na함수 ////////////////
             //////////////////////////////////
 
             /*////////////////////////////////
-            함수명: Ra
-            기능: 다른함수호출
-        */ ////////////////////////////////
+                함수명: Ra
+                기능: 다른함수호출
+            */ ////////////////////////////////
             function Ra(txt) {
                 // 1.함수호출,전달값 확인
-                alert(txt); // "우리나라"
-
-                // 2.리턴값 보내기! -> 호출한곳으로!
+                alert(txt); // '우리나라'
+                // 2. 리턴값 보내기! -> 호출한 곳으로!
                 return txt + " 대";
-                // "우리나라 대";
+                // '우리나라 대' 리턴
             } ///// Ra함수 ////////////////
             //////////////////////////////////
 
             // 선언적함수보다 위에서 이 함수를 호출! //
-            callMe("함수위에서 호출!");
+            // callMe("함수위에서 호출!");
             // 호출됨! 어떻게? -> 미리로딩되었다는 증거!
             // 코드위에서 호출되므로 이것을 함수호출 호이스팅(Hoisting)
             // 이라고 부른다!
@@ -268,7 +316,7 @@
             }; /////// myHome 함수 ////////////////
 
             // 할당형 익명함수를 코드 아래에서 호출!
-            myHome("익명함수 아래에서 호출!");
+            // myHome("익명함수 아래에서 호출!");
             // 만약 함수를 처음부터 호출하는 경우라면 할당형 익명함수는
             // 반드시 생성후 아랫쪽에서 호출해야한다!
 
@@ -302,7 +350,7 @@
                 function hahaha(txt){코드}
 
 
-        ****************************************/
+            ****************************************/
 
             ///////////////////////////////////////////
             /// 일정시간 간격으로 배경이미지 변경하기 ////
@@ -310,73 +358,155 @@
             // 인터발함수 사용!!!
             // 구현내용: 3초 간격으로 배경이미지를 배열데이터 순서대로 변경
 
-            // 배열순번변수(배열은 0부터)
-            let seq = 0;
-            // 현재배열개수변수
-            const cnt = scene.length;
-            console.log("scene배열개수:", cnt);
-
-            setInterval(function () {
-                // 1. body에 배경이미지 변경
-                document.body.style.backgroundImage = `url(${scene[seq]})`;
-
-                // console.log("나,인터발!",seq);
-
-                // 다음번을 위해 1씩증가!
-                seq++;
-                // 한계수지정 : 배열끝번호 -> 배열개수-1
-                // 개수와 같은 수가 되면 처음 0번으로 돌려보냄!
-                if (seq === cnt) seq = 0;
-            }, 3000); /// 인터발함수 //////
-
             ///////////////////////////////////////////
             /// 일정시간 후 한번만 애국가 가사  /////////
             /// body에 h2태그로 넣기 ///////////////////
             ///////////////////////////////////////////
-            // setTimeout(함수,시간)
-            // 2초후 한번실행!
-            setTimeout(function () {
-                myFn("동해물과", "백두산이", "마르고 닳도록", "하느님이 보우하사","우리나라 만세!!!");
-            }, 2000); ///// 타임아웃 //////
 
-            /************************************************ 
-            함수명: myFn
-            기능: 파라미터 얼마든지 받아서 h2만들어 넣기
-        ************************************************/
+            /********************************************* 
+                함수명: myFn
+                기능: 파라미터 얼마든지 받아서 h2만들어 넣기
+            *********************************************/
             // 함수의 전달변수가 없어도 보내는 전달값이 있으면
-            // 함수의 arguments라는 전달변수배열객체에 값을 담는다!
+            // 함수의 arguments라는 전달변수인 [유사배열객체]에
+            // 값을 자동으로 담아준다!
+            
+            // [유사배열객체란? - 배열형식으로 생겼으나 배열이 
+            // 아니므로 배열 메서드를 직접 사용할 수 없다!]
+            // (1) 배열인지 여부검사 : Array.isArray(변수or값)
+            // -> 배열이면 treu / 아니면 false
+            // (2) 유사배열을 배열로 변경하는 메서드는? 
+            // -> Array.from(유사배열)
+            // (3) 기타유사배열 : html컬렉션 
 
-            // arguments는 익명함수에서 사용될 수 없다!
-            // 선언적함수, 할당형 익명함수에서는 arguments사용가능
-            // const myFn = () => {
-            // const myFn = function() {
-            function myFn() {
-                // 파라미터 전혀없음!!!
-                console.log("내함수!", arguments, typeof arguments, typeof scene);
+            // arguments 는 익명함수에서 사용가능함!
+            // 단, 화살표함수는 사용불가!
 
-                // 대상선정: body
-                const tg = document.body;
+            // const myFn = ()=>{
+            // const myFn = function (){
+            function myFn(){
+                // 파라미터가 전혀 없음!!!
+                console.log('내함수!', 
+                arguments,
+                typeof arguments,
+                'arguments는 배열인가?',Array.isArray(arguments),
+                typeof scene,
+                'scene는 배열인가?',Array.isArray(scene),
+                'arguments를 배열로 변경!',
+                Array.isArray(Array.from(arguments))
+                
+            
+                );
 
-                // 배열값 자동 돌리기
-                for (let i = 0; i < arguments.length; i++) {
-                    tg.innerHTML += 
+                // 대상선정: .letters
+                let letters = document.querySelector('.letters');
+                // body에 대상을 직접 추가하면
+                // 전체 DOM구조에 영향을 주므로
+                // 기존에 셋팅한 코드가 끊어질 수 있다!
+                // 따라서 변경요소는 처음부터 넣은
+                // 특정박스로 한정해 주는 것이 좋다!
+
+                for(let i=0;i<arguments.length;i++){
+                    letters.innerHTML +=
                     `<h2>${arguments[i]}</h2>`;
-                    // += 대입연산자로 기존값에 더함!
-                } //////////// for ////////
+                    // 기존body자식으로추가(+=대입연산자)
+                } ///////////// for ///////////////
 
-            } ///////////////// myFn함수 //////////////////////
+            } ///////////// myFn 함수 ////////////////////
+
+            // 타임아웃 함수를 사용하여 일정시간뒤 코드실하기
+            setTimeout(() => {
+                myFn('동해물과','백두산이','마르고','닳도록','하느님이','보우하사','우리나라','만세!');
+            }, 3000);
+
+
+
+            /////////// 로드구역 /////////////////////
+            window.addEventListener("load", function () {
+                console.log("로딩완료!");
+
+                // 1. 대상선정: .bgbox
+                let bgbox = document.querySelector(".bgbox");
+
+                // 2. 대상에 html 넣기
+                // html 넣을 변수
+                let hcode = "";
+
+                hcode += "<ul>";
+
+                // 반복코드 li는 for문으로!
+                // 명령문이 하나면 중괄호 생략가능!
+                // class='on'을 넣기위해
+                // 삼항연산자(비?집:놀이동산)를 사용
+                // i==0 이면 class='on'넣기
+
+                // li개수는 동적으로 scene 배열변수의
+                // 개수와 같게 생성하고 배경을 셋팅한다!
+
+                // scene 개수 변수
+                let scene_cnt = scene.length;
+                console.log('배경배열개수:',scene_cnt);
+
+                for (let i = 0; i < scene_cnt; i++){
+                    hcode += 
+                    `<li ${i == 0 ? "class='on'" : ""}></li>`;
+                } ///////////// for ///////////////
+
+                hcode += "</ul>";
+
+                // 대상넣기
+                bgbox.innerHTML = hcode;
+
+                // 배경 박스 li에 배경이미지 넣기
+                let bgli = bgbox.querySelectorAll("li");
+                for (let i = 0; i < bgli.length; i++) {
+                    bgli[i].style.background = 
+                    `url(${scene[i]}) no-repeat center/cover`;
+                } ////////// for ///////////////
+
+                // 배경이미지 순서대로 li에 클래스 on넣기
+                // 2초간격으로 계속실행 -> 인터발함수!
+
+                // li순번변수
+                let seq = 0;
+
+                setInterval(() => {
+                    // 1.순번증가 전 클래스 제거
+                    bgli[seq].classList.remove("on");
+
+                    // 2.순번증가
+                    seq++;
+
+                    // 3.한계수 체크(마지막번호+1->0번으로)
+                    // 마지막번호는 (배열개수-1)
+                    // 마지막번호다음은 개수다!
+                    if (seq == scene_cnt) seq = 0;
+
+                    // 4.다음해당순번 적용하기
+                    bgli[seq].classList.add("on");
+                }, 2000); ////// 인터발함수 ///////
+            });
+            /////////// 로드구역 /////////////////////
         </script>
     </head>
 
     <body>
+        <!-- 배경박스 -->
+        <div class="bgbox"></div>
+
+
+        <!-- 프로젝트 버튼 -->
         <button onclick="alert(Korea('우'))">우리나라 대한민국 만세 프로젝트 시작!</button>
         <!-- 
-        [JS 일반적인 실행순서]
-        1. 위에서 아래로
-        2. 이퀄 오른쪽에서 왼쪽으로
-        3. 소괄호 안에서 바깥으로
-        4. 함수바깥부터실행 호출시 함수실행
+            [JS 일반적인 실행순서]
+            1. 위에서 아래로
+            2. 이퀄 오른쪽에서 왼쪽으로
+            3. 소괄호 안에서 바깥으로
+            4. 함수바깥부터실행 호출시 함수실행
 
-     -->
+        -->
+
+        <!-- 애국가 가사 타이틀 넣기박스 -->
+        <div class="letters"></div>
     </body>
 </html>
