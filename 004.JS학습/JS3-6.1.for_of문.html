@@ -155,6 +155,24 @@
 
 
             *******************************************/
+           const wrap = qs('.wrap');
+           
+
+           const moving = qs('.flying-poster')
+
+            wrap.onmousemove = (e)=>{
+                console.log('x:',e.pageX,'/y:',e.pageY);
+                moving.style.top = (e.pageY-75)+'px';
+                moving.style.left = (e.pageX-100)+'px';
+            }
+
+            wrap.onmouseenter= ()=>{
+                moving.style.display='block';
+            }
+            wrap.onmouseleave= ()=>{
+                moving.style.display='none';
+            }
+
             }); //////////////// 로드구역 /////////////////////////////
             //////////////////////////////////////////////////////////
         </script>
@@ -181,6 +199,18 @@
 
             .wrap > div {
                 color: #444;
+            }
+
+            .flying-poster{
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 200px;
+                height: 150px;
+                z-index: -1;
+                background: url(./images/ala1.jpg);
+                transition: .2s ease-out;
+                display: none;
             }
 
             h1,
@@ -239,6 +269,8 @@
             <!--3.영화스토리-->
             <h3>영화스토리</h3>
             <div class="minfo"></div>
+
+            <div class="flying-poster"></div>
         </div>
     </body>
 </html>
