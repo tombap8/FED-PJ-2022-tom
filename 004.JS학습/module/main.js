@@ -17,6 +17,8 @@ import {
 // 메시지내용 구성함수 import
 import {message as msg} from "./msgFormat.js";
 
+// import domFn from "./com.js";
+
 /*************************************************** 
     
     [ import 형식 ]
@@ -46,6 +48,12 @@ import {message as msg} from "./msgFormat.js";
 // 1. 출력박스
 // (1) 타이틀 출력박스
 const tpart = document.querySelector(".tpart");
+
+// let my = domFn.qs('.tpart');
+// console.log('요기:',my);
+// domFn.addEvt(my,'mouseover',ttfn)
+// function ttfn (){alert(77)} 
+
 
 // (2) 내용출력박스
 const demo = document.querySelector("#demo");
