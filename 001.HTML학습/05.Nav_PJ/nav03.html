@@ -45,10 +45,304 @@
                 color: #fff;
             }
 
+            /* 1. 상단영역 */
+            /* 겉박스 */
+            #top {
+                position: relative;
+                /* 부모자격 */
+
+                /* 트랜지션: 속시이지 */
+                transition: 0.4s ease-in-out;
+            }
+            /* #top에 오버시 자기자신 */
+            #top:hover {
+                /* 배경색 변경 */
+                background-color: #fff;
+            }
+
+            /* #top 가상요소로 배경색넣기 */
+            #top::after {
+                content: "";
+                position: absolute;
+                top: 110px;
+                left: 0;
+                width: 100%;
+                height: 0;
+                background-color: #fff;
+                /* 트랜지션: 속시이지 */
+                transition: 0.4s ease-in-out;
+            }
+            /* #top오버시 가상요소 */
+            #top:hover::after {
+                height: 400px;
+                border-top: 1px solid #ccc;
+            }
+
+            /* 속박스 */
+            .top {
+                /* 플렉스박스 */
+                display: flex;
+                /* 진행방향 정렬 
+            - 양쪽끝 붙이고 사이간격일정 */
+                justify-content: space-between;
+
+                max-width: 1600px;
+                margin: 0 auto;
+
+                /* 플렉스 하위 div에 영향을 주는
+            높이값을 지정함! (세로중앙정렬) */
+                height: 110px;
+                /* 웹폰트 적용 */
+                font-family: "Maven Pro", "Noto Sans KR", sans-serif;
+            }
+            /* 상단영역 직계요소들 - 파티션 박스 */
+            /* .top > div {
+                outline: 2px dashed yellow;
+            } */
+
+            /* 로고 */
+            .logo {
+                /* 세로중앙이동 */
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            .logo img {
+                height: 50px;
+            }
+
+            /* 로고 두번째 이미지 처음에 숨김 */
+            .logo img:last-child,
+        /* .lang 두번째 이미지 처음에 숨김 */
+        .lang img:last-child,
+        /* .store 두번째 이미지 처음에 숨김 */
+        .store img:last-child,
+        /* .simg 두번째 이미지 처음에 숨김 */
+        .simg img:last-child,
+
+        /* #top오버시 첫번째 로고 숨기기 */
+        #top:hover .logo img:first-child,
+        /* #top오버시 .lang 첫번째 이미지 숨기기 */
+        #top:hover .lang img:first-child,
+        /* #top오버시 .store 첫번째 이미지 숨기기 */
+        #top:hover .store img:first-child,
+        /* #top오버시 .simg 첫번째 이미지 숨기기 */
+        #top:hover .simg img:first-child {
+                display: none;
+            }
+
+            /* #top오버시 두번째 로고 보이기 */
+            #top:hover .logo img:last-child,
+        /* #top오버시 .lang 두번째 이미지 보이기 */
+        #top:hover .lang img:last-child,
+        /* #top오버시 .store 두번째 이미지 보이기 */
+        #top:hover .store img:last-child,
+        /* #top오버시 .simg 두번째 이미지 보이기 */
+        #top:hover .simg img:last-child {
+                display: inline;
+            }
+
+            /* 네비게이션 박스 */
+            .gnb {
+                position: relative;
+                z-index: 1;
+                /* 플렉스박스 */
+                display: flex;
+                height: 110px;
+                overflow: hidden;
+                /* 트랜지션 */
+                transition: 0.4s ease-in-out;
+            }
+            /* #top오버시 GNB */
+            #top:hover .gnb {
+                height: 400px;
+            }
+
+            /* GNB 전체 a요소 오버시 공통 */
+            .gnb a:hover {
+                color: #f00 !important;
+            }
+
+            .gnb dl {
+                text-align: center;
+            }
+            .gnb dl + dl {
+                margin-left: 50px;
+            }
+            /* 최상위메뉴 : dt */
+            .gnb dt {
+                line-height: 110px;
+            }
+            .gnb dt a {
+                /* 트랜지션: 속시이지 */
+                transition: 0.4s ease-in-out;
+            }
+            /* #top오버시 dt a 글자색 변경 */
+            #top:hover .gnb dt a {
+                color: #222;
+            }
+            /* 첫번째 dt 이미지메뉴 a요소 */
+            .simg {
+                transform: translateY(22px);
+                display: inline-block;
+                /* 
+                아래의 형제 dd요소에 영향을 줌
+                vertical-align: -22px; */
+            }
+
+            /* 서브메뉴 : dd */
+            .gnb dd {
+                line-height: 40px;
+            }
+            .gnb dd a {
+                color: #555;
+                font-size: 14px;
+            }
+            /* dd첫번째 간격밀기 */
+            .gnb dd:first-of-type {
+                margin-top: 50px;
+            }
+            /* story의 마지막 dd변경 */
+            .gnb dl:first-child dd:last-of-type {
+                line-height: 20px;
+                padding-top: 10px;
+            }
+
+            /* 3. 기타파트 : .tlink */
+            .tlink {
+                /* 플렉스박스 */
+                display: flex;
+                list-style: none;
+
+                /* 세로중앙이동 */
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            /* 기타파트 이미지공통 */
+            .tlink img {
+                height: 30px;
+            }
+            /* 사이간격 */
+            .tlink li + li {
+                margin-left: 25px;
+            }
+
+            /* 기타파트 가상요소로 글자넣기 */
+            .lang::after {
+                content: "KOR";
+                color: #fff;
+                font-size: 12px;
+                margin-left: -12px;
+            }
+
+            .store::after {
+                content: "STORE";
+                color: #fff;
+                font-size: 12px;
+                margin-left: -22px;
+            }
+            /* 오버시 */
+            #top:hover .lang::after,
+            #top:hover .store::after {
+                color: #222;
+            }
+            /* 자체오버시 */
+            .lang:hover::after,
+            .store:hover::after {
+                color: #f00 !important;
+            }
         </style>
         <!-- JS코드구역 -->
         <script>
-           
+            /////// 로드구역 ////////////////////////
+            window.addEventListener("load", function () {
+                // 호출확인
+                console.log("로딩완료!");
+
+                ///////////////////////////////////////////
+                // 구현내용 : 메뉴 이미지 오버시 이미지 변경하기
+                ///////////////////////////////////////////
+                // 1. 대상선정:
+                // .simg img:last-child
+                // .lang img:last-child
+                // .store img:last-child
+                var tg = document.querySelectorAll(`
+                    .simg img:last-child,
+                    .lang img:last-child,
+                    .store img:last-child                
+                `);
+
+                console.log(tg);
+
+                // 2. 이벤트 설정 및 구현하기
+                // 대상의 수만큼 for문으로 설정함!
+                // for(시;한;증){코드}
+
+                // 한계수 셋팅 : 대상의 개수
+                var limit = tg.length;
+
+                // 오버시 / 아웃시 사용할 공통이미지변수
+                var csrc; // common src
+
+                for (var i = 0; i < limit; i++) {
+                    // console.log("나야나!",i);
+
+                    // 대상요소를 구체적으로 선택함
+                    // i는 0,1,2 순으로 들어옴 -> 순번!
+                    // tg에는 대상이 컬렉션집합으로 들어있음
+                    // tg.item(순번) / tg[순번]
+                    // 사용이벤트속성 : onmouseover / onmouseout
+
+                    ///// [ 대상에 마우스 오버시 ] //////
+                    tg[i].onmouseover = function () {
+                        // this키워드로 오버된 요소 자신의 정보를
+                        // 알아낸다!
+                        // this === tg[i]
+
+                        // 0. 아웃시 원본으로 돌아가기 위한
+                        // 원래이미지경로 저장하기
+                        csrc = this.src;
+                        console.log("원본이미지:", csrc);
+
+                        // 1. 이미지의 설명속성값을 읽어옴!
+                        // 이미지설명속성값으로 대상의 구분함!
+                        var ialt = this.alt;
+                        console.log("이미지설명:", ialt);
+
+                        // 2. 변경될 이미지의 경로를 대상별로 할당
+                        var isrc;
+                        // switch case문으로 분기!
+                        switch (ialt) {
+                            case "스토리 이미지":
+                                isrc = "./images/nav03/story_red_s.png";
+                                break;
+                            case "다국어아이콘":
+                                isrc = "./images/nav03/lang_i_on.png";
+                                break;
+                            case "스토아아이콘":
+                                isrc = "./images/nav03/store_i3_on.png";
+                                break;
+                        } //////// switch case문 /////
+
+                        console.log("변경이미지:", isrc);
+
+                        // 3. 할당된 isrc 이미지경로를 대상의 src에 넣기
+                        // setAttribute(속성명,값)
+                        this.setAttribute("src", isrc);
+                    }; /////// mouseover 이벤트함수 /////
+
+                    ///// [ 대상에 마우스 아웃시 ] //////
+                    tg[i].onmouseout = function () {
+                        // 원본이미지경로 확인
+                        console.log("아웃시확인:", csrc);
+
+                        // 원본이미지로 돌아가기
+                        this.setAttribute("src",csrc);
+
+                    }; ///////// mouseout 이벤트함수 ///////
+                } ///////// for문 ///////////
+            }); ////////// 로드구역 ////////////////
         </script>
     </head>
     <body>
