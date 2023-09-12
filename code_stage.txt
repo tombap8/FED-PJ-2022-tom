@@ -1,1 +1,15 @@
 // 여기에 임시 테스트 코드를 넣으세요!
+
+
+for(let x in mdata){
+  console.log(x,makeCode(x,1))
+  console.log(x,makeCode(mdata[x],1))
+}
+
+function makeCode(raw,seq){
+  let hcode = '';
+
+  if(seq==1) hcode = `<div>${raw+seq}</div>`;
+  else if(seq==2) 
+  return hcode;
+}
