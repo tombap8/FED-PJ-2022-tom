@@ -1,4 +1,4 @@
-// 데이터 처리하기 위한 JS - textData.js
+// 데이터 처리하기 위한 JS - text_data.js
 
 // 1. 중제목 데이터
 const mTitle = "모듈을 이용한 구현";
@@ -53,9 +53,9 @@ const mvData = [
     ],
 ];
 
-
-// 다중변수 전송 -> 중괄호사용, 콤마로 구분
-export {mTitle,sTitle,personInfo,mvData};
+// 파일에서 내보내기 셋팅하기!
+export {mTitle, sTitle, personInfo, mvData};
+// export default (v)=>"나야나!"+v;
 /******************************************** 
     [ export 형식 ]
 

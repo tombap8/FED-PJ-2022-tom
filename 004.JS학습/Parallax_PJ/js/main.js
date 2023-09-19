@@ -1,5 +1,5 @@
 // 패럴렉스 PJ JS - main.js
-
+import {startSS,setPos} from "./smoothScroll20.js";
 // 로드 이벤트 설정
 window.addEventListener("DOMContentLoaded", loadFn);
 
@@ -78,7 +78,7 @@ function loadFn() {
     // 스크롤바를 직접 잡고 움직일시 부드러운 스크롤 위치값 업데이트
     window.addEventListener("mouseup", () => {
         // 이것 안하면 다시 스크롤시 튐!
-        pos = window.scrollY;
+        setPos(window.scrollY);
     }); /////////// mouseup /////////////////
     // 키보드로 이동시 부드러운 스크롤 위치값 업데이트
     window.addEventListener("keyup", () => {
@@ -91,7 +91,7 @@ function loadFn() {
         // 맨위로 이동
         window.scrollTo(0,0);
         // 부드러운 스크롤 위치값 반영!
-        pos = 0; // 안하면 튄다!
+        setPos(0); // 안하면 튄다!
     }, 400);
 
 } ////////////// loadFn ///////////////////////////

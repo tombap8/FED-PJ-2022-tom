@@ -8,9 +8,8 @@ const message = (name,age) => `
 
 // 단일한 함수 내보내기!
 // export default message;
+// default를 사용한 내보내기일 경우
+// 받는 곳에서 변수명은 맘대로 사용가능함!!!
 
 export {message};
-// 만약 import에서 별칭을 쓰고 싶다면 default로 내보낼 수 없다!
-// default를 빼고 중괄호{}로 묶어서 내보내면 별칭사용가능!
-// 이 문법은 default를 사용해서 이름을 변경못하도록 이름을 특화시키는
-// 문법으로 볼 수 있다!
+// {} 중괄호 문법으로 내보내면 별칭은 as를 사용함

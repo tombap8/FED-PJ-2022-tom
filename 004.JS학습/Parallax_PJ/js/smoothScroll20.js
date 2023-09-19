@@ -4,12 +4,18 @@
 
 // startSS()함수를 호출하여 사용
 function startSS() {
-    new SmoothScroll(document, 60, 12)
+    new SmoothScroll(document, 30, 22)
 }
 
 // 전역변수 스크롤 위치값
 let pos;
 // 다른 코딩으로 스크롤 이동시 이 변수에 일치필요!!!
+
+// 전역변수 pos를 셋팅하는 함수(외부에서 이것사용!)
+function setPos(val){ // val - 위치값 전달변수
+    pos = val;
+}
+
 
 function SmoothScroll(target, speed, smooth) {
     if (target === document)
@@ -79,3 +85,7 @@ function SmoothScroll(target, speed, smooth) {
         );
     }()
 }
+
+
+// 내보내기 : 시작함수+위치값변경함수
+export {startSS,setPos};
