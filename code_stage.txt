@@ -11,3 +11,13 @@ const dataShinkai ={
   "간호사를 꿈꾸며 조용한 시골 마을에 살고 있던 소녀 스즈메는 신비로운 분위기를 풍기는 청년을 만나 문 너머의 존재들이 현실로 넘어오는 것을 막기 위한 여정을 떠난다."
 
 }; ///////////// dataShinkai ///////////////
+
+
+let newOne = previewData;
+console.log(
+  newOne.sort((x,y)=>{
+    let a = Number(x.idx);
+    let b = Number(y.idx);
+    return a == b?0:a>b?-1:1}));
+
+    console.log(previewData);
