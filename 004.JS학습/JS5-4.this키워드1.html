@@ -75,19 +75,19 @@
                 // 익명함수 메서드
                 fn1: function () {
                     // this는 객체 자신!
-                    console.log("1.객체안 익명메서드:", this);
+                    // console.log("1.객체안 익명메서드:", this);
                     // this로 내부 속성불러오기!
-                    console.log("2.객체안 익명메서드에서 객체속성읽기:", this.name);
+                    // console.log("2.객체안 익명메서드에서 객체속성읽기:", this.name);
                 },
                 // 화살표함수 메서드
                 fn2: () => {
                     // this는 window객체!
-                    console.log("3.객체안 화살표함수:", this);
+                    // console.log("3.객체안 화살표함수:", this);
                     // this로 내부 속성불러오기! -> 접근불가!
-                    console.log("4.객체안 화살표함수에서 객체속성읽기:", this.name);
+                    // console.log("4.객체안 화살표함수에서 객체속성읽기:", this.name);
                     // 이미 obj라는 객체가 전역등록되;어 객체명으로
                     // 속성에 접근할 수 있다!
-                    console.log("5.객체안 화살표함수에서 객체속성읽기:", obj.name);
+                    // console.log("5.객체안 화살표함수에서 객체속성읽기:", obj.name);
                 },
 
                 //// 객체obj 안에 다른 객체를 가지는 속성만들기
@@ -96,19 +96,19 @@
                     // 익명함수 메서드
                     fn3: function () {
                         // this는 객체 자신!
-                        console.log("6.객체안 객체의 익명메서드:", this);
+                        // console.log("6.객체안 객체의 익명메서드:", this);
                         // this로 내부 속성불러오기!
-                        console.log("7.객체안 객체의 익명메서드에서 객체속성읽기:", this.name);
+                        // console.log("7.객체안 객체의 익명메서드에서 객체속성읽기:", this.name);
                     },
                     // 화살표함수 메서드
                     fn4: () => {
                         // this는 window객체!
-                        console.log("8.객체안 객체의 화살표함수:", this);
+                        // console.log("8.객체안 객체의 화살표함수:", this);
                         // this로 내부 속성불러오기! -> 접근불가!
-                        console.log("9.객체안 객체의 화살표함수에서 객체속성읽기:", this.name);
+                        // console.log("9.객체안 객체의 화살표함수에서 객체속성읽기:", this.name);
                         // 이미 obj.newOne라는 객체가 전역등록되어 객체명으로
                         // 속성에 접근할 수 있다!
-                        console.log("10.객체안 객체의 화살표함수에서 객체속성읽기:", obj.newOne.name);
+                        // console.log("10.객체안 객체의 화살표함수에서 객체속성읽기:", obj.newOne.name);
                     },
                 },
             }; //////////////// obj 객체 ///////////////
@@ -120,19 +120,19 @@
             obj.newOne.fn4();
 
             // 2. 단독으로 전역객체(window)를 의미 확인!
-            console.log("11.단독으로:", this);
+            // console.log("11.단독으로:", this);
 
             // 3. 함수에서 전역객체(window)를 의미 확인!
             // (함수)() -> 함수자신을 바로 실행!
             // 익명함수
             (function () {
-                console.log("12.익명함수 바로실행:", this);
+                // console.log("12.익명함수 바로실행:", this);
                 // 엄격모드에서 this는 undefined임! window객체가 아님!
             })();
 
             // 화살표함수
             (() => {
-                console.log("13.화살표함수 바로실행:", this);
+                // console.log("13.화살표함수 바로실행:", this);
                 // 엄격모드에서도 화살표함수는 this가 window객체를 가리킴!
             })();
 
@@ -145,11 +145,11 @@
                 // 경계선 기준의 mouseenter/mouseleave는 이벤트버블링
                 // 발생이 없다!
                 qs(".pic").onmouseenter = function () {
-                    console.log("마우스오버!");
+                    // console.log("마우스오버!");
                     // 하위 요소의 클릭 이벤트 설정하기
                     // ㅎㅎ 버튼 : 일반익명함수로 생성
                     qs(".hh").onclick = function(){
-                        console.log("익명",this);
+                        // console.log("익명",this);
                         // 나는 누구인가 찍기
                         qs("#exp").innerText =
                         this.getAttribute("data-nm");
@@ -158,7 +158,7 @@
 
                     // ㅋㅋ 버튼 : 화살표함수로 생성
                     qs(".kk").onclick = () => {
-                        console.log("화살",this);
+                        // console.log("화살",this);
                         // 나는 누구인가 찍기
                         qs("#exp").innerText =
                         this.getAttribute("data-nm");
