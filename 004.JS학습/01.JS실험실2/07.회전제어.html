@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS실험실 : 회전제어</title>
+    <!-- 외부CSS -->
+    <link rel="stylesheet" href="./css/cube2.css">
+    
+    <!-- 외부JS -->
+    <script src="./js/cube2.js" type="module"></script>
+
+</head>
+<body>
+    <aside class="cat-info"></aside>
+<!-- 
+    [ 전체 랩핑박스 : .wrap ]
+    1. 화면고정필수(fixed)
+    2. 화면과 같은 크기설정
+    3. 스크롤 셋팅(랩핑박스에서 스크롤됨!)
+-->
+<div class="wrap">
+    <!-- 
+        [내부 컨텐트 내용박스 : .content ]
+        preserve-3d 적용범위박스 
+        + 높이값설정박스 
+        (중요: 여기에 preserve-3d 셋팅필수)
+    -->
+    <section class="content">
+        <!-- 큐브 : 소개포스터 -->
+        <div class="cube">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+        
+    </section>
+    
+</div>
+    
+</body>
+</html>

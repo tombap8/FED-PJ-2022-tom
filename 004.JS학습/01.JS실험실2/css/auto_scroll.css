@@ -1,0 +1,173 @@
+@charset "utf-8";
+/* 자동스크롤 CSS - auto_scroll.css */
+
+
+/* 기본 초기화 */
+html,
+body,
+h1,
+h2,
+h3,
+h4 {
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    /* 스크롤 애니메이션 설정 */
+    scroll-behavior: smooth;
+}
+
+/* 자동스크롤 위해 스크롤바 없애기 */
+html,body{
+    overflow: hidden;
+}
+
+/* 리스트 초기화 */
+ul,ol{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* a요소 초기화 */
+a{
+    text-decoration: none;
+    color: #fff;
+    text-shadow: 0 0 2px #777;
+}
+
+/* 공통 레이아웃 클래스 */
+/* 속박스 */
+.inbox {
+    max-width: 2000px;
+    margin: 0 auto;
+    /* outline: 2px dashed red; */
+}
+/* 페이지 속박스 */
+.page .inbox {
+    position: relative;
+    height: 100vh;
+}
+
+/* 배경공통 클래스 */
+.bg-com{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+/* 1. 상단영역 */
+#header {
+    position: fixed;
+    /* 상단고정-보이는화면기준 */
+    width: 100%;
+    z-index: 9999; /* 맨위! */
+    background-color: rgba(0, 0, 0, 0.7);
+}
+/* 상단영역 속박스 */
+.header {
+    position: relative;
+    /* 부모자격 */
+    height: 80px;
+}
+
+/* 1-1.로고 */
+#logo {
+    width: 250px;
+    height: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+#logo img {
+    width: 100%;
+    margin-top: -24px;
+}
+
+/* 1-2. GNB 메뉴 */
+.gnb {
+    position: absolute;
+    /* 부모는? .top */
+    top: 40px;
+    right: 2%;
+}
+/* 메뉴 플렉스박스 */
+.gnb ul {
+    display: flex;
+}
+.gnb li {
+    margin: 0 7px;
+}
+/* 메뉴에 마우스 오버시 + li.on 인경우 */
+.gnb a:hover,
+.gnb li.on a {
+    display: inline-block; /* 트랜스폼적용위해 */
+    color: lime;
+    text-decoration: overline; /* 윗줄 */
+    transform: scale(1.1);
+}
+
+/* 각 페이지 클래스 */
+.pg1{
+    background-image: url(../images/auto_scroll/pic1.png);
+}
+.pg2{
+    background-image: url(../images/auto_scroll/pic2.png);
+}
+.pg3{
+    background-image: url(../images/auto_scroll/pic3.png);
+}
+.pg4{
+    background-image: url(../images/auto_scroll/pic4.png);
+}
+.pg5{
+    background-image: url(../images/auto_scroll/pic5.png);
+}
+.pg6{
+    background-image: url(../images/auto_scroll/pic6.png);
+}
+.pg7{
+    background-image: url(../images/auto_scroll/pic7.png);
+}
+
+
+/* 인디케이터 */
+.indic {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    /* 세로중앙이동 */
+    left: 5%;
+    width: 20px;
+    /* outline: 3px dotted blue; */
+}
+
+.indic li {
+    width: 100%;
+    height: 10px;
+    margin: 3px 0;
+    cursor: pointer; /* 손가락모양 */
+}
+
+/* a요소 */
+.indic a {
+    display: block;
+    width: 100%;
+    height: 2px;
+    margin-top: 4px;
+    background-color: #ccc;
+    box-shadow: 1px 1px 1px #777;
+    transition: width 0.4s;
+}
+
+/* 마우스 오버시 + 클래스 "on" */
+.indic li:hover a,
+.indic li.on a {
+    width: 150%;
+    background-color: #fff;
+}
+
+/* 설명글자숨기기 */
+.indic span {
+    display: none;
+}

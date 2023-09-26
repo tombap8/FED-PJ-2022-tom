@@ -1,0 +1,83 @@
+@charset "utf-8";
+/* 따라다니는 원 CSS - following.css */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+/* 컨텐츠박스 */
+.cont-box {
+  display: flex;
+  flex-wrap: wrap;
+}
+/* 플렉스 자식박스 */
+.cont-box > div {
+  position: relative;
+  /* 부모자격 - a태그 */
+  text-align: center;
+  /* 가로크기 % */
+  flex-basis: calc(100% / 4);
+}
+/* 이미지를 배경처럼! */
+.cont-box > div > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* 링크 설정 */
+.link {
+  position: absolute;
+  bottom: 10%;
+  left: 0;
+  width: 100%;
+
+  /* 글자셋팅 */
+  color: #fff;
+  text-decoration: none;
+  font-size: min(24px, 2vw);
+  font-weight: bold;
+  text-shadow: 0 0 5px #000;
+  white-space: nowrap;
+}
+/* 마우스 오버시 */
+.link:hover {
+  color: red;
+}
+
+/* 변수셋팅 */
+:root {
+  --mover-size: 50px;
+}
+
+/* 따라다니는 원 */
+.mover {
+  position: absolute;
+  /* position: fixed; -> JS에서 clientY사용 */
+  top: 0;
+  left: 0;
+  width: var(--mover-size);
+  height: var(--mover-size);
+  border-radius: 50%;
+  background-color: aqua;
+
+  /* 자기자신요소는 이벤트가 무시되게 셋팅해야
+    아래쪽 요소를 만질 수 있음 */
+  pointer-events: none;
+
+  mix-blend-mode: exclusion;
+  /* 
+        [mix-blend-mode 속성]
+        - 겹치는 색상처리 블랜딩 모드속성
+        - 겹치는 요소의 색상을 섞어서
+        디스플레이 처리함
+        - 밝은색섞기(screen계열)
+        - 어두운색섞기(darken계열)
+    */
+
+  /* 트랜지션 : 이징은 ease-out */
+  transition: 0.4s ease-out;
+
+  /* 처음에 안보임 */
+  opacity: 0;
+}

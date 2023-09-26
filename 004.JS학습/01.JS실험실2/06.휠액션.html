@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <title>마우스 휠 액션 테스트</title>
+        <link href="https://fonts.googleapis.com/css?family=Hanalei&display=swap" rel="stylesheet" />
+        <style>
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                width: 100vw;
+                height: 100vh;
+                overflow: hidden;
+                background-color: darkblue;
+            }
+
+            /* 주인공 */
+            #mymy {
+                position: absolute;
+                top: 40%;
+                left: 100%;
+                width: 40vw;
+                border-radius: 50%;
+                transition: .4s;
+            }
+
+            ul#letterBox {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 1440px;
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            #letterBox li {
+                float: left;
+                width: 80px;
+                height: 80px;
+                /*            outline: 1px solid red;*/
+            }
+
+            #letterBox span {
+                display: block;
+                width: 100%;
+                height: 100%;
+                font: bold 70px/80px "Hanalei", cursive;
+                text-align: center;
+                /*변형*/
+                transform: translateY(-100%) scale(0.5);
+                opacity: 0;
+                /*트랜지션*/
+                transition: all 0.2s ease-out;
+            }
+
+            /*등장class*/
+            #letterBox li.on span {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+
+            .mr {
+                /*마진오른쪽*/
+                margin-right: 80px;
+            }
+        </style>
+
+        
+        <!-- 제이쿼리 라이브러리 CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+        <!-- 제이쿼리 UI CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+
+        <script>
+            /////// 전역변수 구역 ////////////////
+            var pno = 0; /// 현재 페이지번호 전역변수
+            const totnum = 16; /// 전체 페이지수 -> const 는 상수(변경불가)
+            var psts = 0; /// 광스크롤막기(0-허용,1-막기)
+            var colors = ["Chartreuse", "Chocolate", "Cyan", "DarkOrange", "Fuchsia", "GreenYellow", "HotPink", "MediumOrchid", "OrangeRed", "PaleGreen", "Plum", "SpringGreen", "Yellow", "Violet", "SkyBlue"];
+
+            ////////// jQB ///////////////////////////////////
+            $(function () {
+                /////// 마우스휠 이벤트 //////////////////////
+                $(document).on("wheel", function (e) {
+                    /////// 광스크롤 막기 //////////////////
+                    if (psts === 1) return true; //돌아가!
+                    psts = 1; //잠금!
+                    setTimeout(function () {
+                        psts = 0; //해제
+                    }, 200); //0.8초후 해제///////////
+                    /////////////////////////////////////
+
+                    let delta = event.wheelDelta;
+
+                    // 상태값을 만들어서 글자class 넣기/빼기
+                    var letter = 0; //0-넣기, 1-빼기
+
+                    //// 3. 마우스 휠 방향에 따라 페이지번호 증감! /////
+                    if (delta > 0) {
+                        //윗방향(양수)
+                        pno--;
+                        if (pno === -1) pno = 0; //한계수
+                        letter = 1; //빼기상태
+                    } //////// if문 ///////////////////
+                    else {
+                        // 아랫방향(음수)
+                        pno++;
+                        if (pno === totnum) pno = totnum - 1; // 한계수
+                        letter = 0; //넣기상태
+                    } ////////// else문 //////////////
+
+                    console.log("순번: " + pno);
+
+                    //// 4. 내맘대로~!!!!
+                    if(pno===1){
+                        my.css({left:"50%"})
+                    }
+                    else if(pno===2){
+                        my.css({
+                            top:"20%",
+                            left:"20%"
+                        })
+                    }
+                    else if(pno===3){
+                        my.css({
+                            transform: "rotate(180deg)"
+                        })
+                    }
+                    else if(pno===4){
+                        my.css({
+                            top:"100%"
+                        })
+                    }
+                    else if(pno===5){
+                        my.attr("src","https://cdn.ggilbo.com/news/photo/202007/783102_616528_5337.jpg");
+                        my.css({
+                            top:"50%",                            
+                            transform: "rotate(0deg)"
+                        })
+                    }
+                    else if(pno===6){
+                        my.attr("src","https://cdn.ggilbo.com/news/photo/202007/783102_616528_5337.jpg");
+                        my.css({
+                            left:"50%",                            
+                            transform: "translate(-50%,-50%)",
+
+                        })
+                    }
+                    else if(pno===7){
+                        my.css({
+                            left:"50%",                            
+                            transform: "translate(-50%,-50%) rotateY(90deg)",
+
+                        })
+                    }
+                    else if(pno===8){
+                        my.attr("src","https://img4.yna.co.kr/etc/inner/KR/2017/01/20/AKR20170120166300033_09_i_P2.jpg");
+                        
+                        my.css({                         
+                            transform: "translate(-50%,-50%) rotateY(0deg)",
+
+                        })
+                    }
+                    else if(pno===9){
+                        my.css({    
+                            borderRadius:"50%",   
+                            width:"40vw",                     
+                            transform: "translate(-50%,-50%) rotateY(90deg)",
+                            transition:`.4s`
+                        })
+                    }
+                    else if(pno===10){
+                        my.attr("src","https://img.postshare.co.kr/images/2021/09/29112128/maxresdefault-1024x576.jpg");
+                        
+                        my.css({ 
+                            width:"100vw",
+                            borderRadius:"0",                        
+                            transform: "translate(-50%,-50%) rotateY(0deg)",
+                            transition:`
+                            .4s,border-radius .8s .4s,
+                            width 5s 1.2s`
+
+                        })
+                    }
+                }); /////////// on 이벤트 함수 ///////////
+
+
+                // 대상선정: #mymy
+                const my = $("#mymy");
+
+                ///////////////////////////////////////////////////
+                ///////////////////////////////////////////////////
+            }); ////////////// jQB ///////////////////////////
+            /////////////////////////////////////////////////
+        </script>
+    </head>
+
+    <body>
+        <img id="mymy" src="./images/auto_scroll/m7.jpg" alt="이미지" />
+    </body>
+</html>

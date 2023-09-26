@@ -1,0 +1,130 @@
+@charset "utf-8";
+/* 스크롤 액션 CSS - scroll_action.css */
+
+/* 웹폰트 */
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap");
+body {
+  height: 350vh;
+  background-image: linear-gradient(
+    to bottom,
+    lightcoral,
+    lightgreen,
+    lightblue
+  );
+}
+/* 타이틀 */
+.tit {
+  position: fixed;
+  top: 0;
+  /* width: 100%; */
+  left: 50%;
+  transform: translateX(-50%);
+  /* 중앙이동하기 */
+  font-family: "Nanum Brush Script", cursive;
+  margin: 0;
+  padding: 3vh;
+  text-align: center;
+  font-size: 10vh;
+  z-index: 1;
+  text-shadow: 0 0 20px #ff0;
+}
+/* 스크롤액션박스 */
+.scact {
+  position: absolute;
+  top: 80vh;
+  right: 5vw;
+  width: 30vw;
+  height: 49vw;
+  border: 1px solid #000;
+  background-color: lightblue;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/* 스크롤등장박스1 */
+.sa1 {
+  background-image: url(https://file.mk.co.kr/meet/neds/2016/12/image_readtop_2016_867027_14817626712716670.jpg);
+}
+
+/* 스크롤등장박스2 */
+.sa2 {
+  top: 150vh;
+  background-image: url(https://upload.wikimedia.org/wikipedia/ko/thumb/f/f5/%EB%82%A0%EC%94%A8%EC%9D%98_%EC%95%84%EC%9D%B4.tif/lossless-page1-1200px-%EB%82%A0%EC%94%A8%EC%9D%98_%EC%95%84%EC%9D%B4.tif.png);
+  right: auto;
+  left: 5vw;
+}
+/* 스크롤등장박스3 */
+.sa3 {
+  top: 220vh;
+  background-image: url(http://www.ccoart.com/news/photo/202301/3855_8223_1250.jpg);
+}
+
+/* 스크롤 등장 초기화 클래스1 */
+.set-it1{
+  transform: translateY(20%);
+  opacity: 0;
+  transition: 1.2s ease-in-out;
+}
+/* 스크롤 등장 클래스 .on */
+.set-it1.on{
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* 스크롤 등장 초기화 클래스2 */
+.set-it2{
+  transform: rotate(360deg);
+  opacity: 0;
+  transition: 1.2s ease-in-out;
+}
+/* 스크롤 등장 클래스2 .on */
+.set-it2.on{
+  transform: rotate(0deg);
+  opacity: 1;
+}
+
+/* 스크롤 등장 초기화 클래스3 */
+.set-it3{
+  transform: translate(-100%,-100%) scale(0);
+  transition: 1.2s ease-in-out;
+}
+/* 스크롤 등장 클래스2 .on */
+.set-it3.on{
+  transform: translate(0,0) scale(1);
+}
+
+
+
+
+.stage {
+  display: flex;
+}
+
+/* 글자개별박스 셋팅 */
+.stage span {
+  font-size: 10vw;
+  /* 트랜스폼 적용위해 */
+  display: block;
+  /* 현재위치로 부터 이동 */
+  transform: translate(500%, -300%);
+  /* 투명도 0 */
+  opacity: 0;
+  /* 트랜지션: 속시이지 */
+  transition: 0.3s ease-in;
+}
+/* 스테이지로 들어오기 */
+.stage.on span {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+
+/* 떨어지는 여자 */
+#woman{
+  position: fixed;
+  top: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10vw;
+}

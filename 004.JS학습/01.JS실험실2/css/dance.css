@@ -1,0 +1,115 @@
+@charset "utf-8";
+/* 05. 중간스크롤가로이동 CSS - dance.css */
+
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+body {
+    overflow-x: hidden;
+    background-image: linear-gradient(to bottom, orange, lightpink, lightgreen);
+}
+
+/* GNB박스 */
+.gnb {
+    position: fixed;
+    top: 5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    /* 가로중앙이동 */
+    background-color: #fff;
+    border-radius: 40px;
+}
+/* 가상요소로 움직이는 배경박스 만들기 */
+.mbg {
+    position: absolute;
+    /* 변경내용: left,width
+    -> li의 수치를 기준함! */
+    left: 0;
+    width: 206px;
+    height: 78px;
+    background-color: #ffbe46;
+    border-radius: 40px;
+    /* 트랜지션 */
+    transition: .4s ease-in-out;
+    opacity: 0;/* 처음에 투명 */
+}
+.gnb ul {
+    position: relative;
+    /* 가상요소보다 위! */
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.gnb a {
+    text-decoration: none;
+    color: #000;
+    font-size: 24px;
+    display: block;
+    /* 줄바꿈방지 */
+    white-space: nowrap;
+    padding: 23px 35px;
+    /* 트랜지션: 속시이지 */
+    transition: color 0.2s;
+}
+/* 마우스 오버시 글자색변경 */
+.gnb a:hover {
+    color: #fff;
+    transition-delay: 0.2s;
+    /* 오버시 지연시간 설정 */
+}
+
+.pg {
+    height: 100vh;
+    outline: 1px solid blue;
+}
+/* 타겟박스 */
+.tpg {
+    height: calc(100vh + 3000px);
+    /* 타겟 박스는 보이는 화면 맨윗줄부터
+     시작해서 아래로 마지막 박스 끝라인까지
+    총 이동거리는 3000px이다!!! */
+    /* background-color: lightblue; */
+    outline: 2px dashed blue;
+}
+/* 가로이동박스 */
+.slidePg {
+    position: sticky;
+    top: 0;
+    left: 0;
+    height: 100vh;
+
+    background-color: orange;
+}
+/* 실제로 가로이동할 ul박스 */
+.slidePg ul {
+    position: relative;
+    left: 0;
+    display: flex;
+    width: calc(100vw + 3000px);
+    /* 가로크기는 타겟박스가 이동하는크기인
+    3000px에 맞도록 100vw에 더하여 잡아준다!
+    이유는 JS의 getBoundingClientRect().top
+    값의 수치와 정확히 일치 시키기 위함! */
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    transition: 0.4s ease-out;
+}
+.slidePg ul li {
+    flex: 1;
+    text-align: center;
+}
+
+.slidePg ul li img {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50%;
+    border-radius: 20px;
+}
+

@@ -1,0 +1,63 @@
+@charset "utf-8";
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-image: linear-gradient(to bottom,#CCC,#888);
+    padding-bottom: 300px;
+}
+.page {
+    position: relative;
+    height: 100vh;
+}
+/* 이미지박스 */
+.imbx{
+    position: absolute;
+    width: 45vw;
+}
+/* 아이콘박스 */
+.icon{
+    position: absolute;
+    width: 150px;
+    bottom: -50px;
+}
+/* 글자박스 */
+.txt{
+    position: absolute;
+    font-family: 'Poppins', sans-serif;
+    font-size: 4vw;
+    white-space: nowrap;
+    color: #fff;
+    text-shadow: 0 0 5px #000;
+}
+.page .mimg {
+    width: 100%;
+    border-radius: 20px;
+}
+.page:nth-child(odd) .imbx {
+    top: 10vh;
+    left: 10vw;
+}
+.page:nth-child(odd) .txt {
+    bottom: 0;
+    right: -20%;
+}
+.page:nth-child(odd) .icon {
+    right: -50px;
+}
+.page:nth-child(even) .imbx {
+    top: 10vh;
+    right: 10vw;
+}
+.page:nth-child(even) .txt {
+    bottom: 0;
+    left: -20%;
+}
+.page:nth-child(even) .icon {
+    left: -50px;
+}
