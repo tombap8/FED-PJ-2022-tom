@@ -2,6 +2,8 @@
 
 /* 큐브 애니메이션2 CSS - cube2.css */
 
+@import url('https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap');
+
 /* CSS 변수셋팅 */
 :root{
     /* 큐브 공통크기 */
@@ -21,6 +23,7 @@ body{
     background-image: 
     linear-gradient(to bottom, #a1f4e0, #ef95fb);
     height: 100vh;
+    font-family: 'East Sea Dokdo', cursive;
 }
 
 .cat-info{
@@ -31,6 +34,9 @@ body{
     width: 50vw;
     height: 20vh;
     background-color: rgb(255 255 255 / 0.5);
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px #00000089;
+    overflow: hidden;
 }
 .cat-info.on{
     top: 5vh;
@@ -38,18 +44,26 @@ body{
     transition: 0.5s ease-out;
 }
 .cat-info h2{
+    position: absolute;
+    width: 100%;
     padding: 0;
     margin: 0;
     
     text-align: center;
-    height: 20%;
-    font-size: 3vh;
+    height: 35%;
+    font-size: 6vh;
+    color: goldenrod;
+    text-shadow: 2px 2px 3px #000;
+    backdrop-filter: blur(3px);
 }
 .cat-info p{
     padding: 2vh;
     margin: 0;
-    height: 60%;
+    height: 50%;
+    padding-top: 7vh;
+    font-size: 3vh;
     overflow: auto;
+    color: #777;
 }
 
 /* 큐브를 직접 싸고 있는 대상 */
