@@ -1,17 +1,16 @@
 // Racing PJ 메인 JS - main.js
 
 /// 요소선택함수 ////////
-const qs = x => document.querySelector(x);
-const qsa = x => document.querySelectorAll(x);
+const qs = (x) => document.querySelector(x);
+const qsa = (x) => document.querySelectorAll(x);
 // 메시지함수 //////
-const cg = x => console.log(x);
-
+const cg = (x) => console.log(x);
 
 //////////////// 로드구역 /////////////////////////
-window.addEventListener("DOMContentLoaded", ()=>{
-    console.log("로딩완료!");
+window.addEventListener("DOMContentLoaded", () => {
+  console.log("로딩완료!");
 
-    /********************************************** 
+  /********************************************** 
                 [ 게임 기능정의 ]
         _________________________________
 
@@ -32,197 +31,179 @@ window.addEventListener("DOMContentLoaded", ()=>{
         7. 처음으로 버튼은 전체를 리셋함
     **********************************************/
 
-    // 1. 대상선정 ///////////////////
-    // (1) 거북 : #t1
-    const t1 = qs("#t1");
-    // (2) 토끼 : #r1
-    const r1 = qs("#r1");
-    // (3) 버튼 : #btns a
-    const btns = qsa("#btns a");
-    // (4) 레벨 : #level
-    const level = qs("#level");
-    // (5) 메시지박스 : #msg
-    const msg = qs("#msg");
-    // (6) 토끼, 거북 위치값 변수
-    let r1pos = 0, t1pos = 0;
-    // 토끼위치 : r1pos / 거북위치 : t1pos 
+  // 1. 대상선정 ///////////////////
+  // (1) 거북 : #t1
+  const t1 = qs("#t1");
+  // (2) 토끼 : #r1
+  const r1 = qs("#r1");
+  // (3) 버튼 : #btns a
+  const btns = qsa("#btns a");
+  // (4) 레벨 : #level
+  const level = qs("#level");
+  // (5) 메시지박스 : #msg
+  const msg = qs("#msg");
+  // (6) 토끼, 거북 위치값 변수
+  let r1pos = 0,
+    t1pos = 0;
+  // 토끼위치 : r1pos / 거북위치 : t1pos
 
-    // cg(msg);
+  // cg(msg);
 
-    // 2. 이벤트 설정하기 ////////////
-    // 대상: 버튼들 - btns변수
-    btns.forEach(ele=>{
-        // 1. 이벤트설정
-        ele.onclick = e => {
-            // (0) 기본기능막기
-            e.preventDefault();
-            // (1) 버튼종류확인 : 버튼텍스트
-            let btxt = ele.innerText;
-            cg(btxt);
+  // 2. 이벤트 설정하기 ////////////
+  // 대상: 버튼들 - btns변수
+  btns.forEach((ele) => {
+    // 1. 이벤트설정
+    ele.onclick = (e) => {
+      // (0) 기본기능막기
+      e.preventDefault();
+      // (1) 버튼종류확인 : 버튼텍스트
+      let btxt = ele.innerText;
+      cg(btxt);
 
-            // (2) 버튼별 기능분기///
+      // (2) 버튼별 기능분기///
 
-            // (2-1) 토끼이동 //////
-            if(btxt==="토끼출발"){
-                // 토끼 자동이동함수 호출!
-                goR1();
+      // (2-1) 토끼이동 //////
+      if (btxt === "토끼출발") {
+        // 토끼 자동이동함수 호출!
+        goR1();
+      } ///////// if문 : 토끼출발 ////////
 
-            } ///////// if문 : 토끼출발 ////////
+      // (2-2) 거북이동 //////////
+      else if (btxt === "거북출발") {
+        // 거북멈춤 상태값(t1Stop)이 1이면 돌아가!
+        if (t1Stop) return;
 
-            // (2-2) 거북이동 //////////
-            else if(btxt==="거북출발"){
-                // 거북멈춤 상태값(t1Stop)이 1이면 돌아가!
-                if(t1Stop) return;
+        // 위치이동값 셋팅
+        t1pos += 16;
+        // 위치이동하기
+        t1.style.left = t1pos + "px";
 
-                // 위치이동값 셋팅
-                t1pos += 16;
-                // 위치이동하기
-                t1.style.left = t1pos + "px";
+        // 거북버튼 클릭시 포커스가 들어감으로
+        // 엔터키보드 작동으로 클릭이 가능해짐!
+        // 이것을 방지하기 위해 매번 포커스 빼기!
+        ele.blur();
+        // blur() 메서드 - 포커스가 사라짐
+        // focus() 메서드 - 포커스가 들어감
 
-                // 거북버튼 클릭시 포커스가 들어감으로
-                // 엔터키보드 작동으로 클릭이 가능해짐!
-                // 이것을 방지하기 위해 매번 포커스 빼기!
-                ele.blur();
-                // blur() 메서드 - 포커스가 사라짐
-                // focus() 메서드 - 포커스가 들어감
-                
-                // 토끼 자동이동함수 호출!
-                goR1();
+        // 토끼 자동이동함수 호출!
+        goR1();
+      } ///////// else if문 : 토끼출발 /////
 
-            } ///////// else if문 : 토끼출발 /////
+      // (2-3) 처음으로 버튼 클릭시
+      else if (btxt === "처음으로") {
+        // 브라우저 캐싱을 지우고 다시부르기
+        // location.replace("index.html");
 
-            // (2-3) 처음으로 버튼 클릭시
-            else if(btxt==="처음으로"){
+        // 현재 페이지 리로딩
+        location.reload();
+      } //////// else if문 : 처음으로 /////
+    }; /////// click ////////
+  }); //////////// forEach //////////
 
-                // 브라우저 캐싱을 지우고 다시부르기
-                // location.replace("index.html");
-
-                // 현재 페이지 리로딩
-                location.reload();
-            } //////// else if문 : 처음으로 /////
-
-
-        }; /////// click ////////
-    }); //////////// forEach //////////
-
-
-
-    /*********************************** 
+  /*********************************** 
         함수명: goR1
         기능: 토끼자동이동(인터발함수)
     ***********************************/
-   let autoI;// 인터발용변수
-   function goR1(){
-        // 할당안된변수값은  undefined이고
-        // if문에서 false처리되므로
-        // 할당전 상태일때만 if문에 들어가게
-        // 하기위해 !(NOT연산자)를 사용하면 된다!
+  let autoI; // 인터발용변수
+  function goR1() {
+    // 할당안된변수값은  undefined이고
+    // if문에서 false처리되므로
+    // 할당전 상태일때만 if문에 들어가게
+    // 하기위해 !(NOT연산자)를 사용하면 된다!
 
-        // cg(autoI);
-        // cg(level.value);
+    // cg(autoI);
+    // cg(level.value);
 
-        if(!autoI){ /// 할당전에 1번만 허용!
-            autoI = setInterval(() => {
+    if (!autoI) {
+      /// 할당전에 1번만 허용!
+      autoI = setInterval(() => {
+        // 토끼 위치이동
+        r1.style.left = ++r1pos + "px";
 
-                // 토끼 위치이동
-                r1.style.left = (++r1pos) + "px";
+        // 토끼&거북 위치값체크후 승자판별함수호출
+        whoWinner();
+      }, level.value);
+      // 인터발 시간은 선택박스의
+      // 옵션값을 읽어서 사용한다! -> level.value
+      // 옵션값들 : 10,9,8,7,6,5,4
+    } //////////// if ///////////
+  } /////////////// goR1 함수 ///////////
 
-                // 토끼&거북 위치값체크후 승자판별함수호출
-                whoWinner();
-
-            }, level.value);
-            // 인터발 시간은 선택박스의
-            // 옵션값을 읽어서 사용한다! -> level.value
-            // 옵션값들 : 10,9,8,7,6,5,4
-        } //////////// if ///////////
-
-   } /////////////// goR1 함수 ///////////
-
-   /***************************************** 
+  /***************************************** 
         함수명: whoWinner
         기능: 기준값 보다 레이서위치값이 큰경우
             승자를 판별하여 메시지를 보여준다!
    *****************************************/
-  let t1Stop = 0;//거북멈춤값(1멈춤,0허용)
-  function whoWinner(){
+  let t1Stop = 0; //거북멈춤값(1멈춤,0허용)
+  function whoWinner() {
     // cg("토끼:"+r1pos);
     // cg("거북:"+t1pos);
 
     // 1. 토끼 / 거북의 위치값이 기준값 이상일때
     // 기준값: 650px
-    if(r1pos >= 650 || t1pos >= 650){
+    if (r1pos >= 650 || t1pos >= 650) {
+      // (1) 토끼야 멈춰라! -> 인터발함수지우기!
+      clearInterval(autoI);
 
-        // (1) 토끼야 멈춰라! -> 인터발함수지우기!
-        clearInterval(autoI);
+      // (2) 거북아 멈춰라! -> 거북멈춤상태값 1로 변경!
+      t1Stop = 1;
 
-        // (2) 거북아 멈춰라! -> 거북멈춤상태값 1로 변경!
-        t1Stop = 1;
+      // 메지시 랜덤을 위한 랜덤수 만들기
+      // 0~2 사이의 랜덤수
+      // 1~3 를 먼저 만든후 -> Math.random()*3
+      // 내림을 하면 0~2됨! -> Math.floor(Math.random()*3)
 
-        // 메지시 랜덤을 위한 랜덤수 만들기
-        // 0~2 사이의 랜덤수
-        // 1~3 를 먼저 만든후 -> Math.random()*3
-        // 내림을 하면 0~2됨! -> Math.floor(Math.random()*3)
+      let rnum = Math.floor(Math.random() * 3);
 
-        let rnum = Math.floor(Math.random()*3);
+      cg("랜덤수:" + rnum);
 
-        cg("랜덤수:"+rnum);
+      // (3) 승자판별 후 메시지 보여주기!
+      if (r1pos > t1pos) msg.innerText = msgtxt["토끼"][rnum];
+      else if (r1pos < t1pos) msg.innerText = msgtxt["거북"][rnum];
+      else msg.innerText = "비김!재승부!";
 
-        // (3) 승자판별 후 메시지 보여주기!
-        if(r1pos > t1pos) 
-            msg.innerText = msgtxt["토끼"][rnum];
-        else if(r1pos < t1pos) 
-            msg.innerText = msgtxt["거북"][rnum];
-        else 
-            msg.innerText = "비김!재승부!"
+      // (4) 메시지 박스 보이기
+      msg.style.display = "block";
+      msg.style.zIndex = "101";
 
+      // (5) 전체 반투명 암전주기
+      qs(".cover").innerHTML += `<div 
+            style='
+                position:fixed;
+                top:0;
+                left:0;
+                width:100vw;
+                height:100vh;
+                background-color:#000;
+                opacity:0.5;
+                z-index:100
+        '></div>`;
+      // 주의사항: body하위에 새로운 요소를
+      // 추가하면 전체 body 직계하위에 있는
+      // 요소들에 셋팅된 이벤트가 소실된다!
+      // 왜? DOM이 재구조화 되기 때문이다!
+      // 처음부터 편성된 박스에 넣어주면
+      // 이런 문제가 해결된다!
+      // 여기서도 .cover요소 안에 새로운 요소를
+      // 넣어준 이유가 그렇다!
+      // (처음으로 버튼 기능소실때문)
 
-        // (4) 메시지 박스 보이기
-        msg.style.display = "block"; 
-        msg.style.zIndex = "101"; 
-
-        // (5) 전체 반투명 암전주기
-        qs(".cover").innerHTML += 
-        "<div style='position:fixed;top:0;left:0;width:100vw;height:100vh;background-color:#000;opacity:0.5;z-index:100'></div>";
-        // 주의사항: body하위에 새로운 요소를
-        // 추가하면 전체 body 직계하위에 있는
-        // 요소들에 셋팅된 이벤트가 소실된다!
-        // 왜? DOM이 재구조화 되기 때문이다!
-        // 처음부터 편성된 박스에 넣어주면
-        // 이런 문제가 해결된다!
-        // 여기서도 .cover요소 안에 새로운 요소를
-        // 넣어준 이유가 그렇다!
-        // (처음으로 버튼 기능소실때문)
-
-        // (6) 버튼 위로 올리기
-        qs("#btns").style.zIndex = "200";  
-
-
-
+      // (6) 버튼 위로 올리기
+      qs("#btns").style.zIndex = "200";
     } ///////////// if ///////////////
-
-
-
   } //////////// whoWinner 함수 /////////////
 
   //// 메시지 변수 //////////
   const msgtxt = {
-    "토끼":[
-        "역시, 토끼가 이겼군! 아자!",
-        "넌 안돼!! 오~ 노노노!!! 토끼승!",
-        "토끼는 잠자고 가도 이경~!!!"
+    토끼: [
+      "역시, 토끼가 이겼군! 아자!",
+      "넌 안돼!! 오~ 노노노!!! 토끼승!",
+      "토끼는 잠자고 가도 이경~!!!",
     ],
-    "거북":[
-        "넌 뭐니? 토끼야? 내가 승!",
-        "대대로 거북이 이겼단다!!!",
-        "이제 넌 어쩌니? 토끼퇴출!!!"
-    ]
-
+    거북: [
+      "넌 뭐니? 토끼야? 내가 승!",
+      "대대로 거북이 이겼단다!!!",
+      "이제 넌 어쩌니? 토끼퇴출!!!",
+    ],
   }; /////////// 메시지 객체 //////////////
-
-
-
-    
-
-
-
 }); /////////// 로드구역 ///////////////////////////
