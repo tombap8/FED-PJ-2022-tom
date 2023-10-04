@@ -10,10 +10,9 @@
 html,body{
     margin: 0;
     padding: 0;
-    height: 100%;
-    /* 보이는 화면 채우기 */
 }
 body{
+    height: 100vh;
     background-image: 
     linear-gradient(to bottom, #fff 20%,skyblue 40%,#fff);
     /* 넘치는 자식요소 숨기기 */
