@@ -11,6 +11,7 @@
 // (1) JSX를 사용한 예 ///////////////
 // 넣을요소
 const myele1 = <h1>나는 JSX를 사용하고 있어!</h1>;
+
 // 리액트 루트생성하기 : createRoot() 메서드 사용!
 const root1 = ReactDOM.createRoot(document.querySelectorAll("#root>div")[0]);
 // 적용하기 :  생성된 루트에 render() 메서드를 붙여서 사용함!
