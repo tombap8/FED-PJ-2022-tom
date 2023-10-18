@@ -1,27 +1,6 @@
 
-    <script>
-      const data2 = [
-        { 이름: "김소영", 전화번호: "010-222-3333", 생일: "20.01.20" },
-        { 이름: "전우치", 전화번호: "010-555-8888", 생일: "18.05.20" },
-        { 이름: "강감찬", 전화번호: "010-666-5555", 생일: "21.02.03" },
-        { 이름: "공유", 전화번호: "010-999-5555", 생일: "79.08.20" },
-        { 이름: "김마리", 전화번호: "010-888-4578", 생일: "00.01.02" },
-      ];
 
-      const listCode2 = data2.map(
-        (val) =>
-          `<tr>
-            <td>${val.이름}</td>
-            <td>${val.전화번호}</td>
-            <td>${val.생일}</td>
-        </tr>`
-      );
+$(".calendar").hide().mouseleave(function(){$(this).hide()})
 
-      console.log(listCode2);
+$('.dalcom input').click(function(){$(this).next().find(".calendar").show()})
 
-      document.body.innerHTML += `
-        <table>
-            ${listCode2}
-            </table>
-`;
-    </script>
