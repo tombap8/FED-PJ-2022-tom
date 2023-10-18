@@ -15,12 +15,19 @@
             src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
             crossorigin
         ></script>
+        
         <!-- 3.리액트 바벨 라이브러리 -->
         <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
         <!-- 리액트 조건렌더링 JSX 호출 -->
         <script
+            src="./js/data.js"
+            data-plugins="transform-es2015-modules-umd" 
+            type="text/babel"
+        ></script>
+        <script
             src="./js/01.공유신발.jsx"
+            data-plugins="transform-es2015-modules-umd" 
             type="text/babel"
         ></script>
     </head>
