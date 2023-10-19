@@ -1,55 +1,75 @@
 // 01.공유신발 JSX
-import myData from './data.js';
+import myData from "./data.js";
+import myData2 from "./data2.js";
+import actEffect from "./act_effect.js";
 
-function MakeShoes(){
+const twoData = [myData,myData2];
 
-    const [myTest,setMyTest] = React.useState('M');
-    const [myTest2,setMyTest2] = React.useState('C');
+// console.log(twoData[1]);
 
-    console.log(myData);
+// 메인 컴포넌트 /////////////////
+// 메인의 의미는? 다른 구성요소 컴포넌트들을 모아
+// 최종적으로 랜더링하는 구성 컴포넌트를 말한다!
+function MainComponent() {
+  const [dataNum,setDataNum] = React.useState(0);
 
-    React.useEffect(()=>{
-        console.log('useEffect000');
-        console.log(document.querySelector('.gong'));
-    });
-    React.useEffect(()=>{
-        console.log('useEffect111');
-        console.log(document.querySelector('.gong'));
-    },[]);
-    React.useEffect(()=>{
-        console.log('useEffect222');
-        console.log(document.querySelector('.gong'));
-    },[myTest,myTest2]);
 
-    React.useLayoutEffect(()=>{
-        console.log('useLayoutEffect');
-        console.log(document.querySelector('.gong'));
-        document.querySelector('div').innerHTML += '<img src="https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg?w=2000" alt="aa" />';
-
-        $('.gong').click(()=>alert(33))
-    });
-    
-    console.log(document.querySelector('.gong'));
-    const myFn = (txt)=>{
-        setMyTest(txt);
-    }
-    const myFn2 = (txt)=>{
-        setMyTest2(txt);
-    }
+  React.useLayoutEffect(()=>{
+    actEffect();
+});
 
 
 
-    return (
-    <div>
-        <h1 className='gong'>나는 공유다!{myTest}:확인{myTest2}</h1>
-        <button onClick={()=>myFn(Math.ceil(Math.random()*3))}>aaa</button>
-        <button onClick={()=>myFn2(Math.ceil(Math.random()*3))}>bbb</button>
-        <ul>
-            {myData.map(v=><li>{v.gname}</li>)}
-        </ul>
-    </div>
-    )
-}
+  const chgData = () => {
+    setDataNum(dataNum?0:1);
+    console.log(dataNum);
+  }
+  return (
+    <React.Fragment>
+      {/* 1. 타이틀 */}
+      <h1 className="tit">{dataNum?"효진이 입고 ":"공유가 신고 "}다닌다는!</h1>
+      {/* 2. 내용박스 */}
+      <section>
+        <h2>{dataNum?"효진은":"공유는"} 오늘도 멋찝니다!</h2>
+        {/* 이미지 */}
+        <div className="img-box">
+        <img className="main-img" src={dataNum?
+          "https://www.sisanews.kr/news/photo/201601/16647_13007_488.jpg":
+          "./images/vans/gongyoo.jpg"} alt={dataNum?"상큼효진":"멋진공유"} />
 
+        </div>
+      </section>
+      {/* 3. 상품리스트박스 */}
+      <button onClick={chgData} className="btn-gong">{dataNum?"효진초이스":"공유초이스"}</button>
+      <div className="gwrap">
+        <GoodsCode number={dataNum} />
+      </div>
+      {actEffect()}
+    </React.Fragment>
+  );
+} /////////// MainComponent //////////////////
 
-ReactDOM.render(<MakeShoes />,document.querySelector('#root'))
+// console.log(myData);
+
+// 상품 html코드 구성 컴포넌트 ///////////
+function GoodsCode(props) {
+  // console.log('GoodsCode:',props.dataSet);
+  const selData = twoData[props.number];
+  return selData.map((v) => (
+    <ol class="glist">
+      <li>
+        <img src={
+          props.number?
+          "./images/gallery/"+v.idx+".jpg":
+          "./images/vans/vans_"+v.idx+".jpg"
+          }
+          alt="신발" />
+      </li>
+      <li>{v.gname}</li>
+      <li>가격 : {v.gprice}원</li>
+    </ol>
+  ));
+} /////////// GoodsCode //////////////////
+
+// 메인컴포넌트 출력하기 //////////
+ReactDOM.render(<MainComponent />, document.querySelector("#root"));

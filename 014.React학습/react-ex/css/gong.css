@@ -1,0 +1,45 @@
+@charset "utf-8";
+/* 01.공유신발 CSS - gong.css */
+
+/* 대상박스 */
+#root {
+    width: 700px;
+    padding: 20px;
+    border: 1px dashed darkblue;
+    border-radius: 20px;
+    margin: 0 auto;
+    text-align: center;
+}
+/* 제목 */
+.tit {
+    color: orangered;
+}
+/* 내용박스 */
+#root section {
+    border: 4px double gray;
+}
+/* 내용박스 이미지 */
+#root section img {
+    width: 80%;
+    border-radius: 20px;
+}
+
+/* 상품리스트박스 */
+.gwrap {
+    display: flex;
+    /* 하위 ol박스를 옆으로 흐르게함 */
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 10px 20px; /* 상하 좌우 사이간격 */
+}
+/* 개별리스트박스 */
+.glist {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+/* 상품이미지 */
+.glist img {
+    width: 120px;
+}
