@@ -64,7 +64,24 @@
             }
         </style>
         <script>
-            /* 
+            const dFn = {
+                // 요소선택함수 ////////
+                qs: (x) => document.querySelector(x),
+                qsEl: (el, x) => el.querySelector(x),
+                qsa: (x) => document.querySelectorAll(x),
+                qsaEl: (el, x) => el.querySelectorAll(x),
+
+                // 이벤트셋팅함수
+                addEvt: (ele, evt, fn) => ele.addEventListener(evt, fn),
+
+                // 바운딩위치값함수
+                getBCR: (ele) => ele.getBoundingClientRect().top,
+
+                // 옵셋탑값 반환함수
+                getOT: (ele) => ele.offsetTop,
+                }; /////// domFn 객체 /////////////
+
+            /*************************************************************** 
             [ JS 로컬스토리지 : localStorage ]
             - window하위객체 window.localStorage
             -> window는 주로 생략함!
@@ -109,7 +126,7 @@
 
             -> w3 schools 참고
             https://www.w3schools.com/js/js_api_web_storage.asp
-        */
+        ***************************************************************/
 
             // 전역변수
             let com_name;
@@ -223,9 +240,8 @@
                                 <td>${val.idx}</td>
                                 <td>${val.tit}</td>
                                 <td>${val.cont}</td>
-                                <td>
-                                    <a href="#" 
-                                    onclick="delRec(${i})">×</a>
+                                <td class="del-link">
+                                    <a href="#" data-del="${i}">×</a>
                                 </td>
                             </tr>
                         `;
@@ -247,6 +263,11 @@
 
                 // html에 넣기
                 document.querySelector(".board").innerHTML = hcode;
+
+                
+                // 5. 지우기 링크 셋팅
+                dFn.qsa('.board .del-link a').forEach(
+                    ele=>dFn.addEvt(ele,'click',()=>delRec(ele.getAttribute('data-del'))))
             } /////////// bindData ////////////////
 
             // 로컬스토리지 데이터에 업데이트 하는 함수
