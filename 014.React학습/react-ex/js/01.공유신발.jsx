@@ -31,6 +31,8 @@ function MainComponent() {
   const [test,setTest] = React.useState(0);
   // 서브 상태변수
   const [subView,setSubView] = React.useState(myVal);
+  const [selItem,setSelItem] = React.useState(0);
+  const [effectOK,setEffectOK] = React.useState(1);
 
   console.log('최초값:',dataNum);
 
@@ -47,11 +49,11 @@ function MainComponent() {
     ///////////////////////////////////////////////////
 
     // [ 1. 컴포넌트가 뿌려지기 애니메이션 적용하기 ]
-    React.useLayoutEffect(initFn);
+    React.useLayoutEffect(()=>{if(effectOK)initFn()});
 
-    // [ 2. 처음 한번만 타이틀 글자 커졌다가 작아지기 ]
-    React.useEffect(firstOneFn,[])
-    ////////////////////////////////////////////////////
+    // [ 2. 처음 한번만 타이틀 글자 커졌다가 작아지기 ]  
+    React.useEffect(()=>{if(effectOK)firstOneFn()},[]);
+  ////////////////////////////////////////////////////
 
 
     
@@ -107,6 +109,18 @@ function MainComponent() {
     console.log('업데이트값:',dataNum);
   }; //////// chgData함수 ///////////
 
+  
+const chgSubView = (num,idx)=>{
+  event.preventDefault();
+  console.log('나야나',num,'/',idx);
+  setSubView(num);
+  setSelItem(idx);
+  setEffectOK(0);
+}
+
+const runEffect = () => setEffectOK(1);
+
+
   // 최종 리턴 코드 /////////
   // 함수, 변수, 구현소스는 모두 return위쪽에 코딩!
   return (
@@ -128,16 +142,16 @@ function MainComponent() {
         </div>
       </section>
       {/* 3. 데이터 변경 버튼 */}
-      <button onClick={chgData} className="btn-gong">
+      <button onClick={()=>{chgData();runEffect();}} className="btn-gong">
         {dataNum?'공유':'효진'}초이스 바로가기
       </button>
       <button onClick={testFn} >의존성테스트</button>
       {/* 4. 상품리스트박스 */}
       <div className="gwrap">
         {subView==0 &&
-        <GoodsCode idx={dataNum} />}
+        <GoodsCode idx={dataNum} chgFn={chgSubView} />}
         {subView==1 &&
-        <SubViewCode />}
+        <SubViewCode idx={dataNum} chgFn={chgSubView} itemNum={selItem} />}
       </div>
     </React.Fragment>
   );
@@ -145,14 +159,29 @@ function MainComponent() {
 
 
 
-function SubViewCode(){
-  return <h1>서브뷰야~!</h1>;
+function SubViewCode(props){  
+  // 선택데이터
+  const selData = twoData[props.idx][Number(props.itemNum)-1];
+  console.log(selData);
+  return(
+    <React.Fragment>
+      <ol style={{display:'flex',listStyle:'none'}}>
+      <li>
+        <img src={
+          props.idx?
+          "./images/gallery/"+selData.idx+".jpg":
+          "./images/vans/vans_"+selData.idx+".jpg"
+          } alt={props.idx?"드레스":"신발"} />
+      </li>
+      <li style={{lineHeight:'8',padding:'10px'}}>
+        상품명 : {selData.gname} <br />
+        가격 : {selData.gprice}원 <br />
+        <button onClick={()=>props.chgFn(0,0)}>리스트로 가기</button>
+      </li>
+    </ol>
+    </React.Fragment>
+  );
 }
-function chgSubView(){
-  const currVal = StateVar;
-  console.log(currVal);
-}
-
 // console.log(myData);
 
 // 서브 컴포넌트(자식컴포넌트-> 부모컴포넌트로 부터 데이터를
@@ -162,7 +191,7 @@ function GoodsCode(props) { // idx - 데이터 배열순번
   // 선택데이터
   const selData = twoData[props.idx];
   return selData.map((v) => (
-    <a href="#" onClick={chgSubView}>
+    <a href="#" onClick={()=>props.chgFn(1,v.idx)}>
     <ol class="glist">
       <li>
         <img src={
