@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>JS9-3.로컬 스토리지</title>
+        <style>
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .tit {
+                max-width: 1000px;
+                height: 25vh;
+                margin: 0 auto;
+                background: url(https://www.crowdnet.or.kr/files/recu/06/20220720153040030_06_47087_20220725_1869.PNG)
+                    center 25%/50%;
+            }
+            .wrap {
+                max-width: 1000px;
+                min-height: 100vh;
+                display: flex;
+                margin: 0 auto;
+            }
+            .wrap > div {
+                flex: 1;
+                box-sizing: border-box;
+                border: 4px double darkblue;
+                text-align: center;
+            }
+            .imgbx {
+                max-width: 235px;
+                aspect-ratio: 235/381;
+                margin: 0 auto;
+            }
+            .imgbx img {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+                object-position: left;
+            }
+            .imgbx.ib2 img {
+                object-position: right;
+            }
+
+            table {
+                width: 90%;
+                margin: 20px auto;
+                border-collapse: collapse;
+            }
+            table th {
+                border-top: 1px solid #000;
+                border-bottom: 1px solid #000;
+                padding: 7px 0;
+            }
+            table td {
+                padding: 5px;
+            }
+
+            table tr:nth-child(odd) td {
+                background-color: #ccc;
+            }
+        </style>
+        <!-- 로컬 스토리지 JS -->
+        <script type="module" src="./js/js9-3.local_storage.js"></script>
+    </head>
+    <body>
+        <div class="tit"></div>
+        <div class="wrap">
+            <div class="local">
+                <h2>로칼쓰님</h2>
+                <div class="imgbx">
+                    <img
+                        src="https://img.marieclairekorea.com/2022/08/mck_62e9fd08ca1bd.jpg"
+                        alt="이정재" />
+                </div>
+                <ol>
+                    <li>당신의 이름은? : <span class="nm"></span></li>
+                    <li>영화속 역할은? : <span class="role"></span></li>
+                    <li>캐릭터는? : <span class="cat"></span></li>
+                </ol>
+
+                <div class="local-box">
+                    <button>처음</button>
+                    <button>보여줘</button>
+                    <button>전체삭제</button>
+                    <button>처리</button>
+                </div>
+
+                <!-- 리스트 출력박스 -->
+                <div class="board"></div>
+
+                <!-- 입력창박스 -->
+                <div class="inbx">
+                    <!-- <form action="" method="post"> -->
+                    <ul>
+                        <li>
+                            <label for="tit">제목</label>
+                            <input type="text" id="tit" />
+                        </li>
+                        <li>
+                            <label for="cont">내용</label>
+                            <input type="text" id="cont" />
+                        </li>
+                        <li>
+                            <input type="submit" value="입력" id="sbtn" />
+                        </li>
+                    </ul>
+                    <!-- </form> -->
+                </div>
+
+                <!-- 수정창박스 -->
+                <div class="mobx">
+                    <h2>수정할 항목을 선택하세요!</h2>
+                    <div class="mosel">
+                        <select name="sel" id="sel">
+                            <option value="show">항목선택</option>
+                        </select>
+                    </div>
+                    <!-- <form action="" method="post"> -->
+                    <ul>
+                        <li>
+                            <label for="tit">제목</label>
+                            <input type="text" id="tit2" />
+                        </li>
+                        <li>
+                            <label for="cont">내용</label>
+                            <input type="text" id="cont2" />
+                        </li>
+                        <li>
+                            <input type="submit" value="수정" id="mobtn" />
+                        </li>
+                    </ul>
+                    <!-- </form> -->
+                </div>
+            </div>
+            <div class="session">
+                <h2>세션쓰님</h2>
+                <div class="imgbx ib2">
+                    <img
+                        src="https://img.marieclairekorea.com/2022/08/mck_62e9fd08ca1bd.jpg"
+                        alt="정우성" />
+                </div>
+                <ol>
+                    <li>당신의 이름은? : <span class="nm"></span></li>
+                    <li>영화속 역할은? : <span class="role"></span></li>
+                    <li>캐릭터는? : <span class="cat"></span></li>
+                </ol>
+
+                <div class="session-box">
+                    <button>처음</button>
+                    <button>보여줘</button>
+                    <button>전체삭제</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
