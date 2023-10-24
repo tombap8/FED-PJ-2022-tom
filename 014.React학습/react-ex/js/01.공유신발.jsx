@@ -10,6 +10,8 @@ const twoData = [myData, myData2];
 
 // console.log('데이터:',twoData);
 
+const StateVar = React.createContext(0);
+
 // 메인 컴포넌트 /////////////////
 // 메인의 의미는? 다른 구성요소 컴포넌트들을 모아
 // 최종적으로 랜더링하는 구성 컴포넌트를 말한다!
@@ -22,9 +24,13 @@ function MainComponent() {
   // 데이터가 0번째 즉, 첫번째 배열순번 데이터를 불러올
   // 순번값을 셋팅함!
   const [dataNum,setDataNum] = React.useState(0);
+
+  const myVal = React.useContext(StateVar);
   
   // 테스트 후크상태변수
   const [test,setTest] = React.useState(0);
+  // 서브 상태변수
+  const [subView,setSubView] = React.useState(myVal);
 
   console.log('최초값:',dataNum);
 
@@ -128,11 +134,24 @@ function MainComponent() {
       <button onClick={testFn} >의존성테스트</button>
       {/* 4. 상품리스트박스 */}
       <div className="gwrap">
-        <GoodsCode idx={dataNum} />
+        {subView==0 &&
+        <GoodsCode idx={dataNum} />}
+        {subView==1 &&
+        <SubViewCode />}
       </div>
     </React.Fragment>
   );
 } /////////// MainComponent //////////////////
+
+
+
+function SubViewCode(){
+  return <h1>서브뷰야~!</h1>;
+}
+function chgSubView(){
+  const currVal = StateVar;
+  console.log(currVal);
+}
 
 // console.log(myData);
 
@@ -143,6 +162,7 @@ function GoodsCode(props) { // idx - 데이터 배열순번
   // 선택데이터
   const selData = twoData[props.idx];
   return selData.map((v) => (
+    <a href="#" onClick={chgSubView}>
     <ol class="glist">
       <li>
         <img src={
@@ -153,7 +173,7 @@ function GoodsCode(props) { // idx - 데이터 배열순번
       </li>
       <li>{v.gname}</li>
       <li>가격 : {v.gprice}원</li>
-    </ol>
+    </ol></a>
   ));
 } /////////// GoodsCode //////////////////
 

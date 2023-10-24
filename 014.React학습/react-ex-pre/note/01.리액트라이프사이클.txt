@@ -87,7 +87,8 @@ useEffect(() => {}, [의존성1, 의존성2, ..]);
 이전 effect가 정리된다!
 
 
-☑️ useContext
+☑️ useContext 
+-> https://itprogramming119.tistory.com/entry/React-useContext-%EC%82%AC%EC%9A%A9%EB%B2%95-%EB%B0%8F-%EC%98%88%EC%A0%9C
 Context API를 통해 만들어진 Context에서 제공하는 Value를 가져올 수 있다
 
 const value = useContext(MyContext);
