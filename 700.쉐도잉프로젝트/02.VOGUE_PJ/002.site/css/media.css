@@ -21,7 +21,7 @@
   }
 
   /* 3. 상단영역 */
-  #top {
+  #top-area {
     position: fixed;
     top: 0;
     left: 0;
@@ -37,7 +37,7 @@
         잘림방지 */
   }
 
-  .top {
+  .top-area {
     position: relative;
     /* 모바일버튼의 부모자격! */
     min-height: auto;
@@ -47,7 +47,7 @@
   }
 
   /* 컨텐츠 영역박스 */
-  .cont {
+  .main-area {
       min-height: auto;
   }
 
