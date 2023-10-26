@@ -39,7 +39,6 @@ body{
 
     gap: 10px 20px; /* 상하 좌우 사이간격 */
 }
-/* 리스트 하위 링크 */
 .gwrap a{
     color: #222;
     text-decoration: none;
