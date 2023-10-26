@@ -8,7 +8,7 @@
 @import url(./common.css);
 
 /* 컨텐츠 영역 속박스 */
-.cont {
+.main-area {
     min-height: 600px;
     padding: 15px;
 }
