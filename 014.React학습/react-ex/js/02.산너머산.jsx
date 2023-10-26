@@ -1,4 +1,36 @@
-function App() {
+import { 누구냐 } from "./02.산너머산/cont_provider";
+import 이야기 from "./02.산너머산/sub_com";
+
+
+function 큰집() { 
+  return (
+    <누구냐.Provider value={{앙앙:"이게 정말이란 말이오?",팡팡:"똥개야!"}}>
+      <할아버지 />
+    </누구냐.Provider>
+  );
+}
+
+function 할아버지() {
+  return <아버지 />;
+}
+
+function 아버지() {
+  return <아들 />;
+}
+
+function 아들() {
+  return <손녀 />;
+}
+
+function 손녀() {
+  return <이야기 />;
+}
+
+
+
+/* ************************************************* */
+
+/* function App() {
   return <AwesomeComponent value="Hello World" />;
 }
 
@@ -22,7 +54,9 @@ function SecondComponent({ value }) {
 
 function ThirdComponent({ value }) {
   return <div>Third Component says: "{value}"</div>;
-}
+} */
+
+/* ************************************************* */
 
 /* function App() {
   return <GrandParent aa="Hello World!" kk="헉스^^;;;" />;
@@ -49,4 +83,4 @@ function Message({ ee, kk }) {
 } */
 
 // 메인컴포넌트 출력하기 //////////
-ReactDOM.render(<App />, document.querySelector("#root"));
+ReactDOM.render(<큰집 />, document.querySelector("#root"));
