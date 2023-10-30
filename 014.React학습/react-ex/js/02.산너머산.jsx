@@ -4,7 +4,7 @@ import 이야기 from "./02.산너머산/sub_com";
 
 function 큰집() { 
   return (
-    <누구냐.Provider value={{앙앙:"이게 정말이란 말이오?",팡팡:"똥개야!"}}>
+    <누구냐.Provider value={{앙앙:"옛날 옛적에 호랑이 담배피던시절엔 말이다",팡팡:"재밋지?"}}>
       <할아버지 />
     </누구냐.Provider>
   );
@@ -58,8 +58,8 @@ function ThirdComponent({ value }) {
 
 /* ************************************************* */
 
-/* function App() {
-  return <GrandParent aa="Hello World!" kk="헉스^^;;;" />;
+function App() {
+  return <GrandParent aa="이게 뭡니까?" kk="헉스^^;;;" />;
 }
 
 function GrandParent({ aa, kk }) {
@@ -79,8 +79,19 @@ function GrandChild({ dd, kk }) {
 }
 
 function Message({ ee, kk }) {
-  return <div>Received: {ee + kk}</div>;
-} */
+  return <div style={
+      {
+        padding:'20px',
+        border:'2px dotted red',
+        borderRadius:'10px',
+        width:'30%',
+        margin:'20px auto',
+        textAlign:'center'
+      }
+    }>
+      수신 : {ee + kk}</div>;
+}
 
 // 메인컴포넌트 출력하기 //////////
-ReactDOM.render(<큰집 />, document.querySelector("#root"));
+ReactDOM.render(<App />, document.querySelector("#root1"));
+ReactDOM.render(<큰집 />, document.querySelector("#root2"));
