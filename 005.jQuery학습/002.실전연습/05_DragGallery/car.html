@@ -143,10 +143,14 @@
 
                 // 이미지순번변수
                 let fnum = 0;
+                // 이미지
+                let carImg = cbx.find('img');
 
                 // (4) 이미지순번 변경함수
                 const rotCar = (dir) => {
                     // dir - 방향(0-오른쪽,1-왼쪽)
+
+                    carImg.eq(fnum).hide()
 
                     // 1. 왼쪽방향처리 : dir===1
                     if(dir){
@@ -162,9 +166,9 @@
                     console.log("순번:",fnum);
 
                     // 3. 이미지를 순서대로 보이기
-                    cbx.find("img:visible").hide();
+                    // cbx.find("img:visible").hide();
                     // 보이는 이미지는 숨기고
-                    cbx.find("img").eq(fnum).show();
+                    carImg.eq(fnum).show();
                     // 해당순번 이미지는 보이고
 
                 }; /////// rotCar 함수 //////
