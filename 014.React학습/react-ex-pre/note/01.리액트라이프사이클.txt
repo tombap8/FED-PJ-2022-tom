@@ -87,6 +87,8 @@ useEffect(() => {}, [의존성1, 의존성2, ..]);
 이전 effect가 정리된다!
 
 
+https://pebblepark.tistory.com/20#React-createContext-defaultValue-
+
 ☑️ useContext 
 -> https://itprogramming119.tistory.com/entry/React-useContext-%EC%82%AC%EC%9A%A9%EB%B2%95-%EB%B0%8F-%EC%98%88%EC%A0%9C
 Context API를 통해 만들어진 Context에서 제공하는 Value를 가져올 수 있다
@@ -116,13 +118,18 @@ const [state, dispatch] = useReducer(reducer, initialArg, init);
 const refContainer = useRef(null);
 
 ☑️ useMemo
-메모이제이션된 값을 반환합니다. 이미 연산 된 값을 리렌더링 시 다시 계산하지 않도록 한다. 의존성이 변경되었을 때에만 메모이제이션된 값만 다시 계산 합니다. 의존성 배열이 없는 경우 매 렌더링 때마다 새 값을 계산합니다.
+메모이제이션된 값을 반환합니다. 
+이미 연산 된 값을 리렌더링 시 다시 계산하지 않도록 한다. 
+의존성이 변경되었을 때에만 메모이제이션된 값만 다시 계산 합니다. 
+의존성 배열이 없는 경우 매 렌더링 때마다 새 값을 계산합니다.
 
 const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
 
 ☑️ useCallback
-메모이제이션 된 콜백을 반환합니다. useMemo와 유사하게 이용되며 '함수'에 적용해줍니다.
-의존성이 변경되었을때만 변경됩니다. 때문에 특정 함수를 새로 만들지 않고 재사용가능하게 합니다.
+메모이제이션 된 콜백을 반환합니다. 
+useMemo와 유사하게 이용되며 '함수'에 적용해줍니다.
+의존성이 변경되었을때만 변경됩니다. 
+때문에 특정 함수를 새로 만들지 않고 재사용가능하게 합니다.
 
 const memoizedCallback = useCallback(
   () => {

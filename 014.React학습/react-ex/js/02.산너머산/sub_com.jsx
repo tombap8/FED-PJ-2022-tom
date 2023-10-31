@@ -3,6 +3,9 @@ import { 누구냐 } from "./cont_provider";
 
 function 이야기() {
     const 맘대로 = React.useContext(누구냐);
+
+    
+
     return <div style={
       {
         padding:'20px',
