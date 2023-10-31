@@ -1,10 +1,12 @@
 import { 누구냐 } from "./cont_provider";
 
+const tata = [
+  ['cc','dd'],
+  ['aa','bb']
+];
 
 function 이야기() {
     const 맘대로 = React.useContext(누구냐);
-
-    
 
     return <div style={
       {
@@ -15,7 +17,10 @@ function 이야기() {
         margin:'20px auto',
         textAlign:'center'
       }
-    }>수신 : {맘대로.앙앙} 대답은? {맘대로.팡팡}</div>;
+    }>수신 : {맘대로.mVal.앙앙} 대답은? {맘대로.mVal.팡팡}
+    <button onClick={()=>맘대로.changeMVal({앙앙:'ㅁㅁ',팡팡:'ㅎㅎ'})}>요기</button>
+    <input type="text" />
+    </div>;
   }
 
   export default 이야기

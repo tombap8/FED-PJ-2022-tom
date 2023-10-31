@@ -2,10 +2,19 @@ import { func } from "prop-types";
 import { 누구냐 } from "./02.산너머산/cont_provider";
 import 이야기 from "./02.산너머산/sub_com";
 
+const myC = {앙앙:"옛날 옛적에 호랑이 담배피던시절엔 말이다",팡팡:"재밋지?"};
 
 function 큰집() { 
+  const [mVal,setMVal] = React.useState(myC);
+  const changeMVal = React.useCallback(
+    (mVal) => {
+      setMVal(mVal);
+      console.log(mVal);
+    },
+    [setMVal]
+  );
   return (
-    <누구냐.Provider value={{앙앙:"옛날 옛적에 호랑이 담배피던시절엔 말이다",팡팡:"재밋지?"}}>
+    <누구냐.Provider value={{mVal,changeMVal}}>
       <할아버지 />
     </누구냐.Provider>
   );
@@ -93,6 +102,46 @@ function Message({ ee, kk }) {
       수신 : {ee + kk}</div>;
 }
 
+
+
+
+
+
+
+
+const I18nContext = React.createContext(null);
+
+function App2() {
+  const [locale, setLocale] = React.useState('en');
+  const changeLocale = React.useCallback(
+    (locale) => {
+      setLocale(locale);
+    },
+    [setLocale]
+  );
+
+  return (
+    <I18nContext.Provider value={{ locale, changeLocale }}>
+      <LanguageButton />
+    </I18nContext.Provider>
+  );
+}
+
+const LanguageButton = () => {
+  const { locale, changeLocale } = React.useContext(I18nContext);
+
+  React.useEffect(() => {
+    console.log('현재 언어:', locale);
+  }, [locale]);
+
+  const nextLanguage = React.useMemo(() => (locale === 'en' ? 'ko' : 'en'), [locale]);
+
+  return (
+    <button onClick={() => changeLocale(nextLanguage)}>{nextLanguage}</button>
+  );
+};
+
 // 메인컴포넌트 출력하기 //////////
 ReactDOM.render(<App />, document.querySelector("#root1"));
 ReactDOM.render(<큰집 />, document.querySelector("#root2"));
+ReactDOM.render(<App2 />, document.querySelector("#root3"));
