@@ -1,5 +1,4 @@
 import { 누구냐 } from "./cont_provider";
-import { mtInfo } from "./mountain";
 
 function 이야기() {
     const 맘대로 = React.useContext(누구냐);
@@ -23,8 +22,14 @@ function 이야기() {
     }><h1>{맘대로.mVal}</h1>
     <img src={selData.이미지} alt={selData.이름} style={{width:'100%'}} />
     <div>
-        {btns.map(v=><button onClick={()=>맘대로.changeMVal(v.이름)} style={{
-          padding:'15px',fontSize:'20px',margin:'10px'
+        {btns.map(v=>
+        <button 
+        onClick={()=>
+          맘대로.changeMVal(v.이름)} 
+          style={{
+            padding:'15px',
+            fontSize:'20px',
+            margin:'10px'
         }}>{v.이름}</button>)}      
     </div>
     <div style={

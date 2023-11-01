@@ -1,4 +1,3 @@
-import { func } from "prop-types";
 import { 누구냐 } from "./02.산너머산/cont_provider";
 import 이야기 from "./02.산너머산/sub_com";
 
