@@ -6,10 +6,8 @@ import { mtInfo } from "./mountain";
 
 console.log(mtInfo);
 
-
-const myC = ['백두산',mtInfo];
-
 function 큰집() { 
+  const myData = mtInfo;
   const [mVal,setMVal] = React.useState('백두산');
   const changeMVal = React.useCallback(
     (mVal) => {
@@ -19,7 +17,7 @@ function 큰집() {
     [setMVal]
   );
   return (
-    <누구냐.Provider value={{mVal,changeMVal,mtInfo}}>
+    <누구냐.Provider value={{mVal,changeMVal,myData}}>
       <할아버지 />
     </누구냐.Provider>
   );
@@ -79,7 +77,7 @@ function ThirdComponent({ value }) {
 /* ************************************************* */
 
 function App() {
-  return <GrandParent aa="이게 뭡니까?" kk="헉스^^;;;" />;
+  return <GrandParent aa="세계의 산" kk="🌄" />;
 }
 
 function GrandParent({ aa, kk }) {
@@ -102,14 +100,16 @@ function Message({ ee, kk }) {
   return <div style={
       {
         padding:'20px',
-        border:'2px dotted red',
         borderRadius:'10px',
-        width:'30%',
+        width:'60%',
         margin:'20px auto',
-        textAlign:'center'
+        textAlign:'center',
+        fontSize:'40px',
+        color:'#fff',
+        backgroundImage:'linear-gradient(to bottom,skyblue,navy)'
       }
     }>
-      수신 : {ee + kk}</div>;
+      🌞{ee + kk}</div>;
 }
 
 
