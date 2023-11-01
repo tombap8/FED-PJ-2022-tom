@@ -10,7 +10,7 @@ console.log(mtInfo);
 const myC = ['백두산',mtInfo];
 
 function 큰집() { 
-  const [mVal,setMVal] = React.useState(myC);
+  const [mVal,setMVal] = React.useState('백두산');
   const changeMVal = React.useCallback(
     (mVal) => {
       setMVal(mVal);
@@ -19,7 +19,7 @@ function 큰집() {
     [setMVal]
   );
   return (
-    <누구냐.Provider value={{mVal,changeMVal}}>
+    <누구냐.Provider value={{mVal,changeMVal,mtInfo}}>
       <할아버지 />
     </누구냐.Provider>
   );

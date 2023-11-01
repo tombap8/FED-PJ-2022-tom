@@ -12,7 +12,7 @@ function 이야기() {
         margin:'20px auto',
         textAlign:'center'
       }
-    }>수신 : {맘대로[0]} 대답은? {맘대로[1]}
+    }>수신 : {맘대로.mVal} 대답은? {맘대로.mtInfo[0]}
     </div>;
   }
 
