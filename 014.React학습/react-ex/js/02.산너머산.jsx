@@ -2,7 +2,12 @@ import { func } from "prop-types";
 import { 누구냐 } from "./02.산너머산/cont_provider";
 import 이야기 from "./02.산너머산/sub_com";
 
-const myC = {앙앙:"옛날 옛적에 호랑이 담배피던시절엔 말이다",팡팡:"재밋지?"};
+import { mtInfo } from "./mountain";
+
+console.log(mtInfo);
+
+
+const myC = ['백두산',mtInfo];
 
 function 큰집() { 
   const [mVal,setMVal] = React.useState(myC);
@@ -33,7 +38,12 @@ function 아들() {
 }
 
 function 손녀() {
-  return <이야기 />;
+  return(
+    <React.Fragment>
+      <이야기 />
+    </React.Fragment>
+    
+    );
 }
 
 
