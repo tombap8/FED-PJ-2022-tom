@@ -14,7 +14,7 @@ function 이야기() {
       {
         position:'relative',
         padding:'20px',
-        border:'2px dotted red',
+        border:'10px dotted skyblue',
         borderRadius:'10px',
         width:'60%',
         margin:'20px auto',
@@ -23,13 +23,15 @@ function 이야기() {
     }><h1>{맘대로.mVal}</h1>
     <img src={selData.이미지} alt={selData.이름} style={{width:'100%'}} />
     <div>
-        {btns.map(v=><button onClick={()=>맘대로.changeMVal(v.이름)}>{v.이름}</button>)}      
+        {btns.map(v=><button onClick={()=>맘대로.changeMVal(v.이름)} style={{
+          padding:'15px',fontSize:'20px',margin:'10px'
+        }}>{v.이름}</button>)}      
     </div>
     <div style={
       {
         position:'absolute',
         width:'50%',
-        bottom: '50px',
+        bottom: '105px',
         left:'20px',
         padding:'15px',
         fontSize:'16px',
