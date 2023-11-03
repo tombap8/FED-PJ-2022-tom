@@ -1,0 +1,43 @@
+@charset "utf-8";
+/* 보그 PJ 리셋 CSS - reset.css */
+/* 요소의 초기화 */
+
+/* 1. 마진,패딩 없애기 */
+html,body,h1,h2,h3,h4,h5,h6,ul,ol,dt,dd,p{
+    margin: 0;
+    padding: 0;
+}
+
+/* 가로스크롤 생김 방지!(특히 모바일) */
+html, body{
+    overflow-x: hidden;
+}
+
+/* 2. a요소 리셋 */
+a{
+    color: #000;
+    /* 글자색 */
+    text-decoration: none;
+    /* 밑줄없앰 */
+}
+
+/* 3. ul,ol 리셋 */
+ul,ol{
+    list-style: none;
+    /* 블릿/숫자 제거 */
+}
+
+/* 4. h요소 글자크기 리셋 */
+h1,h2,h3,h4,h5,h6{
+    font-size: 100%;
+    /* html의 기본글자크기(16px)와 일치 초기화 */
+}
+
+/* 5. 이미지 리셋 */
+img {
+    border: none;
+    /* 이미지 링크시 서버에서 볼때 파란색 자동보더 없애기 */
+    vertical-align: bottom;
+    /* 박스 이미지 하단간극 없애기(약4px)
+    값으로 top, middle등 도 효과있음! */
+}

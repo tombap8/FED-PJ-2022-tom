@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .my{
+            position: absolute;
+            top: 20%;
+            left: 20%;
+            width: 200px;
+            height: 300px;
+            transform: rotateX(20deg) rotateY(10deg);
+            transform-style: preserve-3d;
+        }
+        .my img{
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        .my img:first-child{
+            transform: translateZ(1px);
+        }
+    </style>
+</head>
+<body>
+    <div class="my">
+        <img src="./images/cont2-2.jpeg" alt="">
+        <img src="./images/cont2-1.jpg" alt="">
+    </div>
+    
+</body>
+</html>
