@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS9-5. URLSearchParams</title>
+    <script>
+      /* 
+            URLSearchParams
+            URLSearchParams 인터페이스는 URL의 쿼리 문자열을 
+            대상으로 작업할 수 있는 유틸리티 메서드를 정의
+
+        */
+      const paramsString = "q=URLUtils.searchParams&topic=api";
+      let searchParams = new URLSearchParams(paramsString);
+
+      // 검색 매개변수 순회
+      for (let p of searchParams) {
+        console.log(p);
+      }
+
+      searchParams.has("topic") === true; // true
+      searchParams.get("topic") === "api"; // true
+      searchParams.getAll("topic"); // ["api"]
+      searchParams.get("foo") === null; // true
+      searchParams.append("topic", "webdev");
+      searchParams.toString(); // "q=URLUtils.searchParams&topic=api&topic=webdev"
+      searchParams.set("topic", "More webdev");
+      searchParams.toString(); // "q=URLUtils.searchParams&topic=More+webdev"
+      searchParams.delete("topic");
+      searchParams.toString(); // "q=URLUtils.searchParams"
+    </script>
+  </head>
+  <body></body>
+</html>
