@@ -1,0 +1,61 @@
+@charset "utf-8";
+/* 보그 PJ 메인페이지 CSS - main.css */
+
+/* 공통 외부CSS */
+@import url(reset.css);
+@import url(core.css);
+@import url(common.css);
+
+/* 개별배경이미지 */
+/* 1번 - 1개 */
+.bg1{
+    background-image: url(../images/cont1a.jpg);
+}
+/* 2번 - 3개 */
+.bg2{
+    background-image: url(../images/cont2-1.jpg);
+}
+.bg3{
+    background-image: url(../images/cont2-2.jpeg);
+}
+.bg4{
+    background-image: url(../images/cont2-3.jpg);
+}
+/* 3번 - 1개 */
+.bg5{
+    background-image: url(../images/cont3a.jpg);
+}
+/* 4번 - 3개 */
+.bg6{
+    background-image: url(../images/cont4-1.jpg);
+}
+.bg7{
+    background-image: url(../images/cont4-2.jpg);
+}
+.bg8{
+    background-image: url(../images/cont4-3.jpg);
+}
+/* 5번 - 1개 */
+.bg9{
+    background-image: url(../images/cont5a.jpg);
+}
+/* 6번 - 3개 */
+.bg10{
+    background-image: url(../images/cont6-1.png);
+}
+.bg11{
+    background-image: url(../images/cont6-2.jpg);
+}
+.bg12{
+    background-image: url(../images/cont6-3.png);
+}
+/* 7번 - 3개 */
+.bg13{
+    background-image: url(../images/cont7-1.jpg);
+}
+.bg14{
+    background-image: url(../images/cont7-2.jpg);
+}
+.bg15{
+    background-image: url(../images/cont7-3.jpg);
+}

@@ -1,0 +1,58 @@
+@charset "utf-8";
+/* 보그 PJ 갤러리 페이지 CSS - gallery.css */
+
+/* 공통 외부CSS */
+@import url(reset.css);
+@import url(core.css);
+@import url(common.css);
+
+
+/* 컨텐츠 영역 속박스 */
+.main-area {
+    min-height: 1000px;
+    padding: 15px;
+}
+
+/* 2-1-1. 서브타이틀 */
+.stit {
+    font-family: pist;
+    font-weight: normal;
+    font-size: 50px;
+    text-align: center;
+    padding: 40px 0 20px;
+}
+
+/* 2-2. 서브 컨텐츠 박스 */
+.scont {
+    min-height: 600px;
+    /* 드래그선택 안되게하기 */
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+/* 스와이퍼 적용 CSS */
+.swiper {
+    max-width: 1300px;
+    height: 700px;
+    margin: 0 auto;
+}
+
+/* 스와이퍼 개별 슬라이드 리스트 */
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* 플렉스 설정 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 직접 이미지요소를 배경처럼 사용! */
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

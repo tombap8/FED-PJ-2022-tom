@@ -1,0 +1,262 @@
+@charset "utf-8";
+/* 보그 PJ 회원가입 페이지 CSS - member.css */
+
+/* 공통 외부CSS */
+@import url(reset.css);
+@import url(core.css);
+@import url(common.css);
+
+/* 컨텐츠 영역 속박스 */
+.main-area{
+    min-height: 700px;
+    padding: 15px;    
+    padding-bottom: 100px;
+}
+
+
+/* 2-1-1. 서브타이틀 */
+.stit {
+    font-family: pist;
+    font-weight: normal;
+    font-size: 50px;
+    text-align: center;
+    padding: 40px 0 20px;    
+}
+
+/* 2-2. 서브 컨텐츠 박스 */
+.scont{
+    /* 처음에 회원가입 박스안보임 
+    -> 대신 동의박스가 보임 */
+    display: none;
+    max-width: 700px;
+    min-height: 275px;
+    margin: 0 auto;
+    border: 2px solid #737373;
+    border-radius: 10px;
+    /* 크기유지 */
+    box-sizing: border-box;
+    padding: 30px 50px;
+    background-color: #fff;
+}
+
+/* 포커스 아웃라인 제거
+모든 브라우저에 기본 포커스 아웃라인 셋팅됨! */
+input:focus,
+select:focus {
+    outline: none;
+    /* outline: 2px solid aqua; */
+}
+
+/* 공통 메시지 박스 */
+.msg {
+    position: absolute;
+    top: 47px;
+    /* 부모는? 각 li */
+    display: block;
+    width: 100px;
+    height: 15px;
+    line-height: 15px;
+    font-size: 10px;
+    color: #f00;
+    /* 줄바꿈방지 */
+    white-space: nowrap;
+    margin-top: -12px;
+
+    /* outline: 1px solid green; */
+}
+
+/* 메시지 글자색 변경 */
+.msg.on {
+    color: green;
+}
+
+
+/* 리스트 ul */
+.scont ul {
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    /* html 10px*2=20px */
+    font-weight: bold;
+    color: #333;
+}
+
+/* 리스트 li */
+.scont li {
+    position: relative;
+    /* 부모자격 - .msg */
+    height: 50px;
+    line-height: 50px;
+    /* outline: 2px dotted red; */
+}
+
+/* 라벨공통 타이틀(.itit) */
+.itit {
+    display: inline-block;
+    width: 200px;
+}
+
+/*  입력박스 공통 */
+/* []는 속성(attribute)선택자 */
+.scont input[type=text],
+.scont input[type=password] {
+    width: 340px;
+    height: 36px;
+    font-size: 20px;
+    border: 1px solid #777;
+    border-radius: 5px;
+    padding-left: 5px;
+}
+
+/* 라디오버튼 */
+.scont input[type=radio] {
+    width: 20px;
+    height: 20px;
+    /* 인라인요소간 세로정렬 */
+    vertical-align: -4px;
+}
+
+/* 이메일 앞주소 */
+#email1 {
+    width: 170px;
+}
+
+/* 이메일 선택박스
+(=드롭다운박스=콤보박스) */
+#seleml {
+    width: 146px;
+    height: 40px;
+    border: 1px solid #777;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+/* 이메일 뒷주소 부모li */
+.scont li:nth-child(7) {
+    /* float된 자식요소 높이인식위해 */
+    overflow: hidden;
+}
+
+/* 이메일 뒷주소 */
+#email2 {
+    width: 136px;
+    float: right;
+    margin-right: 36px;
+    margin-top: 4px;
+    /* 처음에 안보임 */
+    display: none;
+}
+
+/* 가입하기 버튼 */
+#btnj {
+    width: 113px;
+    height: 40px;
+    border: 1px solid #777;
+    border-radius: 5px;
+    color: #fff;
+    background-image: linear-gradient(to bottom, #ddd, #555);
+    /* 오른쪽 끝으로 보냄 */
+    float: right;
+    margin-right: 40px;
+    margin-top: 6px;
+
+    font-weight: bold;
+    font-size: 16px;
+    /* 손가락모양 */
+    cursor: pointer;
+}
+
+
+/* 약관동의박스 */
+#conf {
+    /* display: none; */
+    max-width: 700px;
+    min-height: 600px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: #fff;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+/* 동의/비동의 버튼박스 */
+.YNbox {
+    text-align: center;
+}
+/* 버튼공통 */
+.YNbox button {
+    width: 113px;
+    height: 40px;
+    border: 1px solid #737373;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: bold;
+    background-image: linear-gradient(to bottom, #ddd, #555);
+    margin: 0 20px;
+    cursor: pointer;
+}
+
+
+
+
+/* 미디어쿼리 690px 이하 시작 */
+@media screen and (max-width:690px) {
+
+    /* 리스트 li */
+    .scont li {
+        height: auto;
+    }
+
+    /* 라벨공통 타이틀(.itit) */
+    .itit {
+        display: block;
+    }
+
+    /*  입력박스 공통 */
+    .scont input[type=text],
+    .scont input[type=password] {
+        width: 100%;
+    }
+
+    /* 가입하기 버튼 */
+    #btnj {
+        display: block;
+        float: none;
+        margin: 0 auto;
+        margin-top: 25px;
+    }
+
+    /* 상대적인 크기 위치변경 */
+    .cont {
+        padding: 3vw !important;
+    }
+
+    /* 로그인 박스 */
+    .scont {
+        padding: 30px 7vw;
+    }
+
+    /* 이메일 앞주소 */
+    #email1 {
+        width: 30vw;
+    }
+    /* 이메일 선택박스 */
+    #seleml {
+        width: 37.2vw;
+    }
+    /* 이메일 뒷주소 */
+    #email2 {
+        width: 35.4vw;
+        margin-right: 5.1vw;
+    }
+    /* @ 문자 글자크기 */
+    .gol{
+        font-size: 3vw;
+    }
+
+}
+
+/* 미디어쿼리 690px 이하 끝 */
+

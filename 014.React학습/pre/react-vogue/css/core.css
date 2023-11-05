@@ -1,0 +1,168 @@
+@charset "utf-8";
+/* 보그 PJ 공통핵심 CSS - core.css */
+/* 웹폰트, 공용클래스 */
+
+/*********** 1. 웹폰트 ***********/
+/* Roboto체 + Roboto Condensed체 - CDN */
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Roboto:wght@300&display=swap");
+
+/* 
+font-family: 'Roboto', sans-serif;
+font-family: 'Roboto Condensed', sans-serif;
+*/
+/* 나눔바른고딕 */
+@font-face {
+    font-family: nbg;
+    src: url(../fonts/NanumBarunGothicLightSubset.woff) format("woff");
+}
+
+/* Pistilli체 */
+@font-face {
+    font-family: pist;
+    src: url(../fonts/Pistilli-Roman.woff) format("woff");
+}
+
+/* 
+  [ 공통 클래스 이름정의 ]
+  1. ibx - inside box 속박스
+  2. pt1, pt2 - part1, part2 각 부분박스(비율적용)
+  3. cbx - content box 내용박스
+  4. bgi - background image 관련 속성
+*/
+
+/* 공사중 표시 */
+/* body * {
+    outline: 1px dashed gray;
+} */
+
+/************* 2. 공통 class *************/
+
+/* 2-1. 중앙 속박스 */
+.ibx {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* 2-2. 컨텐츠 박스 유형별 클래스 */
+/* 유형1 - 1개박스구성 : .pt1 */
+.pt1{
+    /* 비율 적용시 height값은 주지않는다! */
+    /* height: 724px; */
+
+    /* 1300 : 724 비율 */
+    aspect-ratio: 1300 / 724;
+}
+/* 유형1 컨텐츠박스 */
+.pt1 .cbx{
+    /* 부모박스 높이값에 맞춤! */
+    height: 100%;
+}
+
+/* 유형2 - 3개박스구성 : .pt2 */
+.pt2{
+    /* 플렉스박스 */
+    display: flex;
+    
+    /* 비율 적용시 height값은 주지않는다! */
+    /* height: 650px; */
+
+    /* 1300 : 650 비율 */
+    aspect-ratio: 1300 / 650;
+}
+/* 유형2 컨텐츠박스 : 등분할 가로정렬박스 */
+.pt2 .cbx{
+    /* 플렉스 자식요소 동일분할 설정!
+    -> 높이값 100% 설정불필요! 자동맞춤된다! */
+    flex: 1;
+}
+
+/* 2-3. 배경이미지 공통셋팅 클래스 */
+.bgi{
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* 컨텐츠박스 */
+.cbx{
+    position: relative;
+    /* 부모자격 */
+}
+/* 가상요소로 컨텐츠 박스 배경 그라데이션 넣기 */
+.cbx::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50%;
+    background-image: 
+    linear-gradient(to top, #000, rgba(0, 0, 0, 0));
+}
+/* 가상요소로 컨텐츠 박스 오버시 보더 테두리 애니 만들기 */
+.cbx::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border: 0px solid #f00;
+    cursor: pointer;
+
+    /* 트랜지션: 속시이지 */
+    transition: border .2s ease-in-out;
+}
+/* .cbx에 오버시 */
+.cbx:hover::after{
+    border-width: 20px;
+}
+
+/* 3. 컨텐츠 타이틀 박스(h2) */
+.cbx h2{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: min(50px,3.4vw);
+    box-sizing: border-box;
+
+    /* 글자설정 - 영문체, 한글체 */
+    font-family: pist, nbg;
+    font-size: min(33px,3vw);
+    font-weight: normal;
+    text-align: center;
+    color: #fff;
+}
+/* 런웨이파트 타이틀 중 small요소 */
+.cbx h2 small {
+    font-size: 14px;
+}
+
+/* 4. 스크롤 등장액션 클래스 */
+.scAct {
+    transform: translateY(20%);
+    opacity: 0;
+    transition: 1.2s cubic-bezier(0.45, 0.05, 0.55, 0.95)
+}
+/* 등장클래스+.on */
+.scAct.on {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+
+
+
+
+/* 글자 숨김 클래스(IR배경이미지 설명 등  숨기기) */
+.ir {
+    display: block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+/* 공통배경색 클래스 */
+.bgc{
+    background-color: #f9f9f9;
+}
+
+

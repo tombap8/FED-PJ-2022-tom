@@ -1,0 +1,153 @@
+@charset "utf-8";
+
+/* 보그 PJ - 공통 미디어쿼리 */
+
+/******* 1000px 이하 미디어쿼리 시작 *******/
+@media screen and (max-width: 1000px) {
+  /* 상단영역 */
+  #top-area.on{
+    padding-left: 120px;
+  }
+}
+/******* 1000px 이하 미디어쿼리 끝 *******/
+
+/******* 650px 이하 미디어쿼리 시작 *******/
+@media screen and (max-width: 650px) {
+  /* 상단영역 .on적용시 조정 */
+  #top-area.on{
+    padding-left: 0px;
+  }
+  #top-area.on .logo {
+    position: static;
+    padding: 0;
+    height: auto;
+    margin-bottom: 0;
+  }
+  #top-area.on .logo img {
+    width: 132px;
+  }
+
+  /* 1. 없앨 요소들: .tmenu,.gnb */
+  .tmenu,
+  .gnb {
+    display: none;
+  }
+
+  /* 2. 로고, 로고이미지 */
+  .logo {
+    margin-bottom: 0;
+    height: auto;/* 기존높이값 해제 */
+  }
+
+  .logo img {
+    width: 132px;
+  }
+
+  /* 3. 상단영역 */
+  #top-area {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99999;
+    background-color: #fff;
+  }
+
+  /* 상단영역이 fixed되면서 body 패딩탑필요 */
+  body {
+    padding-top: 54px;
+    /* 상단메뉴만큼 밀어서 첫번째 컨텐츠
+        잘림방지 */
+  }
+
+  .top-area {
+    position: relative;
+    /* 모바일버튼의 부모자격! */
+    min-height: auto;
+    height: 57px;
+    box-sizing: border-box;
+    padding: 10px;
+  }
+
+  /* 컨텐츠 영역박스 */
+  .main-area {
+      min-height: auto;
+  }
+
+  /* 4. 3개짜리 컨텐츠박스 마지막 .cbx삭제 */
+  .pt2 .cbx:last-child {
+    display: none;
+  }
+
+  /* 5. 모바일용 이미지 변경하기 */
+  .bg1 {
+    background-image: url(../images/cont1b.jpg);
+  }
+
+  .bg5 {
+    background-image: url(../images/cont3b.jpg);
+  }
+
+  .bg9 {
+    background-image: url(../images/cont5b.jpg);
+  }
+
+  /* 6. 비율박스 비율변경 */
+  .pt1 {
+    aspect-ratio: 1/1.5;
+  }
+
+  .pt2 {
+    aspect-ratio: 1/0.7;
+  }
+
+  /* 7. 모바일 버튼 보이기 */
+  .mobtn {
+    display: block;
+  }
+
+  /* 8. 등장액션 클래스 보이게 처리 */
+  /* .scAct {
+    transform: translateY(0);
+    opacity: 1;
+  } */
+
+  /* 9. 컨텐츠박스 타이틀 */
+  .cbx h2 {
+    font-size: 5vw;
+  }
+
+  /* 10. 오버시(포커스갈때) 테두리 */
+  .cbx:hover::after {
+    border: 2.5vw solid red;
+  }
+
+  /* 11. 하단영역 */
+  .info {
+    min-height: auto;
+    padding: 40px;
+  }
+
+  /* 12. 하단로고 */
+  .blogo img {
+    width: 200px;
+  }
+
+  /* 13. 카테고리 페이지 서브 타이틀 + 일반서브타이틀 */
+  .cat-tit,.stit{
+    font-size: 30px;
+    padding: 25px 0 5px;
+  }
+
+  /* 14. 카테고리 페이지 lnb 메뉴 */
+  .lnb{
+    padding: 0 0 30px;
+  }
+  .lnb a{
+    font-size: 14px;
+  }
+
+
+}
+
+/******* 650px 이하 미디어쿼리 끝 *******/
