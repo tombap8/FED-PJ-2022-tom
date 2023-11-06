@@ -1,12 +1,12 @@
 @charset "utf-8";
-/* 보그 PJ 메인 페이지 CSS - main.css */
+/* 보그 PJ 메인페이지 CSS - main.css */
 
-/* 공통 외부CSS 합치기 */
+/* 공통 외부CSS */
 @import url(reset.css);
 @import url(core.css);
 @import url(common.css);
 
-/* 개별 배경이미지 */
+/* 개별배경이미지 */
 /* 1번 - 1개 */
 .bg1{
     background-image: url(../images/cont1a.jpg);

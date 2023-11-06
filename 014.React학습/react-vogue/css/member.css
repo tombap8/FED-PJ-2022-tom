@@ -1,14 +1,14 @@
 @charset "utf-8";
-/* 보그 PJ 로그인 페이지 CSS - login.css */
+/* 보그 PJ 회원가입 페이지 CSS - member.css */
 
-/* 외부파일 합치기 */
+/* 공통 외부CSS */
 @import url(reset.css);
 @import url(core.css);
 @import url(common.css);
 
 /* 컨텐츠 영역 속박스 */
-.cont{
-    min-height: 600px;
+.main-area{
+    min-height: 700px;
     padding: 15px;    
     padding-bottom: 100px;
 }
@@ -25,6 +25,9 @@
 
 /* 2-2. 서브 컨텐츠 박스 */
 .scont{
+    /* 처음에 회원가입 박스안보임 
+    -> 대신 동의박스가 보임 */
+    display: none;
     max-width: 700px;
     min-height: 275px;
     margin: 0 auto;
@@ -164,6 +167,38 @@ select:focus {
 }
 
 
+/* 약관동의박스 */
+#conf {
+    /* display: none; */
+    max-width: 700px;
+    min-height: 600px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: #fff;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+/* 동의/비동의 버튼박스 */
+.YNbox {
+    text-align: center;
+}
+/* 버튼공통 */
+.YNbox button {
+    width: 113px;
+    height: 40px;
+    border: 1px solid #737373;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: bold;
+    background-image: linear-gradient(to bottom, #ddd, #555);
+    margin: 0 20px;
+    cursor: pointer;
+}
+
+
 
 
 /* 미디어쿼리 690px 이하 시작 */
@@ -224,3 +259,4 @@ select:focus {
 }
 
 /* 미디어쿼리 690px 이하 끝 */
+

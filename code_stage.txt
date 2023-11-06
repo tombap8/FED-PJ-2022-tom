@@ -1,31 +1,21 @@
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-linksys2.js
 
-// 보그 PJ 링크 시스템 JS - linksys2.js
-// 카테고리 페이지용 linksys
-
-// 링크생성함수 내보내기 ///////////
-export function makeLink (){...
-
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-category.html
-
-<!-- 링크시스 카테고리용 JS - 카테고리JS보다 위에 둘것! -->
-    <script
-      src="./js/linksys2.js"
-      data-plugins="transform-es2015-modules-umd"
-      type="text/babel"
-    ></script>
+  const makeList = data =>{
+    
+    console.log(Array.isArray(props.tit[0]))
+    
+    if(Array.isArray(data)){
+      return <h2>
+            <small>{data[0]}</small><br/>
+            {data[1]}
+        </h2>
+    }else{
+      return <h2>{data}</h2>
+    }
+  }
 
 
 
-+++++++++++++++++++++++++++++++++++++++
-category.js
 
-// 보그 PJ 카테고리 페이지 JS - category.js
-import { makeLink } from "./linksys2.js";
-
-/////////// 상단영역 컴포넌트 /////////////
-function TopArea() {
-    React.useLayoutEffect(makeLink);
-  return (...
+  <div className="cbx bgi bg1-3">
+      {makeList(props.tit[2])}
+  </div>

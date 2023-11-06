@@ -2,8 +2,31 @@
 
 /* 보그 PJ - 공통 미디어쿼리 */
 
-/******* 500px 이하 미디어쿼리 시작 *******/
-@media screen and (max-width: 500px) {
+/******* 1000px 이하 미디어쿼리 시작 *******/
+@media screen and (max-width: 1000px) {
+  /* 상단영역 */
+  #top-area.on{
+    padding-left: 120px;
+  }
+}
+/******* 1000px 이하 미디어쿼리 끝 *******/
+
+/******* 650px 이하 미디어쿼리 시작 *******/
+@media screen and (max-width: 650px) {
+  /* 상단영역 .on적용시 조정 */
+  #top-area.on{
+    padding-left: 0px;
+  }
+  #top-area.on .logo {
+    position: static;
+    padding: 0;
+    height: auto;
+    margin-bottom: 0;
+  }
+  #top-area.on .logo img {
+    width: 132px;
+  }
+
   /* 1. 없앨 요소들: .tmenu,.gnb */
   .tmenu,
   .gnb {
@@ -21,7 +44,7 @@
   }
 
   /* 3. 상단영역 */
-  #top {
+  #top-area {
     position: fixed;
     top: 0;
     left: 0;
@@ -37,13 +60,18 @@
         잘림방지 */
   }
 
-  .top {
+  .top-area {
     position: relative;
     /* 모바일버튼의 부모자격! */
     min-height: auto;
     height: 57px;
     box-sizing: border-box;
     padding: 10px;
+  }
+
+  /* 컨텐츠 영역박스 */
+  .main-area {
+      min-height: auto;
   }
 
   /* 4. 3개짜리 컨텐츠박스 마지막 .cbx삭제 */
@@ -65,12 +93,12 @@
   }
 
   /* 6. 비율박스 비율변경 */
-  .rbx.pt1::before {
-    padding-top: 150%;
+  .pt1 {
+    aspect-ratio: 1/1.5;
   }
 
-  .rbx.pt2::before {
-    padding-top: 75%;
+  .pt2 {
+    aspect-ratio: 1/0.7;
   }
 
   /* 7. 모바일 버튼 보이기 */
@@ -79,10 +107,10 @@
   }
 
   /* 8. 등장액션 클래스 보이게 처리 */
-  .scAct {
+  /* .scAct {
     transform: translateY(0);
     opacity: 1;
-  }
+  } */
 
   /* 9. 컨텐츠박스 타이틀 */
   .cbx h2 {
@@ -105,8 +133,8 @@
     width: 200px;
   }
 
-  /* 13. 카테고리 페이지 서브 타이틀 */
-  .stit{
+  /* 13. 카테고리 페이지 서브 타이틀 + 일반서브타이틀 */
+  .cat-tit,.stit{
     font-size: 30px;
     padding: 25px 0 5px;
   }
@@ -122,4 +150,4 @@
 
 }
 
-/******* 500px 이하 미디어쿼리 끝 *******/
+/******* 650px 이하 미디어쿼리 끝 *******/
