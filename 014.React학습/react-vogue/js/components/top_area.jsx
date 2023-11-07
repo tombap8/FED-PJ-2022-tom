@@ -17,6 +17,7 @@ export default function TopArea(props) {
   // useEffect(함수,[]) -> 뒤에 의존성변수 구역 비어있으면
   // 본 컴포넌트가 처음 실행될때 한번만 실행한다!
 
+  console.log('상단영역실행!!!');
 
   return (
     <div id="top-area">

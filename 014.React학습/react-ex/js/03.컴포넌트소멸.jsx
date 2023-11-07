@@ -1,0 +1,158 @@
+import { 누구냐 } from "./03.sub_com/cont_provider";
+import 이야기 from "./03.sub_com/sub_com";
+
+import { mtInfo } from "./mountain";
+
+console.log(mtInfo);
+
+function 큰집() { 
+  const myData = mtInfo;
+  const [mVal,setMVal] = React.useState('백두산');
+  const changeMVal = React.useCallback(
+    (mVal) => {
+      setMVal(mVal);
+      console.log(mVal);
+    },
+    [setMVal]
+  );
+  return (
+    <누구냐.Provider value={{mVal,changeMVal,myData}}>
+      <할아버지 />
+    </누구냐.Provider>
+  );
+}
+
+function 할아버지() {
+  return <아버지 />;
+}
+
+function 아버지() {
+  return <아들 />;
+}
+
+function 아들() {
+  return <손녀 />;
+}
+
+function 손녀() {
+  return(
+    <React.Fragment>
+      <이야기 />
+    </React.Fragment>
+    
+    );
+}
+
+
+
+/* ************************************************* */
+
+/* function App() {
+  return <AwesomeComponent value="Hello World" />;
+}
+
+function AwesomeComponent({ value }) {
+  return (
+    <div>
+      <FirstComponent value={value} />
+      <SecondComponent value={value} />
+      <ThirdComponent value={value} />
+    </div>
+  );
+}
+
+function FirstComponent({ value }) {
+  return <div>First Component says: "{value}"</div>;
+}
+
+function SecondComponent({ value }) {
+  return <div>Second Component says: "{value}"</div>;
+}
+
+function ThirdComponent({ value }) {
+  return <div>Third Component says: "{value}"</div>;
+} */
+
+/* ************************************************* */
+
+function App() {
+  return <GrandParent aa="세계의 산" kk="🌄" />;
+}
+
+function GrandParent({ aa, kk }) {
+  return <Parent bb={aa} kk={kk} />;
+}
+
+function Parent({ bb, kk }) {
+  return <Child cc={bb} kk={kk} />;
+}
+
+function Child({ cc, kk }) {
+  return <GrandChild dd={cc} kk={kk} />;
+}
+
+function GrandChild({ dd, kk }) {
+  return <Message ee={dd} kk={kk} />;
+}
+
+function Message({ ee, kk }) {
+  return <div style={
+      {
+        padding:'20px',
+        borderRadius:'10px',
+        width:'60%',
+        margin:'20px auto',
+        textAlign:'center',
+        fontSize:'40px',
+        color:'#fff',
+        backgroundImage:'linear-gradient(to bottom,skyblue,navy)'
+      }
+    }>
+      🌞{ee + kk}</div>;
+}
+
+
+
+
+
+
+
+
+
+
+const I18nContext = React.createContext(null);
+
+function App2() {
+  const [locale, setLocale] = React.useState('en');
+  const changeLocale = React.useCallback(
+    (locale) => {
+      setLocale(locale);
+    },
+    [setLocale]
+  );
+
+  return (
+    <I18nContext.Provider value={{ locale, changeLocale }}>
+      <LanguageButton />
+    </I18nContext.Provider>
+  );
+}
+
+const LanguageButton = () => {
+  const { locale, changeLocale } = React.useContext(I18nContext);
+
+  React.useEffect(() => {
+    console.log('현재 언어:', locale);
+  }, [locale]);
+
+  const nextLanguage = React.useMemo(() => (locale === 'en' ? 'ko' : 'en'), [locale]);
+
+  return (
+    <button onClick={() => changeLocale(nextLanguage)}>{nextLanguage}</button>
+  );
+};
+
+// 메인컴포넌트 출력하기 //////////
+ReactDOM.render(<App />, document.querySelector("#root1"));
+ReactDOM.render(<큰집 />, document.querySelector("#root2"));
+ReactDOM.render(<App2 />, document.querySelector("#root3"));

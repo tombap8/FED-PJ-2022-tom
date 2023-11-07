@@ -102,3 +102,26 @@ import $ from 'jquery';
 npm i jquery-ui-dist
 사용:
 import 'jquery-ui-dist/jquery-ui';
+
+10. 제이쿼리 UI 드래그기능 
+모바일까지 커버하기 위해 터치펀치 설치
+npm i jquery-ui-touch-punch
+
+
+사용: 
+-> 아래처럼 제이쿼리 $외에 jQuery함수명도 사용가능하게 써줄것!
+아래처럼 안쓰면 jQuery is not defined... 에러남
+그리고 뒤에 제이쿼리 UI와 터치펀치는 import로 불러오지 말고
+require() 메서드로 불러와야 효과있음!
+
+import $ from 'jquery';
+window.jQuery = $;
+require('jquery-ui-dist/jquery-ui');
+require('jquery-ui-touch-punch/jquery.ui.touch-punch');
+
+______________________________________________
+참고) 
+설치 명령어에서 설치시 install은 줄여서 i만 써도 됨
+그리고 뒤에 설치 옵션 --save는 예전과 달리 이젠 안써도 
+json파일에 설치등록을 해준다는게 기본이므로
+안써도 --save쓴것과 같음
