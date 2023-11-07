@@ -19,3 +19,6 @@
   <div className="cbx bgi bg1-3">
       {makeList(props.tit[2])}
   </div>
+
+  
+        history.pushState(null, null, '?cat='+encodeURIComponent(val));

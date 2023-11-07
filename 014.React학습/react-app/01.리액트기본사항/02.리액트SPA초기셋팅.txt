@@ -37,7 +37,7 @@ npm uninstall -g create-react-app
 (npx 명령어사용!)
 
 npx create-react-app my-react-app
-(my-react-app은 내가지은이름)
+(my-react-app은 내가지은이름)y
 
 ______________________________________________
 
