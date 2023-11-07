@@ -12,6 +12,9 @@ import FooterArea from "./components/footer_area.jsx";
 // 제이쿼리 기능구현 함수 불러오기 ///
 import setJSTop from "./common2.js";
 
+// 카테고리 컨텍스트
+import { catContext } from "./components/cat_context.jsx";
+
 ////// 카테고리 페이지 메인 컴포넌트 ///////
 /******************************************* 
   컴포넌트명 : MainComponent
@@ -34,7 +37,8 @@ function MainComponent() {
   // 만약 처음 들어오는 경우 파라미터가 null이면
   // 다른 페이지 메뉴를 클릭하여 들어온 경우가 아니므로
   // 첫페이지로 리로드시킨다!
-  //   if(!catName) location.href = 'index.html';
+  // React.useLayoutEffect(()=>
+  //   {if(!catName) location.href = 'index.html'});
 
   console.log(
     "URL",
@@ -53,17 +57,19 @@ function MainComponent() {
     console.log('바꿔!',val);
     // 상태관리 변수 nowCat 업데이트
     setNowCat(val);
+
+
   }; //////////// chgCat함수 ///////////
 
   return (
-    <React.Fragment>
+    <catContext.Provider value={{chgCat}}>
       {/* 1.상단영역 */}
-      <TopArea chgItem={chgCat} />
+      <TopArea />
       {/* 2.메인영역 */}
       <MainCategory category={nowCat} />
       {/* 3.하단영역 */}
       <FooterArea />
-    </React.Fragment>
+    </catContext.Provider>
   );
 } ////////////// MainComponent ////////////////
 
