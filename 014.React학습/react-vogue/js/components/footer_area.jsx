@@ -20,8 +20,8 @@ export default function FooterArea() {
       console.log('하단영역실행!!!');
 
       const chgBb = val =>{
-        setBb(val)
-        setCc(val)
+        setBb(val==1?0:1)
+        setCc(val==1?0:1)
       }
 
   return (<React.Fragment>
@@ -40,7 +40,7 @@ const BtnMy = React.memo((props) => {
     console.log('계산해!');
     return a*b};
 
-  const iseeu = React.useMemo(()=>calc(a,b));
+  // const iseeu = React.useMemo(()=>calc(a,b));
 
   const makeList = (data) =>
     data.map((v) => (
@@ -53,12 +53,14 @@ const BtnMy = React.memo((props) => {
     <footer className="footer-area ibx common-area">
       {/* 3-1.하단로고 */}
       <div className="blogo">
-        <img src="./images/footer_logo.png" alt="하단로고" />
+        <img 
+        src={props.aa==0?"./images/footer_logo.png":"https://media.tenor.com/roL8BtIs724AAAAd/vogue-celine-vogue.gif"} alt="하단로고" />
+       
       </div>
       {/* 3-2.회사주소 */}
       <address className="addr">
         {props.aa+props.bb}WWW.VOGUE.COM Ⓒ CONDÉNAST ASIA PACIFIC. INC. ALL RIGHTS RESERVED.
-        VOGUE.COM KOREA IS OPERATED BY DOOSAN MAGAZINE.{iseeu(33,9)}
+        VOGUE.COM KOREA IS OPERATED BY DOOSAN MAGAZINE.
       </address>
       {/* 3-3.하단링크 */}
       <ul className="blink">{makeList(fTxt)}</ul>
