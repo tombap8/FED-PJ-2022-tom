@@ -1,0 +1,173 @@
+/* Pilot PJ 공통 핵심 CSS - core.css */
+/******** 웹폰트 **********/
+/* 나눔고딕체 */
+@font-face {
+  font-family: NG;
+  src: url(../static/fonts/NanumGothic.woff) format("woff");
+}
+/* Ubuntu체 */
+@font-face {
+  font-family: UB;
+  src: url(../static/fonts/UbuntuCondensed-Regular.woff) format("woff");
+}
+
+/* 공통 class */
+
+/* 페이지 공통 class */
+.page {
+  /* 한페이지 보이는 화면 채우기 */
+  /* width: 100%; */
+  height: 100vh;
+  overflow: hidden;
+  /* 
+    width: 100vw;
+    height: 100vh;
+    보이는 화면 기준의 뷰포트단위를 쓰면
+    body의 height 100%가 필요없다!
+    왜냐하면 보이는 화면을 기준하니까!
+    단, vw단위는 스크롤바 트랙까지 포함한
+    화면 전체를 기준하므로
+    데스트탑에서는 100%를 사용하는게 좋다!
+    (이유는 가로스크롤바가 생기게 되므로!)
+*/
+}
+
+/* IR(배경이미지 설명 숨기기) class */
+.ir {
+  display: block;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+/* 숨기기 class */
+.bld {
+  display: none;
+}
+
+/* 중앙 속박스 */
+.ibx {
+  width: 1920px;
+  max-width: 100%;
+  /* 1920px보다 작을땐 100%를 유지함! */
+  margin: 0 auto;
+  /* 마영오 - 중앙정렬 */
+}
+
+/*드래그 선택 안되게 하는 CSS*/
+.nonesel {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Chrome/Safari/Opera */
+  -khtml-user-select: none;
+  /* Konqueror */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge*/
+  user-select: none;
+  /* Non-prefixed version, currently 
+    not supported by any browser */
+}
+
+.nonedrag {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
+/******** 남자,여자,스타일 패션 공통 class *********/
+.pgc {
+  position: relative;
+  top: 5%; /* 위아래 5%떨어짐 */
+  width: 100%;
+  height: 90%;
+
+  display: flex;
+  /* 플렉스박스 */
+}
+/* li요소 */
+.pgc > li {
+  position: relative;
+  /* 부모자격 */
+  flex: 1; /* 기본등분할 설정 */
+  /* 
+        개별적으로 비율을 넓히려면
+        flex-basis를 사용한다!
+    */
+  overflow: hidden;
+  /* 넘치는 이미지 숨기기 */
+}
+/* 이미지 */
+.pgc img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* 박스에 맞춰서 중앙 보이기 */
+}
+
+/* 글자스타일 */
+.txtc h2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font: bold 4.6rem UB;
+  letter-spacing: 3px; /* 자간 */
+}
+.txtc a {
+  color: #222;
+}
+
+/* 등장액션 플러그인용 클래스 */
+.js-reveal {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: opacity 0.7s ease-in, transform 0.7s ease-out;
+}
+
+.js-reveal--hidden {
+  opacity: 0;
+  transform: translateY(200px);
+}
+/* a요소는 트랜스폼이 적용되도록 display:inline-block으로 변경 */
+a.js-reveal {
+  display: inline-block;
+}
+
+.jr1.js-reveal {
+  opacity: 1;
+  transform: none;
+  overflow: hidden;
+  height: 100vh;
+  transition: 0.7s ease-out 1s;
+}
+
+.jr1.js-reveal--hidden {
+  height: 0;
+}
+
+.jr2.js-reveal {
+  position: relative;
+  opacity: 1;
+  transform: none;
+  overflow: hidden;
+}
+.jr2.js-reveal::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 0;
+  background-color: darkblue;
+
+  transition: 0.7s ease-out 1.2s;
+}
+
+.jr2.js-reveal--hidden::after {
+  height: 100%;
+}

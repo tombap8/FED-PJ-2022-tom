@@ -1,0 +1,99 @@
+/* 섹션소개모듈용 CSS - sec_intro.css */
+
+.sec-intro {
+  position: relative;
+  max-width: 1320px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+  margin-top: 5vh;
+  font-family: "Ubuntu Condensed", sans-serif;
+  padding-bottom: 30px;
+  gap: 2vh 0;
+}
+.sec-intro > div {
+  position: relative;
+  flex-basis: 23%;
+  aspect-ratio: 1/1.7;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  background-color: #fdfdfd;
+}
+.imbx img {
+  max-width: 100%;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 0% 100%);
+}
+
+/* 타이틀박스 */
+.titbx{
+    text-align: center;
+}
+.titbx h3 {
+  padding: 6px 0;
+  margin-bottom: 5px;
+  font-size: 12px;
+  color: #888;
+  letter-spacing: 2px;
+}
+.titbx h2 {
+  margin-bottom: 8px;
+  padding: 0 20px;
+}
+.btnbx {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 30px;
+  white-space: nowrap;
+}
+.btnbx button {
+  padding: 15px 30px;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 25px;
+  font-family: "Ubuntu Condensed", sans-serif;
+  background-color: transparent;
+  transition: 0.4s;
+  cursor: pointer;
+}
+.btnbx button:hover {
+  background-color: #0074eb;
+  color: #fff;
+}
+
+@media screen and (max-width: 1300px) {
+  .sec-intro > div {
+    aspect-ratio: 1/2;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .sec-intro > div {
+    aspect-ratio: 1/1.6;
+    flex-basis: 49%;
+  }
+  .titbx h3 {
+    font-size: 1.2vw;
+  }
+  .titbx h2 {
+    font-size: 2vw;
+  }
+  .btnbx button {
+    font-size: 1.5vw;
+  }
+}
+@media screen and (max-width: 570px) {
+  .sec-intro > div {
+    aspect-ratio: 1/1.4;
+    flex-basis: 100%;
+  }
+  .titbx h3 {
+    font-size: 2vw;
+  }
+  .titbx h2 {
+    font-size: 5vw;
+  }
+  .btnbx button {
+    font-size: 3vw;
+  }
+}

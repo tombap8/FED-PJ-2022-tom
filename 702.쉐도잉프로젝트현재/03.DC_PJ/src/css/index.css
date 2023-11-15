@@ -1,0 +1,4 @@
+/* DC.com 메인 페이지 CSS - index.css */
+@import url(./reset.css);
+@import url(core.css);
+@import url(./layout.css);

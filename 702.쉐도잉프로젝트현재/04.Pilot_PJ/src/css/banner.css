@@ -1,0 +1,142 @@
+/* 메인 배너 CSS - banner.css */
+/********** 2-1.배너영역 ************/
+#ban {
+  position: relative;
+  /* 부모자격 - .slide */
+}
+/* 슬라이드 박스 */
+.slide {
+  position: absolute;
+  top: 0;
+  left: -100%; /* 왼쪽에 마지막 슬라이드가 나가있음! */
+  /* 부모는? #ban */
+  display: flex;
+  /* 플랙스 박스 */
+  width: 600%;
+  height: 100%;
+}
+.slide li {
+  position: relative;
+  /* 배너타이틀의 부모자격! */
+  flex: 1;
+  /* 부모 flex박스 영역을 등분할 함!(height도 자동으로 100%) */
+}
+/* 각 슬라이드 셋팅 */
+.slide li.ban1 {
+  background: url(../../public/images/ban01New.jpg) no-repeat center/cover;
+}
+.slide li.ban2 {
+  background: url(../../public/images/ban02New.jpg) no-repeat center/cover;
+}
+.slide li.ban3 {
+  background: url(../../public/images/ban03New.jpg) no-repeat center/cover;
+}
+.slide li.ban4 {
+  background: url(../../public/images/ban04New.jpg) no-repeat center/cover;
+}
+.slide li.ban5 {
+  background: url(../../public/images/ban05New.jpg) no-repeat center/cover;
+}
+.slide li.ban6 {
+  background: url(../../public/images/ban06New.jpg) no-repeat center/cover;
+}
+
+/* 슬라이드 커버 */
+.cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  /* background-color: #f00;
+    opacity: 0.5; */
+  display: none;
+}
+
+/* 배너블릿박스 */
+.bindic {
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+  /* 부모는? #ban */
+
+  display: flex; /* 플렉스박스 */
+  justify-content: space-between;
+  width: 200px;
+  /* outline: 1px solid blue;   */
+}
+.bindic li {
+  width: 15px;
+  height: 15px;
+  background-color: #fff;
+  border-radius: 50%;
+  opacity: 0.4;
+  box-shadow: 0 0 2px #777;
+}
+.bindic a {
+  /* 링크영역확장 */
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+/* 선택블릿 */
+.bindic li.on {
+  opacity: 1;
+  box-shadow: 0 0 5px #000;
+}
+
+/* 양쪽이동버튼(영역+버튼) */
+/* 영역공통 */
+.btna {
+  position: absolute;
+  width: 20%;
+  height: 100%;
+  /* display: none;임시 */
+}
+/* 왼쪽영역 */
+.ar1 {
+  left: 0;
+  /* background-color: #ffafaf; */
+}
+/* 오른쪽영역 */
+.ar2 {
+  right: 0;
+  /* background-color: #769bff; */
+}
+
+/*팔로워*/
+.badge {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  transform: translate(-50%, -50%);
+}
+
+.inside {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(0);
+  border-radius: 50%;
+  background-color: #fff;
+  opacity: 0.7;
+  transition: all 0.1s;
+}
+
+/*버튼글자박스*/
+.btntit {
+  position: absolute;
+  width: 200px;
+  height: 80px;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%) scale(0);
+  /*            outline: 1px solid red;*/
+  font: 22px/80px Verdana;
+  color: #555;
+  text-align: center;
+  transition: all 0.1s;
+  cursor: pointer; /* 손가락모양 */
+}

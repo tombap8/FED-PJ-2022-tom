@@ -24,6 +24,11 @@
     max-width: 100%;
     clip-path: polygon(0% 0%,100% 0%, 100% 80%,0% 100%);
 }
+
+/* 타이틀박스 */
+.titbx{
+    text-align: center;
+}
 .titbx h3{
     padding: 6px 0;
     margin-bottom: 5px;
