@@ -1,13 +1,21 @@
-// VidIntro 컴포넌트용 데이터
-
-/* 
-    [ 데이터 조건 ]
+// 비디오소개 컴포넌트용 데이터 - vid_intro.js
+/********************************************** 
+    {
+        "vsrc":"유튜브동영상경로",
+        "stit":"작은타이틀",
+        "btit":"큰타이틀",
+        "sum":"요약소개",
+        "desc":"설명",
+        "link":"관련링크",
+    }
+    
+    [ 데이터조건 ]
     link 속성 값 셋팅시 하나의 링크만 셋팅할것!
-    링크가 있을 경우 sum 또는 desc 속성값에 
-    단하나의 *표시만 어디든지 넣는다!
-*/
+    링크가 있을 경우 sum 또는 desc 속성값에
+    단 하나의 *표시만 어디든지 넣는다!
+**********************************************/
 
-const vidintro_data = {
+export const vidIntroData = {
     main: {
         vsrc: "https://www.youtube.com/embed/jprhe-cWKGs",
         stit: "FEATURED VIDEO",
@@ -50,7 +58,5 @@ const vidintro_data = {
         desc: "Visit our Flash Hub for all things The Flash and to find tickets and showtimes near you",
         link: ["Vivid Sydney","https://www.vividsydney.com/"],
     },
-};
 
-// 데이터 내보내기
-export default vidintro_data;
+};

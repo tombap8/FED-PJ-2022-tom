@@ -9,7 +9,8 @@ html,body,ul,ol,dl,dt,dd,p,figure,figcaption,h1,h2,h3,h4 {
   padding: 0;
 }
 body{
-  background-color: #e5e5e5;
+  padding-top: 58px;
+  /* 상단영역 fixed구역만큼 밀어주기 */
 }
 /* ul,ol */
 ul,ol{
