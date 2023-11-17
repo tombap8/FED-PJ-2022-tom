@@ -1,0 +1,78 @@
+
+/* DC.com 전체 레이아웃 CSS */
+/* 나눔바른고딕 */
+@font-face {
+    font-family: nbg;
+    src: url(../static/fonts/NanumBarunGothicLightSubset.woff) format("woff");
+}
+
+/* Pistilli체 */
+@font-face {
+    font-family: pist;
+    src: url(../static/fonts/Pistilli-Roman.woff) format("woff");
+}
+
+.top-area{
+    background-image: linear-gradient(to bottom,#CCC,#111);
+    border: 4px double #000;
+}
+.gnb{
+    font-family: pist;
+    width: 800px;
+    margin: 0 auto;
+}
+.gnb ul{
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+.gnb li{
+    margin: 0 10px;
+}
+.gnb a{
+    color: #fff;
+    text-decoration: none;
+}
+.gnb a:hover{
+    color: hotpink;
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-shadow: 2px 2px 2px #555;
+}
+.gnb>ul>li:hover .smenu{
+    display: block;
+}
+.smenu{
+    position: absolute;
+    padding: 5px;
+    background-color: #00000072;
+    border-radius:10px;
+    z-index: 99;
+    display: none;
+}
+h1{
+    font-family: nbg;
+    text-align: center;
+}
+
+
+/* 메인영역 */
+.cont{
+    text-align: center;
+    padding: 30px;
+}
+.cont img{
+    max-width: 100%;
+}
+iframe{
+    width: 731px;
+    height: 412px;
+}
+
+/* 하단영역 */
+.info{
+    text-align: center;
+    padding: 30px;
+    background-image: linear-gradient(to bottom, #CCC, #777);
+    color: #fff;
+}

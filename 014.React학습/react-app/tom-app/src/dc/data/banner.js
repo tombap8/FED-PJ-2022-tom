@@ -1,6 +1,5 @@
-// 배너 컴포넌트 사용 데이터 - data/banner.js
-
-const ban_data = {
+// 배너데이터
+export const banData = {
     "main":[
         {
             "src":"./images/dcm21.jpg",
@@ -77,6 +76,3 @@ const ban_data = {
         },
     ],
 };
-
-// 데이터 내보내기
-export default ban_data;
