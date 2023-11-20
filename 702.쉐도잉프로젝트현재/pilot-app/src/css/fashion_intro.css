@@ -1,0 +1,34 @@
+/* 패션 인트로 모듈용 CSS - fashion_intro.css */
+.fs-page{
+    height: 100%;
+}
+
+/* 여자패션 이미지영역 */
+#women .imgc{
+    flex-basis: 25%;
+    /* 등분할 영역까지가 0%이고 양수는 영역침범 */
+}
+/* 스타일패션 이미지영역 */
+#style .imgc{
+    flex-basis: 15%;
+    /* 등분할 영역까지가 0%이고 양수는 영역침범 */
+}
+/* 스타일패션 이미지 */
+#style img{
+    object-fit: fill;
+    width: auto;
+    right: -26%;
+}
+
+/* 스타일 패션 글자 */
+.txtc .tm{/* 남자스타일글자 */
+    top: 20%;
+    left: auto;
+    transform: none;
+    right: 5%;
+}
+.txtc .tw{/* 여자스타일글자 */
+    top: 70%;
+    left: 5%;
+    transform: none;
+}

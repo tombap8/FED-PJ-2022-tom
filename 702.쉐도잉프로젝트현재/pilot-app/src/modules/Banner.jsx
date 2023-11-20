@@ -34,7 +34,7 @@ export function Banner() {
 
         } //////// for //////////
 
-        console.log(hcode);
+        // console.log(hcode);
 
         // 코드리턴
         return hcode;

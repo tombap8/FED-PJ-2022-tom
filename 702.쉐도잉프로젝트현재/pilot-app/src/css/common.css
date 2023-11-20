@@ -210,7 +210,7 @@
 #info {
     position: relative;
     /* 부모자격 */
-    height: 50%;/* 회사정보 박스만 높이값 절반! */
+    height: 50vh;/* 회사정보 박스만 높이값 절반! */
     background-color: #101629;
 }
 

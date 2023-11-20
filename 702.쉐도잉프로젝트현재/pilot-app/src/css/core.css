@@ -55,7 +55,7 @@
 }
 
 /*드래그 선택 안되게 하는 CSS*/
-.nonesel {
+.none-sel {
   -webkit-touch-callout: none;
   /* iOS Safari */
   -webkit-user-select: none;
