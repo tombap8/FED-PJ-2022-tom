@@ -20,6 +20,11 @@ export function MainCont() {
 
     //드래그배너 호출
     dragBanner();
+
+    // 컴포넌트 소멸자
+    return(()=>{
+      console.log('난 소멸했어~!');
+    })
   }, []); /////// useEffect ///////////
 
   return (
