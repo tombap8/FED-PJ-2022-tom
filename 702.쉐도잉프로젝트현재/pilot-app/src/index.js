@@ -1,12 +1,16 @@
 // 메인 페이지 JS - index.js
-import React, { useEffect, useState } from 'react';
-import ReactDOM, { createRoot } from 'react-dom/client';
+import React, { useCallback, useEffect, useLayoutEffect, useState } from 'react';
+import { createRoot } from 'react-dom/client';
 // 컨텍스트 API 불러오기
 import { pCon } from './modules/PilotContext';
 
 import { TopArea } from './layout/TopArea';
 import { MainArea } from './layout/MainArea';
 import { FooterArea } from './layout/FooterArea';
+
+
+// 자동스크롤 JS 불러오기
+import { wheelFn,evtFn } from "./func/jquery-autoScroll";
 
 // 제이쿼리 
 import $ from 'jquery';
@@ -51,8 +55,44 @@ function App(){
 
     }); //////// click ////////
     
+
     // 랜더링구역 한번만 실행 : 옵션 []
   },[]); ////////// useEffect //////////////
+
+
+  useEffect(()=>{
+
+    if(pgName=='main') { 
+     
+      window.addEventListener('wheel',wheelFn)
+      evtFn()
+      
+      document.querySelector('html').style.overflow = 'hidden';
+      document.querySelector('body').style.overflow = 'hidden';
+
+    }
+    
+    else{ 
+     window.removeEventListener('wheel',wheelFn)
+
+     
+  
+
+
+  // 메인 페이지 상단로고 클릭시 맨위로 이동하기!
+$('#logo a').off('click')
+
+    }
+
+    
+    
+  })
+  
+  useLayoutEffect(()=>{
+    console.log('위로~!');
+  $("html,body").animate({ scrollTop: "0px" },0);
+
+  })
 
 
   // 리턴코드 //////////////////////////

@@ -16,10 +16,12 @@ export function MainCont() {
     // console.log("랜더링OK!");
 
     //자동스크롤 호출
-    autoScroll();
+    // autoScroll(false);
 
     //드래그배너 호출
     dragBanner();
+
+
 
     // 컴포넌트 소멸자
     return(()=>{
