@@ -1,16 +1,14 @@
-/* 스와이퍼 플러그인 CSS */
 
+/* 스와이퍼 디자인설정 */
 .swiper {
   width: 100%;
-  height: 400px;
+  height: 100%;
 }
 
 .swiper-slide {
   text-align: center;
   font-size: 18px;
   background: #fff;
-
-  /* Center slide text vertically */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,4 +19,9 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.swiper {
+  margin-left: auto;
+  margin-right: auto;
 }

@@ -3,8 +3,6 @@
 // GNB 데이터 가져오기
 import { gnbData } from "../data/gnb";
 import { TotalMenu } from "../modules/TotalMenu";
-import { pCon } from "../modules/PilotContext";
-import { useContext } from "react";
 
 export function TopArea(props) {
   // props.cat - 카테고리명(메뉴데이터 선택용)
@@ -21,8 +19,6 @@ export function TopArea(props) {
 
   }; ///////// makeList /////////
 
-  const myCon = useContext(pCon);
-
 
 
   return (
@@ -30,7 +26,7 @@ export function TopArea(props) {
       <div id="top-area">
         <header className="top-area ibx">
           <h1 id="logo">
-            <a href="#" onClick={()=>myCon.chgPgName('main')}>
+            <a href="#">
               <img src="./images/main_logo.png" alt="파일럿로고" />
             </a>
           </h1>
