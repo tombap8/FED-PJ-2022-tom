@@ -1,0 +1,33 @@
+/* 캐릭터 상세 페이지 컴포넌트 CSS - cat_detail.css */
+
+.detail{
+    font-family: 'Ubuntu Condensed', sans-serif;
+}
+.desc-box{
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.detail h2{
+    margin: 16px 0 8px;
+    font-size: 50px;    
+}
+.detail p{
+    margin-bottom: 16px;
+    font-size: 16px;
+    line-height: 2;
+}
+.facts{
+    background-color: #eeeeee;
+    padding: 16px;
+}
+.facts>div{    
+    max-width: 80%;
+    margin: 0 auto;
+}
+.facts h3{
+    font-size: 45px;
+}
+.facts table td{
+    padding: 15px 0;
+}

@@ -1,0 +1,111 @@
+/* Search 모듈용 CSS - searching.css  */
+
+/* 검색입력창 박스 */
+.searching{
+    width: 250px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #efefef;
+    box-sizing: border-box;
+    padding: 0 5px;
+}
+.searching input{
+    font-size: 15px;
+    width: 77%;
+    margin-top: 5px;
+    margin-left: 10px;
+    background-color: transparent;
+    border: none;
+}
+input:focus{
+    outline: none;
+}
+.schbtn{
+    cursor: pointer;
+    margin-top: 9px;
+    margin-left: 10px;
+}
+
+.restit{
+    font-size: min(35px,4vw);
+    margin: 10px;
+}
+
+/* 검색박스 */
+.schbx{
+    font-family: 'Ubuntu Condensed', sans-serif;
+    display: flex;
+    max-width: 1320px;
+    min-height: 600px;
+    padding: 20px;
+    margin: 20px auto;
+    /* border: 1px solid #000; */
+}
+
+/* 검색옵션박스 */
+.schopt{
+    width: 30%;
+}
+/* 캐릭터리스트 박스 */
+.listbx{
+    width: 70%;
+}
+
+
+/* 정렬박스 */
+.sortbx{
+    padding-bottom: 15px;
+    overflow: hidden;
+}
+.sel{
+    float: right;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    letter-spacing: 4px;
+}
+.sel:focus{
+    outline: none;
+}
+
+/* 체크박스의 박스 */
+.chkbx h2{
+    margin: 15px 0 5px;
+}
+.spbtn{
+    display: block;
+    float: right;
+    margin-right: 5px;
+    font-size: 30px;
+    line-height: 25px;
+    cursor: pointer;
+}
+.chkbx ol>li{
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+/* 체크박스 숨김 */
+.chkbx input[type=checkbox]{
+    display: none;
+}
+/* 체크박스 대신 label로 디자인 노출 */
+.chklb{
+    float: right;
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: #ccc;
+}
+/* 체크박스 체크시 라벨디자인 변경 */
+input:checked+.chklb{
+    background-color: #0d6efd;
+    text-align: center;
+    font-weight: bold;
+}
+input:checked+.chklb::before{
+    content: '√';
+    color: #fff;
+    line-height: 0;
+}
