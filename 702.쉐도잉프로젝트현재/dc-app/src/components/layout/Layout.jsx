@@ -7,9 +7,13 @@ import { TopArea } from "./TopArea";
 // Context API 불러오기
 import { dcCon } from "../modules/dcContext";
 import { useNavigate } from "react-router-dom";
-import { useLayoutEffect } from "react";
+import { useCallback, useEffect, useLayoutEffect, useState } from "react";
 
 export function Layout() {
+
+  // 상단영역 단일 실행을 위한 상태값
+  const [sts,setSts] = useState(null);
+  const [keyWord,setKeyWord] = useState(null);
 
   // 랜더링 후(화면보이기전) 실행구역 //////////
   useLayoutEffect(()=>{
@@ -21,7 +25,9 @@ export function Layout() {
   const goNav = useNavigate();
 
   // 라우터 이동함수 : pgName - 페이지이름 / param - 전달값
-  const chgPage = (pgName,param) => goNav(pgName,param);
+  // 하위요소에 전달할 함수를 useCallback을 사용해야 리랜더링시에 다시 전달하지 않는다
+  // 이때 상태훅이 필요함!
+  const chgPage = useCallback((pgName,param) => goNav(pgName,param),[sts]);
 
   /********************************** 
    [컨텍스트 API 공유값 설정]
@@ -29,8 +35,8 @@ export function Layout() {
    **********************************/
   // 리턴코드 ////////////////////////
   return (
-    <dcCon.Provider value={{ chgPage }}>
-      <TopArea />
+    <dcCon.Provider value={{ keyWord,setKeyWord,chgPage }}>
+      <TopArea chgPageFn={chgPage} />
       <MainArea />
       <FooterArea />
     </dcCon.Provider>

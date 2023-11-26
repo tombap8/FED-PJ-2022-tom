@@ -13,7 +13,7 @@ import $ from 'jquery';
 // 폰트어썸 불러오기
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useContext } from "react";
+import { memo, useCallback, useContext } from "react";
 
 /******************************************************* 
   [ 리액트 라우터와 연결하여 사용되는 라우터 컴포넌트 ]
@@ -24,13 +24,16 @@ import { useContext } from "react";
   -> 라우터 연결 컴포넌트 출력자리 컴포넌트
   -> 여기서는 MainArea 컴포넌트에 출력!
 *******************************************************/
-export function TopArea() {
+export const TopArea = memo(({chgPageFn}) => {
+
+  console.log('여긴상단영역이양~!');
   // 컨텍스트 API사용
-  const myCon = useContext(dcCon);
+  const chgPage = chgPageFn;
 
   // 검색 관련 함수들 ////////////
   // 1. 검색창 보이기함수
-  const showSearch = () => {
+  const showSearch = (e) => {
+    e.preventDefault();
     // 1. 검색창 보이기
     $('.searchingGnb').show();
     // 2. 입력창에 포커스 보내기
@@ -59,10 +62,11 @@ export function TopArea() {
   const goSearch = (txt) => { // txt - 검색어
     console.log('나는 검색하러 간다규~!!!');
     // 라우터 이동함수로 이동하기 : 컨텍스트 API 사용
-    myCon.chgPage('/schpage',{state:{keyword:txt}})
+    chgPage('/schpage',{state:{keyword:txt}})
   }; //////////// goSearch 함수 /////////////
 
 
+  
   // 리턴코드 ///////////////////////////
   return (
     <>
@@ -119,6 +123,7 @@ export function TopArea() {
                   type="text"
                   placeholder="Filter by Keyword"
                   onKeyUp={enterKey}
+                  defaultValue={''}
                 />
               </div>
 
@@ -141,7 +146,9 @@ export function TopArea() {
       </header>
     </>
   );
-}
+});
+
+
 
 /* 
   map()을 사용하여 태그를 생성할때

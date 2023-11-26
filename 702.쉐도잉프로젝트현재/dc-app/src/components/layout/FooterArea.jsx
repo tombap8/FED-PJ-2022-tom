@@ -4,8 +4,10 @@ import { Logo } from "../modules/Logo";
 
 // 하단링크정보 데이터 불러오기
 import { bmData } from "../data/bmenu";
+import { memo } from "react";
 
-export function FooterArea(){
+export const FooterArea = memo(()=>{
+    console.log('여긴푸터야~!');
     return(
         <footer className="info">
             <ul>
@@ -33,4 +35,4 @@ export function FooterArea(){
         </footer>
     )
 
-} ///////// FooterArea 컴포넌트 /////////
+}); ///////// FooterArea 컴포넌트 /////////

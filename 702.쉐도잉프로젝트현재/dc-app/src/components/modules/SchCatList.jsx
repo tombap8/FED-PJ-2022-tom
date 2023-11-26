@@ -6,13 +6,16 @@ import { catListData } from "../data/swiper_cat";
 
 // 캐릭터 검색 리스트 CSS 가져오기
 import "../../css/search_cat_list.css"
+import { memo, useCallback } from "react";
 
-export function SchCatList(props) {
+export const SchCatList = memo(({kword})=>{
     // props.word - 데이터 검색값
+    const word = kword.toLowerCase();
 
   // 선택데이터
-  const selData = catListData.filter(v=>{
-    if(v.cname.toLowerCase().indexOf(props.word) !== -1) return true;
+
+  const selData= catListData.filter(v=>{
+    if(v.cname.toLowerCase().indexOf(kword) !== -1) return true;
   });
 
   console.log(selData);
@@ -38,4 +41,4 @@ export function SchCatList(props) {
       </ul>
     </>
   );
-} ///////// SchCatList /////////////////
+}); ///////// SchCatList /////////////////

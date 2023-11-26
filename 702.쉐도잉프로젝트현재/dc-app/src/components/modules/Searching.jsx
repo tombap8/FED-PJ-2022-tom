@@ -7,10 +7,11 @@ import { SchCatList } from "./SchCatList";
 
 // 검색모듈용 CSS 불러오기
 import "../../css/searching.css";
+import { memo } from "react";
 
-export function Searching(props) {
+export const Searching = memo(({word}) => {
   // props.kword - 검색어전달
-  console.log("전달검색어:", props.kword);
+  console.log("전달검색어:", word);
 
   // 검색리스트 만들기 함수
   const schList = () => {};
@@ -46,7 +47,7 @@ export function Searching(props) {
               type="text"
               placeholder="Filter by Keyword"
               onKeyUp={enterKey}
-              value={props.kword}
+              defaultValue={word}
             />
           </div>
           {/* 1-2. 체크박스구역 */}
@@ -126,9 +127,9 @@ export function Searching(props) {
                 </select>
             </aside>
             {/* 2-3. 캐릭터 리스트 컴포넌트 */}
-            <SchCatList word={props.kword} />
+            <SchCatList kword={word} />
         </div>
       </section>
     </>
   );
-} ////////////// Searching 컴포넌트 //////////
+}); ////////////// Searching 컴포넌트 //////////
