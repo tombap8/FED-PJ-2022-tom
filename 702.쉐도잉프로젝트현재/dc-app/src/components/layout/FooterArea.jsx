@@ -6,8 +6,22 @@ import { Logo } from "../modules/Logo";
 import { bmData } from "../data/bmenu";
 import { memo } from "react";
 
-export const FooterArea = memo(()=>{
-    console.log('여긴푸터야~!');
+// 아주 간단한 컴포넌트 메모이제이션 하기!
+// 1. 일반 함수형 컴포넌트
+// -> export function 컴포넌트명(){}
+// 2. 변수 할당 함수형 컴포넌트
+// -> export const 컴포넌트명 = ()=>{}
+// 3. 위의 2번을 메모이제이션한다!
+// -> export const 컴포넌트명 = React.memo(()=>{})
+
+// export function FooterArea(){
+// export const FooterArea = () => {
+export const FooterArea = memo(() => {
+    
+  // 컴포넌트 호출확인
+  console.log('하단영역이양~!');
+
+    // 리턴 코드 ///////////////////
     return(
         <footer className="info">
             <ul>
