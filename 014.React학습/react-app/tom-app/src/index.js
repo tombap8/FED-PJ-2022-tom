@@ -64,6 +64,7 @@ export default function App() {
           <Route path="news" element={<News />} />
           <Route path="video" element={<Video />} />
           <Route path="swiperapp" element={<SwiperApp />} />
+          <Route path="lightbox" element={<LightBox />} />
         </Route>
       </Routes>
     </BrowserRouter>
