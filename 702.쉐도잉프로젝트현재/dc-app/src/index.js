@@ -66,7 +66,7 @@ export default function App() {
           <Route path="character" element={<Character />} />
           <Route path="comics" element={<Comics />} />
           <Route path="movies" element={<Movies />} />
-          <Route path="series" element={<Series />} />
+          <Route path="movies/series" element={<Series />} />
           <Route path="games" element={<Games />} />
           <Route path="news" element={<News />} />
           <Route path="video" element={<Video />} />
