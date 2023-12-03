@@ -41,7 +41,7 @@ body {
 
 /* 1. 신상품 컨텐츠 박스 */
 .c1 {
-    /* background: url(../../public/images/sub/men/01.new-arrival.png) no-repeat top/auto 134%; */
+    background: url(../../public/images/sub/men/01.new-arrival.png) no-repeat top/auto 134%;
     /* overflow: hidden; */
     /* 넘치는 자식요소 숨기기 + 자식마진포함 */
 
@@ -140,18 +140,18 @@ body {
 /* 컨텐츠영역2 - 스페셜영역 */
 .c2 {
     height: 50vh;
-    /* background: url(./images/sub/men/02.special.png) no-repeat fixed center top/cover; */
+    background: url(../../public/images/sub/men/02.special.png) no-repeat fixed center top/cover;
     text-align: center;
 }
 /* 신상품 배경이미지 카테고리 클래스추가 */
 .c2.men {
-    /* background-image: url(./images/sub/men/02.special.png); */
+    background-image: url(../../public/images/sub/men/02.special.png);
 }
 .c2.women {
-    /* background-image: url(./images/sub/women/02.special.png); */
+    background-image: url(../../public/images/sub/women/02.special.png);
 }
 .c2.style {
-    /* background-image: url(./images/sub/style/02.special.png); */
+    background-image: url(../../public/images/sub/style/02.special.png);
 }
 /* 타이틀 */
 .c2tit {
@@ -206,7 +206,7 @@ body {
 
 
 /* 큰 이미지 배경박스 */
-#bgbx {
+.bgbx {
     position: relative;
     display: none;
 }
@@ -220,7 +220,7 @@ body {
     right: 5%;
     width: 40px;
     height: 39px;
-    /* background: url(./images/mv_btns.png) no-repeat; */
+    background: url(../../public/images/mv_btns.png) no-repeat;
     background-position: -129px -342px;
 
     /* 트랜지션 */
