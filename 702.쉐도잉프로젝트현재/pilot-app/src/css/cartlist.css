@@ -1,0 +1,56 @@
+/* 장바구니 리스트 CSS */
+
+/* 전체부모박스 */
+#cartlist{
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    width: 60vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 99999999;
+}
+
+/* 닫기버튼 */
+#cartlist .cbtn {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    width: 40px;
+    height: 39px;
+    background: url(../../public/images/mv_btns.png) no-repeat;
+    background-position: -129px -342px;
+    transition: transform 0.3s;
+}
+#cartlist .cbtn span {
+    display: none;
+}
+
+
+#cartlist table{
+    width: 90%;
+    margin: 50px auto;
+    font-size: 14px;
+    border-top: 2px solid rgb(34, 34, 34);
+    border-bottom: 2px solid rgb(34, 34, 34);
+    border-collapse: collapse;
+}
+#cartlist caption{
+    padding: 20px 0px;
+    text-decoration: underline wavy;
+    font-size: 30px;
+}
+#cartlist th{
+    padding: 15px 0px;
+    background-color: rgb(229, 229, 229);
+    font-size: 16px;
+}
+#cartlist td{
+    padding: 10px 0px;
+    border-top: 1px solid rgb(85, 85, 85);
+    text-align: center;
+}
+#cartlist td img{
+    width: 50px;
+}
+

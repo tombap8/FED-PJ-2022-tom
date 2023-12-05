@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { sinsangData } from "../data/sinsang";
 
 import $ from 'jquery';
+import { CartList } from "./CartList";
 
 
 export function ItemDetail({cat,goods}) {
@@ -162,6 +163,9 @@ function addComma(x) {
           </section>
         </div>
       </div>
+
+      {/* 카트리스트 */}
+      <CartList />
     </>
   );
 } /////////// ItemDetail 컴포넌트 ///////////
