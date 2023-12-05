@@ -1,8 +1,9 @@
 // 상품상세보기 컴포넌트
 
 // 신상품 데이터 가져오기
-import { useEffect } from "react";
-import { sinsangData } from "../data/sinsang";
+import { useEffect, useState } from "react";
+// import { sinsangData } from "../data/sinsang";
+import gdata from "../data/glist-items";
 
 import $ from 'jquery';
 import { CartList } from "./CartList";
@@ -11,12 +12,20 @@ import { CartList } from "./CartList";
 export function ItemDetail({cat,goods}) {
   // cat - 카테고리명(men/women/style)
   // goods - 상품 아이템정보(속성코드: m1,m2,...)
+  const [csts,setCsts] = useState(0);
 
   // 선택데이터 : 전체데이터[분류명][상품코드].split('^')
   // -> 개별상품 배열이 된다!
   // [상품명,상품코드,가격]
-  const selData = sinsangData[cat][goods].split('^');
-  console.log('선택데이터:',selData);
+  let selData = gdata.filter(v=>{
+    if(v.cat===cat && v.ginfo[0]===goods) return true;
+  })
+
+  selData = selData[0];
+  
+
+  const ginfo = selData.ginfo;
+  console.log('선택데이터:',ginfo);
 
 
   // 닫기 함수 ////
@@ -48,7 +57,7 @@ export function ItemDetail({cat,goods}) {
       // 총합계 반영
       // 기본값 : selData[2]
       // 출력박스 : #total
-      $("#total").text(addComma(selData[2]*num)+'원');
+      $("#total").text(addComma(ginfo[3]*num)+'원');
     })
 
   },[]); ////  한번만 실행 /////
@@ -58,7 +67,7 @@ export function ItemDetail({cat,goods}) {
     // 수량초기화
     $("#sum").val('1');
     // 총합계초기화
-    $("#total").text(addComma(selData[2])+'원');
+    $("#total").text(addComma(ginfo[3])+'원');
   }); ////////// useEffect //////
 
   
@@ -67,6 +76,9 @@ function addComma(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
+const insCart = () => {
+  setCsts(1);
+}; //////////// insCart 함수 ////////
 
 
   // 리턴코드 ///////////////////////////
@@ -97,7 +109,7 @@ function addComma(x) {
                 <li>
                   <img src="./images/dx_ico_new-28143800.gif" alt="new버튼" />
                 </li>
-                <li id="gtit">상품명: {selData[0]}</li>
+                <li id="gtit">상품명: {ginfo[1]}</li>
                 <li>
                   <img src="./images/icon_type02_social01.gif" alt="페이스북" />
                   <img src="./images/icon_type02_social02.gif" alt="트위터" />
@@ -107,7 +119,7 @@ function addComma(x) {
                 <li>
                   <span>판매가</span>
                   <span id="gprice">
-                    {addComma(selData[2])}원</span>
+                    {addComma(ginfo[3])}원</span>
                 </li>
                 <li>
                   <span>적립금</span>
@@ -127,7 +139,7 @@ function addComma(x) {
                   </span>
                 </li>
                 <li>
-                  <span>상품코드</span> <span id="gcode">{selData[1]}</span>
+                  <span>상품코드</span> <span id="gcode">{ginfo[2]}</span>
                 </li>
                 <li>
                   <span>사이즈</span> <span>95 100 105 110</span>
@@ -151,13 +163,13 @@ function addComma(x) {
                 <li className="tot">
                   <span>총합계</span> 
                   <span id="total">
-                    {addComma(selData[2])}원</span>
+                    {addComma(ginfo[3])}원</span>
                 </li>
               </ol>
             </div>
             <div>
               <button className="btn btn1">BUY NOW</button>
-              <button className="btn">SHOPPING CART</button>
+              <button className="btn" onClick={insCart}>SHOPPING CART</button>
               <button className="btn">WISH LIST</button>
             </div>
           </section>
@@ -165,7 +177,10 @@ function addComma(x) {
       </div>
 
       {/* 카트리스트 */}
-      <CartList />
+      {
+        csts &&
+        <CartList data={selData} />
+      }
     </>
   );
 } /////////// ItemDetail 컴포넌트 ///////////

@@ -3,7 +3,12 @@
 // 장바구니 리스트 CSS 불러오기
 import "../css/cartlist.css";
 
-export function CartList() {
+export function CartList({data}) {
+  console.log('전달data:',data);
+
+  
+
+
   return (
     <>
       <section id="cartlist">
@@ -92,7 +97,7 @@ export function CartList() {
             </tr>
 
             <tr>
-              <td colspan="6">총합계 :</td>
+              <td colSpan="6">총합계 :</td>
               <td>999,000원</td>
               <td></td>
             </tr>
