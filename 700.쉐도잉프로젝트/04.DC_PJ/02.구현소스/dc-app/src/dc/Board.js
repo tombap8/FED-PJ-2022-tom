@@ -29,7 +29,7 @@ function Board() {
     // 1. 변수에 제이슨 파일 문자화 하여 불러오기
     // 상단에서 불러옴!
     // 실시간 데이터 변경 관리를 Hook변수화 하여 처리함!
-    const [jsn, setJsn] = useState(org); // 초기데이터 셋팅
+    const [jsn, setJsn] = useState(org); // 초기데이터 셋팅 
 
     // 현재로그인 사용자 정보 : 처음에 현재로그인 정보로 셋팅함!
     // 삼항연산자로 셋팅된 경우에만 할당함!
