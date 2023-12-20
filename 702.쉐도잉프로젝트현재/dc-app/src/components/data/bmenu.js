@@ -1,5 +1,4 @@
-// 하단링크 정보
-
+// 하단 링크 정보
 export const bmData = [
     {
         txt: "Privacy Policy",

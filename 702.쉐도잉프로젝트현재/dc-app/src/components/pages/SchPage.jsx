@@ -1,18 +1,15 @@
-// DC PJ 검색결과 페이지 컴포넌트
+// DC PJ 검색결과 페이지
 
 import { useLocation } from "react-router-dom";
 import { Searching } from "../modules/Searching";
 
-export function SchPage(){
-
+export function SchPage() {
     // 라우터 전달값 받기
     const loc = useLocation();
-
-    // 넘어온 키워드 받기 //////
-    let keyword;
-    // 전달값이 있을 경우 키워드를 읽어게함!
+    let keyword ;
+    // 전달값이 있을 경우 키워드를 읽어오게 함!
     if(loc.state) keyword = loc.state.keyword;
-    console.log('검색어:',keyword);
+    console.log('검색어: ',keyword);
     
     return(
         <>
@@ -20,5 +17,4 @@ export function SchPage(){
             <Searching kword={keyword} />
         </>
     )
-
-} //////////// SchPage 컴포넌트 ///////////
+} ///////////// SchPage 컴포넌트 /////////////////

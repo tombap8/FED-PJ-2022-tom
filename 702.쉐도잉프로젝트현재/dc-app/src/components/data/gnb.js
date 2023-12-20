@@ -5,13 +5,13 @@ export const menu = [
     //     link:"/",
     // },
     {
-        txt:"CHARACTERS",
-        link:"/character",
+        txt: "CHARACTERS",
+        link: "/character",
     },
     {
-        txt:"COMICS",
-        link:"/comics",
-        sub:[
+        txt: "COMICS",
+        link: "/comics",
+        sub: [
             {
                 txt: "LATEST COMICS",
                 link: "/comics",
@@ -27,9 +27,9 @@ export const menu = [
         ],
     },
     {
-        txt:"MOVIES & TV",
-        link:"/movies",
-        sub:[
+        txt: "MOVIES & TV",
+        link: "/movies",
+        sub: [
             {
                 txt: "DC MOVIES",
                 link: "/movies",
@@ -42,22 +42,22 @@ export const menu = [
                 txt: "DC ON HBO MAX",
                 link: "/movies",
             },
-        ]
+        ],
     },
     {
-        txt:"GAMES",
-        link:"/games",
+        txt: "GAMES",
+        link: "/games",
     },
     {
-        txt:"NEWS",
-        link:"/news",
+        txt: "NEWS",
+        link: "/news",
     },
     {
-        txt:"VIDEO",
-        link:"/video",
+        txt: "VIDEO",
+        link: "/video",
     },
     {
-        txt:"OPINIONS",
-        link:"/board",
+        txt: "OPINIONS",
+        link: "/board",
     },
 ];

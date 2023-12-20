@@ -3,7 +3,7 @@
 export const catListData = [
   {
     idx: "1",
-    tmsrc: "./images/cat/cat1.jpg",
+    tmsrc: "/images/cat/cat1.jpg",
     cname: "SUPERMAN",
     cdesc: `Faster than a speeding bullet, more powerful than a locomotive… The Man of Steel fights a never-ending battle for truth, justice, and the American way.
             ^
@@ -33,7 +33,7 @@ export const catListData = [
   },
   {
     idx: "2",
-    tmsrc: "./images/cat/cat2.jpg",
+    tmsrc: "/images/cat/cat2.jpg",
     cname: "BATMAN",
     cdesc: `In the name of his murdered parents, Bruce Wayne wages eternal war on the criminals of Gotham City. He is vengeance. He is the night. He is Batman.
         ^
@@ -62,7 +62,7 @@ export const catListData = [
   },
   {
     idx: "3",
-    tmsrc: "./images/cat/cat3.jpg",
+    tmsrc: "/images/cat/cat3.jpg",
     cname: "WONDER WOMAN",
     cdesc: `Beautiful as Aphrodite, wise as Athena, swifter than Hermes, and stronger than Hercules, Princess Diana of Themyscira fights for peace in Man's World.
         ^
@@ -84,7 +84,7 @@ export const catListData = [
   },
   {
     idx: "4",
-    tmsrc: "./images/cat/cat4.jpg",
+    tmsrc: "/images/cat/cat4.jpg",
     cname: "GREEN LENTURN",
     cdesc: `Test pilot Hal Jordan went from being a novelty, the first-ever human Green Lantern, to one of the most legendary Lanterns to ever wield a power ring.
         ^
@@ -107,7 +107,7 @@ export const catListData = [
   },
   {
     idx: "5",
-    tmsrc: "./images/cat/cat5.jpg",
+    tmsrc: "/images/cat/cat5.jpg",
     cname: "THE FLASH",
     cdesc: `Three men have held the title of "The Fastest Man Alive"—Jay Garrick, Barry Allen and Wally West. Each of them redefined the word "hero."
         ^
@@ -138,7 +138,7 @@ export const catListData = [
   },
   {
     idx: "6",
-    tmsrc: "./images/cat/cat6.jpg",
+    tmsrc: "/images/cat/cat6.jpg",
     cname: "AQUAMAN",
     cdesc: `The son of a lighthouse keeper and an Atlantean queen, Arthur Curry is the bridge between the surface world and his tumultuous realm of the sea.
         ^
@@ -161,7 +161,7 @@ export const catListData = [
   },
   {
     idx: "7",
-    tmsrc: "./images/cat/cat7.jpg",
+    tmsrc: "/images/cat/cat7.jpg",
     cname: "CYBORG",
     cdesc: `Part man, part machine, Vic Stone is a former member of the Teen Titans and a current member of the Justice League who wrestles to preserve his humanity with every new upgrade.
         ^
@@ -183,7 +183,7 @@ export const catListData = [
   },
   {
     idx: "8",
-    tmsrc: "./images/cat/cat8.jpg",
+    tmsrc: "/images/cat/cat8.jpg",
     cname: "HARLEY QUINN",
     cdesc: `The multiverse would be a much less lively place without the hijinks and shenanigans of the former Dr. Harleen Quinzel, the one and only Clown Princess of Crime.
         ^
@@ -213,7 +213,7 @@ export const catListData = [
   },
   {
     idx: "9",
-    tmsrc: "./images/cat/cat9.jpg",
+    tmsrc: "/images/cat/cat9.jpg",
     cname: "PEACEMAKER",
     cdesc: `A huge, hulking specimen with muscles on his muscles, Christopher Smith is a world class marksman—just like his fellow Suicide Squad member, Bloodsport. (But if you ask him, better.) Having adopted the name Peacemaker, Christopher is more than willing to fight, kill and even start a war...all in the name of keeping the peace.`,
     facts: `Powers:
@@ -229,7 +229,7 @@ export const catListData = [
   },
   {
     idx: "10",
-    tmsrc: "./images/cat/cat10.jpg",
+    tmsrc: "/images/cat/cat10.jpg",
     cname: "BLACK ADAM",
     cdesc: `One of the world’s foremost wielders of magic, Black Adam has been both hero and villain over a life that’s spanned thousands of years.
         ^
@@ -247,7 +247,7 @@ export const catListData = [
   },
   {
     idx: "11",
-    tmsrc: "./images/cat/cat11.jpg",
+    tmsrc: "/images/cat/cat11.jpg",
     cname: "CHESHIRE",
     cdesc: `Jade Nguyen's lethal martial arts skills and affinity for poisons have made her a dangerous and alluring enemy—and sometimes ally—to numerous heroes and villains.
         ^

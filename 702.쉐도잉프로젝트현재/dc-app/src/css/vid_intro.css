@@ -1,4 +1,4 @@
-/* 비디오소개모듈용 CSS - vid_intro.css */
+/* 비디오소개 모듈용 CSS - vid_intro.css */
 
 /* 전체박스 */
 .vidbox{
@@ -6,13 +6,12 @@
     /* margin-top: 30px; */
 }
 /* 속박스 */
-.vidbox>div{
+.vidbox > div {
     max-width: 1320px;
     margin: 0 auto;
     padding: 24px;
     display: flex;
 }
-
 /* 클래스 "on" 적용시 배경색,글자색 변경적용 */
 .vidbox.on{
     background-color: #0074E8;
@@ -53,7 +52,7 @@
     margin-top: 20px;
 }
 
-/* 미디어쿼리 */
+
 @media screen and (max-width:1024px) {
     .vidbox>div{
         flex-direction: column;        
