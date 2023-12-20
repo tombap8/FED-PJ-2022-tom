@@ -40,6 +40,8 @@ import {
   // 로컬스 없으면 제이슨 데이터 넣기
   else orgData = baseData;
   // else orgData = [];
+
+  localStorage.setItem('bdata',JSON.stringify(orgData));
   
   console.log(orgData);
   
