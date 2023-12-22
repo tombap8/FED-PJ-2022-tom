@@ -1,0 +1,26 @@
+/* 캐릭터 검색 리스트 모듈용 CSS : search_cat_list.css  */
+
+/* 리스트박스 */
+.clist{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 1.3%;
+}
+.clist li{
+    width: 24%;
+    aspect-ratio: 1/2;
+}
+/* 캐릭터 이미지 */
+.clist li img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* 캐릭터 이름 */
+.clist li h3{
+    text-align: center;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    font-size: min(23px,1.7vw);
+    white-space: nowrap;
+    padding: 15px;
+}

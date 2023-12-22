@@ -1,0 +1,65 @@
+/* 비디오소개모듈용 CSS - vid_intro.css */
+
+/* 전체박스 */
+.vidbox{
+    position: relative;
+    /* margin-top: 30px; */
+}
+/* 속박스 */
+.vidbox>div{
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 24px;
+    display: flex;
+}
+
+/* 클래스 "on" 적용시 배경색,글자색 변경적용 */
+.vidbox.on{
+    background-color: #0074E8;
+    color: #fff;
+}
+.vidbox.on a{
+    color: #fff;
+}
+
+/* 비디오파트 박스 */
+.vb1{
+    width: 55%;
+    aspect-ratio: 4/3;
+}
+.vb1 iframe{
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+.vb2{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Roboto Condensed', sans-serif;
+    text-align-last: left;
+    padding: 30px;
+}
+.vb2 h2{
+    font-size: 40px;
+    margin: 20px 0 5px;
+}
+.vb2 p{
+    line-height: 30px;
+    font-weight: bold;
+}
+.vb2 .desc{
+    margin-top: 20px;
+}
+
+/* 미디어쿼리 */
+@media screen and (max-width:1024px) {
+    .vidbox>div{
+        flex-direction: column;        
+    }
+    .vidbox>div>div{
+        width: 100%;
+    }
+
+}

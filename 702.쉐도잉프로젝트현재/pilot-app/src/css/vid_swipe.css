@@ -1,0 +1,68 @@
+/* VidSwipe 모듈용 CSS - vid_swipe.css  */
+
+.vid-swbox{
+    max-width: 1320px;
+    margin: 40px auto;
+}
+
+/* 비디오박스 */
+.vid-bx{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999999;
+    background-color: rgba(0, 0, 0, 0.742);
+    display: none;
+    /* 처음에 안보임 */
+}
+/* 중앙박스 */
+.play-vid{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60vw;
+    aspect-ratio:16/9;
+}
+.ifr-tit{
+    position: absolute;
+    bottom: 100%;
+    width: 100%;
+    /* border: 5px dotted lime; */
+    color: #fff;    
+    font-family: 'Ubuntu Condensed', sans-serif;
+    text-align: center;
+    font-size: 35px;
+    padding: 5px;
+}
+.play-vid iframe{
+    width: 100%;
+    height: 100%;
+    border: none;
+    /* border: 5px dotted lime; */
+}
+/* 닫기버튼 */
+.play-vid button.cbtn{
+    position: absolute;
+    top: -50px;
+    right: -50px;
+
+    width: 50px;
+    height: 50px;
+    line-height: 40px;
+    
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 50px;
+    cursor: pointer;
+}
+
+@media screen and (max-width:1200px){
+    .sw-inbox2 {
+        aspect-ratio: 1 / 1.7;
+    }
+}
