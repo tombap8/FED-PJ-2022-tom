@@ -90,3 +90,47 @@
 .indic li.on{
     background-color: rgba(255, 255, 255, 0.9);
 }
+
+
+/* banner.css 미디어쿼리 */
+@media screen and (max-width:750px){
+    .slider li {
+        height: 30vh;
+    }
+    /* 배너 이미지 */
+    .banner img {
+        object-position: 19%;
+    }
+    /* 배너 타이틀 */
+    .bantit {
+        margin-top: 5px;
+        width: 45%;
+        font-size: .8rem;
+        padding-left: 5vw;
+        bottom: 25px;
+    }
+    /* 배너 버튼 */
+    .banner button {
+        border-radius: 20px;
+        padding: 3px;
+        font-size: .6rem;
+    }
+    /* 블릿 */
+    .indic{
+    bottom: 2vh;
+    }
+    /* 이동버튼 */
+    .banner .abtn {
+        top: 90%;
+        width: 30px;
+        height: 30px;
+        font-size: 20px;
+        line-height: 30px;
+    }
+    .lb{
+        left: 3vw;
+    }
+    .rb{
+        right: 3vw;
+    }
+}

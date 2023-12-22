@@ -1,5 +1,4 @@
 /* VidSwipe 모듈용 CSS - vid_swipe.css  */
-/* 옆으로 넘기는 기능 */
 
 .vid-swbox{
     max-width: 1320px;
@@ -44,14 +43,16 @@
     border: none;
     /* border: 5px dotted lime; */
 }
-/* 닫기 버튼 */
+/* 닫기버튼 */
 .play-vid button.cbtn{
     position: absolute;
     top: -50px;
     right: -50px;
+
     width: 50px;
     height: 50px;
     line-height: 40px;
+    
     background-color: transparent;
     border: 1px solid #fff;
     border-radius: 50%;
@@ -59,8 +60,9 @@
     font-size: 50px;
     cursor: pointer;
 }
-@media screen and (max-width:1200px) {
+
+@media screen and (max-width:1200px){
     .sw-inbox2 {
-        aspect-ratio: 1/1.7;
+        aspect-ratio: 1 / 1.7;
     }
 }

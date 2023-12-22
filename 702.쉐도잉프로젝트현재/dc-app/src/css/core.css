@@ -1,13 +1,11 @@
-/* DC.com 핵심 공통 CSS - core.css */
-
-
-/* 나눔바른고딕 */
+/* DC.com 핵심공통 CSS - core.css */
+/* Ubuntu체 */
 @font-face {
     font-family: 'Ubuntu';
     src: url(../static/fonts/Ubuntu-Regular.woff2) format("woff2");
 }
 
-/* Pistilli체 */
+/* Ubuntu Condensed체 */
 @font-face {
     font-family: 'Ubuntu Condensed';
     src: url(../static/fonts/UbuntuCondensed-Regular.woff2) format("woff2");
