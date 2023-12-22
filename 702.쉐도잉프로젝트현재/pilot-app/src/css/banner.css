@@ -1,136 +1,142 @@
-/* 메인배너용 CSS - banner.css */
-.banner{
-    position: relative;
-    overflow: hidden;
-    /* 넘치는 배너 숨기기 */
+/* 메인 배너 CSS - banner.css */
+/********** 2-1.배너영역 ************/
+#ban {
+  position: relative;
+  /* 부모자격 - .slide */
 }
-.bantit{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    padding: 25px;
-    padding-left: 10vw;
-    color: #fff;
-    text-shadow: 0 0 3px #000;
-
-    text-align: left;
-    width: 30%;
+/* 슬라이드 박스 */
+.slide {
+  position: absolute;
+  top: 0;
+  left: -100%; /* 왼쪽에 마지막 슬라이드가 나가있음! */
+  /* 부모는? #ban */
+  display: flex;
+  /* 플랙스 박스 */
+  width: 600%;
+  height: 100%;
 }
-.bantit button{
-    margin-top: 20px;
+.slide li {
+  position: relative;
+  /* 배너타이틀의 부모자격! */
+  flex: 1;
+  /* 부모 flex박스 영역을 등분할 함!(height도 자동으로 100%) */
 }
-/* 배너슬라이드 */
-.slider{
-    position: relative;
-    left: 0;
-    display: flex;
+/* 각 슬라이드 셋팅 */
+.slide li.ban1 {
+  background: url(../../public/images/ban01New.jpg) no-repeat center/cover;
 }
-.slider li{
-    position: relative;
-    /* 부모자격 */
-    width: 100%;
-    flex-shrink: 0;
-    /* 강제축소옵션 해제 */
+.slide li.ban2 {
+  background: url(../../public/images/ban02New.jpg) no-repeat center/cover;
 }
-/* 배너 컨텐츠버튼 */
-.banner button{
-    border-radius: 20px;
-    padding: 10px;
-    background-color: transparent;
-    color: #fff;
-    border: 1px solid #fff;    
-    background-color: rgb(0 0 0 / .5);
+.slide li.ban3 {
+  background: url(../../public/images/ban03New.jpg) no-repeat center/cover;
 }
-.banner button:hover{
-    background-color: #0074e8;
+.slide li.ban4 {
+  background: url(../../public/images/ban04New.jpg) no-repeat center/cover;
 }
-.banner img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.slide li.ban5 {
+  background: url(../../public/images/ban05New.jpg) no-repeat center/cover;
+}
+.slide li.ban6 {
+  background: url(../../public/images/ban06New.jpg) no-repeat center/cover;
 }
 
-/* 이동버튼 */
-.banner .abtn{
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    font-size: 30px;
-    padding: 0;
-    box-sizing: content-box;
-    line-height: 40px;
-    cursor: pointer;
-}
-.lb{
-    left: 5vw;
-}
-.rb{
-    right: 5vw;
-}
-/* 블릿 */
-.indic{
-    position: absolute;
-    left: 50%;
-    bottom: 3vh;
-    transform: translateX(-50%);
-    display: flex;
-}
-.indic li{
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    border: 2px solid #fff;
-    margin: 0 5px;
-    cursor: pointer;
-    text-shadow: 0 0 2px #000;
-}
-.indic li.on{
-    background-color: rgba(255, 255, 255, 0.9);
+/* 슬라이드 커버 */
+.cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  /* background-color: #f00;
+    opacity: 0.5; */
+  display: none;
 }
 
+/* 배너블릿박스 */
+.bindic {
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+  /* 부모는? #ban */
 
-/* banner.css 미디어쿼리 */
-@media screen and (max-width:750px){
-    .slider li {
-        height: 30vh;
-    }
-    /* 배너 이미지 */
-    .banner img {
-        object-position: 19%;
-    }
-    /* 배너 타이틀 */
-    .bantit {
-        margin-top: 5px;
-        width: 45%;
-        font-size: .8rem;
-        padding-left: 5vw;
-        bottom: 25px;
-    }
-    /* 배너 버튼 */
-    .banner button {
-        border-radius: 20px;
-        padding: 3px;
-        font-size: .6rem;
-    }
-    /* 블릿 */
-    .indic{
-    bottom: 2vh;
-    }
-    /* 이동버튼 */
-    .banner .abtn {
-        top: 90%;
-        width: 30px;
-        height: 30px;
-        font-size: 20px;
-        line-height: 30px;
-    }
-    .lb{
-        left: 3vw;
-    }
-    .rb{
-        right: 3vw;
-    }
+  display: flex; /* 플렉스박스 */
+  justify-content: space-between;
+  width: 200px;
+  /* outline: 1px solid blue;   */
+}
+.bindic li {
+  width: 15px;
+  height: 15px;
+  background-color: #fff;
+  border-radius: 50%;
+  opacity: 0.4;
+  box-shadow: 0 0 2px #777;
+}
+.bindic a {
+  /* 링크영역확장 */
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+/* 선택블릿 */
+.bindic li.on {
+  opacity: 1;
+  box-shadow: 0 0 5px #000;
+}
+
+/* 양쪽이동버튼(영역+버튼) */
+/* 영역공통 */
+.btna {
+  position: absolute;
+  width: 20%;
+  height: 100%;
+  /* display: none;임시 */
+}
+/* 왼쪽영역 */
+.ar1 {
+  left: 0;
+  /* background-color: #ffafaf; */
+}
+/* 오른쪽영역 */
+.ar2 {
+  right: 0;
+  /* background-color: #769bff; */
+}
+
+/*팔로워*/
+.badge {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  transform: translate(-50%, -50%);
+}
+
+.inside {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(0);
+  border-radius: 50%;
+  background-color: #fff;
+  opacity: 0.7;
+  transition: all 0.1s;
+}
+
+/*버튼글자박스*/
+.btntit {
+  position: absolute;
+  width: 200px;
+  height: 80px;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%) scale(0);
+  /*            outline: 1px solid red;*/
+  font: 22px/80px Verdana;
+  color: #555;
+  text-align: center;
+  transition: all 0.1s;
+  cursor: pointer; /* 손가락모양 */
 }

@@ -1,0 +1,146 @@
+/* 전체 */
+/* 웹폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Ubuntu&display=swap');
+#cont{
+    font-family: 'Ubuntu','Nanum Gothic';
+}
+
+/* 상세보기 내부 박스 디자인 변경 */
+.inx{
+    background-color: rgb(255 255 255 / 0.817);
+}
+
+/* 타이틀 */
+.tit {
+    position: relative;
+    top: 8vw;
+    text-align: center;
+    /* 글자 최소크기 지정 */
+    font-size: max(3vw, 25px);
+    color: navy;
+    text-shadow: 4px 4px 2px #0000006d;
+}
+.wrap{
+    overflow: hidden;
+}
+/* 옵션박스 */
+#optbx{
+    position: relative;
+    top: 9vw;
+    max-width: 800px;
+    margin: 0 auto;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    background-color: #fff;
+}
+/* 페이징박스 */
+#paging{
+    position: relative;
+    max-width: 800px;
+    margin: 20px auto;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    background-color: #fff;
+}
+/* 더보기박스 */
+#more{
+    position: relative;
+    max-width: 800px;
+    margin: 20px auto;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    padding: 10px;
+    text-align: center;
+    background-color: #fff;
+}
+#more button{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+/* 그리드 박스 */
+.grid {
+    /* 그리드 박스 */
+    display: grid;
+    font-size: 14px;
+    padding: 15px;
+    box-sizing: border-box;
+    background-color: #fff;
+
+    /* 1200px최대크기, 마영오! */
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 9vw;
+    /* 3. repeat(수치의 반복수, 반복수치) */
+    grid-template-columns: repeat(5, 1fr);
+    grid-column-gap: min(1vw, 10px);
+    grid-row-gap: min(1.5vw, 15px);
+}
+
+/* 갤러리 박스 */
+.grid > div {
+    position: relative;
+    /* 부모자격 */
+
+    /* 비율박스 셋팅 : 
+            이미지 가로/세로 크기비율임! */
+    aspect-ratio: 280 / 400;
+
+    /* 이미지 확대시 넘치는 이미지 숨기기 */
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* 그리드 갤러리 이미지 */
+.grid img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* 트랜지션: 속시이지 */
+    transition: 0.3s;
+}
+/* 오버시 이미지확대 */
+.grid > div:hover img {
+    /* transform: scale(1.1); */
+    animation: magAni 10s linear infinite alternate;
+}
+
+
+/* 계속 확대/축소 애니 키프레임 */
+@keyframes magAni {
+    to {
+        transform: scale(1.5);
+    }
+} /* 키프레임 */
+
+/* 상품설명박스 */
+.grid aside {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.422);
+}
+/* 상품명 글자박스(h2) */
+.grid aside h2 {
+    font-size: min(1.8vw, 16px);
+    font-weight: normal;
+    margin: min(1.2vw, 14px) 0 0;
+    /* 마진: 위 양쪽 아래 */
+}
+/* 상품가격 글자박스(h3) */
+.grid aside h3 {
+    font-size: min(1.4vw, 12px);
+    font-weight: normal;
+    margin: min(0.8vw, 10px) 0;
+    /* 마진: 위아래 양쪽 */
+}

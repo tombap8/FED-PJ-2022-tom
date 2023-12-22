@@ -1,97 +1,145 @@
-// index.js는 public/index.html 페이지에 적용되는 컴포넌트다!->루트 컴포넌트
+// 메인 페이지 JS - index.js
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
+import ReactDOM, { createRoot } from "react-dom/client";
+// 컨텍스트 API 불러오기
+import { pCon } from "./modules/PilotContext";
 
-// 메인페이지 CSS 불러오기
-import "./css/index.css";
+import { TopArea } from "./layout/TopArea";
+import { MainArea } from "./layout/MainArea";
+import { FooterArea } from "./layout/FooterArea";
+import { CartList } from "./modules/CartList";
 
-import React, { useState } from "react";
-import ReactDOM from "react-dom/client";
-import { HashRouter, BrowserRouter, Route, Routes} from "react-router-dom"
-import { Layout } from "./components/layout/Layout";
-import { Main } from "./components/pages/Main";
-import { Character } from "./components/pages/Charactor";
-import { Comics } from "./components/pages/Comics";
-import { Movies } from "./components/pages/Movies";
-import { Games } from "./components/pages/Games";
-import { News } from "./components/pages/News";
-import { Video } from "./components/pages/Video";
-import { SwiperApp } from "./components/plugin/SwiperApp";
-import { CatDetail } from "./components/pages/CatDetail";
-import { Series } from "./components/pages/Series";
-import { SchPage } from "./components/pages/SchPage";
-import { Member } from "./components/pages/Member";
-import { Login } from "./components/pages/Login";
-import { Board } from "./components/pages/Board";
+// 제이쿼리
+import $ from "jquery";
+import "jquery-ui-dist/jquery-ui";
 
-/********************************************* 
-    [ 리액트 라우터 ]
-    -> 컴포넌트를 연결하여 특정 이벤트에 모듈을
-    변경해주는 중계역할을 함
-    1. <BrowserRouter> - 라우터 Root
-    2. <Routes> - 개별 라우터를 묶어주는 역할
-    3. <Route> - 개별 라우터
-        (속성)
-            (1) path : 경로를 지정함
-                    (Link의 to속성 경로와 일치함!)
-            (2) element : 연결할 컴포넌트 지정
+// 페이지 공통 CSS
+import "./css/common.css";
 
-        (하위 라우트 만들기)
-            <Route path="/">
-                <Route />
-                <Route />
-                <Route />
-            </Route>
-    4. 라우터를 구성하는 컴포넌트는 자체적으로
-    내보내기 셋팅을 해야한다!
-    -> export default 라우터 컴포넌트
+// 최상위 Root 컴포넌트 ///////
+function App() {
+  // 후크상태변수 설정 : 페이지변경
+  const [pgName, setPgName] = useState("main");
 
-    [ 리액트 라우터 흐름 ]
-    1. index.js 에 라우터 중앙 셋팅
-    2. Layout.jsx 레이아웃 컴포넌트를 루트로 선택
-    3. 상단영역 GNB에 <Link to> 셋팅
-    4. 메인영역에 <Outlet /> 셋팅
-    
-*********************************************/
+  // 페이지변경 상태변수 업데이트 함수
+  const chgPgName = (txt) => {
+    setPgName(txt);
+  }; ///////// chgPgName 함수 //////
 
-// 라우터구성 컴포넌트 : 스스로 내보내기 셋팅 필수!
-// 레이아웃 컴포넌트를 라우터에 입혀서 화면에
-// 출력해야하기 때문에 스스로 내보내기를 셋팅해야하는 것!
-export default function App() {
+  // 자식 카트 컴포넌트와 함께 상태값 공유할 변수
+  const flag = useRef(true);
+  // -> 이값이 true일때만 새로추가하는 데이터가 반영됨
+  // -> 이값이 false이면 카트 컴포넌트의 삭제 등 자체기능이 작동함!
+  // useRef를 사용한 이유는 리랜더링시에도 값을 유지하면서
+  // 이 값이 변경되어도 리랜더링 되지 않아야 하기 때문에 선택함!!!
+
+  // 카트 사용여부 초기값은 로컬스 'cart'가 있으면 1
+  // 없으면 0 으로 셋팅해준다!
+  let stsVal = 0;
+  let transVal = null;
+
+  // 카트셋팅에 필요한 데이터를 로컬스에 따라 셋팅함!
+  if (localStorage.getItem("cart")) {
+    // 로컬스가 있으므로 객체화하기!
+    transVal = JSON.parse(localStorage.getItem("cart"));
+    // 로컬스 객체화 데이터 개수가 0이 아닐때만 상태값 1로 노출하기
+    if (transVal.length !== 0) stsVal = 1;
+  } ///// if ////////
+
+  console.log("로컬스있니?", stsVal);
+
+  // 로컬스 변환값 변수 - 상태변수로 리랜더링시 값을 유지하게함!
+  const [transData, setTransData] = useState(transVal);
+
+  // 카트사용여부 상태변수 /////////
+  const [csts, setCsts] = useState(stsVal);
+
+  // 랜더링 후 실행구역 ////////////
+  useEffect(() => {
+    // 햄버거 버튼 클릭시 전체 메뉴 보이기/숨기기
+    $(".ham").click((e) => {
+      // 1. 전체메뉴 박스 : .mbox -> 보이기/숨기기
+      $(".mbox").fadeToggle(400);
+
+      // 2. 햄버거버튼에 클래스 'on' 넣기/빼기
+      $(e.currentTarget).toggleClass("on");
+      // e.target과 e.currentTarget은 다르다!
+      // 후자가 햄버거 버튼 자신임!
+      // console.log(e.currentTarget)
+
+      // 3. 비디오 재생/멈춤 : 대상 - .bgm
+      // get(0)은 비디오컬렉션임! -> 제이쿼리용
+      const vid = $(".bgm").get(0);
+      vid.paused ? vid.play() : vid.pause();
+      // console.log(vid.paused);
+      // paused 속성 : 동영상 멈춤일때 true 리턴
+      // play() 메서드 : 동영상 재생 메서드
+      // pause() 메서드 : 동영상 정지 메서드
+    }); //////// click ////////
+
+    // 카트가 생성된 경우 버튼 보이기
+    // (카트부모박스 .bgbx 보이기)
+    console.log("카트노출상태:", csts);
+    if (csts === 1) {
+      $(()=>{ // 로딩구역 ///
+        // 전체 보여라!
+        $(".bgbx").show();
+        // 카트 사이드에 나와라!
+        $("#mycart").addClass("on");
+      }); /// 로딩구역 /////
+    } /// if ////
+
+    // 랜더링구역 한번만 실행 : 옵션 []
+  }, []); ////////// useEffect //////////////
+
+  // 처음 로딩시 스크롤 상단이동 //////
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  },[]); ///// useLayoutEffect //////////
+
+  /***************************************** 
+    [ 컨텍스트 API 공개 변수들 ]
+    1. pgName - 페이지 이름
+    2. chgPgName - 페이지 이름 업데이트함수
+    3. flag - 카트 데이터 상태변수
+    4. setTransData - 카트 사용 데이터 셋업
+    5. transData - 카트 사용 데이터
+    6. setCsts - 로컬스에 카트정보 셋업여부
+  *****************************************/
+
+  // 리턴코드 //////////////////////////
   return (
-    /* basename속성은 package.json의 "homepage"속성값을 읽어옴 */
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
-    {/* <BrowserRouter> */}
-    
-    {/* basename 을 안써도 HashRouter는 package.json의 homepage 속성값을 
-    자동으로 연결함 */}
-    {/* <HashRouter> */}
-      <Routes>
-        {/* 중요!!! 레이아웃 컴포넌트를 루트로 설정! */}
-        <Route path="/" element={<Layout />}>
-          {/* 하위 라우트 셋팅 
-          - path대신 index만 쓰면 첫페이지로 로딩함! 
-          -> path는 Layout의 Link to="/" 에 해당하는 셋팅*/}
-          <Route index element={<Main />} />
-          <Route path="character" element={<Character />} />
-          <Route path="comics" element={<Comics />} />
-          <Route path="movies" element={<Movies />} />
-          <Route path="movies/series" element={<Series />} />
-          <Route path="games" element={<Games />} />
-          <Route path="news" element={<News />} />
-          <Route path="video" element={<Video />} />
-          <Route path="board" element={<Board />} />
-          <Route path="detail" element={<CatDetail />} />
-          <Route path="schpage" element={<SchPage />} />
-          <Route path="member" element={<Member />} />
-          <Route path="login" element={<Login />} />
-        </Route>
-      </Routes>
-      {/* </HashRouter> */}
-    </BrowserRouter>
+    <pCon.Provider 
+      value={{ pgName, chgPgName, flag, setTransData, transData, setCsts }}>
+      <TopArea cat={pgName} />
+      <MainArea page={pgName} />
+      <FooterArea />
+      {/* 카트리스트 */}
+      {
+        csts && <CartList selData={transData} flag={flag} />
+        // useRef 변수인 flag를 보내면 자식 컴포넌트에서도
+        // 이 값을 참조할 뿐만 아니라 변경도 가능하다!!!
+        // 주의: useRef변수는 사용시 변수명.current를 꼭 쓴다!
+      }
+    </pCon.Provider>
   );
-} ///////////// App 컴포넌트 ///////////////////
+} ///////////// App 컴포넌트 /////////////
 
-// 컴포넌트 출력 //////////
-// 먼저 root객체만들고
-const root = ReactDOM.createRoot(document.querySelector("#root"));
-// render메서드로 출력
+/* 
+<button onClick={()=>chgPgName('main')}>
+  메인페이지
+</button>
+<button onClick={()=>chgPgName('men')}>
+  남성페이지
+</button>
+<button onClick={()=>chgPgName('women')}>
+  여성페이지
+</button>
+<button onClick={()=>chgPgName('style')}>
+  스타일페이지
+</button>
+*/
+
+// 출력하기 ///////
+const root = createRoot(document.querySelector("#root"));
 root.render(<App />);

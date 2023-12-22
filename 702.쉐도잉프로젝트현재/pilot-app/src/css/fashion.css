@@ -1,0 +1,400 @@
+/* Pilot PJ : 서브페이지 공통 CSS - fashion.css */
+html,
+body {
+    overflow: visible;
+}
+body {
+    overflow-x: hidden;
+}
+
+/* 배너박스 */
+#ban {
+    height: 100vh;
+}
+
+/* 스와이퍼 디자인설정 */
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.swiper {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 1. 신상품 컨텐츠 박스 */
+.c1 {
+    background: url(../../public/images/sub/men/01.new-arrival.png) no-repeat top/auto 134%;
+    /* overflow: hidden; */
+    /* 넘치는 자식요소 숨기기 + 자식마진포함 */
+
+    /* 비율설정 */
+    aspect-ratio: 5/2.2;
+}
+/* 신상품 배경이미지 카테고리 클래스추가 */
+.c1.men {
+    background-image: url(../../public/images/sub/men/01.new-arrival.png);
+}
+.c1.women {
+    background-image: url(../../public/images/sub/women/01.new-arrival.png);
+}
+.c1.style {
+    background-image: url(../../public/images/sub/style/01.new-arrival.png);
+}
+
+/* 신상품 타이틀 */
+.c1tit {
+    padding: 6% 15%;
+    font-size: 4rem;
+    color: #fff;
+    text-shadow: 3px 3px 3px #000;
+}
+
+/* 신상품 박스 */
+/* .flowbx{
+    margin-bottom: 300px;
+} */
+/* 움직일 리스트박스 */
+.flist {
+    position: relative;
+    left: 0; /* 움직일 기준값 */
+    display: flex;
+}
+/* 리스트 하위 li */
+.flist li {
+    position: relative;
+    /* 부모자격 - 설명박스 */
+}
+/* 리스트 상품 이미지 */
+.flist li img {
+    width: 300px;
+}
+
+/* 신상정보박스 */
+.ibox {
+    position: absolute;
+    /* 부모는? 싸고있는 li */
+    top: 60%;
+    /* 105%로 내려올 것임 */
+    width: 100%;
+    text-align: center;
+    font: 14px/24px UB;
+    background-color: #101629;
+    color: #fff;
+    padding: 20px 0;
+    opacity: 0;
+    /* 1로 투명도 변경될 것임 */
+    /* 처음에 투명 */
+}
+
+/* 가상요소로 안쪽 테두리 */
+.ibox::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #fff;
+    transform: scaleX(0.94) scaleY(0.85);
+    box-sizing: border-box;
+    /* 보더때문에 늘어나지 않게 처리! */
+}
+
+/* 가상요소로 화살표만들기 */
+.ibox::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    /* 삼각형설정 */
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid #101629;
+    /* 삼각형 */
+    /* border-top: 20px solid #101629;역삼각형 */
+}
+
+/* 컨텐츠영역2 - 스페셜영역 */
+.c2 {
+    height: 50vh;
+    background: url(../../public/images/sub/men/02.special.png) no-repeat fixed center top/cover;
+    text-align: center;
+}
+/* 신상품 배경이미지 카테고리 클래스추가 */
+.c2.men {
+    background-image: url(../../public/images/sub/men/02.special.png);
+}
+.c2.women {
+    background-image: url(../../public/images/sub/women/02.special.png);
+}
+.c2.style {
+    background-image: url(../../public/images/sub/style/02.special.png);
+}
+/* 타이틀 */
+.c2tit {
+    font: bold 5rem/50vh UB;
+    letter-spacing: 5px;
+    color: #fff;
+    text-shadow: 3px 3px 3px #000;
+}
+
+/* 컨텐츠영역 3,4번 공통 */
+.c3,
+.c4 {
+    height: 100vh;
+}
+
+/********** 컨텐츠영역 4 - 비치스타일 ***********/
+
+/* 비치스타일 이미지영역 */
+.c3 .imgc {
+    flex-basis: 25%;
+    /* 등분할 영역까지가 0%이고 양수는 영역침범 */
+}
+/********** 컨텐츠영역 4 - 비치스타일 ***********/
+
+/* 컨텐츠영역4 이미지영역 */
+.c4 .imgc {
+    /* flex-basis: 15%; */
+    /* 등분할 영역까지가 0%이고 양수는 영역침범 */
+}
+/* 컨텐츠영역4 이미지 */
+/* .c4 img {
+    object-fit: fill; */
+    /* width: auto; */
+    /* right: -26%; */
+/* } */
+
+/* 컨텐츠영역4 글자 */
+.c4 .txtc .tm {
+    /* 오른쪽글자 */
+    top: 20%;
+    left: auto;
+    transform: none;
+    right: 5%;
+}
+.c4 .txtc .tw {
+    /* 왼쪽글자 */
+    top: 70%;
+    left: 5%;
+    transform: none;
+}
+
+
+
+/* 큰 이미지 배경박스 */
+.bgbx {
+    position: relative;
+    display: none;
+}
+
+
+
+/* 닫기버튼 */
+.cbtn {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    width: 40px;
+    height: 39px;
+    background: url(../../public/images/mv_btns.png) no-repeat;
+    background-position: -129px -342px;
+
+    /* 트랜지션 */
+    transition: transform 0.3s;
+}
+
+/* 닫기버튼 오버시 */
+.cbtn:hover {
+    transform: rotate(-90deg);
+}
+
+/* 큰 이미지박스 */
+#imbx h1{
+    font-size: 20px;
+}
+/* 속박스 : 플렉스박스 */
+.inx{
+    display: flex;
+    height: 100%;
+    border: 4px double gray;
+}
+/* 하위 2개 section박스 등분할 */
+.inx>section{
+    flex: 1;
+    width: 50%;
+}
+
+.gimg{
+    text-align: center;
+}
+/* 큰 이미지 */
+.gimg img {
+    width: 60%;
+    height: 80%;
+    object-fit: cover;
+}
+
+.small img{
+    width: 16.6%;
+    height: 20%;
+}
+
+/* 할인인 경우 원래가격 지움표시 클래스 */
+.del {
+    text-decoration: line-through;
+    color: orange;
+}
+/* 세일상품 표시 가상요소 */
+.sale::after{
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 60px;
+    margin-top: -57px;
+    margin-left: -31px;
+    /* background: url(../img_gallery/sale.png) no-repeat 0/100% 100%; */
+}
+
+/*신상품 상세정보 영역*/
+.gdesc {
+    padding: 15px;
+    box-sizing: border-box;
+    overflow: auto;
+}
+.gdesc ol{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+	width: 80%;
+	margin-left: 20px;
+}
+.gdesc ol>li{
+	width: 100%;
+	font-family: 'Nanum Gothic';
+	font-size:12px;
+	line-height: 3.5vh;
+}
+.gdesc ol>li>span:first-child{/*각항목 타이틀*/
+	display: inline-block;
+	width: 70px;
+    font-size: 14px;
+}
+.gdesc ol>li:nth-child(3){
+	border-bottom: 1px solid #ccc;
+}
+
+
+/*이미지 정렬 공통*/
+.gdesc ol>li img{
+	vertical-align: middle;/*인라인 태그 정렬 세로중앙*/
+	margin: 0 4px;
+}
+
+
+
+
+/*상품명*/
+.gdesc #gtit{
+	font-size: 24px;
+}
+/*상품가격*/
+.gdesc #gprice{
+	font-size: 24px;
+	color: #ff4e08;
+}
+
+/****버튼 구역*****/
+.btn{
+	width: 30%;
+    aspect-ratio: 3/1.2;
+	font: 1vw 'Ubuntu';
+	color: #fff;
+	background-color: #666;
+    vertical-align: top;
+    cursor: pointer;
+    border-radius: 15px;
+}
+.btn1{/*구매버튼*/
+	background-color: #ff4e08;
+}
+
+/*상세이미지 박스*/
+.dimgs{
+	position: relative;
+	width: 1440px;
+	padding: 50px 0;
+	margin: 0 auto;
+}
+.dimgs>img{/*이미지 공통*/
+	width: 49%;
+	height: 49%;
+	margin: 0.5%;
+	outline: 1px solid #ccc;
+}
+
+/*상품 수량에 따른 계산 박스*/
+#sum{
+	width: 25px;
+}
+.chg_num{
+	display: inline-block;
+	width: 18px;
+	height: 20px;
+	margin: 0;
+	padding: 0;
+	line-height: 0;
+	vertical-align: -4px;
+}
+.chg_num img{
+	cursor: pointer;
+}
+.tot{
+	font-size: 24px !important;
+}
+#total{
+	color: #FC0206;	
+	font-weight: bold;
+}
+
+/* 스크롤바 디자인 클래스 */
+.scbar::-webkit-scrollbar{
+    /* 전체 스크롤바 크기변경 */
+    width: 7px;
+}
+.scbar::-webkit-scrollbar-thumb{
+    /* 스크롤바 */
+    background-color: #555;
+    border-radius: 5px;
+}
+.scbar::-webkit-scrollbar-track{
+    /* 스크롤바 트랙 */
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+
+
