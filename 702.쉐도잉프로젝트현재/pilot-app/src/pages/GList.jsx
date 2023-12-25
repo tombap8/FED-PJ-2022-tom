@@ -13,7 +13,9 @@ import { ItemDetail } from "../modules/ItemDetail";
 
 console.log("전체Data:", gdata);
 
+
 export function GList() {
+  const transData = useRef(JSON.parse(JSON.stringify(gdata)));
   // 참조변수셋팅 : 리랜더링없이 값유지!
   // 1. 아이템 코드(m1,m2,m3,...)
   const item = useRef("m1");
@@ -23,7 +25,7 @@ export function GList() {
   // 리랜더링을 위한 상태변수 : 무조건 리랜더링설정목적
   const [force, setForce] = useState(null);
   // 데이터 상태관리 변수
-  const [currData, setCurrData] = useState(gdata);
+  const [currData, setCurrData] = useState(transData.current);
 
   // 리스트 만들기 함수 ////////
   const makeList = () =>
@@ -94,10 +96,10 @@ export function GList() {
 
     // 4. 기존 입력 데이터 가져오기
     // 현재 상태관리 데이터 배열값(변경되는 데이터)
-    let temp = currData;
+    // let temp = transData.current;
 
     // 결과집합배열변수 : 최종결과배열
-    let lastList = [];
+    // let lastList = [];
 
     // 5. 체크박스 체크유무에 따른 분기
     // (1) 체크박스가 true일대 해당 검색어로 검색하기
@@ -109,17 +111,20 @@ export function GList() {
 
       // 체크개수가 1초과일때 배열합치기
       if(num>1){ // 스프레드 연산자(...)사용!
-        lastList = [...temp,...nowList];
+        transData.current = [...transData.current,...nowList];
       } //// if /////
       else{ // 하나일때
-        lastList = nowList;
+        transData.current = nowList;
       }
-      console.log('추가구역:',lastList);
+      console.log('추가구역:',transData.current);
 
     } /////////// if /////////
     // (2) 체크박스가 false일때 데이터 지우기
     else{
       console.log('지울데이터:',cid);
+      const temp = 
+      JSON.parse(JSON.stringify(transData.current));
+
       // for문을 돌면서 배열데이터중 해당값을 지운다!
       for(let i=0; i<temp.length;i++){
         // -> 삭제대상:
@@ -145,13 +150,15 @@ export function GList() {
       console.log('삭제처리된배열:',temp);
 
       // 결과처리하기 : 삭제처리된 temp를 결과에 넣기!
-      lastList = temp;
+      transData.current = temp;
 
-    // 6. 검색결과 리스트 업데이트 하기
-    // setCurrData(temp);
-    console.log('삭제구역:',lastList);
+      console.log('삭제구역:',transData.current);
     } /////////// else ///////////
 
+
+      // 6. 검색결과 리스트 업데이트 하기
+      setCurrData(transData.current);
+    
 
   }; ////////////// changeList 함수 ///////////
 
