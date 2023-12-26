@@ -13,7 +13,7 @@ export function MainArea(props){
             {
                 // main or glistrk 아니면 
                 // 서브 Fashion이동
-                props.page=='main'?<GList />:
+                props.page=='main'?<MainCont />:
                 props.page=='glist'?<GList />:
                 <Fashion cat={props.page} />
             }
