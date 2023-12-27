@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p id="demo">Fetch a file to change this text.</p>
+
+<script>
+let file="https://tombap8.github.io/FED-RF-2023-TOM/500.%ED%95%84%EA%B8%B0%EB%AA%A8%EC%9D%8C/013.DOM%EC%9D%B4%EB%9E%80.txt";
+
+// document.getElementById("demo").innerHTML = file;
+
+
+// fetch (file)
+// .then(x => x.text())
+// .then(y => document.getElementById("demo").innerHTML = y);
+
+async function getText(file) {
+  let myObject = await fetch(file);
+  let myText = await myObject.text();
+  document.getElementById("demo").innerHTML = myText;
+}
+
+getText(file);
+
+
+</script>
+
+</body>
+</html>
