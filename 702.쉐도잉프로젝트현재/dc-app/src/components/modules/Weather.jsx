@@ -11,13 +11,15 @@ class Weather extends Component {
     // 컴포넌트 생성 후 날씨 정보 조회
     componentDidMount() {
         const cityName = 'Seoul';
-        const apiKey = 'ea53b6f001e4d38c68b87795ddeea08f';
+        // ea53b6f001e4d38c68b87795ddeea08f
+        const apiKey = '7fdf8fb74f3e2ed02bfb7e298a32df49';
         const url = `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`;
 
         // fetch() 함수를 이용
         fetch(url)
             .then(response => response.json())
             .then(responseData => {
+                console.log(responseData);
                 this.setState({
                     temp: responseData.main.temp,
                     desc: responseData.weather[0].description,
@@ -49,10 +51,15 @@ class Weather extends Component {
             return <p>Loading</p>;
         } else {
             return (
-                <div className="App">
-                    <img src={imgSrc}/>
-                    <p>{parseInt(this.state.temp)-273.15}C</p>
-                    <p>{this.state.desc}</p>
+                <div className="weather-bx">
+                    <div>
+                        <h4>Now Weather : {}</h4>
+                        <img src={imgSrc}/>
+                    </div>
+                    <div>
+                        <p>{(parseInt(this.state.temp)-273.15).toFixed(1)}℃</p>
+                        <p>{this.state.desc}</p>
+                    </div>
                 </div>
             );
         }
