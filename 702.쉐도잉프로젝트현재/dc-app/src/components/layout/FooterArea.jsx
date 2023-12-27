@@ -5,6 +5,7 @@ import { Logo } from "../modules/Logo";
 // 하단링크정보 데이터 불러오기
 import { bmData } from "../data/bmenu";
 import { memo } from "react";
+import Weather from "../modules/Weather";
 
 // 아주 간단한 컴포넌트 메모이제이션 하기!
 // 1. 일반 함수형 컴포넌트
@@ -46,6 +47,7 @@ export const FooterArea = memo(() => {
                 © & ™ DC. ALL RIGHTS RESERVED
                 </li>
             </ul>
+            <Weather />
         </footer>
     )
 
