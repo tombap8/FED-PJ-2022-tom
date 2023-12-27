@@ -4,7 +4,9 @@
 <p id="demo">Fetch a file to change this text.</p>
 
 <script>
-let file="https://tombap8.github.io/FED-RF-2023-TOM/500.%ED%95%84%EA%B8%B0%EB%AA%A8%EC%9D%8C/013.DOM%EC%9D%B4%EB%9E%80.txt";
+// let file="https://tombap8.github.io/FED-RF-2023-TOM/500.%ED%95%84%EA%B8%B0%EB%AA%A8%EC%9D%8C/013.DOM%EC%9D%B4%EB%9E%80.txt";
+
+let file2 = "https://tombap8.github.io/FED-PJ-2022-tom/004.JS%ED%95%99%EC%8A%B5/JS%EB%B9%84%EB%8F%99%EA%B8%B0/defaultSettings.json";
 
 // document.getElementById("demo").innerHTML = file;
 
@@ -16,7 +18,8 @@ let file="https://tombap8.github.io/FED-RF-2023-TOM/500.%ED%95%84%EA%B8%B0%EB%AA
 async function getText(file) {
   let myObject = await fetch(file);
   let myText = await myObject.text();
-  document.getElementById("demo").innerHTML = myText;
+//   document.getElementById("demo").innerHTML = myText;
+// console.log(JSON.parse(JSON.stringify(myText))[1]);
 }
 
 getText(file);
