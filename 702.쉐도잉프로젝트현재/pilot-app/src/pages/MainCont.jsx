@@ -29,7 +29,7 @@ export function MainCont() {
     // 해제 메서드인 removeEventListener 가 유효함!
 
     // 자동스크롤 이벤트 설정하기 /////
-    window.addEventListener('wheel',wheelFn);
+    window.addEventListener('wheel',wheelFn,{passive:false});
 
     // 메뉴+인디케이터 이벤트 기능설정함수 호출 ////
     evtFn();

@@ -60,6 +60,7 @@ $("html,body").animate({ scrollTop: "0px" });
     -> 한페이지씩 자동스크롤 기능
     ****************************************/
 function wheelFn(e) {
+  e.preventDefault();
   // 광휠금지
   if (prot[0]) return;
   chkCrazy(0);

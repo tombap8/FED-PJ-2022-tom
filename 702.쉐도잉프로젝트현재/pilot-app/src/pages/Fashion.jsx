@@ -14,8 +14,8 @@ import $ from 'jquery';
 import { SinSang } from "../modules/SinSang";
 import { ItemDetail } from "../modules/ItemDetail";
 
-// 부드러운 스크롤
-import { startSS, setPos } from "../func/smoothScroll23";
+import { SmoothScroll, setPos } from "../func/smoothScroll23";
+
 
 export function Fashion(props){
     // 컨텍스트 API 사용!
@@ -25,27 +25,28 @@ export function Fashion(props){
 
     useEffect(()=>{
 
-        // 부드러운 스크롤 적용!
-        startSS();
-        // 스크롤 위치값 초기화
-        setPos(0);
-
         // 스크롤바 생성하기(x축은 숨김)
         $('html,body').css({
             overflow:'visible',
             overflowX:'hidden',
         });
 
+        let mmm =
+        new SmoothScroll(document, 30, 22);
+        setPos(0);
+
+
         // 로고클릭시 페이지이동 : pgName 변경 -> chgPgName()
         $("#logo a").click(()=>myCon.chgPgName('main'));
 
+   
+        return(()=>{
+            mmm = new SmoothScroll(window,0,0);
+        })
 
         // 상품상세보기 박스 처음에 숨기기
         // $(".bgbx").hide();
 
-        return(()=>{
-            
-        })
 
     },[]); ///////// useEffect ///////////
 
