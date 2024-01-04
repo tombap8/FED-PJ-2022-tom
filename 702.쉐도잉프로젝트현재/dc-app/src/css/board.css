@@ -1,6 +1,19 @@
 /* 게시판 모듈용 CSS - board.css  */
 
 /* CSS Document */
+
+/* 검색옵션박스 */
+.selbx {
+    max-width: 90%;
+    width: 950px;
+    margin: 0 auto;
+    padding: 20px 10px 10px;
+    box-sizing: border-box;
+}
+.selbx>*{
+    margin-right: 10px;
+}
+
 /*테이블 디자인*/
 .dtbl {
     /*테이블전체*/
@@ -49,21 +62,31 @@
 	*/
 }
 
+/* 보드 메인리스트 a요소 말줄임표시하기 */
+#board tbody td a {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* 가로크기 지정(최대361px) */
+    width: min(361px,40vw);
+}
+
 /*각 th별 가로크기지정 */
 .dtbl th:nth-child(1){
-    width: 50px;
+    width: 5%;
 }
 .dtbl th:nth-child(2){
-    width: 420px;
+    width: 40%;
 }
 .dtbl th:nth-child(3){
-    width: 100px;
+    width: 30%;
 }
 .dtbl th:nth-child(4){
-    width: 100px;
+    width: 15%;
 }
 .dtbl th:nth-child(5){
-    width: 80px;
+    width: 5%;
 }
 
 .dtbl tbody tr td {
@@ -162,4 +185,19 @@
 }
 .btngrp button:hover a{
     color: #fff;
+}
+
+@media screen and (max-width:700px) {
+    /* 보기 모드 공통 */
+    .cont .dtblview {
+        width: 90vw;
+    }
+    .cont .dtblview td{
+        width: auto;
+        font-size: 16px;
+    }
+    .cont .dtblview input,
+    .cont .dtblview textarea {
+        width: calc(90vw - 64px);
+    }
 }

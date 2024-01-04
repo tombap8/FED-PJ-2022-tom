@@ -47,6 +47,7 @@ export const FooterArea = memo(() => {
                 © & ™ DC. ALL RIGHTS RESERVED
                 </li>
             </ul>
+            {/* 날씨정보 컴포넌트 */}
             <Weather />
         </footer>
     )
