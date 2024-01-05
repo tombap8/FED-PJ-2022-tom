@@ -31,8 +31,7 @@ export function Fashion(props){
             overflowX:'hidden',
         });
 
-        let mmm =
-        new SmoothScroll(document, 30, 22);
+        new SmoothScroll(document, 30, 22,false);
         setPos(0);
 
 
@@ -41,7 +40,9 @@ export function Fashion(props){
 
    
         return(()=>{
-            mmm = new SmoothScroll(window,0,0);
+            new SmoothScroll(window,0,0,true);
+            setPos(0);
+            console.log('다시소멸~~~~');
         })
 
         // 상품상세보기 박스 처음에 숨기기

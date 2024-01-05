@@ -17,7 +17,7 @@ function setPos(val) {
   pos = val;
 }
 
-function SmoothScroll(target, speed, smooth) {
+function SmoothScroll(target, speed, smooth,prot) {
   if (target === document)
     target =
       document.scrollingElement ||
@@ -40,6 +40,9 @@ function SmoothScroll(target, speed, smooth) {
   });
 
   function scrolled(e) {
+    console.log('앞',prot);
+    if(prot) return;
+    console.log('뒤');
     e.preventDefault(); // disable default scrolling
 
     var delta = normalizeWheelDelta(e);
