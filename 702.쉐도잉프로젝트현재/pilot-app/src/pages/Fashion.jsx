@@ -14,8 +14,13 @@ import $ from "jquery";
 import { SinSang } from "../modules/SinSang";
 import { ItemDetail } from "../modules/ItemDetail";
 
-
+// 수정된 부드러운 스크롤 /////
 import { scrolled, setPos } from "../func/smoothScroll23";
+
+// 리액트용 패럴랙스 - 설치 : npm i react-parallax
+import { Parallax } from "react-parallax";
+import { FashionIntro } from "../modules/FashionIntro";
+// 설명 : https://www.npmjs.com/package/react-parallax
 
 export function Fashion(props) {
   // 컨텍스트 API 사용!
@@ -102,11 +107,26 @@ export function Fashion(props) {
         <ItemDetail goods={item} cat={props.cat} />
       </div>
       {/* 3. 패럴랙스 영역 */}
-      <section id="c2" className="cont c2 men"></section>
+      <section id="c2" className="cont">
+        <Parallax
+          className="c2"
+          bgImage={"./images/sub/" + props.cat + "/02.special.png"}
+          strength={200}
+        ></Parallax>
+        {/* 패럴랙스 속성 - bgImage : 배경이미지설정 / 
+        strength : 움직임정도(-500~1000) 높은숫자 반대방향  */}
+      </section>
       {/* 4. 단일상품영역 */}
-      <section id="c3" className="cont c3"></section>
+      <section id="c3" className="cont c3">
+        
+      <FashionIntro cat="women" />
+      </section>
       {/* 5. 스타일상품영역 */}
-      <section id="c4" className="cont c4"></section>
+      <section id="c4" className="cont c4">
+        
+        
+      <FashionIntro cat="style" />
+      </section>
     </>
   );
 } //////// Fashion 컴포넌트 ///////
