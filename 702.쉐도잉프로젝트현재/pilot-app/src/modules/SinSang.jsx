@@ -12,6 +12,32 @@ import $ from 'jquery';
 export function SinSang({cat,chgItemFn}) {
   // cat - 카테고리 분류명
   // chgItemFn - 선택상품정보변경 부모함수
+  const afterCat = useRef(null);
+
+  // 신상품 리스트 이동함수 사용변수 ///
+  // 위치값변수(left값) -> 리랜더링시 기존값을 유지하도록
+  // ->  useRef를 사용한다!! -> 변수명.current로 사용!
+  let lpos = useRef(0);
+  // 재귀호출 상태값(1-호출,0-멈춤)
+  let callSts = useRef(1);
+  // 재귀호출변수
+  let autoT = useRef(null);
+
+
+  console.log('신상cat:',cat,'/신상afterCat:',afterCat.current);
+  // 들어온 파라미터와 이전파라미터가 다를때
+  // (즉, 리랜더링시 메뉴가 다를 경우만실행)
+  if(cat!==afterCat.current){
+    // 신상흘러가기 값초기화
+    lpos.current = 0;
+    callSts.current = 1;
+    clearTimeout(autoT);
+    $('.bgbx').hide();
+  } ///////// if ///////////////
+
+
+  afterCat.current = cat;
+
 
   // 컨텍스트 API사용하기
   const myCon = useContext(pCon);
@@ -95,12 +121,6 @@ function addComma(x) {
     $(e.currentTarget).find('.ibox').remove();
   };
 
-  // 신상품 리스트 이동함수 사용변수 ///
-  // 위치값변수(left값) -> 리랜더링시 기존값을 유지하도록
-  // ->  useRef를 사용한다!! -> 변수명.current로 사용!
-  let lpos = useRef(0);
-  // 재귀호출 상태값(1-호출,0-멈춤)
-  let callSts = 1;
   
 
   // 신상품 리스트 이동함수 //////
@@ -121,16 +141,19 @@ function addComma(x) {
     ele.css({left:lpos.current+'px'})
 
     // 재귀호출
-    if(callSts)
-      setTimeout(()=>flowList(ele),40)
+    if(callSts.current)
+      autoT.current = setTimeout(()=>flowList(ele),40)
 
   }; ////////// flowList ////////////
+
+
 
   // 랜더링 후  한번만 실행구역 //////
   useEffect(()=>{
     // 대상선정: .flist
     // 신상리스트이동함수 호출!
     flowList($('.flist'));
+    
   },[]); ////////// useEffect ////////
 
 
@@ -145,9 +168,9 @@ function addComma(x) {
         >전체리스트</button>
       </h2>
       <div className="flowbx"
-      onMouseEnter={()=>callSts=0} 
+      onMouseEnter={()=>callSts.current=0} 
       onMouseLeave={()=>{
-        callSts=1;flowList($('.flist'));}}>
+        callSts.current=1;flowList($('.flist'));}}>
         <ul className="flist">{makeList()}</ul>
       </div>
     </>

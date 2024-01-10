@@ -3,9 +3,9 @@
 // arranged by Tom Brace Parker
 
 // startSS()함수를 호출하여 사용
-function startSS() {
-  new SmoothScroll(document, 30, 22);
-}
+// function startSS() {
+//   smoothScroll(document, 30, 22);
+// }
 
 // 전역변수 스크롤 위치값
 let pos;
@@ -17,76 +17,78 @@ function setPos(val) {
   pos = val;
 }
 
-function SmoothScroll(target, speed, smooth,prot) {
-  if (target === document)
-    target =
-      document.scrollingElement ||
-      document.documentElement ||
-      document.body.parentNode ||
-      document.body; // cross browser support for document scrolling
+// 생성자함수로 받던 값을 직접 지정함!
+let target = document;
+let speed = 30;
+let smooth = 22;
 
-  var moving = false;
-  pos = target.scrollTop;
-  var frame =
-    target === document.body && document.documentElement
-      ? document.documentElement
-      : target; // safari is the new IE
+// function smoothScroll(target, speed, smooth) {
+if (target === document)
+  target =
+    document.scrollingElement ||
+    document.documentElement ||
+    document.body.parentNode ||
+    document.body; // cross browser support for document scrolling
 
-  target.addEventListener("mousewheel", scrolled, {
-    passive: false,
-  });
-  target.addEventListener("DOMMouseScroll", scrolled, {
-    passive: false,
-  });
+var moving = false;
+pos = target.scrollTop;
+var frame =
+  target === document.body && document.documentElement
+    ? document.documentElement
+    : target; // safari is the new IE
 
-  function scrolled(e) {
-    console.log('앞',prot);
-    if(prot) return;
-    console.log('뒤');
-    e.preventDefault(); // disable default scrolling
+// target.addEventListener("mousewheel", scrolled, {
+//   passive: false,
+// });
+// target.addEventListener("DOMMouseScroll", scrolled, {
+//   passive: false,
+// });
 
-    var delta = normalizeWheelDelta(e);
+function scrolled(e) {
+  e.preventDefault(); // disable default scrolling
 
-    pos += -delta * speed;
-    pos = Math.max(0, Math.min(pos, target.scrollHeight - frame.clientHeight)); // limit scrolling
+  var delta = normalizeWheelDelta(e);
 
-    if (!moving) update();
-  }
+  pos += -delta * speed;
+  pos = Math.max(0, Math.min(pos, target.scrollHeight - frame.clientHeight)); // limit scrolling
 
-  function normalizeWheelDelta(e) {
-    if (e.detail) {
-      if (e.wheelDelta)
-        return (e.wheelDelta / e.detail / 40) * (e.detail > 0 ? 1 : -1);
-      // Opera
-      else return -e.detail / 3; // Firefox
-    } else return e.wheelDelta / 120; // IE,Safari,Chrome
-  }
-
-  function update() {
-    moving = true;
-
-    var delta = (pos - target.scrollTop) / smooth;
-
-    target.scrollTop += delta;
-
-    if (Math.abs(delta) > 0.5) requestFrame(update);
-    else moving = false;
-  }
-
-  var requestFrame = (function () {
-    // requestAnimationFrame cross browser
-    return (
-      window.requestAnimationFrame ||
-      window.webkitRequestAnimationFrame ||
-      window.mozRequestAnimationFrame ||
-      window.oRequestAnimationFrame ||
-      window.msRequestAnimationFrame ||
-      function (func) {
-        window.setTimeout(func, 1000 / 50);
-      }
-    );
-  })();
+  if (!moving) update();
 }
 
+function normalizeWheelDelta(e) {
+  if (e.detail) {
+    if (e.wheelDelta)
+      return (e.wheelDelta / e.detail / 40) * (e.detail > 0 ? 1 : -1);
+    // Opera
+    else return -e.detail / 3; // Firefox
+  } else return e.wheelDelta / 120; // IE,Safari,Chrome
+}
+
+function update() {
+  moving = true;
+
+  var delta = (pos - target.scrollTop) / smooth;
+
+  target.scrollTop += delta;
+
+  if (Math.abs(delta) > 0.5) requestFrame(update);
+  else moving = false;
+}
+
+var requestFrame = (function () {
+  // requestAnimationFrame cross browser
+  return (
+    window.requestAnimationFrame ||
+    window.webkitRequestAnimationFrame ||
+    window.mozRequestAnimationFrame ||
+    window.oRequestAnimationFrame ||
+    window.msRequestAnimationFrame ||
+    function (func) {
+      window.setTimeout(func, 1000 / 50);
+    }
+  );
+})();
+// }
+
 // 내보내기 : 시작함수 + 위치값변경함수
-export { SmoothScroll, setPos };
+export { scrolled, setPos };
