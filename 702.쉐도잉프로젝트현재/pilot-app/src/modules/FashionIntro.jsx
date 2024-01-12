@@ -108,10 +108,16 @@ export function FashionIntro(props) {
             </li>
             {/* 글자박스 */}
             <li className="txtc">
-              <h2>
+              <h2 className="tm">
                 <a href="#">
-                  {selData.tit[0]} <br />
-                  {selData.tit[1]}
+                  {selData.tit[0][0]}<br/>
+                  {selData.tit[0][1]}
+                </a>
+              </h2>
+              <h2 className="tw">
+                <a href="#">
+                  {selData.tit[1][0]}<br/>
+                  {selData.tit[1][1]}
                 </a>
               </h2>
             </li>

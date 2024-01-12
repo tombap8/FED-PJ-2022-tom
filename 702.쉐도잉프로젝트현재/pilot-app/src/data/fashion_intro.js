@@ -41,32 +41,33 @@ export const fsData = {
     ],
     women: [
       {
-        isrc: "./images/women01.png",
-        ialt: "여자",
-        tit: ["WOMEN'S", "ESSENTIALS"],
+        isrc: "./images/sub/women/03.disc.png",
+        ialt: "여자들의 자유로움이 있다!",
+        tit: ["WOMEN'S", "FREE STYLE"],
       },
       {
-        isrc: ["./images/style02.png", "./images/style03.png"],
-        ialt: ["여자스타일", "공유스타일"],
+        isrc: ["./images/sub/women/04.disc.png", "./images/sub/women/05.disc.png"],
+        ialt: ["여자스타일1", "여자스타일2"],
         tit: [
-          ["MEN'S", "STYLE"],
-          ["WOMEN'S", "STYLE"],
+          ["WOMEN'S", "SPORT STYLE"],
+          ["WOMEN'S", "LIFE STYLE"],
         ],
       },
     ],
     // 스타일 데이터는 배열로 2개를 사용함!
     style: [
       {
-        isrc: "./images/women01.png",
-        ialt: "여자",
-        tit: ["WOMEN'S", "ESSENTIALS"],
+        isrc: "./images/sub/style/03.disc.png",
+        ialt: "공유가 캠핑을 한다!",
+        tit: ["STYLE'S", "CAMPING STYLE"],
       },
       {
-        isrc: ["./images/style02.png", "./images/style03.png"],
-        ialt: ["여자스타일", "공유스타일"],
+        isrc: ["./images/sub/style/04.disc.png", 
+        "./images/sub/style/05.disc.png"],
+        ialt: ["스타일1", "스타일2"],
         tit: [
-          ["MEN'S", "STYLE"],
-          ["WOMEN'S", "STYLE"],
+          ["STYLE'S", "SPORT STYLE"],
+          ["STYLE'S", "LIFE STYLE"],
         ],
       },
     ],
