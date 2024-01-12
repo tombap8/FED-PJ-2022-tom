@@ -92,11 +92,7 @@ function App() {
 
     // 랜더링구역 한번만 실행 : 옵션 []
   }, []); ////////// useEffect //////////////
-
-  // 처음 로딩시 스크롤 상단이동 //////
-  useLayoutEffect(() => {
-    window.scrollTo(0, 0);
-  }, []); ///// useLayoutEffect //////////
+  
 
   useEffect(()=>{
     // 전체상품리스트 페이지를 위한 초기화변수확인
