@@ -28,8 +28,8 @@ import { scrolled, setPos } from "../func/smoothScroll24";
 
 // 리액트용 패럴랙스 - 설치 : npm i react-parallax
 import { Parallax } from "react-parallax";
-import { FashionIntro } from "../modules/FashionIntro";
 // 설명 : https://www.npmjs.com/package/react-parallax
+import { FashionIntro } from "../modules/FashionIntro";
 
 export function Fashion(props) {
   // 컨텍스트 API 사용!
@@ -82,6 +82,12 @@ export function Fashion(props) {
 
       // 부드러운 스크롤 위치값 초기화!!!
       setPos(0);
+
+      // 이벤트 OFF - 필수!!! -> 안하면 첫페이지 에러남
+      $(".gnb a").off("click");
+
+      // 여기서 걸어준 앞단 이벤트는 모두 끊어준다!
+      window.removeEventListener('scroll',chkPos);
     }; /////// 소멸자 ////////////////
   }, []); ///////// useEffect ///////////
 
@@ -94,7 +100,64 @@ export function Fashion(props) {
     window.scrollTo(0, 0);
     // 열렸을 수 있는 상세페이지 닫기
     $(".bgbx").hide();
+
+    // 메뉴 클릭이동 셋팅은 제이쿼리로~!^^ ////
+    $(".gnb a").on("click", (e) => {
+      e.preventDefault();
+      // 아이디 읽어오기
+      let cid = $(e.currentTarget).attr("href");
+      // 해당 아이디 위치값 구하기
+      let cpos = $(cid).offset().top;
+      console.log(cpos);
+      // 해당위치로 애니메이션 이동하기
+      $("html,body")
+        .stop()
+        .animate({ scrollTop: cpos + "px" }, 600);
+      // 부드러운 스크롤 씽크 맞추기
+      setPos(cpos);
+    }); ///////////// click //////////
+
+    // 등장액션 초기화
+    setEle();
+
+    window.addEventListener('scroll',chkPos);
+
   }, [props.cat]);
+
+
+  // 위치체크 및 액션함수 ////
+  const chkPos = () => {
+    // 등장액션 대상은 모두 순회함
+    $('.sc-ani').each((idx,ele)=>{
+      let cpos = retClient(idx);
+      console.log(cpos);
+      // 위치값이 화면1/3위치보다 위로 올라오면 등장
+      if(cpos < $(window).height()/3*2){
+        $(ele).css({
+          opacity: 1,
+          transform: 'translateY(0%)',  
+        });
+      }
+
+    })
+  }
+
+  // 등장액션 일괄 셋팅 ///
+  const setEle = () => {
+    $('.sc-ani').css({
+      opacity: 0,
+      transform: 'translateY(20%)',
+      transition: '1s ease-in-out',
+    })
+  }
+
+  // 위치값 리턴함수 ///////
+  const retClient = idx => {
+    console.log(idx);
+    return document.querySelectorAll('.sc-ani')[idx].getBoundingClientRect().top;
+  }
+
+
 
   // 후크 상태변수
   const [item, setItem] = useState("m1");
@@ -118,7 +181,7 @@ export function Fashion(props) {
         <SwiperApp cat={myCon.pgName} />
       </section>
       {/* 2. 신상품영역 */}
-      <section id="c1" className={"cont c1 " + myCon.pgName}>
+      <section id="c1" className={"cont sc-ani c1 " + myCon.pgName}>
         <SinSang cat={myCon.pgName} chgItemFn={chgItem} />
       </section>
       {/* 2.5. 상세보기박스 */}
@@ -135,16 +198,16 @@ export function Fashion(props) {
           // 수치범위 :  -500 ~ 1000 -> 높은 숫자는 반대방향
           strength={200}
         >
-          <h2 class="c2tit">2024 {gnbData[props.cat][1]}</h2>
+          <h2 class="c2tit sc-ani">2024 {gnbData[props.cat][1]}</h2>
         </Parallax>
       </section>
       {/* 4. 단일상품영역 */}
       <section id="c3" className="cont c3">
-        <FashionIntro cat="sub" subcat={[props.cat,0]} />
+        <FashionIntro cat="sub" subcat={[props.cat, 0]} />
       </section>
       {/* 5. 스타일상품영역 */}
       <section id="c4" className="cont c4">
-        <FashionIntro cat="sub" subcat={[props.cat,1]} />
+        <FashionIntro cat="sub" subcat={[props.cat, 1]} />
       </section>
     </>
   );

@@ -56,7 +56,7 @@ export function TopArea(props) {
             props.cat==="glist"&&i===0?'on':''
           }
           onClick={clickGnb}>
-          <a href="#">{v}</a>
+          <a href={"#c"+(i+1)}>{v}</a>
         </li>
       )
     )

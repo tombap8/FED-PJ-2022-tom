@@ -15,6 +15,7 @@ import "jquery-ui-dist/jquery-ui";
 
 // 페이지 공통 CSS
 import "./css/common.css";
+import "./css/media.css";
 
 // 최상위 Root 컴포넌트 ///////
 function App() {

@@ -31,7 +31,7 @@ export function TotalMenu() {
           <dl>
             <dt>
               <a href="#" 
-              onClick={()=>goPage('men')}>MEN</a>
+              onClick={(e)=>{e.preventDefault();goPage('men')}}>MEN</a>
             </dt>
             <dd>
               <a href="#">T-SHIRT</a>
@@ -49,7 +49,7 @@ export function TotalMenu() {
           <dl>
             <dt>
               <a href="#" 
-              onClick={()=>goPage('women')}>WOMEN</a>
+              onClick={(e)=>{e.preventDefault();goPage('women')}}>WOMEN</a>
             </dt>
             <dd>
               <a href="#">T-SHIRT</a>
@@ -67,7 +67,7 @@ export function TotalMenu() {
           <dl>
             <dt>
               <a href="#" 
-              onClick={()=>goPage('style')}>STYLE</a>
+              onClick={(e)=>{e.preventDefault();goPage('style')}}>STYLE</a>
             </dt>
             <dd>
               <a href="#">COLLECTION</a>

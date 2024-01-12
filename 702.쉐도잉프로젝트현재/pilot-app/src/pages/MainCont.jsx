@@ -29,12 +29,17 @@ export function MainCont() {
     // 해제 메서드인 removeEventListener 가 유효함!
 
     // 자동스크롤 이벤트 설정하기 /////
+    if($(window).width()>800)
     window.addEventListener('wheel',wheelFn);
+    else{
+      $('html,body').css({overflow:'visible'})
+    }
 
     // 메뉴+인디케이터 이벤트 기능설정함수 호출 ////
     evtFn();
 
     // 초기화 함수 호출
+    if($(window).width()>800)
     initSet();
 
     // 페이지번호 초기화 호출
@@ -87,8 +92,8 @@ export function MainCont() {
         <FashionIntro cat="women" subcat="etc" />
       </section>
 
-      {/* 4. 스타일패션 페이지 */}
-      <section className="page">
+      {/* 4. 스타일패션 페이지 : 아이디 style추가할것!(미디어쿼리) */}
+      <section className="page" id="style">
         <FashionIntro cat="style" subcat="etc" />
       </section>
 
