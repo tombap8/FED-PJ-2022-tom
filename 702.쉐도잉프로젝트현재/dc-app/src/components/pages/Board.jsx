@@ -1241,6 +1241,7 @@ const AttachBox = () => {
     setIsOn(false);
 
     const file = event.dataTransfer.files[0];
+    // $('.file').val(file.name);
     setFileInfo(file);
   };
 
