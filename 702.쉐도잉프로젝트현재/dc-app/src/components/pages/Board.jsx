@@ -17,6 +17,8 @@ import $ from "jquery";
 // 기본 데이터 제이슨 불러오기
 import baseData from "../data/board.json";
 
+import axios from "axios";
+
 // 기본 데이터 역순정렬
 baseData.sort((a, b) => {
   return Number(a.idx) === Number(b.idx)
@@ -556,14 +558,14 @@ export function Board() {
         // let test = Math.max(1,2,3,4,5);
         // // // console.log('1~5사이최대값:',test);
 
-        let fdata = $('.file').val().split('\\');
+        let fdata = $('.file').attr('data-name');
 
         // 4. 임시변수에 입력할 객체 데이터 생성하기
         let temp = {
           idx: maxNum + 1,
           tit: subEle.val().trim(),
           cont: contEle.val().trim(),
-          att: fdata[fdata.length-1],
+          att: fdata,
           date: `${yy}-${addZero(mm)}-${addZero(dd)}`,
           uid: logData.current.uid,
           unm: logData.current.unm,
@@ -1239,14 +1241,25 @@ const AttachBox = () => {
   const controlDrop = (event) => {
     event.preventDefault();
     setIsOn(false);
-
     const file = event.dataTransfer.files[0];
-    // $('.file').val(file.name);
+    console.log('드롭',file);
+    console.log('타입',$('.file').val());
     setFileInfo(file);
+
+
+    const formData = new FormData();
+
+        formData.append("file", file)
+
+        for (const key of formData) console.log(key);
+
+        axios.post('/files/upload', formData);
   };
 
   const changeUpload = ({ target }) => {
     const file = target.files[0];
+    console.log('클릭',file);
+    console.log('타입',$('.file').val());
     setFileInfo(file);
   };
   
@@ -1258,7 +1271,7 @@ const AttachBox = () => {
       onDragLeave={controlDragLeave}
       onDrop={controlDrop}
     >
-      <input type="file" className="file" onChange={changeUpload} />
+      <input type="file" className="file" onChange={changeUpload} data-name="" />
       {// 업로드정보가 null이 아니면 파일정보 출력
       uploadedInfo && <FileInfo uploadedInfo={uploadedInfo} />}
       {// 업로드 파일정보가 null이면 안내문자 출력
