@@ -17,13 +17,13 @@
     cursor: pointer;
   }
   
-  .preview {
+  .info-view {
     max-width: 300px;
     height: 120px;
     /* margin: auto; */
     background-color: #fff;
     border-radius: 5px;
-    border: 5px dashed #999;
+    border: 5px dotted #999;
     padding: 70px;
     display: flex;
     flex-direction: column;
@@ -32,44 +32,45 @@
     cursor: pointer;
   }
   
-  .preview:hover {
+  .info-view:hover {
     border-color: pink;
   }
   
-  .preview_msg {
+  .info-view-msg {
     font-weight: 500;
     font-size: 18px;
     margin: 20px 0 10px;
   }
   
-  .preview_desc {
+  .info-view-desc {
     margin: 0;
     font-size: 14px;
   }
 
-  .preview.active {
+  .info-view.on {
     background-color: #efeef3;
     border-color: #111;
   }
 
-  .preview_info {
+  .info-view-info {
     width: 100%;
     list-style: none;
     padding: 0;
-    gap: 16px;
+    gap: 5px;
     display: flex;
     flex-direction: column;
   }
   
-  .preview_info .info_key {
-    display: block;
+  .info-view-info .info-key {
+    display: inline-block;
     font-weight: 500;
-    font-size: 12px;
+    font-size: 20px;
     margin-bottom: 4px;
   }
   
-  .preview_info .info_value {
-    font-size: 14px;
+  .info-view-info .info-value {
+    font-size: 20px;
+    margin-left: 20px;
   }
   
   

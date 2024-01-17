@@ -556,12 +556,14 @@ export function Board() {
         // let test = Math.max(1,2,3,4,5);
         // // // console.log('1~5사이최대값:',test);
 
+        let fdata = $('.file').val().split('\\');
+
         // 4. 임시변수에 입력할 객체 데이터 생성하기
         let temp = {
           idx: maxNum + 1,
           tit: subEle.val().trim(),
           cont: contEle.val().trim(),
-          att: "",
+          att: fdata[fdata.length-1],
           date: `${yy}-${addZero(mm)}-${addZero(dd)}`,
           uid: logData.current.uid,
           unm: logData.current.unm,
@@ -999,7 +1001,7 @@ export function Board() {
               <tr>
                 <td>Attachment</td>
                 <td>
-                  <UploadBox/>
+                  <AttachBox/>
                 </td>
               </tr>
             </tbody>
@@ -1194,31 +1196,37 @@ export function Board() {
 } //////////// Board 컴포넌트 /////////////
 
 
+/* 
+Object.keys(obj) – 객체의 키만 담은 배열을 반환합니다.
+Object.values(obj) – 객체의 값만 담은 배열을 반환합니다.
+Object.entries(obj) – [키, 값] 쌍을 담은 배열을 반환합니다.
+*/
 const FileInfo = ({ uploadedInfo }) => (
-  <ul className="preview_info">
+  <ul className="info-view-info">
+    {console.log(Object.entries(uploadedInfo))}
     {Object.entries(uploadedInfo).map(([key, value]) => (
       <li key={key}>
-        <span className="info_key">{key}</span>
-        <span className="info_value">{value}</span>
+        <span className="info-key">😊 {key} : </span>
+        <span className="info-value">{value}</span>
       </li>
     ))}
   </ul>
 );
 
-const Logo = () => (
+const UpIcon = () => (
   <svg className="icon" x="0px" y="0px" viewBox="0 0 99.09 122.88">
-    <path fill="transparent" d="M0,0h24v24H0V0z"/>
     <path fill="#000" d="M64.64,13,86.77,36.21H64.64V13ZM42.58,71.67a3.25,3.25,0,0,1-4.92-4.25l9.42-10.91a3.26,3.26,0,0,1,4.59-.33,5.14,5.14,0,0,1,.4.41l9.3,10.28a3.24,3.24,0,0,1-4.81,4.35L52.8,67.07V82.52a3.26,3.26,0,1,1-6.52,0V67.38l-3.7,4.29ZM24.22,85.42a3.26,3.26,0,1,1,6.52,0v7.46H68.36V85.42a3.26,3.26,0,1,1,6.51,0V96.14a3.26,3.26,0,0,1-3.26,3.26H27.48a3.26,3.26,0,0,1-3.26-3.26V85.42ZM99.08,39.19c.15-.57-1.18-2.07-2.68-3.56L63.8,1.36A3.63,3.63,0,0,0,61,0H6.62A6.62,6.62,0,0,0,0,6.62V116.26a6.62,6.62,0,0,0,6.62,6.62H92.46a6.62,6.62,0,0,0,6.62-6.62V39.19Zm-7.4,4.42v71.87H7.4V7.37H57.25V39.9A3.71,3.71,0,0,0,61,43.61Z"/>
   </svg>
 );
 
-const UploadBox = () => {
-  const [isActive, setActive] = useState(false);
+const AttachBox = () => {
+  const [isOn, setIsOn] = useState(false);
   const [uploadedInfo, setUploadedInfo] = useState(null);
 
-  const handleDragStart = () => setActive(true);
-  const handleDragEnd = () => setActive(false);
-  const handleDragOver = (event) => {
+  const controlDragEnter = () => setIsOn(true);
+  const controlDragLeave = () => setIsOn(false);
+  // 드래그오버는 사용하지 않기위해 기능을 죽임!
+  const controlDragOver = (event) => {
     event.preventDefault();
   };
 
@@ -1228,34 +1236,36 @@ const UploadBox = () => {
     setUploadedInfo({ name, size, type }); // name, size, type 정보를 uploadedInfo에 저장
   };
 
-  const handleDrop = (event) => {
+  const controlDrop = (event) => {
     event.preventDefault();
-    setActive(false);
+    setIsOn(false);
 
     const file = event.dataTransfer.files[0];
     setFileInfo(file);
   };
 
-  const handleUpload = ({ target }) => {
+  const changeUpload = ({ target }) => {
     const file = target.files[0];
     setFileInfo(file);
   };
   
   return (
     <label
-      className={`preview${isActive ? ' active' : ''}`}
-      onDragEnter={handleDragStart}
-      onDragOver={handleDragOver}
-      onDragLeave={handleDragEnd}
-      onDrop={handleDrop}
+      className={`info-view${isOn ? ' on' : ''}`}
+      onDragEnter={controlDragEnter}
+      onDragOver={controlDragOver}
+      onDragLeave={controlDragLeave}
+      onDrop={controlDrop}
     >
-      <input type="file" className="file" onChange={handleUpload} />
-      {uploadedInfo && <FileInfo uploadedInfo={uploadedInfo} />}
-      {!uploadedInfo && (
+      <input type="file" className="file" onChange={changeUpload} />
+      {// 업로드정보가 null이 아니면 파일정보 출력
+      uploadedInfo && <FileInfo uploadedInfo={uploadedInfo} />}
+      {// 업로드 파일정보가 null이면 안내문자 출력
+      !uploadedInfo && (
         <>
-          <Logo />
-          <p className="preview_msg">Click or drop the file here.</p>
-          <p className="preview_desc">Up to 3MB per file</p>
+          <UpIcon />
+          <p className="info-view-msg">Click or drop the file here.</p>
+          <p className="info-view-desc">Up to 3MB per file</p>
         </>
       )}
     </label>
