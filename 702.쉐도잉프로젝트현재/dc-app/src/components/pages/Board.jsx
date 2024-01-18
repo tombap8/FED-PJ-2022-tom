@@ -1253,7 +1253,7 @@ const AttachBox = () => {
 
         for (const key of formData) console.log(key);
 
-        axios.post('/upload', formData);
+        axios.post('http://localhost:8080/upload', formData);
   };
 
   const changeUpload = ({ target }) => {
