@@ -164,6 +164,18 @@
     text-align: center;
 }
 
+/* 추가 첨부파일링크 */
+.dtblview td a,
+.dtblview td b {
+    font-size: 20px;
+    text-decoration: none;
+    color: #000;
+}
+.dtblview td a:hover{
+    text-decoration: underline;
+    color: #f00;
+}
+
 /* 버튼그룹 */
 .btngrp button{
     border-radius: 25px;
@@ -186,6 +198,8 @@
 .btngrp button:hover a{
     color: #fff;
 }
+
+
 
 @media screen and (max-width:700px) {
     /* 보기 모드 공통 */

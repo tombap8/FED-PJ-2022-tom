@@ -101,6 +101,10 @@ export function Board() {
   // 주의: 참조변수는 최초 랜더링시에만 초기값 셋팅되고
   // 리랜더링시엔 다시 셋팅되지 않는다!!!
 
+  // 7. 파일저장변수(참조변수)
+  const uploadFile = useRef(null);
+  const updateFileInfo = x => uploadFile.current = x;
+
   // 리랜더링 루프에 빠지지 않도록 랜더링후 실행구역에
   // 변경코드를 써준다! 단, logSts에 의존성을 설정해준다!
   useEffect(() => {
@@ -558,14 +562,14 @@ export function Board() {
         // let test = Math.max(1,2,3,4,5);
         // // // console.log('1~5사이최대값:',test);
 
-        let fdata = $('.file').attr('data-name');
+        console.log('업로드파일정보:',uploadFile.current);
 
         // 4. 임시변수에 입력할 객체 데이터 생성하기
         let temp = {
           idx: maxNum + 1,
           tit: subEle.val().trim(),
           cont: contEle.val().trim(),
-          att: fdata,
+          att: uploadFile.current.name,
           date: `${yy}-${addZero(mm)}-${addZero(dd)}`,
           uid: logData.current.uid,
           unm: logData.current.unm,
@@ -573,6 +577,23 @@ export function Board() {
         };
 
         // // // console.log("입력전 준비데이터:", temp);
+
+        // 파일 업로드하기
+        const formData = new FormData();
+
+        formData.append("file", uploadFile.current)
+
+        for (const key of formData) console.log(key);
+
+        axios.post('http://localhost:8080/upload', formData)
+        .then(res => {
+          const { fileName } = res.data;
+          console.log(fileName);
+          alert("The file is successfully uploaded");
+        })
+        .catch(err => {
+          console.error(err);
+        });
 
         // 5. 원본임시변수에 배열데이터 값 push하기
         orgTemp.push(temp);
@@ -586,6 +607,8 @@ export function Board() {
         // 리랜더링시 정렬 적용될까? bindList 전에 적용되야함!
         firstSts.current = true; //-> 효과있음!
         // bindList() 위의 내림차순코드가 실행됨!
+
+
 
         // 7. 리스트 페이지로 이동하기 : 리랜더링됨!
         setBdMode("L");
@@ -1003,7 +1026,7 @@ export function Board() {
               <tr>
                 <td>Attachment</td>
                 <td>
-                  <AttachBox/>
+                  <AttachBox chgInfo={updateFileInfo}/>
                 </td>
               </tr>
             </tbody>
@@ -1052,6 +1075,13 @@ export function Board() {
                   ></textarea>
                 </td>
               </tr>
+              <tr>
+                <td>Attachment</td>
+                <td>
+                  <a href={"/uploads/"+cData.current.att}
+                  download={true}>{cData.current.att}</a>
+                </td>
+              </tr>
             </tbody>
           </table>
         )
@@ -1097,6 +1127,12 @@ export function Board() {
                     defaultValue={cData.current.cont}
                   ></textarea>
                   {/* defaultValue로 써야 수정가능! */}
+                </td>
+              </tr>
+              <tr>
+                <td>Attachment</td>
+                <td>
+                  <b>{cData.current.att}</b>
                 </td>
               </tr>
             </tbody>
@@ -1221,7 +1257,7 @@ const UpIcon = () => (
   </svg>
 );
 
-const AttachBox = () => {
+const AttachBox = ({chgInfo}) => {
   const [isOn, setIsOn] = useState(false);
   const [uploadedInfo, setUploadedInfo] = useState(null);
 
@@ -1245,15 +1281,25 @@ const AttachBox = () => {
     console.log('드롭',file);
     console.log('타입',$('.file').val());
     setFileInfo(file);
+    // 부모의 파일정보 참조변수에 저장함
+    chgInfo(file);
 
+    // 여기부터는 실제로 저장시에 실행되야함!
+    // const formData = new FormData();
 
-    const formData = new FormData();
+    //     formData.append("file", file)
 
-        formData.append("file", file)
+    //     for (const key of formData) console.log(key);
 
-        for (const key of formData) console.log(key);
-
-        axios.post('http://localhost:8080/upload', formData);
+    //     axios.post('http://localhost:8080/upload', formData)
+    //     .then(res => {
+    //       const { fileName } = res.data;
+    //       console.log(fileName);
+    //       alert("The file is successfully uploaded");
+    //     })
+    //     .catch(err => {
+    //       console.error(err);
+    //     });
   };
 
   const changeUpload = ({ target }) => {
@@ -1261,6 +1307,8 @@ const AttachBox = () => {
     console.log('클릭',file);
     console.log('타입',$('.file').val());
     setFileInfo(file);
+    // 부모의 파일정보 참조변수에 저장함
+    chgInfo(file);
   };
   
   return (
@@ -1271,7 +1319,7 @@ const AttachBox = () => {
       onDragLeave={controlDragLeave}
       onDrop={controlDrop}
     >
-      <input type="file" className="file" onChange={changeUpload} data-name="" />
+      <input type="file" className="file" onChange={changeUpload} />
       {// 업로드정보가 null이 아니면 파일정보 출력
       uploadedInfo && <FileInfo uploadedInfo={uploadedInfo} />}
       {// 업로드 파일정보가 null이면 안내문자 출력
