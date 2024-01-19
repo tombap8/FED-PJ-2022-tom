@@ -27,9 +27,9 @@ const storage = multer.diskStorage({//디스크 저장소의 정의
 app.use(express.urlencoded({extended:true})); // url : Uniform Resource 
 app.use(express.json());
 
-app.listen(8080, () => {
-    //3000번 포트로 서버 실행
-    console.log("Server started. port 8080.");
+app.listen(8085, () => {
+    //8085번 포트로 서버 실행
+    console.log("Server started. port 8085.");
 });
 
 app.use(express.static(path.join(__dirname, '/build')));
