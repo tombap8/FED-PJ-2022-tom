@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="12.707" height="12.707" viewBox="0 0 12.707 12.707">
+    <defs>
+        <style>
+            .cls-1{fill:none;stroke:#000}
+        </style>
+    </defs>
+    <g id="x" transform="translate(-1.404 -.404)">
+        <path id="선_1" data-name="선 1" class="cls-1" transform="rotate(-45 16.278 4.256)" d="M0 0h16.971"/>
+        <path id="선_2" data-name="선 2" class="cls-1" transform="rotate(45 -.035 2.5)" d="M0 0h16.971"/>
+    </g>
+</svg>
