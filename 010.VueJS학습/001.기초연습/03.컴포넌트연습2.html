@@ -243,7 +243,9 @@
                     //  v-on:click="goPapa" 로 부모이벤트 접근시작!
                     template:`
                     <div>
-                        <img v-bind:src="gsrc" v-on:click="goPapa" v-on:mouseover="ovNow" alt="dress" />
+                        <img v-bind:src="gsrc" 
+                        v-on:click="goPapa" 
+                        v-on:mouseover="ovNow" alt="dress" />
                         <aside>
                             <h2>{{gname}}</h2>
                             <h3>{{gprice}}</h3>
@@ -345,7 +347,14 @@
         <!-- 그리드 레이아웃 박스 -->
         <div class="grid">
             <!-- 여기가 부모입니다!!! -->
-            <list-comp v-for="(n,i) in 50" v-bind:key="n" v-bind:haha="n" v-bind:myseq="i" v-bind:endlet="'WD'" v-on:hull="goMsg" v-on:gotkimchi="ovMsg"></list-comp>
+            <list-comp v-for="(n,i) in 50" 
+                v-bind:key="n" 
+                v-bind:haha="n" 
+                v-bind:myseq="i" 
+                v-bind:endlet="'WD'" 
+                v-on:hull="goMsg" 
+                v-on:gotkimchi="ovMsg"
+            ></list-comp>
 
             <!-- 
                 v-on:hull="goMsg"

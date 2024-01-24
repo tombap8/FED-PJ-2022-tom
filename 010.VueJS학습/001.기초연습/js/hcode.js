@@ -11,7 +11,11 @@ const hcode = {
     // 2. 리스트
     list: `
         <div>
-            <img v-bind:src="gsrc" v-on:click="goPapa" v-on:mouseover="ovNow" alt="dress" />
+            <img 
+            v-bind:src="gsrc" 
+            v-on:click="goPapa" 
+            v-on:mouseover="ovNow" 
+            alt="dress" />
             <aside>
                 <h2>{{gname}}</h2>
                 <h3>

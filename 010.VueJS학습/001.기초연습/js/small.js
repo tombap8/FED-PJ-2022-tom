@@ -41,7 +41,9 @@ Vue.component("list-comp", {
             // 1. 상품이미지 경로
             gsrc: `img_gallery/${this.haha}.jpg`,
             // 2. 상품명
-            gname: `Sofia23` + this.haha + this.endlet + (this.myseq % 2 ? "😘" : "👍"),
+            gname: `Sofia23` + 
+            this.haha + this.endlet + 
+            (this.myseq % 2 ? "😘" : "👍"),
             // 3. 단위가격(원가격 화면표시용)
             gprice: this.insComma((123000 * this.haha) / 2) + `원`,
             // 4. 단위가격(원가격 숫자만:data-price속성값으로 셋팅)
