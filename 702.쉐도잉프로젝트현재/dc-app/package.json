@@ -1,5 +1,5 @@
 {
-  "homepage": "http://localhost:8080/",
+  "homepage": "http://localhost:8085/",
   "name": "dc-app",
   "version": "0.1.0",
   "private": true,

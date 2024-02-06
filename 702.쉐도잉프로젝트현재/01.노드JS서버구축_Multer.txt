@@ -1,0 +1,101 @@
+[ Node JS 를 활용한 개발환경 서버구축 : Multer ]
+
+Multer란 무엇인가?
+
+[ Multer ]
+multer는 Express를 위해 개발된 파일 처리 미들웨어이다. 
+파일을 업로드받을 때 서버단 코드에서 처리할 것들을 
+처리해 준는 서버 추가모듈이다!
+
+(참고: 미들웨어는 서로 다른 애플리케이션이 
+서로 통신하는 데 사용되는 소프트웨어다!)
+
+ 
+
+[ 설치 ] 
+npm i multer
+
+[ 구조 ]
+익스프레스는 자유도가 높은 프레임워크라 자유로운 응용도가 높다.
+하지만 어느 정도는 표준적인 구조는 존재한다. 
+아래는 프로젝트 파일 구조도를 예시한다.
+****************
+└project
+ └constants
+  └error.json
+
+ └controllers
+  └file.js
+
+ └services
+  └file.js
+
+ └models
+  └file.js
+
+ └middlewares
+
+ └routers
+  └files.js
+  └route.js
+
+ └app.js
+ **********
+
+((세부설명))
+
+constants 
+- 각종 상수를 정의
+각종 에러와 그에 대한 응답 코드와 메시지를 error,js에 작성
+
+controllers - 컨트롤러를 작성
+코드가 MVC 모델에 제대로 들어맞는다고 생각하지는 않지만, 
+역할은 비슷하기에 흉내는 내 보았다. 컨트롤러에서는 핵심적인 로직을 구현한다. 나는 React를 쓰는 관계로 View는 없기 때문에 json으로 쏴준다.
+
+services - 서비스를 작성
+메일 작성이나 자주 재사용되는 인증 로직 같은 것들을 여기다가 구현
+
+models - 모델(DB)다. 예컨데 MongoDB같은 것을 사용함
+
+middewares - 미들웨어를 작성
+
+routers - 라우터를 작성
+_____________________________________
+
+[ 사용법 ]
+multer는 사전 세팅을 요구함
+*****************************
+import multer from 'multer';
+const storage = multer.memoryStorage();
+const upload = multer({ 
+    storage, 
+    limits: { 
+        fileSize: 52428800
+    } 
+});
+
+[ storage ]
+storage 저장소(2가지옵션)
+1. diskStorage 내부 저장소에 저장소
+2. memoryStorage 메모리에 저장
+-> memoryStorage를 사용하면 데이터 받고 다음 미들웨어로 데이터가 넘어감
+
+[ multer ]
+storage를 넘기고 upload 미들웨어를 정의
+
+((limits옵션))
+
+1. fieldNameSize	
+  필드명 사이즈 최대값	(100 bytes)
+2. fieldSize	
+  필드값 사이즈 최대값	(1MB)
+3. fields	
+  파일형식이 아닌 필드의 최대 개수	(무제한)
+4. fileSize	
+  multipart 형식 폼에서 최대 파일 사이즈(bytes)	(무제한)
+5. files	
+  multipart 형식 폼에서 파일 필드의 최대 개수	(무제한)
+6. parts	
+  For multipart forms, the max number of parts (fields + files)	(무제한)
+7. headerPairs	
+  multipart 형식 폼에서 파싱할 헤더의 key=>value 쌍의 최대 개수	(2000)
